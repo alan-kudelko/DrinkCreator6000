@@ -7,7 +7,7 @@
 #include "EEPROM_Management.h"
 
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
-enum{INTPin=1,Pelt1Pin=2,Pelt2Pin=3};
+enum{INTPin=19,Pelt1Pin=9,Pelt2Pin=8};
 enum{E_WELCOME=0,E_SELECTION=1,E_SHOW_INFO=2,E_TEMP_INFO=3,E_ORDER_DRINK=4,E_TEST_PUMPS=5};
 enum{E_LOADING_BAR=17};
 enum{E_GREEN_BUTTON=1,E_LWHITE_BUTTON=2,E_RWHITE_BUTTON=4,E_BLUE_BUTTON=8,E_RED_BUTTON=16};
@@ -283,7 +283,8 @@ uint16_t countDigits(uint16_t n){
     return count;
 }
 void setInputFlag(){
-  xSemaphoreGiveFromISR(sem_ReadData,NULL);
+    BaseType_t xHigherPriorityTaskWoken=pdFALSE;
+    xSemaphoreGiveFromISR(sem_ReadData,&xHigherPriorityTaskWoken);
 }
 // Tasks
 void taskErrorHandler(void*pvParameters){
@@ -468,13 +469,14 @@ void taskRegulateTemp(void*pvParameters){
 }
 void taskReadInput(void*pvParameters){
   byte keyboardInput=0;
+
   for(;;){
     if(xSemaphoreTake(sem_ReadData,portMAX_DELAY)==pdTRUE){
-      if(xSemaphoreTake(mux_I2CLock,portMAX_DELAY)==pdTRUE){
-        Wire.requestFrom(0x20,1);
-        while(Wire.available())
+      if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100))==pdTRUE){
+        if(Wire.requestFrom(0x20,1)==1){
           keyboardInput=Wire.read();
-        Wire.endTransmission();
+          Serial.print(keyboardInput); Serial.println(" ISR");
+        }
         //processKeyboard(keyboardInput); Wysylanie kolejki do maina  dodać vtaskDelayUntil
         xSemaphoreGive(mux_I2CLock);
       }
@@ -743,7 +745,7 @@ void setup(){
   lastBootup_dump(&bootupsCount);
   
   initializeMemory();
-
+  pinMode(INTPin,INPUT);
   attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
 
   f_errorConfirmed=lastSystemError.confirmed;
@@ -752,12 +754,12 @@ void setup(){
   
   ram_dump();
 
-  taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,3,errorHandlerStack,&errorHandlerTCB);
+  taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,2,errorHandlerStack,&errorHandlerTCB);
   taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
   taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen ,"UPDATE SCREEN",UPDATE_SCREEN_STACK_SIZE       ,NULL                ,1,updateScreenStack,&updateScreenTCB);
   taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain         ,"MAIN"         ,TASK_MAIN_STACK_SIZE           ,NULL                ,1,mainStack,&mainTCB);
   taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp ,"REGULATE TEMP",TASK_REGULATE_TEMP_STACK_SIZE  ,NULL                ,1,regulateTempStack,&regulateTempTCB);
-  taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput    ,"READ INPUT"   ,TASK_READ_INPUT_STACK_SIZE     ,NULL                ,1,readInputStack,&readInputTCB);
+  taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput    ,"READ INPUT"   ,TASK_READ_INPUT_STACK_SIZE     ,NULL                ,3,readInputStack,&readInputTCB);
   taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink  ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE   ,NULL                ,1,selectDrinkStack,&selectDrinkTCB);
   taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink   ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE    ,NULL                    ,1,orderDrinkStack,&orderDrinkTCB);
   taskHandles[TASK_SHOW_INFO]      =xTaskCreateStatic(taskShowInfo     ,"SHOW INFO"    ,TASK_SHOW_INFO_STACK_SIZE      ,(void*)&bootupsCount    ,1,showInfoStack,&showInfoTCB);
