@@ -1,9 +1,11 @@
 # DrinkCreator6000 – RTOS System on Custom AVR Board
 
-Welcome to `DrinkCreator6000`, an embedded real-time operating system project designed to run on a custom-made PCB using AVR microcontrollers, FreeRTOS, and static memory allocation. The system is used in a smart drink machine with modular tasks handling temperature control, system monitoring, user interaction, and error recovery.
+Welcome to DrinkCreator6000, a real-time operating system (RTOS) project designed for a custom-built drink dispensing machine powered by AVR microcontroller and FreeRTOS. The system is built entirely using static memory allocation for robustness and predictability.
 
-> 🔧 Status: In development  
-> 🧪 Goal: Create functional drink machine, Explore FreeRTOS and AVR integration using a structured, real-time multi-tasking approach
+This embedded system coordinates modular tasks like temperature regulation, error handling, user interaction, and diagnostics — all running concurrently on a statically managed RTOS.
+
+> 🔧 Status: In development
+> 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS on bare-metal AVR.
 
 ---
 
@@ -13,43 +15,52 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ### 🧵 Task Overview
 
-| Task Name | Description |
-|-----------|-------------|
-| `TaskMain` | Coordinates the system, managing high-level logic and task activation. |
-| `TaskReadInput` | Handles button presses, rotary encoders, or other input peripherals. |
-| `TaskControlTemperature` | Regulates fluid temperature via heating/cooling systems. |
-| `TaskDisplaySystemInfo` | Displays system data such as free RAM, uptime, and diagnostics. |
-| `TaskDisplayTemperature` | Shows current measured temperature on LCD. |
-| `TaskDisplaySelectedDrink` | Displays the selected drink configuration and status. |
-| `TaskErrorHandler` | Handles critical faults, overflows, and writes error logs to EEPROM. |
-| `TaskCrashDisplay` | Displays error info on LCD after a system reset due to crash. |
-| `TaskDebugMemory` | Monitors stack/RAM usage of all tasks. |
-| `TaskDebugTasks` | Displays task priorities, names, and runtime state. |
+| Task ID | Task Name           | Description                                                                 |
+|---------|---------------------|-----------------------------------------------------------------------------|
+|   00    | `taskErrorHandler`  | Handles critical faults like stack overflows and logs errors to EEPROM.     |
+|   01    | `taskStackDebugger` | Monitors stack and RAM usage across all tasks.                              |
+|   02    | `taskMain`          | Coordinates the system, manages high-level logic and activates tasks.       |
+|   03    | `taskUpdateScreen`  | Periodically updates the LCD with system data (RAM, uptime, diagnostics).   |
+|   04    | `taskRegulateTemp`  | Controls heating/cooling to maintain target fluid temperature.              |
+|   05    | `taskReadInput`     | Handles input devices like buttons or encoders and passes events to main.   |
+|   06    | `taskSelectDrink`   | Displays current drink selection and related status.                        |
+|   07    | `taskOrderDrink`    | Processes drink orders and manages state transitions for dispensing.        |
+|   08    | `taskShowInfo`      | Displays error details on the LCD after system reset due to failure.        |
+|   09    | `taskShowTemp`      | Shows current measured temperature on the LCD.                              |
+|   10    | `taskShowLastError` | Presents recent errors, task states, and priority information on the LCD.   |
 
 ---
 
 ## 🧠 Design Goals
 
-- 🎯 Demonstrate real-time scheduling and modular task separation  
-- 💾 Use **100% static memory allocation** (no dynamic malloc)  
-- 🧰 Track system stability via runtime task/memory debug tools  
-- 🔁 Ensure recovery after failure using EEPROM fault logging  
-- 📟 Provide full system visibility through LCD diagnostics  
-- 🧪 Serve as a practical testbed for AVR and RTOS learning
+- 🎯 Explore real-time scheduling and modular task separation
+- 💾 Use 100% static memory allocation (no malloc, no heap)
+- 🧰 Track system stability via runtime task/memory debug tools
+- 🔁 Ensure recovery after failure using EEPROM fault logging
+- 📟 Provide full system visibility through LCD diagnostics and monitoring
+- 🧪 Serve as a practical testbed for FreeRTOS and embedded RTOS design
+- 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design in bare-metal embedded systems
 
 ---
 
 ## 🗺️ Roadmap
 
-- [X] Implement custom PCB with AVR MCU
-- [ ] Add core system and debug tasks
-- [ ] Integrate LCD output for live system diagnostics
-- [ ] Enable crash detection and EEPROM fault logging
-- [ ] Finalize temperature regulation loop
-- [ ] Add drink selection logic
-- [ ] Create EEPROM-based config loader
-- [ ] Support persistent fault history
-- [ ] Future: Serial interface for external control
-- [ ] Future: Upgrade to cooperative multitasking model
+- [X] Create custom PCB with AVR MCU and additional components
+- [X] Create functions for static allocation of Queues, Mutexes, and Semaphores
+- [X] Create function for displaying current RAM usage via serial monitor
+- [X] Create function for debugging the last unconfirmed error stored in EEPROM
+- [X] Create function for displaying the boot count from EEPROM via serial port
+- [X] Create stackOverflowHook for handling stack overflow errors
+- [X] Create task for handling critical system errors such as stack overflows and logging them to EEPROM
+- [X] Create task for debugging stack usage and runtime status of all tasks via serial monitor
+- [ ] Create main task for coordinating other tasks
+- [X] Create task for handling regular LCD updates
+- [X] Create task for regulating temperature inside the freezer
+- [X] Create task for handling keyboard input from PCF8574 IC
+- [ ] Create task for selecting drink to be ordered
+- [ ] Create task for processing ordered drink (pumps activation)
+- [X] Create task for displaying information about project such as author, startup count, current run time
+- [ ] Create task for displaying current temperature settings and current temperature inside the freezer
+- [ ] Create task for displaying and confirming last saved error
 
 ---
