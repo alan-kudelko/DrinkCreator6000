@@ -172,6 +172,7 @@ static float currentTemperature=10.0f;
 static float setTemperature=4.0f;
 static float temperatureHysteresis=1.0f;
 
+static volatile bool f_enableISR=true;
 // Global variables
 void initializeMemory(){
   qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
@@ -284,7 +285,10 @@ uint16_t countDigits(uint16_t n){
 }
 void setInputFlag(){
     BaseType_t xHigherPriorityTaskWoken=pdFALSE;
-    xSemaphoreGiveFromISR(sem_ReadData,&xHigherPriorityTaskWoken);
+    if(f_enableISR){
+      xSemaphoreGiveFromISR(sem_ReadData,&xHigherPriorityTaskWoken);
+      f_enableISR=false;
+    }
 }
 // Tasks
 void taskErrorHandler(void*pvParameters){
@@ -293,7 +297,6 @@ void taskErrorHandler(void*pvParameters){
   sSystemError lastError{};
   bool f_run=false;
   TaskHandle_t overflowedTask{};
-  vTaskSuspend(NULL);
   
   for(;;){
     if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
@@ -417,8 +420,8 @@ void taskUpdateScreen(void*pvParameters){
   byte j=0;
   
   for(;;){
-    if(xQueueReceive(qScreenData,&receivedLcdData,pdMS_TO_TICKS(50))==pdPASS){
-      if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(50))){
+    if(xQueueReceive(qScreenData,&receivedLcdData,pdMS_TO_TICKS(0))==pdPASS){
+      if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(0))==pdPASS){
         for(i=0;i<LCD_HEIGHT;i++){
           lcd.setCursor(0,i);
           for(j=0;j<LCD_WIDTH;j++)
@@ -469,16 +472,40 @@ void taskRegulateTemp(void*pvParameters){
 }
 void taskReadInput(void*pvParameters){
   byte keyboardInput=0;
-
+  byte debounceCounter[25]{};
+  uint8_t i=0;
+  uint8_t j=0;
+  uint8_t buttonSum=0;
+  // Ustalmy ze 1 to wcisniety
+  TickType_t tickSample{};
+  
   for(;;){
-    if(xSemaphoreTake(sem_ReadData,portMAX_DELAY)==pdTRUE){
-      if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100))==pdTRUE){
-        if(Wire.requestFrom(0x20,1)==1){
-          keyboardInput=Wire.read();
-          Serial.print(keyboardInput); Serial.println(" ISR");
+    if(xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
+      if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
+        memset(debounceCounter,0,sizeof(debounceCounter));
+        keyboardInput=0;
+        tickSample=xTaskGetTickCount();
+        for(i=0;i<25;i++){
+          if(Wire.requestFrom(0x20,1,true))
+            debounceCounter[i]=~Wire.read();
+          vTaskDelayUntil(&tickSample,pdMS_TO_TICKS(2));
         }
-        //processKeyboard(keyboardInput); Wysylanie kolejki do maina  dodać vtaskDelayUntil
+        
         xSemaphoreGive(mux_I2CLock);
+        
+        for(i=0;i<8;i++){
+          buttonSum=0;
+          for(j=0;j<25;j++){
+            buttonSum+=(debounceCounter[j]>>i)&1; //Liczymy wszystkie jedynki
+          }
+          if(buttonSum>12)
+            keyboardInput|=1<<i; //Jezeli jest wiecej jedynek niz 0 to stan ustalony to 1
+        }
+        Serial.print(keyboardInput); Serial.println(" ISR");
+        vTaskDelay(300);
+        f_enableISR=true;
+          //keyboardInput=~keyboardInput;
+        //processKeyboard(keyboardInput); Wysylanie kolejki do maina  dodać vtaskDelayUntil
       }
     }
   }
@@ -754,7 +781,9 @@ void setup(){
   
   ram_dump();
 
-  taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,2,errorHandlerStack,&errorHandlerTCB);
+  //xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(1000));
+
+  taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,1,errorHandlerStack,&errorHandlerTCB);
   taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
   taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen ,"UPDATE SCREEN",UPDATE_SCREEN_STACK_SIZE       ,NULL                ,1,updateScreenStack,&updateScreenTCB);
   taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain         ,"MAIN"         ,TASK_MAIN_STACK_SIZE           ,NULL                ,1,mainStack,&mainTCB);
