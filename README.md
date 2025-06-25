@@ -31,6 +31,19 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ---
 
+### 💾 EEPROM Memory Map
+
+| Address (hex) | Size (bytes) | Description                       |
+|---------------|--------------|-----------------------------------|
+| 0x0000        | 1            | Number of drinks in memory (max=n)|
+| 0x0001        | 34 * n       | Drinks data (n ≤ 26)              |
+| 0x0400        | 4            | Temperature set in freezer        |
+| 0x0404        | 4            | Temperature hysteresis width      |
+| 0x0800        | 134          | Last saved error                  |
+| 0x0C00        | 2            | Bootups count                     |
+
+---
+
 ## 🧠 Design Goals
 
 - 🎯 Explore real-time scheduling and modular task separation
