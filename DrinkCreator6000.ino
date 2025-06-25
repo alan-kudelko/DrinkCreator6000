@@ -472,38 +472,39 @@ void taskRegulateTemp(void*pvParameters){
 }
 void taskReadInput(void*pvParameters){
   byte keyboardInput=0;
-  byte debounceCounter[25]{};
+  byte debounceCounter[19]{};
   uint8_t i=0;
   uint8_t j=0;
   uint8_t buttonSum=0;
   // Ustalmy ze 1 to wcisniety
-  TickType_t tickSample{};
+  TickType_t xLastWakeTime=xTaskGetTickCount();
   
   for(;;){
     if(xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
         memset(debounceCounter,0,sizeof(debounceCounter));
         keyboardInput=0;
-        tickSample=xTaskGetTickCount();
-        for(i=0;i<25;i++){
+        TickType_t tickSample=xTaskGetTickCount();  
+        for(i=0;i<19;i++){
           if(Wire.requestFrom(0x20,1,true))
             debounceCounter[i]=~Wire.read();
-          vTaskDelayUntil(&tickSample,pdMS_TO_TICKS(2));
+          vTaskDelayUntil(&tickSample,pdMS_TO_TICKS(1));
         }
         
         xSemaphoreGive(mux_I2CLock);
         
         for(i=0;i<8;i++){
           buttonSum=0;
-          for(j=0;j<25;j++){
+          for(j=0;j<19;j++){
             buttonSum+=(debounceCounter[j]>>i)&1; //Liczymy wszystkie jedynki
           }
-          if(buttonSum>12)
+          if(buttonSum>9)
             keyboardInput|=1<<i; //Jezeli jest wiecej jedynek niz 0 to stan ustalony to 1
         }
+        Serial.print(buttonSum); Serial.println(" Zsumowane");
         Serial.print(keyboardInput); Serial.println(" ISR");
-        vTaskDelay(300);
         f_enableISR=true;
+        vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(300));
           //keyboardInput=~keyboardInput;
         //processKeyboard(keyboardInput); Wysylanie kolejki do maina  dodać vtaskDelayUntil
       }
@@ -784,7 +785,7 @@ void setup(){
   //xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(1000));
 
   taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,1,errorHandlerStack,&errorHandlerTCB);
-  taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
+  //taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
   taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen ,"UPDATE SCREEN",UPDATE_SCREEN_STACK_SIZE       ,NULL                ,1,updateScreenStack,&updateScreenTCB);
   taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain         ,"MAIN"         ,TASK_MAIN_STACK_SIZE           ,NULL                ,1,mainStack,&mainTCB);
   taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp ,"REGULATE TEMP",TASK_REGULATE_TEMP_STACK_SIZE  ,NULL                ,1,regulateTempStack,&regulateTempTCB);
