@@ -90,6 +90,6 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [X] Create task for displaying information about project such as author, startup count, current run time
 - [ ] Create task for displaying current temperature settings and current temperature inside the freezer
 - [ ] Create task for displaying and confirming last saved error
-- [ ] Create software guard zones between task stackes for additional protection and reliability
+- [ ] Create software guard zones between task stacks for additional protection and reliability
 
 ---
