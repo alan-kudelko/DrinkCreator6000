@@ -31,11 +31,26 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ---
 
+### 📊 RAM Usage Overview (Start, End, Size)
+
+| Region    | Start Address | End Address | Size (bytes) |
+|-----------|---------------|-------------|--------------|
+| .bss      | 0x0200        | 0x0688      | 1160         |
+| .data     | 0x0688        | 0x17EE      | 4454         |
+| Heap      | 0x17EE        | 0x17EE      | 0            |
+| CPU Stack | 0x2165        | 0x21FF      | 154          |
+
+**Total free memory:** 2423 bytes
+
+*Note:*  
+- FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  
+- CPU Stack refers to the main processor stack (not individual task stacks).
+
 ### 💾 EEPROM Memory Map
 
 | Address (hex) | Size (bytes) | Description                       |
 |---------------|--------------|-----------------------------------|
-| 0x0000        | 1            | Number of drinks in memory (max=n)|
+| 0x0000        | 1            | Number of drinks in memory (n)    |
 | 0x0001        | 34 * n       | Drinks data (n ≤ 26)              |
 | 0x0400        | 4            | Temperature set in freezer        |
 | 0x0404        | 4            | Temperature hysteresis width      |
@@ -75,5 +90,6 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [X] Create task for displaying information about project such as author, startup count, current run time
 - [ ] Create task for displaying current temperature settings and current temperature inside the freezer
 - [ ] Create task for displaying and confirming last saved error
+- [ ] Create software guard zones between task stackes for additional protection and reliability
 
 ---
