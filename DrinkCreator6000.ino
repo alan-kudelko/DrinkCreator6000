@@ -1,4 +1,4 @@
-#include <LiquidCrystal_AIP31068_I2C.h>
+#include <LiquidCrystal_I2C.h>
 #include <Arduino_FreeRTOS.h>
 #include <semphr.h>
 #include <Wire.h>
@@ -12,9 +12,9 @@ enum{E_WELCOME=0,E_SELECTION=1,E_SHOW_INFO=2,E_TEMP_INFO=3,E_ORDER_DRINK=4,E_TES
 enum{E_LOADING_BAR=17};
 enum{E_GREEN_BUTTON=1,E_LWHITE_BUTTON=2,E_RWHITE_BUTTON=4,E_BLUE_BUTTON=8,E_RED_BUTTON=16};
 
-enum{LCD_WIDTH=16,LCD_HEIGHT=2};
+enum{LCD_WIDTH=20,LCD_HEIGHT=4};
 
-static LiquidCrystal_AIP31068_I2C lcd(0x3E, LCD_WIDTH, LCD_HEIGHT);
+static LiquidCrystal_I2C lcd(0x27, LCD_WIDTH, LCD_HEIGHT);
 
 const static sDrinkData drink[20]={
   {"Raz", 50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
@@ -99,14 +99,14 @@ static SemaphoreHandle_t mux_SerialLock{};
 enum{TASK_ERROR_HANDLER_STACK_SIZE=192};   //0
 enum{TASK_STACK_DEBUGGER_STACK_SIZE=192};  //1
 enum{TASK_MAIN_STACK_SIZE=192};            //2
-enum{UPDATE_SCREEN_STACK_SIZE=180};        //3
+enum{UPDATE_SCREEN_STACK_SIZE=232};        //3
 enum{TASK_REGULATE_TEMP_STACK_SIZE=128};   //4
-enum{TASK_READ_INPUT_STACK_SIZE=128};      //5
-enum{TASK_SELECT_DRINK_STACK_SIZE=192};    //6
+enum{TASK_READ_INPUT_STACK_SIZE=150};      //5
+enum{TASK_SELECT_DRINK_STACK_SIZE=256};    //6
 enum{TASK_ORDER_DRINK_STACK_SIZE=320};     //7
-enum{TASK_SHOW_INFO_STACK_SIZE=192};       //8
+enum{TASK_SHOW_INFO_STACK_SIZE=256};       //8
 enum{TASK_SHOW_TEMP_STACK_SIZE=192};       //9
-enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=200}; //10
+enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=256}; //10
 
 enum{TASK_ERROR_HANDLER=0,
 	 TASK_STACK_DEBUGGER=1,
@@ -379,8 +379,8 @@ void taskMain(void*pvParameters){
   uint8_t showInfoDebug=0;
   for(;;){
   if(showInfoDebug>1){
-    xQueueSend(qErrorId,&taskHandles[TASK_SHOW_TEMP],pdMS_TO_TICKS(100));
-    vTaskResume(taskHandles[TASK_ERROR_HANDLER]);
+    //xQueueSend(qErrorId,&taskHandles[TASK_SHOW_TEMP],pdMS_TO_TICKS(100));
+    //vTaskResume(taskHandles[TASK_ERROR_HANDLER]);
     showInfoDebug=0;
   }
 	xQueueSend(qShowInfoId,&showInfoDebug,pdMS_TO_TICKS(100));
@@ -649,14 +649,14 @@ void taskShowInfo(void*pvParameters){
 	  f_run=true;
 	}
 	if(f_run){
-    for(i=0;i<2;i++){
+    for(i=0;i<4;i++){
       memset(screenData.lines[i],0,sizeof(screenData.lines[i]));
     }
 	  switch(showInfoScreenId){
 		case 0:
 	      sprintf(screenData.lines[1],"%s","Software ver. 3.");      // Fix in release
-		    //sprintf(screenData.lines[2],"%s","Author: Alan Kudelko");  // Fix in release
-		    //sprintf(screenData.lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);
+		    sprintf(screenData.lines[2],"%s","Author: Alan Kudelko");  // Fix in release
+		    sprintf(screenData.lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);
 		break;
 		case 1:
 	      sprintf(screenData.lines[1],"%s","Current run time");      // Fix in release
@@ -665,7 +665,7 @@ void taskShowInfo(void*pvParameters){
         runTimeHours=runTimeMillis/3600%24;
         runTimeMinutes=runTimeMillis/60%60;
         runTimeSeconds=runTimeMillis%60;
-        /*
+        memset(screenData.lines[2],0,sizeof(screenData.lines[2]));
         sprintf(screenData.lines[2],"%2d %s %2d %s",runTimeDays,"days",runTimeHours,"h");
         if(runTimeDays<10)
           screenData.lines[2][0]='0';
@@ -677,10 +677,9 @@ void taskShowInfo(void*pvParameters){
           screenData.lines[3][0]='0';
         if(runTimeSeconds<10)
           screenData.lines[3][8]='0';
-        */
 		break;
 	  }
-	  sprintf(screenData.lines[0],"%s","Drink Creator 60");      // Fix in release
+	  sprintf(screenData.lines[0],"%s","Drink Creator 6000");      // Fix in release
 	  xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
 	  
 	  vTaskDelay(pdMS_TO_TICKS(1000));
@@ -714,7 +713,6 @@ void taskShowLastError(void*pvParameters){
     errorLength=strlen(lastSystemError.errorText);
 
     strncpy(screenData.lines[1],"Fault time signature",LCD_WIDTH);
-    /*
     sprintf(screenData.lines[2],"%2d days %2d h",lastSystemError.days,lastSystemError.hours);
     if(lastSystemError.days<10)
       screenData.lines[2][0]='0';
@@ -726,8 +724,6 @@ void taskShowLastError(void*pvParameters){
       screenData.lines[3][0]='0';
     if(lastSystemError.seconds<10)
       screenData.lines[3][8]='0';    
-      */
-      //Fix in release
   }
   else
     vTaskSuspend(NULL);
@@ -757,8 +753,10 @@ void setup(){
   
   EEPROMUpdateBootups(&bootupsCount);
   EEPROMGetLastStartupError(&lastSystemError);
-  
-  lcd.init();
+    
+  //Wire.setClock(50000);
+  lcd.begin();
+  lcd.backlight();
   lcd.load_custom_character(0,fullSquare);
   lcd.load_custom_character(1,fullSquare);
   lcd.load_custom_character(2,fullSquare);
@@ -785,7 +783,7 @@ void setup(){
   //xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(1000));
 
   taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,1,errorHandlerStack,&errorHandlerTCB);
-  //taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
+  taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
   taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen ,"UPDATE SCREEN",UPDATE_SCREEN_STACK_SIZE       ,NULL                ,1,updateScreenStack,&updateScreenTCB);
   taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain         ,"MAIN"         ,TASK_MAIN_STACK_SIZE           ,NULL                ,1,mainStack,&mainTCB);
   taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp ,"REGULATE TEMP",TASK_REGULATE_TEMP_STACK_SIZE  ,NULL                ,1,regulateTempStack,&regulateTempTCB);
