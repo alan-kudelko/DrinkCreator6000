@@ -13,6 +13,20 @@ This embedded system coordinates modular tasks like temperature regulation, erro
 
 All logic is implemented in statically allocated FreeRTOS tasks running on a custom PCB with AVR hardware. The system is modular and designed to support precise debugging and future expansion.
 
+## 🛠️ Hardware and Libraries Requirements
+
+### Hardware
+- ATmega2560 / ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
+- LCD 2004 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
+- 74HC595 shift register for pump control
+- PCF8574N I²C I/O expander for keypad
+
+### Software
+- Arduino IDE (used for development and uploading)
+- Arduino FreeRTOS library (adds multitasking and RTOS features)
+- LiquidCrystal_I2C library (compatible with the I²C LCD driver used)
+- avr-libc (AVR C runtime, typically included with Arduino toolchain)
+
 ### 🧵 Task Overview
 
 | Task ID | Task Name           | Description                                                                 |
