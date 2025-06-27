@@ -68,6 +68,7 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - 📟 Provide full system visibility through LCD diagnostics and monitoring
 - 🧪 Serve as a practical testbed for FreeRTOS and embedded RTOS design
 - 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design in bare-metal embedded systems
+- 🧩 Implement low-level memory management techniques for optimized and reliable resource control
 
 ---
 
@@ -84,12 +85,12 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [ ] Create main task for coordinating other tasks
 - [X] Create task for handling regular LCD updates
 - [X] Create task for regulating temperature inside the freezer
-- [X] Create task for handling keyboard input from PCF8574 IC
-- [ ] Create task for selecting drink to be ordered
-- [ ] Create task for processing ordered drink (pumps activation)
-- [X] Create task for displaying information about project such as author, startup count, current run time
-- [ ] Create task for displaying current temperature settings and current temperature inside the freezer
-- [ ] Create task for displaying and confirming last saved error
-- [ ] Create software guard zones between task stacks for additional protection and reliability
-
+- [X] Create task for handling keyboard input from PCF8574
+- [ ] Create task for selecting the drink to be ordered
+- [ ] Create task for processing the ordered drink (pump activation)
+- [X] Create task to display project information such as author, startup count, and current runtime
+- [ ] Create task to display current temperature settings and actual temperature inside the freezer
+- [ ] Create task to display and confirm the last saved error
+- [ ] Implement software guard zones between task stacks for added protection and reliability
+- [ ] Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
 ---
