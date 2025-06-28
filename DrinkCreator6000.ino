@@ -1,4 +1,5 @@
 #include <LiquidCrystal_I2C.h>
+
 #include <Arduino_FreeRTOS.h>
 #include <semphr.h>
 #include <Wire.h>
@@ -67,11 +68,11 @@ enum{SCREEN_QUEUE_BUFFER_COUNT=6,
 	 ERROR_ID_QUEUE_BUFFER_COUNT=1
 };
 
-static uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)];
-static uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)];
-static uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)];
-static uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)];
-static uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t )];
+static uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{};
+static uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{};
+static uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{};
+static uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{};
+static uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t )]{};
 
 static StaticQueue_t screenQueueStructBuffer{};
 static StaticQueue_t keyboardQueueStructBuffer{};
@@ -124,49 +125,49 @@ enum{GUARD_ZONE_SIZE=32};
 	 
 enum{TASK_N=11}; // Zmiana
 
-static StaticTask_t errorHandlerTCB{};                                   //0
-static StaticTask_t stackDebuggerTCB{};                                  //1
-static StaticTask_t mainTCB{};                                           //2
-static StaticTask_t updateScreenTCB{};                                   //3
-static StaticTask_t regulateTempTCB{};                                   //4
-static StaticTask_t readInputTCB{};                                      //5
-static StaticTask_t selectDrinkTCB{};                                    //6
-static StaticTask_t orderDrinkTCB{};                                     //7
-static StaticTask_t showInfoTCB{};                                       //8
-static StaticTask_t showTempTCB{};                                       //9
-static StaticTask_t showLastErrorTCB{};                                  //10
+static StaticTask_t errorHandlerTCB{0xF};                                   //0
+static StaticTask_t stackDebuggerTCB{0xF};                                  //1
+static StaticTask_t mainTCB{0xF};                                           //2
+static StaticTask_t updateScreenTCB{0xF};                                   //3
+static StaticTask_t regulateTempTCB{0xF};                                   //4
+static StaticTask_t readInputTCB{0xF};                                      //5
+static StaticTask_t selectDrinkTCB{0xF};                                    //6
+static StaticTask_t orderDrinkTCB{0xF};                                     //7
+static StaticTask_t showInfoTCB{0xF};                                       //8
+static StaticTask_t showTempTCB{0xF};                                       //9
+static StaticTask_t showLastErrorTCB{0xF};                                  //10
 
-static TaskHandle_t taskHandles[TASK_N]{};
+static TaskHandle_t taskHandles[TASK_N]{0xF};
 
-static StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]{};   //0
-static StackType_t guardZone0[GUARD_ZONE_SIZE]{};
-static StackType_t stackDebuggerStack[TASK_STACK_DEBUGGER_STACK_SIZE]{}; //1
-static StackType_t guardZone1[GUARD_ZONE_SIZE]{};
-static StackType_t mainStack[TASK_MAIN_STACK_SIZE]{};                    //2
-static StackType_t guardZone2[GUARD_ZONE_SIZE]{};
-static StackType_t updateScreenStack[UPDATE_SCREEN_STACK_SIZE]{};        //3
-static StackType_t guardZone3[GUARD_ZONE_SIZE]{};
-static StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]{};   //4
-static StackType_t guardZone4[GUARD_ZONE_SIZE]{};
-static StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]{};         //5
-static StackType_t guardZone5[GUARD_ZONE_SIZE]{};
-static StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]{};     //6
-static StackType_t guardZone6[GUARD_ZONE_SIZE]{};
-static StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]{};       //7
-static StackType_t guardZone7[GUARD_ZONE_SIZE]{};
-static StackType_t showInfoStack[TASK_SHOW_INFO_STACK_SIZE]{};           //8
-static StackType_t guardZone8[GUARD_ZONE_SIZE]{};
-static StackType_t showTempStack[TASK_SHOW_TEMP_STACK_SIZE]{};           //9
-static StackType_t guardZone9[GUARD_ZONE_SIZE]{};
-static StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE]{};//10
-static StackType_t guardZone10[GUARD_ZONE_SIZE]{};
+static StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]{0xF};   //0
+static StackType_t guardZone0[GUARD_ZONE_SIZE]{0xF};
+static StackType_t stackDebuggerStack[TASK_STACK_DEBUGGER_STACK_SIZE]{0xF}; //1
+static StackType_t guardZone1[GUARD_ZONE_SIZE]{0xF};
+static StackType_t mainStack[TASK_MAIN_STACK_SIZE]{0xF};                    //2
+static StackType_t guardZone2[GUARD_ZONE_SIZE]{0xF};
+static StackType_t updateScreenStack[UPDATE_SCREEN_STACK_SIZE]{0xF};        //3
+static StackType_t guardZone3[GUARD_ZONE_SIZE]{0xF};
+static StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]{0xF};   //4
+static StackType_t guardZone4[GUARD_ZONE_SIZE]{0xF};
+static StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]{0xF};         //5
+static StackType_t guardZone5[GUARD_ZONE_SIZE]{0xF};
+static StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]{0xF};     //6
+static StackType_t guardZone6[GUARD_ZONE_SIZE]{0xF};
+static StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]{0xF};       //7
+static StackType_t guardZone7[GUARD_ZONE_SIZE]{0xF};
+static StackType_t showInfoStack[TASK_SHOW_INFO_STACK_SIZE]{0xF};           //8
+static StackType_t guardZone8[GUARD_ZONE_SIZE]{0xF};
+static StackType_t showTempStack[TASK_SHOW_TEMP_STACK_SIZE]{0xF};           //9
+static StackType_t guardZone9[GUARD_ZONE_SIZE]{0xF};
+static StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE]{0xF};//10
+static StackType_t guardZone10[GUARD_ZONE_SIZE]{0xF};
 // Add guardzones between variables for potential safe overwrite
 // Task variables
 
 // Global variables
 static uint8_t f_errorConfirmed=0;;
 static uint16_t bootupsCount=0;
-static sSystemError lastSystemError{};
+static sSystemError lastSystemError;
 
 static float currentTemperature=10.0f;
 static float setTemperature=4.0f;
@@ -472,39 +473,18 @@ void taskRegulateTemp(void*pvParameters){
 }
 void taskReadInput(void*pvParameters){
   byte keyboardInput=0;
-  byte debounceCounter[19]{};
-  uint8_t i=0;
-  uint8_t j=0;
-  uint8_t buttonSum=0;
   // Ustalmy ze 1 to wcisniety
   TickType_t xLastWakeTime=xTaskGetTickCount();
   
   for(;;){
     if(xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
-        memset(debounceCounter,0,sizeof(debounceCounter));
-        keyboardInput=0;
-        TickType_t tickSample=xTaskGetTickCount();  
-        for(i=0;i<19;i++){
-          if(Wire.requestFrom(0x20,1,true))
-            debounceCounter[i]=~Wire.read();
-          vTaskDelayUntil(&tickSample,pdMS_TO_TICKS(1));
-        }
-        
+        //keyboardInput=mcp.read_bank(0xFF);
+     
         xSemaphoreGive(mux_I2CLock);
-        
-        for(i=0;i<8;i++){
-          buttonSum=0;
-          for(j=0;j<19;j++){
-            buttonSum+=(debounceCounter[j]>>i)&1; //Liczymy wszystkie jedynki
-          }
-          if(buttonSum>9)
-            keyboardInput|=1<<i; //Jezeli jest wiecej jedynek niz 0 to stan ustalony to 1
-        }
-        Serial.print(buttonSum); Serial.println(" Zsumowane");
         Serial.print(keyboardInput); Serial.println(" ISR");
         f_enableISR=true;
-        vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(300));
+        vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(100));
           //keyboardInput=~keyboardInput;
         //processKeyboard(keyboardInput); Wysylanie kolejki do maina  dodać vtaskDelayUntil
       }
@@ -754,9 +734,9 @@ void setup(){
   EEPROMUpdateBootups(&bootupsCount);
   EEPROMGetLastStartupError(&lastSystemError);
     
-  //Wire.setClock(50000);
   lcd.begin();
   lcd.backlight();
+  
   lcd.load_custom_character(0,fullSquare);
   lcd.load_custom_character(1,fullSquare);
   lcd.load_custom_character(2,fullSquare);
@@ -765,6 +745,48 @@ void setup(){
   lcd.load_custom_character(5,fullSquare);
   lcd.load_custom_character(6,fullSquare);
   lcd.load_custom_character(7,fullSquare);
+
+// Set IOCON: BANK=1, MIRROR=0, SEQOP=1 (disable auto increment)
+Wire.beginTransmission(0x20);
+Wire.write(0x0A);    // IOCON address in BANK=1
+Wire.write(0xA0);    // 0b10100000 → BANK=1, SEQOP=1
+Wire.endTransmission();
+
+// IODIRA: all GPA pins as input
+Wire.beginTransmission(0x20);
+Wire.write(0x00);    // IODIRA
+Wire.write(0xFF);
+Wire.endTransmission();
+
+// IPOLA: no inversion
+Wire.beginTransmission(0x20);
+Wire.write(0x01);    // IPOLA
+Wire.write(0x00);    // No polarity inversion
+Wire.endTransmission();
+
+// GPINTENA: enable interrupt on all GPA pins
+Wire.beginTransmission(0x20);
+Wire.write(0x02);    // GPINTENA
+Wire.write(0xFF);
+Wire.endTransmission();
+
+// DEFVALA: default value = 1 (high)
+Wire.beginTransmission(0x20);
+Wire.write(0x03);    // DEFVALA
+Wire.write(0xFF);
+Wire.endTransmission();
+
+// INTCONA: compare against DEFVAL
+Wire.beginTransmission(0x20);
+Wire.write(0x04);    // INTCONA
+Wire.write(0xFF);
+Wire.endTransmission();
+
+// GPPUA: enable pull-ups on all GPA pins
+Wire.beginTransmission(0x20);
+Wire.write(0x06);    // GPPUA
+Wire.write(0xFF);
+Wire.endTransmission();  
   
   Serial.begin(9600);
   
@@ -779,8 +801,6 @@ void setup(){
     lastError_dump(&lastSystemError);
   
   ram_dump();
-
-  //xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(1000));
 
   taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE  ,NULL                ,1,errorHandlerStack,&errorHandlerTCB);
   taskHandles[TASK_STACK_DEBUGGER] =xTaskCreateStatic(taskStackDebugger,"STACK DEBUG"  ,TASK_STACK_DEBUGGER_STACK_SIZE ,NULL                ,1,stackDebuggerStack,&stackDebuggerTCB);
