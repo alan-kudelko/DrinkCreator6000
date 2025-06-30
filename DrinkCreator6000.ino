@@ -18,16 +18,16 @@ enum{LCD_WIDTH=20,LCD_HEIGHT=4};
 static LiquidCrystal_I2C lcd(0x27, LCD_WIDTH, LCD_HEIGHT);
 
 const static sDrinkData drink[20]={
-  {"Raz", 50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
-  {"Dwa", 200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //3
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //4
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //5
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //6
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //7
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //8
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //9
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //10
+  {"Raz",    50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
+  {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
+  {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //3
+  {"Cztery", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //4
+  {"Piec",   50, 0, 0, 0, 250, 300, 350, 400, 450},  //5
+  {"Szesc",   50, 100, 150, 200, 250, 0, 350, 0, 0},  //6
+  {"Siedem",   50, 100, 0, 200, 250, 0, 0, 0, 0},  //7
+  {"Osiem",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //8
+  {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //9
+  {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //10
   {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //11
   {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //12
   {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //13
@@ -380,44 +380,18 @@ void taskStackDebugger(void*pvParameters){
 }
 void taskMain(void*pvParameters){
   sScreenData screenData{};
-  char var='A'-1;
   bool f_testFlag=false;
   uint8_t counter=0;
-  char drinkId=2;
-  const uint8_t counterMax=4;
-  uint8_t showInfoDebug=0;
+  uint8_t drinkId=5;
+  uint8_t keyboardData=0;
+
+  xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
+  
   for(;;){
-  if(showInfoDebug>1){
-    //xQueueSend(qErrorId,&taskHandles[TASK_SHOW_TEMP],pdMS_TO_TICKS(100));
-    //vTaskResume(taskHandles[TASK_ERROR_HANDLER]);
-    showInfoDebug=0;
-  }
-	xQueueSend(qShowInfoId,&showInfoDebug,pdMS_TO_TICKS(100));
-	showInfoDebug++;
-	
-	vTaskDelay(pdMS_TO_TICKS(3000));  
-	continue;
-    if(!f_testFlag){
-      counter++;
-      var++;
-      if(var=='Z'+1)
-        var='A';
-            screenData.lines[0][0]=var;
-      xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+    if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(1000))){
+      Serial.print("Keyboard data received: ");
+      Serial.print(keyboardData,BIN); 
     }
-    else if(f_testFlag){
-      counter--;
-      xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
-    }
-      
-    if(counter==counterMax){
-      f_testFlag=true;
-    }
-    if(counter==0){
-      f_testFlag=false;
-      xTaskNotifyGive(taskHandles[TASK_SELECT_DRINK]);
-    }
-    vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
 void taskUpdateScreen(void*pvParameters){
@@ -503,10 +477,9 @@ void taskSelectDrink(void*pvParameters){
   char drinkId{};
   bool f_run=false;
   uint8_t currentScroll=0;
-  uint8_t characterOffset=0;
-  uint8_t i=1;
-  uint8_t j=0;
-  char buffer[LCD_WIDTH-3-4]{};
+  uint8_t i=0;
+  uint8_t firstNonZero=0;
+  uint8_t lastNonZero=6; //-2
   sScreenData screenData{};
   for(;;){
     if(ulTaskNotifyTake(pdTRUE,0)>0){
@@ -516,40 +489,42 @@ void taskSelectDrink(void*pvParameters){
     }
     if(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(50))==pdPASS){
       f_run=true;
+      firstNonZero=0;
+      for(i=0;(i<8)&&(!drink[drinkId].ingredients[i]);i++);
+      
+      firstNonZero=i;
+      for(i=7;(i>=0)&&(!drink[drinkId].ingredients[i]);i--);
+      
+      lastNonZero=i-3;
+      memset(screenData.lines[0],0,sizeof(screenData.lines[0]));
+      sprintf(screenData.lines[0],"[%d]%s",drinkId+1,drink[drinkId].drinkName);
     }
 
     if(f_run){
-      //First non-scrollable line
-      memset(&screenData,0,sizeof(sScreenData));
-      sprintf(screenData.lines[0],"[%d]%s",drinkId+1,drink[drinkId].drinkName);
-      //First non-scrollable line
-      
       //Other scrollable lines
-      for(i=1;i<LCD_HEIGHT;i++){
-        for(j=0;j<LCD_HEIGHT-1;j++){
-          if(!drink[drinkId].ingredients[j+currentScroll])
-            continue;
-          memset(screenData.lines[i],0,sizeof(screenData.lines[i]));
-          sprintf(screenData.lines[i],"%s",ingredients[j+currentScroll],drink[drinkId].ingredients[j+currentScroll]);
-          characterOffset=0;
-          memset(&buffer,0,sizeof(buffer));
-          memcpy(&buffer,ingredients[j+currentScroll],sizeof(buffer));
-          characterOffset+=9;
-          sprintf(screenData.lines[i]+characterOffset,"%3d[ml]",drink[drinkId].ingredients[j+currentScroll]);
-          characterOffset=0;
-          
+      if(currentScroll>=lastNonZero)
+        currentScroll=firstNonZero;
+      
+      for(i=0;i<3;i++){
+        while((currentScroll<lastNonZero)&&(!drink[drinkId].ingredients[i+currentScroll])){
+          currentScroll++;
+        }
+        if(currentScroll>=lastNonZero){
+          currentScroll=firstNonZero;
+        }
+        else{
+          memset(screenData.lines[1+i],0,sizeof(screenData.lines[0]));
+          sprintf(screenData.lines[1+i],"%s",ingredients[i+currentScroll]);
+          sprintf(screenData.lines[1+i]+13,"%3d[ml]",drink[drinkId].ingredients[i+currentScroll]);
         }
       }
       currentScroll++;
-      if(currentScroll==10-LCD_HEIGHT)
-        currentScroll=0;
-      //Other scrollable lines
       xQueueSend(qScreenData, &screenData, pdMS_TO_TICKS(50));
       //Other scrollable lines
       vTaskDelay(pdMS_TO_TICKS(1000));
     }
     else{
-      vTaskDelay(pdMS_TO_TICKS(50));
+      vTaskDelay(pdMS_TO_TICKS(500));
     }
   }
 }
@@ -737,8 +712,19 @@ void taskShowLastError(void*pvParameters){
   }
 }
 void taskKeyboardSim(void*pvParameters){
+  uint8_t keyboardData=0;
+  // Added for testing as PCF8574 is a bad choice for a keyboard driver
+  // will switch to MCP23017
   for(;;){
-    vTaskDelay(pdMS_TO_TICKS(1000));
+    while(!Serial.available()){
+      vTaskDelay(pdMS_TO_TICKS(100));
+    }
+    if(Serial.peek()==10)
+      Serial.read();
+    if(Serial.available()){
+      keyboardData=Serial.read()-49;
+      xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
+    }
   }
 }
 void setup(){
