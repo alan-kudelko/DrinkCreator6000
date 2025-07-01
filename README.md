@@ -7,7 +7,7 @@ Temperature is regulated using Peltier elements coupled with an internal water c
 
 User input is handled via a PCF8574N I²C I/O expander, which generates interrupts only when button states change — minimizing CPU load and improving responsiveness. System status, temperature data, and diagnostics are displayed on a 2004 character LCD screen driven over the I²C bus, allowing real-time monitoring directly from the front panel.
 
-> 🔧 Status: In development
+> 🔧 Status: In development <br></br>
 > 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS AVR MCU.
 
 ---
