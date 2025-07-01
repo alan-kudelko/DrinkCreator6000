@@ -9,13 +9,34 @@
 
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
 enum{INTPin=19,Pelt1Pin=9,Pelt2Pin=8};
-enum{E_WELCOME=0,E_SELECTION=1,E_SHOW_INFO=2,E_TEMP_INFO=3,E_ORDER_DRINK=4,E_TEST_PUMPS=5};
 enum{E_LOADING_BAR=17};
 enum{E_GREEN_BUTTON=1,E_LWHITE_BUTTON=2,E_RWHITE_BUTTON=4,E_BLUE_BUTTON=8,E_RED_BUTTON=16};
+// Mask for checking which button is activated
 
 enum{LCD_WIDTH=20,LCD_HEIGHT=4};
 
 static LiquidCrystal_I2C lcd(0x27, LCD_WIDTH, LCD_HEIGHT);
+
+  // 0 welcome screen
+  // 1 drink select
+  // 2 drink order
+  // 3 show system info
+  // 4 show temp info
+  // 5 show ram info
+  // 6 show stack size info
+  
+  // 0 -> 1 -> 2
+  //      | -> 3 -> 4 -> 5 -> 6  
+  
+enum{
+  WELCOME_SCREEN=0,
+  DRINK_SELECT=1,
+  DRINK_ORDER=2,
+  SHOW_INFO=3,
+  TEMP_INFO=4,
+  RAM_INFO=5,
+  STACK_INFO=6
+};
 
 const static sDrinkData drink[20]={
   {"Raz",    50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
@@ -61,11 +82,12 @@ const static uint8_t pumpsEff[8]{
   200
 };
 // Flow control variables
-enum{SCREEN_QUEUE_BUFFER_COUNT=6,
-	 KEYBOARD_QUEUE_BUFFER_COUNT=2,
-	 DRINK_ID_QUEUE_BUFFER_COUNT=2,
-	 SHOW_INFO_QUEUE_BUFFER_COUNT=2,
-	 ERROR_ID_QUEUE_BUFFER_COUNT=1
+enum{
+  SCREEN_QUEUE_BUFFER_COUNT=6,
+  KEYBOARD_QUEUE_BUFFER_COUNT=2,
+  DRINK_ID_QUEUE_BUFFER_COUNT=2,
+  SHOW_INFO_QUEUE_BUFFER_COUNT=2,
+  ERROR_ID_QUEUE_BUFFER_COUNT=1
 };
 
 static uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{};
@@ -110,18 +132,19 @@ enum{TASK_SHOW_TEMP_STACK_SIZE=192};         //9
 enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=256};   //10
 enum{TASK_KEYBOARD_SIM_STACK_SIZE=192};      //11
 
-enum{TASK_ERROR_HANDLER=0,
-	 TASK_STACK_DEBUGGER=1,
-	 TASK_MAIN=2,
-	 TASK_UPDATE_SCREEN=3,
-	 TASK_REGULATE_TEMP=4,
-	 TASK_READ_INPUT=5,
-	 TASK_SELECT_DRINK=6,
-	 TASK_ORDER_DRINK=7,
-	 TASK_SHOW_INFO=8,
-	 TASK_SHOW_TEMP=9,
-	 TASK_SHOW_LAST_ERROR=10,
-   TASK_KEYBOARD_SIM=11
+enum{
+  TASK_ERROR_HANDLER=0,
+  TASK_STACK_DEBUGGER=1,
+  TASK_MAIN=2,
+  TASK_UPDATE_SCREEN=3,
+  TASK_REGULATE_TEMP=4,
+  TASK_READ_INPUT=5,
+  TASK_SELECT_DRINK=6,
+  TASK_ORDER_DRINK=7,
+  TASK_SHOW_INFO=8,
+  TASK_SHOW_TEMP=9,
+  TASK_SHOW_LAST_ERROR=10,
+  TASK_KEYBOARD_SIM=11
 };
 
 enum{GUARD_ZONE_SIZE=16};
@@ -298,9 +321,42 @@ void setInputFlag(){
       f_enableISR=false;
     }
 }
+uint8_t processDrinkSelectMenu(uint8_t keyboardData,void*parameter){
+	uint8_t defval=1;
+	if((keyboardData&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+		// Code for ordering drink
+		// To be implemented
+		return DRINK_ORDER;
+	}
+	else if((keyboarData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+		// Code for scrolling drinks
+		if(*(uint8_t)parameter>0)
+			*(uint8_t*)parameter--;
+		
+		xQueueSend(qDrinkId,(uint8_t*)parameter,pdMS_TO_TICKS(100));
+		
+		return DRINK_SELECT;
+	}
+	else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+		// Code for scrolling drinks
+		if(*(uint8_t)parameter<19)
+			*(uint8_t*)parameter++;
+
+		xQueueSend(qDrinkId,(uint8_t*)parameter,pdMS_TO_TICKS(100));
+		return DRINK_SELECT;
+	}
+	else if((keyboarData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+		// Code for opening show info menu
+		xTaskNotifyGive(taskHandles[TASK_SELECT_DRINK]); // Stop select drink task
+		xQueueSend(qShowInfoId,&defval,pdMS_TO_TICKS(50));
+		return SHOW_INFO;
+	}
+}
+
+
 // Tasks
 void taskErrorHandler(void*pvParameters){
-	uint8_t i=2;
+  uint8_t i=2;
   uint32_t runTimeFromMillis=0;
   sSystemError lastError{};
   bool f_run=false;
@@ -380,9 +436,11 @@ void taskStackDebugger(void*pvParameters){
 }
 void taskMain(void*pvParameters){
   sScreenData screenData{};
-  bool f_testFlag=false;
-  uint8_t counter=0;
+  bool f_keyboardDataReceived=false;
+  uint8_t screenId=1;
   uint8_t drinkId=5;
+  uint8_t showInfoId=0;
+  
   uint8_t keyboardData=0;
 
   xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
@@ -391,7 +449,36 @@ void taskMain(void*pvParameters){
     if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(1000))){
       Serial.print("Keyboard data received: ");
       Serial.print(keyboardData,BIN); 
+	  f_keyboardDataReceived=true;
     }
+	if(f_keyboardDataReceived){
+		switch(screenId){
+			case WELCOME_SCREEN: 
+			1;
+			break;
+			case DRINK_SELECT:
+				screenId=processDrinkSelectMenu(keyboardData,(void*)&drinkId);
+			break;
+			case DRINK_ORDER:
+				1;
+			break;
+			case SHOW_INFO:
+				1:
+			break;
+			case TEMP_INFO:
+				1;
+			break;
+			case RAM_INFO:
+				1;
+			break;
+			case STACK_INFO:
+				1;
+			break;
+		}
+		f_keyboardDataReceived=false;
+		// Should be executed only once after received qKeyboardData
+	}
+	vTaskDelay(pdMS_TO_TICKS(500));
   }
 }
 void taskUpdateScreen(void*pvParameters){
@@ -612,34 +699,34 @@ void taskShowInfo(void*pvParameters){
 	  f_run=true;
 	}
 	if(f_run){
-    for(i=0;i<4;i++){
-      memset(screenData.lines[i],0,sizeof(screenData.lines[i]));
-    }
+	  for(i=0;i<4;i++){
+        memset(screenData.lines[i],0,sizeof(screenData.lines[i]));
+      }
 	  switch(showInfoScreenId){
 		case 0:
-	      sprintf(screenData.lines[1],"%s","Software ver. 3.");      // Fix in release
-		    sprintf(screenData.lines[2],"%s","Author: Alan Kudelko");  // Fix in release
-		    sprintf(screenData.lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);
+	      sprintf(screenData.lines[1],"%s","Software ver. 3.");
+		  sprintf(screenData.lines[2],"%s","Author: Alan Kudelko");
+		  sprintf(screenData.lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);
 		break;
 		case 1:
-	      sprintf(screenData.lines[1],"%s","Current run time");      // Fix in release
-        runTimeMillis=millis()/1000;
-        runTimeDays=runTimeMillis/86400;
-        runTimeHours=runTimeMillis/3600%24;
-        runTimeMinutes=runTimeMillis/60%60;
-        runTimeSeconds=runTimeMillis%60;
-        memset(screenData.lines[2],0,sizeof(screenData.lines[2]));
-        sprintf(screenData.lines[2],"%2d %s %2d %s",runTimeDays,"days",runTimeHours,"h");
-        if(runTimeDays<10)
-          screenData.lines[2][0]='0';
-        if(runTimeHours<10)
-          screenData.lines[2][8]='0';
-        memset(screenData.lines[3],0,sizeof(screenData.lines[3]));
-        sprintf(screenData.lines[3],"%2d %s  %2d %s",runTimeMinutes,"min",runTimeSeconds,"s");
-        if(runTimeMinutes<10)
-          screenData.lines[3][0]='0';
-        if(runTimeSeconds<10)
-          screenData.lines[3][8]='0';
+	      sprintf(screenData.lines[1],"%s","Current run time");
+          runTimeMillis=millis()/1000;
+          runTimeDays=runTimeMillis/86400;
+          runTimeHours=runTimeMillis/3600%24;
+          runTimeMinutes=runTimeMillis/60%60;
+          runTimeSeconds=runTimeMillis%60;
+          memset(screenData.lines[2],0,sizeof(screenData.lines[2]));
+          sprintf(screenData.lines[2],"%2d %s %2d %s",runTimeDays,"days",runTimeHours,"h");
+          if(runTimeDays<10)
+            screenData.lines[2][0]='0';
+          if(runTimeHours<10)
+            screenData.lines[2][8]='0';
+          memset(screenData.lines[3],0,sizeof(screenData.lines[3]));
+          sprintf(screenData.lines[3],"%2d %s  %2d %s",runTimeMinutes,"min",runTimeSeconds,"s");
+          if(runTimeMinutes<10)
+            screenData.lines[3][0]='0';
+          if(runTimeSeconds<10)
+            screenData.lines[3][8]='0';
 		break;
 	  }
 	  sprintf(screenData.lines[0],"%s","Drink Creator 6000");      // Fix in release
@@ -722,7 +809,7 @@ void taskKeyboardSim(void*pvParameters){
     if(Serial.peek()==10)
       Serial.read();
     if(Serial.available()){
-      keyboardData=Serial.read()-49;
+      keyboardData=(1<<(Serial.read()-49)); // We need the test data to be powers of 2
       xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
     }
   }
