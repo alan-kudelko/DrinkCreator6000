@@ -122,8 +122,8 @@ This section provides an overview of the DrinkCreator6000 machine itself — inc
 #### 🧩 PCB Layout  
 Preview of the custom-designed AVR board used in the project:
 
-![PCB Layout - top view](PCB_TOP_VIEW.PNG)
-![PCB Layout - bottom view](PCB_BOTTOM_VIEW.PNG)
+![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
+![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW.PNG)
 
 #### 🔧 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:

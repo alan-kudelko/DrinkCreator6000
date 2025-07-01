@@ -121,7 +121,7 @@ static SemaphoreHandle_t mux_SerialLock{};
 // Stack size will need tuning in last release
 enum{TASK_ERROR_HANDLER_STACK_SIZE=200};     //0
 enum{TASK_STACK_DEBUGGER_STACK_SIZE=200};    //1
-enum{TASK_MAIN_STACK_SIZE=192};              //2
+enum{TASK_MAIN_STACK_SIZE=256};              //2
 enum{UPDATE_SCREEN_STACK_SIZE=232};          //3
 enum{TASK_REGULATE_TEMP_STACK_SIZE=128};     //4
 enum{TASK_READ_INPUT_STACK_SIZE=150};        //5
@@ -321,31 +321,31 @@ void setInputFlag(){
       f_enableISR=false;
     }
 }
-uint8_t processDrinkSelectMenu(uint8_t keyboardData,void*parameter){
+uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*parameter){
 	uint8_t defval=1;
 	if((keyboardData&E_GREEN_BUTTON)==E_GREEN_BUTTON){
 		// Code for ordering drink
 		// To be implemented
 		return DRINK_ORDER;
 	}
-	else if((keyboarData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+	else if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
 		// Code for scrolling drinks
-		if(*(uint8_t)parameter>0)
-			*(uint8_t*)parameter--;
+		if(*parameter>0)
+			(*parameter)--;
 		
-		xQueueSend(qDrinkId,(uint8_t*)parameter,pdMS_TO_TICKS(100));
+		xQueueSend(qDrinkId,parameter,pdMS_TO_TICKS(50));
 		
 		return DRINK_SELECT;
 	}
 	else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
 		// Code for scrolling drinks
-		if(*(uint8_t)parameter<19)
-			*(uint8_t*)parameter++;
+		if(*parameter<19)
+			(*parameter)++;
 
-		xQueueSend(qDrinkId,(uint8_t*)parameter,pdMS_TO_TICKS(100));
+		xQueueSend(qDrinkId,parameter,pdMS_TO_TICKS(50));
 		return DRINK_SELECT;
 	}
-	else if((keyboarData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+	else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
 		// Code for opening show info menu
 		xTaskNotifyGive(taskHandles[TASK_SELECT_DRINK]); // Stop select drink task
 		xQueueSend(qShowInfoId,&defval,pdMS_TO_TICKS(50));
@@ -446,39 +446,36 @@ void taskMain(void*pvParameters){
   xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
   
   for(;;){
-    if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(1000))){
-      Serial.print("Keyboard data received: ");
-      Serial.print(keyboardData,BIN); 
-	  f_keyboardDataReceived=true;
+    if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(10000))){
+	    f_keyboardDataReceived=true;
     }
-	if(f_keyboardDataReceived){
-		switch(screenId){
-			case WELCOME_SCREEN: 
-			1;
-			break;
-			case DRINK_SELECT:
-				screenId=processDrinkSelectMenu(keyboardData,(void*)&drinkId);
-			break;
-			case DRINK_ORDER:
-				1;
-			break;
-			case SHOW_INFO:
-				1:
-			break;
-			case TEMP_INFO:
-				1;
-			break;
-			case RAM_INFO:
-				1;
-			break;
-			case STACK_INFO:
-				1;
-			break;
-		}
-		f_keyboardDataReceived=false;
+	  if(f_keyboardDataReceived){
+		  switch(screenId){
+			  case WELCOME_SCREEN: 
+			  1;
+			  break;
+			  case DRINK_SELECT:
+				  screenId=processDrinkSelectMenu(keyboardData,&drinkId);
+			  break;
+			  case DRINK_ORDER:
+				  1;
+			  break;
+			  case SHOW_INFO:
+				  1;
+			  break;
+			  case TEMP_INFO:
+				  1;
+			  break;
+			  case RAM_INFO:
+				  1;
+			  break;
+			  case STACK_INFO:
+				  1;
+			  break;
+		  }
+		  f_keyboardDataReceived=false;
 		// Should be executed only once after received qKeyboardData
-	}
-	vTaskDelay(pdMS_TO_TICKS(500));
+	  }
   }
 }
 void taskUpdateScreen(void*pvParameters){
@@ -561,7 +558,7 @@ void taskReadInput(void*pvParameters){
   }
 }
 void taskSelectDrink(void*pvParameters){
-  char drinkId{};
+  uint8_t drinkId=0;
   bool f_run=false;
   uint8_t currentScroll=0;
   uint8_t i=0;
@@ -581,9 +578,9 @@ void taskSelectDrink(void*pvParameters){
       
       firstNonZero=i;
       for(i=7;(i>=0)&&(!drink[drinkId].ingredients[i]);i--);
-      
-      lastNonZero=i-3;
-      memset(screenData.lines[0],0,sizeof(screenData.lines[0]));
+
+      lastNonZero=i-1;
+      memset(&screenData,0,sizeof(screenData));
       sprintf(screenData.lines[0],"[%d]%s",drinkId+1,drink[drinkId].drinkName);
     }
 
@@ -656,7 +653,7 @@ void taskOrderDrink(void*pvParameters){
       totalPouringTime=0;
       memset(&screenData,0,sizeof(sScreenData));
     }
-    if((!f_resetTaskData)&&(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(50)))){
+    if((false)&&(!f_resetTaskData)&&(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(50)))){
       f_run=true;
       for(i=0;i<8;i++)
         totalPouringTime+=drink[drinkId].ingredients[i]*pumpsEff[i];
