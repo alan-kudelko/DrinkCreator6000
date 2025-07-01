@@ -45,7 +45,7 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 | 08      | `taskShowInfo`      | Displays error details on the LCD after a system reset due to failure.      |
 | 09      | `taskShowTemp`      | Shows the current measured temperature on the LCD.                         |
 | 10      | `taskShowLastError` | Presents recent errors, task states, and priority information on the LCD.  |
-
+| 11      | 'taskSim' | Simulates keyboard input by reading data from the serial interface. (used for testing)|
 ---
 
 ### 📊 RAM Usage Overview (Start, End, Size)
@@ -102,8 +102,9 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [ ] Create main task for coordinating other tasks
 - [X] Create task for handling regular LCD updates
 - [X] Create task for regulating temperature inside the freezer
-- [X] Create task for handling keyboard input from PCF8574
+- [ ] Create task for handling keyboard input from PCF8574
 - [ ] Create task for selecting the drink to be ordered
+- [ ] Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
 - [ ] Create task for processing the ordered drink (pump activation)
 - [X] Create task to display project information such as author, startup count, and current runtime
 - [ ] Create task to display current temperature settings and actual temperature inside the freezer
