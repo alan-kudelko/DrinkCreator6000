@@ -111,6 +111,7 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [ ] Create task to display and confirm the last saved error
 - [X] Implement software guard zones between task stacks for added protection and reliability
 - [ ] Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
+- [ ] Separate code into multiple files for better readability
 
 ---
 
@@ -129,11 +130,14 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 
 ### 📟 LCD Interface Screenshots
 
-Snapshots of the 2004 LCD display during system operation:
+Below are snapshots of the 2004 LCD display during system operation, illustrating various interface states and views:
 
-| Screen                | Description                                   |
-|-----------------------|-----------------------------------------------|
-| **Startup Screen**    | Shows project name, version, and uptime        |
+| ID | Screen               | Description                                                                 |
+|----|----------------------|-----------------------------------------------------------------------------|
+| 0  | **Startup Screen**    | Displays the project name, firmware version, and boot count.               |
+| 1  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
+| 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
+| 3  | **Show Info Screen**    | Displays uptime, project name, author, firmware version, and boot count.  |
 
 ---
 
