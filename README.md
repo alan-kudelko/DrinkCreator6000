@@ -8,7 +8,7 @@ Temperature is regulated using Peltier elements coupled with an internal water c
 User input is handled via a PCF8574N I²C I/O expander, which generates interrupts only when button states change — minimizing CPU load and improving responsiveness. System status, temperature data, and diagnostics are displayed on a 2004 character LCD screen driven over the I²C bus, allowing real-time monitoring directly from the front panel.
 
 > 🔧 Status: In development
-> 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS on bare-metal AVR.
+> 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS AVR MCU.
 
 ---
 
@@ -102,15 +102,16 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [ ] Create main task for coordinating other tasks
 - [X] Create task for handling regular LCD updates
 - [X] Create task for regulating temperature inside the freezer
-- [ ] Create task for handling keyboard input from PCF8574
+- [ ] Create task for handling keyboard input from PCF8574 with software debounce
 - [ ] Create task for selecting the drink to be ordered
 - [ ] Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
 - [ ] Create task for processing the ordered drink (pump activation)
 - [X] Create task to display project information such as author, startup count, and current runtime
 - [ ] Create task to display current temperature settings and actual temperature inside the freezer
 - [ ] Create task to display and confirm the last saved error
-- [ ] Implement software guard zones between task stacks for added protection and reliability
+- [X] Implement software guard zones between task stacks for added protection and reliability
 - [ ] Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
+
 ---
 
 ## 🖼️ Visual Overview
