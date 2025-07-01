@@ -102,9 +102,11 @@ enum{
   // 4 show temp info
   // 5 show ram info
   // 6 show stack size info
+  // s - scrollable
+  // e - editable
   
-  // 0 -> 1 -> 2
-  //      | -> 3 -> 4 -> 5 -> 6  
+  // 0 -> 1s -> 2
+  //      | -> 3s -> 4es -> 5s -> 6s  
 
 LiquidCrystal_I2C lcd(0x27, LCD_WIDTH, LCD_HEIGHT);
 // Screen data

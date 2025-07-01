@@ -131,6 +131,8 @@ enum{TASK_SHOW_INFO_STACK_SIZE=256};         //8
 enum{TASK_SHOW_TEMP_STACK_SIZE=192};         //9
 enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=256};   //10
 enum{TASK_KEYBOARD_SIM_STACK_SIZE=192};      //11
+enum{TASK_SHOW_RAM_INFO_STACK_SIZE=256};     //12
+enum{TASK_SHOW_STACK_INFO_STACK_SIZE=256};   //13
 
 enum{
   TASK_ERROR_HANDLER=0,
@@ -144,7 +146,9 @@ enum{
   TASK_SHOW_INFO=8,
   TASK_SHOW_TEMP=9,
   TASK_SHOW_LAST_ERROR=10,
-  TASK_KEYBOARD_SIM=11
+  TASK_KEYBOARD_SIM=11,
+  TASK_SHOW_RAM_INFO=12,
+  TASK_SHOW_STACK_INFO=13
 };
 
 enum{GUARD_ZONE_SIZE=16};
@@ -378,6 +382,33 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
     return DRINK_SELECT;
   }
 }
+uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
+  if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+    // Code for scrolling info
+    if(*actualScreenPar>0)
+      (*actualScreenPar)--;
+    
+    xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
+    
+    return SHOW_INFO;
+  }
+  else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+    // Code for scrolling info
+    if(*actualScreenPar<1)
+      (*actualScreenPar)++;
+
+    xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
+    return SHOW_INFO;
+  }
+  else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+    return SHOW_INFO;
+  }
+  else if((keyboardData&E_RED_BUTTON)==E_RED_BUTTON){
+    xQueueSend(qDrinkId,previousScreenPar,pdMS_TO_TICKS(50));
+    xTaskNotifyGive(taskHandles[TASK_SHOW_INFO]);
+    return DRINK_SELECT;
+  }  
+}
 
 // Tasks
 void taskErrorHandler(void*pvParameters){
@@ -466,6 +497,7 @@ void taskMain(void*pvParameters){
   uint8_t drinkId=5;
   uint8_t showInfoId=0;
   uint8_t showTempId=0;
+  uint8_t showRamId=0;
   
   uint8_t keyboardData=0;
 
@@ -490,7 +522,7 @@ void taskMain(void*pvParameters){
 				  screenId=processShowInfoMenu(keyboardData,&showInfoId,&showTempId,&drinkId);
 			  break;
 			  case TEMP_INFO:
-				  1;
+				  screenId=processShowTempInfo(keyboardData,&showTempId,&showRamId,&showInfoId);
 			  break;
 			  case RAM_INFO:
 				  1;
@@ -599,6 +631,7 @@ void taskSelectDrink(void*pvParameters){
     }
     if(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(50))==pdPASS){
       f_run=true;
+      currentScroll=0;
       firstNonZero=0;
       for(i=0;(i<8)&&(!drink[drinkId].ingredients[i]);i++);
       
@@ -759,8 +792,22 @@ void taskShowInfo(void*pvParameters){
   }
 }
 void taskShowTemp(void*pvParameters){
+  bool f_run=false;
   for(;;){
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    if(ulTaskNotifyTake(pdTRUE,0)>0){
+      //currentScroll=0;
+      f_run=false;
+    }
+    if(f_run){
+      // To implement
+    }
+    vTaskDelay(pdMS_TO_TICKS(1000));
+  }
+}
+void taskShowRamInfo(void*pvParameters){
+  for(;;){
+    
+    vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
 void taskShowLastError(void*pvParameters){
