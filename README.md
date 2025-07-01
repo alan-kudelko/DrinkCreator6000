@@ -45,7 +45,7 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 | 08      | `taskShowInfo`      | Displays error details on the LCD after a system reset due to failure.      |
 | 09      | `taskShowTemp`      | Shows the current measured temperature on the LCD.                         |
 | 10      | `taskShowLastError` | Presents recent errors, task states, and priority information on the LCD.  |
-| 11      | 'taskSim' | Simulates keyboard input by reading data from the serial interface. (used for testing)|
+| 11      | `taskSim` | Simulates keyboard input by reading data from the serial interface. (used for testing)|
 ---
 
 ### 📊 RAM Usage Overview (Start, End, Size)
