@@ -1,9 +1,11 @@
 # DrinkCreator6000 – RTOS System on Custom AVR Board
-Drink Creator 6000 is a real-time operating system (RTOS) project designed for a custom-built drink dispensing machine powered by an AVR microcontroller and FreeRTOS. The system is entirely based on static memory allocation for robustness and predictability, and integrates multiple hardware modules for a fully functional beverage control unit.
+DrinkCreator6000 is a real-time operating system (RTOS) project designed for a custom-built drink dispensing machine powered by an AVR microcontroller and FreeRTOS. The system is entirely based on static memory allocation for robustness and predictability, and integrates multiple hardware modules for a fully functional beverage control unit.
 
-The machine is powered by a standard 400W ATX power supply, which provides stable 5V and 12V rails for the logic circuitry, Peltier cooling modules, and peristaltic pumps used in dispensing drinks. Temperature is regulated using Peltier elements coupled with an internal water cooling system, enclosed within the device chassis for thermal efficiency and isolation.
+The machine is powered by a standard 400W ATX power supply, which provides stable 5V and 12V rails for the logic circuitry, Peltier cooling modules, and peristaltic pumps used for dispensing liquids. Pumps are controlled via a 74HC595 shift register, which expands digital output lines and drives MOSFET transistors to switch the high-current 12V loads safely and efficiently.
 
-User input is handled via a PCF8574N I²C I/O expander, which generates interrupts only when button states change — minimizing CPU load and improving responsiveness. System status, temperature data, and diagnostics are displayed on a 2004 character LCD screen driven over the I²C bus, allowing monitoring directly from the front panel.
+Temperature is regulated using Peltier elements coupled with an internal water cooling system, enclosed within the device chassis for thermal efficiency and thermal isolation.
+
+User input is handled via a PCF8574N I²C I/O expander, which generates interrupts only when button states change — minimizing CPU load and improving responsiveness. System status, temperature data, and diagnostics are displayed on a 2004 character LCD screen driven over the I²C bus, allowing real-time monitoring directly from the front panel.
 
 > 🔧 Status: In development
 > 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS on bare-metal AVR.
@@ -109,3 +111,25 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - [ ] Implement software guard zones between task stacks for added protection and reliability
 - [ ] Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
 ---
+
+## 🖼️ Visual Overview
+
+This section provides an overview of the DrinkCreator6000 machine itself — including its hardware design, PCB layout, electrical schematics, and LCD interface examples.
+
+#### 🧩 PCB Layout  
+Preview of the custom-designed AVR board used in the project:
+
+#### 🔧 Electrical Schematic  
+Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
+
+### 📟 LCD Interface Screenshots
+
+Snapshots of the 2004 LCD display during system operation:
+
+| Screen                | Description                                   |
+|-----------------------|-----------------------------------------------|
+| **Startup Screen**    | Shows project name, version, and uptime        |
+
+---
+
+### 🎬 Live Deme
