@@ -52,12 +52,12 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 | Region    | Start Address | End Address | Size (bytes) |
 |-----------|---------------|-------------|--------------|
-| .bss      | 0x0200        | 0x0688      | 1160         |
-| .data     | 0x0688        | 0x17EE      | 4454         |
-| Heap      | 0x17EE        | 0x17EE      | 0            |
-| CPU Stack | 0x2165        | 0x21FF      | 154          |
+| .data     | 0x0200        | 0x1522      | 4898         |
+| .bss      | 0x1522        | 0x1BF7      | 1749         |
+| Heap      | 0x1BF7        | 0x1BF7      | 0            |
+| CPU Stack | 0x21B5        | 0x21FF      | 154          |
 
-**Total free memory:** 2423 bytes
+**Total free memory:** 1470 bytes
 
 *Note:*  
 - FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  

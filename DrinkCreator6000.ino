@@ -321,8 +321,7 @@ void setInputFlag(){
       f_enableISR=false;
     }
 }
-uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*parameter){
-	uint8_t defval=1;
+uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar){
 	if((keyboardData&E_GREEN_BUTTON)==E_GREEN_BUTTON){
 		// Code for ordering drink
 		// To be implemented
@@ -330,29 +329,55 @@ uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*parameter){
 	}
 	else if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
 		// Code for scrolling drinks
-		if(*parameter>0)
-			(*parameter)--;
+		if(*actualScreenPar>0)
+			(*actualScreenPar)--;
 		
-		xQueueSend(qDrinkId,parameter,pdMS_TO_TICKS(50));
+		xQueueSend(qDrinkId,actualScreenPar,pdMS_TO_TICKS(50));
 		
 		return DRINK_SELECT;
 	}
 	else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
 		// Code for scrolling drinks
-		if(*parameter<19)
-			(*parameter)++;
+		if(*actualScreenPar<19)
+			(*actualScreenPar)++;
 
-		xQueueSend(qDrinkId,parameter,pdMS_TO_TICKS(50));
+		xQueueSend(qDrinkId,actualScreenPar,pdMS_TO_TICKS(50));
 		return DRINK_SELECT;
 	}
 	else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
 		// Code for opening show info menu
+		xQueueSend(qShowInfoId,nextScreenPar,pdMS_TO_TICKS(50));
 		xTaskNotifyGive(taskHandles[TASK_SELECT_DRINK]); // Stop select drink task
-		xQueueSend(qShowInfoId,&defval,pdMS_TO_TICKS(50));
 		return SHOW_INFO;
 	}
 }
+uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
+  if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+    // Code for scrolling info
+    if(*actualScreenPar>0)
+      (*actualScreenPar)--;
+    
+    xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
+    
+    return SHOW_INFO;
+  }
+  else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+    // Code for scrolling info
+    if(*actualScreenPar<1)
+      (*actualScreenPar)++;
 
+    xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
+    return SHOW_INFO;
+  }
+  else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+    return SHOW_INFO;
+  }
+  else if((keyboardData&E_RED_BUTTON)==E_RED_BUTTON){
+    xQueueSend(qDrinkId,previousScreenPar,pdMS_TO_TICKS(50));
+	  xTaskNotifyGive(taskHandles[TASK_SHOW_INFO]);
+    return DRINK_SELECT;
+  }
+}
 
 // Tasks
 void taskErrorHandler(void*pvParameters){
@@ -440,13 +465,14 @@ void taskMain(void*pvParameters){
   uint8_t screenId=1;
   uint8_t drinkId=5;
   uint8_t showInfoId=0;
+  uint8_t showTempId=0;
   
   uint8_t keyboardData=0;
 
   xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
   
   for(;;){
-    if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(10000))){
+    if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(1000))){
 	    f_keyboardDataReceived=true;
     }
 	  if(f_keyboardDataReceived){
@@ -455,13 +481,13 @@ void taskMain(void*pvParameters){
 			  1;
 			  break;
 			  case DRINK_SELECT:
-				  screenId=processDrinkSelectMenu(keyboardData,&drinkId);
+				  screenId=processDrinkSelectMenu(keyboardData,&drinkId,&showInfoId);
 			  break;
 			  case DRINK_ORDER:
 				  1;
 			  break;
 			  case SHOW_INFO:
-				  1;
+				  screenId=processShowInfoMenu(keyboardData,&showInfoId,&showTempId,&drinkId);
 			  break;
 			  case TEMP_INFO:
 				  1;
@@ -567,9 +593,9 @@ void taskSelectDrink(void*pvParameters){
   sScreenData screenData{};
   for(;;){
     if(ulTaskNotifyTake(pdTRUE,0)>0){
-      f_run=false;
       //currentScroll=0;
-      while(xQueueReceive(qDrinkId,&drinkId,0)==pdPASS); // Remember to clear the queue
+      while(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(100))==pdPASS); // Remember to clear the queue
+      f_run=false;
     }
     if(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(50))==pdPASS){
       f_run=true;
@@ -688,9 +714,9 @@ void taskShowInfo(void*pvParameters){
   sScreenData screenData{};
   for(;;){
     if(ulTaskNotifyTake(pdTRUE,0)>0){
+	    while(xQueueReceive(qShowInfoId,&showInfoScreenId,pdMS_TO_TICKS(100))==pdPASS); // Remember to clear the queue
+	    showInfoScreenId=0;
       f_run=false;
-	  while(xQueueReceive(qShowInfoId,&showInfoScreenId,0)==pdPASS); // Remember to clear the queue
-	  showInfoScreenId=0;
     }
 	if(xQueueReceive(qShowInfoId,&showInfoScreenId,pdMS_TO_TICKS(50))==pdPASS){
 	  f_run=true;
@@ -728,12 +754,8 @@ void taskShowInfo(void*pvParameters){
 	  }
 	  sprintf(screenData.lines[0],"%s","Drink Creator 6000");      // Fix in release
 	  xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
-	  
-	  vTaskDelay(pdMS_TO_TICKS(1000));
 	}
-	else{
-	  vTaskDelay(pdMS_TO_TICKS(50));
-	}
+  vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
 void taskShowTemp(void*pvParameters){
