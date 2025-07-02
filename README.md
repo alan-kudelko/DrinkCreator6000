@@ -139,6 +139,48 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 | 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
 | 3  | **Show Info Screen**    | Displays uptime, project name, author, firmware version, and boot count.  |
 
+   Screen transition diagram:
+
+          +-------------+
+          | 0 Welcome   |
+          +------+------+
+                 |
+                 v
+          +-------------+  
+          | 1 Drink     |  (scrollable)
+          | Select      |
+          +------+------+
+             /       \
+            v         v
+      +-------------+  +-------------+
+      | 2 Drink     |  | 3 Show      |
+      | Order       |  | System Info |
+      +-------------+  +------+------+
+                              |
+                              v
+                      +-------------+
+                      | 4 Show Temp |  (editable)
+                      | Info        |
+                      +------+------+
+                             |
+                             v
+                      +-------------+
+                      | 5 Show RAM  |  (scrollable)
+                      | Info        |
+                      +------+------+
+                             |
+                             v
+                      +-------------+
+                      | 6 Show Stack|  (scrollable)
+                      | Size        |
+                      +-------------+
+                             |
+                             v
+                   +------------------+
+                   | 7 Show Last Error|  (scrollable)
+                   | Size             |
+                   +------------------+
+
 ---
 
-### 🎬 Live Deme
+### 🎬 Live Demo
