@@ -85,9 +85,9 @@ sSystemError lastSystemError{0xF};
 uint8_t f_errorConfirmed=0;;
 uint16_t bootupsCount=0;
 
-float currentTemperature=10.0f;
-float setTemperature=4.0f;
-float temperatureHysteresis=1.0f;
+float currentTemperature=10.5;
+float setTemperature=4.5;
+float temperatureHysteresis=1.0;
 
 volatile bool f_enableISR=true;
 ////////////////////////////////////////////////////////////////// DRINK DATA

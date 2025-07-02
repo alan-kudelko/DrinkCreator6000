@@ -18,6 +18,10 @@ enum{
   E_BLUE_BUTTON=8,
   E_RED_BUTTON=16
 };
+
+enum{
+  MCP_ADDR=0x20
+};
 // Keyboard keys mapping
 ////////////////////////////////////////////////////////////////// TASK DATA
 enum{TASK_ERROR_HANDLER_STACK_SIZE=200};     //0
@@ -140,7 +144,7 @@ enum{
           +------+------+
              /       \
             v         v
-      +-------------+  +-------------+
+      +-------------+  +-------------+  (scrollable)
       | 2 Drink     |  | 3 Show      |
       | Order       |  | System Info |
       +-------------+  +------+------+

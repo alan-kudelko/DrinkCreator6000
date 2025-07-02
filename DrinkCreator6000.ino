@@ -2,6 +2,7 @@
 
 #include "LcdCharacters.h"
 #include "EEPROM_Management.h"
+#include <Wire.h>
 
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
 
@@ -29,6 +30,43 @@ void initializeMemory(){
   memset(guardZone9,0xF,GUARD_ZONE_SIZE);
   memset(guardZone10,0xF,GUARD_ZONE_SIZE);
   memset(guardZone11,0xF,GUARD_ZONE_SIZE);
+}
+void initializeKeyboard(){
+  // Change IOCON Bank to 1, disable SEQOP
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x0A);
+  Wire.write(0xA0);
+  Wire.endTransmission();
+  // Change GPA to inputs
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x00);
+  Wire.write(0xFF);
+  Wire.endTransmission();  
+  // If pin is LOW bit is 1
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x01);
+  Wire.write(0xFF);
+  Wire.endTransmission();
+  // Enable interrupts on GPA
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x02);
+  Wire.write(0xA0);
+  Wire.endTransmission();
+  // Default value is HIGH
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x03);
+  Wire.write(0xFF);
+  Wire.endTransmission();
+  // Generate interrupt based on comparison between state and DEFVAL
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x04);
+  Wire.write(0xFF);
+  Wire.endTransmission();
+  // Enable pullups and GPA
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x06);
+  Wire.write(0xFF);
+  Wire.endTransmission();
 }
 void ram_dump(){
   char buffer[6]{};
@@ -165,7 +203,7 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
   }
   else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
     // Code for scrolling info
-    if(*actualScreenPar<1)
+    if(*actualScreenPar<SHOW_INFO_MENUS_COUNT)
       (*actualScreenPar)++;
 
     xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
@@ -179,33 +217,6 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
 	  xTaskNotifyGive(taskHandles[TASK_SHOW_INFO]);
     return DRINK_SELECT;
   }
-}
-uint8_t processShowTempInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
-  if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
-    // Code for scrolling info
-    if(*actualScreenPar>0)
-      (*actualScreenPar)--;
-    
-    xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
-    
-    return SHOW_INFO;
-  }
-  else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
-    // Code for scrolling info
-    if(*actualScreenPar<SHOW_INFO_MENUS_COUNT)
-      (*actualScreenPar)++;
-
-    xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
-    return SHOW_INFO;
-  }
-  else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
-    return SHOW_INFO;
-  }
-  else if((keyboardData&E_RED_BUTTON)==E_RED_BUTTON){
-    xQueueSend(qDrinkId,previousScreenPar,pdMS_TO_TICKS(50));
-    xTaskNotifyGive(taskHandles[TASK_SHOW_INFO]);
-    return DRINK_SELECT;
-  }  
 }
 void ShowInfo_Display1Sub(sScreenData*screenData,uint8_t*showInfoScreenId,uint8_t*textScroll,void*pvParameters){
   uint64_t runTimeFromMillis=0;
@@ -244,11 +255,21 @@ void ShowInfo_Display1Sub(sScreenData*screenData,uint8_t*showInfoScreenId,uint8_
   sprintf(screenData->lines[0],"%s","Drink Creator 6000");  
 }
 void ShowInfo_Display2Sub(sScreenData*screenData){
-	// For now i will use global variables right away
+  // sprintf with %f is disabled on AVR, because it requires extra code
+  uint8_t mantissa;
+  uint8_t integer;
 	sprintf(screenData->lines[0],"%s","Drink Creator 6000");
-	//sprintf(screenData->lines[1],"Temp: 6.1f Set",,);
-	sprintf(screenData->lines[2],"%s %6.1f","Hyst: ",2.0);
-	sprintf(screenData->lines[3],"Status: %7s Fan: %3s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle","On");
+  integer=currentTemperature;
+  mantissa=uint8_t(currentTemperature*10)%10;
+	sprintf(screenData->lines[1],"Temp:%2d.%dC Set:",integer,mantissa);
+  integer=setTemperature;
+  mantissa=uint8_t(setTemperature*10)%10;
+  sprintf(screenData->lines[1]+15,"%2d.%dC",integer,mantissa);
+  integer=temperatureHysteresis;
+  mantissa=uint8_t(temperatureHysteresis*10)%10;
+	sprintf(screenData->lines[2],"Hyst: %d.%dC",integer,mantissa);
+ 
+	sprintf(screenData->lines[3],"%7s     Fan: %3s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle","On");
 }
 void ShowInfo_Display3Sub(sScreenData*screnData,uint8_t*scroll){
 	
@@ -716,6 +737,8 @@ void setup(){
   lcd.load_custom_character(5,fullSquare);
   lcd.load_custom_character(6,fullSquare);
   lcd.load_custom_character(7,fullSquare);
+
+  initializeKeyboard();
   
   Serial.begin(9600);
   
