@@ -138,10 +138,12 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 | 1  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
 | 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
 | 3  | **Show Info Screen**    | Displays uptime, project name, author, firmware version, and boot count.  |
+| 4  | **Show Temp Info Screen**    | Displays current temperature inside the freezer and temperature settings|
+| 5  | **Show RAM Info Screen**    | Displays current RAM usage (.data, .bss, heap, stack and free memory left)  |
+| 6  | **Show Stack Size Screen**    | Displays stack free space, name, priority, id and state for every task in the project  |
+| 7  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
 
----
-
-   Screen transition diagram:
+Screen transition diagram:
 
           +-------------+
           | 0 Welcome   |
@@ -182,6 +184,6 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
                       | 7 Show Last |  (scrollable)
                       | Error       |
                       +-------------+
-
+---
 
 ### 🎬 Live Demo
