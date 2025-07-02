@@ -139,6 +139,8 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 | 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
 | 3  | **Show Info Screen**    | Displays uptime, project name, author, firmware version, and boot count.  |
 
+---
+
    Screen transition diagram:
 
           +-------------+
@@ -176,11 +178,10 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
                       +-------------+
                              |
                              v
-                   +------------------+
-                   | 7 Show Last Error|  (scrollable)
-                   | Size             |
-                   +------------------+
+                      +-------------+
+                      | 7 Show Last |  (scrollable)
+                      | Error       |
+                      +-------------+
 
----
 
 ### 🎬 Live Demo
