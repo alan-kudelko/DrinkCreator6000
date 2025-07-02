@@ -1,213 +1,11 @@
-#include <LiquidCrystal_I2C.h>
+#include "DrinkCreator6000_Config.h"
 
-#include <Arduino_FreeRTOS.h>
-#include <semphr.h>
-#include <Wire.h>
 #include "LcdCharacters.h"
-#include "CustomDataTypes.h"
 #include "EEPROM_Management.h"
 
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
-enum{INTPin=19,Pelt1Pin=9,Pelt2Pin=8};
-enum{E_LOADING_BAR=17};
-enum{E_GREEN_BUTTON=1,E_LWHITE_BUTTON=2,E_RWHITE_BUTTON=4,E_BLUE_BUTTON=8,E_RED_BUTTON=16};
-// Mask for checking which button is activated
 
-enum{LCD_WIDTH=20,LCD_HEIGHT=4};
 
-static LiquidCrystal_I2C lcd(0x27, LCD_WIDTH, LCD_HEIGHT);
-
-  // 0 welcome screen
-  // 1 drink select
-  // 2 drink order
-  // 3 show system info
-  // 4 show temp info
-  // 5 show ram info
-  // 6 show stack size info
-  
-  // 0 -> 1 -> 2
-  //      | -> 3 -> 4 -> 5 -> 6  
-  
-enum{
-  WELCOME_SCREEN=0,
-  DRINK_SELECT=1,
-  DRINK_ORDER=2,
-  SHOW_INFO=3,
-  TEMP_INFO=4,
-  RAM_INFO=5,
-  STACK_INFO=6
-};
-
-const static sDrinkData drink[20]={
-  {"Raz",    50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
-  {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
-  {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //3
-  {"Cztery", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //4
-  {"Piec",   50, 0, 0, 0, 250, 300, 350, 400, 450},  //5
-  {"Szesc",   50, 100, 150, 200, 250, 0, 350, 0, 0},  //6
-  {"Siedem",   50, 100, 0, 200, 250, 0, 0, 0, 0},  //7
-  {"Osiem",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //8
-  {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //9
-  {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 450},  //10
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //11
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //12
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //13
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //14
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //15
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //16
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //17
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //18
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450},  //19
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 450}   //20
-};
-const static char ingredients[8][LCD_WIDTH-4-4]{
-  {"Whiskey"},    //1
-  {"Jager"},      //2
-  {"Rum"},        //3
-  {"Wodka"},      //4
-  {"Cola"},       //5
-  {"Sok pom"},    //6
-  {"Sok cyt"},    //7
-  {"Woda"}        //8
-};
-// Each pump pumps at different rate
-const static uint8_t pumpsEff[8]{
-  200,
-  200,
-  200,
-  200,
-  200,
-  200,
-  200,
-  200
-};
-// Flow control variables
-enum{
-  SCREEN_QUEUE_BUFFER_COUNT=6,
-  KEYBOARD_QUEUE_BUFFER_COUNT=2,
-  DRINK_ID_QUEUE_BUFFER_COUNT=2,
-  SHOW_INFO_QUEUE_BUFFER_COUNT=2,
-  ERROR_ID_QUEUE_BUFFER_COUNT=1
-};
-
-static uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{};
-static uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{};
-static uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{};
-static uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{};
-static uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t )]{};
-
-static StaticQueue_t screenQueueStructBuffer{};
-static StaticQueue_t keyboardQueueStructBuffer{};
-static StaticQueue_t drinkIdQueueStructBuffer{};
-static StaticQueue_t showInfoQueueStructBuffer{};
-static StaticQueue_t errorIdQueueStructBuffer{};
-
-static StaticSemaphore_t semReadDataBuffer{};
-static StaticSemaphore_t muxI2CLockBuffer{};
-static StaticSemaphore_t muxSerialLockBuffer{};
-
-static QueueHandle_t qScreenData{};
-static QueueHandle_t qKeyboardData{};
-static QueueHandle_t qDrinkId{};
-static QueueHandle_t qShowInfoId{};
-static QueueHandle_t qErrorId{};
-
-static SemaphoreHandle_t sem_ReadData{};
-static SemaphoreHandle_t mux_I2CLock{};
-static SemaphoreHandle_t mux_SerialLock{};
-// Flow control variables
-
-// Task variables
-// Stack size will need tuning in last release
-enum{TASK_ERROR_HANDLER_STACK_SIZE=200};     //0
-enum{TASK_STACK_DEBUGGER_STACK_SIZE=200};    //1
-enum{TASK_MAIN_STACK_SIZE=256};              //2
-enum{UPDATE_SCREEN_STACK_SIZE=232};          //3
-enum{TASK_REGULATE_TEMP_STACK_SIZE=128};     //4
-enum{TASK_READ_INPUT_STACK_SIZE=150};        //5
-enum{TASK_SELECT_DRINK_STACK_SIZE=256};      //6
-enum{TASK_ORDER_DRINK_STACK_SIZE=320};       //7
-enum{TASK_SHOW_INFO_STACK_SIZE=256};         //8
-enum{TASK_SHOW_TEMP_STACK_SIZE=192};         //9
-enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=256};   //10
-enum{TASK_KEYBOARD_SIM_STACK_SIZE=192};      //11
-enum{TASK_SHOW_RAM_INFO_STACK_SIZE=256};     //12
-enum{TASK_SHOW_STACK_INFO_STACK_SIZE=256};   //13
-
-enum{
-  TASK_ERROR_HANDLER=0,
-  TASK_STACK_DEBUGGER=1,
-  TASK_MAIN=2,
-  TASK_UPDATE_SCREEN=3,
-  TASK_REGULATE_TEMP=4,
-  TASK_READ_INPUT=5,
-  TASK_SELECT_DRINK=6,
-  TASK_ORDER_DRINK=7,
-  TASK_SHOW_INFO=8,
-  TASK_SHOW_TEMP=9,
-  TASK_SHOW_LAST_ERROR=10,
-  TASK_KEYBOARD_SIM=11,
-  TASK_SHOW_RAM_INFO=12,
-  TASK_SHOW_STACK_INFO=13
-};
-
-enum{GUARD_ZONE_SIZE=16};
-	 
-enum{TASK_N=12}; // Zmiana
-
-static StaticTask_t errorHandlerTCB{0xF};                                   //0
-static StaticTask_t stackDebuggerTCB{0xF};                                  //1
-static StaticTask_t mainTCB{0xF};                                           //2
-static StaticTask_t updateScreenTCB{0xF};                                   //3
-static StaticTask_t regulateTempTCB{0xF};                                   //4
-static StaticTask_t readInputTCB{0xF};                                      //5
-static StaticTask_t selectDrinkTCB{0xF};                                    //6
-static StaticTask_t orderDrinkTCB{0xF};                                     //7
-static StaticTask_t showInfoTCB{0xF};                                       //8
-static StaticTask_t showTempTCB{0xF};                                       //9
-static StaticTask_t showLastErrorTCB{0xF};                                  //10
-static StaticTask_t keyboardSimTCB{0xF};                                    //11
-
-static TaskHandle_t taskHandles[TASK_N]{0xF};
-
-static StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]{0xF};   //0
-static StackType_t guardZone0[GUARD_ZONE_SIZE]{0xF};
-static StackType_t stackDebuggerStack[TASK_STACK_DEBUGGER_STACK_SIZE]{0xF}; //1
-static StackType_t guardZone1[GUARD_ZONE_SIZE]{0xF};
-static StackType_t mainStack[TASK_MAIN_STACK_SIZE]{0xF};                    //2
-static StackType_t guardZone2[GUARD_ZONE_SIZE]{0xF};
-static StackType_t updateScreenStack[UPDATE_SCREEN_STACK_SIZE]{0xF};        //3
-static StackType_t guardZone3[GUARD_ZONE_SIZE]{0xF};
-static StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]{0xF};   //4
-static StackType_t guardZone4[GUARD_ZONE_SIZE]{0xF};
-static StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]{0xF};         //5
-static StackType_t guardZone5[GUARD_ZONE_SIZE]{0xF};
-static StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]{0xF};     //6
-static StackType_t guardZone6[GUARD_ZONE_SIZE]{0xF};
-static StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]{0xF};       //7
-static StackType_t guardZone7[GUARD_ZONE_SIZE]{0xF};
-static StackType_t showInfoStack[TASK_SHOW_INFO_STACK_SIZE]{0xF};           //8
-static StackType_t guardZone8[GUARD_ZONE_SIZE]{0xF};
-static StackType_t showTempStack[TASK_SHOW_TEMP_STACK_SIZE]{0xF};           //9
-static StackType_t guardZone9[GUARD_ZONE_SIZE]{0xF};
-static StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE]{0xF};//10
-static StackType_t guardZone10[GUARD_ZONE_SIZE]{0xF};
-static StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE]{0xF};     //11
-static StackType_t guardZone11[GUARD_ZONE_SIZE]{0xF};
-// Add guardzones between variables for potential safe overwrite
-// Task variables
-
-// Global variables
-static uint8_t f_errorConfirmed=0;;
-static uint16_t bootupsCount=0;
-static sSystemError lastSystemError;
-
-static float currentTemperature=10.0f;
-static float setTemperature=4.0f;
-static float temperatureHysteresis=1.0f;
-
-static volatile bool f_enableISR=true;
-// Global variables
 void initializeMemory(){
   qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
   qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
@@ -350,7 +148,7 @@ uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint
 	}
 	else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
 		// Code for opening show info menu
-		xQueueSend(qShowInfoId,nextScreenPar,pdMS_TO_TICKS(50));
+		xQueueSend(qShowInfoId,nextScreenPar,pdMS_TO_TICKS(50)); // Activate 
 		xTaskNotifyGive(taskHandles[TASK_SELECT_DRINK]); // Stop select drink task
 		return SHOW_INFO;
 	}
@@ -382,7 +180,7 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
     return DRINK_SELECT;
   }
 }
-uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
+uint8_t processShowTempInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
   if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
     // Code for scrolling info
     if(*actualScreenPar>0)
@@ -394,7 +192,7 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
   }
   else if((keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
     // Code for scrolling info
-    if(*actualScreenPar<1)
+    if(*actualScreenPar<SHOW_INFO_MENUS_COUNT)
       (*actualScreenPar)++;
 
     xQueueSend(qShowInfoId,actualScreenPar,pdMS_TO_TICKS(50));
@@ -408,6 +206,52 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
     xTaskNotifyGive(taskHandles[TASK_SHOW_INFO]);
     return DRINK_SELECT;
   }  
+}
+void ShowInfo_Display1Sub(sScreenData*screenData,uint8_t*showInfoScreenId,uint8_t*textScroll,void*pvParameters){
+  uint64_t runTimeFromMillis=0;
+  uint8_t runTimeDays=0;
+  uint8_t runTimeHours=0;
+  uint8_t runTimeMinutes=0;
+  uint8_t runTimeSeconds=0;	
+  
+  switch(*showInfoScreenId){
+    case 0:
+	  sprintf(screenData->lines[1],"%s","Software ver. 3.");
+	  sprintf(screenData->lines[2],"%s","Author: Alan Kudelko");
+	  sprintf(screenData->lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);	
+	break;
+	case 1:
+	  sprintf(screenData->lines[1],"%s","Current run time");
+      runTimeFromMillis=millis()/1000;
+      runTimeDays=runTimeFromMillis/86400;
+      runTimeHours=runTimeFromMillis/3600%24;
+      runTimeMinutes=runTimeFromMillis/60%60;
+      runTimeSeconds=runTimeFromMillis%60;
+      memset(screenData->lines[2],0,sizeof(screenData->lines[2]));
+      sprintf(screenData->lines[2],"%2d %s %2d %s",runTimeDays,"days",runTimeHours,"h");
+      if(runTimeDays<10)
+        screenData->lines[2][0]='0';
+      if(runTimeHours<10)
+        screenData->lines[2][8]='0';
+      memset(screenData->lines[3],0,sizeof(screenData->lines[3]));
+      sprintf(screenData->lines[3],"%2d %s  %2d %s",runTimeMinutes,"min",runTimeSeconds,"s");
+      if(runTimeMinutes<10)
+        screenData->lines[3][0]='0';
+      if(runTimeSeconds<10)
+        screenData->lines[3][8]='0';	
+	break;
+  }
+  sprintf(screenData->lines[0],"%s","Drink Creator 6000");  
+}
+void ShowInfo_Display2Sub(sScreenData*screenData){
+	// For now i will use global variables right away
+	sprintf(screenData->lines[0],"%s","Drink Creator 6000");
+	//sprintf(screenData->lines[1],"Temp: 6.1f Set",,);
+	sprintf(screenData->lines[2],"%s %6.1f","Hyst: ",2.0);
+	sprintf(screenData->lines[3],"Status: %7s Fan: %3s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle","On");
+}
+void ShowInfo_Display3Sub(sScreenData*screnData,uint8_t*scroll){
+	
 }
 
 // Tasks
@@ -440,6 +284,8 @@ void taskErrorHandler(void*pvParameters){
       Serial.println("");
       EEPROMUpdateLastStartupError(&lastError);
       f_run=false;
+	  // Delay and systems restart
+	  // IF error occured, all devices should be safely shut down
     }
     vTaskDelay(pdMS_TO_TICKS(50));
   }
@@ -520,15 +366,6 @@ void taskMain(void*pvParameters){
 			  break;
 			  case SHOW_INFO:
 				  screenId=processShowInfoMenu(keyboardData,&showInfoId,&showTempId,&drinkId);
-			  break;
-			  case TEMP_INFO:
-				  screenId=processShowTempInfo(keyboardData,&showTempId,&showRamId,&showInfoId);
-			  break;
-			  case RAM_INFO:
-				  1;
-			  break;
-			  case STACK_INFO:
-				  1;
 			  break;
 		  }
 		  f_keyboardDataReceived=false;
@@ -733,12 +570,11 @@ void taskOrderDrink(void*pvParameters){
 }
 void taskShowInfo(void*pvParameters){
   uint8_t showInfoScreenId=0;
-  uint8_t runTimeDays=0;
-  uint8_t runTimeHours=0;
-  uint8_t runTimeMinutes=0;
-  uint8_t runTimeSeconds=0;
-  
-  uint64_t runTimeMillis=0;
+  uint8_t scroll=0;
+  // 0 - 1 version, runtime informations 1 second
+  // 2 temperature informations 1 second
+  // 3 ram information with scroll 2 seconds
+  // 4 stack information with scroll 2 seconds
   
   bool f_run=false;
 
@@ -748,44 +584,32 @@ void taskShowInfo(void*pvParameters){
   for(;;){
     if(ulTaskNotifyTake(pdTRUE,0)>0){
 	    while(xQueueReceive(qShowInfoId,&showInfoScreenId,pdMS_TO_TICKS(100))==pdPASS); // Remember to clear the queue
-	    showInfoScreenId=0;
+	    //showInfoScreenId=0; // Rather dispensible
+		scroll=0;
       f_run=false;
     }
 	if(xQueueReceive(qShowInfoId,&showInfoScreenId,pdMS_TO_TICKS(50))==pdPASS){
 	  f_run=true;
+	  scroll=0;
 	}
 	if(f_run){
-	  for(i=0;i<4;i++){
-        memset(screenData.lines[i],0,sizeof(screenData.lines[i]));
-      }
+      memset(&screenData,0,sizeof(screenData));
+	  
 	  switch(showInfoScreenId){
 		case 0:
-	      sprintf(screenData.lines[1],"%s","Software ver. 3.");
-		  sprintf(screenData.lines[2],"%s","Author: Alan Kudelko");
-		  sprintf(screenData.lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);
-		break;
 		case 1:
-	      sprintf(screenData.lines[1],"%s","Current run time");
-          runTimeMillis=millis()/1000;
-          runTimeDays=runTimeMillis/86400;
-          runTimeHours=runTimeMillis/3600%24;
-          runTimeMinutes=runTimeMillis/60%60;
-          runTimeSeconds=runTimeMillis%60;
-          memset(screenData.lines[2],0,sizeof(screenData.lines[2]));
-          sprintf(screenData.lines[2],"%2d %s %2d %s",runTimeDays,"days",runTimeHours,"h");
-          if(runTimeDays<10)
-            screenData.lines[2][0]='0';
-          if(runTimeHours<10)
-            screenData.lines[2][8]='0';
-          memset(screenData.lines[3],0,sizeof(screenData.lines[3]));
-          sprintf(screenData.lines[3],"%2d %s  %2d %s",runTimeMinutes,"min",runTimeSeconds,"s");
-          if(runTimeMinutes<10)
-            screenData.lines[3][0]='0';
-          if(runTimeSeconds<10)
-            screenData.lines[3][8]='0';
+		ShowInfo_Display1Sub(&screenData,&showInfoScreenId,&scroll,pvParameters);
+		break;
+		case 2:
+		ShowInfo_Display2Sub(&screenData);
+		break;
+		case 3:
+		ShowInfo_Display3Sub(&screenData,&scroll);
+		break;
+		case 4:
+		//ShowInfo_Display4Sub(&screenData,&scroll);
 		break;
 	  }
-	  sprintf(screenData.lines[0],"%s","Drink Creator 6000");      // Fix in release
 	  xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
 	}
   vTaskDelay(pdMS_TO_TICKS(1000));
@@ -801,12 +625,6 @@ void taskShowTemp(void*pvParameters){
     if(f_run){
       // To implement
     }
-    vTaskDelay(pdMS_TO_TICKS(1000));
-  }
-}
-void taskShowRamInfo(void*pvParameters){
-  for(;;){
-    
     vTaskDelay(pdMS_TO_TICKS(1000));
   }
 }
@@ -881,6 +699,8 @@ void taskKeyboardSim(void*pvParameters){
   }
 }
 void setup(){
+  initializeMemory();
+	
   while(!eeprom_is_ready());
   
   EEPROMUpdateBootups(&bootupsCount);
@@ -888,7 +708,6 @@ void setup(){
     
   lcd.begin();
   lcd.backlight();
-  
   lcd.load_custom_character(0,fullSquare);
   lcd.load_custom_character(1,fullSquare);
   lcd.load_custom_character(2,fullSquare);
@@ -902,7 +721,7 @@ void setup(){
   
   lastBootup_dump(&bootupsCount);
   
-  initializeMemory();
+
   pinMode(INTPin,INPUT);
   attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
 
