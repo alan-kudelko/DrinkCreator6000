@@ -91,27 +91,26 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ## 🗺️ Roadmap
 
-- [X] Create custom PCB with AVR MCU and additional components
-- [X] Create functions for static allocation of Queues, Mutexes, and Semaphores
-- [X] Create function for displaying current RAM usage via serial monitor
-- [X] Create function for debugging the last unconfirmed error stored in EEPROM
-- [X] Create function for displaying the boot count from EEPROM via serial port
-- [X] Create stackOverflowHook for handling stack overflow errors
-- [X] Create task for handling critical system errors such as stack overflows and logging them to EEPROM
-- [X] Create task for debugging stack usage and runtime status of all tasks via serial monitor
-- [ ] Create main task for coordinating other tasks
-- [X] Create task for handling regular LCD updates
-- [X] Create task for regulating temperature inside the freezer
-- [ ] Create task for handling keyboard input from PCF8574 with software debounce
-- [ ] Create task for selecting the drink to be ordered
-- [ ] Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
-- [ ] Create task for processing the ordered drink (pump activation)
-- [X] Create task to display project information such as author, startup count, and current runtime
-- [ ] Create task to display current temperature settings and actual temperature inside the freezer
-- [ ] Create task to display and confirm the last saved error
-- [X] Implement software guard zones between task stacks for added protection and reliability
-- [ ] Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
-- [ ] Separate code into multiple files for better readability
+- ✅ Create custom PCB with AVR MCU and additional components
+- ✅ Create functions for static allocation of Queues, Mutexes, and Semaphores
+- ✅ Create function for displaying current RAM usage via serial monitor
+- ✅ Create function for debugging the last unconfirmed error stored in EEPROM
+- ✅ Create function for displaying the boot count from EEPROM via serial port
+- ✅ Create stackOverflowHook for handling stack overflow errors
+- ✅ Create task for handling critical system errors such as stack overflows and logging them to EEPROM
+- ✅ Create task for debugging stack usage and runtime status of all tasks via serial monitor
+- ✅ Create main task for coordinating other tasks
+- ✅ Create task for handling regular LCD updates
+- ✅ Create task for regulating temperature inside the freezer
+- 🔄 Create task for handling keyboard input from PCF8574 with software debounce
+- 🔄 Create task for selecting the drink to be ordered
+- 🔄 Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
+- 🔄 Create task for processing the ordered drink (pump activation)
+- ✅ Create task to display project information such as author, startup count, and current runtime
+- 🔄 Create task to display and confirm the last saved error
+- ✅ Implement software guard zones between task stacks for added protection and reliability
+- 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
+- 🔄 Separate code into multiple files for better readability
 
 ---
 
