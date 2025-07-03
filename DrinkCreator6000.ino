@@ -7,10 +7,10 @@
 void updateMemoryUsage(){
   heap_end=__brkval?__brkval:(void*)&__heap_start;
   stack_ptr=(uint8_t*)SP;
-
+// Explain this section in github (context switching SP pointer is volatile)
   heap_size=(uint16_t)heap_end-(uint16_t)&__heap_start;
   stack_size=(uint16_t)RAMEND-(uint16_t)stack_ptr;
-  total_free=(uint16_t)stack_ptr-(uint16_t)heap_end;	
+  total_free=(uint16_t)RAMEND-(uint16_t)heap_end;	
 }
 void ram_dump(){
   char buffer[6]{};
@@ -244,16 +244,11 @@ void ShowInfo_Display3Sub(sScreenData*screenData,uint8_t*scroll){
   updateMemoryUsage();
   sprintf(screenData->lines[0],"%s","RAM Status");
 
-  switch(*scroll){
+    switch(*scroll){
     case 0:
       sprintf(screenData->lines[1],"%s","Currently in use:");
-      sprintf(screenData->lines[2],"%4d B / %4d B",total_free,RAMEND);
-      sprintf(screenData->lines[3],"%2u % Free",total_free/RAMEND);
-      //Serial.print((uint16_t)stack_ptr);
-      //Serial.print("   ");
-      //Serial.println((uint16_t)heap_end);
-      ram_dump();
-      
+      sprintf(screenData->lines[2],"%4u B / %4u B",uint16_t(RAMEND)-uint16_t(__data_end)-uint16_t(total_free),(uint16_t(RAMEND)-uint16_t(__data_end)));
+      sprintf(screenData->lines[3],"%3u %% Free",uint16_t((100*(uint16_t(RAMEND)-uint16_t(__data_end)-uint16_t(total_free)))/(uint16_t(RAMEND)-uint16_t(__data_end))));
     break;
     case 1:
       //sprintf(screenData->lines[1],".DATA - size %d B",);
@@ -357,7 +352,6 @@ void taskStackDebugger(void*pvParameters){
       }
     Serial.println(F("[####################]====TASK STATUS===[##]"));
 
-    ram_dump();
     vTaskDelay(pdMS_TO_TICKS(2000));
   }
 }
@@ -712,14 +706,13 @@ void setup(){
   initializeMemory();
   initializeHardware();
   
-  f_errorConfirmed=lastSystemError.confirmed;
+  //f_errorConfirmed=lastSystemError.confirmed;
   f_errorConfirmed=1;
 
   lastBootup_dump(&bootupsCount);  
-  //lastError_dump(&lastSystemError); 	  
-  ram_dump();
-      normalStart();
-      return;
+  //lastError_dump(&lastSystemError);
+
+  ram_dump();    
   if(f_errorConfirmed==0){
     faultStart();
   }
