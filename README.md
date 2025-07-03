@@ -84,7 +84,7 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - 🔁 Ensure recovery after failure using EEPROM fault logging
 - 📟 Provide full system visibility through LCD diagnostics and monitoring
 - 🧪 Serve as a practical testbed for FreeRTOS and embedded RTOS design
-- 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design in bare-metal embedded systems
+- 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design embedded systems
 - 🧩 Implement low-level memory management techniques for optimized and reliable resource control
 
 ---
