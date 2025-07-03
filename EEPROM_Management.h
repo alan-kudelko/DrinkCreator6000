@@ -16,12 +16,6 @@ void EEPROMGetLastStartupError(sSystemError*lastError){
   eeprom_read_block((void*)lastError,(void*)EEPROM_LAST_ERROR_ADDR,sizeof(sSystemError));
 }
 void EEPROMUpdateLastStartupError(sSystemError*errorStruct){
-  uint16_t runTimeFromMillis=millis()/1000;
-  errorStruct->days=runTimeFromMillis/3600/24;
-  errorStruct->hours=runTimeFromMillis/3600%24;
-  errorStruct->minutes=runTimeFromMillis/60%60;
-  errorStruct->seconds=runTimeFromMillis%60;
-  
   eeprom_update_block((void*)errorStruct,(void*)EEPROM_LAST_ERROR_ADDR,sizeof(sSystemError));
 }
 

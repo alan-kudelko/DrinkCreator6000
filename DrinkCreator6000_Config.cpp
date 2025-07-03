@@ -1,6 +1,9 @@
 #include "DrinkCreator6000_Config.h"
 
-////////////////////////////////////////////////////////////////// TASK DATA
+//////////////////////////////////////////////////////////////////
+// Task data:
+// Stack sizes for all tasks and their IDs
+// Guard zones for stack overflow protection
 StaticTask_t errorHandlerTCB{0xF};                                   //0
 StaticTask_t stackDebuggerTCB{0xF};                                  //1
 StaticTask_t mainTCB{0xF};                                           //2
@@ -10,9 +13,8 @@ StaticTask_t readInputTCB{0xF};                                      //5
 StaticTask_t selectDrinkTCB{0xF};                                    //6
 StaticTask_t orderDrinkTCB{0xF};                                     //7
 StaticTask_t showInfoTCB{0xF};                                       //8
-StaticTask_t showTempTCB{0xF};                                       //9
-StaticTask_t showLastErrorTCB{0xF};                                  //10
-StaticTask_t keyboardSimTCB{0xF};                                    //11
+StaticTask_t showLastErrorTCB{0xF};                                  //9
+StaticTask_t keyboardSimTCB{0xF};                                    //10
 
 TaskHandle_t taskHandles[TASK_N]{0xF};
 
@@ -43,17 +45,18 @@ StackType_t guardZone7[GUARD_ZONE_SIZE]{0xF};
 StackType_t showInfoStack[TASK_SHOW_INFO_STACK_SIZE]{0xF};           //8
 StackType_t guardZone8[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t showTempStack[TASK_SHOW_TEMP_STACK_SIZE]{0xF};           //9
+StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE]{0xF};//9
 StackType_t guardZone9[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE]{0xF};//10
+StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE]{0xF};     //10
 StackType_t guardZone10[GUARD_ZONE_SIZE]{0xF};
-
-StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE]{0xF};     //11
-StackType_t guardZone11[GUARD_ZONE_SIZE]{0xF};
-////////////////////////////////////////////////////////////////// SCREEN DATA
+//////////////////////////////////////////////////////////////////
+// Screen data:
+// LCD dimensions and I2C address
 LiquidCrystal_I2C lcd(LCD_ADDR,LCD_WIDTH,LCD_HEIGHT);
-////////////////////////////////////////////////////////////////// FLOW CONTROL
+//////////////////////////////////////////////////////////////////
+// Flow control:
+// Queue sizes and buffers for inter-task communication
 uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{0xF};
 uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
 uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
@@ -80,9 +83,11 @@ QueueHandle_t qErrorId{0xF};
 SemaphoreHandle_t sem_ReadData{0xF};
 SemaphoreHandle_t mux_I2CLock{0xF};
 SemaphoreHandle_t mux_SerialLock{0xF};
-////////////////////////////////////////////////////////////////// GLOBAL VARIABLES
+//////////////////////////////////////////////////////////////////
+// Global variables:
+// System error, flags, counters and temperature parameters
 sSystemError lastSystemError{0xF};
-uint8_t f_errorConfirmed=0;;
+uint8_t f_errorConfirmed=0;
 uint16_t bootupsCount=0;
 
 float currentTemperature=10.5;
@@ -90,7 +95,9 @@ float setTemperature=4.5;
 float temperatureHysteresis=1.0;
 
 volatile bool f_enableISR=true;
-////////////////////////////////////////////////////////////////// DRINK DATA
+//////////////////////////////////////////////////////////////////
+// Drink data:
+// Drink definitions, ingredients, and pump efficiencies
 const sDrinkData drink[20]={
   {"Raz",    50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
   {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
@@ -135,3 +142,11 @@ const uint8_t pumpsEff[8]{
   200,
   200
 };
+//////////////////////////////////////////////////////////////////
+// RAM-related symbols and global memory variables:
+void* heap_end=NULL;
+uint8_t* stack_ptr=NULL;
+
+uint16_t heap_size=0;
+uint16_t stack_size=0;
+uint16_t total_free=0;
