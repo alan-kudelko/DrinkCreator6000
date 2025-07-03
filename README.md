@@ -42,10 +42,9 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 | 05      | `taskReadInput`     | Handles input devices like buttons or encoders and passes events to the main task. |
 | 06      | `taskSelectDrink`   | Displays the current drink selection and related status.                    |
 | 07      | `taskOrderDrink`    | Processes drink orders and manages state transitions for dispensing.        |
-| 08      | `taskShowInfo`      | Displays error details on the LCD after a system reset due to failure.      |
-| 09      | `taskShowTemp`      | Shows the current measured temperature on the LCD.                         |
-| 10      | `taskShowLastError` | Presents recent errors, task states, and priority information on the LCD.  |
-| 11      | `taskSim` | Simulates keyboard input by reading data from the serial interface. (used for testing)|
+| 08   | `taskShowInfo`  | Displays firmware version, runtime data, temperature, RAM usage, and stack information|
+| 09      | `taskShowLastError` | Presents recent errors, task states, and priority information on the LCD.  |
+| 10      | `taskSim` | Simulates keyboard input by reading data from the serial interface. (used for testing)|
 ---
 
 ### 📊 RAM Usage Overview (Start, End, Size)
