@@ -136,11 +136,8 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 | 0  | **Startup Screen**    | Displays the project name, firmware version, and boot count.               |
 | 1  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
 | 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
-| 3  | **Show Info Screen**    | Displays uptime, project name, author, firmware version, and boot count.  |
-| 4  | **Show Temp Info Screen**    | Displays current temperature inside the freezer and temperature settings|
-| 5  | **Show RAM Info Screen**    | Displays current RAM usage (.data, .bss, heap, stack and free memory left)  |
-| 6  | **Show Stack Size Screen**    | Displays stack free space, name, priority, id and state for every task in the project  |
-| 7  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
+| 3  | **Show Info Screen** | Displays general system status including uptime, firmware version, boot count, author, freezer temperature, RAM usage, and task stack diagnostics. |
+| 4  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
 
 Screen transition diagram:
 
@@ -156,33 +153,15 @@ Screen transition diagram:
              /       \
             v         v
       +-------------+  +-------------+
-      | 2 Drink     |  | 3 Show      |
+      | 2 Drink     |  | 3 Show      |  (scrollable)
       | Order       |  | System Info |
       +-------------+  +------+------+
-                              |
-                              v
-                      +-------------+
-                      | 4 Show Temp |  (editable)
-                      | Info        |
-                      +------+------+
                              |
                              v
-                      +-------------+
-                      | 5 Show RAM  |  (scrollable)
-                      | Info        |
-                      +------+------+
-                             |
-                             v
-                      +-------------+
-                      | 6 Show Stack|  (scrollable)
-                      | Size        |
-                      +-------------+
-                             |
-                             v
-                      +-------------+
-                      | 7 Show Last |  (scrollable)
-                      | Error       |
-                      +-------------+
+                       +-------------+
+                       | 7 Show Last |  (scrollable)
+                       | Error       |
+                       +-------------+
 ---
 
 ### 🎬 Live Demo
