@@ -176,13 +176,14 @@ Screen transition diagram:
                             ║PR:1 State:Suspended║             ║####################║
                             ╚════════════════════╝             ╚════════════════════╝
                                       ║
-                                      ║
-                                      ▼
-                            ╔════════════════════╗             ╔════════════════════╗
-                            ║ 5 Show Last Error  ║ Submenu[1]  ║ 4 Show Last Error  ║
-    5 Show Last Error       ║                    ║ --------->  ║ 4 Show Last Error  ║
-                            ║                    ║             ║ 4 Show Last Error  ║
-                            ║                    ║             ║ 4 Show Last Error  ║
+                                      ║        +<-------------------------------------------+
+                                      ║        |                                            |
+                                      ▼        ▼                                            |
+                            ╔════════════════════╗             ╔════════════════════╗       |
+                            ║Stack overflow in t:║ Submenu[1]  ║Error confirmed     ║       |
+    5 Show Last Error       ║Error time signature║ --------->  ║EEPROM updated      ║ ----->+
+                            ║21 days  19 h       ║             ║                    ║
+                            ║39 min   22 s       ║             ║                    ║ 
                             ╚════════════════════╝             ╚════════════════════╝
                                      ║
                                      ║
