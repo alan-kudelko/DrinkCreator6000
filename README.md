@@ -140,25 +140,26 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 
 Screen transition diagram:
   
-                      ╔════════════════════╗  
-                      ║Drink Creator 6000  ║   
-    0 Welcome Screen  ║Initializing...     ║ 
-                      ║[----------] 100 %  ║   
-                      ║Please wait         ║                         
-                      ╚════════════════════╝ 
-                 ║
-                 ║
-                 ▼
-      ╔══════════════════════╗      ╦══════════════════════╗
-      ║ 1 Drink Select       ║      ║ 2 Drink Order        ║
-      ║                      ║      ║                      ║
-      ║                      ║      ║                      ║
-      ╚══════════════════════╝      ╚══════════════════════╝
-                 ║
-                 ║
-                 ▼
-      ╔══════════════════════╗
-      ║ 3 Show System Info   ║
+                            ╔════════════════════╗  
+                            ║Drink Creator 6000  ║   
+    0 Welcome Screen        ║Initializing...     ║ 
+                            ║Please wait         ║                         
+                            ║[█████-----]  50 %  ║   
+                            ╚════════════════════╝ 
+                                      ║
+                                      ║
+                                      ▼
+                            ╔════════════════════╗      ╦══════════════════════╗
+                            ║[01]Test Drink      ║      ║ 2 Drink Order        ║
+    1 Drink Select Screen   ║Whiskey       50[ml]║      ║                      ║
+                            ║Rum          100[ml]║      ║                      ║
+                            ║Cola         250[ml]║      ║                      ║                          
+                            ╚════════════════════╝      ╚══════════════════════╝
+                              ║
+                              ║
+                              ▼
+                     ╔══════════════════════╗
+                     ║ 3 Show System Info   ║
       ║                      ║
       ║                      ║
       ╚══════════════════════╝
