@@ -140,11 +140,12 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 
 Screen transition diagram:
   
-      ╔══════════════════════╗  
-      ║ 0 Welcome            ║   
-      ║                      ║ 
-      ║                      ║   
-      ╚══════════════════════╝ 
+                      ╔════════════════════╗  
+                      ║Drink Creator 6000  ║   
+0 Welcome Screen      ║Initializing...     ║ 
+                      ║[----------] 100 %  ║   
+                      ║Please wait         ║                         
+                      ╚════════════════════╝ 
                  ║
                  ║
                  ▼
