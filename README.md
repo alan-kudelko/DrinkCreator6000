@@ -136,7 +136,8 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 | 1  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
 | 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
 | 3  | **Show Info Screen** | Displays general system status including uptime, firmware version, boot count, author, freezer temperature, RAM usage, and task stack diagnostics. |
-| 4  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
+| 4  | **Show Task Stack Info Screen** | Displays detailed information about FreeRTOS task stacks, including task names, priorities, and high-water marks (minimum remaining stack). |
+| 5  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
 
 Screen transition diagram:
   
@@ -156,12 +157,12 @@ Screen transition diagram:
                             ║Cola         250[ml]║             ║                    ║                          
                             ╚════════════════════╝             ╚════════════════════╝
                                       ║
-                                      ║        +--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-                                      ║        |                                                                                                                                                                                      |
-                                      ▼        ▼                                                                                                                                                                                      |
-                            ╔════════════════════╗             ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗         |
-                            ║Drink Creator 6000  ║  Submenu[1] ║Drink Creator 6000  ║ Submenu[2] ║Drink Creator 6000  ║ Submenu[3] ║RAM Info            ║ Submenu[4] ║RAM Info            ║ Submenu[5] ║RAM Info            ║         |
-    3 Show System Info[0]   ║Software ver. 3.0   ║  ---------> ║Current run time    ║ ---------> ║T: 21.2°C  S:11.0°C ║ ---------> ║Usage: 6722 B/8192 B║ ---------> ║.data: 0x0200-0x1522║ ---------> ║HEAP:  0x1BF7-0x1BF7║ --------+
+                                      ║        +<----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<+
+                                      ║        |                                                                                                                                                                                    |
+                                      ▼        ▼                                                                                                                                                                                    |
+                            ╔════════════════════╗             ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗       |
+                            ║Drink Creator 6000  ║  Submenu[1] ║Drink Creator 6000  ║ Submenu[2] ║Drink Creator 6000  ║ Submenu[3] ║RAM Info            ║ Submenu[4] ║RAM Info            ║ Submenu[5] ║RAM Info            ║       |
+    3 Show System Info[0]   ║Software ver. 3.0   ║  ---------> ║Current run time    ║ ---------> ║T: 21.2°C  S:11.0°C ║ ---------> ║Usage: 6722 B/8192 B║ ---------> ║.data: 0x0200-0x1522║ ---------> ║HEAP:  0x1BF7-0x1BF7║ ----->+
                             ║Author: Alan Kudelko║             ║21 days  19 h       ║            ║Hyst: 4.0°C         ║            ║[########--]  82%   ║            ║.bss:  0x1522-0x1BF7║            ║STACK: 0x21B5-0x21FF║
                             ║Startup count: 1000 ║             ║39 min   22 s       ║            ║Status: Cooling     ║            ║                    ║            ║Size:  4898 B 1749 B║            ║Size:     0 B   74 B║
                             ╚════════════════════╝             ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝
@@ -169,10 +170,10 @@ Screen transition diagram:
                                       ║
                                       ▼
                             ╔════════════════════╗             ╔════════════════════╗
-                            ║ 5 Show Last Error  ║ Submenu[1]  ║ 4 Show Last Error  ║
-    4 Show Last Error       ║                    ║ --------->  ║ 4 Show Last Error  ║
-                            ║                    ║             ║ 4 Show Last Error  ║
-                            ║                    ║             ║ 4 Show Last Error  ║
+                            ║[03]Task information║  Submenu[1] ║[03]Task information║
+    4 Show Task Stack Info  ║UPDATE SCREEN       ║  ---------> ║####################║
+                            ║Highwater mark:  100║             ║  MEMORY CORRUPTED  ║
+                            ║PR:1 State:Suspended║             ║####################║
                             ╚════════════════════╝             ╚════════════════════╝
                                       ║
                                       ║
