@@ -103,7 +103,7 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - ✅ Create task for regulating temperature inside the freezer
 - 🔄 Create task for handling keyboard input from PCF8574 with software debounce
 - 🔄 Create task for selecting the drink to be ordered
-- 🔄 Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
+- ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
 - 🔄 Create task for processing the ordered drink (pump activation)
 - ✅ Create task to display project information such as author, startup count, and current runtime
 - 🔄 Create task to display and confirm the last saved error
@@ -139,28 +139,44 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 | 4  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
 
 Screen transition diagram:
-
-          +-------------+
-          | 0 Welcome   |
-          +------+------+
-                 |
-                 v
-          +-------------+  
-          | 1 Drink     |  (scrollable)
-          | Select      |
-          +------+------+
-             /       \
-            v         v
-      +-------------+  +-------------+
-      | 2 Drink     |  | 3 Show      |  (scrollable)
-      | Order       |  | System Info |
-      +-------------+  +------+------+
-                             |
-                             v
-                       +-------------+
-                       | 7 Show Last |  (scrollable)
-                       | Error       |
-                       +-------------+
+  
+      ╔══════════════════════╗  
+      ║ 0 Welcome            ║   
+      ║                      ║ 
+      ║                      ║   
+      ╚══════════════════════╝ 
+                 ║
+                 ║
+                 ▼
+      ╔══════════════════════╗      ╦══════════════════════╗
+      ║ 1 Drink Select       ║      ║ 2 Drink Order        ║
+      ║                      ║      ║                      ║
+      ║                      ║      ║                      ║
+      ╚══════════════════════╝      ╚══════════════════════╝
+                 ║
+                 ║
+                 ▼
+      ╔══════════════════════╗
+      ║ 3 Show System Info   ║
+      ║                      ║
+      ║                      ║
+      ╚══════════════════════╝
+                 ║
+                 ║
+                 ▼
+      ╔══════════════════════╗
+      ║ 4 Show Last Error    ║
+      ║                      ║
+      ║                      ║
+      ╚══════════════════════╝
+                 ║
+                 ║
+                 ▼
+      ╔══════════════════════╗
+      ║ 5 Test Pumps         ║
+      ║                      ║
+      ║                      ║
+      ╚══════════════════════╝
 ---
 
 ### 🎬 Live Demo
