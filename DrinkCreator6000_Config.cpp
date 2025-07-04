@@ -15,6 +15,7 @@ StaticTask_t orderDrinkTCB{0xF};                                     //7
 StaticTask_t showInfoTCB{0xF};                                       //8
 StaticTask_t showLastErrorTCB{0xF};                                  //9
 StaticTask_t keyboardSimTCB{0xF};                                    //10
+StaticTask_t welcomeTCB{0xF};                                        //11
 
 TaskHandle_t taskHandles[TASK_N]{0xF};
 
@@ -50,6 +51,9 @@ StackType_t guardZone9[GUARD_ZONE_SIZE]{0xF};
 
 StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE]{0xF};     //10
 StackType_t guardZone10[GUARD_ZONE_SIZE]{0xF};
+
+StackType_t welcomeStack[TASK_WELCOME_STACK_SIZE]{0xF};              //11
+StackType_t guardZone11[GUARD_ZONE_SIZE]{0xF};
 //////////////////////////////////////////////////////////////////
 // Screen data:
 // LCD dimensions and I2C address
@@ -62,12 +66,14 @@ uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
 uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
 uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
 uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t)]{0xF};
+uint8_t lastErrorIdQueueBuffer[LAST_ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
 
 StaticQueue_t screenQueueStructBuffer{0xF};
 StaticQueue_t keyboardQueueStructBuffer{0xF};
 StaticQueue_t drinkIdQueueStructBuffer{0xF};
 StaticQueue_t showInfoQueueStructBuffer{0xF};
 StaticQueue_t errorIdQueueStructBuffer{0xF};
+StaticQueue_t lastErrorIdQueueStructBuffer{0xF};
 
 StaticSemaphore_t semReadDataBuffer{0xF};
 StaticSemaphore_t muxI2CLockBuffer{0xF};
@@ -79,6 +85,7 @@ QueueHandle_t qDrinkId{0xF};
 QueueHandle_t qOrderDrinkId{0xF};
 QueueHandle_t qShowInfoId{0xF};
 QueueHandle_t qErrorId{0xF};
+QueueHandle_t qLastErrorId{0xF};
 
 SemaphoreHandle_t sem_ReadData{0xF};
 SemaphoreHandle_t mux_I2CLock{0xF};
@@ -149,4 +156,6 @@ uint8_t* stack_ptr=NULL;
 
 uint16_t heap_size=0;
 uint16_t stack_size=0;
-uint16_t total_free=0;
+uint16_t ram_total_free=0;
+uint16_t ram_in_use=0;
+const uint16_t ram_size=uint16_t(RAMEND)-uint16_t(&__data_start)+1;

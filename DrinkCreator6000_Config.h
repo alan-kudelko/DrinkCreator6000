@@ -38,9 +38,10 @@ enum{TASK_REGULATE_TEMP_STACK_SIZE=150};     //4
 enum{TASK_READ_INPUT_STACK_SIZE=150};        //5
 enum{TASK_SELECT_DRINK_STACK_SIZE=256};      //6
 enum{TASK_ORDER_DRINK_STACK_SIZE=320};       //7
-enum{TASK_SHOW_INFO_STACK_SIZE=320};         //8
-enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=256};   //9
-enum{TASK_KEYBOARD_SIM_STACK_SIZE=192};      //10
+enum{TASK_SHOW_INFO_STACK_SIZE=384};         //8
+enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=320};   //9
+enum{TASK_KEYBOARD_SIM_STACK_SIZE=150};      //10
+enum{TASK_WELCOME_STACK_SIZE=150};           //11
 // Stack size - will need "tuning" in last release
 enum{
   TASK_ERROR_HANDLER=0,
@@ -53,10 +54,11 @@ enum{
   TASK_ORDER_DRINK=7,
   TASK_SHOW_INFO=8,
   TASK_SHOW_LAST_ERROR=9,
-  TASK_KEYBOARD_SIM=10
+  TASK_KEYBOARD_SIM=10,
+  TASK_WELCOME=11
 };
 // Task identifiers
-enum{GUARD_ZONE_SIZE=32};
+enum{GUARD_ZONE_SIZE=4};
 // Guard zone size between task stacks	 
 enum{TASK_N=11};
 // Task count
@@ -69,9 +71,10 @@ enum{
   TASK_READ_INPUT_REFRESH_RATE=100,
   TASK_SELECT_DRINK_REFRESH_RATE=1000,
   TASK_ORDER_DRINK_REFRESH_RATE=1000,
-  TASK_SHOW_INFO_REFRESH_RATE=1000,
+  TASK_SHOW_INFO_REFRESH_RATE=1500,
   TASK_SHOW_LAST_ERROR_REFRESH_RATE=1000,
-  TASK_KEYBOARD_SIM_REFRESH_RATE=1000
+  TASK_KEYBOARD_SIM_REFRESH_RATE=1000,
+  TASK_WELCOME_REFRESH_RATE=500
 };
 // Task refresh rates in ms
 extern StaticTask_t errorHandlerTCB;                                   //0
@@ -85,6 +88,7 @@ extern StaticTask_t orderDrinkTCB;                                     //7
 extern StaticTask_t showInfoTCB;                                       //8
 extern StaticTask_t showLastErrorTCB;                                  //9
 extern StaticTask_t keyboardSimTCB;                                    //10
+extern StaticTask_t welcomeTCB;                                        //11
 // Task control blocks
 extern TaskHandle_t taskHandles[TASK_N];
 // Task handles, assigned in the same order as identifiers
@@ -120,6 +124,9 @@ extern StackType_t guardZone9[GUARD_ZONE_SIZE];
 
 extern StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE];     //10
 extern StackType_t guardZone10[GUARD_ZONE_SIZE];
+
+extern StackType_t welcomeStack[TASK_WELCOME_STACK_SIZE];              //11
+extern StackType_t guardZone11[GUARD_ZONE_SIZE];
 // Task stacks and guard zones
 //////////////////////////////////////////////////////////////////
 // Screen data:
@@ -190,19 +197,22 @@ enum{
   KEYBOARD_QUEUE_BUFFER_COUNT=2,
   DRINK_ID_QUEUE_BUFFER_COUNT=2,
   SHOW_INFO_QUEUE_BUFFER_COUNT=2,
-  ERROR_ID_QUEUE_BUFFER_COUNT=1
+  ERROR_ID_QUEUE_BUFFER_COUNT=1,
+  LAST_ERROR_ID_QUEUE_BUFFER_COUNT=1
 };
 extern uint8_t screenQueueBuffer[];
 extern uint8_t keyboardQueueBuffer[];
 extern uint8_t drinkIdQueueBuffer[];
 extern uint8_t showInfoQueueBuffer[];
 extern uint8_t errorIdQueueBuffer[];
+extern uint8_t lastErrorIdQueueBuffer[];
 
 extern StaticQueue_t screenQueueStructBuffer;
 extern StaticQueue_t keyboardQueueStructBuffer;
 extern StaticQueue_t drinkIdQueueStructBuffer;
 extern StaticQueue_t showInfoQueueStructBuffer;
 extern StaticQueue_t errorIdQueueStructBuffer;
+extern StaticQueue_t lastErrorIdQueueStructBuffer;
 
 extern StaticSemaphore_t semReadDataBuffer;
 extern StaticSemaphore_t muxI2CLockBuffer;
@@ -214,7 +224,7 @@ extern QueueHandle_t qDrinkId;         // Change name to qSelectDrinkId, Consume
 extern QueueHandle_t qOrderDrinkId;    // Consumed only by taskOrderDrink
 extern QueueHandle_t qShowInfoId; // Consumed by taskShowInfo 
 extern QueueHandle_t qErrorId; // Consumed by taskErrorHandler
-extern QueueHandle_t qLastError; // Consumed by taskLastError
+extern QueueHandle_t qLastErrorId; // Consumed by taskLastError
 // Queue handles
 extern SemaphoreHandle_t sem_ReadData;
 extern SemaphoreHandle_t mux_I2CLock;
@@ -257,6 +267,9 @@ extern uint8_t*stack_ptr;
 
 extern uint16_t heap_size;
 extern uint16_t stack_size;
-extern uint16_t total_free;
+
+extern uint16_t ram_total_free;
+extern uint16_t ram_in_use;
+extern const uint16_t ram_size;
 
 #endif // _DRINK_CREATOR6000_CONFIG_H_

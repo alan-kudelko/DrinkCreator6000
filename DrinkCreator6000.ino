@@ -6,32 +6,32 @@
 
 void updateMemoryUsage(){
   heap_end=__brkval?__brkval:(void*)&__heap_start;
-  stack_ptr=(uint8_t*)SP;
-// Explain this section in github (context switching SP pointer is volatile)
   heap_size=(uint16_t)heap_end-(uint16_t)&__heap_start;
   stack_size=(uint16_t)RAMEND-(uint16_t)stack_ptr;
-  total_free=(uint16_t)RAMEND-(uint16_t)heap_end;	
+  
+  ram_total_free=(uint16_t)stack_ptr-(uint16_t)heap_end;
+  ram_in_use=uint16_t(ram_size)-uint16_t(ram_total_free);
 }
 void ram_dump(){
   char buffer[6]{};
   updateMemoryUsage();
   
-  Serial.println(F("[#####]=====[RAM DUMP]=====[#####]"));
-  Serial.println(F("[     ]START | END  | SIZE [     ]"));
+  Serial.println(F("[#####]====[MEMORY STATUS]====[#####]"));
+  Serial.println(F("[     ] START |  END  | SIZE  [     ]"));
 
   sprintf(buffer,"%04X",(uint16_t)&__data_start);
-  Serial.print(F("[DATA ]0x")); Serial.print(buffer);
+  Serial.print(F("[.DATA]0x")); Serial.print(buffer);
   sprintf(buffer,"%04X",(uint16_t)&__data_end);
   Serial.print(F("|0x")); Serial.print(buffer);
   sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__data_end-(uint16_t)&__data_start));
-  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[DATA ]"));
+  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[.DATA]"));
 
   sprintf(buffer,"%04X",(uint16_t)&__bss_start);
-  Serial.print(F("[BSS  ]0x")); Serial.print(buffer);
+  Serial.print(F("[.BSS ]0x")); Serial.print(buffer);
   sprintf(buffer,"%04X",(uint16_t)&__bss_end);
   Serial.print(F("|0x")); Serial.print(buffer);
   sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__bss_end-(uint16_t)&__bss_start));
-  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[BSS  ]"));
+  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[.BSS ]"));
 
   sprintf(buffer,"%04X",(uint16_t)&__heap_start);
   Serial.print(F("[HEAP ]0x")); Serial.print(buffer);
@@ -48,11 +48,11 @@ void ram_dump(){
   Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[STACK]"));
 
   Serial.print(F("[FREE ]-------------|"));
-  sprintf(buffer, "%4d",total_free);
+  sprintf(buffer, "%4d",ram_total_free);
   Serial.print(buffer);
   Serial.println(F(" B[FREE ]"));
 
-  Serial.println(F("[#####]=====[RAM DUMP]=====[#####]"));
+  Serial.println(F("[#####]====[MEMORY STATUS]====[#####]"));
 }
 void lastError_dump(sSystemError*lastError){
   char buffer[50]{};
@@ -115,7 +115,7 @@ void setInputFlag(){
     BaseType_t xHigherPriorityTaskWoken=pdFALSE;
     if(f_enableISR){
       xSemaphoreGiveFromISR(sem_ReadData,&xHigherPriorityTaskWoken);
-      f_enableISR=false;
+      //f_enableISR=false;
     }
 }
 uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar){
@@ -149,6 +149,7 @@ uint8_t processDrinkSelectMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint
 	}
 }
 uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
+  uint8_t defval=0;
   if((keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
     // Code for scrolling info
     if(*actualScreenPar>0)
@@ -167,7 +168,7 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
     return SHOW_INFO;
   }
   else if((keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
-	//xQueueSend(); // Show last Error
+	xQueueSend(qLastErrorId,&defval,pdMS_TO_TICKS(50)); // Show last Error
 	xTaskNotifyGive(taskHandles[TASK_SHOW_INFO]);
     return SHOW_LAST_ERROR;
   }
@@ -178,11 +179,16 @@ uint8_t processShowInfoMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t
   }
 }
 uint8_t processLastErrorMenu(uint8_t keyboardData,uint8_t*actualScreenPar,uint8_t*nextScreenPar,uint8_t*previousScreenPar){
+  uint8_t defval=0;
+  if((keyboardData&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+	//xQueueSend(  
+  }
   if((keyboardData&E_RED_BUTTON)==E_RED_BUTTON){
-	 //xQueueSend();
+	xQueueSend(qShowInfoId,&defval,pdMS_TO_TICKS(50));
 	xTaskNotifyGive(taskHandles[TASK_SHOW_LAST_ERROR]);
     return SHOW_INFO;
   }
+  // Kasowanie bledu
 }
 void ShowInfo_Display1Sub(sScreenData*screenData,uint8_t*showInfoScreenId,uint8_t*textScroll,void*pvParameters){
   uint64_t runTimeFromMillis=0;
@@ -193,7 +199,7 @@ void ShowInfo_Display1Sub(sScreenData*screenData,uint8_t*showInfoScreenId,uint8_
   
   switch(*showInfoScreenId){
     case 0:
-	  sprintf(screenData->lines[1],"%s","Software ver. 3.");
+	  sprintf(screenData->lines[1],"%s","Software ver. 3.0");
 	  sprintf(screenData->lines[2],"%s","Author: Alan Kudelko");
 	  sprintf(screenData->lines[3],"%s %d","Startup count: ",*(uint16_t*)pvParameters);	
 	break;
@@ -228,43 +234,96 @@ void ShowInfo_Display2Sub(sScreenData*screenData){
   
   integer=currentTemperature;
   mantissa=uint8_t(currentTemperature*10)%10;
-  sprintf(screenData->lines[1],"Temp:%2d.%dC Set:",integer,mantissa);
+  sprintf(screenData->lines[1],"T: %2d.%d\xDF""C S:",integer,mantissa);
   
   integer=setTemperature;
   mantissa=uint8_t(setTemperature*10)%10;
-  sprintf(screenData->lines[1]+15,"%2d.%dC",integer,mantissa);
+  sprintf(screenData->lines[1]+14,"%2d.%d\xDF""C",integer,mantissa);
   
   integer=temperatureHysteresis;
   mantissa=uint8_t(temperatureHysteresis*10)%10;
-  sprintf(screenData->lines[2],"Hyst: %d.%dC",integer,mantissa);
+  sprintf(screenData->lines[2],"Hyst: %d.%d\xDF""C",integer,mantissa);
   
-  sprintf(screenData->lines[3],"%7s     Fan: %3s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle","On");
+  sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
 }
 void ShowInfo_Display3Sub(sScreenData*screenData,uint8_t*scroll){
   updateMemoryUsage();
-  sprintf(screenData->lines[0],"%s","RAM Status");
-
-    switch(*scroll){
-    case 0:
-      sprintf(screenData->lines[1],"%s","Currently in use:");
-      sprintf(screenData->lines[2],"%4u B / %4u B",uint16_t(RAMEND)-uint16_t(__data_end)-uint16_t(total_free),(uint16_t(RAMEND)-uint16_t(__data_end)));
-      sprintf(screenData->lines[3],"%3u %% Free",uint16_t((100*(uint16_t(RAMEND)-uint16_t(__data_end)-uint16_t(total_free)))/(uint16_t(RAMEND)-uint16_t(__data_end))));
-    break;
-    case 1:
-      //sprintf(screenData->lines[1],".DATA - size %d B",);
-      //sprintf(screenData->lines[2],"Start: 0x%4d",);
-      //sprintf(screenData->lines[3],"%2u % Free",total_free/RAMEND);
-    break;
-    case 2:
-    break;
-    case 3:
-
-    break;
-    case 4:
-    
-    break;
-  
+  memset(screenData,0,sizeof(sScreenData));
+  sprintf(screenData->lines[0],"%s","RAM Info");
+  if(*scroll==0){
+	  // Free RAM
+	  char buffer[13]{};
+	  uint8_t ram_percent=100*uint32_t(ram_in_use)/ram_size;  
+	  
+	  memset(buffer,'-',sizeof(buffer)-1);
+	  buffer[0]='[';
+	  buffer[11]=']';
+	  memset(buffer+1,'#',ram_percent/10);
+    sprintf(screenData->lines[1],"%s %4u B/%4u B","Usage:",ram_in_use,ram_size);
+    sprintf(screenData->lines[2],"%12s %3u %%",buffer,ram_percent);
   }
+  else if(*scroll==1){
+	   //.data sector
+      sprintf(screenData->lines[1],".data: 0x%4X-0x%4X",uint16_t(&__data_start),uint16_t(&__data_end));
+	   //.bss sector
+      sprintf(screenData->lines[2],".bss:  0x%4X-0x%4X",uint16_t(&__bss_start),uint16_t(&__bss_end));
+	   //Size of each memory segment
+      sprintf(screenData->lines[3],"Size:  %4uB %4uB",uint16_t(&__data_end)-uint16_t(&__data_start),uint16_t(&__bss_end)-uint16_t(&__bss_start));
+  }
+  else if(*scroll==2){
+	   //heap sector
+      sprintf(screenData->lines[1],"HEAP: 0x%4X-0x%4X",uint16_t(&__heap_start),heap_end);
+	   //stack sector	
+      sprintf(screenData->lines[2],"STACK:  0x%4X-0x%4X",uint16_t(stack_ptr),RAMEND);
+	   //Size of each memory segment
+      sprintf(screenData->lines[3],"Size:  %4uB %4uB",heap_size,stack_size);	  
+  }
+  
+  (*scroll)++;
+  if((*scroll)>2)
+	  *scroll=0;
+}
+void ShowInfo_Display4Sub(sScreenData*screenData,uint8_t*scroll){
+  // Should work but needs fixing
+  sprintf(screenData->lines[0],"%s","Task Info");
+  
+  if(taskHandles[*scroll]==nullptr){
+	sprintf(screenData->lines[1],"%s%dCorrupted","Task id=",*scroll);
+  }
+  else{
+	char buffer[10]{};
+	TaskStatus_t taskStatus{};
+	vTaskGetInfo(taskHandles[*scroll],&taskStatus,pdTRUE,eInvalid);
+	
+    sprintf(screenData->lines[1],"[%2u]%s",*scroll,taskStatus.pcTaskName);
+	sprintf(screenData->lines[2],"Highwater mark: %3u",taskStatus.uxStackHighWaterMark);
+	sprintf(screenData->lines[3],"Pr:%1u State:",taskStatus.uxCurrentPriority);
+    switch(taskStatus.eCurrentState){
+      case eReady:
+        strcpy(buffer,"Ready");
+      break;
+      case eRunning:
+        strcpy(buffer,"Running");
+      break;
+      case eBlocked:
+        strcpy(buffer,"Blocked");
+      break;
+      case eSuspended:
+        strcpy(buffer,"Suspended");
+      break;
+      case eDeleted:
+        strcpy(buffer,"Deleted");
+      break;
+      default:
+        strcpy(buffer,"Unknown");
+    }	
+	memcpy(screenData->lines[3]+11,buffer,9);
+  }
+  
+  
+  (*scroll)++;
+  if((*scroll)>=TASK_N)
+	  *scroll=0;
 }
 // Tasks
 void taskErrorHandler(void*pvParameters){
@@ -289,7 +348,7 @@ void taskErrorHandler(void*pvParameters){
       lastError.seconds=runTimeFromMillis%60;
       lastError.confirmed=false;
 	  
-	    Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
+	  Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
       Serial.println((const char*)lastError.errorText);
       Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
       Serial.println("");
@@ -352,6 +411,35 @@ void taskStackDebugger(void*pvParameters){
       }
     Serial.println(F("[####################]====TASK STATUS===[##]"));
 
+    updateMemoryUsage();
+    // Stack, heap etc
+    Serial.print("stack_ptr: ");
+    Serial.println(uint16_t(stack_ptr),HEX);
+
+    Serial.print("heap_end: ");
+    Serial.println(uint16_t(heap_end),HEX);
+
+    
+    Serial.print("stack_size: ");
+    Serial.println(uint16_t(stack_size),HEX);
+    
+    Serial.print("heap_size: ");
+    Serial.println(uint16_t(heap_size),HEX);
+
+    Serial.print("ram_total_free: ");
+    Serial.println(uint16_t(ram_total_free));
+    
+    Serial.print("ram_in_use: ");
+    Serial.println(uint16_t(ram_in_use));
+
+    Serial.print("ram_size: ");
+    Serial.println(uint16_t(ram_size));
+
+    Serial.print("__data_start: ");
+    Serial.println(uint16_t(&__data_start),HEX);
+
+    Serial.print("__data_end: ");
+    Serial.println(uint16_t(&__data_end),HEX);
     vTaskDelay(pdMS_TO_TICKS(2000));
   }
 }
@@ -361,9 +449,8 @@ void taskMain(void*pvParameters){
   uint8_t screenId=1;
   uint8_t drinkId=5;
   uint8_t showInfoId=0;
-  uint8_t showTempId=0;
   uint8_t showRamId=0;
-  
+  uint8_t showTempId=0;
   uint8_t keyboardData=0;
 
   xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
@@ -372,22 +459,25 @@ void taskMain(void*pvParameters){
     if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(1000))){
 	    f_keyboardDataReceived=true;
     }
-	  if(f_keyboardDataReceived){
-		  switch(screenId){
-			  case WELCOME_SCREEN: 
-			  1;
-			  break;
-			  case DRINK_SELECT:
-				  screenId=processDrinkSelectMenu(keyboardData,&drinkId,&showInfoId);
-			  break;
-			  case DRINK_ORDER:
-				  1;
-			  break;
-			  case SHOW_INFO:
-				  screenId=processShowInfoMenu(keyboardData,&showInfoId,&showTempId,&drinkId);
-			  break;
-		  }
-		  f_keyboardDataReceived=false;
+	if(f_keyboardDataReceived){
+      switch(screenId){
+	    case WELCOME_SCREEN: 
+		1; //screenId=processWelcomeMenu(keyboardData)// aktywacja drink select
+	    break;
+		case DRINK_SELECT:
+		  screenId=processDrinkSelectMenu(keyboardData,&drinkId,&showInfoId);
+		break;
+	    case DRINK_ORDER:
+		  1;
+		break;
+		case SHOW_INFO:
+		  screenId=processShowInfoMenu(keyboardData,&showInfoId,&showTempId,&drinkId);
+		break;
+		case SHOW_LAST_ERROR:
+		  1; //screenId=processLastErrorMenu(keyboardData,&showInfoId,
+		break;
+		}
+		f_keyboardDataReceived=false;
 		// Should be executed only once after received qKeyboardData
 	  }
   }
@@ -461,19 +551,38 @@ void taskRegulateTemp(void*pvParameters){
 }
 void taskReadInput(void*pvParameters){
   uint8_t keyboardInput=0;
-  TickType_t xLastWakeTime=xTaskGetTickCount();
+  //TickType_t xLastWakeTime=xTaskGetTickCount();
   
   for(;;){
     if(xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
+      Serial.println("Woke up from ISR");
       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
-        //keyboardInput=mcp.read_bank(0xFF);
+        Wire.beginTransmission(MCP_ADDR);
+        Wire.write(0x08);
+        Wire.endTransmission();
+        Wire.requestFrom(MCP_ADDR,1);
+        
+        keyboardInput=Wire.read();
+
+        Wire.beginTransmission(MCP_ADDR);
+        Wire.write(0x00);
+        Wire.endTransmission();
+        Wire.requestFrom(MCP_ADDR,1);
+        Wire.read();
+                
         xSemaphoreGive(mux_I2CLock);
-        Serial.print(keyboardInput); Serial.println(" ISR");
-        f_enableISR=true;
-        vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(100));
+        
+        Serial.print("Dane klawa: ");
+        Serial.println(keyboardInput,BIN);
+
+        xQueueSend(qKeyboardData,&keyboardInput,pdMS_TO_TICKS(50));
+        //Serial.print(keyboardInput); Serial.println(" ISR");
+        //f_enableISR=true;
+        //vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(100));
           //keyboardInput=~keyboardInput;
       }
     }
+    vTaskDelay(pdMS_TO_TICKS(50));
   }
 }
 void taskSelectDrink(void*pvParameters){
@@ -501,7 +610,7 @@ void taskSelectDrink(void*pvParameters){
 
       lastNonZero=i-1;
       memset(&screenData,0,sizeof(screenData));
-      sprintf(screenData.lines[0],"[%d]%s",drinkId+1,drink[drinkId].drinkName);
+      sprintf(screenData.lines[0],"[%2d]%s",drinkId+1,drink[drinkId].drinkName);
     }
 
     if(f_run){
@@ -613,21 +722,25 @@ void taskShowInfo(void*pvParameters){
 	  scroll=0;
 	}
 	if(f_run){
-      memset(&screenData,0,sizeof(screenData));
+    Serial.println(scroll);
+    memset(&screenData,0,sizeof(screenData));
 	  
 	  switch(showInfoScreenId){
 		case 0:
 		case 1:
 		ShowInfo_Display1Sub(&screenData,&showInfoScreenId,&scroll,pvParameters);
 		break;
+    
 		case 2:
 		ShowInfo_Display2Sub(&screenData);
 		break;
+    
 		case 3:
 		ShowInfo_Display3Sub(&screenData,&scroll);
 		break;
+    
 		case 4:
-		//ShowInfo_Display4Sub(&screenData,&scroll);
+		ShowInfo_Display4Sub(&screenData,&scroll);
 		break;
 	  }
 	  xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
@@ -637,44 +750,62 @@ void taskShowInfo(void*pvParameters){
 }
 void taskShowLastError(void*pvParameters){
   uint8_t scroll=0;
-  uint8_t keyboardData=0;
+  uint8_t keyboardData=0; //Change name to sth meaningful
   uint8_t errorLength=0;
   sScreenData screenData{};
   sSystemError lastSystemError{};
   bool f_run=false;
-
+  // Error should be confirmed in here, but task name needs to be changed
+  // to avoid ambiguity
   for(;;){
 	if(ulTaskNotifyTake(pdTRUE,0)>0){
-		//while(xQueueReceive(qKeyboar
+		while(xQueueReceive(qLastErrorId,&keyboardData,pdMS_TO_TICKS(50)));
 		f_run=false;
 	}
-    if(false){ //xQueueReceive(,,)){ // To implement
-      EEPROMGetLastStartupError(&lastSystemError);
-  
-      errorLength=strlen(lastSystemError.errorText);
+    if(xQueueReceive(qLastErrorId,&keyboardData,pdMS_TO_TICKS(50))){
+	  EEPROMGetLastStartupError(&lastSystemError);	
+	  memset(&screenData,0,sizeof(screenData));
+	  
+	  if(keyboardData==0){	
+		errorLength=strlen(lastSystemError.errorText);
 
-      strncpy(screenData.lines[1],"Fault time signature",LCD_WIDTH);
-      sprintf(screenData.lines[2],"%2d days %2d h",lastSystemError.days,lastSystemError.hours);
-      if(lastSystemError.days<10)
-        screenData.lines[2][0]='0';
-      if(lastSystemError.hours<10)
-        screenData.lines[2][8]='0';
+		strncpy(screenData.lines[1],"Fault time signature",LCD_WIDTH);
+		sprintf(screenData.lines[2],"%2d days %2d h",lastSystemError.days,lastSystemError.hours);
+		if(lastSystemError.days<10)
+		  screenData.lines[2][0]='0';
+        if(lastSystemError.hours<10)
+          screenData.lines[2][8]='0';
       
-      sprintf(screenData.lines[3],"%2d min  %2d s",lastSystemError.minutes,lastSystemError.seconds);
-      if(lastSystemError.minutes<10)
-        screenData.lines[3][0]='0';
-      if(lastSystemError.seconds<10)
-        screenData.lines[3][8]='0';   		
-	
+        sprintf(screenData.lines[3],"%2d min  %2d s",lastSystemError.minutes,lastSystemError.seconds);
+        if(lastSystemError.minutes<10)
+          screenData.lines[3][0]='0';
+        if(lastSystemError.seconds<10)
+          screenData.lines[3][8]='0';   	
+		//Add text that its confirmed or not
+	  }
+	  else if(keyboardData==1){
+		// Confirming error
+		sprintf(screenData.lines[0],"%s","Error confirmed");
+		sprintf(screenData.lines[1],"%s","EEPROM Updated");
+		
+		lastSystemError.confirmed=true;
+		EEPROMUpdateLastStartupError(&lastSystemError);
+		
+		xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+	    vTaskDelay(pdMS_TO_TICKS(1500));
+		keyboardData=0;
+		xQueueSend(qLastErrorId,&keyboardData,pdMS_TO_TICKS(50));
+	  }
 	  scroll=0;
+	  
+	  f_run=true;
     }
 	if(f_run){
 	  strncpy(screenData.lines[0],lastSystemError.errorText+scroll,LCD_WIDTH);
 	  scroll++;
 	  if(scroll==errorLength-LCD_WIDTH+2){
 		scroll=0;
-	  }
-	  
+      }
       xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
 	}
     vTaskDelay(pdMS_TO_TICKS(400));
@@ -696,6 +827,38 @@ void taskKeyboardSim(void*pvParameters){
     }
   }
 }
+void taskWelcome(void*pvParameters){
+  enum{TASK_WELCOME_TICKS_TO_CLOSE=10};
+  
+  uint8_t timePassed=0;
+  uint8_t keyboardData=E_GREEN_BUTTON;
+  bool f_run=false;
+  
+  sScreenData screenData{};  
+  sprintf(screenData.lines[0],"%s","Drink Creator 6000");
+  sprintf(screenData.lines[1],"%s","Initializing...");
+  sprintf(screenData.lines[2],"%12s","[----------]",100*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
+  sprintf(screenData.lines[3],"%s","Please wait");
+  
+  
+  for(;;){
+	timePassed++;  
+	if(timePassed>=TASK_WELCOME_TICKS_TO_CLOSE){
+	  xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
+	  vTaskDelete(NULL);
+	}
+	if(ulTaskNotifyTake(pdTRUE,0)>0){
+	  xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
+	  vTaskDelete(NULL);
+	}
+	memset(screenData.lines[2]+1,0xFF,100*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
+	sprintf(screenData.lines[2]+13,"%3u %%",100*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
+	
+	xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+	
+    vTaskDelay(pdMS_TO_TICKS(TASK_WELCOME_REFRESH_RATE));
+  }
+}
 void setup(){
   while(!eeprom_is_ready());
   
@@ -711,8 +874,12 @@ void setup(){
 
   lastBootup_dump(&bootupsCount);  
   //lastError_dump(&lastSystemError);
-
+  stack_ptr=(uint8_t*)SP;
+  // Save stack pointer before FreeRTOS starts, because SP becomes volatile due to context switching.
+  // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
+  // So we treat this saved SP as the top of the main stack (pre-RTOS).  
   ram_dump();    
+  
   if(f_errorConfirmed==0){
     faultStart();
   }

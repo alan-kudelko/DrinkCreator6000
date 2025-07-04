@@ -17,6 +17,7 @@ void initializeMemory(){
   qDrinkId=xQueueCreateStatic(DRINK_ID_QUEUE_BUFFER_COUNT,sizeof(uint8_t),drinkIdQueueBuffer,&drinkIdQueueStructBuffer);
   qShowInfoId=xQueueCreateStatic(SHOW_INFO_QUEUE_BUFFER_COUNT,sizeof(uint8_t),showInfoQueueBuffer,&showInfoQueueStructBuffer);
   qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
+  qLastErrorId=xQueueCreateStatic(LAST_ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(uint8_t),lastErrorIdQueueBuffer,&lastErrorIdQueueStructBuffer);
   
   sem_ReadData=xSemaphoreCreateBinaryStatic(&semReadDataBuffer);
   mux_I2CLock=xSemaphoreCreateMutexStatic(&muxI2CLockBuffer);
@@ -33,6 +34,7 @@ void initializeMemory(){
   memset(guardZone8,0xF,GUARD_ZONE_SIZE);
   memset(guardZone9,0xF,GUARD_ZONE_SIZE);
   memset(guardZone10,0xF,GUARD_ZONE_SIZE);
+  memset(guardZone11,0xF,GUARD_ZONE_SIZE);
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:
