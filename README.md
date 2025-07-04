@@ -190,7 +190,7 @@ Screen transition diagram:
                                      ▼
                            ╔════════════════════╗
                            ║                    ║
-    5 Test Pumps           ║                    ║
+    6 Test Pumps           ║                    ║
                            ║                    ║
                            ║                    ║
                            ╚════════════════════╝
