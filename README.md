@@ -142,7 +142,7 @@ Screen transition diagram:
   
                       ╔════════════════════╗  
                       ║Drink Creator 6000  ║   
-0 Welcome Screen      ║Initializing...     ║ 
+    0 Welcome Screen  ║Initializing...     ║ 
                       ║[----------] 100 %  ║   
                       ║Please wait         ║                         
                       ╚════════════════════╝ 
