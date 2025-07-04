@@ -144,37 +144,39 @@ Screen transition diagram:
                             ║Drink Creator 6000  ║   
     0 Welcome Screen        ║Initializing...     ║ 
                             ║Please wait         ║                         
-                            ║[█████-----]  50 %  ║   
+                            ║[#####-----]  50 %  ║   
                             ╚════════════════════╝ 
                                       ║
                                       ║
+                                      ▼                        2 Drink Order Screen
+                            ╔════════════════════╗            ╔════════════════════╗
+                            ║[01]Test Drink      ║            ║ 2 Drink Order      ║
+    1 Drink Select Screen   ║Whiskey       50[ml]║ ═ ═ ═ >    ║                    ║
+                            ║Rum          100[ml]║            ║                    ║
+                            ║Cola         250[ml]║            ║                    ║                          
+                            ╚════════════════════╝            ╚════════════════════╝
+                                      ║
+                                      ║
                                       ▼
-                            ╔════════════════════╗      ╦══════════════════════╗
-                            ║[01]Test Drink      ║      ║ 2 Drink Order        ║
-    1 Drink Select Screen   ║Whiskey       50[ml]║      ║                      ║
-                            ║Rum          100[ml]║      ║                      ║
-                            ║Cola         250[ml]║      ║                      ║                          
-                            ╚════════════════════╝      ╚══════════════════════╝
-                              ║
-                              ║
-                              ▼
-                     ╔══════════════════════╗
-                     ║ 3 Show System Info   ║
-      ║                      ║
-      ║                      ║
-      ╚══════════════════════╝
-                 ║
-                 ║
-                 ▼
-      ╔══════════════════════╗
-      ║ 4 Show Last Error    ║
-      ║                      ║
-      ║                      ║
-      ╚══════════════════════╝
-                 ║
-                 ║
-                 ▼
-      ╔══════════════════════╗
+                            ╔════════════════════╗             ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗
+                            ║Drink Creator 6000  ║  Submenu[1] ║Drink Creator 6000  ║ Submenu[2] ║Drink Creator 6000  ║ Submenu[3] ║RAM Info            ║
+    3 Show System Info[0]   ║Software ver. 3.0   ║  ---------> ║Current run time    ║ ---------> ║T: 21.2°C  S:11.0°C ║ ---------> ║Usage: 6722 B/8192 B║
+                            ║Author: Alan Kudelko║             ║21 days  19 h       ║            ║Hyst: 4.0°C         ║            ║[########--]  82%   ║
+                            ║Startup count: 1000 ║             ║39 min   22 s       ║            ║Status: Cooling     ║            ║                    ║
+                            ╚════════════════════╝             ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝
+                                      ║
+                                      ║
+                                      ▼
+                           ╔════════════════════╗
+                           ║ 4 Show Last Error  ║
+    4 Show Last Error      ║                    ║
+                           ║                    ║
+                           ║                    ║
+                           ╚════════════════════╝
+                                     ║
+                                     ║
+                                     ▼
+                           ╔══════════════════════╗
       ║ 5 Test Pumps         ║
       ║                      ║
       ║                      ║
