@@ -6,7 +6,7 @@
 // Configures I/O pins and attaches interrupts related to pin events
 void initializeIO(){
   pinMode(INTPin,INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);  
+  //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,LOW);  
 }
 //////////////////////////////////////////////////////////////////
 // Memory initialization:
@@ -74,7 +74,7 @@ void initializeHardware(){
   // Enable interrupt-on-change
   Wire.beginTransmission(MCP_ADDR);
   Wire.write(0x02);
-  Wire.write(0xA0);
+  Wire.write(0xFF);
   Wire.endTransmission();
   // Set default comparison value (HIGH)
   Wire.beginTransmission(MCP_ADDR);
