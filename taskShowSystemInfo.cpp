@@ -226,6 +226,6 @@ void taskShowSystemInfo(void*pvParameters){
 	  
 	  xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
 	}
-  vTaskDelay(pdMS_TO_TICKS(TASK_SHOW_INFO_REFRESH_RATE));
+  vTaskDelay(pdMS_TO_TICKS(TASK_SHOW_SYSTEM_INFO_REFRESH_RATE));
   }
 }
