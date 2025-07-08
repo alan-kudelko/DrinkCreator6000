@@ -30,39 +30,39 @@ enum{
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
 // Task refresh rates
-enum{TASK_ERROR_HANDLER_STACK_SIZE=256};     //0
-enum{TASK_STACK_DEBUGGER_STACK_SIZE=256};    //1
-enum{TASK_MAIN_STACK_SIZE=256};              //2
-enum{UPDATE_SCREEN_STACK_SIZE=232};          //3
-enum{TASK_REGULATE_TEMP_STACK_SIZE=150};     //4
-enum{TASK_READ_INPUT_STACK_SIZE=150};        //5
-enum{TASK_SELECT_DRINK_STACK_SIZE=256};      //6
-enum{TASK_ORDER_DRINK_STACK_SIZE=320};       //7
-enum{TASK_SHOW_INFO_STACK_SIZE=384};         //8
-enum{TASK_SHOW_LAST_ERROR_STACK_SIZE=320};   //9
-enum{TASK_KEYBOARD_SIM_STACK_SIZE=150};      //10
-enum{TASK_WELCOME_STACK_SIZE=150};           //11
+enum{TASK_ERROR_HANDLER_STACK_SIZE=256};           //0
+enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=256};  //1
+enum{TASK_MAIN_STACK_SIZE=256};                    //2
+enum{TASK_READ_INPUT_STACK_SIZE=150};              //3
+enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
+enum{TASK_UPDATE_SCREEN_STACK_SIZE=232};           //5
+enum{TASK_READ_TEMP_STACK_SIZE=150};               //6
+enum{TASK_REGULATE_TEMP_STACK_SIZE=150};           //7
+enum{TASK_SELECT_DRINK_STACK_SIZE=256};            //8
+enum{TASK_ORDER_DRINK_STACK_SIZE=320};             //9
+enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=384};        //10
+enum{TASK_WELCOME_SCREEN_STACK_SIZE=150};          //11
 // Stack size - will need "tuning" in last release
 enum{
   TASK_ERROR_HANDLER=0,
-  TASK_STACK_DEBUGGER=1,
+  TASK_SERIAL_DEBUGGER=1,
   TASK_MAIN=2,
-  TASK_UPDATE_SCREEN=3,
-  TASK_REGULATE_TEMP=4,
-  TASK_READ_INPUT=5,
-  TASK_SELECT_DRINK=6,
-  TASK_ORDER_DRINK=7,
-  TASK_SHOW_INFO=8,
-  TASK_SHOW_LAST_ERROR=9,
-  TASK_KEYBOARD_SIM=10,
-  TASK_WELCOME=11
+  TASK_READ_INPUT=3,
+  TASK_SERIAL_INPUT=4,
+  TASK_UPDATE_SCREEN=5,
+  TASK_READ_TEMP=6,
+  TASK_REG_TEMP=7,
+  TASK_SELECT_DRINK=8,
+  TASK_ORDER_DRINK=9,
+  TASK_SHOW_SYS_INFO=10,
+  TASK_WELCOME_SCREEN=11
 };
 // Task identifiers
-enum{GUARD_ZONE_SIZE=4};
+enum{GUARD_ZONE_SIZE=16};
 // Guard zone size between task stacks	 
 enum{TASK_N=11};
 // Task count
-enum{
+enum{ //FIX
   TASK_ERROR_HANDLER_REFRESH_RATE=500,
   TASK_STACK_DEBUGGER_REFRESH_RATE=2000,
   TASK_MAIN_REFRESH_RATE=500,
@@ -74,59 +74,59 @@ enum{
   TASK_SHOW_INFO_REFRESH_RATE=1500,
   TASK_SHOW_LAST_ERROR_REFRESH_RATE=1000,
   TASK_KEYBOARD_SIM_REFRESH_RATE=1000,
-  TASK_WELCOME_REFRESH_RATE=500
+  TASK_WELCOME_SCREEN_REFRESH_RATE=500
 };
 // Task refresh rates in ms
-extern StaticTask_t errorHandlerTCB;                                   //0
-extern StaticTask_t stackDebuggerTCB;                                  //1
-extern StaticTask_t mainTCB;                                           //2
-extern StaticTask_t updateScreenTCB;                                   //3
-extern StaticTask_t regulateTempTCB;                                   //4
-extern StaticTask_t readInputTCB;                                      //5
-extern StaticTask_t selectDrinkTCB;                                    //6
-extern StaticTask_t orderDrinkTCB;                                     //7
-extern StaticTask_t showInfoTCB;                                       //8
-extern StaticTask_t showLastErrorTCB;                                  //9
-extern StaticTask_t keyboardSimTCB;                                    //10
-extern StaticTask_t welcomeTCB;                                        //11
+extern StaticTask_t errorHandlerTCB;                                //0
+extern StaticTask_t serialSystemDebuggerTCB;                        //1
+extern StaticTask_t mainTCB;                                        //2
+extern StaticTask_t readInputTCB;                                   //3
+extern StaticTask_t serialInputTCB;                                 //4
+extern StaticTask_t updateScreenTCB;                                //5
+extern StaticTask_t readTempTCB;                                    //6
+extern StaticTask_t regulateTempTCB;                                //7
+extern StaticTask_t selectDrinkTCB;                                 //8
+extern StaticTask_t orderDrinkTCB;                                  //9
+extern StaticTask_t showSystemInfoTCB;                              //10
+extern StaticTask_t welcomeScreenTCB;                               //11
 // Task control blocks
 extern TaskHandle_t taskHandles[TASK_N];
 // Task handles, assigned in the same order as identifiers
-extern StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE];   //0
-extern StackType_t guardZone0[GUARD_ZONE_SIZE];
+extern StackType_t errorHandlerStack[];          //0
+extern StackType_t guardZone0[];
 
-extern StackType_t stackDebuggerStack[TASK_STACK_DEBUGGER_STACK_SIZE]; //1
-extern StackType_t guardZone1[GUARD_ZONE_SIZE];
+extern StackType_t serialSystemDebuggerStack[];  //1
+extern StackType_t guardZone1[];
 
-extern StackType_t mainStack[TASK_MAIN_STACK_SIZE];                    //2
-extern StackType_t guardZone2[GUARD_ZONE_SIZE];
+extern StackType_t mainStack[];                  //2
+extern StackType_t guardZone2[];
 
-extern StackType_t updateScreenStack[UPDATE_SCREEN_STACK_SIZE];        //3
-extern StackType_t guardZone3[GUARD_ZONE_SIZE];
+extern StackType_t readInputStack[];             //3
+extern StackType_t guardZone3[];
 
-extern StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE];   //4
-extern StackType_t guardZone4[GUARD_ZONE_SIZE];
+extern StackType_t serialInputStack[];           //4
+extern StackType_t guardZone4[];
 
-extern StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE];         //5
-extern StackType_t guardZone5[GUARD_ZONE_SIZE];
+extern StackType_t updateScreenStack[];          //5
+extern StackType_t guardZone5[];
 
-extern StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE];     //6
-extern StackType_t guardZone6[GUARD_ZONE_SIZE];
+extern StackType_t readTempStack[];              //6
+extern StackType_t guardZone6[];
 
-extern StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE];       //7
-extern StackType_t guardZone7[GUARD_ZONE_SIZE];
+extern StackType_t regulateTempStack[];          //7
+extern StackType_t guardZone7[];
 
-extern StackType_t showInfoStack[TASK_SHOW_INFO_STACK_SIZE];           //8
-extern StackType_t guardZone8[GUARD_ZONE_SIZE];
+extern StackType_t selectDrinkStack[];           //8
+extern StackType_t guardZone8[];
 
-extern StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE];//9
-extern StackType_t guardZone9[GUARD_ZONE_SIZE];
+extern StackType_t orderDrinkStack[];            //9
+extern StackType_t guardZone9[];
 
-extern StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE];     //10
-extern StackType_t guardZone10[GUARD_ZONE_SIZE];
+extern StackType_t showSystemInfoStack[];        //10
+extern StackType_t guardZone10[];
 
-extern StackType_t welcomeStack[TASK_WELCOME_STACK_SIZE];              //11
-extern StackType_t guardZone11[GUARD_ZONE_SIZE];
+extern StackType_t welcomeScreenStack[];         //11
+extern StackType_t guardZone11[];
 // Task stacks and guard zones
 //////////////////////////////////////////////////////////////////
 // Screen data:
@@ -148,8 +148,7 @@ enum{
   WELCOME_SCREEN=0,
   DRINK_SELECT=1,
   DRINK_ORDER=2,
-  SHOW_INFO=3,
-  SHOW_LAST_ERROR=4
+  SHOW_INFO=3
 };
 // Screen identifiers and navigation overview
 /*
@@ -230,6 +229,7 @@ extern SemaphoreHandle_t sem_ReadData;
 extern SemaphoreHandle_t mux_I2CLock;
 extern SemaphoreHandle_t mux_SerialLock;
 // Semaphores and Mutexes handles
+extern sUIContext UI_Context;
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters

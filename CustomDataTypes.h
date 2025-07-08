@@ -1,10 +1,11 @@
-#ifndef CUSTOM_DATA_TYPES_H
-#define CUSTOM_DATA_TYPES_H
+#ifndef _CUSTOM_DATA_TYPES_H_
+#define _CUSTOM_DATA_TYPES_H_
 
 struct sDrinkData{
   char drinkName[16];
   uint16_t ingredients[8];
   uint16_t numberOfOrders;
+  // Can be optimzed
 };
 //struct to pass to taskActivatePumps(void*)
 struct sScreenData{
@@ -19,9 +20,32 @@ struct sSystemError{
   char errorText[50];
   uint8_t seconds;
   uint8_t minutes;
-  uint16_t hours;
+  uint8_t hours;
   uint8_t days;
   uint8_t confirmed; // If its not comfirmed display it on the LCD and on the serial port
+  // Bit field can be optimzed!
+};
+struct sUIContext{
+  uint8_t autoScrollEnable: 1;	
+  uint8_t currentTask: 2;
+  //current UI bounded task 0 - 3
+  //0 taskWelcomeScreen
+  //1 taskSelectDrink
+  //2 taskOrderDrink
+  //3 taskShowSystemInfo
+  uint8_t currentMenu: 3;
+  // current Menu in given task
+  // I.E
+  // 0 showInfo_Firmware
+  // 1 showInfo_Temp
+  // 2 showInfo_Memory
+  // 3 showInfo_Task
+  // 4 showInfo_Error_Sub_N        --submenu for scrolling message
+  // 5 showInfo_ConfError
+  // 
+  // default submenu will be indexed by value 0
+  uint8_t currentSubMenu; // Cannot be optimzed with current UI
+  // used for scrolling inside currentMenu
 };
 //struct to pass to taskUpdateScreen(void*)
-#endif
+#endif // _CUSTOM_DATA_TYPES_H_

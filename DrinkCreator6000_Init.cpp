@@ -6,7 +6,7 @@
 // Configures I/O pins and attaches interrupts related to pin events
 void initializeIO(){
   pinMode(INTPin,INPUT_PULLUP);
-  //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,LOW);  
+  attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);  
 }
 //////////////////////////////////////////////////////////////////
 // Memory initialization:
@@ -22,6 +22,8 @@ void initializeMemory(){
   sem_ReadData=xSemaphoreCreateBinaryStatic(&semReadDataBuffer);
   mux_I2CLock=xSemaphoreCreateMutexStatic(&muxI2CLockBuffer);
   mux_SerialLock=xSemaphoreCreateMutexStatic(&muxSerialLockBuffer);
+
+  memset(&UI_Context,0,sizeof(UI_Context));
   
   memset(guardZone0,0xF,GUARD_ZONE_SIZE);
   memset(guardZone1,0xF,GUARD_ZONE_SIZE);
@@ -74,7 +76,7 @@ void initializeHardware(){
   // Enable interrupt-on-change
   Wire.beginTransmission(MCP_ADDR);
   Wire.write(0x02);
-  Wire.write(0xFF);
+  Wire.write(0xA0);
   Wire.endTransmission();
   // Set default comparison value (HIGH)
   Wire.beginTransmission(MCP_ADDR);

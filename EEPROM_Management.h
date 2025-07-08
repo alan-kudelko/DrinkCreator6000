@@ -1,5 +1,5 @@
-#ifndef EEPROM_MEMORY_MANAGEMENT_H
-#define EEPROM_MEMORY_MANAGEMENT_H
+#ifndef _EEPROM_MEMORY_MANAGEMENT_H_
+#define _EEPROM_MEMORY_MANAGEMENT_H_
 #include <avr/eeprom.h>
 
 enum{
@@ -19,4 +19,4 @@ void EEPROMUpdateLastStartupError(sSystemError*errorStruct){
   eeprom_update_block((void*)errorStruct,(void*)EEPROM_LAST_ERROR_ADDR,sizeof(sSystemError));
 }
 
-#endif
+#endif // _EEPROM_MEMORY_MANAGEMENT_H_

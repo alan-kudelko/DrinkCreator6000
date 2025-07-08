@@ -5,54 +5,54 @@
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
 StaticTask_t errorHandlerTCB{0xF};                                   //0
-StaticTask_t stackDebuggerTCB{0xF};                                  //1
+StaticTask_t serialSystemDebuggerTCB{0xF};                           //1
 StaticTask_t mainTCB{0xF};                                           //2
-StaticTask_t updateScreenTCB{0xF};                                   //3
-StaticTask_t regulateTempTCB{0xF};                                   //4
-StaticTask_t readInputTCB{0xF};                                      //5
-StaticTask_t selectDrinkTCB{0xF};                                    //6
-StaticTask_t orderDrinkTCB{0xF};                                     //7
-StaticTask_t showInfoTCB{0xF};                                       //8
-StaticTask_t showLastErrorTCB{0xF};                                  //9
-StaticTask_t keyboardSimTCB{0xF};                                    //10
-StaticTask_t welcomeTCB{0xF};                                        //11
+StaticTask_t readInputTCB{0xF};                                      //3
+StaticTask_t serialInputTCB{0xF};                                    //4
+StaticTask_t updateScreenTCB{0xF};                                   //5
+StaticTask_t readTempTCB{0xF};                                       //6
+StaticTask_t regulateTempTCB{0xF};                                   //7
+StaticTask_t selectDrinkTCB{0xF};                                    //8
+StaticTask_t orderDrinkTCB{0xF};                                     //9
+StaticTask_t showSystemInfoTCB{0xF};                                 //10
+StaticTask_t welcomeScreenTCB{0xF};                                  //11
 
 TaskHandle_t taskHandles[TASK_N]{0xF};
 
-StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]{0xF};   //0
-StackType_t guardZone0[GUARD_ZONE_SIZE];
+StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]{0xF};                  //0
+StackType_t guardZone0[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t stackDebuggerStack[TASK_STACK_DEBUGGER_STACK_SIZE]{0xF}; //1
+StackType_t serialSystemDebuggerStack[TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE]{0xF}; //1
 StackType_t guardZone1[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t mainStack[TASK_MAIN_STACK_SIZE]{0xF};                    //2
+StackType_t mainStack[TASK_MAIN_STACK_SIZE]{0xF};                                   //2
 StackType_t guardZone2[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t updateScreenStack[UPDATE_SCREEN_STACK_SIZE]{0xF};        //3
+StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]{0xF};                        //3
 StackType_t guardZone3[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]{0xF};   //4
+StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE]{0xF};                    //4
 StackType_t guardZone4[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]{0xF};         //5
+StackType_t updateScreenStack[TASK_UPDATE_SCREEN_STACK_SIZE]{0xF};                  //5
 StackType_t guardZone5[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]{0xF};     //6
+StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE]{0xF};                          //6
 StackType_t guardZone6[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]{0xF};       //7
+StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]{0xF};                  //7
 StackType_t guardZone7[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t showInfoStack[TASK_SHOW_INFO_STACK_SIZE]{0xF};           //8
+StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]{0xF};                    //8
 StackType_t guardZone8[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t showLastErrorStack[TASK_SHOW_LAST_ERROR_STACK_SIZE]{0xF};//9
+StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]{0xF};                      //9
 StackType_t guardZone9[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t keyboardSimStack[TASK_KEYBOARD_SIM_STACK_SIZE]{0xF};     //10
+StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]{0xF};             //10
 StackType_t guardZone10[GUARD_ZONE_SIZE]{0xF};
 
-StackType_t welcomeStack[TASK_WELCOME_STACK_SIZE]{0xF};              //11
+StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE]{0xF};                //11
 StackType_t guardZone11[GUARD_ZONE_SIZE]{0xF};
 //////////////////////////////////////////////////////////////////
 // Screen data:
@@ -90,6 +90,8 @@ QueueHandle_t qLastErrorId{0xF};
 SemaphoreHandle_t sem_ReadData{0xF};
 SemaphoreHandle_t mux_I2CLock{0xF};
 SemaphoreHandle_t mux_SerialLock{0xF};
+
+sUIContext UI_Context{0xF}; //Initialized in order to be stored in .data
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters
