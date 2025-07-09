@@ -177,7 +177,7 @@ void taskShowSystemInfo(void*pvParameters){
   // pvParameters is type sUiContext
   
   sUIContext*UI_context=&UI_Context;
-  bool f_run=true;
+  bool f_run=false;
   
   sScreenData screenData{};
   for(;;){

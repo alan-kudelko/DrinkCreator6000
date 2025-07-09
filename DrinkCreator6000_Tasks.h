@@ -6,8 +6,6 @@
 
 #include "DrinkCreator6000_Config.h"
 
-#endif // _DRINK_CREATOR_6000_TASKS_H_
-
 #include "taskErrorHandler.h"          // 0
 #include "taskSerialSystemDebugger.h"  // 1
 #include "taskMain.h"                  // 2
@@ -20,3 +18,5 @@
 #include "taskOrderDrink.h"            // 9
 #include "taskShowSystemInfo.h"        // 10
 #include "taskWelcomeScreen.h"         // 11
+
+#endif // _DRINK_CREATOR_6000_TASKS_H_
