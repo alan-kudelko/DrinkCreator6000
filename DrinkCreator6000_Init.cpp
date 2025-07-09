@@ -25,18 +25,18 @@ void initializeMemory(){
 
   memset(&UI_Context,0,sizeof(UI_Context));
   
-  memset(guardZone0,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone1,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone2,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone3,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone4,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone5,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone6,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone7,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone8,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone9,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone10,0xF,GUARD_ZONE_SIZE);
-  memset(guardZone11,0xF,GUARD_ZONE_SIZE);
+  memset(guardZone0,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone1,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone2,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone3,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone4,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone5,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone6,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone7,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone8,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone9,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset(guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:

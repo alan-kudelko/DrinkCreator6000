@@ -32,7 +32,7 @@ enum{
 // Task refresh rates
 enum{TASK_ERROR_HANDLER_STACK_SIZE=256};           //0
 enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=270};  //1
-enum{TASK_MAIN_STACK_SIZE=256};                    //2
+enum{TASK_MAIN_STACK_SIZE=200};                    //2
 enum{TASK_READ_INPUT_STACK_SIZE=150};              //3
 enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
 enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
@@ -40,8 +40,9 @@ enum{TASK_READ_TEMP_STACK_SIZE=180};               //6
 enum{TASK_REGULATE_TEMP_STACK_SIZE=180};           //7
 enum{TASK_SELECT_DRINK_STACK_SIZE=270};            //8
 enum{TASK_ORDER_DRINK_STACK_SIZE=320};             //9
-enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=320};        //10
+enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
 enum{TASK_WELCOME_SCREEN_STACK_SIZE=222};          //11 // Tuned, 48 words in reserve
+enum{TASK_TEST_HARDWARE_STACK_SIZE=256};           //12
 // Stack size - will need "tuning" in last release
 enum{
   TASK_ERROR_HANDLER=0,
@@ -55,10 +56,12 @@ enum{
   TASK_SELECT_DRINK=8,
   TASK_ORDER_DRINK=9,
   TASK_SHOW_SYS_INFO=10,
-  TASK_WELCOME_SCREEN=11
+  TASK_WELCOME_SCREEN=11,
+  TASK_TEST_HARDWAER=12
 };
 // Task identifiers
 enum{GUARD_ZONE_SIZE=16};
+enum{MEMORY_FILL_PATTERN=0xAA};
 // Guard zone size between task stacks	 
 enum{TASK_N=12};
 // Task count
@@ -128,6 +131,8 @@ extern StackType_t guardZone10[];
 
 extern StackType_t welcomeScreenStack[];         //11
 extern StackType_t guardZone11[];
+
+extern StackType_t guardZones[]; // Used in stack overflow detection
 // Task stacks and guard zones
 //////////////////////////////////////////////////////////////////
 // Screen data:

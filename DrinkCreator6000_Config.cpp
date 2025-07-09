@@ -4,56 +4,71 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
-StaticTask_t errorHandlerTCB{0xF};                                   //0
-StaticTask_t serialSystemDebuggerTCB{0xF};                           //1
-StaticTask_t mainTCB{0xF};                                           //2
-StaticTask_t readInputTCB{0xF};                                      //3
-StaticTask_t serialInputTCB{0xF};                                    //4
-StaticTask_t updateScreenTCB{0xF};                                   //5
-StaticTask_t readTempTCB{0xF};                                       //6
-StaticTask_t regulateTempTCB{0xF};                                   //7
-StaticTask_t selectDrinkTCB{0xF};                                    //8
-StaticTask_t orderDrinkTCB{0xF};                                     //9
-StaticTask_t showSystemInfoTCB{0xF};                                 //10
-StaticTask_t welcomeScreenTCB{0xF};                                  //11
+StaticTask_t errorHandlerTCB;                                   //0
+StaticTask_t serialSystemDebuggerTCB;                           //1
+StaticTask_t mainTCB;                                           //2
+StaticTask_t readInputTCB;                                      //3
+StaticTask_t serialInputTCB;                                    //4
+StaticTask_t updateScreenTCB;                                   //5
+StaticTask_t readTempTCB;                                       //6
+StaticTask_t regulateTempTCB;                                   //7
+StaticTask_t selectDrinkTCB;                                    //8
+StaticTask_t orderDrinkTCB;                                     //9
+StaticTask_t showSystemInfoTCB;                                 //10
+StaticTask_t welcomeScreenTCB;                                  //11
 
-TaskHandle_t taskHandles[TASK_N]{0xF};
+TaskHandle_t taskHandles[TASK_N];
 
-StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]{0xF};                  //0
-StackType_t guardZone0[GUARD_ZONE_SIZE]{0xF};
+StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE];                  //0
+StackType_t guardZone0[GUARD_ZONE_SIZE];
 
-StackType_t serialSystemDebuggerStack[TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE]{0xF}; //1
-StackType_t guardZone1[GUARD_ZONE_SIZE]{0xF};
+StackType_t serialSystemDebuggerStack[TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE]; //1
+StackType_t guardZone1[GUARD_ZONE_SIZE];
 
-StackType_t mainStack[TASK_MAIN_STACK_SIZE]{0xF};                                   //2
-StackType_t guardZone2[GUARD_ZONE_SIZE]{0xF};
+StackType_t mainStack[TASK_MAIN_STACK_SIZE];                                   //2
+StackType_t guardZone2[GUARD_ZONE_SIZE];
 
-StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]{0xF};                        //3
-StackType_t guardZone3[GUARD_ZONE_SIZE]{0xF};
+StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE];                        //3
+StackType_t guardZone3[GUARD_ZONE_SIZE];
 
-StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE]{0xF};                    //4
-StackType_t guardZone4[GUARD_ZONE_SIZE]{0xF};
+StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE];                    //4
+StackType_t guardZone4[GUARD_ZONE_SIZE];
 
-StackType_t updateScreenStack[TASK_UPDATE_SCREEN_STACK_SIZE]{0xF};                  //5
-StackType_t guardZone5[GUARD_ZONE_SIZE]{0xF};
+StackType_t updateScreenStack[TASK_UPDATE_SCREEN_STACK_SIZE];                  //5
+StackType_t guardZone5[GUARD_ZONE_SIZE];
 
-StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE]{0xF};                          //6
-StackType_t guardZone6[GUARD_ZONE_SIZE]{0xF};
+StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE];                          //6
+StackType_t guardZone6[GUARD_ZONE_SIZE];
 
-StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]{0xF};                  //7
-StackType_t guardZone7[GUARD_ZONE_SIZE]{0xF};
+StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE];                  //7
+StackType_t guardZone7[GUARD_ZONE_SIZE];
 
-StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]{0xF};                    //8
-StackType_t guardZone8[GUARD_ZONE_SIZE]{0xF};
+StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE];                    //8
+StackType_t guardZone8[GUARD_ZONE_SIZE];
 
-StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]{0xF};                      //9
-StackType_t guardZone9[GUARD_ZONE_SIZE]{0xF};
+StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE];                      //9
+StackType_t guardZone9[GUARD_ZONE_SIZE];
 
-StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]{0xF};             //10
-StackType_t guardZone10[GUARD_ZONE_SIZE]{0xF};
+StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE];             //10
+StackType_t guardZone10[GUARD_ZONE_SIZE];
 
-StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE]{0xF};                //11
-StackType_t guardZone11[GUARD_ZONE_SIZE]{0xF};
+StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE];                //11
+StackType_t guardZone11[GUARD_ZONE_SIZE];
+
+StackType_t guardZones[TASK_N]={
+  guardZone0,
+  guardZone1,
+  guardZone2,
+  guardZone3,
+  guardZone4,
+  guardZone5,
+  guardZone6,
+  guardZone7,
+  guardZone8,
+  guardZone9,
+  guardZone10,
+  guardZone11
+};
 //////////////////////////////////////////////////////////////////
 // Screen data:
 // LCD dimensions and I2C address
@@ -61,41 +76,41 @@ LiquidCrystal_I2C lcd(LCD_ADDR,LCD_WIDTH,LCD_HEIGHT);
 //////////////////////////////////////////////////////////////////
 // Flow control:
 // Queue sizes and buffers for inter-task communication
-uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{0xF};
-uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
-uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
-uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
-uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t)]{0xF};
-uint8_t lastErrorIdQueueBuffer[LAST_ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{0xF};
+uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{MEMORY_FILL_PATTERN};
+uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
+uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
+uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
+uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t)]{MEMORY_FILL_PATTERN};
+uint8_t lastErrorIdQueueBuffer[LAST_ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
 
-StaticQueue_t screenQueueStructBuffer{0xF};
-StaticQueue_t keyboardQueueStructBuffer{0xF};
-StaticQueue_t drinkIdQueueStructBuffer{0xF};
-StaticQueue_t showInfoQueueStructBuffer{0xF};
-StaticQueue_t errorIdQueueStructBuffer{0xF};
-StaticQueue_t lastErrorIdQueueStructBuffer{0xF};
+StaticQueue_t screenQueueStructBuffer;
+StaticQueue_t keyboardQueueStructBuffer;
+StaticQueue_t drinkIdQueueStructBuffer;
+StaticQueue_t showInfoQueueStructBuffer;
+StaticQueue_t errorIdQueueStructBuffer;
+StaticQueue_t lastErrorIdQueueStructBuffer;
 
-StaticSemaphore_t semReadDataBuffer{0xF};
-StaticSemaphore_t muxI2CLockBuffer{0xF};
-StaticSemaphore_t muxSerialLockBuffer{0xF};
+StaticSemaphore_t semReadDataBuffer;
+StaticSemaphore_t muxI2CLockBuffer;
+StaticSemaphore_t muxSerialLockBuffer;
 
-QueueHandle_t qScreenData{0xF};
-QueueHandle_t qKeyboardData{0xF};
-QueueHandle_t qDrinkId{0xF};
-QueueHandle_t qOrderDrinkId{0xF};
-QueueHandle_t qShowInfoId{0xF};
-QueueHandle_t qErrorId{0xF};
-QueueHandle_t qLastErrorId{0xF};
+QueueHandle_t qScreenData{};
+QueueHandle_t qKeyboardData{};
+QueueHandle_t qDrinkId{};
+QueueHandle_t qOrderDrinkId{};
+QueueHandle_t qShowInfoId{};
+QueueHandle_t qErrorId{};
+QueueHandle_t qLastErrorId{};
 
-SemaphoreHandle_t sem_ReadData{0xF};
-SemaphoreHandle_t mux_I2CLock{0xF};
-SemaphoreHandle_t mux_SerialLock{0xF};
+SemaphoreHandle_t sem_ReadData{};
+SemaphoreHandle_t mux_I2CLock{};
+SemaphoreHandle_t mux_SerialLock{};
 
-volatile sUIContext UI_Context{0xF}; //Initialized in order to be stored in .data
+volatile sUIContext UI_Context{}; //Initialized in order to be stored in .data
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters
-sSystemError lastSystemError{0xF};
+sSystemError lastSystemError{};
 uint8_t f_errorConfirmed=0;
 uint16_t bootupsCount=0;
 
