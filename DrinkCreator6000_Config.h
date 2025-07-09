@@ -30,7 +30,7 @@ enum{
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
 // Task refresh rates
-enum{TASK_ERROR_HANDLER_STACK_SIZE=205};           //0
+enum{TASK_ERROR_HANDLER_STACK_SIZE=256};           //0
 enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=270};  //1
 enum{TASK_MAIN_STACK_SIZE=256};                    //2
 enum{TASK_READ_INPUT_STACK_SIZE=150};              //3
@@ -38,7 +38,7 @@ enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
 enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
 enum{TASK_READ_TEMP_STACK_SIZE=180};               //6
 enum{TASK_REGULATE_TEMP_STACK_SIZE=180};           //7
-enum{TASK_SELECT_DRINK_STACK_SIZE=256};            //8
+enum{TASK_SELECT_DRINK_STACK_SIZE=270};            //8
 enum{TASK_ORDER_DRINK_STACK_SIZE=320};             //9
 enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=320};        //10
 enum{TASK_WELCOME_SCREEN_STACK_SIZE=222};          //11 // Tuned, 48 words in reserve
@@ -230,7 +230,7 @@ extern SemaphoreHandle_t sem_ReadData;
 extern SemaphoreHandle_t mux_I2CLock;
 extern SemaphoreHandle_t mux_SerialLock;
 // Semaphores and Mutexes handles
-extern sUIContext UI_Context;
+extern volatile sUIContext UI_Context;
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters

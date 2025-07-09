@@ -5,7 +5,6 @@
 
 #include "DrinkCreator6000_Tasks.h"
 
-
 #include <Wire.h>
 
 void lastError_dump(sSystemError*lastError){

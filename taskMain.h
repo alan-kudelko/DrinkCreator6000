@@ -6,6 +6,8 @@
 
 #include "DrinkCreator6000_Config.h"
 
+void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,sUIContext*UI_Context);
+
 void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext*UI_Context);
 
 void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI_Context);

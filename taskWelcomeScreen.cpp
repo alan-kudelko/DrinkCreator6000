@@ -3,6 +3,7 @@
 void taskWelcomeScreen(void*pvParameters){
   uint16_t timePassed=0;
   uint8_t keyboardData=E_GREEN_BUTTON;
+  uint32_t notification=0;
   bool f_run=true;
   
   sScreenData screenData{};  
@@ -14,12 +15,12 @@ void taskWelcomeScreen(void*pvParameters){
   for(;;){ 
 	if(timePassed>=TASK_WELCOME_TICKS_TO_CLOSE+1){
     vTaskDelay(pdMS_TO_TICKS(TASK_WELCOME_SCREEN_REFRESH_RATE));
-	  xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
+    xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
 	  vTaskDelete(NULL);
 	}
-	if(ulTaskNotifyTake(pdTRUE,0)>0){
-	  xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
-	  vTaskDelete(NULL);
+	if(xTaskNotifyWait(0,0,&notification,0)>0){
+    if(notification==0)
+	   vTaskDelete(NULL);
 	}
 	memset(screenData.lines[2]+1,0xFF,10*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
 	sprintf(screenData.lines[2]+13,"%3u %%",100*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);

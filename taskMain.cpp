@@ -2,42 +2,111 @@
 
 // Each operation should update current context
 // If one or more field is modified, operation should be atomic
+// incrementing and decrementing submenus can be common for all the tasks
+// It can be done because each task will control its own submenu values range
+// and clip it if necessary
+// In some cases I.E specific menus and submenus some additional control logic should be implement here
 
+void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,sUIContext*UI_Context){
+  if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+    if(UI_Context->currentSubMenu>0)
+      UI_Context->currentSubMenu--;
+  }
+  if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+    UI_Context->currentSubMenu++;
+  }
+}
 void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext*UI_Context){
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+    taskENTER_CRITICAL();
     UI_Context->currentTask=DRINK_SELECT;
-    // activate next task
-    uint8_t drinkId=7;
-    xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(100));
+    UI_Context->currentSubMenu=7;
+    taskEXIT_CRITICAL();
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+    xTaskNotify(taskHandles[TASK_WELCOME_SCREEN],0,eSetValueWithOverwrite);
   }
 }
 void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI_Context){
-	
+  if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+    // Ordering drink with UI_Context change and data send
+    taskENTER_CRITICAL();
+    UI_Context->currentTask=DRINK_ORDER;
+    UI_Context->currentMenu=0;
+    UI_Context->currentSubMenu=0;
+    taskEXIT_CRITICAL();
+    // notyfikacje
+  }
+  if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+    UI_Context->currentSubMenu--;
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+  }
+  if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+    UI_Context->currentSubMenu++;
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+  }
+  if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+    taskENTER_CRITICAL();
+    UI_Context->currentTask=SHOW_INFO;
+    UI_Context->currentMenu=0;
+    UI_Context->currentSubMenu=0;
+    taskEXIT_CRITICAL();
+    xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite);
+  }
 }
 void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,sUIContext*UI_Context){
-	
+	// if red button is pushed, there should be some kind of information that processed was aborted
+  // of course all the pumps should be stopped
 }
 void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext*UI_Context){
-	
+  if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+    taskENTER_CRITICAL();
+    UI_Context->currentMenu++;
+    UI_Context->currentSubMenu=0;
+    taskEXIT_CRITICAL();
+  }
+  if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
+    if(UI_Context->currentMenu==0){
+      taskENTER_CRITICAL();
+      UI_Context->currentTask=DRINK_SELECT;
+      UI_Context->currentMenu=0;
+      UI_Context->currentSubMenu=7;
+      taskEXIT_CRITICAL();
+      xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite);
+      xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+      return;
+    }
+    if(UI_Context->currentMenu>0){
+      taskENTER_CRITICAL();
+      UI_Context->currentMenu--;
+      UI_Context->currentSubMenu=0;
+      taskEXIT_CRITICAL();
+    }
+  }
+  if(UI_Context->currentMenu==3){ // TASK INFO
+    if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+      if(UI_Context->currentSubMenu>0)
+        UI_Context->currentSubMenu--;
+      else
+        UI_Context->currentSubMenu=TASK_N-1;
+    }
+    if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+      UI_Context->currentSubMenu++;
+    }
+    return;
+  }  
+  taskMain_ProcessScrollButtons(keyboardInput,UI_Context);
 }
 
 void taskMain(void*pvParameters){
   bool f_keyboardDataReceived=false;
   
   uint8_t keyboardData=0;
-
-
-  //This task should call coresponding function depended on the current context
-
-  //xQueueSend(qDrinkId,&drinkId,pdMS_TO_TICKS(50));
-  
   
   for(;;){
     if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(1000))){
 	    f_keyboardDataReceived=true;
     }
-	// Main logic of the program and sending data to running tasks
-	// Main logic in here should be bounded with currentTask context
 	if(f_keyboardDataReceived){
     switch(UI_Context.currentTask){
 	    case WELCOME_SCREEN: 
@@ -50,9 +119,10 @@ void taskMain(void*pvParameters){
         ////////////
 		  break;
 		  case SHOW_INFO:
-		    //taskMain_ProcessContext_taskShowSystemInfo(&keyboardData,&UI_Context);
+		    taskMain_ProcessContext_taskShowSystemInfo(&keyboardData,&UI_Context);
 		  break;
 		}
+    
 		f_keyboardDataReceived=false;
 		// Should be executed only once after received qKeyboardData
 	  }

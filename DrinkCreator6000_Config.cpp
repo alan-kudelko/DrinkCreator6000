@@ -91,7 +91,7 @@ SemaphoreHandle_t sem_ReadData{0xF};
 SemaphoreHandle_t mux_I2CLock{0xF};
 SemaphoreHandle_t mux_SerialLock{0xF};
 
-sUIContext UI_Context{0xF}; //Initialized in order to be stored in .data
+volatile sUIContext UI_Context{0xF}; //Initialized in order to be stored in .data
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters
