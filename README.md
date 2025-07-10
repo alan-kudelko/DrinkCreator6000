@@ -256,6 +256,7 @@ The stack begins at RAMEND and grows downward, with its current position given b
 The heap starts at __heap_start, which is the first free address after all global and static variables are initialized, and grows upward toward __heap_end.
 Therefore, the amount of free memory is simply the difference between __stack_ptr and __heap_end:
 Free memory = __stack_ptr - __heap_end
+
 ---
 
 ### 10. Additional Notes  
