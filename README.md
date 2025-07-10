@@ -252,9 +252,9 @@ Screen transition diagram:
 
 - The __heap_end variable is defined as follows:
 
-__heap_end = (__brkval != 0) ? __brkval : (void*)&__heap_start;.
+  __heap_end = (__brkval != 0) ? __brkval : (void*)&__heap_start;.
 
-__brkval is a pointer to the first free memory location in the heap section, and it is managed internally by the malloc() function.
+  __brkval is a pointer to the first free memory location in the heap section, and it is managed internally by the malloc() function.
 
 - The `__stack_ptr` variable is initialized with the value of the `SP` register before the RTOS scheduler starts. On AVR microcontrollers, `SP` holds the current stack pointer. However, after the scheduler starts, `SP` is overwritten with the stack pointer of the currently executing task, which would lead to incorrect free memory calculations if used directly.
 
