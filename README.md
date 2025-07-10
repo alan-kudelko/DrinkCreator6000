@@ -235,17 +235,24 @@ Screen transition diagram:
 
 ![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
-- __tdat_start
-- __tdat_end
-- __data_start
-- __data_end
-- __bss_start
-- __bss_end
-- __heap_start
-- __heap_end
-- __stack_end
-- __stack_ptr
-- RAMEND is a symbolic constant representing the last address of SRAM on AVR microcontrollers. Since this project uses the ATmega2561, RAMEND equals 0x21FF.
+- `__tdat_start` is a linker symbol representing the starting address of the `.tdat` section in SRAM.
+- `__tdat_end` is a linker symbol representing the ending address of the `.tdat` section in SRAM.
+- `__data_start` is a linker symbol representing the starting address of the `.data` section in SRAM on AVR microcontrollers.
+- `__data_end` is a linker symbol representing the ending address of the `.data` section in SRAM on AVR microcontrollers.
+- `__bss_start` is a linker symbol representing the starting address of the `.bss` section in SRAM on AVR microcontrollers.
+- `__bss_end` is a linker symbol representing the ending address of the `.bss` section in SRAM on AVR microcontrollers.
+- `__heap_start` is a linker symbol representing the starting address of the heap section in SRAM.
+- `__heap_end` is a variable defined by me to mark the end of the heap section. Its calculation is described in the Notes below.
+- `__stack_ptr` is a variable defined by me to mark the start (bottom) of the stack section in SRAM. See Notes below.
+- `RAMEND` is a symbolic constant representing the last address of SRAM on AVR microcontrollers. Since this project uses the ATmega2561, `RAMEND` equals `0x21FF`.
+
+**Notes:**
+
+- The symbols `__tdat_start` and `__tdat_end` were predefined in the linker script, along with a custom `.tdat` section. This section is used to store Task Control Blocks (TCBs), task stacks, and corresponding guard zones. The `.tdat` section ensures that stacks and their guard zones are placed contiguously in memory, enabling reliable stack overflow monitoring.
+
+- The `__stack_ptr` variable is initialized with the value of the `SP` register before the RTOS scheduler starts. On AVR microcontrollers, `SP` holds the current stack pointer. However, after the scheduler starts, `SP` is overwritten with the stack pointer of the currently executing task, which would lead to incorrect free memory calculations if used directly.
+
+
 ---
 
 ### 9. Free Memory Calculation  
