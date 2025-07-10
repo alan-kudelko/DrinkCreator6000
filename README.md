@@ -28,6 +28,7 @@ User input is handled via an MCP23017 I²C I/O expander, which generates interru
 ## 🧱 System Overview
 
 The system is built around a custom-designed PCB featuring an ATmega2561 microcontroller. It uses FreeRTOS to run multiple independent tasks that manage the user interface, inputs, outputs, and internal logic.
+
 Each screen or function (like selecting a drink or diagnostics) is handled by a dedicated software module. The interface guides the user through clear prompts, while internal tasks manage precise timing, input handling, and output control behind the scenes.
 Key characteristics:
 - 🔵 Modular design for easy debugging and future expansion
