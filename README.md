@@ -37,6 +37,19 @@ Key characteristics:
 - Built-in protection mechanisms against system faults
 - Designed for responsiveness and predictable behavior
 
+
+## 🖼️ Visual Overview
+
+This section provides an overview of the DrinkCreator6000 machine itself — including its hardware design, PCB layout, electrical schematics, and LCD interface examples.
+
+### 🎬 UI interface Demo
+
+[![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/Mg_Gc56w8Ac/0.jpg)](https://www.youtube.com/watch?v=Mg_Gc56w8Ac)
+
+### 🎬 Project Demo
+
+(Will be here soon)
+
 ## 🛠️ Hardware and Libraries Requirements
 
 ### Hardware
@@ -126,10 +139,6 @@ Key characteristics:
 
 ---
 
-## 🖼️ Visual Overview
-
-This section provides an overview of the DrinkCreator6000 machine itself — including its hardware design, PCB layout, electrical schematics, and LCD interface examples.
-
 #### 🧩 PCB Layout  
 Preview of the custom-designed AVR board used in the project:
 
@@ -208,9 +217,6 @@ Screen transition diagram:
 
 ---
 
-### 🎬 UI interface Demo
-
-[![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/Mg_Gc56w8Ac/0.jpg)](https://www.youtube.com/watch?v=Mg_Gc56w8Ac)
 
 ### ⚙️ Technical Overview
 
