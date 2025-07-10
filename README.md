@@ -194,15 +194,29 @@ Screen transition diagram:
                                      ║
                                      ║
                                      ▼
-                           ╔════════════════════╗
-                           ║                    ║
-    6 Test Pumps           ║                    ║
-                           ║                    ║
-                           ║                    ║
-                           ╚════════════════════╝
+                           ╔════════════════════╗              ╔════════════════════╗
+                           ║HW Testing Mode     ║  Submenu[1]  ║HW Testing Mode     ║
+    6 Test hardware        ║Pumps Test Menu     ║  --------->  ║Pumps Test Menu     ║
+                           ║Pump ID: 12345678   ║              ║Pump ID: 12345678   ║
+                           ║Status: 0b00000011  ║              ║Status: 0b00000011  ║
+                           ╚════════════════════╝              ╚════════════════════╝
 
 ---
 
 ### 🎬 UI interface Demo
 
 [![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/Mg_Gc56w8Ac/0.jpg)](https://www.youtube.com/watch?v=Mg_Gc56w8Ac)
+
+### ⚙️ Technical Overview
+
+#### 1. Navigation & UI Context  
+
+#### 2. Memory Layout & Custom Segments  
+
+#### 3. Input Handling & MCP23017  
+
+#### 4. Project Structure & File Overview  
+
+#### 5. Memory Usage Calculation  
+
+#### 6. Additional Notes  
