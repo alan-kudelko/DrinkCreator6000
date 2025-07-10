@@ -183,7 +183,7 @@ Screen transition diagram:
 | 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |    1     |    300     |     80     |
 | 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance                                    |    1     |    222     |     42     |
 | 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements (Not implemented yet)                               |    1     |    222     |      -     |
----
+
 **Task stacks will be adjusted in the final version**
 
 ### 3. 📊 RAM Usage Overview (Start, End, Size)
