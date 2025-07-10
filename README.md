@@ -202,4 +202,4 @@ Screen transition diagram:
 
 ### 🎬 UI interface Demo
 
-[![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/YOUR_VIDEO_ID_HERE/0.jpg)]([https://www.youtube.com/watch?v=](https://youtube.com/shorts/Mg_Gc56w8Ac?feature=share)
+[![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/Mg_Gc56w8Ac/0.jpg)](https://www.youtube.com/watch?v=Mg_Gc56w8Ac)
