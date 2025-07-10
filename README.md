@@ -223,7 +223,7 @@ Screen transition diagram:
 
 ### 5. Navigation & UI Context  
 
-avigation within the user interface is managed through a global structure called UI_Context. This structure enables switching between different tasks by activating or deactivating them as needed. The central control and navigation logic is handled by taskMain.
+Navigation within the user interface is managed through a global structure called UI_Context. This structure enables switching between different tasks by activating or deactivating them as needed. The central control and navigation logic is handled by taskMain.
 
 The UI_Context structure is defined as follows:
 
@@ -242,22 +242,33 @@ Upon receiving a deactivation signal, the relevant task safely halts its executi
 
 An example of this control logic is shown below:
 
-    if((*keyboardInput & E_GREEN_BUTTON) == E_GREEN_BUTTON){
-
+    if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
       taskENTER_CRITICAL();
-    
-      UI_Context->currentTask = DRINK_SELECT;
-    
-      UI_Context->currentSubMenu = 7;
-      
+      UI_Context->currentTask=DRINK_ORDER;
+      UI_Context->currentMenu=0;
+      UI_Context->currentSubMenu=0;
       taskEXIT_CRITICAL();
-
-      // Notify the drink selection task to activate
-      xTaskNotify(taskHandles[TASK_SELECT_DRINK], 1, eSetValueWithOverwrite);
-
-      // Notify the welcome screen task to deactivate
-      xTaskNotify(taskHandles[TASK_WELCOME_SCREEN], 0, eSetValueWithOverwrite);
     }
+    if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+      UI_Context->currentSubMenu--;
+      xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+    }
+    if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+      UI_Context->currentSubMenu++;
+      xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+    }
+    if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+      taskENTER_CRITICAL();
+      UI_Context->currentTask=SHOW_INFO;
+      UI_Context->currentMenu=0;
+      UI_Context->currentSubMenu=0;
+      taskEXIT_CRITICAL();
+      xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
+      xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite);
+    }
+    
+*Note:*  
+- When modifying multiple fields of the UI_Context structure, it is essential to ensure that the operation is atomic. This means preventing the scheduler from performing a context switch during the update. If not properly protected, concurrent access to UI_Context may result in an inconsistent state or hard-to-debug issues, especially when other tasks read from it simultaneously.
 
 ---
 
