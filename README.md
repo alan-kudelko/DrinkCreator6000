@@ -50,6 +50,33 @@ This section provides an overview of the DrinkCreator6000 machine itself — inc
 
 (Will be here soon)
 
+## 🗺️ Roadmap
+
+- ✅ Create custom PCB with AVR MCU and additional components
+- ✅ Create functions for static allocation of Queues, Mutexes, and Semaphores
+- ✅ Create function for displaying current RAM usage via serial monitor
+- ✅ Create function for debugging the last unconfirmed error stored in EEPROM
+- ✅ Create function for displaying the boot count from EEPROM via serial port
+- ✅ Create stackOverflowHook for handling stack overflow errors
+- ✅ Create task for handling critical system errors such as stack overflows and logging them to EEPROM
+- ✅ Create task for debugging stack usage and runtime status of all tasks via serial monitor
+- ✅ Create main task for coordinating other tasks
+- ✅ Create task for handling regular LCD updates
+- ✅ Create task for regulating temperature inside the freezer
+- 🔄 Create task for handling keyboard input from MCP23017 with software debounce
+- 🔄 Create task for selecting the drink to be ordered
+- ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
+- 🔄 Create task for processing the ordered drink (pump activation)
+- ✅ Create task to display project information such as author, startup count, and current runtime
+- 🔄 Create task to display and confirm the last saved error
+- ✅ Implement software guard zones between task stacks for added protection and reliability
+- 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
+- 🔄 Create a custom memory segment named .task_data to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
+- 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
+- ✅ Separate code into multiple files for better readability
+
+---
+
 ## 🛠️ Hardware and Libraries Requirements
 
 ### Hardware
@@ -112,32 +139,6 @@ This section provides an overview of the DrinkCreator6000 machine itself — inc
 
 ---
 
-## 🗺️ Roadmap
-
-- ✅ Create custom PCB with AVR MCU and additional components
-- ✅ Create functions for static allocation of Queues, Mutexes, and Semaphores
-- ✅ Create function for displaying current RAM usage via serial monitor
-- ✅ Create function for debugging the last unconfirmed error stored in EEPROM
-- ✅ Create function for displaying the boot count from EEPROM via serial port
-- ✅ Create stackOverflowHook for handling stack overflow errors
-- ✅ Create task for handling critical system errors such as stack overflows and logging them to EEPROM
-- ✅ Create task for debugging stack usage and runtime status of all tasks via serial monitor
-- ✅ Create main task for coordinating other tasks
-- ✅ Create task for handling regular LCD updates
-- ✅ Create task for regulating temperature inside the freezer
-- 🔄 Create task for handling keyboard input from MCP23017 with software debounce
-- 🔄 Create task for selecting the drink to be ordered
-- ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
-- 🔄 Create task for processing the ordered drink (pump activation)
-- ✅ Create task to display project information such as author, startup count, and current runtime
-- 🔄 Create task to display and confirm the last saved error
-- ✅ Implement software guard zones between task stacks for added protection and reliability
-- 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
-- 🔄 Create a custom memory segment named .task_data to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
-- 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
-- ✅ Separate code into multiple files for better readability
-
----
 
 #### 🧩 PCB Layout  
 Preview of the custom-designed AVR board used in the project:
@@ -218,16 +219,16 @@ Screen transition diagram:
 ---
 
 
-### ⚙️ Technical Overview
+## ⚙️ Technical Overview
 
-#### 1. Navigation & UI Context  
+### 1. Navigation & UI Context  
 
-#### 2. Input Handling & MCP23017  
+### 2. Input Handling & MCP23017  
 
-#### 3. Memory Layout & Custom Segments  
+### 3. Memory Layout & Custom Segments  
 
-#### 4. Project Structure & File Overview  
+### 4. Project Structure & File Overview  
 
-#### 5. Memory Usage Calculation  
+### 5. Memory Usage Calculation  
 
-#### 6. Additional Notes  
+### 6. Additional Notes  
