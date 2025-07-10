@@ -277,7 +277,7 @@ An example of this control logic is shown below:
 ---
 
 ### 7. Project Structure & File Overview  
-
+```
 📦 DrinkCreator6000/
 │
 ├── Datasheets/                   # Documentation of used ICs
@@ -299,7 +299,7 @@ An example of this control logic is shown below:
 │
 ├── README.md                     # Project overview
 └── LICENSE                       # License file
-
+```
 
 ---
 
