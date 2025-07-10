@@ -37,6 +37,7 @@ Key characteristics:
 - Built-in protection mechanisms against system faults
 - Designed for responsiveness and predictable behavior
 
+---
 
 ## 🖼️ Visual Overview
 
@@ -49,6 +50,8 @@ This section provides an overview of the DrinkCreator6000 machine itself — inc
 ### 🎬 Project Demo
 
 (Will be here soon)
+
+---
 
 ## 🗺️ Roadmap
 
