@@ -303,7 +303,7 @@ An example of this control logic is shown below:
 
 - The __heap_end variable is defined as follows:
 
-  __heap_end = (__brkval != 0) ? __brkval : (void*)&__heap_start;.
+      __heap_end = (__brkval != 0) ? __brkval : (void*)&__heap_start;.
 
   __brkval is a pointer to the first free memory location in the heap section, and it is managed internally by the malloc() function.
 
@@ -331,7 +331,7 @@ The stack begins at RAMEND and grows downward, with its current position given b
 The heap starts at __heap_start, which is the first free address after all global and static variables are initialized, and grows upward toward __heap_end.
 Therefore, the amount of free memory is simply the difference between __stack_ptr and __heap_end:
 
-Free memory = __stack_ptr - __heap_end
+    Free memory = __stack_ptr - __heap_end
 
 ---
 
