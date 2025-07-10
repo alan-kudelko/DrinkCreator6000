@@ -259,6 +259,9 @@ extern const uint8_t pumpsEff[];
 // Pumps efficiency in ml/min
 //////////////////////////////////////////////////////////////////
 // RAM-related symbols and global memory variables:
+extern uint16_t __tdat_start;
+extern uint16_t __tdat_end;
+
 extern uint16_t __data_start;
 extern uint16_t __data_end;
 

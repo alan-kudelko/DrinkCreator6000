@@ -78,6 +78,11 @@ void setup(){
   initializeIO();
   initializeMemory();
   initializeHardware();
+
+  Serial.print("Size of StackType_t: "); Serial.println(sizeof(StackType_t));
+  Serial.print("Align of StackType_t: "); Serial.println(__alignof__(StackType_t));
+  Serial.print("Size of StaticTask_t: "); Serial.println(sizeof(StaticTask_t));
+  Serial.print("Align of StaticTask_t: "); Serial.println(__alignof__(StaticTask_t));
   
   //f_errorConfirmed=lastSystemError.confirmed;
   f_errorConfirmed=1;

@@ -15,6 +15,13 @@ void ram_dump(){
   Serial.println(F("[#####]====[MEMORY STATUS]====[#####]"));
   Serial.println(F("[     ] START |  END  | SIZE  [     ]"));
 
+  sprintf(buffer,"%04X",(uint16_t)&__tdat_start);
+  Serial.print(F("[.TDAT]0x")); Serial.print(buffer);
+  sprintf(buffer,"%04X",(uint16_t)&__tdat_end);
+  Serial.print(F("|0x")); Serial.print(buffer);
+  sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__tdat_end-(uint16_t)&__tdat_start));
+  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[.TDAT]"));
+
   sprintf(buffer,"%04X",(uint16_t)&__data_start);
   Serial.print(F("[.DATA]0x")); Serial.print(buffer);
   sprintf(buffer,"%04X",(uint16_t)&__data_end);

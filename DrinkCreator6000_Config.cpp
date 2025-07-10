@@ -4,18 +4,18 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
-StaticTask_t errorHandlerTCB;                                   //0
-StaticTask_t serialSystemDebuggerTCB;                           //1
-StaticTask_t mainTCB;                                           //2
-StaticTask_t readInputTCB;                                      //3
-StaticTask_t serialInputTCB;                                    //4
-StaticTask_t updateScreenTCB;                                   //5
-StaticTask_t readTempTCB;                                       //6
-StaticTask_t regulateTempTCB;                                   //7
-StaticTask_t selectDrinkTCB;                                    //8
-StaticTask_t orderDrinkTCB;                                     //9
-StaticTask_t showSystemInfoTCB;                                 //10
-StaticTask_t welcomeScreenTCB;                                  //11
+StaticTask_t errorHandlerTCB         __attribute__((section(".tdat"))); //0
+StaticTask_t serialSystemDebuggerTCB __attribute__((section(".tdat"))); //1
+StaticTask_t mainTCB;                __attribute__((section(".tdat"))); //2
+StaticTask_t readInputTCB;           __attribute__((section(".tdat"))); //3
+StaticTask_t serialInputTCB;         __attribute__((section(".tdat"))); //4
+StaticTask_t updateScreenTCB;        __attribute__((section(".tdat"))); //5
+StaticTask_t readTempTCB;            __attribute__((section(".tdat"))); //6
+StaticTask_t regulateTempTCB;        __attribute__((section(".tdat"))); //7
+StaticTask_t selectDrinkTCB;         __attribute__((section(".tdat"))); //8
+StaticTask_t orderDrinkTCB;          __attribute__((section(".tdat"))); //9
+StaticTask_t showSystemInfoTCB;      __attribute__((section(".tdat"))); //10
+StaticTask_t welcomeScreenTCB;       __attribute__((section(".tdat"))); //11
 
 TaskHandle_t taskHandles[TASK_N];
 
