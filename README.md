@@ -242,18 +242,22 @@ Upon receiving a deactivation signal, the relevant task safely halts its executi
 
 An example of this control logic is shown below:
 
-if((*keyboardInput & E_GREEN_BUTTON) == E_GREEN_BUTTON){
-    taskENTER_CRITICAL();
-    UI_Context->currentTask = DRINK_SELECT;
-    UI_Context->currentSubMenu = 7;
-    taskEXIT_CRITICAL();
+    if((*keyboardInput & E_GREEN_BUTTON) == E_GREEN_BUTTON){
 
-    // Notify the drink selection task to activate
-    xTaskNotify(taskHandles[TASK_SELECT_DRINK], 1, eSetValueWithOverwrite);
+      taskENTER_CRITICAL();
+    
+      UI_Context->currentTask = DRINK_SELECT;
+    
+      UI_Context->currentSubMenu = 7;
+      
+      taskEXIT_CRITICAL();
 
-    // Notify the welcome screen task to deactivate
-    xTaskNotify(taskHandles[TASK_WELCOME_SCREEN], 0, eSetValueWithOverwrite);
-}
+      // Notify the drink selection task to activate
+      xTaskNotify(taskHandles[TASK_SELECT_DRINK], 1, eSetValueWithOverwrite);
+
+      // Notify the welcome screen task to deactivate
+      xTaskNotify(taskHandles[TASK_WELCOME_SCREEN], 0, eSetValueWithOverwrite);
+    }
 
 ---
 
