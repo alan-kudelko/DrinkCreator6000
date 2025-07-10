@@ -77,78 +77,6 @@ This section provides an overview of the DrinkCreator6000 machine itself — inc
 
 ---
 
-## 🛠️ Hardware and Libraries Requirements
-
-### Hardware
-- ATmega2560 / ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
-- LCD 2004 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
-- 74HC595 shift register for pump control
-- PCF8574N I²C I/O expander for keypad
-
-### Software
-- Arduino IDE (used for development and uploading)
-- Arduino FreeRTOS library (adds multitasking and RTOS features)
-- LiquidCrystal_I2C library (compatible with the I²C LCD driver used)
-- avr-libc (AVR C runtime, typically included with Arduino toolchain)
-
-### 🧵 Task Overview
-
-| Task ID | Task Name                  | Description                                                                                                               | Priority | Stack Size | Free Stack |
-|---------|----------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|------------|------------|
-| 00      | `taskErrorHandler`         | Handles critical faults such as stack overflows and guard zone corruption, and logs errors to EEPROM                      |    3     |    256     |     50     |
-| 01      | `taskSerialSystemDebugger` | Monitors stack and RAM usage across all tasks and outputs the data to the serial port                                     |    1     |    270     |     47     |
-| 02      | `taskMain`                 | Coordinates the system, manages high-level logic, activates tasks, and handles the current UI context                     |    1     |    200     |    129     |
-| 03      | `taskReadInput`            | Reads keyboard data from the MCP23017 I²C I/O expander                                                                    |    2     |    150     |     75     |
-| 04      | `taskSerialInput`          | Simulates keyboard input via the serial port for debugging or testing purposes                                            |    2     |    150     |     46     |
-| 05      | `taskUpdateScreen`         | Periodically updates the LCD based on current context of the systems                                                      |    1     |    250     |     55     |
-| 06      | `taskReadTemp`             | Reads the current temperature inside the freezer and updates a global variable                                            |    1     |    180     |    118     |
-| 07      | `taskRegulateTemp`         | Regulates temperature based on the current readings and configured thresholds                                             |    1     |    180     |    118     |
-| 08      | `taskSelectDrink`          | Handles drink selection logic and displays in on the LCD                                                                  |    1     |    270     |     95     |
-| 09      | `taskOrderDrink`           | Controls the 74HC595 shift register and pump sequence when processing a drink order                                       |    1     |    320     |    175     |
-| 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |    1     |    300     |     80     |
-| 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance                                    |    1     |    222     |     42     |
-| 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements (Not implemented yet)                               |    1     |    222     |      -     |
----
-**Task stacks will be adjusted in the final version**
-
-### 📊 RAM Usage Overview (Start, End, Size)
-
-| Region    | Start Address | End Address | Size (bytes) |
-|-----------|---------------|-------------|--------------|
-| .data     | 0x0200        | 0x1522      | 4898         |
-| .bss      | 0x1522        | 0x1BF7      | 1749         |
-| Heap      | 0x1BF7        | 0x1BF7      | 0            |
-| CPU Stack | 0x21B5        | 0x21FF      | 154          |
-
-**Total free memory:** 1470 bytes
-
-*Note:*  
-- FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  
-- CPU Stack refers to the main processor stack (not individual task stacks).
-
-### 💾 EEPROM Memory Map
-
-| Address (hex) | Size (bytes) | Description                       |
-|---------------|--------------|-----------------------------------|
-| 0x0000        | 1            | Number of drinks in memory (n)    |
-| 0x0001        | 34 * n       | Drinks data (n ≤ 26)              |
-| 0x0400        | 4            | Temperature set in freezer        |
-| 0x0404        | 4            | Temperature hysteresis width      |
-| 0x0800        | 134          | Last saved error                  |
-| 0x0C00        | 2            | Bootups count                     |
-
----
-
-
-#### 🧩 PCB Layout  
-Preview of the custom-designed AVR board used in the project:
-
-![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
-![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW.PNG)
-
-#### 🔧 Electrical Schematic  
-Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
-
 ### 📟 UI Flow & Screens
 
 | ID | Screen               | Description                                                                 |
@@ -221,6 +149,69 @@ Screen transition diagram:
 
 ## ⚙️ Technical Overview
 
+### 1. 🛠️ Hardware and Libraries Requirements
+
+#### Hardware
+- ATmega2560 / ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
+- LCD 2004 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
+- 74HC595 shift register for pump control
+- PCF8574N I²C I/O expander for keypad
+
+#### Software
+- Arduino IDE (used for development and uploading)
+- Arduino FreeRTOS library (adds multitasking and RTOS features)
+- LiquidCrystal_I2C library (compatible with the I²C LCD driver used)
+- avr-libc (AVR C runtime, typically included with Arduino toolchain)
+
+### 2. 🧵 Task Overview
+
+| Task ID | Task Name                  | Description                                                                                                               | Priority | Stack Size | Free Stack |
+|---------|----------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|------------|------------|
+| 00      | `taskErrorHandler`         | Handles critical faults such as stack overflows and guard zone corruption, and logs errors to EEPROM                      |    3     |    256     |     50     |
+| 01      | `taskSerialSystemDebugger` | Monitors stack and RAM usage across all tasks and outputs the data to the serial port                                     |    1     |    270     |     47     |
+| 02      | `taskMain`                 | Coordinates the system, manages high-level logic, activates tasks, and handles the current UI context                     |    1     |    200     |    129     |
+| 03      | `taskReadInput`            | Reads keyboard data from the MCP23017 I²C I/O expander                                                                    |    2     |    150     |     75     |
+| 04      | `taskSerialInput`          | Simulates keyboard input via the serial port for debugging or testing purposes                                            |    2     |    150     |     46     |
+| 05      | `taskUpdateScreen`         | Periodically updates the LCD based on current context of the systems                                                      |    1     |    250     |     55     |
+| 06      | `taskReadTemp`             | Reads the current temperature inside the freezer and updates a global variable                                            |    1     |    180     |    118     |
+| 07      | `taskRegulateTemp`         | Regulates temperature based on the current readings and configured thresholds                                             |    1     |    180     |    118     |
+| 08      | `taskSelectDrink`          | Handles drink selection logic and displays in on the LCD                                                                  |    1     |    270     |     95     |
+| 09      | `taskOrderDrink`           | Controls the 74HC595 shift register and pump sequence when processing a drink order                                       |    1     |    320     |    175     |
+| 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |    1     |    300     |     80     |
+| 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance                                    |    1     |    222     |     42     |
+| 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements (Not implemented yet)                               |    1     |    222     |      -     |
+---
+**Task stacks will be adjusted in the final version**
+
+### 3. 📊 RAM Usage Overview (Start, End, Size)
+
+| Region    | Start Address | End Address | Size (bytes) |
+|-----------|---------------|-------------|--------------|
+| .data     | 0x0200        | 0x1522      | 4898         |
+| .bss      | 0x1522        | 0x1BF7      | 1749         |
+| Heap      | 0x1BF7        | 0x1BF7      | 0            |
+| CPU Stack | 0x21B5        | 0x21FF      | 154          |
+
+**Total free memory:** 1470 bytes
+
+*Note:*  
+- FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  
+- CPU Stack refers to the main processor stack (not individual task stacks).
+
+### 4. 💾 EEPROM Memory Map
+
+| Address (hex) | Size (bytes) | Description                       |
+|---------------|--------------|-----------------------------------|
+| 0x0000        | 1            | Number of drinks in memory (n)    |
+| 0x0001        | 34 * n       | Drinks data (n ≤ 26)              |
+| 0x0400        | 4            | Temperature set in freezer        |
+| 0x0404        | 4            | Temperature hysteresis width      |
+| 0x0800        | 134          | Last saved error                  |
+| 0x0C00        | 2            | Bootups count                     |
+
+---
+
+
 ### 1. Navigation & UI Context  
 
 ### 2. Input Handling & MCP23017  
@@ -232,3 +223,13 @@ Screen transition diagram:
 ### 5. Memory Usage Calculation  
 
 ### 6. Additional Notes  
+
+
+### 9. 🧩 PCB Layout  
+Preview of the custom-designed AVR board used in the project:
+
+![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
+![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW.PNG)
+
+### 10. 🔧 Electrical Schematic  
+Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
