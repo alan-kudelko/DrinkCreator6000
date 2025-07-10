@@ -80,7 +80,7 @@ This section provides an overview of the DrinkCreator6000 machine itself — inc
 
 ---
 
-### 📟 UI Flow & Screens
+## 📟 UI Flow & Screens
 
 | ID | Screen               | Description                                                                 |
 |----|----------------------|-----------------------------------------------------------------------------|
