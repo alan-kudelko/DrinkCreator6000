@@ -235,7 +235,7 @@ Screen transition diagram:
 
 Current memory map is described below
 
-![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
+![Current memory map](Media/ATmega2561_Data_Memory_Ma)
 
 ---
 
