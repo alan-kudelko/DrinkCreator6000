@@ -274,6 +274,14 @@ An example of this control logic is shown below:
 
 ### 6. Input Handling & MCP23017  
 
+#### 6.1 Configuration of MCP23017
+
+The MCP23017 is a 16-bit I/O expander IC that provides additional GPIO pins via an I2C interface. It features 22 registers (comprising 11 register pairs) that enable control of 16 pins, organized into two 8-bit ports (Port A and Port B). Its primary advantage lies in its ability to expand the number of input and output lines available to a microcontroller.
+
+However, this IC was selected due to its inclusion of two interrupt pins, which can be utilized to signal when a button press occurs. Moreover, it maintains the previous button states within dedicated registers, allowing the interrupt to be serviced at a later time without the need for immediate response. The stored button states persist until the data is read from the device, ensuring no input events are lost.
+
+
+#### 6.2 Reading data from MCP23017
 ---
 
 ### 7. Project Structure & File Overview  
