@@ -279,22 +279,39 @@ An example of this control logic is shown below:
 ### 7. Project Structure & File Overview  
 
 📦 DrinkCreator6000/
+
 │
+
 ├── Datasheets/                     # Documentation of used ICs
+
 ├── DrinkCreator6000.ino            # ArduinoIDE project file
+
 ├── DrinkCreator6000_Config.cpp     #
+
 ├── DrinkCreator6000_Config.h       # Configuration file of whole project and variable declaration
+
 ├── DrinkCreator6000_Init.cpp       #
+
 ├── DrinkCreator6000_Init.h         # Includes functions for initialization of hardware, IO and memory
+
 ├── DrinkCreator6000_Tasks.h        # Includes all defined tasks 
+
 ├── DrinkCreator6000_CustomData.h   # Includes user defined data types
+
 ├── DrinkCreator6000_EEPROM.h       # Includes EEPROM management functions
+
 │
+
 ├── taskErrorHandler.cpp            # Tasks source files
+
 ├── taskErrorHandler.h              # Tasks header files
+
 ├── ...
+
 │
+
 ├── README.md                       # Project overview
+
 └── LICENSE                         # License file
 
 ---
