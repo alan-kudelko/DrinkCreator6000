@@ -12,9 +12,28 @@ User input is handled via an MCP23017 I²C I/O expander, which generates interru
 
 ---
 
-## 🧱 Project Structure
+## 🧠 Design Goals
 
-All logic is implemented in statically allocated FreeRTOS tasks running on a custom PCB with AVR hardware. The system is modular and designed to support precise debugging and future expansion.
+- 🎯 Explore real-time scheduling and modular task separation
+- 💾 Use 100% static memory allocation (no malloc, no heap)
+- 🧰 Track system stability via runtime task/memory debug tools
+- 🔁 Ensure recovery after failure using EEPROM fault logging
+- 📟 Provide full system visibility through LCD diagnostics and monitoring
+- 🧪 Serve as a practical testbed for FreeRTOS and embedded RTOS design
+- 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design embedded systems
+- 🧩 Implement low-level memory management techniques for optimized and reliable resource control
+
+---
+
+## 🧱 System Overview
+
+The system is built around a custom-designed PCB featuring an ATmega2561 microcontroller. It uses FreeRTOS to run multiple independent tasks that manage the user interface, inputs, outputs, and internal logic.
+Each screen or function (like selecting a drink or diagnostics) is handled by a dedicated software module. The interface guides the user through clear prompts, while internal tasks manage precise timing, input handling, and output control behind the scenes.
+Key characteristics:
+🔵 Modular design for easy debugging and future expansion
+🔵 Fully statically allocated tasks for high reliability
+🔵 Built-in protection mechanisms against system faults
+🔵 Designed for responsiveness and predictable behavior
 
 ## 🛠️ Hardware and Libraries Requirements
 
@@ -31,7 +50,6 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - avr-libc (AVR C runtime, typically included with Arduino toolchain)
 
 ### 🧵 Task Overview
-
 
 | Task ID | Task Name                  | Description                                                                                                               | Priority | Stack Size | Free Stack |
 |---------|----------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|------------|------------|
@@ -79,19 +97,6 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ---
 
-## 🧠 Design Goals
-
-- 🎯 Explore real-time scheduling and modular task separation
-- 💾 Use 100% static memory allocation (no malloc, no heap)
-- 🧰 Track system stability via runtime task/memory debug tools
-- 🔁 Ensure recovery after failure using EEPROM fault logging
-- 📟 Provide full system visibility through LCD diagnostics and monitoring
-- 🧪 Serve as a practical testbed for FreeRTOS and embedded RTOS design
-- 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design embedded systems
-- 🧩 Implement low-level memory management techniques for optimized and reliable resource control
-
----
-
 ## 🗺️ Roadmap
 
 - ✅ Create custom PCB with AVR MCU and additional components
@@ -132,9 +137,7 @@ Preview of the custom-designed AVR board used in the project:
 #### 🔧 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
 
-### 📟 LCD Interface Screenshots
-
-Below are snapshots of the 2004 LCD display during system operation, illustrating various interface states and views:
+### 📟 UI Flow & Screens
 
 | ID | Screen               | Description                                                                 |
 |----|----------------------|-----------------------------------------------------------------------------|
@@ -211,9 +214,9 @@ Screen transition diagram:
 
 #### 1. Navigation & UI Context  
 
-#### 2. Memory Layout & Custom Segments  
+#### 2. Input Handling & MCP23017  
 
-#### 3. Input Handling & MCP23017  
+#### 3. Memory Layout & Custom Segments  
 
 #### 4. Project Structure & File Overview  
 
