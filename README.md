@@ -219,32 +219,36 @@ Screen transition diagram:
 ---
 
 
-### 1. Navigation & UI Context  
+### 5. Navigation & UI Context  
 
 ---
 
-### 2. Input Handling & MCP23017  
+### 6. Input Handling & MCP23017  
 
 ---
 
-### 3. Memory Layout & Custom Segments  
+### 7. Project Structure & File Overview  
 
 ---
 
-### 4. Project Structure & File Overview  
+### 8. Memory Layout & Custom Segments  
+
+Current memory map is described below
+
+![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
 ---
 
-### 5. Memory Usage Calculation  
+### 9. Memory Usage Calculation  
 
 ---
 
-### 6. Additional Notes  
+### 10. Additional Notes  
 
 ---
 
 
-### 9. 🧩 PCB Layout  
+### 11. 🧩 PCB Layout  
 Preview of the custom-designed AVR board used in the project:
 
 ![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
@@ -252,7 +256,7 @@ Preview of the custom-designed AVR board used in the project:
 
 ---
 
-### 10. 🔧 Electrical Schematic  
+### 11. 🔌 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
 
 ---
