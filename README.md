@@ -153,13 +153,13 @@ Screen transition diagram:
 
 ### 1. 🛠️ Hardware and Libraries Requirements
 
-#### Hardware
+#### 1.1 Hardware
 - ATmega2560 / ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
 - LCD 2004 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
 - 74HC595 shift register for pump control
 - PCF8574N I²C I/O expander for keypad
 
-#### Software
+#### 1.2 Software
 - Arduino IDE (used for development and uploading)
 - Arduino FreeRTOS library (adds multitasking and RTOS features)
 - LiquidCrystal_I2C library (compatible with the I²C LCD driver used)
@@ -233,7 +233,7 @@ Screen transition diagram:
 
 ### 8. Memory Layout & Custom Segments  
 
-#### Memory Layout
+#### 8.1 Memory Layout
 
 ![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
@@ -261,7 +261,15 @@ Screen transition diagram:
 - The `__stack_ptr` variable is initialized with the value of the `SP` register before the RTOS scheduler starts. On AVR microcontrollers, `SP` holds the current stack pointer. However, after the scheduler starts, `SP` is overwritten with the stack pointer of the currently executing task, which would lead to incorrect free memory calculations if used directly.
 
 
-#### Custom Segments
+#### 8.2 Custom Segments
+
+When compiling a program, the linker is responsible for placing variables and code in the correct memory segments — e.g., initialized variables go into the .data section, uninitialized variables into .bss, and so on. This process is typically handled automatically by the default linker script.
+
+However, relying solely on the default script provides no guarantee that specific variables will be placed next to each other in memory. Their placement may vary depending on factors such as the order of .o files passed to the linker.
+
+To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This approach allows for reliable monitoring of stack overflows via a dedicated task.
+
+![Linker script - .tdat fragment](Media/tdat_linker_script.PNG)
 
 ---
 
