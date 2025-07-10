@@ -233,6 +233,8 @@ Screen transition diagram:
 
 ### 8. Memory Layout & Custom Segments  
 
+#### Memory Layout
+
 ![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
 - `__tdat_start` is a linker symbol representing the starting address of the `.tdat` section in SRAM.
@@ -259,7 +261,10 @@ Screen transition diagram:
 - The `__stack_ptr` variable is initialized with the value of the `SP` register before the RTOS scheduler starts. On AVR microcontrollers, `SP` holds the current stack pointer. However, after the scheduler starts, `SP` is overwritten with the stack pointer of the currently executing task, which would lead to incorrect free memory calculations if used directly.
 
 
+#### Custom Segments
+
 ---
+
 
 ### 9. Free Memory Calculation  
 
@@ -273,12 +278,8 @@ Free memory = __stack_ptr - __heap_end
 
 ---
 
-### 10. Additional Notes  
 
----
-
-
-### 11. 🧩 PCB Layout  
+### 10. 🧩 PCB Layout  
 Preview of the custom-designed AVR board used in the project:
 
 ![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
@@ -286,7 +287,11 @@ Preview of the custom-designed AVR board used in the project:
 
 ---
 
-### 11. 🔌 Electrical Schematic  
+### 10. 🔌 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
+
+---
+
+### 11. Additional Notes  
 
 ---
