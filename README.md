@@ -227,12 +227,12 @@ Navigation within the user interface is managed through a global structure calle
 
 The UI_Context structure is defined as follows:
 
-UI_Context{
-  uint8_t autoScrollEnable: 1;  // 0 - 1
-  uint8_t currentTask: 3;       // 0 - 7
-  uint8_t currentMenu: 3;       // 0 - 7
-  uint8_t currentSubMenu;       // 0 - 255
-  }
+    UI_Context{
+      uint8_t autoScrollEnable: 1;  // 0 - 1
+      uint8_t currentTask: 3;       // 0 - 7
+      uint8_t currentMenu: 3;       // 0 - 7
+      uint8_t currentSubMenu;       // 0 - 255
+    }
 
 This structure stores information about the currently active task — the one responsible for updating the LCD by sending data via queue to the taskUpdateScreen(). It also tracks the currently selected menu and submenu within that task. This approach offers a flexible and memory-efficient way to handle UI navigation.
 
