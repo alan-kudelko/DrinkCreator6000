@@ -193,6 +193,7 @@ Screen transition diagram:
 
 | Region    | Start Address | End Address | Size (bytes) |
 |-----------|---------------|-------------|--------------|
+| .tdat     |      -        |     -       |      -       |
 | .data     | 0x0200        | 0x1522      | 4898         |
 | .bss      | 0x1522        | 0x1BF7      | 1749         |
 | Heap      | 0x1BF7        | 0x1BF7      | 0            |
@@ -203,6 +204,7 @@ Screen transition diagram:
 *Note:*  
 - FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  
 - CPU Stack refers to the main processor stack (not individual task stacks).
+- .tdat memory segment is yet to be implemented
   
 ---
 ### 4. 💾 EEPROM Memory Map
@@ -220,6 +222,38 @@ Screen transition diagram:
 
 
 ### 5. Navigation & UI Context  
+
+avigation within the user interface is managed through a global structure called UI_Context. This structure enables switching between different tasks by activating or deactivating them as needed. The central control and navigation logic is handled by taskMain.
+
+The UI_Context structure is defined as follows:
+
+UI_Context{
+  uint8_t autoScrollEnable: 1;  // 0 - 1
+  uint8_t currentTask: 3;       // 0 - 7
+  uint8_t currentMenu: 3;       // 0 - 7
+  uint8_t currentSubMenu;       // 0 - 255
+  }
+
+This structure stores information about the currently active task — the one responsible for updating the LCD by sending data via queue to the taskUpdateScreen(). It also tracks the currently selected menu and submenu within that task. This approach offers a flexible and memory-efficient way to handle UI navigation.
+
+When a button is pressed (or simulated via the serial port), taskMain evaluates whether a context switch is required. If so, it sends a task notification with a specific value (0 or 1) to indicate whether the task should be deactivated or activated.
+
+Upon receiving a deactivation signal, the relevant task safely halts its execution. taskMain then updates the context and notifies the new task to begin operation.
+
+An example of this control logic is shown below:
+
+if((*keyboardInput & E_GREEN_BUTTON) == E_GREEN_BUTTON){
+    taskENTER_CRITICAL();
+    UI_Context->currentTask = DRINK_SELECT;
+    UI_Context->currentSubMenu = 7;
+    taskEXIT_CRITICAL();
+
+    // Notify the drink selection task to activate
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK], 1, eSetValueWithOverwrite);
+
+    // Notify the welcome screen task to deactivate
+    xTaskNotify(taskHandles[TASK_WELCOME_SCREEN], 0, eSetValueWithOverwrite);
+}
 
 ---
 
@@ -285,7 +319,6 @@ Therefore, the amount of free memory is simply the difference between __stack_pt
 Free memory = __stack_ptr - __heap_end
 
 ---
-
 
 ### 10. 🧩 PCB Layout  
 Preview of the custom-designed AVR board used in the project:
