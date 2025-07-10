@@ -279,40 +279,26 @@ An example of this control logic is shown below:
 ### 7. Project Structure & File Overview  
 
 📦 DrinkCreator6000/
-
-│
-
-├── Datasheets/                     # Documentation of used ICs
-
-├── DrinkCreator6000.ino            # ArduinoIDE project file
-
-├── DrinkCreator6000_Config.cpp     #
-
-├── DrinkCreator6000_Config.h       # Configuration file of whole project and variable declaration
-
-├── DrinkCreator6000_Init.cpp       #
-
-├── DrinkCreator6000_Init.h         # Includes functions for initialization of hardware, IO and memory
-
-├── DrinkCreator6000_Tasks.h        # Includes all defined tasks 
-
-├── DrinkCreator6000_CustomData.h   # Includes user defined data types
-
-├── DrinkCreator6000_EEPROM.h       # Includes EEPROM management functions
-
-│
-
-├── taskErrorHandler.cpp            # Tasks source files
-
-├── taskErrorHandler.h              # Tasks header files
-
-├── ...
-
-│
-
-├── README.md                       # Project overview
-
-└── LICENSE                         # License file
+│ </br>
+├── Datasheets/                     # Documentation of used ICs</br>
+├── DrinkCreator6000.ino            # ArduinoIDE project file</br>
+│</br>
+├── DrinkCreator6000_Config.cpp     #</br>
+├── DrinkCreator6000_Config.h       # Configuration file of whole project and variable declaration</br>
+│</br>
+├── DrinkCreator6000_Init.cpp       #</br>
+├── DrinkCreator6000_Init.h         # Includes functions for initialization of hardware, IO and memory</br>
+│</br>
+├── DrinkCreator6000_Tasks.h        # Includes all defined tasks </br>
+├── DrinkCreator6000_CustomData.h   # Includes user defined data types</br>
+├── DrinkCreator6000_EEPROM.h       # Includes EEPROM management functions</br>
+│</br>
+├── taskErrorHandler.cpp            # Tasks source files</br>
+├── taskErrorHandler.h              # Tasks header files</br>
+├── ...</br>
+│</br>
+├── README.md                       # Project overview</br>
+└── LICENSE                         # License file</br>
 
 ---
 
