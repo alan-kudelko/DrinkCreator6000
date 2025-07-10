@@ -268,7 +268,7 @@ An example of this control logic is shown below:
     }
     
 *Note:*  
-- When modifying multiple fields of the UI_Context structure, it is essential to ensure that the operation is atomic. This means preventing the scheduler from performing a context switch during the update. If not properly protected, concurrent access to UI_Context may result in an inconsistent state or hard-to-debug issues, especially when other tasks read from it simultaneously.
+- When modifying multiple fields of the UI_Context structure, it is essential to ensure that the operation is "atomic". This means preventing the scheduler from performing a context switch during the update. If not properly protected, concurrent access to UI_Context may result in an inconsistent state or hard-to-debug issues, especially when other tasks read from it simultaneously.
 
 ---
 
@@ -277,6 +277,7 @@ An example of this control logic is shown below:
 ---
 
 ### 7. Project Structure & File Overview  
+
 ```
 📦 DrinkCreator6000/
 │
@@ -344,7 +345,6 @@ To ensure that all data related to each task — namely the Task Control Block (
 ![Linker script - .tdat fragment](Media/tdat_linker_script.PNG)
 
 ---
-
 
 ### 9. Free Memory Calculation  
 
