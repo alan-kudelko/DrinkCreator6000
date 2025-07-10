@@ -41,7 +41,7 @@ Key characteristics:
 
 ## 🖼️ Visual Overview
 
-This section provides an overview of the DrinkCreator6000 machine itself — including its hardware design, PCB layout, electrical schematics, and LCD interface examples.
+This section provides a visual presentation of the DrinkCreator6000 project, including photographs of the assembled machine, its hardware components, and screenshots illustrating the system’s operation. It aims to deliver a comprehensive understanding of the device’s physical design and functional behavior.
 
 ### 🎬 UI interface Demo
 
