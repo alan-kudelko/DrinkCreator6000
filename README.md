@@ -32,19 +32,20 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ### 🧵 Task Overview
 
-| Task ID | Task Name           | Description                                                                 |
-|---------|---------------------|-----------------------------------------------------------------------------|
-| 00      | `taskErrorHandler`  | Handles critical faults like stack overflows and logs errors to EEPROM.     |
-| 01      | `taskStackDebugger` | Monitors stack and RAM usage across all tasks.                             |
-| 02      | `taskMain`          | Coordinates the system, manages high-level logic, and activates tasks.      |
-| 03      | `taskUpdateScreen`  | Periodically updates the LCD with system data (RAM, uptime, diagnostics).   |
-| 04      | `taskRegulateTemp`  | Controls heating/cooling to maintain the target fluid temperature.          |
-| 05      | `taskReadInput`     | Handles input devices like buttons or encoders and passes events to the main task. |
-| 06      | `taskSelectDrink`   | Displays the current drink selection and related status.                    |
-| 07      | `taskOrderDrink`    | Processes drink orders and manages state transitions for dispensing.        |
-| 08   | `taskShowInfo`  | Displays firmware version, runtime data, temperature, RAM usage, and stack information|
-| 09      | `taskShowLastError` | Presents recent errors, task states, and priority information on the LCD.  |
-| 10      | `taskSim` | Simulates keyboard input by reading data from the serial interface. (used for testing)|
+| Task ID | Task Name           | Description                                                                                           |
+|---------|---------------------|-------------------------------------------------------------------------------------------------------|
+| 00      | `taskErrorHandler`  | Handles critical faults such as stack overflows and guard zone corruption, and logs errors to EEPROM |
+| 01      | `taskSerialSystemDebugger` | Monitors stack and RAM usage across all tasks and outputs the data to the serial port |
+| 02      | `taskMain`                 | Coordinates the system, manages high-level logic, activates tasks, and handles the current UI context |
+| 03      | `taskReadInput`            | Reads keyboard data from the MCP23017 I²C I/O expander |
+| 04      | `taskSerialInput`          | Simulates keyboard input via the serial port for debugging or testing purposes |
+| 05      | `taskUpdateScreen`         | Periodically updates the LCD based on current context of the systems
+| 06      | `taskReadTemp`             | Reads the current temperature inside the freezer and updates a global variable    |
+| 07      | `taskRegulateTemp`         | Regulates temperature based on the current readings and configured thresholds |
+| 08      | `taskSelectDrink`          | Handles drink selection logic and displays in on the LCD |
+| 09      | `taskOrderDrink`           | Controls the 74HC595 shift register and pump sequence when processing a drink order |
+| 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |
+| 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance.|
 ---
 
 ### 📊 RAM Usage Overview (Start, End, Size)
@@ -109,6 +110,8 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 - 🔄 Create task to display and confirm the last saved error
 - ✅ Implement software guard zones between task stacks for added protection and reliability
 - 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
+- 🔄 Create a custom memory segment named .task_data to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
+- 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
 
 ---
@@ -132,7 +135,7 @@ Below are snapshots of the 2004 LCD display during system operation, illustratin
 
 | ID | Screen               | Description                                                                 |
 |----|----------------------|-----------------------------------------------------------------------------|
-| 0  | **Startup Screen**    | Displays the project name, firmware version, and boot count.               |
+| 0  | **Welcome Screen**    | Displays the project name, firmware version, and boot count.               |
 | 1  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
 | 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
 | 3  | **Show Info Screen** | Displays general system status including uptime, firmware version, boot count, author, freezer temperature, RAM usage, and task stack diagnostics. |
@@ -149,7 +152,7 @@ Screen transition diagram:
                             ╚════════════════════╝ 
                                       ║
                                       ║
-                                      ▼                         2 Drink Order Screen
+                                      ▼                         2 Drink Order Screen                    Submenu[1]
                             ╔════════════════════╗             ╔════════════════════╗             ╔════════════════════╗
                             ║[01]Test Drink      ║             ║[01]Test Drink      ║ Submenu[1]  ║[01]Test Drink      ║
     1 Drink Select Screen   ║Whiskey       50[ml]║  ═ ═ ═ ═ >  ║                    ║ --------->  ║                    ║
@@ -198,3 +201,4 @@ Screen transition diagram:
 ---
 
 ### 🎬 Live Demo
+
