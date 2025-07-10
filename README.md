@@ -32,21 +32,24 @@ All logic is implemented in statically allocated FreeRTOS tasks running on a cus
 
 ### 🧵 Task Overview
 
-| Task ID | Task Name           | Description                                                                                           |
-|---------|---------------------|-------------------------------------------------------------------------------------------------------|
-| 00      | `taskErrorHandler`  | Handles critical faults such as stack overflows and guard zone corruption, and logs errors to EEPROM |
-| 01      | `taskSerialSystemDebugger` | Monitors stack and RAM usage across all tasks and outputs the data to the serial port |
-| 02      | `taskMain`                 | Coordinates the system, manages high-level logic, activates tasks, and handles the current UI context |
-| 03      | `taskReadInput`            | Reads keyboard data from the MCP23017 I²C I/O expander |
-| 04      | `taskSerialInput`          | Simulates keyboard input via the serial port for debugging or testing purposes |
-| 05      | `taskUpdateScreen`         | Periodically updates the LCD based on current context of the systems
-| 06      | `taskReadTemp`             | Reads the current temperature inside the freezer and updates a global variable    |
-| 07      | `taskRegulateTemp`         | Regulates temperature based on the current readings and configured thresholds |
-| 08      | `taskSelectDrink`          | Handles drink selection logic and displays in on the LCD |
-| 09      | `taskOrderDrink`           | Controls the 74HC595 shift register and pump sequence when processing a drink order |
-| 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |
-| 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance.|
+
+| Task ID | Task Name                  | Description                                                                                                               | Priority | Stack Size | Free Stack |
+|---------|----------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|------------|------------|
+| 00      | `taskErrorHandler`         | Handles critical faults such as stack overflows and guard zone corruption, and logs errors to EEPROM                      |    3     |    256     |     50     |
+| 01      | `taskSerialSystemDebugger` | Monitors stack and RAM usage across all tasks and outputs the data to the serial port                                     |    1     |    270     |     47     |
+| 02      | `taskMain`                 | Coordinates the system, manages high-level logic, activates tasks, and handles the current UI context                     |    1     |    200     |    129     |
+| 03      | `taskReadInput`            | Reads keyboard data from the MCP23017 I²C I/O expander                                                                    |    2     |    150     |     75     |
+| 04      | `taskSerialInput`          | Simulates keyboard input via the serial port for debugging or testing purposes                                            |    2     |    150     |     46     |
+| 05      | `taskUpdateScreen`         | Periodically updates the LCD based on current context of the systems                                                      |    1     |    250     |     55     |
+| 06      | `taskReadTemp`             | Reads the current temperature inside the freezer and updates a global variable                                            |    1     |    180     |    118     |
+| 07      | `taskRegulateTemp`         | Regulates temperature based on the current readings and configured thresholds                                             |    1     |    180     |    118     |
+| 08      | `taskSelectDrink`          | Handles drink selection logic and displays in on the LCD                                                                  |    1     |    270     |     95     |
+| 09      | `taskOrderDrink`           | Controls the 74HC595 shift register and pump sequence when processing a drink order                                       |    1     |    320     |    175     |
+| 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |    1     |    300     |     80     |
+| 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance                                    |    1     |    222     |     42     |
+| 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements (Not implemented yet)                               |    1     |    222     |      -     |
 ---
+**Task stacks will be adjusted in the final version**
 
 ### 📊 RAM Usage Overview (Start, End, Size)
 
