@@ -166,6 +166,8 @@ Screen transition diagram:
 - LiquidCrystal_I2C library (compatible with the I²C LCD driver used)
 - avr-libc (AVR C runtime, typically included with Arduino toolchain)
 
+---
+
 ### 2. 🧵 Task Overview
 
 | Task ID | Task Name                  | Description                                                                                                               | Priority | Stack Size | Free Stack |
@@ -186,6 +188,8 @@ Screen transition diagram:
 
 **Task stacks will be adjusted in the final version**
 
+---
+
 ### 3. 📊 RAM Usage Overview (Start, End, Size)
 
 | Region    | Start Address | End Address | Size (bytes) |
@@ -200,7 +204,8 @@ Screen transition diagram:
 *Note:*  
 - FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  
 - CPU Stack refers to the main processor stack (not individual task stacks).
-
+  
+---
 ### 4. 💾 EEPROM Memory Map
 
 | Address (hex) | Size (bytes) | Description                       |
@@ -217,15 +222,27 @@ Screen transition diagram:
 
 ### 1. Navigation & UI Context  
 
+---
+
 ### 2. Input Handling & MCP23017  
+
+---
 
 ### 3. Memory Layout & Custom Segments  
 
+---
+
 ### 4. Project Structure & File Overview  
+
+---
 
 ### 5. Memory Usage Calculation  
 
+---
+
 ### 6. Additional Notes  
+
+---
 
 
 ### 9. 🧩 PCB Layout  
@@ -234,5 +251,9 @@ Preview of the custom-designed AVR board used in the project:
 ![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
 ![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW.PNG)
 
+---
+
 ### 10. 🔧 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
+
+---
