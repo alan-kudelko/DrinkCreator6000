@@ -245,7 +245,7 @@ Screen transition diagram:
 - __heap_end
 - __stack_end
 - __stack_ptr
-- RAMEND
+- RAMEND is a symbolic constant representing the last address of SRAM on AVR microcontrollers. Since this project uses the ATmega2561, RAMEND equals 0x21FF.
 ---
 
 ### 9. Free Memory Calculation  
@@ -255,6 +255,7 @@ Free memory calculation is straightforward.
 The stack begins at RAMEND and grows downward, with its current position given by __stack_ptr.
 The heap starts at __heap_start, which is the first free address after all global and static variables are initialized, and grows upward toward __heap_end.
 Therefore, the amount of free memory is simply the difference between __stack_ptr and __heap_end:
+
 Free memory = __stack_ptr - __heap_end
 
 ---
