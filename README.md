@@ -374,7 +374,7 @@ To support the .tdat section, I extended crt0.s to perform similar initializatio
     lda.w   r1, _etdat
     cp      r0, r1
     brhs    idata_load_loop_end
-    lda.w   r2, _data_lma
+    lda.w   r2, _tdat_lma
 
     itdat_load_loop:
     ld.d    r4, r2++
@@ -382,6 +382,10 @@ To support the .tdat section, I extended crt0.s to perform similar initializatio
     cp      r0, r1
     brlo    itdat_load_loop
     itdat_load_loop_end:
+
+Overall this whole process can be showed on a simple diagram
+
+![Custom section creation flow](Media/custom_section_creation_flow.PNG)
 
 ---
 
