@@ -352,6 +352,23 @@ To ensure that all data related to each task — namely the Task Control Block (
 
 ![Linker script - .tdat fragment](Media/tdat_linker_script.PNG)
 
+After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory. However, setting the linker to use a custom script is not enough — particularly because the .tdat section is placed before the .data segment. This means that variables in .tdat also need to be initialized properly.
+
+![Map file - .tdat fragment](Media/map_file.PNG)
+
+#### 8.4 Modifiying crt0.s file
+
+Because the .tdat section appears before .data in memory, it must be initialized — that is, the runtime must copy initial values from FLASH to RAM during startup. On AVR microcontrollers, this initialization is typically handled by the crt0.s startup file. It is responsible for:
+-Copying the contents of .data from FLASH to RAM.
+-Zeroing the .bss section.
+
+To support the .tdat section, I extended crt0.s to perform similar initialization — copying .tdat data from FLASH into its corresponding location in RAM.
+
+This ensures that all task-related data is fully initialized and ready to use at startup, enabling safe and deterministic memory behavior.
+
+
+
+
 ---
 
 ### 9. Free Memory Calculation  
@@ -380,5 +397,19 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 ---
 
 ### 11. Additional Notes  
+
+---
+
+### 12. 🚀 How to build
+
+This project is built using the Arduino IDE. While it simplifies getting started, it comes with serious drawbacks — especially a lack of transparency and limited control over the toolchain, compared to more advanced environments like Atmel Studio.
+
+Despite these limitations, the project currently compiles and uploads successfully through Arduino IDE. However, I plan to replace or augment the workflow with a custom build script that offers finer control over compilation and flashing.
+
+What I can say for sure is that Arduino is a platform designed primarily for hobbyists. Had I been fully aware of its limitations earlier, I would have chosen to develop the project using a professional environment like Atmel Studio from the start — which would have saved a lot of time.
+
+#### 12.1
+
+#### 12.2
 
 ---
