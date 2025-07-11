@@ -1,26 +1,3 @@
-GNU ld (GNU Binutils) 2.26.20160125
-  Supported emulations:
-   avr2
-   avr1
-   avr25
-   avr3
-   avr31
-   avr35
-   avr4
-   avr5
-   avr51
-   avr6
-   avrxmega1
-   avrxmega2
-   avrxmega3
-   avrxmega4
-   avrxmega5
-   avrxmega6
-   avrxmega7
-   avrtiny
-opened script file c:\users\kujon\appdata\local\arduino15\packages\arduino\tools\avr-gcc\7.3.0-atmel3.6.1-arduino7\avr\bin\../lib\ldscripts/avr6.xn
-using external linker script:
-==================================================
 /* Script for -n: mix text and data on same page */
 /* Copyright (C) 2014-2015 Free Software Foundation, Inc.
    Copying and distribution of this script, with or without modification,
@@ -293,24 +270,3 @@ SECTIONS
   /* DWARF Extension.  */
   .debug_macro    0 : { *(.debug_macro) }
 }
-
-==================================================
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6/crtatmega2560.o succeeded
-c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6/crtatmega2560.o
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6/libgcc.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6\libgcc.a succeeded
-(c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6\libgcc.a)_exit.o
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6/libm.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6\libm.a failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6/libm.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6\libm.a succeeded
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6/libc.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6\libc.a failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6/libc.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6\libc.a succeeded
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6/libatmega2560.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/avr6\libatmega2560.a failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6/libatmega2560.so failed
-attempt to open c:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6\libatmega2560.a succeededc:/users/kujon/appdata/local/arduino15/packages/arduino/tools/avr-gcc/7.3.0-atmel3.6.1-arduino7/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/avr6/crtatmega2560.o:(.init9+0x0): undefined reference to `main'
-collect2.exe: error: ld returned 1 exit status
-
