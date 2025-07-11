@@ -143,7 +143,8 @@ Screen transition diagram:
 - 🔄 Create task to display and confirm the last saved error
 - ✅ Implement software guard zones between task stacks for added protection and reliability
 - 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
-- 🔄 Create a custom memory segment named .task_data to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
+- 🔄 Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
+- 🔄 Modify and recompile crt0.s to initialize the .tdat section at startup
 - 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
 
@@ -352,6 +353,11 @@ To ensure that all data related to each task — namely the Task Control Block (
 
 ![Linker script - .tdat fragment](Media/tdat_linker_script.PNG)
 
+There are two additional lines in the linker script that define initialization pointers for the .tdat section, which are expected to be used by crt0.s to copy data from FLASH to RAM during startup.
+
+    (Code will be here)
+    (Code will be here)
+
 After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory. However, setting the linker to use a custom script is not enough — particularly because the .tdat section is placed before the .data segment. This means that variables in .tdat also need to be initialized properly.
 
 ![Map file - .tdat fragment](Media/map_file.PNG)
@@ -362,12 +368,20 @@ Because the .tdat section appears before .data in memory, it must be initialized
 -Copying the contents of .data from FLASH to RAM.
 -Zeroing the .bss section.
 
-To support the .tdat section, I extended crt0.s to perform similar initialization — copying .tdat data from FLASH into its corresponding location in RAM.
+To support the .tdat section, I extended crt0.s to perform similar initialization — copying .tdat data from FLASH into its corresponding location in RAM. This ensures that all task-related data is fully initialized and ready to use at startup, enabling safe and deterministic memory behavior.
 
-This ensures that all task-related data is fully initialized and ready to use at startup, enabling safe and deterministic memory behavior.
+    lda.w   r0, _tdat
+    lda.w   r1, _etdat
+    cp      r0, r1
+    brhs    idata_load_loop_end
+    lda.w   r2, _data_lma
 
-
-
+    itdat_load_loop:
+    ld.d    r4, r2++
+    st.d    r0++, r4
+    cp      r0, r1
+    brlo    itdat_load_loop
+    itdat_load_loop_end:
 
 ---
 
