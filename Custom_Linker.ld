@@ -165,17 +165,14 @@ SECTIONS
     KEEP (*(.fini0))
      _etext = . ;
   }  > text
-  .tdat          :  /* Task Data section for TCB, Stack, Guard Zone  */
-  {
-	PROVIDE (__tdat_start = . );
-	KEEP(*(.tdat))
-	KEEP(*(.tdat*))
-	.=ALIGN(1)
-	PROVIDE (__tdat_end = .);
-  } > data AT> text
   .data          :
   {
-     PROVIDE (__data_start = .) ;
+	PROVIDE (__tdat_start = . );	 
+    KEEP(*(.tdat))
+    KEEP(*(.tdat*))
+	PROVIDE (__tdat_end = . );	
+
+     PROVIDE (__data_start = . ) ;	
     *(.data)
      *(.data*)
     *(.gnu.linkonce.d*)
@@ -184,7 +181,7 @@ SECTIONS
     *(.gnu.linkonce.r*)
     . = ALIGN(2);
      _edata = . ;
-     PROVIDE (__data_end = .) ;
+     PROVIDE (__data_end = . ) ;
   }  > data AT> text
   .bss  ADDR(.data) + SIZEOF (.data)   : AT (ADDR (.bss))
   {
@@ -194,9 +191,6 @@ SECTIONS
     *(COMMON)
      PROVIDE (__bss_end = .) ;
   }  > data
-  /* initialization pointers for the .tdat section */
-   __tdat_load_start = LOADADDR(.tdat);
-   __tdat_load_end = __tdat_load_start + SIZEOF(.tdat);
 
    __data_load_start = LOADADDR(.data);
    __data_load_end = __data_load_start + SIZEOF(.data);

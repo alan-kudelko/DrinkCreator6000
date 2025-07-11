@@ -45,7 +45,7 @@ extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask,char*pcTaskName
   xQueueSend(qErrorId,&xTask,pdMS_TO_TICKS(50));
   //Wake up higher prority tasks
 }
-uint16_t countDigits(uint16_t n){
+uint16_t countDigits(uint8_t n){
     if(n==0)
       return 1;
     uint16_t count=0;
@@ -74,6 +74,9 @@ void setup(){
   
   EEPROMUpdateBootups(&bootupsCount);
   //EEPROMGetLastStartupError(&lastSystemError);
+  Serial.begin(9600);
+  Serial.println(*((uint8_t*)&errorHandlerTCB), HEX);
+  //Serial.println((uint16_t*)(void*)&errorHandlerTCB,HEX);
   
   initializeIO();
   initializeMemory();
