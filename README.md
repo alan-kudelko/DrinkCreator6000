@@ -186,7 +186,9 @@ Screen transition diagram:
 | 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance                                    |    1     |    222     |     42     |
 | 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements (Not implemented yet)                               |    1     |    222     |      -     |
 
-**Task stacks will be adjusted in the final version**
+*Note:*  
+- Task stacks will be fine-tuned in the final release
+- taskWelcomeScreen and taskTestHardware share the same TCB and stack, as the former is deleted after execution. This reuse is necessary due to limited RAM (~800 bytes remaining). This setup also helps me better understand the behavior of task stack/TCB reuse in constrained memory environments
 
 ---
 
@@ -203,7 +205,7 @@ Screen transition diagram:
 **Total free memory:** 1470 bytes
 
 *Note:*  
-- FreeRTOS task stacks are statically allocated and included in the `.data` segment size.  
+- FreeRTOS task stacks are statically allocated and included in the `.tdat` segment size.  
 - CPU Stack refers to the main processor stack (not individual task stacks).
 - .tdat memory segment is yet to be implemented
   
