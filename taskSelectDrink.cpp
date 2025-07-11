@@ -28,6 +28,27 @@ void taskSelectDrink(void*pvParameters){
 	    }
     }
     if(f_run==1){
+      /*
+      test this algorithm
+      firstNonZero and lastNonZero can be removed
+      
+      	  memset(screenData.lines[1],0,sizeof(screenData.lines[0])*3);
+	  
+	  if((currentScroll==5)&&(!drink[UI_Context.currentSubMenu].ingredients[currentScroll]))
+		  currentScroll=0;
+	  
+      for(i=0;i<3;i++){
+		while(((i+currentScroll)<6)&&(!drink[UI_Context.currentSubMenu].ingredients[i+currentScroll])){
+			currentScroll++;
+		}
+		if(currentScroll==6){
+			break;
+		}
+		
+        sprintf(screenData.lines[1+i],"%s",ingredients[i+currentScroll]);
+        sprintf(screenData.lines[1+i]+13,"%3d[ml]",drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]);
+      }
+      */
       //Other scrollable lines
       if(currentScroll>=lastNonZero)
         currentScroll=firstNonZero;
