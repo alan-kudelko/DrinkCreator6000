@@ -40,7 +40,7 @@ void initializeMemory(){
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:
-// Initializes Serial, LCD display, I²C keyboard (PCF8574), 
+// Initializes Serial, LCD display, I²C keyboard (MCP23017), 
 // shift register (74HC595), and temperature sensor
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// Serial init
