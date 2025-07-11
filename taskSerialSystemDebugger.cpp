@@ -1,12 +1,13 @@
 #include "taskSerialSystemDebugger.h"
 
 void updateMemoryUsage(){
-  heap_end=__brkval?__brkval:(void*)&__heap_start;
-  heap_size=(uint16_t)heap_end-(uint16_t)&__heap_start;
-  stack_size=(uint16_t)RAMEND-(uint16_t)stack_ptr;
+  __heap_end=__brkval?__brkval:(void*)&__heap_start;
+  __heap_size=(uint16_t)__heap_end-(uint16_t)&__heap_start;
+  __stack_size=(uint16_t)RAMEND-(uint16_t)__stack_ptr;
+  __tdat_size=(uint16_t)&__tdat_end-(uint16_t)&__tdat_start;
   
-  ram_total_free=(uint16_t)stack_ptr-(uint16_t)heap_end;
-  ram_in_use=uint16_t(ram_size)-uint16_t(ram_total_free);
+  ram_total_free=(uint16_t)__stack_ptr-(uint16_t)__heap_end;
+  ram_in_use=(uint16_t)ram_size-(uint16_t)ram_total_free;
 }
 void ram_dump(){
   char buffer[6]{};
@@ -14,13 +15,6 @@ void ram_dump(){
   
   Serial.println(F("[#####]====[MEMORY STATUS]====[#####]"));
   Serial.println(F("[     ] START |  END  | SIZE  [     ]"));
-
-  sprintf(buffer,"%04X",(uint16_t)&__tdat_start);
-  Serial.print(F("[.TDAT]0x")); Serial.print(buffer);
-  sprintf(buffer,"%04X",(uint16_t)&__tdat_end);
-  Serial.print(F("|0x")); Serial.print(buffer);
-  sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__tdat_end-(uint16_t)&__tdat_start));
-  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[.TDAT]"));
 
   sprintf(buffer,"%04X",(uint16_t)&__data_start);
   Serial.print(F("[.DATA]0x")); Serial.print(buffer);
@@ -36,18 +30,25 @@ void ram_dump(){
   sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__bss_end-(uint16_t)&__bss_start));
   Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[.BSS ]"));
 
+  sprintf(buffer,"%04X",(uint16_t)&__tdat_start);
+  Serial.print(F("[.TDAT]0x")); Serial.print(buffer);
+  sprintf(buffer,"%04X",(uint16_t)&__tdat_end);
+  Serial.print(F("|0x")); Serial.print(buffer);
+  sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__tdat_end-(uint16_t)&__tdat_start));
+  Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[.TDAT]"));  
+
   sprintf(buffer,"%04X",(uint16_t)&__heap_start);
   Serial.print(F("[HEAP ]0x")); Serial.print(buffer);
-  sprintf(buffer,"%04X",(uint16_t)heap_end);
+  sprintf(buffer,"%04X",(uint16_t)__heap_end);
   Serial.print(F("|0x")); Serial.print(buffer);
-  sprintf(buffer,"%4d",heap_size);
+  sprintf(buffer,"%4d",__heap_size);
   Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[HEAP ]"));
 
-  sprintf(buffer,"%04X",(uint16_t)stack_ptr);
+  sprintf(buffer,"%04X",(uint16_t)__stack_ptr);
   Serial.print(F("[STACK]0x")); Serial.print(buffer);
   sprintf(buffer,"%04X",RAMEND);
   Serial.print(F("|0x")); Serial.print(buffer);
-  sprintf(buffer,"%4d",stack_size);
+  sprintf(buffer,"%4d",__stack_size);
   Serial.print(F("|")); Serial.print(buffer); Serial.println(F(" B[STACK]"));
 
   Serial.print(F("[FREE ]-------------|"));

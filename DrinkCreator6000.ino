@@ -74,25 +74,17 @@ void setup(){
   
   EEPROMUpdateBootups(&bootupsCount);
   //EEPROMGetLastStartupError(&lastSystemError);
-  Serial.begin(9600);
-  Serial.println(*((uint8_t*)&errorHandlerTCB), HEX);
-  //Serial.println((uint16_t*)(void*)&errorHandlerTCB,HEX);
   
   initializeIO();
   initializeMemory();
   initializeHardware();
-
-  Serial.print("Size of StackType_t: "); Serial.println(sizeof(StackType_t));
-  Serial.print("Align of StackType_t: "); Serial.println(__alignof__(StackType_t));
-  Serial.print("Size of StaticTask_t: "); Serial.println(sizeof(StaticTask_t));
-  Serial.print("Align of StaticTask_t: "); Serial.println(__alignof__(StaticTask_t));
   
   //f_errorConfirmed=lastSystemError.confirmed;
   f_errorConfirmed=1;
 
   lastBootup_dump(&bootupsCount);  
   //lastError_dump(&lastSystemError);
-  stack_ptr=(uint8_t*)SP;
+  __stack_ptr=(uint8_t*)SP;
   // Save stack pointer before FreeRTOS starts, because SP becomes volatile due to context switching.
   // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
   // So we treat this saved SP as the top of the main stack (pre-RTOS).  

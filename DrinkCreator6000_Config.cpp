@@ -4,56 +4,56 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
-StaticTask_t errorHandlerTCB         __attribute__((section(".tdat"))){0}; //0
-StaticTask_t serialSystemDebuggerTCB __attribute__((section(".tdat"))){0}; //1
-StaticTask_t mainTCB                 __attribute__((section(".tdat"))){0}; //2
-StaticTask_t readInputTCB            __attribute__((section(".tdat"))){0}; //3
-StaticTask_t serialInputTCB          __attribute__((section(".tdat"))){0}; //4
-StaticTask_t updateScreenTCB         __attribute__((section(".tdat"))){0}; //5
-StaticTask_t readTempTCB             __attribute__((section(".tdat"))){0}; //6
-StaticTask_t regulateTempTCB         __attribute__((section(".tdat"))){0}; //7
-StaticTask_t selectDrinkTCB          __attribute__((section(".tdat"))){0}; //8
-StaticTask_t orderDrinkTCB           __attribute__((section(".tdat"))){0}; //9
-StaticTask_t showSystemInfoTCB       __attribute__((section(".tdat"))){0}; //10
-StaticTask_t welcomeScreenTCB        __attribute__((section(".tdat"))){0}; //11
+StaticTask_t errorHandlerTCB         __attribute__((section(".tdat"))); //0
+StaticTask_t serialSystemDebuggerTCB __attribute__((section(".tdat"))); //1
+StaticTask_t mainTCB                 __attribute__((section(".tdat"))); //2
+StaticTask_t readInputTCB            __attribute__((section(".tdat"))); //3
+StaticTask_t serialInputTCB          __attribute__((section(".tdat"))); //4
+StaticTask_t updateScreenTCB         __attribute__((section(".tdat"))); //5
+StaticTask_t readTempTCB             __attribute__((section(".tdat"))); //6
+StaticTask_t regulateTempTCB         __attribute__((section(".tdat"))); //7
+StaticTask_t selectDrinkTCB          __attribute__((section(".tdat"))); //8
+StaticTask_t orderDrinkTCB           __attribute__((section(".tdat"))); //9
+StaticTask_t showSystemInfoTCB       __attribute__((section(".tdat"))); //10
+StaticTask_t welcomeScreenTCB        __attribute__((section(".tdat"))); //11
 
 TaskHandle_t taskHandles[TASK_N];
 
-StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE];                  //0
-StackType_t guardZone0[GUARD_ZONE_SIZE];
+StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]                 __attribute__((section(".tdat"))); //0
+StackType_t guardZone0[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t serialSystemDebuggerStack[TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE]; //1
-StackType_t guardZone1[GUARD_ZONE_SIZE];
+StackType_t serialSystemDebuggerStack[TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE]__attribute__((section(".tdat"))); //1
+StackType_t guardZone1[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t mainStack[TASK_MAIN_STACK_SIZE];                                   //2
-StackType_t guardZone2[GUARD_ZONE_SIZE];
+StackType_t mainStack[TASK_MAIN_STACK_SIZE]                                  __attribute__((section(".tdat"))); //2
+StackType_t guardZone2[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE];                        //3
-StackType_t guardZone3[GUARD_ZONE_SIZE];
+StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]                       __attribute__((section(".tdat"))); //3
+StackType_t guardZone3[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE];                    //4
-StackType_t guardZone4[GUARD_ZONE_SIZE];
+StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE]                   __attribute__((section(".tdat"))); //4
+StackType_t guardZone4[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t updateScreenStack[TASK_UPDATE_SCREEN_STACK_SIZE];                  //5
-StackType_t guardZone5[GUARD_ZONE_SIZE];
+StackType_t updateScreenStack[TASK_UPDATE_SCREEN_STACK_SIZE]                 __attribute__((section(".tdat"))); //5
+StackType_t guardZone5[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE];                          //6
-StackType_t guardZone6[GUARD_ZONE_SIZE];
+StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE]                         __attribute__((section(".tdat"))); //6
+StackType_t guardZone6[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE];                  //7
-StackType_t guardZone7[GUARD_ZONE_SIZE];
+StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]                 __attribute__((section(".tdat"))); //7
+StackType_t guardZone7[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE];                    //8
-StackType_t guardZone8[GUARD_ZONE_SIZE];
+StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]                   __attribute__((section(".tdat"))); //8
+StackType_t guardZone8[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE];                      //9
-StackType_t guardZone9[GUARD_ZONE_SIZE];
+StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]                     __attribute__((section(".tdat"))); //9
+StackType_t guardZone9[GUARD_ZONE_SIZE]                                      __attribute__((section(".tdat")));
 
-StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE];             //10
-StackType_t guardZone10[GUARD_ZONE_SIZE];
+StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]            __attribute__((section(".tdat"))); //10
+StackType_t guardZone10[GUARD_ZONE_SIZE]                                     __attribute__((section(".tdat")));
 
-StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE];                //11
-StackType_t guardZone11[GUARD_ZONE_SIZE];
+StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE]               __attribute__((section(".tdat"))); //11
+StackType_t guardZone11[GUARD_ZONE_SIZE]                                     __attribute__((section(".tdat")));
 
 StackType_t guardZones[TASK_N]={
   guardZone0,
@@ -168,11 +168,12 @@ const uint8_t pumpsEff[8]{
 };
 //////////////////////////////////////////////////////////////////
 // RAM-related symbols and global memory variables:
-void* heap_end=NULL;
-uint8_t* stack_ptr=NULL;
+void* __heap_end=NULL;
+uint8_t* __stack_ptr=NULL;
+uint16_t __tdat_size=0;
 
-uint16_t heap_size=0;
-uint16_t stack_size=0;
+uint16_t __heap_size=0;
+uint16_t __stack_size=0;
 uint16_t ram_total_free=0;
 uint16_t ram_in_use=0;
 const uint16_t ram_size=uint16_t(RAMEND)-uint16_t(&__data_start)+1;

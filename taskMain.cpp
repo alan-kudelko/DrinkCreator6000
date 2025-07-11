@@ -20,7 +20,7 @@ void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
     taskENTER_CRITICAL();
     UI_Context->currentTask=DRINK_SELECT;
-    UI_Context->currentSubMenu=7;
+    UI_Context->currentSubMenu=0;
     taskEXIT_CRITICAL();
     xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
     xTaskNotify(taskHandles[TASK_WELCOME_SCREEN],0,eSetValueWithOverwrite);
@@ -70,7 +70,7 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext
       taskENTER_CRITICAL();
       UI_Context->currentTask=DRINK_SELECT;
       UI_Context->currentMenu=0;
-      UI_Context->currentSubMenu=7;
+      UI_Context->currentSubMenu=0;
       taskEXIT_CRITICAL();
       xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite);
       xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);

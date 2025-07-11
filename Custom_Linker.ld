@@ -167,11 +167,6 @@ SECTIONS
   }  > text
   .data          :
   {
-	PROVIDE (__tdat_start = . );	 
-    KEEP(*(.tdat))
-    KEEP(*(.tdat*))
-	PROVIDE (__tdat_end = . );	
-
      PROVIDE (__data_start = . ) ;	
     *(.data)
      *(.data*)
@@ -191,11 +186,18 @@ SECTIONS
     *(COMMON)
      PROVIDE (__bss_end = .) ;
   }  > data
-
+  .tdat (NOLOAD)    :
+  {
+	. = ALIGN(1);
+	PROVIDE (__tdat_start = . );
+	KEEP(*(.tdat))
+	KEEP(*(.tdat*))
+	PROVIDE (__tdat_end = . );
+  }
    __data_load_start = LOADADDR(.data);
    __data_load_end = __data_load_start + SIZEOF(.data);
   /* Global data not cleared after reset.  */
-  .noinit  ADDR(.bss) + SIZEOF (.bss)  :  AT (ADDR (.noinit))
+  .noinit  ADDR(.tdat) + SIZEOF (.tdat)  :  AT (ADDR (.noinit))
   {
      PROVIDE (__noinit_start = .) ;
     *(.noinit*)

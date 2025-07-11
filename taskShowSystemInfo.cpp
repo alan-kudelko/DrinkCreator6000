@@ -63,7 +63,7 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
 void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
   updateMemoryUsage();  
   
-  if(UI_Context->currentSubMenu>2)
+  if(UI_Context->currentSubMenu>3)
     UI_Context->currentSubMenu=0;
 
   memset(screenData,0,sizeof(sScreenData));
@@ -83,20 +83,26 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
     sprintf(screenData->lines[2],"%12s %3u %%",buffer,ram_percent);
   }
   else if(UI_Context->currentSubMenu==1){
-	  //.data sector
-    sprintf(screenData->lines[1],".data: 0x0%3X-0x%4X",uint16_t(&__data_start),uint16_t(&__data_end));
-    //.bss sector
-    sprintf(screenData->lines[2],".bss:  0x%4X-0x%4X",uint16_t(&__bss_start),uint16_t(&__bss_end));
+	  //.data segment
+    sprintf(screenData->lines[1],".data: 0x0%3X-0x%4X",(uint16_t)&__data_start,(uint16_t)&__data_end);
+    //.bss segment
+    sprintf(screenData->lines[2],".bss:  0x%4X-0x%4X",(uint16_t)&__bss_start,(uint16_t)&__bss_end);
 	  //Size of each memory segment
-    sprintf(screenData->lines[3],"Size:  %4uB %4uB",uint16_t(&__data_end)-uint16_t(&__data_start),uint16_t(&__bss_end)-uint16_t(&__bss_start));
+    sprintf(screenData->lines[3],"Size:  %4uB %4uB",(uint16_t)&__data_end-(uint16_t)&__data_start,(uint16_t)&__bss_end-(uint16_t)&__bss_start);
   }
   else if(UI_Context->currentSubMenu==2){
-	  //heap sector
-    sprintf(screenData->lines[1],"HEAP:  0x%4X-0x%4X",uint16_t(&__heap_start),heap_end);
-	  //stack sector	
-    sprintf(screenData->lines[2],"STACK: 0x%4X-0x%4X",uint16_t(stack_ptr),RAMEND);
+    ///.tdata segment
+    sprintf(screenData->lines[1],".tdat: 0x%4X-0x%4X",(uint16_t)&__tdat_start,(uint16_t)&__tdat_end);
+    //Size of each memory segment
+    sprintf(screenData->lines[3],"Size:  %4uB",__tdat_size);    
+  }
+  else if(UI_Context->currentSubMenu==3){
+	  //heap segment
+    sprintf(screenData->lines[1],"HEAP:  0x%4X-0x%4X",(uint16_t)&__heap_start,__heap_end);
+	  //stack segment	
+    sprintf(screenData->lines[2],"STACK: 0x%4X-0x%4X",(uint16_t)__stack_ptr,RAMEND);
 	  //Size of each memory segment
-    sprintf(screenData->lines[3],"Size:  %4uB %4uB",heap_size,stack_size);	  
+    sprintf(screenData->lines[3],"Size:  %4uB %4uB",__heap_size,__stack_size);	  
   }
 }
 void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
