@@ -5,7 +5,7 @@
    notice and this notice are preserved.  */
 OUTPUT_FORMAT("elf32-avr","elf32-avr","elf32-avr")
 OUTPUT_ARCH(avr:6)
-__TEXT_REGION_LENGTH__ = DEFINED(__TEXT_REGION_LENGTH__) ? __TEXT_REGION_LENGTH__ : 1024K;
+__TEXT_REGION_LENGTH__ = DEFINED(__TEXT_REGION_LENGTH__) ? __TEXT_REGION_LENGTH__ : 256k;
 __DATA_REGION_LENGTH__ = DEFINED(__DATA_REGION_LENGTH__) ? __DATA_REGION_LENGTH__ : 0xfe00;
 __EEPROM_REGION_LENGTH__ = DEFINED(__EEPROM_REGION_LENGTH__) ? __EEPROM_REGION_LENGTH__ : 64K;
 __FUSE_REGION_LENGTH__ = DEFINED(__FUSE_REGION_LENGTH__) ? __FUSE_REGION_LENGTH__ : 1K;
@@ -165,11 +165,11 @@ SECTIONS
     KEEP (*(.fini0))
      _etext = . ;
   }  > text
-  .tdat          :  /* Task Data section TCB, Stack, Guard Zone  */
+  .tdat          :  /* Task Data section for TCB, Stack, Guard Zone  */
   {
 	PROVIDE (__tdat_start = . );
-	*(.tdat)
-	*(.tdat*)
+	KEEP(*(.tdat))
+	KEEP(*(.tdat*))
 	.=ALIGN(1)
 	PROVIDE (__tdat_end = .);
   } > data AT> text
@@ -194,6 +194,10 @@ SECTIONS
     *(COMMON)
      PROVIDE (__bss_end = .) ;
   }  > data
+  /* initialization pointers for the .tdat section */
+   __tdat_load_start = LOADADDR(.tdat);
+   __tdat_load_end = __tdat_load_start + SIZEOF(.tdat);
+
    __data_load_start = LOADADDR(.data);
    __data_load_end = __data_load_start + SIZEOF(.data);
   /* Global data not cleared after reset.  */
