@@ -22,23 +22,12 @@ void showInfo_Firmware_Sub_1(sScreenData*screenData){
   sprintf(screenData->lines[0],"%s","Drink Creator 6000");
   sprintf(screenData->lines[1],"%s","Current run time");  
   
-  sprintf(screenData->lines[2],"%2d %s %2d %s",runTimeDays,"days",runTimeHours,"h");
+  sprintf(screenData->lines[2],"%02d %s %02d %s",runTimeDays,"days",runTimeHours,"h");
   
-  if(runTimeDays<10)
-    screenData->lines[2][0]='0';
-
-  if(runTimeHours<10)
-    screenData->lines[2][8]='0';
 
   memset(screenData->lines[3],0,sizeof(screenData->lines[3]));
   
-  sprintf(screenData->lines[3],"%2d %s  %2d %s",runTimeMinutes,"min",runTimeSeconds,"s");
-  
-  if(runTimeMinutes<10)
-    screenData->lines[3][0]='0';
-
-  if(runTimeSeconds<10)
-    screenData->lines[3][8]='0';
+  sprintf(screenData->lines[3],"%02d %s  %02d %s",runTimeMinutes,"min",runTimeSeconds,"s");
 }
 void showInfo_Temp_Sub_0(sScreenData*screenData){
   // sprintf with %f is disabled on AVR, because it requires extra code
@@ -60,17 +49,19 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
   
   sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
 }
-void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
+void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_context){
   updateMemoryUsage();  
   
-  if(UI_Context->currentSubMenu>3)
-    UI_Context->currentSubMenu=0;
+  if(UI_context->currentSubMenu==4)
+    UI_context->currentSubMenu=0;
+  if(UI_context->currentSubMenu>4)
+    UI_context->currentSubMenu=3;
 
   memset(screenData,0,sizeof(sScreenData));
   
   sprintf(screenData->lines[0],"%s","RAM Info");
   
-  if(UI_Context->currentSubMenu==0){
+  if(UI_context->currentSubMenu==0){
 	  // Free RAM
 	  char buffer[13]{};
 	  uint8_t ram_percent=100*uint32_t(ram_in_use)/ram_size;  
@@ -82,44 +73,46 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
     sprintf(screenData->lines[1],"%s %4u B/%4u B","Usage:",ram_in_use,ram_size);
     sprintf(screenData->lines[2],"%12s %3u %%",buffer,ram_percent);
   }
-  else if(UI_Context->currentSubMenu==1){
+  else if(UI_context->currentSubMenu==1){
 	  //.data segment
-    sprintf(screenData->lines[1],".data: 0x0%3X-0x%4X",(uint16_t)&__data_start,(uint16_t)&__data_end);
+    sprintf(screenData->lines[1],".data: 0x%04X-0x%04X",(uint16_t)&__data_start,(uint16_t)&__data_end);
     //.bss segment
-    sprintf(screenData->lines[2],".bss:  0x%4X-0x%4X",(uint16_t)&__bss_start,(uint16_t)&__bss_end);
+    sprintf(screenData->lines[2],".bss:  0x%04X-0x%04X",(uint16_t)&__bss_start,(uint16_t)&__bss_end);
 	  //Size of each memory segment
     sprintf(screenData->lines[3],"Size:  %4uB %4uB",(uint16_t)&__data_end-(uint16_t)&__data_start,(uint16_t)&__bss_end-(uint16_t)&__bss_start);
   }
-  else if(UI_Context->currentSubMenu==2){
+  else if(UI_context->currentSubMenu==2){
     ///.tdata segment
-    sprintf(screenData->lines[1],".tdat: 0x%4X-0x%4X",(uint16_t)&__tdat_start,(uint16_t)&__tdat_end);
+    sprintf(screenData->lines[1],".tdat: 0x%04X-0x%04X",(uint16_t)&__tdat_start,(uint16_t)&__tdat_end);
     //Size of each memory segment
     sprintf(screenData->lines[3],"Size:  %4uB",__tdat_size);    
   }
-  else if(UI_Context->currentSubMenu==3){
+  else if(UI_context->currentSubMenu==3){
 	  //heap segment
-    sprintf(screenData->lines[1],"HEAP:  0x%4X-0x%4X",(uint16_t)&__heap_start,__heap_end);
+    sprintf(screenData->lines[1],"HEAP:  0x%04X-0x%04X",(uint16_t)&__heap_start,__heap_end);
 	  //stack segment	
-    sprintf(screenData->lines[2],"STACK: 0x%4X-0x%4X",(uint16_t)__stack_ptr,RAMEND);
+    sprintf(screenData->lines[2],"STACK: 0x%04X-0x%04X",(uint16_t)__stack_ptr,RAMEND);
 	  //Size of each memory segment
     sprintf(screenData->lines[3],"Size:  %4uB %4uB",__heap_size,__stack_size);	  
   }
 }
-void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
-  if(UI_Context->currentSubMenu>=TASK_N)
-    UI_Context->currentSubMenu=0;
+void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_context){
+  if(UI_context->currentSubMenu==TASK_N)
+    UI_context->currentSubMenu=0;
+  if(UI_context->currentSubMenu>TASK_N)
+    UI_context->currentSubMenu=TASK_N-1;
 
   sprintf(screenData->lines[0],"%s","Task Info");
   
-  if(taskHandles[UI_Context->currentSubMenu]==NULL){
-	  sprintf(screenData->lines[1],"%s%dCorrupted","Task id=",UI_Context->currentSubMenu);
+  if(taskHandles[UI_context->currentSubMenu]==NULL){
+	  sprintf(screenData->lines[1],"%s%dCorrupted","Task id=",UI_context->currentSubMenu);
   }
   else{
 	  char buffer[10]{};
 	  TaskStatus_t taskStatus{};
-	  vTaskGetInfo(taskHandles[UI_Context->currentSubMenu],&taskStatus,pdTRUE,eInvalid);
+	  vTaskGetInfo(taskHandles[UI_context->currentSubMenu],&taskStatus,pdTRUE,eInvalid);
 	
-    sprintf(screenData->lines[1],"[%2u]%s",UI_Context->currentSubMenu,taskStatus.pcTaskName);
+    sprintf(screenData->lines[1],"[%02u]%s",UI_context->currentSubMenu,taskStatus.pcTaskName);
 	  sprintf(screenData->lines[2],"Highwater mark: %3u",taskStatus.uxStackHighWaterMark);
 	  sprintf(screenData->lines[3],"Pr:%1u State:",taskStatus.uxCurrentPriority);
     switch(taskStatus.eCurrentState){
@@ -144,35 +137,27 @@ void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
 	  memcpy(screenData->lines[3]+11,buffer,9);
   }
 }
-void showInfo_Error_Sub_N(sScreenData*screenData,sUIContext*UI_Context){
+void showInfo_Error_Sub_N(sScreenData*screenData,sUIContext*UI_context){
   //Global struct with error info 
   //Or use this EEPROMGetLastStartupError()
   int8_t errorTextLength=strlen(lastSystemError.errorText);
   
-  if(UI_Context->currentSubMenu>=(int16_t)errorTextLength-LCD_WIDTH)
-    UI_Context->currentSubMenu=0;
+  if(UI_context->currentSubMenu>=(int16_t)errorTextLength-LCD_WIDTH)
+    UI_context->currentSubMenu=0;
   
-  memcpy(screenData->lines[0],lastSystemError.errorText+UI_Context->currentSubMenu,1);
+  memcpy(screenData->lines[0],lastSystemError.errorText+UI_context->currentSubMenu,1);
   
   strncpy(screenData->lines[1],"Fault time signature",LCD_WIDTH);
-  sprintf(screenData->lines[2],"%2d days %2d h",lastSystemError.days,lastSystemError.hours);
-  if(lastSystemError.days<10)
-    screenData->lines[2][0]='0';
-  if(lastSystemError.hours<10)
-    screenData->lines[2][8]='0';
+  sprintf(screenData->lines[2],"%02d days %02d h",lastSystemError.days,lastSystemError.hours);
 
-  sprintf(screenData->lines[3],"%2d min  %2d s",lastSystemError.minutes,lastSystemError.seconds);
-  if(lastSystemError.minutes<10)
-    screenData->lines[3][0]='0';
-  if(lastSystemError.seconds<10)
-    screenData->lines[3][8]='0';
+  sprintf(screenData->lines[3],"%02d min  %02d s",lastSystemError.minutes,lastSystemError.seconds);
   
   if(errorTextLength>LCD_WIDTH){
-	if(UI_Context->autoScrollEnable==1)
-	  UI_Context->currentSubMenu++;	  
+	  if(UI_context->autoScrollEnable==1)
+	    UI_context->currentSubMenu++;	  
   }
 }
-void showInfo_ConfError_Sub_0(sScreenData*screenData,sUIContext*UI_Context){
+void showInfo_ConfError_Sub_0(sScreenData*screenData,sUIContext*UI_context){
   sprintf(screenData->lines[0],"%s","Error confirmed");
   sprintf(screenData->lines[1],"%s","EEPROM Updated");
   
@@ -197,8 +182,10 @@ void taskShowSystemInfo(void*pvParameters){
         
 	    switch(UI_Context.currentMenu){
 	      case 0:
-        if(UI_Context.currentSubMenu>1)
+        if(UI_Context.currentSubMenu==2)
           UI_Context.currentSubMenu=0;
+        if(UI_Context.currentSubMenu>2)
+          UI_Context.currentSubMenu=1;
 		    switch(UI_Context.currentSubMenu){
 		      case 0:
 			      showInfo_Firmware_Sub_0(&screenData);
@@ -209,11 +196,7 @@ void taskShowSystemInfo(void*pvParameters){
 		    }
 		  break;
 		  case 1:
-		    switch(UI_Context.currentSubMenu){
-		      case 0:
-			      showInfo_Temp_Sub_0(&screenData);
-			    break;
-		    }
+			  showInfo_Temp_Sub_0(&screenData);
 		  break;
 		  case 2:
 		    showInfo_Memory_Sub_N(&screenData,&UI_Context);

@@ -24,9 +24,6 @@ void lastBootup_dump(uint16_t*bootup){
   Serial.println(F(""));
 }
 void normalStart(){
-  // Normal operating mode
-  // error handler should be suspended
-  // For now i will leave Serial debugging active, will be deleted in release
   taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
   taskHandles[TASK_SERIAL_DEBUGGER]=xTaskCreateStatic(taskSerialSystemDebugger,"STACK DEBUG"  ,TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE ,NULL,1,serialSystemDebuggerStack,&serialSystemDebuggerTCB); // 1
   taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,"MAIN"         ,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
@@ -39,6 +36,11 @@ void normalStart(){
   taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
   taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,"SHOW INFO"    ,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
   taskHandles[TASK_WELCOME_SCREEN] =xTaskCreateStatic(taskWelcomeScreen       ,"WELCOME"      ,TASK_WELCOME_SCREEN_STACK_SIZE         ,NULL,1,welcomeScreenStack       ,&welcomeScreenTCB);        // 11  
+}
+void faultStart(){
+  // After fault operating mode
+  // UI_Context should switch to last error menu
+  // Task in which fault was detected shouldn't start up
 }
 extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask,char*pcTaskName){
   vTaskResume(taskHandles[TASK_ERROR_HANDLER]);
@@ -71,7 +73,7 @@ void setInputFlag(){
 
 void setup(){
   while(!eeprom_is_ready());
-  
+
   EEPROMUpdateBootups(&bootupsCount);
   //EEPROMGetLastStartupError(&lastSystemError);
   

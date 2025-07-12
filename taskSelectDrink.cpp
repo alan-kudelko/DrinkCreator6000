@@ -5,8 +5,6 @@ void taskSelectDrink(void*pvParameters){
   
   uint8_t currentScroll=0;
   uint8_t i=0;
-  uint8_t firstNonZero=0;
-  uint8_t lastNonZero=6; //-2
   sScreenData screenData{};
   
   // Should use UI_Context
@@ -15,60 +13,40 @@ void taskSelectDrink(void*pvParameters){
     if(xTaskNotifyWait(0,0,&f_run,0)>0){
 	    if(f_run==1){
         currentScroll=0;
-        firstNonZero=0;
-	  
-        for(i=0;(i<8)&&(!drink[UI_Context.currentSubMenu].ingredients[i]);i++);
-      
-        firstNonZero=i;
-        for(i=7;(i>=0)&&(!drink[UI_Context.currentSubMenu].ingredients[i]);i--);
 
-        lastNonZero=i-1;
+        if(UI_Context.currentSubMenu>DRINK_COUNT)
+          UI_Context.currentSubMenu=DRINK_COUNT-1;
+          
+        if(UI_Context.currentSubMenu==DRINK_COUNT)
+          UI_Context.currentSubMenu=0;
+        
         memset(&screenData,0,sizeof(screenData));
         sprintf(screenData.lines[0],"[%2d]%s",UI_Context.currentSubMenu+1,drink[UI_Context.currentSubMenu].drinkName);		  
 	    }
     }
     if(f_run==1){
-      /*
-      test this algorithm
-      firstNonZero and lastNonZero can be removed
-      
-      	  memset(screenData.lines[1],0,sizeof(screenData.lines[0])*3);
+      memset(screenData.lines[1],0,sizeof(screenData.lines[0])*3);
 	  
-	  if((currentScroll==5)&&(!drink[UI_Context.currentSubMenu].ingredients[currentScroll]))
-		  currentScroll=0;
-	  
+	    if((currentScroll==5)&&(!drink[UI_Context.currentSubMenu].ingredients[currentScroll]))
+		    currentScroll=0;
+
+      if(currentScroll>5)
+        currentScroll=0;
       for(i=0;i<3;i++){
-		while(((i+currentScroll)<6)&&(!drink[UI_Context.currentSubMenu].ingredients[i+currentScroll])){
-			currentScroll++;
-		}
-		if(currentScroll==6){
-			break;
-		}
-		
-        sprintf(screenData.lines[1+i],"%s",ingredients[i+currentScroll]);
-        sprintf(screenData.lines[1+i]+13,"%3d[ml]",drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]);
-      }
-      */
-      //Other scrollable lines
-      if(currentScroll>=lastNonZero)
-        currentScroll=firstNonZero;
-      
-      for(i=0;i<3;i++){
-        while((currentScroll<lastNonZero)&&(!drink[UI_Context.currentSubMenu].ingredients[i+currentScroll])){
-          currentScroll++;
-        }
-        if(currentScroll>=lastNonZero){
-          currentScroll=firstNonZero;
-        }
-        else{
-          memset(screenData.lines[1+i],0,sizeof(screenData.lines[0]));
-          sprintf(screenData.lines[1+i],"%s",ingredients[i+currentScroll]);
-          sprintf(screenData.lines[1+i]+13,"%3d[ml]",drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]);
-        }
+		    while(((i+currentScroll)<6)&&(!drink[UI_Context.currentSubMenu].ingredients[i+currentScroll])){
+			    currentScroll++;
+		    }
+		    if(currentScroll==6){
+			    break;
+		    }
+		    // Do not display empty values (needs optimization)
+        drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]?sprintf(screenData.lines[1+i],"%s",ingredients[i+currentScroll]):1;
+        drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]?sprintf(screenData.lines[1+i]+13,"%3d[ml]",drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]):1;
       }
       currentScroll++;
+
       xQueueSend(qScreenData, &screenData, pdMS_TO_TICKS(50));
-      //Other scrollable lines
+      
       vTaskDelay(pdMS_TO_TICKS(1000));
     }
     else{

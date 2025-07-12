@@ -7,95 +7,78 @@
 // and clip it if necessary
 // In some cases I.E specific menus and submenus some additional control logic should be implement here
 
-void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,sUIContext*UI_Context){
+void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,sUIContext*UI_context){
   if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
-    if(UI_Context->currentSubMenu>0)
-      UI_Context->currentSubMenu--;
+    UI_context->currentSubMenu--;
   }
   if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
-    UI_Context->currentSubMenu++;
+    UI_context->currentSubMenu++;
   }
 }
-void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext*UI_Context){
+void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext*UI_context){
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
     taskENTER_CRITICAL();
-    UI_Context->currentTask=DRINK_SELECT;
-    UI_Context->currentSubMenu=0;
+    UI_context->currentTask=DRINK_SELECT;
+    UI_context->currentSubMenu=0;
     taskEXIT_CRITICAL();
     xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
     xTaskNotify(taskHandles[TASK_WELCOME_SCREEN],0,eSetValueWithOverwrite);
   }
 }
-void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI_Context){
+void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI_context){
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
     // Ordering drink with UI_Context change and data send
     taskENTER_CRITICAL();
-    UI_Context->currentTask=DRINK_ORDER;
-    UI_Context->currentMenu=0;
-    UI_Context->currentSubMenu=0;
+    UI_context->currentTask=DRINK_ORDER;
+    UI_context->currentMenu=0;
+    UI_context->currentSubMenu=0;
     taskEXIT_CRITICAL();
     // notyfikacje
   }
-  if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
-    UI_Context->currentSubMenu--;
-    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
-  }
-  if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
-    UI_Context->currentSubMenu++;
-    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+  if((*keyboardInput&(E_LWHITE_BUTTON|E_RWHITE_BUTTON))){
+      taskMain_ProcessScrollButtons(keyboardInput,UI_context);
+      xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
   }
   if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
     taskENTER_CRITICAL();
-    UI_Context->currentTask=SHOW_INFO;
-    UI_Context->currentMenu=0;
-    UI_Context->currentSubMenu=0;
+    UI_context->currentTask=SHOW_INFO;
+    UI_context->currentMenu=0;
+    UI_context->currentSubMenu=0;
     taskEXIT_CRITICAL();
     xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
     xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite);
   }
 }
-void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,sUIContext*UI_Context){
+void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,sUIContext*UI_context){
 	// if red button is pushed, there should be some kind of information that processed was aborted
   // of course all the pumps should be stopped
 }
-void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext*UI_Context){
+void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext*UI_context){
   if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
     taskENTER_CRITICAL();
-    UI_Context->currentMenu++;
-    UI_Context->currentSubMenu=0;
+    UI_context->currentMenu++;
+    UI_context->currentSubMenu=0;
     taskEXIT_CRITICAL();
   }
   if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
-    if(UI_Context->currentMenu==0){
+    if(UI_context->currentMenu==0){
       taskENTER_CRITICAL();
-      UI_Context->currentTask=DRINK_SELECT;
-      UI_Context->currentMenu=0;
-      UI_Context->currentSubMenu=0;
+      UI_context->currentTask=DRINK_SELECT;
+      UI_context->currentMenu=0;
+      UI_context->currentSubMenu=0;
       taskEXIT_CRITICAL();
       xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite);
       xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
       return;
     }
-    if(UI_Context->currentMenu>0){
+    if(UI_context->currentMenu>0){
       taskENTER_CRITICAL();
-      UI_Context->currentMenu--;
-      UI_Context->currentSubMenu=0;
+      UI_context->currentMenu--;
+      UI_context->currentSubMenu=0;
       taskEXIT_CRITICAL();
     }
   }
-  if(UI_Context->currentMenu==3){ // TASK INFO
-    if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
-      if(UI_Context->currentSubMenu>0)
-        UI_Context->currentSubMenu--;
-      else
-        UI_Context->currentSubMenu=TASK_N-1;
-    }
-    if((*keyboardInput&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
-      UI_Context->currentSubMenu++;
-    }
-    return;
-  }  
-  taskMain_ProcessScrollButtons(keyboardInput,UI_Context);
+  taskMain_ProcessScrollButtons(keyboardInput,UI_context);
 }
 
 void taskMain(void*pvParameters){

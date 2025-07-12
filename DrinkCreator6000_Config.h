@@ -251,6 +251,7 @@ extern volatile bool f_enableISR;
 //////////////////////////////////////////////////////////////////
 // Drink data:
 // Drink definitions, ingredients, and pump efficiencies
+enum{DRINK_COUNT=20};
 extern const sDrinkData drink[];
 //
 extern const char ingredients[][LCD_WIDTH-4-4];
