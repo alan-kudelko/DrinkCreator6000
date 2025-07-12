@@ -143,8 +143,7 @@ Screen transition diagram:
 - 🔄 Create task to display and confirm the last saved error
 - ✅ Implement software guard zones between task stacks for added protection and reliability
 - 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
-- 🔄 Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
-- 🔄 Modify and recompile crt0.s to initialize the .tdat section at startup
+- ✅ Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
 - 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
 
@@ -320,12 +319,12 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 
 ![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
-- `__tdat_start` is a linker symbol representing the starting address of the `.tdat` section in SRAM.
-- `__tdat_end` is a linker symbol representing the ending address of the `.tdat` section in SRAM.
 - `__data_start` is a linker symbol representing the starting address of the `.data` section in SRAM on AVR microcontrollers.
 - `__data_end` is a linker symbol representing the ending address of the `.data` section in SRAM on AVR microcontrollers.
 - `__bss_start` is a linker symbol representing the starting address of the `.bss` section in SRAM on AVR microcontrollers.
 - `__bss_end` is a linker symbol representing the ending address of the `.bss` section in SRAM on AVR microcontrollers.
+- `__tdat_start` is a linker symbol representing the starting address of the `.tdat` section in SRAM.
+- `__tdat_end` is a linker symbol representing the ending address of the `.tdat` section in SRAM.
 - `__heap_start` is a linker symbol representing the starting address of the heap section in SRAM.
 - `__heap_end` is a variable defined by me to mark the end of the heap section. Its calculation is described in the Notes below.
 - `__stack_ptr` is a variable defined by me to mark the start (bottom) of the stack section in SRAM. See Notes below.
@@ -354,8 +353,7 @@ To ensure that all data related to each task — namely the Task Control Block (
 
 ![Linker script - .tdat](fix)
 
-After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory. However, setting the linker to use a custom script is not enough — particularly because the .tdat section is placed before the .data segment. This means that variables in .tdat also need to be initialized properly.
-
+After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory.
 ![Map file - .tdat fragment](Media/map_file.PNG)
 
 ---
