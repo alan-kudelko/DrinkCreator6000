@@ -352,22 +352,11 @@ However, relying solely on the default script provides no guarantee that specifi
 
 To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This approach allows for reliable monitoring of stack overflows via a dedicated task.
 
-![Linker script - .tdat fragment](Media/tdat_linker_script.PNG)
-
-There are two additional lines in the linker script that define initialization pointers for the .tdat section, which are expected to be used by crt0.s to copy data from FLASH to RAM during startup.
-
-    (Code will be here)
-    (Code will be here)
+![Linker script - .tdat](fix)
 
 After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory. However, setting the linker to use a custom script is not enough — particularly because the .tdat section is placed before the .data segment. This means that variables in .tdat also need to be initialized properly.
 
 ![Map file - .tdat fragment](Media/map_file.PNG)
-
-#### 8.4 Modifiying crt0.s file
-
-Because the .tdat section appears before .data in memory, it must be initialized — that is, the runtime must copy initial values from FLASH to RAM during startup. On AVR microcontrollers, this initialization is typically handled by the crt0.s startup file. It is responsible for:
--Copying the contents of .data from FLASH to RAM.
--Zeroing the .bss section.
 
 ---
 
