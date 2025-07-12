@@ -351,10 +351,46 @@ However, relying solely on the default script provides no guarantee that specifi
 
 To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This approach allows for reliable monitoring of stack overflows via a dedicated task.
 
-![Linker script - .tdat](fix)
+    .data :
+    {
+      PROVIDE (__data_start = . ) ;	
+      *(.data)
+      *(.data*)
+      *(.gnu.linkonce.d*)
+      *(.rodata)  /* We need to include .rodata here if gcc is used */
+      *(.rodata*) /* with -fdata-sections.  */
+      *(.gnu.linkonce.r*)
+      . = ALIGN(2);
+      _edata = . ;
+      PROVIDE (__data_end = . ) ;
+    }  > data AT> text
+    .bss  ADDR(.data) + SIZEOF (.data)   : AT (ADDR (.bss))
+    {
+      PROVIDE (__bss_start = .) ;
+      *(.bss)
+      *(.bss*)
+      *(COMMON)
+      PROVIDE (__bss_end = .) ;
+    }  > data
+    .tdat (NOLOAD) :
+    {
+	    . = ALIGN(1);
+	    PROVIDE (__tdat_start = . );
+	    KEEP(*(.tdat))
+	    KEEP(*(.tdat*))
+	    PROVIDE (__tdat_end = . );
+    }
 
 After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory.
-![Map file - .tdat fragment](Media/map_file.PNG)
+
+                0x008010ba                PROVIDE (__bss_end, .)
+    .tdat       0x008010ba      0xe04
+                0x008010ba                . = ALIGN (0x1)
+                0x008010ba                PROVIDE (__tdat_start, .)
+                *(.tdat)
+    .tdat       0x008010ba      0xe04     C:\Users\kujon\AppData\Local\Temp\ccoybr7D.ltrans0.ltrans.o
+    *(.tdat*)
+                0x00801ebe                PROVIDE (__tdat_end, .)
 
 ---
 
