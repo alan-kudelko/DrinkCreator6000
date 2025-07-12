@@ -196,18 +196,17 @@ Screen transition diagram:
 
 | Region    | Start Address | End Address | Size (bytes) |
 |-----------|---------------|-------------|--------------|
-| .tdat     |      -        |     -       |      -       |
-| .data     | 0x0200        | 0x1522      | 4898         |
-| .bss      | 0x1522        | 0x1BF7      | 1749         |
+| .data     | 0x0200        | 0x0B08      | 2312         |
+| .bss      | 0x0B08        | 0x10AC      | 1444         |
+| .tdat     | 0x10AC        | 0x1EB0      | 3588         |
 | Heap      | 0x1BF7        | 0x1BF7      | 0            |
 | CPU Stack | 0x21B5        | 0x21FF      | 154          |
 
-**Total free memory:** 1470 bytes
+**Total free memory:** 836 bytes
 
 *Note:*  
 - FreeRTOS task stacks are statically allocated and included in the `.tdat` segment size.  
 - CPU Stack refers to the main processor stack (not individual task stacks).
-- .tdat memory segment is yet to be implemented
   
 ---
 ### 4. 💾 EEPROM Memory Map
