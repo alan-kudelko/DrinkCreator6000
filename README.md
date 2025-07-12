@@ -143,8 +143,7 @@ Screen transition diagram:
 - 🔄 Create task to display and confirm the last saved error
 - ✅ Implement software guard zones between task stacks for added protection and reliability
 - 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
-- 🔄 Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
-- 🔄 Modify and recompile crt0.s to initialize the .tdat section at startup
+- ✅ Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
 - 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
 
@@ -196,18 +195,17 @@ Screen transition diagram:
 
 | Region    | Start Address | End Address | Size (bytes) |
 |-----------|---------------|-------------|--------------|
-| .tdat     |      -        |     -       |      -       |
-| .data     | 0x0200        | 0x1522      | 4898         |
-| .bss      | 0x1522        | 0x1BF7      | 1749         |
+| .data     | 0x0200        | 0x0B08      | 2312         |
+| .bss      | 0x0B08        | 0x10AC      | 1444         |
+| .tdat     | 0x10AC        | 0x1EB0      | 3588         |
 | Heap      | 0x1BF7        | 0x1BF7      | 0            |
 | CPU Stack | 0x21B5        | 0x21FF      | 154          |
 
-**Total free memory:** 1470 bytes
+**Total free memory:** 836 bytes
 
 *Note:*  
 - FreeRTOS task stacks are statically allocated and included in the `.tdat` segment size.  
 - CPU Stack refers to the main processor stack (not individual task stacks).
-- .tdat memory segment is yet to be implemented
   
 ---
 ### 4. 💾 EEPROM Memory Map
@@ -321,12 +319,12 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 
 ![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
-- `__tdat_start` is a linker symbol representing the starting address of the `.tdat` section in SRAM.
-- `__tdat_end` is a linker symbol representing the ending address of the `.tdat` section in SRAM.
 - `__data_start` is a linker symbol representing the starting address of the `.data` section in SRAM on AVR microcontrollers.
 - `__data_end` is a linker symbol representing the ending address of the `.data` section in SRAM on AVR microcontrollers.
 - `__bss_start` is a linker symbol representing the starting address of the `.bss` section in SRAM on AVR microcontrollers.
 - `__bss_end` is a linker symbol representing the ending address of the `.bss` section in SRAM on AVR microcontrollers.
+- `__tdat_start` is a linker symbol representing the starting address of the `.tdat` section in SRAM.
+- `__tdat_end` is a linker symbol representing the ending address of the `.tdat` section in SRAM.
 - `__heap_start` is a linker symbol representing the starting address of the heap section in SRAM.
 - `__heap_end` is a variable defined by me to mark the end of the heap section. Its calculation is described in the Notes below.
 - `__stack_ptr` is a variable defined by me to mark the start (bottom) of the stack section in SRAM. See Notes below.
@@ -353,41 +351,10 @@ However, relying solely on the default script provides no guarantee that specifi
 
 To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This approach allows for reliable monitoring of stack overflows via a dedicated task.
 
-![Linker script - .tdat fragment](Media/tdat_linker_script.PNG)
+![Linker script - .tdat](fix)
 
-There are two additional lines in the linker script that define initialization pointers for the .tdat section, which are expected to be used by crt0.s to copy data from FLASH to RAM during startup.
-
-    (Code will be here)
-    (Code will be here)
-
-After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory. However, setting the linker to use a custom script is not enough — particularly because the .tdat section is placed before the .data segment. This means that variables in .tdat also need to be initialized properly.
-
+After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory.
 ![Map file - .tdat fragment](Media/map_file.PNG)
-
-#### 8.4 Modifiying crt0.s file
-
-Because the .tdat section appears before .data in memory, it must be initialized — that is, the runtime must copy initial values from FLASH to RAM during startup. On AVR microcontrollers, this initialization is typically handled by the crt0.s startup file. It is responsible for:
--Copying the contents of .data from FLASH to RAM.
--Zeroing the .bss section.
-
-To support the .tdat section, I extended crt0.s to perform similar initialization — copying .tdat data from FLASH into its corresponding location in RAM. This ensures that all task-related data is fully initialized and ready to use at startup, enabling safe and deterministic memory behavior.
-
-    lda.w   r0, _tdat
-    lda.w   r1, _etdat
-    cp      r0, r1
-    brhs    idata_load_loop_end
-    lda.w   r2, _tdat_lma
-
-    itdat_load_loop:
-    ld.d    r4, r2++
-    st.d    r0++, r4
-    cp      r0, r1
-    brlo    itdat_load_loop
-    itdat_load_loop_end:
-
-Overall this whole process can be showed on a simple diagram
-
-![Custom section creation flow](Media/custom_section_creation_flow.PNG)
 
 ---
 
