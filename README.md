@@ -343,11 +343,15 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 
 #### 8.2 Custom Segments
 
-When compiling a program, the linker is responsible for placing variables and code in the correct memory segments — e.g., initialized variables go into the .data section, uninitialized variables into .bss, and so on. This process is typically handled automatically by the default linker script.
+When compiling a program, the linker is responsible for placing variables and code into the correct memory segments — for example, initialized variables go into the .data section, uninitialized variables into .bss, and so on. This process is usually handled automatically by the default linker script.
 
-However, relying solely on the default script provides no guarantee that specific variables will be placed next to each other in memory. Their placement may vary depending on factors such as the order of .o files passed to the linker.
+However, relying solely on the default script does not guarantee that specific variables will be placed contiguously in memory. Their placement can vary depending on factors such as the order of .o files passed to the linker.
 
-To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section with additional subsection for each task and its corresponding guardzone. This approach allows for reliable monitoring of stack overflows via a dedicated task.
+To ensure that all data related to each task — specifically the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This section is further divided into subsections, one for each stack and guard zone. This layout allows for reliable and predictable stack overflow detection, as a dedicated task can systematically inspect each guard zone to verify memory integrity.
+
+I chose to manually assign each guard zone and task stack to its own subsection in the linker script to ensure strict ordering and prevent unexpected memory layout issues. This eliminates any ambiguity and guarantees that variables appear exactly where intended in SRAM.
+
+This configuration is reflected in the following linker script fragment:
 
     .tdat (NOLOAD) :
     {
@@ -383,17 +387,30 @@ To ensure that all data related to each task — namely the Task Control Block (
 	KEEP(*(.tdat*))
 	PROVIDE (__tdat_end = . );
     }
+    
+Below is an example of how a guard zone and a task stack are declared in code:
 
-After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory.
+    volatile StackType_t guardZone0[GUARD_ZONE_SIZE]              __attribute__((section(".tdat.guardZone0")));
 
-                0x008010ba                PROVIDE (__bss_end, .)
-    .tdat       0x008010ba      0xe04
-                0x008010ba                . = ALIGN (0x1)
-                0x008010ba                PROVIDE (__tdat_start, .)
-                *(.tdat)
-    .tdat       0x008010ba      0xe04     C:\Users\kujon\AppData\Local\Temp\ccoybr7D.ltrans0.ltrans.o
-    *(.tdat*)
-                0x00801ebe                PROVIDE (__tdat_end, .)
+    StackType_t errorHandlerStack[TASK_ERROR_HANDLER_STACK_SIZE]  __attribute__((section(".tdat.errorHandlerStack")));
+
+*Note:*
+- Each guard zone is declared as volatile to ensure the compiler does not optimize away accesses or overwrite them unexpectedly. Since these memory regions are checked explicitly in software for integrity (e.g., to detect overflow), they must always be preserved exactly as written in memory. Marking them as volatile prevents the compiler from assuming they remain unchanged or unused.
+
+After compiling and inspecting the .map file, I confirmed that the .tdat section is correctly placed in SRAM. All subsections appear in the exact order defined in the linker script, starting from `__tdat_start`. Each stack and guard zone is properly aligned and located contiguously, which is essential for deterministic overflow detection logic.
+
+    .tdat           0x008010e8      0xe97
+                    0x008010e8                . = ALIGN (0x1)
+                    0x008010e8                PROVIDE (__tdat_start, .)
+    *(.tdat.guardZone0)
+    .tdat.guardZone0
+                    0x008010e8       0x20 C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
+    *(.tdat.errorHandlerStack)
+    .tdat.errorHandlerStack
+                    0x00801108      0x100 C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
+    *(.tdat.guardZone1)
+    .tdat.guardZone1
+                    0x00801208       0x20 C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
 
 ---
 
