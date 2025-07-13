@@ -140,11 +140,10 @@ Screen transition diagram:
 - ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
 - 🔄 Create task for processing the ordered drink (pump activation)
 - ✅ Create task to display project information such as author, startup count, and current runtime
-- 🔄 Create task to display and confirm the last saved error
 - ✅ Implement software guard zones between task stacks for added protection and reliability
-- 🔄 Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
+- ✅ Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
 - ✅ Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
-- 🔄 Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
+- ✅ Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
 
 ---
@@ -204,8 +203,8 @@ Screen transition diagram:
 **Total free memory:** 836 bytes
 
 *Note:*  
-- FreeRTOS task stacks are statically allocated and included in the `.tdat` segment size.  
-- CPU Stack refers to the main processor stack (not individual task stacks).
+- FreeRTOS task stacks are statically allocated and included within the `.tdat` segment.
+- The CPU Stack refers to the main processor stack (used before the scheduler starts), not individual task stacks.
   
 ---
 ### 4. 💾 EEPROM Memory Map
@@ -216,7 +215,7 @@ Screen transition diagram:
 | 0x0001        | 34 * n       | Drinks data (n ≤ 26)              |
 | 0x0400        | 4            | Temperature set in freezer        |
 | 0x0404        | 4            | Temperature hysteresis width      |
-| 0x0800        | 134          | Last saved error                  |
+| 0x0800        | 135          | Last saved error                  |
 | 0x0C00        | 2            | Bootups count                     |
 
 ---
@@ -224,22 +223,22 @@ Screen transition diagram:
 
 ### 5. Navigation & UI Context  
 
-Navigation within the user interface is managed through a global structure called UI_Context. This structure enables switching between different tasks by activating or deactivating them as needed. The central control and navigation logic is handled by taskMain.
+Navigation within the user interface is managed through a global structure named UI_Context. This structure enables switching between different tasks by activating or deactivating them as necessary. The core control and navigation logic is implemented in the taskMain function.
 
 The UI_Context structure is defined as follows:
 
     UI_Context{
-      uint8_t autoScrollEnable: 1;  // 0 - 1
-      uint8_t currentTask: 3;       // 0 - 7
-      uint8_t currentMenu: 3;       // 0 - 7
-      uint8_t currentSubMenu;       // 0 - 255
+      uint8_t autoScrollEnable: 1;  // Enables (1) or disables (0) auto-scrolling of the submenu
+      uint8_t currentTask: 3;       // Currently active task bound to the LCD (0 – 7)
+      uint8_t currentMenu: 3;       // Currently selected menu within the task (0 – 7)
+      uint8_t currentSubMenu;       // Currently selected submenu (0 - 255)
     }
 
-This structure stores information about the currently active task — the one responsible for updating the LCD by sending data via queue to the taskUpdateScreen(). It also tracks the currently selected menu and submenu within that task. This approach offers a flexible and memory-efficient way to handle UI navigation.
+This structure stores information about the currently active task — the task responsible for updating the LCD by sending data via a queue to taskUpdateScreen(). It also tracks the currently selected menu and submenu within that task, providing a flexible and memory-efficient mechanism for UI navigation.
 
-When a button is pressed (or simulated via the serial port), taskMain evaluates whether a context switch is required. If so, it sends a task notification with a specific value (0 or 1) to indicate whether the task should be deactivated or activated.
+When a button is pressed (or a command is simulated via the serial port), taskMain evaluates whether a context switch is necessary. If so, it sends a task notification with a specific value (0 or 1) indicating whether the task should be deactivated or activated.
 
-Upon receiving a deactivation signal, the relevant task safely halts its execution. taskMain then updates the context and notifies the new task to begin operation.
+Upon receiving a deactivation notification, the affected task safely stops its execution. Then, taskMain updates the UI_Context accordingly and notifies the new task to begin its operation.
 
 An example of this control logic is shown below:
 
@@ -269,7 +268,7 @@ An example of this control logic is shown below:
     }
     
 *Note:*  
-- When modifying multiple fields of the UI_Context structure, it is essential to ensure that the operation is "atomic". This means preventing the scheduler from performing a context switch during the update. If not properly protected, concurrent access to UI_Context may result in an inconsistent state or hard-to-debug issues, especially when other tasks read from it simultaneously.
+- When modifying multiple fields of the UI_Context structure, it is crucial to ensure the operation is "atomic". This means preventing context switches by the scheduler during the update (e.g., by entering a critical section). Without proper protection, concurrent access to UI_Context by multiple tasks may lead to inconsistent states or subtle race conditions that are difficult to debug.
 
 ---
 
@@ -333,7 +332,7 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 *Note:*
 - The `.tdat` section is a custom memory segment defined in the linker script. It is used to store Task Control Blocks (TCBs), task stacks, and associated guard zones. By placing all task stacks contiguously within .tdat, the system ensures controlled stack allocation and simplifies stack overflow detection.
 - The symbols `__tdat_start` and `__tdat_end` were predefined in the linker script, along with a custom `.tdat` section. This section is used to store Task Control Blocks (TCBs), task stacks, and corresponding guard zones. The `.tdat` section ensures that stacks and their guard zones are placed contiguously in memory, enabling reliable stack overflow monitoring.
-- The __heap_end variable is computed as:
+- The `__heap_end` variable is computed as:
   
       __heap_end = (__brkval != 0) ? __brkval : (void*)&__heap_start;
   
@@ -343,7 +342,7 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 
 #### 8.2 Custom Segments
 
-When compiling a program, the linker is responsible for placing variables and code into the correct memory segments — for example, initialized variables go into the .data section, uninitialized variables into .bss, and so on. This process is usually handled automatically by the default linker script.
+When compiling a program, the linker is responsible for placing variables and code into the correct memory segments — for example, initialized variables go into the `.data` section, uninitialized variables into `.bss`, and so on. This process is usually handled automatically by the default linker script.
 
 However, relying solely on the default script does not guarantee that specific variables will be placed contiguously in memory. Their placement can vary depending on factors such as the order of .o files passed to the linker.
 
@@ -404,23 +403,25 @@ After compiling and inspecting the .map file, I confirmed that the .tdat section
                     0x008010e8                PROVIDE (__tdat_start, .)
     *(.tdat.guardZone0)
     .tdat.guardZone0
-                    0x008010e8       0x20 C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
+                    0x008010e8      0x20  C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
     *(.tdat.errorHandlerStack)
     .tdat.errorHandlerStack
                     0x00801108      0x100 C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
     *(.tdat.guardZone1)
     .tdat.guardZone1
-                    0x00801208       0x20 C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
+                    0x00801208      0x20  C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
 
 ---
 
 ### 9. Free Memory Calculation  
 
-Free memory calculation is straightforward.
+Free memory calculation is straightforward on AVR microcontrollers.
 
-The stack begins at RAMEND and grows downward, with its current position given by __stack_ptr.
-The heap starts at __heap_start, which is the first free address after all global and static variables are initialized, and grows upward toward __heap_end.
-Therefore, the amount of free memory is simply the difference between __stack_ptr and __heap_end:
+The stack starts at `RAMEND` and grows downward. Its current position is captured in the `__stack_ptr` variable, which holds the value of the `SP` (Stack Pointer) register before the RTOS scheduler is started.
+
+The heap begins at `__heap_start`, which is the first available address after global and static data sections (`.data`, `.bss`, and `.tdat`) are initialized. It grows upward, with its current boundary given by `__heap_end`.
+
+Therefore, the amount of free memory available in the system is calculated as:
 
     Free memory = __stack_ptr - __heap_end
 
