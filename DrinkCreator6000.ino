@@ -1,7 +1,6 @@
 #include "DrinkCreator6000_Config.h"
 #include "DrinkCreator6000_Init.h"
-#include "LcdCharacters.h"
-#include "EEPROM_Management.h"
+#include "DrinkCreator6000_EEPROM.h"
 
 #include "DrinkCreator6000_Tasks.h"
 

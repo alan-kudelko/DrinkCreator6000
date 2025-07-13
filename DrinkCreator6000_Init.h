@@ -5,8 +5,6 @@
 
 extern void setInputFlag();
 
-extern const uint8_t fullSquare[];
-
 //////////////////////////////////////////////////////////////////
 // IO initialization: 
 // Configures I/O pins and attaches interrupts related to pin events

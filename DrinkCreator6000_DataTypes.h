@@ -1,5 +1,5 @@
-#ifndef _CUSTOM_DATA_TYPES_H_
-#define _CUSTOM_DATA_TYPES_H_
+#ifndef _DRINK_CREATOR6000_DATA_TYPES_H_
+#define _DRINK_CREATOR6000_DATA_TYPES_H_
 
 struct sDrinkData{
   char drinkName[16];
@@ -51,4 +51,4 @@ struct sUIContext{
   // used for scrolling inside currentMenu
 };
 //struct describing current program context
-#endif // _CUSTOM_DATA_TYPES_H_
+#endif // _DRINK_CREATOR6000_DATA_TYPES_H_

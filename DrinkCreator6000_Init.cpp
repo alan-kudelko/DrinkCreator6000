@@ -47,15 +47,6 @@ void initializeHardware(){
 ////////////////////////////////////////////////////////////////// LCD init	
   lcd.begin();
   lcd.backlight();
-  // Load custom characters from "LcdCharacters.h"
-  lcd.load_custom_character(0,fullSquare);
-  lcd.load_custom_character(1,fullSquare);
-  lcd.load_custom_character(2,fullSquare);
-  lcd.load_custom_character(3,fullSquare);
-  lcd.load_custom_character(4,fullSquare);
-  lcd.load_custom_character(5,fullSquare);
-  lcd.load_custom_character(6,fullSquare);
-  lcd.load_custom_character(7,fullSquare);	
 ////////////////////////////////////////////////////////////////// Keyboard init	  
   // Configure IOCON register (Bank = 1, SEQOP disabled)
   Wire.beginTransmission(MCP_ADDR);
