@@ -306,6 +306,8 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 ├── taskErrorHandler.h
 ├── ...                           # Other task source/header files
 │
+├── Custom_Linker.ld              # Linker script with custom sections
+│
 ├── README.md                     # Project overview
 └── LICENSE                       # License file
 ```
