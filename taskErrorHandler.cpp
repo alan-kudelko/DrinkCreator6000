@@ -16,11 +16,19 @@ void checkGuardZones(uint8_t*guardZoneId){
   uint8_t j=0;
   for(;i<TASK_N;i++){
     for(j=0;j<GUARD_ZONE_SIZE;j++){
-      if(*(char*)(guardZones[i]+j)!=MEMORY_FILL_PATTERN){
+      if(*((uint8_t*)(guardZones[i]+j))!=MEMORY_FILL_PATTERN){
         *guardZoneId=i;
         break;
       }
     }
+  }
+}
+void displayCorruptedGuardZone(uint8_t*guardZoneId){
+  uint8_t i=0;
+  for(;i<GUARD_ZONE_SIZE;i++){
+    Serial.print(i);
+    Serial.print(" ");
+    Serial.println(*((uint8_t*)(guardZones[*guardZoneId]+i)),HEX);
   }
 }
 void taskErrorHandler(void*pvParameters){
@@ -37,16 +45,16 @@ void taskErrorHandler(void*pvParameters){
     if(!f_errorOccured){
       if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
         f_errorOccured=true;
-    
+        Serial.println("No cos przyszlo");
         for(;i<TASK_N;i++)
-          vTaskSuspend(taskHandles[i]);    
-  
-        sprintf(lastError.errorText,"Stack overflow in task: %s",pcTaskGetName(overflowedTask));  
+          vTaskSuspend(taskHandles[i]);
       }
-      //checkGuardZones(&guardZoneId); // Needs fixing
+      checkGuardZones(&guardZoneId);
       if(guardZoneId){
+        for(;i<TASK_N;i++)
+          vTaskSuspend(taskHandles[i]);            
         f_errorOccured=true;
-        sprintf(lastError.errorText,"Guard zone corrupted in task: %d",guardZoneId);
+        sprintf(lastError.errorText,"Guard zone %d corrupted in task: %s",guardZoneId,TaskNames[guardZoneId]);
       }
     }
     if(f_errorOccured){
@@ -57,18 +65,20 @@ void taskErrorHandler(void*pvParameters){
       //stopAllDevices(); //pumps stop, peltier stop etc.
       for(i=2;i<TASK_N;i++)
           vTaskSuspend(taskHandles[i]);  
+
+      displayCorruptedGuardZone(&guardZoneId);
       
-      generateErrorInfo(&lastError);        
+      generateErrorInfo(&lastError);
+      lastError.taskId=guardZoneId;        
       EEPROMUpdateLastStartupError(&lastError);
        
       Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
       Serial.println((const char*)lastError.errorText);
       Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
       Serial.println("");
-        
+      
       for(i=0;i<100;i++){
-        // Buzzer
-        vTaskDelay(pdMS_TO_TICKS(5000));
+        vTaskDelay(pdMS_TO_TICKS(1000));
       }
       // reset MCU
     }

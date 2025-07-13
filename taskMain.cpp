@@ -1,5 +1,6 @@
 #include "taskMain.h"
 
+void EEPROMUpdateLastStartupError(sSystemError*);
 // Each operation should update current context
 // If one or more field is modified, operation should be atomic
 // incrementing and decrementing submenus can be common for all the tasks
@@ -54,10 +55,24 @@ void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,sUIContext*UI_
   // of course all the pumps should be stopped
 }
 void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext*UI_context){
+  // UI_contect->currentTask==SHOW_INFO
+  if((lastSystemError.confirmed==0)&&(UI_context->currentMenu==4)){
+    if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+      lastSystemError.confirmed=1;
+      EEPROMUpdateLastStartupError(&lastSystemError);
+      
+      taskENTER_CRITICAL();
+      UI_context->currentMenu=5;
+      UI_context->currentSubMenu=0;
+      UI_context->autoScrollEnable=0;
+      taskEXIT_CRITICAL();
+    }
+  }
   if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
     taskENTER_CRITICAL();
     UI_context->currentMenu++;
     UI_context->currentSubMenu=0;
+    UI_context->autoScrollEnable=0;
     taskEXIT_CRITICAL();
   }
   if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
@@ -66,6 +81,7 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext
       UI_context->currentTask=DRINK_SELECT;
       UI_context->currentMenu=0;
       UI_context->currentSubMenu=0;
+      UI_context->autoScrollEnable=0;
       taskEXIT_CRITICAL();
       xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite);
       xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);

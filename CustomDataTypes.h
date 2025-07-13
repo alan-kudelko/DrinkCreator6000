@@ -24,6 +24,7 @@ struct sSystemError{
   uint8_t hours;
   uint8_t days;
   uint8_t confirmed; // If its not comfirmed display it on the LCD and on the serial port
+  uint8_t taskId; // Id of task which caused error
   // Bit field can be optimzed!
 };
 //struct containing error information

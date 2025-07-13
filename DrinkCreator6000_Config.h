@@ -41,8 +41,8 @@ enum{TASK_REGULATE_TEMP_STACK_SIZE=180};           //7
 enum{TASK_SELECT_DRINK_STACK_SIZE=270};            //8
 enum{TASK_ORDER_DRINK_STACK_SIZE=320};             //9
 enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
-enum{TASK_WELCOME_SCREEN_STACK_SIZE=222};          //11 // Tuned, 48 words in reserve
-enum{TASK_TEST_HARDWARE_STACK_SIZE=256};           //12
+enum{TASK_WELCOME_SCREEN_STACK_SIZE=177};          //11 // Tuned, 48 words in reserve //160 words causes overflow
+enum{TASK_TEST_HARDWARE_STACK_SIZE=215};           //12
 // Stack size - will need "tuning" in last release
 enum{
   TASK_ERROR_HANDLER=0,
@@ -59,6 +59,7 @@ enum{
   TASK_WELCOME_SCREEN=11,
   TASK_TEST_HARDWAER=12
 };
+extern const char*TaskNames[];
 // Task identifiers
 enum{GUARD_ZONE_SIZE=16};
 enum{MEMORY_FILL_PATTERN=0xAA};
@@ -76,7 +77,7 @@ enum{
   TASK_REGULATE_TEMP_REFRESH_RATE=5000,    // 7
   TASK_SELECT_DRINK_REFRESH_RATE=1000,     // 8
   TASK_ORDER_DRINK_REFRESH_RATE=1000,      // 9
-  TASK_SHOW_SYSTEM_INFO_REFRESH_RATE=1500, // 10
+  TASK_SHOW_SYSTEM_INFO_REFRESH_RATE=600,  // 10
   TASK_WELCOME_SCREEN_REFRESH_RATE=500     // 11
 };
 enum{TASK_WELCOME_TICKS_TO_CLOSE=10};
@@ -96,43 +97,43 @@ extern StaticTask_t welcomeScreenTCB;                               //11
 // Task control blocks
 extern TaskHandle_t taskHandles[TASK_N];
 // Task handles, assigned in the same order as identifiers
+extern volatile StackType_t guardZone0[];
 extern StackType_t errorHandlerStack[];          //0
-extern StackType_t guardZone0[];
 
+extern volatile StackType_t guardZone1[];
 extern StackType_t serialSystemDebuggerStack[];  //1
-extern StackType_t guardZone1[];
 
+extern volatile StackType_t guardZone2[];
 extern StackType_t mainStack[];                  //2
-extern StackType_t guardZone2[];
 
+extern volatile StackType_t guardZone3[];
 extern StackType_t readInputStack[];             //3
-extern StackType_t guardZone3[];
 
+extern volatile StackType_t guardZone4[];
 extern StackType_t serialInputStack[];           //4
-extern StackType_t guardZone4[];
 
+extern volatile StackType_t guardZone5[];
 extern StackType_t updateScreenStack[];          //5
-extern StackType_t guardZone5[];
 
+extern volatile StackType_t guardZone6[];
 extern StackType_t readTempStack[];              //6
-extern StackType_t guardZone6[];
 
+extern volatile StackType_t guardZone7[];
 extern StackType_t regulateTempStack[];          //7
-extern StackType_t guardZone7[];
 
+extern volatile StackType_t guardZone8[];
 extern StackType_t selectDrinkStack[];           //8
-extern StackType_t guardZone8[];
 
+extern volatile StackType_t guardZone9[];
 extern StackType_t orderDrinkStack[];            //9
-extern StackType_t guardZone9[];
 
+extern volatile StackType_t guardZone10[];
 extern StackType_t showSystemInfoStack[];        //10
-extern StackType_t guardZone10[];
 
+extern volatile StackType_t guardZone11[];
 extern StackType_t welcomeScreenStack[];         //11
-extern StackType_t guardZone11[];
 
-extern StackType_t guardZones[]; // Used in stack overflow detection
+extern StackType_t*guardZones[]; // Used in stack overflow detection
 // Task stacks and guard zones
 //////////////////////////////////////////////////////////////////
 // Screen data:
@@ -202,22 +203,19 @@ enum{
   KEYBOARD_QUEUE_BUFFER_COUNT=2,
   DRINK_ID_QUEUE_BUFFER_COUNT=2,
   SHOW_INFO_QUEUE_BUFFER_COUNT=2,
-  ERROR_ID_QUEUE_BUFFER_COUNT=1,
-  LAST_ERROR_ID_QUEUE_BUFFER_COUNT=1
+  ERROR_ID_QUEUE_BUFFER_COUNT=1
 };
 extern uint8_t screenQueueBuffer[];
 extern uint8_t keyboardQueueBuffer[];
 extern uint8_t drinkIdQueueBuffer[];
 extern uint8_t showInfoQueueBuffer[];
 extern uint8_t errorIdQueueBuffer[];
-extern uint8_t lastErrorIdQueueBuffer[];
 
 extern StaticQueue_t screenQueueStructBuffer;
 extern StaticQueue_t keyboardQueueStructBuffer;
 extern StaticQueue_t drinkIdQueueStructBuffer;
 extern StaticQueue_t showInfoQueueStructBuffer;
 extern StaticQueue_t errorIdQueueStructBuffer;
-extern StaticQueue_t lastErrorIdQueueStructBuffer;
 
 extern StaticSemaphore_t semReadDataBuffer;
 extern StaticSemaphore_t muxI2CLockBuffer;
@@ -228,8 +226,7 @@ extern QueueHandle_t qKeyboardData;    // Consumed by taskMain
 extern QueueHandle_t qDrinkId;         // Change name to qSelectDrinkId, Consumed by taskSelectDrink
 extern QueueHandle_t qOrderDrinkId;    // Consumed only by taskOrderDrink
 extern QueueHandle_t qShowInfoId; // Consumed by taskShowInfo 
-extern QueueHandle_t qErrorId; // Consumed by taskErrorHandler
-extern QueueHandle_t qLastErrorId; // Consumed by taskLastError
+extern QueueHandle_t qErrorId;
 // Queue handles
 extern SemaphoreHandle_t sem_ReadData;
 extern SemaphoreHandle_t mux_I2CLock;

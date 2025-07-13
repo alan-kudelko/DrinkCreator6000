@@ -165,31 +165,57 @@ SECTIONS
     KEEP (*(.fini0))
      _etext = . ;
   }  > text
-  .data          :
+  .data :
   {
-     PROVIDE (__data_start = . ) ;	
+    PROVIDE (__data_start = . ) ;	
     *(.data)
-     *(.data*)
+    *(.data*)
     *(.gnu.linkonce.d*)
     *(.rodata)  /* We need to include .rodata here if gcc is used */
-     *(.rodata*) /* with -fdata-sections.  */
+    *(.rodata*) /* with -fdata-sections.  */
     *(.gnu.linkonce.r*)
     . = ALIGN(2);
-     _edata = . ;
-     PROVIDE (__data_end = . ) ;
+    _edata = . ;
+    PROVIDE (__data_end = . ) ;
   }  > data AT> text
-  .bss  ADDR(.data) + SIZEOF (.data)   : AT (ADDR (.bss))
+  .bss  ADDR(.data) + SIZEOF (.data) : AT (ADDR (.bss))
   {
-     PROVIDE (__bss_start = .) ;
+    PROVIDE (__bss_start = .) ;
     *(.bss)
-     *(.bss*)
+    *(.bss*)
     *(COMMON)
-     PROVIDE (__bss_end = .) ;
+    PROVIDE (__bss_end = .) ;
   }  > data
-  .tdat (NOLOAD)    :
+  .tdat (NOLOAD) :
   {
 	. = ALIGN(1);
 	PROVIDE (__tdat_start = . );
+	
+	KEEP(*(.tdat.guardZone0));	
+	KEEP(*(.tdat.errorHandlerStack));	
+	KEEP(*(.tdat.guardZone1));	
+	KEEP(*(.tdat.serialSystemDebuggerStack));	
+	KEEP(*(.tdat.guardZone2));	
+	KEEP(*(.tdat.mainStack));	
+	KEEP(*(.tdat.guardZone3));	
+	KEEP(*(.tdat.readInputStack));	
+	KEEP(*(.tdat.guardZone4));	
+	KEEP(*(.tdat.serialInputStack));	
+	KEEP(*(.tdat.guardZone5));	
+	KEEP(*(.tdat.updateScreenStack));	
+	KEEP(*(.tdat.guardZone6));	
+	KEEP(*(.tdat.readtempStack));	
+	KEEP(*(.tdat.guardZone7));	
+	KEEP(*(.tdat.regulateTempStack));	
+	KEEP(*(.tdat.guardZone8));	
+	KEEP(*(.tdat.selectDrinkStack));	
+	KEEP(*(.tdat.guardZone9));	
+	KEEP(*(.tdat.orderDrinkStack));	
+	KEEP(*(.tdat.guardZone10));	
+	KEEP(*(.tdat.showSystemInfoStack));
+	KEEP(*(.tdat.guardZone11));
+	KEEP(*(.tdat.welcomeScreenStack));
+	
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))
 	PROVIDE (__tdat_end = . );

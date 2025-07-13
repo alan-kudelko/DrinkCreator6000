@@ -140,12 +140,12 @@ void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_context){
 void showInfo_Error_Sub_N(sScreenData*screenData,sUIContext*UI_context){
   //Global struct with error info 
   //Or use this EEPROMGetLastStartupError()
-  int8_t errorTextLength=strlen(lastSystemError.errorText);
+  uint8_t errorTextLength=strlen(lastSystemError.errorText);
   
-  if(UI_context->currentSubMenu>=(int16_t)errorTextLength-LCD_WIDTH)
+  if(UI_context->currentSubMenu>=(int16_t)errorTextLength-LCD_WIDTH+1)
     UI_context->currentSubMenu=0;
   
-  memcpy(screenData->lines[0],lastSystemError.errorText+UI_context->currentSubMenu,1);
+  memcpy(screenData->lines[0],lastSystemError.errorText+UI_context->currentSubMenu,LCD_WIDTH);
   
   strncpy(screenData->lines[1],"Fault time signature",LCD_WIDTH);
   sprintf(screenData->lines[2],"%02d days %02d h",lastSystemError.days,lastSystemError.hours);
@@ -158,8 +158,13 @@ void showInfo_Error_Sub_N(sScreenData*screenData,sUIContext*UI_context){
   }
 }
 void showInfo_ConfError_Sub_0(sScreenData*screenData,sUIContext*UI_context){
-  sprintf(screenData->lines[0],"%s","Error confirmed");
-  sprintf(screenData->lines[1],"%s","EEPROM Updated");
+  if(lastSystemError.confirmed==1){
+    sprintf(screenData->lines[0],"%s","Error confirmed");
+    sprintf(screenData->lines[1],"%s","EEPROM Updated");
+  }
+  else{
+    sprintf(screenData->lines[0],"%s","Error not confirmed");
+  }
   
   // Mechanism for confirming errors, but logic shouldnt be in this function
   // Logic of course should be in the main task
@@ -205,6 +210,7 @@ void taskShowSystemInfo(void*pvParameters){
 		    showInfo_Task_Sub_N(&screenData,&UI_Context);
 		  break;
 		  case 4:
+        UI_Context.autoScrollEnable=1;
 		    showInfo_Error_Sub_N(&screenData,&UI_Context);
 		  break;
 		  case 5:
