@@ -349,12 +349,53 @@ When compiling a program, the linker is responsible for placing variables and co
 
 However, relying solely on the default script provides no guarantee that specific variables will be placed next to each other in memory. Their placement may vary depending on factors such as the order of .o files passed to the linker.
 
-To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This approach allows for reliable monitoring of stack overflows via a dedicated task.
+To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section with additional subsection for each task and its corresponding guardzone. This approach allows for reliable monitoring of stack overflows via a dedicated task.
 
-![Linker script - .tdat](fix)
+    .tdat (NOLOAD) :
+    {
+	. = ALIGN(1);
+	PROVIDE (__tdat_start = . );
+	
+	KEEP(*(.tdat.guardZone0));	
+	KEEP(*(.tdat.errorHandlerStack));	
+	KEEP(*(.tdat.guardZone1));	
+	KEEP(*(.tdat.serialSystemDebuggerStack));	
+	KEEP(*(.tdat.guardZone2));	
+	KEEP(*(.tdat.mainStack));	
+	KEEP(*(.tdat.guardZone3));	
+	KEEP(*(.tdat.readInputStack));	
+	KEEP(*(.tdat.guardZone4));	
+	KEEP(*(.tdat.serialInputStack));	
+	KEEP(*(.tdat.guardZone5));	
+	KEEP(*(.tdat.updateScreenStack));	
+	KEEP(*(.tdat.guardZone6));	
+	KEEP(*(.tdat.readtempStack));	
+	KEEP(*(.tdat.guardZone7));	
+	KEEP(*(.tdat.regulateTempStack));	
+	KEEP(*(.tdat.guardZone8));	
+	KEEP(*(.tdat.selectDrinkStack));	
+	KEEP(*(.tdat.guardZone9));	
+	KEEP(*(.tdat.orderDrinkStack));	
+	KEEP(*(.tdat.guardZone10));	
+	KEEP(*(.tdat.showSystemInfoStack));
+	KEEP(*(.tdat.guardZone11));
+	KEEP(*(.tdat.welcomeScreenStack));
+	
+	KEEP(*(.tdat))
+	KEEP(*(.tdat*))
+	PROVIDE (__tdat_end = . );
+    }
 
 After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory.
-![Map file - .tdat fragment](Media/map_file.PNG)
+
+                0x008010ba                PROVIDE (__bss_end, .)
+    .tdat       0x008010ba      0xe04
+                0x008010ba                . = ALIGN (0x1)
+                0x008010ba                PROVIDE (__tdat_start, .)
+                *(.tdat)
+    .tdat       0x008010ba      0xe04     C:\Users\kujon\AppData\Local\Temp\ccoybr7D.ltrans0.ltrans.o
+    *(.tdat*)
+                0x00801ebe                PROVIDE (__tdat_end, .)
 
 ---
 
