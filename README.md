@@ -349,36 +349,41 @@ When compiling a program, the linker is responsible for placing variables and co
 
 However, relying solely on the default script provides no guarantee that specific variables will be placed next to each other in memory. Their placement may vary depending on factors such as the order of .o files passed to the linker.
 
-To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section. This approach allows for reliable monitoring of stack overflows via a dedicated task.
+To ensure that all data related to each task — namely the Task Control Block (TCB), task stack, and its corresponding guard zone — are placed contiguously in memory, I defined a custom .tdat memory section with additional subsection for each task and its corresponding guardzone. This approach allows for reliable monitoring of stack overflows via a dedicated task.
 
-    .data :
-    {
-      PROVIDE (__data_start = . ) ;	
-      *(.data)
-      *(.data*)
-      *(.gnu.linkonce.d*)
-      *(.rodata)  /* We need to include .rodata here if gcc is used */
-      *(.rodata*) /* with -fdata-sections.  */
-      *(.gnu.linkonce.r*)
-      . = ALIGN(2);
-      _edata = . ;
-      PROVIDE (__data_end = . ) ;
-    }  > data AT> text
-    .bss  ADDR(.data) + SIZEOF (.data)   : AT (ADDR (.bss))
-    {
-      PROVIDE (__bss_start = .) ;
-      *(.bss)
-      *(.bss*)
-      *(COMMON)
-      PROVIDE (__bss_end = .) ;
-    }  > data
     .tdat (NOLOAD) :
     {
-	    . = ALIGN(1);
-	    PROVIDE (__tdat_start = . );
-	    KEEP(*(.tdat))
-	    KEEP(*(.tdat*))
-	    PROVIDE (__tdat_end = . );
+	. = ALIGN(1);
+	PROVIDE (__tdat_start = . );
+	
+	KEEP(*(.tdat.guardZone0));	
+	KEEP(*(.tdat.errorHandlerStack));	
+	KEEP(*(.tdat.guardZone1));	
+	KEEP(*(.tdat.serialSystemDebuggerStack));	
+	KEEP(*(.tdat.guardZone2));	
+	KEEP(*(.tdat.mainStack));	
+	KEEP(*(.tdat.guardZone3));	
+	KEEP(*(.tdat.readInputStack));	
+	KEEP(*(.tdat.guardZone4));	
+	KEEP(*(.tdat.serialInputStack));	
+	KEEP(*(.tdat.guardZone5));	
+	KEEP(*(.tdat.updateScreenStack));	
+	KEEP(*(.tdat.guardZone6));	
+	KEEP(*(.tdat.readtempStack));	
+	KEEP(*(.tdat.guardZone7));	
+	KEEP(*(.tdat.regulateTempStack));	
+	KEEP(*(.tdat.guardZone8));	
+	KEEP(*(.tdat.selectDrinkStack));	
+	KEEP(*(.tdat.guardZone9));	
+	KEEP(*(.tdat.orderDrinkStack));	
+	KEEP(*(.tdat.guardZone10));	
+	KEEP(*(.tdat.showSystemInfoStack));
+	KEEP(*(.tdat.guardZone11));
+	KEEP(*(.tdat.welcomeScreenStack));
+	
+	KEEP(*(.tdat))
+	KEEP(*(.tdat*))
+	PROVIDE (__tdat_end = . );
     }
 
 After compiling and inspecting the .map file, I confirmed that the .tdat section is located correctly in memory.
