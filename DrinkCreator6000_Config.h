@@ -61,7 +61,7 @@ enum{
 };
 extern const char*TaskNames[];
 // Task identifiers
-enum{GUARD_ZONE_SIZE=16};
+enum{GUARD_ZONE_SIZE=32};
 enum{MEMORY_FILL_PATTERN=0xAA};
 // Guard zone size between task stacks	 
 enum{TASK_N=12};

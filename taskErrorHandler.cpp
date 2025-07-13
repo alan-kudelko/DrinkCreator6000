@@ -15,7 +15,7 @@ void checkGuardZones(uint8_t*guardZoneId){
   uint8_t i=0;
   uint8_t j=0;
   for(;i<TASK_N;i++){
-    for(j=0;j<GUARD_ZONE_SIZE;j++){
+    for(;j<GUARD_ZONE_SIZE;j++){
       if(*((uint8_t*)(guardZones[i]+j))!=MEMORY_FILL_PATTERN){
         *guardZoneId=i;
         break;
@@ -26,10 +26,11 @@ void checkGuardZones(uint8_t*guardZoneId){
 void displayCorruptedGuardZone(uint8_t*guardZoneId){
   uint8_t i=0;
   for(;i<GUARD_ZONE_SIZE;i++){
-    Serial.print(i);
-    Serial.print(" ");
-    Serial.println(*((uint8_t*)(guardZones[*guardZoneId]+i)),HEX);
+    Serial.print("0X");
+    Serial.print(*((uint8_t*)(guardZones[*guardZoneId]+i)),HEX);
+    Serial.print(' ');
   }
+  Serial.println("");
 }
 void taskErrorHandler(void*pvParameters){
   uint8_t i=1;
@@ -40,15 +41,7 @@ void taskErrorHandler(void*pvParameters){
   TaskHandle_t overflowedTask{};
   
   for(;;){
-	// add mechanism for checking for guard zones corruption
-	// array of pointer to guard zones, to check this in the loop
     if(!f_errorOccured){
-      if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
-        f_errorOccured=true;
-        Serial.println("No cos przyszlo");
-        for(;i<TASK_N;i++)
-          vTaskSuspend(taskHandles[i]);
-      }
       checkGuardZones(&guardZoneId);
       if(guardZoneId){
         for(;i<TASK_N;i++)
@@ -56,6 +49,12 @@ void taskErrorHandler(void*pvParameters){
         f_errorOccured=true;
         sprintf(lastError.errorText,"Guard zone %d corrupted in task: %s",guardZoneId,TaskNames[guardZoneId]);
       }
+//      if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
+//        f_errorOccured=true;
+//        Serial.println("No cos przyszlo");
+//        for(;i<TASK_N;i++)
+//          vTaskSuspend(taskHandles[i]);
+//      }
     }
     if(f_errorOccured){
 	    // activate speaker
