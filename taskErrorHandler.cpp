@@ -1,7 +1,24 @@
 #include "taskErrorHandler.h"
+#include <avr/wdt.h>  
 
 void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 
+void stopPumps(){
+  digitalWrite(STPin,LOW);
+  shiftOut(DSPin,SHPin,0,LSBFIRST);
+  digitalWrite(STPin,HIGH);  
+}
+void stopCooler(){
+  digitalWrite(Pelt1Pin,LOW);
+  digitalWrite(Pelt1Pin,LOW);
+  digitalWrite(FansPin,LOW);
+}
+// This won't work for a while, I need ISP programmer to set High Fuse bits
+// See Atmega2560 datasheet
+void softwareReset(){
+  wdt_enable(WDTO_15MS);
+  while(true);
+}
 void generateErrorInfo(sSystemError*lastError){
   uint32_t runTimeFromMillis=0;
   runTimeFromMillis=millis()/1000;
@@ -65,6 +82,9 @@ void taskErrorHandler(void*pvParameters){
       for(i=2;i<TASK_N;i++)
           vTaskSuspend(taskHandles[i]);  
 
+      stopCooler();
+      stopPumps();
+      
       displayCorruptedGuardZone(&guardZoneId);
       
       generateErrorInfo(&lastError);
@@ -76,7 +96,7 @@ void taskErrorHandler(void*pvParameters){
       Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
       Serial.println("");
       
-      for(i=0;i<100;i++){
+      for(i=0;i<5;i++){
         vTaskDelay(pdMS_TO_TICKS(1000));
       }
       // reset MCU

@@ -65,15 +65,24 @@ extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask,char*pcTaskName
   xQueueSend(qErrorId,&xTask,pdMS_TO_TICKS(50));
   //Wake up higher prority tasks
 }
-uint16_t countDigits(uint8_t n){
-    if(n==0)
-      return 1;
-    uint16_t count=0;
-    while(n!=0) {
-        n/=10;
-        count++;
-    }
-    return count;
+extern "C" void vApplicationIdleHook(){
+  idleCounter++;
+}
+extern "C" void vApplicationTickHook(){
+  tickCount++;
+  if(tickCount>=INTERVAL_TICKS){
+    tickCount=0;
+    idleCounterPerSecond=idleCounter-idleCounterLast;
+    idleCounterLast=idleCounter;
+  }
+}
+void calibrateIdleLoop(){
+    vTaskStartScheduler();
+    vTaskSuspendAll();
+    idleCounter=0;
+    vTaskDelay(pdMS_TO_TICKS(INTERVAL_TICKS));
+    idleCalib=idleCounter;
+    xTaskResumeAll();
 }
 void setInputFlag(){
     BaseType_t xHigherPriorityTaskWoken=pdFALSE;
@@ -112,6 +121,8 @@ void setup(){
     normalStart();
   else
     faultStart();
+  // calibrate max value of idleCounterPerSecond
+  // calibrateIdleLoop(); architecture should be changed to main setup task for this to work
 }
 void loop(){
 

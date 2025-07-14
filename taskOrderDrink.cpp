@@ -1,61 +1,86 @@
 #include "taskOrderDrink.h"
 
 void taskOrderDrink(void*pvParameters){
-  //Powiadomienie zakoncz w dowolnym momencie np. przycisk awaryjny
-  //Kolejka na realizacje drinka
-  //Wyslanie informacji o postepie na ekran poprzez kolejke
-  //flaga uruchomienia
-  //Czas uruchomienia
-  //Postep
-  //Wyslanie emulowanego przycisku z klawiatury do maina ze zakonczono
-  //Nalewanie sekwencyjne
-  //Wysylanie danych do rejestru
-  //W resecie nalezy wyslac same zera do pomp
-  //Jezeli jest przerwany drink to informacja na lcd ze przerwano
-  //Reset zmiennych lokalnych
-  //Kolejka do lcd pozwala na dowolna aktualizacje ekranu, wiec nie trzeba robic twardej synchronizacji taskow
-  bool f_run=false;
-  bool f_resetTaskData=false;
-
-  uint16_t totalPouringTime=0;
-  uint16_t currentPouringTime=0;
-  
-  uint8_t drinkId=0;
-  uint8_t pumpId=0;
+  uint32_t f_run=false;
+  uint16_t totalVolume=0;
+  uint8_t currentPumpId=0;
   uint8_t pumpsActivationMask=0;
   uint8_t i=0;
+  uint8_t progress=0; //0 - 100 % needed for loading bar and % value
   
   sScreenData screenData{};
-  //Odwolanie do globalnej tablicy drinkow
+  // UI_Context should be used as a "queue" i mean, to indicate which drink should be ordered
+  // upon received notification selected drink should be read from the EEPROM
+  // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
+  // I don't like that but for now i let this as it is
   
   for(;;){
-    if(ulTaskNotifyTake(pdTRUE,0)>0){
-      f_run=false;
-      f_resetTaskData=true;
-      // Same flags in main loop (may not be necessery)
-    }
-    if(f_resetTaskData){
-      f_resetTaskData=false;
-      i=0;
-      pumpsActivationMask=0;
-      totalPouringTime=0;
-      memset(&screenData,0,sizeof(sScreenData));
-    }
-    if((false)&&(!f_resetTaskData)&&(xQueueReceive(qDrinkId,&drinkId,pdMS_TO_TICKS(50)))){
-      f_run=true;
-      for(i=0;i<8;i++)
-        totalPouringTime+=drink[drinkId].ingredients[i]*pumpsEff[i];
-      totalPouringTime*=1; //Fix, dependent on vTaskDelay
+    if(xTaskNotifyWait(0,0,&f_run,0)>0){
+      memset(screenData.lines[0],0,sizeof(sScreenData));
+      sprintf(screenData.lines[0],"[%2d]%s",UI_Context.currentSubMenu+1,drink[UI_Context.currentSubMenu].drinkName);   
+      memset(screenData.lines[3],'-',12);
+      screenData.lines[3][0]='[';
+      screenData.lines[3][11]=']';
+      memset(screenData.lines[3]+1,'#',progress);
+      sprintf(screenData.lines[3]+13,"%3d %%",progress*10);
+          
+      if(f_run==1){
+        // Order drink flag
+        strcpy(screenData.lines[2],"Please wait...");
 
-      //Constant lines (do not change during execution)
-      strncpy(screenData.lines[0],"Przygotowanie drinka",LCD_WIDTH);
-      sprintf(screenData.lines[1],"%s",drink[drinkId].drinkName);
-      sprintf(screenData.lines[1]+16,"%[2d]",drinkId);
+        totalVolume=0;
+
+        // Calculate total volume to be pumped
+        for(i=0;i<8;i++){
+          
+        }
+
+        
+        progress=0;
+
+        
+        
+      }
+      if(f_run==0){
+        // Drink order finished succesfully
+        strcpy(screenData.lines[2],"Done!");
+        
+        for(i=0;i<5;i++)
+          xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+          
+        taskENTER_CRITICAL();
+        UI_Context.currentTask=DRINK_SELECT;
+        UI_Context.currentMenu=0;
+        UI_Context.currentSubMenu=0;
+        taskEXIT_CRITICAL();
+        
+        xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);        
+      }
+      if(f_run==2){
+        // Drink order aborted
+        strcpy(screenData.lines[2],"Aborted");
+        
+        for(i=0;i<5;i++)
+          xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+          
+        taskENTER_CRITICAL();
+        UI_Context.currentTask=DRINK_SELECT;
+        UI_Context.currentMenu=0;
+        UI_Context.currentSubMenu=0;
+        taskEXIT_CRITICAL();
+        
+        xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+      }
     }
-    
-    if(f_run){
-      // Main code
-      //This is for later, atleast for now
+    if(f_run==1){
+      progress++;
+      memset(screenData.lines[3]+1,'#',progress);
+      sprintf(screenData.lines[3]+13,"%3d",progress*10);
+      xQueueSend(qScreenData, &screenData, pdMS_TO_TICKS(50));
+
+      if(progress==10){
+        xTaskNotify(taskHandles[TASK_ORDER_DRINK],0,eSetValueWithOverwrite);   
+      }
     }
     vTaskDelay(pdMS_TO_TICKS(500));
   }

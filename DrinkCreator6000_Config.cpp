@@ -188,3 +188,9 @@ uint16_t __stack_size=0;
 uint16_t ram_total_free=0;
 uint16_t ram_in_use=0;
 const uint16_t ram_size=uint16_t(RAMEND)-uint16_t(&__data_start)+1;
+// Idle task counter
+volatile uint32_t idleCounter=0;
+volatile uint32_t idleCounterLast=0;
+volatile uint32_t idleCounterPerSecond=0;
+volatile uint32_t tickCount=0;
+volatile uint32_t idleCalib=0;

@@ -22,6 +22,7 @@ void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext
     UI_context->currentTask=DRINK_SELECT;
     UI_context->currentSubMenu=0;
     taskEXIT_CRITICAL();
+    
     xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
     xTaskNotify(taskHandles[TASK_WELCOME_SCREEN],0,eSetValueWithOverwrite);
   }
@@ -32,9 +33,11 @@ void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI
     taskENTER_CRITICAL();
     UI_context->currentTask=DRINK_ORDER;
     UI_context->currentMenu=0;
-    UI_context->currentSubMenu=0;
+    // UI_context->currentSubMenu should remain as it is used to indicate which drink should be ordered
     taskEXIT_CRITICAL();
-    // notyfikacje
+    
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite);
+    xTaskNotify(taskHandles[TASK_ORDER_DRINK],1,eSetValueWithOverwrite);
   }
   if((*keyboardInput&(E_LWHITE_BUTTON|E_RWHITE_BUTTON))){
       taskMain_ProcessScrollButtons(keyboardInput,UI_context);
@@ -46,6 +49,7 @@ void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI
     UI_context->currentMenu=0;
     UI_context->currentSubMenu=0;
     taskEXIT_CRITICAL();
+    
     xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
     xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite);
   }
@@ -53,6 +57,17 @@ void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI
 void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,sUIContext*UI_context){
 	// if red button is pushed, there should be some kind of information that processed was aborted
   // of course all the pumps should be stopped
+  if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
+    taskENTER_CRITICAL();
+    UI_context->currentTask=DRINK_SELECT;
+    UI_context->currentMenu=0;
+    UI_context->currentSubMenu=0;
+    taskEXIT_CRITICAL();
+    
+    xTaskNotify(taskHandles[TASK_ORDER_DRINK],2,eSetValueWithOverwrite);
+    //xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite); is send in taskOrderDrink
+    //Might change this in the future, because main should be responsible for everything  
+  }
 }
 void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext*UI_context){
   // UI_contect->currentTask==SHOW_INFO
@@ -83,6 +98,7 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,sUIContext
       UI_context->currentSubMenu=0;
       UI_context->autoScrollEnable=0;
       taskEXIT_CRITICAL();
+      
       xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite);
       xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
       return;
@@ -115,7 +131,7 @@ void taskMain(void*pvParameters){
         taskMain_ProcessContext_taskSelectDrink(&keyboardData,&UI_Context);
 		  break;
 	    case DRINK_ORDER:
-        ////////////
+        taskMain_ProcessContext_taskOrderDrink(&keyboardData,&UI_Context);
 		  break;
 		  case SHOW_INFO:
 		    taskMain_ProcessContext_taskShowSystemInfo(&keyboardData,&UI_Context);

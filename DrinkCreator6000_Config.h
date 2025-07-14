@@ -13,7 +13,15 @@
 
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
 
-enum{INTPin=19,Pelt1Pin=9,Pelt2Pin=8};
+enum{
+  INTPin=19,
+  Pelt1Pin=9,
+  Pelt2Pin=8,
+  FansPin=7,
+  DSPin=3,
+  STPin=4,
+  SHPin=5
+};
 
 enum{
   E_GREEN_BUTTON=1,
@@ -41,7 +49,7 @@ enum{TASK_REGULATE_TEMP_STACK_SIZE=180};           //7
 enum{TASK_SELECT_DRINK_STACK_SIZE=270};            //8
 enum{TASK_ORDER_DRINK_STACK_SIZE=320};             //9
 enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
-enum{TASK_WELCOME_SCREEN_STACK_SIZE=177};          //11 // Tuned, 48 words in reserve //160 words causes overflow
+enum{TASK_WELCOME_SCREEN_STACK_SIZE=200};          //11 // Tuned, 48 words in reserve //160 words causes overflow
 enum{TASK_TEST_HARDWARE_STACK_SIZE=215};           //12
 // Stack size - will need "tuning" in last release
 enum{
@@ -279,5 +287,11 @@ extern uint16_t __stack_size;
 extern uint16_t ram_total_free;
 extern uint16_t ram_in_use;
 extern const uint16_t ram_size;
-
+// Idle task counter
+enum{INTERVAL_TICKS=1000}; // CPU usage update interval
+extern volatile uint32_t idleCounter;
+extern volatile uint32_t idleCounterLast;
+extern volatile uint32_t idleCounterPerSecond;
+extern volatile uint32_t tickCount;
+extern volatile uint32_t idleCalib;
 #endif // _DRINK_CREATOR6000_CONFIG_H_

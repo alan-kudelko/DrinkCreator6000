@@ -59,21 +59,27 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_context){
 
   memset(screenData,0,sizeof(sScreenData));
   
-  sprintf(screenData->lines[0],"%s","RAM Info");
-  
   if(UI_context->currentSubMenu==0){
 	  // Free RAM
 	  char buffer[13]{};
+    
 	  uint8_t ram_percent=100*uint32_t(ram_in_use)/ram_size;  
-	  
+    
+    sprintf(screenData->lines[0],"%s","RAM & CPU Info");	  
 	  memset(buffer,'-',sizeof(buffer)-1);
 	  buffer[0]='[';
 	  buffer[11]=']';
 	  memset(buffer+1,'#',ram_percent/10);
     sprintf(screenData->lines[1],"%s %4u B/%4u B","Usage:",ram_in_use,ram_size);
     sprintf(screenData->lines[2],"%12s %3u %%",buffer,ram_percent);
+    uint8_t cpuLoad=100-((idleCounterPerSecond*100)/idleCalib);
+    sprintf(screenData->lines[3],"CPU: %3d%%",cpuLoad);
+    return;
   }
-  else if(UI_context->currentSubMenu==1){
+  
+  sprintf(screenData->lines[0],"%s","RAM Info");
+  
+  if(UI_context->currentSubMenu==1){
 	  //.data segment
     sprintf(screenData->lines[1],".data: 0x%04X-0x%04X",(uint16_t)&__data_start,(uint16_t)&__data_end);
     //.bss segment
