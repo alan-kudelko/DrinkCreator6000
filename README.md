@@ -145,6 +145,10 @@ Screen transition diagram:
 - ✅ Create a custom memory segment named .tdat to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
 - ✅ Implement a guard zone watchdog inside taskErrorHandler to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
+- 🔄 Add EEPROM-based drink recipe loading at startup
+- 🔄 Add automatic system reset after fatal system error (e.g. guard zone or memory corruption)
+- 🔄 Implement stopPumps() function to safely disable all pump outputs
+- 🔄 Implement stopCooler() function to safely disable the cooling system
 
 ---
 
