@@ -38,20 +38,20 @@ enum{
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
 // Task refresh rates
-enum{TASK_ERROR_HANDLER_STACK_SIZE=256};           //0
-enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=270};  //1
+enum{TASK_ERROR_HANDLER_STACK_SIZE=230};           //0
+enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=260};  //1
 enum{TASK_MAIN_STACK_SIZE=200};                    //2
 enum{TASK_READ_INPUT_STACK_SIZE=150};              //3
 enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
 enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
 enum{TASK_READ_TEMP_STACK_SIZE=180};               //6
 enum{TASK_REGULATE_TEMP_STACK_SIZE=180};           //7
-enum{TASK_SELECT_DRINK_STACK_SIZE=270};            //8
-enum{TASK_ORDER_DRINK_STACK_SIZE=320};             //9
+enum{TASK_SELECT_DRINK_STACK_SIZE=230};            //8
+enum{TASK_ORDER_DRINK_STACK_SIZE=256};             //9
 enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
-enum{TASK_WELCOME_SCREEN_STACK_SIZE=200};          //11 // Tuned, 48 words in reserve //160 words causes overflow
+enum{TASK_WELCOME_SCREEN_STACK_SIZE=210};          //11 // Tuned, 48 words in reserve //160 words causes overflow
 enum{TASK_TEST_HARDWARE_STACK_SIZE=215};           //12
-// Stack size - will need "tuning" in last release
+// Stack size - will need "tuning" in final release
 enum{
   TASK_ERROR_HANDLER=0,
   TASK_SERIAL_DEBUGGER=1,
@@ -84,7 +84,7 @@ enum{
   TASK_READ_TEMP_REFRESH_RATE=2000,        // 6
   TASK_REGULATE_TEMP_REFRESH_RATE=5000,    // 7
   TASK_SELECT_DRINK_REFRESH_RATE=1000,     // 8
-  TASK_ORDER_DRINK_REFRESH_RATE=1000,      // 9
+  TASK_ORDER_DRINK_REFRESH_RATE=500,       // 9
   TASK_SHOW_SYSTEM_INFO_REFRESH_RATE=600,  // 10
   TASK_WELCOME_SCREEN_REFRESH_RATE=500     // 11
 };

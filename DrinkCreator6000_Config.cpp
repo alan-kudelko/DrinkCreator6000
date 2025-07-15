@@ -4,7 +4,7 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
-const char*TaskNames[TASK_N]{
+const char*TaskNames[TASK_N] __attribute__((section(".progmem"))){
   "ERROR HANDLER",
   "STACK DEBUG",
   "MAIN",
@@ -134,7 +134,7 @@ volatile bool f_enableISR=true;
 // Drink data:
 // Drink definitions, ingredients, and pump efficiencies
 const sDrinkData drink[20]={
-  {"Raz",    50, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
+  {"Raz",    50, 50, 50, 50, 50, 50, 50, 50, 0},                   //1
   {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
   {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //3
   {"Cztery", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //4

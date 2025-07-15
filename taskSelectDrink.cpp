@@ -27,8 +27,8 @@ void taskSelectDrink(void*pvParameters){
     if(f_run==1){
       memset(screenData.lines[1],0,sizeof(screenData.lines[0])*3);
 	  
-	    if((currentScroll==5)&&(!drink[UI_Context.currentSubMenu].ingredients[currentScroll]))
-		    currentScroll=0;
+	  if((currentScroll==5)&&(!drink[UI_Context.currentSubMenu].ingredients[currentScroll]))
+        currentScroll=0;
 
       if(currentScroll>5)
         currentScroll=0;

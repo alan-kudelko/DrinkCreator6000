@@ -17,6 +17,7 @@ void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,sUIContext*UI_context){
   }
 }
 void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,sUIContext*UI_context){
+  // Welcome screen with UI_Context change and activating taskSelectDrink as default
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
     taskENTER_CRITICAL();
     UI_context->currentTask=DRINK_SELECT;
@@ -55,7 +56,7 @@ void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,sUIContext*UI
   }
 }
 void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,sUIContext*UI_context){
-	// if red button is pushed, there should be some kind of information that processed was aborted
+  // if red button is pushed, there should be some kind of information that processed was aborted
   // of course all the pumps should be stopped
   if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
     taskENTER_CRITICAL();
