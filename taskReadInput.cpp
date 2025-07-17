@@ -20,7 +20,6 @@ void taskReadInput(void*pvParameters){
         Serial.println(keyboardInput,BIN);
 
         xQueueSend(qKeyboardData,&keyboardInput,pdMS_TO_TICKS(50));
-        //Serial.print(keyboardInput); Serial.println(" ISR");
         //f_enableISR=true;
         //vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(100));
           //keyboardInput=~keyboardInput;
