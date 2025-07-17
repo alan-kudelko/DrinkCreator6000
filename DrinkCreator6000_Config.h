@@ -41,7 +41,7 @@ enum{
 enum{TASK_ERROR_HANDLER_STACK_SIZE=230};           //0
 enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=260};  //1
 enum{TASK_MAIN_STACK_SIZE=200};                    //2
-enum{TASK_READ_INPUT_STACK_SIZE=150};              //3
+enum{TASK_READ_INPUT_STACK_SIZE=180};              //3
 enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
 enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
 enum{TASK_READ_TEMP_STACK_SIZE=180};               //6

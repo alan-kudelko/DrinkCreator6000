@@ -6,20 +6,13 @@ void taskReadInput(void*pvParameters){
   
   for(;;){
     if(xSemaphoreTake(sem_ReadData,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
-      Serial.println("Woke up from ISR");
       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
         Wire.beginTransmission(MCP_ADDR);
-        Wire.write(0x08);
+        Wire.write(0x10);
         Wire.endTransmission();
         Wire.requestFrom(MCP_ADDR,1);
         
-        keyboardInput=Wire.read();
-
-        Wire.beginTransmission(MCP_ADDR);
-        Wire.write(0x00);
-        Wire.endTransmission();
-        Wire.requestFrom(MCP_ADDR,1);
-        Wire.read();
+        keyboardInput=Wire.read()^0b11111111;
                 
         xSemaphoreGive(mux_I2CLock);
         
@@ -31,9 +24,19 @@ void taskReadInput(void*pvParameters){
         //f_enableISR=true;
         //vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(100));
           //keyboardInput=~keyboardInput;
+        vTaskDelay(pdMS_TO_TICKS(300));
+       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
+         while((digitalRead(INTPin)==LOW)){
+           Wire.beginTransmission(MCP_ADDR);
+           Wire.write(0x10);
+           Wire.endTransmission();
+           Wire.requestFrom(MCP_ADDR,1);
+         }
+         f_enableISR=true;
+         xSemaphoreGive(mux_I2CLock);
+       }
       }
     }
     vTaskDelay(pdMS_TO_TICKS(50));
   }
 }
-

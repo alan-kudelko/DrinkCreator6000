@@ -6,7 +6,6 @@
 // Configures I/O pins and attaches interrupts related to pin events
 void initializeIO(){
   pinMode(INTPin,INPUT_PULLUP);
-  attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);  
 }
 //////////////////////////////////////////////////////////////////
 // Memory initialization:
@@ -46,41 +45,56 @@ void initializeHardware(){
   lcd.begin();
   lcd.backlight();
 ////////////////////////////////////////////////////////////////// Keyboard init	  
-  // Configure IOCON register (Bank = 1, SEQOP disabled)
+// Configure IOCON register SEQOP enabled (NOSEQOP), BANK=0
   Wire.beginTransmission(MCP_ADDR);
   Wire.write(0x0A);
-  Wire.write(0xA0);
+  Wire.write(0x20);
   Wire.endTransmission();
-  // Set GPA as inputs
+
+// Set GPA as inputs (IODIRA)
   Wire.beginTransmission(MCP_ADDR);
   Wire.write(0x00);
-  Wire.write(0xFF);
+  Wire.write(0xFF); //Git
   Wire.endTransmission();  
-  // Invert polarity: LOW = pressed
-  Wire.beginTransmission(MCP_ADDR);
-  Wire.write(0x01);
-  Wire.write(0xFF);
-  Wire.endTransmission();
-  // Enable interrupt-on-change
-  Wire.beginTransmission(MCP_ADDR);
-  Wire.write(0x02);
-  Wire.write(0xA0);
-  Wire.endTransmission();
-  // Set default comparison value (HIGH)
-  Wire.beginTransmission(MCP_ADDR);
-  Wire.write(0x03);
-  Wire.write(0xFF);
-  Wire.endTransmission();
-  // Configure interrupt on mismatch with DEFVAL
+
+// Invert polarity: LOW = pressed (IPOLA)
+  //Wire.beginTransmission(MCP_ADDR);
+  //Wire.write(0x02);
+  //Wire.write(0xFF); //Git
+  //Wire.endTransmission();
+
+// Enable interrupt-on-change on all GPA pins (GPINTENA)
   Wire.beginTransmission(MCP_ADDR);
   Wire.write(0x04);
-  Wire.write(0xFF);
+  Wire.write(0xFF); //Git
   Wire.endTransmission();
-  // Enable pull-ups on GPA
+
+// Set default comparison value (HIGH) (DEFVALA)
   Wire.beginTransmission(MCP_ADDR);
   Wire.write(0x06);
-  Wire.write(0xFF);
+  Wire.write(0xFF); //Git
   Wire.endTransmission();
+
+// Configure interrupt on mismatch with DEFVAL (INTCONA)
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x08);
+  Wire.write(0xFF); //Ew. 0x00
+  Wire.endTransmission();
+
+// Enable pull-ups on GPA (GPPUA)
+  Wire.beginTransmission(MCP_ADDR);
+  Wire.write(0x0C);
+  Wire.write(0xFF); //Git
+  Wire.endTransmission();
+
+while(digitalRead(INTPin)==LOW){
+        Wire.beginTransmission(MCP_ADDR);
+        Wire.write(0x10);
+        Wire.endTransmission();
+        Wire.requestFrom(MCP_ADDR,1);
+        
+        Wire.read();
+}
 ////////////////////////////////////////////////////////////////// Shift register init
 ////////////////////////////////////////////////////////////////// Thermometer init
 }

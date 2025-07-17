@@ -88,7 +88,7 @@ void setInputFlag(){
     BaseType_t xHigherPriorityTaskWoken=pdFALSE;
     if(f_enableISR){
       xSemaphoreGiveFromISR(sem_ReadData,&xHigherPriorityTaskWoken);
-      //f_enableISR=false;
+      f_enableISR=false;
     }
 }
 
@@ -107,7 +107,10 @@ void setup(){
   initializeIO();
   initializeMemory();
   initializeHardware();
+  //initializeInterrupts();
 
+  
+  attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
   lastBootup_dump(&bootupsCount);  
   //lastError_dump(&lastSystemError);
   __stack_ptr=(uint8_t*)SP;
