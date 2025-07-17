@@ -209,20 +209,14 @@ extern LiquidCrystal_I2C lcd;
 enum{
   SCREEN_QUEUE_BUFFER_COUNT=6,
   KEYBOARD_QUEUE_BUFFER_COUNT=2,
-  DRINK_ID_QUEUE_BUFFER_COUNT=2,
-  SHOW_INFO_QUEUE_BUFFER_COUNT=2,
   ERROR_ID_QUEUE_BUFFER_COUNT=1
 };
 extern uint8_t screenQueueBuffer[];
 extern uint8_t keyboardQueueBuffer[];
-extern uint8_t drinkIdQueueBuffer[];
-extern uint8_t showInfoQueueBuffer[];
 extern uint8_t errorIdQueueBuffer[];
 
 extern StaticQueue_t screenQueueStructBuffer;
 extern StaticQueue_t keyboardQueueStructBuffer;
-extern StaticQueue_t drinkIdQueueStructBuffer;
-extern StaticQueue_t showInfoQueueStructBuffer;
 extern StaticQueue_t errorIdQueueStructBuffer;
 
 extern StaticSemaphore_t semReadDataBuffer;
@@ -231,9 +225,6 @@ extern StaticSemaphore_t muxSerialLockBuffer;
 
 extern QueueHandle_t qScreenData;      // Consumed by taskUpdateScreen
 extern QueueHandle_t qKeyboardData;    // Consumed by taskMain
-extern QueueHandle_t qDrinkId;         // Change name to qSelectDrinkId, Consumed by taskSelectDrink
-extern QueueHandle_t qOrderDrinkId;    // Consumed only by taskOrderDrink
-extern QueueHandle_t qShowInfoId; // Consumed by taskShowInfo 
 extern QueueHandle_t qErrorId;
 // Queue handles
 extern SemaphoreHandle_t sem_ReadData;

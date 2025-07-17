@@ -3,7 +3,7 @@
 void taskOrderDrink(void*pvParameters){
   uint32_t f_run=0;
   uint16_t totalTime=0;
-  uint16_t currentTime=0;
+  uint32_t currentTime=0;
   uint8_t currentPumpId=0;
   uint8_t i=0;
   uint8_t progress=0; //0 - 100 % needed for loading bar and % value
@@ -90,7 +90,7 @@ void taskOrderDrink(void*pvParameters){
       if(currentPumpTime==pumpTime[currentPumpId]){
         currentPumpId++;
         currentPumpTime=0;
-        Serial.print("Zmiana pompy na: "); Serial.print(currentPumpId+1); Serial.print(" czas zmiany curentTime/totalTime: "); Serial.print(currentTime); Serial.print('/'); Serial.println(totalTime); Serial.print("Progress: "); Serial.println(100*(float)currentTime/totalTime);
+        //Serial.print("Zmiana pompy na: "); Serial.print(currentPumpId+1); Serial.print(" czas zmiany curentTime/totalTime: "); Serial.print(currentTime); Serial.print('/'); Serial.println(totalTime); Serial.print("Progress: "); Serial.println(100*(float)currentTime/totalTime);
       }
       
       //activatePumps(1<<currentPumpId) sth like this

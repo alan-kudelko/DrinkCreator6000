@@ -92,14 +92,10 @@ LiquidCrystal_I2C lcd(LCD_ADDR,LCD_WIDTH,LCD_HEIGHT);
 // Queue sizes and buffers for inter-task communication
 uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(sScreenData)]{MEMORY_FILL_PATTERN};
 uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
-uint8_t drinkIdQueueBuffer[DRINK_ID_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
-uint8_t showInfoQueueBuffer[SHOW_INFO_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]{MEMORY_FILL_PATTERN};
 uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t)]{MEMORY_FILL_PATTERN};
 
 StaticQueue_t screenQueueStructBuffer;
 StaticQueue_t keyboardQueueStructBuffer;
-StaticQueue_t drinkIdQueueStructBuffer;
-StaticQueue_t showInfoQueueStructBuffer;
 StaticQueue_t errorIdQueueStructBuffer;
 
 StaticSemaphore_t semReadDataBuffer;

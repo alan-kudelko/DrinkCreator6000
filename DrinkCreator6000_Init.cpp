@@ -14,8 +14,6 @@ void initializeIO(){
 void initializeMemory(){
   qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
   qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
-  qDrinkId=xQueueCreateStatic(DRINK_ID_QUEUE_BUFFER_COUNT,sizeof(uint8_t),drinkIdQueueBuffer,&drinkIdQueueStructBuffer);
-  qShowInfoId=xQueueCreateStatic(SHOW_INFO_QUEUE_BUFFER_COUNT,sizeof(uint8_t),showInfoQueueBuffer,&showInfoQueueStructBuffer);
   qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
   
   sem_ReadData=xSemaphoreCreateBinaryStatic(&semReadDataBuffer);
@@ -43,7 +41,7 @@ void initializeMemory(){
 // shift register (74HC595), and temperature sensor
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// Serial init
-  Serial.begin(9600);	
+  Serial.begin(115200);	
 ////////////////////////////////////////////////////////////////// LCD init	
   lcd.begin();
   lcd.backlight();
