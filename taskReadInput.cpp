@@ -20,20 +20,17 @@ void taskReadInput(void*pvParameters){
         Serial.println(keyboardInput,BIN);
 
         xQueueSend(qKeyboardData,&keyboardInput,pdMS_TO_TICKS(50));
-        //f_enableISR=true;
-        //vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(100));
-          //keyboardInput=~keyboardInput;
+
         vTaskDelay(pdMS_TO_TICKS(300));
-       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
-         while((digitalRead(INTPin)==LOW)){
-           Wire.beginTransmission(MCP_ADDR);
-           Wire.write(0x10);
-           Wire.endTransmission();
-           Wire.requestFrom(MCP_ADDR,1);
-         }
-         f_enableISR=true;
-         xSemaphoreGive(mux_I2CLock);
-       }
+        if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY))==pdTRUE){
+          Wire.beginTransmission(MCP_ADDR);
+          Wire.write(0x10);
+          Wire.endTransmission();
+          Wire.requestFrom(MCP_ADDR,1);
+          Wire.read();
+          xSemaphoreGive(mux_I2CLock);
+          f_enableISR=true;
+        }
       }
     }
     vTaskDelay(pdMS_TO_TICKS(50));
