@@ -86,15 +86,14 @@ void initializeHardware(){
   Wire.write(0x0C);
   Wire.write(0xFF); //Git
   Wire.endTransmission();
-
-while(digitalRead(INTPin)==LOW){
-        Wire.beginTransmission(MCP_ADDR);
-        Wire.write(0x10);
-        Wire.endTransmission();
-        Wire.requestFrom(MCP_ADDR,1);
-        
-        Wire.read();
-}
+// Clear pending interrupt
+  while(digitalRead(INTPin)==LOW){
+    Wire.beginTransmission(MCP_ADDR);
+    Wire.write(0x10);
+    Wire.endTransmission();
+    Wire.requestFrom(MCP_ADDR,1);  
+    Wire.read();
+  }
 ////////////////////////////////////////////////////////////////// Shift register init
 ////////////////////////////////////////////////////////////////// Thermometer init
 }

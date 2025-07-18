@@ -84,14 +84,6 @@ void calibrateIdleLoop(){
     idleCalib=idleCounter;
     xTaskResumeAll();
 }
-void setInputFlag(){
-    BaseType_t xHigherPriorityTaskWoken=pdFALSE;
-    if(f_enableISR){
-      xSemaphoreGiveFromISR(sem_ReadData,&xHigherPriorityTaskWoken);
-      f_enableISR=false;
-    }
-}
-
 //////////////////////////////////////////////////////////////////
 // Temperature regulation task:
 // Uses global temperature variables to control Peltier elements
@@ -107,10 +99,11 @@ void setup(){
   initializeIO();
   initializeMemory();
   initializeHardware();
-  //initializeInterrupts();
 
   
-  attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
+  //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
+  // For now I will try method without interrupt
+  
   lastBootup_dump(&bootupsCount);  
   //lastError_dump(&lastSystemError);
   __stack_ptr=(uint8_t*)SP;
