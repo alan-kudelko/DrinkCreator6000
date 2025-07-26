@@ -30,23 +30,36 @@ This project integrates a wide range of hardware, software, and system-level con
 ### 🔌 Hardware & Electronics
 
 - Custom-designed PCB with ATmega2561 AVR microcontroller
-
 - 2004 I²C LCD display for UI rendering
-
 - MCP23017 I²C I/O expander for keypad handling
-
 - 74HC595 shift register to control peristaltic pumps
-
 - Peltier modules for cooling with dedicated water circulation pump
-
 - 1-Wire digital thermometer for internal temperature measurement
-
 - Modified 400 W ATX power supply (5V / 12V rails)
-
 - Fully enclosed, thermally insulated cooling chamber (polystyrene foam + aluminum lining, waterproof)
 
+### 🧠 System Architecture & Concepts
+- Real-time system based on FreeRTOS
+- Static memory allocation only — no malloc, no heap fragmentation
+- Custom linker script with a dedicated .tdat memory section for task stacks and guard zones
+- Preemptive multitasking with structured task separation
+- Guard zone-based stack overflow detection
+- EEPROM-based error logging and system state preservation
+- Soft watchdog / recovery logic (planned restart on fatal fault)
 
+### 💬 Input / Output Interfaces
+- UART serial interface for remote monitoring, control, and debugging
+- I²C bus for LCD and keypad communication
+- Dual input support: physical keypad and UART commands for full UI navigation
+- Multi-level LCD menu system for selecting drinks, viewing diagnostics, and testing hardware
 
+### 🧰 Development Tools & Libraries
+- C / C++ for firmware
+- Arduino core libraries for prototyping convenience
+- Native AVR libraries (avr-libc, low-level register access)
+- Arduino FreeRTOS wrapper
+- LiquidCrystal_I2C Library
+- Currently migrating to CMake + VS Code for portable and maintainable build system
 
 ---
 
