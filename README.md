@@ -159,7 +159,7 @@ Screen transition diagram:
                            ║Status: 0b00000011  ║              ║Status: 0b00000011  ║
                            ╚════════════════════╝              ╚════════════════════╝
 			   
-![UI Navigation](Media/UI_Flow_Chart.PNG)
+![UI Navigation](Media/UI_Flow_Chart.png)
 
 ---
 
