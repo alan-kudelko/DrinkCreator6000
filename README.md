@@ -73,20 +73,8 @@ This project integrates a wide range of hardware, software, and system-level con
 - 🧪 Serve as a practical testbed for FreeRTOS and embedded RTOS design
 - 📚 Designed as an educational project to deepen understanding of multitasking, resource sharing, and fail-safe system design embedded systems
 - 🧩 Implement low-level memory management techniques for optimized and reliable resource control
-
----
-
-## 🧱 System Overview
-
-The system is built around a custom-designed PCB featuring an ATmega2561 microcontroller. It uses FreeRTOS to run multiple independent tasks that manage the user interface, inputs, outputs, and internal logic.
-
-Each screen or function (like selecting a drink or diagnostics) is handled by a dedicated software module. The interface guides the user through clear prompts, while internal tasks manage precise timing, input handling, and output control behind the scenes.
-
-Key characteristics:
-- Modular design for easy debugging and future expansion
-- Fully statically allocated tasks for high reliability
-- Built-in protection mechanisms against system faults
-- Designed for responsiveness and predictable behavior
+- 🧱 Integrate tightly with custom hardware (PCB, sensors, pumps, display)
+- 🕒 Guarantee deterministic execution and timing across tasks
 
 ---
 
