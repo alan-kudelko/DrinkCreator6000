@@ -16,6 +16,8 @@ The system supports hardware test functions, allowing verification of pumps, Pel
 
 The entire unit is powered by a modified ATX computer power supply, delivering stable 5V and 12V rails for logic and high-current subsystems.
 
+To improve project portability and maintainability, I am currently migrating the build system to Visual Studio Code with CMake, moving away from the Arduino IDE toward a more professional and transparent toolchain.
+
 > 🔧 Status: In development  
 > 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS AVR MCU.
 
