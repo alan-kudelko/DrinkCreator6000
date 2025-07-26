@@ -460,6 +460,10 @@ Despite these limitations, the project currently compiles and uploads successful
 
 What I can say for sure is that Arduino is a platform designed primarily for hobbyists. Had I been fully aware of its limitations earlier, I would have chosen to develop the project using a professional environment like Atmel Studio from the start — which would have saved a lot of time.
 
+After all this project was migrated from the Arduino IDE to a CMake-based build system integrated with Visual Studio.  
+The goal was to achieve greater portability, independence from the Arduino development environment, and more control over the build process.  
+Using CMake makes the project easier to manage, extend, and integrate into various toolchains or CI pipelines.
+
 #### 12.1
 
 #### 12.2
