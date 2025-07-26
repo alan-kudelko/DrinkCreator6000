@@ -1,12 +1,19 @@
 # DrinkCreator6000 – RTOS System on Custom AVR Board
 DrinkCreator6000 is a custom-built, FreeRTOS-based drink dispensing system that runs on an ATmega2561 AVR microcontroller mounted on a custom-made PCB. The entire system has been engineered from scratch, combining real-time software, robust hardware design, and a structured task-based architecture.
+
 The project runs under FreeRTOS with fully static memory allocation, ensuring high predictability and resilience. A custom memory section .tdat, defined in the linker script, is used to allocate all task stacks and their associated guard zones contiguously in SRAM, enabling precise monitoring and deterministic stack overflow detection.
+
 The firmware is developed using native AVR libraries alongside the Arduino framework, taking advantage of both low-level control and rapid prototyping features.
+
 The user interface is presented on a 2004 character LCD driven via I²C, offering a multi-screen menu system for navigating functions such as drink selection, system diagnostics, and memory usage. Input is accepted both from a physical keypad connected through an MCP23017 I²C I/O expander and from the UART interface, allowing full control either physically or remotely.
+
 The system includes runtime diagnostics for RAM and CPU usage, task stack monitoring, and last-error reporting stored in EEPROM. These diagnostics are continuously available via UART and can also be accessed from the LCD interface through a dedicated submenu.
 A dedicated error-handling task monitors guard zones around each task stack to detect overflows or memory corruption. If a fault is detected, the system logs detailed error metadata to EEPROM, displays the issue on-screen and via UART, and will automatically restart after a defined timeout (planned feature).
+
 Temperature sensing is handled via a 1-Wire digital thermometer, and internal cooling is provided by two Peltier elements, a circulating pump, and a dedicated aluminum heat sink system. The cooling chamber is fully enclosed in polystyrene foam and lined with sealed aluminum sheets, making it waterproof and thermally isolated.
+
 The system supports hardware test functions, allowing verification of pumps, Peltier modules, and the circulation system. All components can be tested interactively either via keypad or over UART.
+
 The entire unit is powered by a modified ATX computer power supply, delivering stable 5V and 12V rails for logic and high-current subsystems.
 
 > 🔧 Status: In development  
