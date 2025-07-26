@@ -43,7 +43,7 @@ void taskReadInput(void*pvParameters){
             xQueueSend(qKeyboardData,&keyboardInput,pdMS_TO_TICKS(50));
           }
         }
-        vTaskDelay(pdMS_TO_TICKS(300));
+        vTaskDelay(pdMS_TO_TICKS(100));
         // Clearing interrupt PIN in MCP
         if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(portMAX_DELAY)==pdTRUE)){
           Wire.beginTransmission(MCP_ADDR);
