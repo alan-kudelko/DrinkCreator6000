@@ -158,6 +158,8 @@ Screen transition diagram:
                            ║Pump ID: 12345678   ║              ║Pump ID: 12345678   ║
                            ║Status: 0b00000011  ║              ║Status: 0b00000011  ║
                            ╚════════════════════╝              ╚════════════════════╝
+			   
+![UI Navigation](Media/UI_Flow_Chart.PNG)
 
 ---
 
