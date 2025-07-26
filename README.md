@@ -27,7 +27,7 @@ To improve project portability and maintainability, I am currently migrating the
 
 This project integrates a wide range of hardware, software, and system-level concepts typically found in professional embedded systems. Below is a breakdown of the core technologies and components involved in the design and implementation of DrinkCreator6000:
 
-###🔌 Hardware & Electronics
+### 🔌 Hardware & Electronics
 
 - Custom-designed PCB with ATmega2561 AVR microcontroller
 
