@@ -23,6 +23,32 @@ To improve project portability and maintainability, I am currently migrating the
 
 ---
 
+## ✳️ Technologies & Tools
+
+This project integrates a wide range of hardware, software, and system-level concepts typically found in professional embedded systems. Below is a breakdown of the core technologies and components involved in the design and implementation of DrinkCreator6000:
+
+###🔌 Hardware & Electronics
+- Custom-designed PCB with ATmega2561 AVR microcontroller
+
+- 2004 I²C LCD display for UI rendering
+
+- MCP23017 I²C I/O expander for keypad handling
+
+- 74HC595 shift register to control peristaltic pumps
+
+- Peltier modules for cooling with dedicated water circulation pump
+
+- 1-Wire digital thermometer for internal temperature measurement
+
+- Modified 400 W ATX power supply (5V / 12V rails)
+
+- Fully enclosed, thermally insulated cooling chamber (polystyrene foam + aluminum lining, waterproof)
+
+
+
+
+---
+
 ## 🧠 Design Goals
 
 - 🎯 Explore real-time scheduling and modular task separation
