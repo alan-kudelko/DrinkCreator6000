@@ -325,6 +325,23 @@ However, this IC was selected due to its inclusion of two interrupt pins, which 
 
 
 #### 6.2 Reading data from MCP23017
+
+Button input handling is implemented using a dedicated FreeRTOS task, which waits on a binary semaphore. This semaphore is released by an interrupt service routine (ISR) whenever the MCP23017 triggers a change on either INTA or INTB. This design ensures that input processing is deferred from the ISR context, minimizing interrupt latency and preserving real-time responsiveness.
+
+When the semaphore is acquired, the task reads the INTCAP (Interrupt Capture) registers, which store the latched state of both Port A and Port B at the exact moment the interrupt occurred. This guarantees that no input event is lost — even if there's a delay between the interrupt and task execution.
+
+The input algorithm implements:
+
+Debouncing: Each press is verified against the real-time GPIOx registers. If the state persists across several iterations, it's accepted as valid.
+
+Hold detection: A button is considered “held” if the value read from INTCAPx matches the current state in GPIOx for a given number of cycles, with delays between checks.
+
+Active-low logic: All inputs are configured as active-low, with internal pull-ups enabled in the MCP23017. A LOW signal indicates a button press.
+
+Deferred execution: No I²C communication occurs inside the ISR. Instead, the ISR only sets the read flag, and the task performs all data handling asynchronously.
+
+This approach provides reliable short-press and long-press detection without the risk of input events being missed. It also ensures that system timing and stability are preserved even under frequent user interaction.
+
 ---
 
 ### 7. Project Structure & File Overview  
