@@ -17,6 +17,7 @@ The system supports hardware test functions, allowing verification of pumps, Pel
 The entire unit is powered by a modified ATX computer power supply, delivering stable 5V and 12V rails for logic and high-current subsystems.
 
 To improve project portability and maintainability, I am currently migrating the build system to Visual Studio Code with CMake, moving away from the Arduino IDE toward a more professional and transparent toolchain.
+Additionally, the firmware is being refactored to comply with the MISRA C:2025 standard, enhancing code safety, readability, and portability in line with industry best practices.
 
 > 🔧 Status: In development  
 > 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS AVR MCU.
@@ -60,6 +61,7 @@ This project integrates a wide range of hardware, software, and system-level con
 - Arduino FreeRTOS wrapper
 - LiquidCrystal_I2C Library
 - Currently migrating to CMake + VS Code for portable and maintainable build system
+- Firmware is being gradually refactored to comply with the MISRA C:2025 standard to improve code safety, readability, and long-term maintainability
 
 ---
 
@@ -190,6 +192,7 @@ Screen transition diagram:
 - 🔄 Add automatic system reset after fatal system error (e.g. guard zone or memory corruption)
 - 🔄 Implement stopPumps() function to safely disable all pump outputs
 - 🔄 Implement stopCooler() function to safely disable the cooling system
+- 🔄 Refactor embedded codebase to comply with MISRA C:2025 coding standard for improved safety, portability, and maintainability
 
 ---
 
