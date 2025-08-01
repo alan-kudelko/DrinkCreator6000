@@ -69,7 +69,7 @@ StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]            __a
 volatile StackType_t guardZone11[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone11")));
 StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE]               __attribute__((section(".tdat.welcomeScreenStack"))); //11
 
-StackType_t* guardZones[TASK_N]={
+volatile StackType_t* guardZones[TASK_N]={
   guardZone0,
   guardZone1,
   guardZone2,

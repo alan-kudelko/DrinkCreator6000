@@ -1,0 +1,43 @@
+{
+  "configurations": [
+    {
+      "name": "AVR",
+      "compilerPath": "${workspaceFolder}/tools/bin/avr-g++.exe",
+      "intelliSenseMode": "gcc-x64",
+      "defines": [
+        "F_CPU=16000000UL",
+        "__AVR_ATmega2560__"
+      ],
+      "includePath": [
+        "${workspaceFolder}/include",
+        "${workspaceFolder}/tools/avr/include",
+        "${workspaceFolder}/tools/avr/include/avr",
+        "${workspaceFolder}/tools/lib/gcc/avr/7.3.0/include",
+        "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/*",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/FreeRTOS/src",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
+
+        "${workspaceFolder}/ArduinoCore-avr/variants/mega"
+      ],
+      "browse": {
+        "path": [
+          "${workspaceFolder}/tools/avr/include",
+          "${workspaceFolder}/tools/avr/include/avr",
+          "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
+          "${workspaceFolder}/ArduinoCore-avr/libraries",
+          "${workspaceFolder}/ArduinoCore-avr/libraries/*",
+          "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src",
+          "${workspaceFolder}/ArduinoCore-avr/libraries/FreeRTOS/src",
+          "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
+
+          "${workspaceFolder}/ArduinoCore-avr/variants/mega"
+        ],
+        "limitSymbolsToIncludedHeaders": true
+      }
+    }
+  ],
+  "version": 4
+}

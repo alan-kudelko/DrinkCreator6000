@@ -1,5 +1,4 @@
 #include <FreeRTOSVariant.h>
-
 /*
  * Formula for the frequency is:
  *      f = F_CPU / (PRESCALER * (1 + COUNTER_TOP)

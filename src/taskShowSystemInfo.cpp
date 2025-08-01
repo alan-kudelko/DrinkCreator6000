@@ -49,7 +49,7 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
   
   sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
 }
-void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_context){
+void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
   updateMemoryUsage();  
   
   if(UI_context->currentSubMenu==4)
@@ -102,7 +102,7 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,sUIContext*UI_context){
     sprintf(screenData->lines[3],"Size:  %4uB %4uB",__heap_size,__stack_size);	  
   }
 }
-void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_context){
+void showInfo_Task_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
   if(UI_context->currentSubMenu==TASK_N)
     UI_context->currentSubMenu=0;
   if(UI_context->currentSubMenu>TASK_N)
@@ -143,7 +143,7 @@ void showInfo_Task_Sub_N(sScreenData*screenData,sUIContext*UI_context){
 	  memcpy(screenData->lines[3]+11,buffer,9);
   }
 }
-void showInfo_Error_Sub_N(sScreenData*screenData,sUIContext*UI_context){
+void showInfo_Error_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
   //Global struct with error info 
   //Or use this EEPROMGetLastStartupError()
   uint8_t errorTextLength=strlen(lastSystemError.errorText);
@@ -163,7 +163,7 @@ void showInfo_Error_Sub_N(sScreenData*screenData,sUIContext*UI_context){
 	    UI_context->currentSubMenu++;	  
   }
 }
-void showInfo_ConfError_Sub_0(sScreenData*screenData,sUIContext*UI_context){
+void showInfo_ConfError_Sub_0(sScreenData*screenData,volatile sUIContext*UI_context){
   if(lastSystemError.confirmed==1){
     sprintf(screenData->lines[0],"%s","Error confirmed");
     sprintf(screenData->lines[1],"%s","EEPROM Updated");

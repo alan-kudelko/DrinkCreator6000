@@ -1,0 +1,3 @@
+D:/Projekty/DrinkCreator6000/CMakeFiles/CMake_AVR.dir
+D:/Projekty/DrinkCreator6000/CMakeFiles/edit_cache.dir
+D:/Projekty/DrinkCreator6000/CMakeFiles/rebuild_cache.dir

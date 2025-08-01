@@ -19,20 +19,20 @@ void initializeMemory(){
   mux_I2CLock=xSemaphoreCreateMutexStatic(&muxI2CLockBuffer);
   mux_SerialLock=xSemaphoreCreateMutexStatic(&muxSerialLockBuffer);
 
-  memset(&UI_Context,0,sizeof(UI_Context));
+  memset((void*)&UI_Context,0,sizeof(UI_Context));
   
-  memset(guardZone0,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone1,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone2,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone3,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone4,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone5,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone6,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone7,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone8,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone9,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-  memset(guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone0,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone1,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone2,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone3,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone4,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone5,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone6,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone7,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone8,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone9,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+  memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:

@@ -1,0 +1,7 @@
+{
+  "cmake.generator": "Ninja",
+  "cmake.configureSettings": {
+  "CMAKE_MAKE_PROGRAM": "ninja"
+  },
+  "C_Cpp.errorSquiggles": "disabled",
+}
