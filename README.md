@@ -513,18 +513,33 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 
 ### 12. 🚀 How to build
 
-This project is built using the Arduino IDE. While it simplifies getting started, it comes with serious drawbacks — especially a lack of transparency and limited control over the toolchain, compared to more advanced environments like Atmel Studio.
+This project **was originally built and uploaded using the Arduino IDE**, which allowed for quick prototyping and development. However, due to the limitations of the Arduino environment — such as lack of build transparency and limited control over the toolchain — the project is currently being **migrated to Visual Studio Code with a CMake-based build system**.
 
-Despite these limitations, the project currently compiles and uploads successfully through Arduino IDE. However, I plan to replace or augment the workflow with a custom build script that offers finer control over compilation and flashing.
+Despite these limitations, the project currently compiles and uploads successfully through the Arduino IDE. However, I am in the process of replacing the workflow with a custom CMake build script and Visual Studio Code, which offer finer control over compilation and flashing.
 
 What I can say for sure is that Arduino is a platform designed primarily for hobbyists. Had I been fully aware of its limitations earlier, I would have chosen to develop the project using a professional environment like Atmel Studio from the start — which would have saved a lot of time.
 
-After all this project was migrated from the Arduino IDE to a CMake-based build system integrated with Visual Studio.  
-The goal was to achieve greater portability, independence from the Arduino development environment, and more control over the build process.  
-Using CMake makes the project easier to manage, extend, and integrate into various toolchains or CI pipelines.
+The build process now uses **CMake** along with **Ninja** as the build tool, offering improved portability, customization, and integration capabilities.
 
-#### 12.1
+The build steps are outlined below and include:
+- Installing CMake
+- Installing Ninja as the build tool
+- Installing AVR-GCC toolchain
+- Installing Arduino core libraries
+- Installing AVRDUDE for uploading the compiled firmware
+- Building and uploading the project
 
-#### 12.2
+#### 12.1 Installing CMake
+
+#### 12.2 Installing Ninja as the build tool
+
+#### 12.3 Installing AVR-GCC toolchain
+
+#### 12.4 Installing Arduino core libraries
+
+#### 12.5 Installing AVRDUDE for uploading the compiled firmware
+
+#### 12.6 Building and uploading the project
+
 
 ---
