@@ -1,2 +1,10 @@
 tools/
 build/
+FreeRTOS/backoffAlgorithm
+FreeRTOS/coreHTTP
+FreeRTOS/coreJSON
+FreeRTOS/coreMQTT
+FreeRTOS/corePKCS11
+FreeRTOS/coreSNTP
+FreeRTOS/FreeRTOS-Cellular-Interface
+FreeRTOS/FreeRTOS-Plus-TCP
