@@ -7,7 +7,7 @@ OUTPUT_FORMAT("elf32-avr","elf32-avr","elf32-avr")
 OUTPUT_ARCH(avr:6)
 __TEXT_REGION_LENGTH__ = DEFINED(__TEXT_REGION_LENGTH__) ? __TEXT_REGION_LENGTH__ : 256k;
 __DATA_REGION_LENGTH__ = DEFINED(__DATA_REGION_LENGTH__) ? __DATA_REGION_LENGTH__ : 0xfe00;
-__EEPROM_REGION_LENGTH__ = DEFINED(__EEPROM_REGION_LENGTH__) ? __EEPROM_REGION_LENGTH__ : 64K;
+__EEPROM_REGION_LENGTH__ = DEFINED(__EEPROM_REGION_LENGTH__) ? __EEPROM_REGION_LENGTH__ : 4K;
 __FUSE_REGION_LENGTH__ = DEFINED(__FUSE_REGION_LENGTH__) ? __FUSE_REGION_LENGTH__ : 1K;
 __LOCK_REGION_LENGTH__ = DEFINED(__LOCK_REGION_LENGTH__) ? __LOCK_REGION_LENGTH__ : 1K;
 __SIGNATURE_REGION_LENGTH__ = DEFINED(__SIGNATURE_REGION_LENGTH__) ? __SIGNATURE_REGION_LENGTH__ : 1K;
@@ -192,29 +192,29 @@ SECTIONS
 	PROVIDE (__tdat_start = . );
 	
 	KEEP(*(.tdat.guardZone0));	
-	KEEP(*(.tdat.errorHandlerStack));	
+	*(.tdat.errorHandlerStack);	
 	KEEP(*(.tdat.guardZone1));	
-	KEEP(*(.tdat.serialSystemDebuggerStack));	
+	*(.tdat.serialSystemDebuggerStack);	
 	KEEP(*(.tdat.guardZone2));	
-	KEEP(*(.tdat.mainStack));	
+	*(.tdat.mainStack);	
 	KEEP(*(.tdat.guardZone3));	
-	KEEP(*(.tdat.readInputStack));	
+	*(.tdat.readInputStack);
 	KEEP(*(.tdat.guardZone4));	
-	KEEP(*(.tdat.serialInputStack));	
+	*(.tdat.serialInputStack);	
 	KEEP(*(.tdat.guardZone5));	
-	KEEP(*(.tdat.updateScreenStack));	
+	*(.tdat.updateScreenStack);	
 	KEEP(*(.tdat.guardZone6));	
-	KEEP(*(.tdat.readtempStack));	
+	*(.tdat.readtempStack);
 	KEEP(*(.tdat.guardZone7));	
-	KEEP(*(.tdat.regulateTempStack));	
+	*(.tdat.regulateTempStack);
 	KEEP(*(.tdat.guardZone8));	
-	KEEP(*(.tdat.selectDrinkStack));	
+	*(.tdat.selectDrinkStack);	
 	KEEP(*(.tdat.guardZone9));	
-	KEEP(*(.tdat.orderDrinkStack));	
+	*(.tdat.orderDrinkStack);	
 	KEEP(*(.tdat.guardZone10));	
-	KEEP(*(.tdat.showSystemInfoStack));
+	*(.tdat.showSystemInfoStack);
 	KEEP(*(.tdat.guardZone11));
-	KEEP(*(.tdat.welcomeScreenStack));
+	*(.tdat.welcomeScreenStack);
 	
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))

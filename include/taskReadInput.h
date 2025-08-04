@@ -2,7 +2,14 @@
 #define _TASK_READ_INPUT_H_
 
 #include <Arduino.h>
-#include <Arduino_FreeRTOS.h>
+#include <FreeRTOS.h>
+#include <task.h>
+#include <queue.h>
+#include <timers.h>
+#include <FreeRTOSConfig.h>
+#include <portable.h>
+#include <portmacro.h>
+#include <semphr.h>
 
 #include <Wire.h>
 

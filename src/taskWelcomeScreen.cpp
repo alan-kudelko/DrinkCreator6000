@@ -4,7 +4,6 @@ void taskWelcomeScreen(void*pvParameters){
   uint16_t timePassed=0;
   uint8_t keyboardData=E_GREEN_BUTTON;
   uint32_t notification=0;
-  bool f_run=true;
   
   sScreenData screenData{};  
   sprintf(screenData.lines[0],"%s","Drink Creator 6000");

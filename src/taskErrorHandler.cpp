@@ -51,11 +51,9 @@ void displayCorruptedGuardZone(uint8_t*guardZoneId){
 }
 void taskErrorHandler(void*pvParameters){
   uint8_t i=1;
-  uint32_t runTimeFromMillis=0;
   uint8_t guardZoneId=0;
   sSystemError lastError{};
   bool f_errorOccured=false;
-  TaskHandle_t overflowedTask{};
   
   for(;;){
     if(!f_errorOccured){

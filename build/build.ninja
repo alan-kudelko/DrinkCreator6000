@@ -49,431 +49,11 @@ cmake_ninja_workdir = D$:/Projekty/DrinkCreator6000/build/
 
 build cmake_object_order_depends_target_CMake_AVR: phony || .
 
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/CDC.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/CDC.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\CDC.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial0.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial0.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial0.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial1.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial1.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial1.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial2.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial2.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial2.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial3.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial3.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial3.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/IPAddress.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/IPAddress.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\IPAddress.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/PluggableUSB.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/PluggableUSB.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\PluggableUSB.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Print.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/Print.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\Print.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Stream.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/Stream.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\Stream.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Tone.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/Tone.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\Tone.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/USBCore.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/USBCore.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\USBCore.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WInterrupts.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/WInterrupts.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\WInterrupts.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WMath.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/WMath.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\WMath.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WString.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/WString.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\WString.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/abi.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/abi.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\abi.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/hooks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/hooks.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\hooks.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/main.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/main.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\main.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/new.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/new.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\new.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_analog.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_analog.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_analog.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_digital.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_digital.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_digital.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_pulse.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_pulse.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_pulse.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_shift.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_shift.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_shift.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/LiquidCrystal_I2C.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/LiquidCrystal_I2C.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Arduino-LiquidCrystal-I2C\LiquidCrystal_I2C.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Arduino-LiquidCrystal-I2C
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/doc/tick_sources_timer0.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/doc/tick_sources_timer0.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\doc\tick_sources_timer0.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\doc
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/event_groups.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/event_groups.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\event_groups.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/heap_3.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/heap_3.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\heap_3.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/list.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/list.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\list.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/port.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/port.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\port.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/queue.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/queue.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\queue.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/stream_buffer.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/stream_buffer.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\stream_buffer.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/tasks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/tasks.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\tasks.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/timers.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/timers.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\timers.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/variantHooks.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src/variantHooks.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src\variantHooks.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\FreeRTOS\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/HID/src/HID.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/HID/src/HID.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\HID\src\HID.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\HID\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/LiquidCrystal_AIP31068/LiquidCrystal_AIP31068_I2C.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/LiquidCrystal_AIP31068/LiquidCrystal_AIP31068_I2C.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\LiquidCrystal_AIP31068\LiquidCrystal_AIP31068_I2C.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\LiquidCrystal_AIP31068
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/LiquidCrystal_AIP31068/LiquidCrystal_AIP31068_SPI.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/LiquidCrystal_AIP31068/LiquidCrystal_AIP31068_SPI.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\LiquidCrystal_AIP31068\LiquidCrystal_AIP31068_SPI.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\LiquidCrystal_AIP31068
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/SPI/src/SPI.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/SPI/src/SPI.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\SPI\src\SPI.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\SPI\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\SoftwareSerial\src\SoftwareSerial.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\SoftwareSerial\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/Wire.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/Wire.cpp || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src\Wire.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
-build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/utility/twi.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility/twi.c || cmake_object_order_depends_target_CMake_AVR
-  CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src\utility\twi.c.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
-  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
-  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src\utility
-  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
-  TARGET_PDB = out\CMake_AVR.pdb
-
 build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/DrinkCreator6000.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\DrinkCreator6000.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -483,7 +63,7 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj: CXX_COMPILER
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\DrinkCreator6000_Config.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -493,7 +73,7 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.cpp.obj: CXX_COMPILER
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\DrinkCreator6000_EEPROM.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -503,7 +83,17 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj: CXX_COMPILER__
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\DrinkCreator6000_Init.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/src/freertos_hooks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/freertos_hooks.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\src\freertos_hooks.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -513,7 +103,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj: CXX_COMPILER__CMake
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskErrorHandler.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -523,7 +113,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskMain.cpp.obj: CXX_COMPILER__CMake_AVR_uns
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskMain.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -533,7 +123,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj: CXX_COMPILER__CMake_A
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskOrderDrink.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -543,7 +133,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj: CXX_COMPILER__CMake_AV
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskReadInput.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -553,7 +143,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj: CXX_COMPILER__CMake_AVR
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskReadTemp.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -563,7 +153,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.cpp.obj: CXX_COMPILER__CMake
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskRegulateTemp.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -573,7 +163,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj: CXX_COMPILER__CMake_
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskSelectDrink.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -583,7 +173,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskSerialInput.cpp.obj: CXX_COMPILER__CMake_
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskSerialInput.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -593,7 +183,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj: CXX_COMPILE
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskSerialSystemDebugger.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -603,7 +193,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj: CXX_COMPILER__CMa
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskShowSystemInfo.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -613,7 +203,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj: CXX_COMPILER__CMake
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskUpdateScreen.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
@@ -623,9 +213,339 @@ build CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj: CXX_COMPILER__CMak
   CONFIG = Debug
   DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskWelcomeScreen.cpp.obj.d
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
-  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/FreeRTOS/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/croutine.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/croutine.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\croutine.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/event_groups.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/event_groups.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\event_groups.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/list.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/list.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\list.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\portable\ThirdParty\GCC\ATmega\port.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\portable\ThirdParty\GCC\ATmega
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/queue.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/queue.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\queue.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\stream_buffer.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/tasks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/tasks.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\tasks.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/timers.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/timers.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\timers.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/CDC.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/CDC.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\CDC.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial0.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial0.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial0.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial1.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial1.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial1.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial2.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial2.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial2.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial3.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/HardwareSerial3.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\HardwareSerial3.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/IPAddress.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/IPAddress.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\IPAddress.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/PluggableUSB.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/PluggableUSB.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\PluggableUSB.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Print.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/Print.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\Print.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Stream.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/Stream.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\Stream.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/USBCore.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/USBCore.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\USBCore.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WInterrupts.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/WInterrupts.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\WInterrupts.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WMath.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/WMath.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\WMath.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WString.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/WString.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\WString.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/abi.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/abi.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\abi.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/hooks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/hooks.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\hooks.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/main.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/main.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\main.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/new.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/new.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\new.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_analog.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_analog.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_analog.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_digital.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_digital.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_digital.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_shift.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino/wiring_shift.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino\wiring_shift.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\cores\arduino
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/LiquidCrystal_I2C.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/LiquidCrystal_I2C.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Arduino-LiquidCrystal-I2C\LiquidCrystal_I2C.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Arduino-LiquidCrystal-I2C
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/Wire.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/Wire.cpp || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src\Wire.cpp.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
+
+build CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/utility/twi.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility/twi.c || cmake_object_order_depends_target_CMake_AVR
+  CONFIG = Debug
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src\utility\twi.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
+  INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/libraries/Wire/src/utility -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/cores/arduino -ID:/Projekty/DrinkCreator6000/ArduinoCore-avr/variants/mega
+  OBJECT_DIR = CMakeFiles\CMake_AVR.dir
+  OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\ArduinoCore-avr\libraries\Wire\src\utility
   TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
   TARGET_PDB = out\CMake_AVR.pdb
 
@@ -637,7 +557,7 @@ build CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj: CXX_COMPILER__CMak
 #############################################
 # Link the executable out\CMake_AVR
 
-build out/CMake_AVR: CXX_EXECUTABLE_LINKER__CMake_AVR_Debug CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/CDC.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial0.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial1.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial2.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial3.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/IPAddress.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/PluggableUSB.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Print.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Stream.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Tone.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/USBCore.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WInterrupts.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WMath.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WString.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/abi.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/hooks.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/main.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/new.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_analog.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_digital.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_pulse.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_shift.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/LiquidCrystal_I2C.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/doc/tick_sources_timer0.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/event_groups.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/heap_3.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/list.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/port.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/queue.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/stream_buffer.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/tasks.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/timers.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/FreeRTOS/src/variantHooks.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/HID/src/HID.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/LiquidCrystal_AIP31068/LiquidCrystal_AIP31068_I2C.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/LiquidCrystal_AIP31068/LiquidCrystal_AIP31068_SPI.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/SPI/src/SPI.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/SoftwareSerial/src/SoftwareSerial.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/Wire.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/utility/twi.c.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskMain.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSerialInput.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj
+build out/CMake_AVR: CXX_EXECUTABLE_LINKER__CMake_AVR_Debug CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj CMakeFiles/CMake_AVR.dir/src/freertos_hooks.c.obj CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskMain.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSerialInput.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/croutine.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/event_groups.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/list.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/queue.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/tasks.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/timers.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/CDC.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial0.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial1.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial2.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/HardwareSerial3.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/IPAddress.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/PluggableUSB.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Print.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/Stream.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/USBCore.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WInterrupts.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WMath.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/WString.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/abi.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/hooks.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/main.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/new.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_analog.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_digital.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/cores/arduino/wiring_shift.c.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/LiquidCrystal_I2C.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/Wire.cpp.obj CMakeFiles/CMake_AVR.dir/ArduinoCore-avr/libraries/Wire/src/utility/twi.c.obj
   CONFIG = Debug
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g
   LINK_FLAGS = -Wl,-T,D:/Projekty/DrinkCreator6000/linker/Custom_Linker.ld -Wl,-Map=CMake_AVR.map

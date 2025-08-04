@@ -4,7 +4,7 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
-const char*TaskNames[TASK_N] __attribute__((section(".progmem"))){
+const char*TaskNames[TASK_N]{
   "ERROR HANDLER",
   "STACK DEBUG",
   "MAIN",
@@ -40,22 +40,22 @@ volatile StackType_t guardZone1[GUARD_ZONE_SIZE]                             __a
 StackType_t serialSystemDebuggerStack[TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE]__attribute__((section(".tdat.serialSystemDebuggerStack"))); //1
 
 volatile StackType_t guardZone2[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone2")));
-StackType_t mainStack[TASK_MAIN_STACK_SIZE]                                  __attribute__((section(".tdat.mainStack"))); //2
+//StackType_t mainStack[TASK_MAIN_STACK_SIZE]                                  __attribute__((section(".tdat.mainStack"))); //2
 
 volatile StackType_t guardZone3[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone3")));
-StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]                       __attribute__((section(".tdat.readInputStack"))); //3
+//StackType_t readInputStack[TASK_READ_INPUT_STACK_SIZE]                       __attribute__((section(".tdat.readInputStack"))); //3
 
 volatile StackType_t guardZone4[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone4")));
-StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE]                   __attribute__((section(".tdat.serialInputStack"))); //4
+//StackType_t serialInputStack[TASK_SERIAL_INPUT_STACK_SIZE]                   __attribute__((section(".tdat.serialInputStack"))); //4
 
 volatile StackType_t guardZone5[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone5")));
 StackType_t updateScreenStack[TASK_UPDATE_SCREEN_STACK_SIZE]                 __attribute__((section(".tdat.updateScreenStack"))); //5
 
 volatile StackType_t guardZone6[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone6")));
-StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE]                         __attribute__((section(".tdat.readtempStack"))); //6
+//StackType_t readTempStack[TASK_READ_TEMP_STACK_SIZE]                         __attribute__((section(".tdat.readtempStack"))); //6
 
 volatile StackType_t guardZone7[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone7")));
-StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]                 __attribute__((section(".tdat.regulateTempStack"))); //7
+//StackType_t regulateTempStack[TASK_REGULATE_TEMP_STACK_SIZE]                 __attribute__((section(".tdat.regulateTempStack"))); //7
 
 volatile StackType_t guardZone8[GUARD_ZONE_SIZE]                             __attribute__((section(".tdat.guardZone8")));
 StackType_t selectDrinkStack[TASK_SELECT_DRINK_STACK_SIZE]                   __attribute__((section(".tdat.selectDrinkStack"))); //8
@@ -64,7 +64,7 @@ volatile StackType_t guardZone9[GUARD_ZONE_SIZE]                             __a
 StackType_t orderDrinkStack[TASK_ORDER_DRINK_STACK_SIZE]                     __attribute__((section(".tdat.orderDrinkStack"))); //9
 
 volatile StackType_t guardZone10[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone10")));
-StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]            __attribute__((section(".tdat.showSystemInfoStack"))); //10
+//StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]            __attribute__((section(".tdat.showSystemInfoStack"))); //10
 
 volatile StackType_t guardZone11[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone11")));
 StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE]               __attribute__((section(".tdat.welcomeScreenStack"))); //11
@@ -129,7 +129,7 @@ volatile bool f_enableISR=true;
 //////////////////////////////////////////////////////////////////
 // Drink data:
 // Drink definitions, ingredients, and pump efficiencies
-const sDrinkData drink[20]={
+const sDrinkData drink[DRINK_COUNT]={
   {"Raz",    50, 50, 50, 50, 50, 50, 50, 50, 0},                   //1
   {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
   {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //3
@@ -140,16 +140,6 @@ const sDrinkData drink[20]={
   {"Osiem",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //8
   {"Dziewiec",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //9
   {"Dziesiec",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //10
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //11
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //12
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //13
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //14
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //15
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //16
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //17
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //18
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //19
-  {"Trzy", 50, 100, 150, 200, 250, 300, 350, 400, 0}   //20
 };
 //
 const char ingredients[8][LCD_WIDTH-4-4]{

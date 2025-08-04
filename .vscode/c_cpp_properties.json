@@ -13,27 +13,31 @@
         "${workspaceFolder}/tools/avr/include",
         "${workspaceFolder}/tools/avr/include/avr",
         "${workspaceFolder}/tools/lib/gcc/avr/7.3.0/include",
-        "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
-        "${workspaceFolder}/ArduinoCore-avr/libraries/",
-        "${workspaceFolder}/ArduinoCore-avr/libraries/*",
-        "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src",
-        "${workspaceFolder}/ArduinoCore-avr/libraries/FreeRTOS/src",
-        "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
+        "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel",        
+        "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/include",
+        "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega",
+        "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/MemMang",
 
-        "${workspaceFolder}/ArduinoCore-avr/variants/mega"
+        "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src/utility",
+        "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
+        "${workspaceFolder}/ArduinoCore-avr/variants/mega",
+        "${workspaceFolder}/ArduinoCore-avr/cores/arduino"
       ],
       "browse": {
         "path": [
           "${workspaceFolder}/tools/avr/include",
           "${workspaceFolder}/tools/avr/include/avr",
-          "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
-          "${workspaceFolder}/ArduinoCore-avr/libraries",
-          "${workspaceFolder}/ArduinoCore-avr/libraries/*",
-          "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src",
-          "${workspaceFolder}/ArduinoCore-avr/libraries/FreeRTOS/src",
-          "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
+          "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel",
+          "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/include",
+          "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega",
+          "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/MemMang",
 
-          "${workspaceFolder}/ArduinoCore-avr/variants/mega"
+          "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src",
+          "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src/utility",
+          "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
+          "${workspaceFolder}/ArduinoCore-avr/variants/mega",
+          "${workspaceFolder}/ArduinoCore-avr/cores/arduino"
         ],
         "limitSymbolsToIncludedHeaders": true
       }

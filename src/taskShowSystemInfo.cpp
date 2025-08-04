@@ -119,7 +119,7 @@ void showInfo_Task_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
 	  vTaskGetInfo(taskHandles[UI_context->currentSubMenu],&taskStatus,pdTRUE,eInvalid);
 	
     sprintf(screenData->lines[1],"[%02u]%s",UI_context->currentSubMenu,taskStatus.pcTaskName);
-	  sprintf(screenData->lines[2],"Highwater mark: %3u",taskStatus.uxStackHighWaterMark);
+	  sprintf(screenData->lines[2],"Highwater mark: %3u",taskStatus.usStackHighWaterMark);
 	  sprintf(screenData->lines[3],"Pr:%1u State:",taskStatus.uxCurrentPriority);
     switch(taskStatus.eCurrentState){
       case eReady:

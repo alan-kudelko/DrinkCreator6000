@@ -77,7 +77,7 @@ void taskSerialSystemDebugger(void*pvParameters){
         memset(buffer+nameLength,' ',sizeof(buffer)-nameLength);
         buffer[20]='\0';
         Serial.print(F("[")); Serial.print(buffer); Serial.print(F("]"));
-        sprintf(buffer,"%5d",taskStatus.uxStackHighWaterMark);
+        sprintf(buffer,"%5d",taskStatus.usStackHighWaterMark);
         Serial.print(buffer); Serial.print(F("|"));
         switch(taskStatus.eCurrentState){
           case eReady:

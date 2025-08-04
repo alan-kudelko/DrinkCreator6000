@@ -1,14 +1,21 @@
 #ifndef _DRINK_CREATOR6000_CONFIG_H_
 #define _DRINK_CREATOR6000_CONFIG_H_
 
-#include <Arduino_FreeRTOS.h>
+#include <FreeRTOS.h>
+#include <task.h>
+#include <queue.h>
+#include <timers.h>
+#include <FreeRTOSConfig.h>
+#include <portable.h>
+#include <portmacro.h>
 #include <semphr.h>
+
 #include <LiquidCrystal_I2C.h>
 #include "DrinkCreator6000_DataTypes.h"
 
 //////////////////////////////////////////////////////////////////
 // IO Mapping:
-// Pin definitions and button mappings
+// Pin definitions and button mappings  
 // Address of MCP23017 I²C expander
 
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
@@ -40,17 +47,17 @@ enum{
 // Task refresh rates
 enum{TASK_ERROR_HANDLER_STACK_SIZE=230};           //0
 enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=260};  //1
-enum{TASK_MAIN_STACK_SIZE=200};                    //2
+enum{TASK_MAIN_STACK_SIZE=150};                    //2
 enum{TASK_READ_INPUT_STACK_SIZE=180};              //3
 enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
 enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
-enum{TASK_READ_TEMP_STACK_SIZE=180};               //6
-enum{TASK_REGULATE_TEMP_STACK_SIZE=180};           //7
+enum{TASK_READ_TEMP_STACK_SIZE=120};               //6
+enum{TASK_REGULATE_TEMP_STACK_SIZE=120};           //7
 enum{TASK_SELECT_DRINK_STACK_SIZE=230};            //8
-enum{TASK_ORDER_DRINK_STACK_SIZE=256};             //9
+enum{TASK_ORDER_DRINK_STACK_SIZE=150};             //9
 enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
 enum{TASK_WELCOME_SCREEN_STACK_SIZE=210};          //11 // Tuned, 48 words in reserve //160 words causes overflow
-enum{TASK_TEST_HARDWARE_STACK_SIZE=215};           //12
+enum{TASK_TEST_HARDWARE_STACK_SIZE=1};             //12
 // Stack size - will need "tuning" in final release
 enum{
   TASK_ERROR_HANDLER=0,
@@ -112,22 +119,22 @@ extern volatile StackType_t guardZone1[];
 extern StackType_t serialSystemDebuggerStack[];  //1
 
 extern volatile StackType_t guardZone2[];
-extern StackType_t mainStack[];                  //2
+//extern StackType_t mainStack[];                  //2
 
 extern volatile StackType_t guardZone3[];
-extern StackType_t readInputStack[];             //3
+//extern StackType_t readInputStack[];             //3
 
 extern volatile StackType_t guardZone4[];
-extern StackType_t serialInputStack[];           //4
+//extern StackType_t serialInputStack[];           //4
 
 extern volatile StackType_t guardZone5[];
 extern StackType_t updateScreenStack[];          //5
 
 extern volatile StackType_t guardZone6[];
-extern StackType_t readTempStack[];              //6
+//extern StackType_t readTempStack[];              //6
 
 extern volatile StackType_t guardZone7[];
-extern StackType_t regulateTempStack[];          //7
+//extern StackType_t regulateTempStack[];          //7
 
 extern volatile StackType_t guardZone8[];
 extern StackType_t selectDrinkStack[];           //8
@@ -136,12 +143,12 @@ extern volatile StackType_t guardZone9[];
 extern StackType_t orderDrinkStack[];            //9
 
 extern volatile StackType_t guardZone10[];
-extern StackType_t showSystemInfoStack[];        //10
+//extern StackType_t showSystemInfoStack[];        //10
 
 extern volatile StackType_t guardZone11[];
 extern StackType_t welcomeScreenStack[];         //11
 
-extern StackType_t*guardZones[]; // Used in stack overflow detection
+extern volatile StackType_t*guardZones[]; // Used in stack overflow detection
 // Task stacks and guard zones
 //////////////////////////////////////////////////////////////////
 // Screen data:
@@ -207,7 +214,7 @@ extern LiquidCrystal_I2C lcd;
 // Flow control:
 // Queue sizes and buffers for inter-task communication
 enum{
-  SCREEN_QUEUE_BUFFER_COUNT=6,
+  SCREEN_QUEUE_BUFFER_COUNT=2,
   KEYBOARD_QUEUE_BUFFER_COUNT=2,
   ERROR_ID_QUEUE_BUFFER_COUNT=1
 };
@@ -247,7 +254,7 @@ extern volatile bool f_enableISR;
 //////////////////////////////////////////////////////////////////
 // Drink data:
 // Drink definitions, ingredients, and pump efficiencies
-enum{DRINK_COUNT=20};
+enum{DRINK_COUNT=10};
 extern const sDrinkData drink[];
 //
 extern const char ingredients[][LCD_WIDTH-4-4];
