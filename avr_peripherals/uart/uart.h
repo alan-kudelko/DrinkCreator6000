@@ -4,6 +4,8 @@
 #include <DrinkCreator6000_Config_C.h>
 
 #include <stdint.h>
+#include <avr/pgmspace.h>
+
 
 #define UART_TX_BUFFER_SIZE 64
 #define UART_RX_BUFFER_SIZE 64

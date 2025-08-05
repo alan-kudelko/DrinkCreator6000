@@ -1,5 +1,8 @@
 #include <taskSerialSystemDebugger.h>
 #include <uart.h>
+#include <DrinkCreator6000_Progmem.h>
+#include <FreeRTOS.h>
+
 
 void updateMemoryUsage(){
   __heap_end=__brkval?__brkval:(void*)&__heap_start;
@@ -12,99 +15,99 @@ void updateMemoryUsage(){
 }
 void ram_dump(){
   // Convert code to be MISRA C 2025 compliant
-  char buffer[6]{};
+  char buffer[5]={0};
   updateMemoryUsage();
   
-  uart_puts("[#####]====[MEMORY STATUS]====[#####]\n");
-  uart_puts("[     ] START |  END  | SIZE  [     ]\n");
+  uart_puts_P(msg_ramDump_header1);
+  uart_puts_P(msg_ramDump_header2);
 
-  sprintf(buffer,"%04X",(uint16_t)&__data_start);
-  uart_puts("[.DATA] 0x"); uart_puts(buffer);
-  sprintf(buffer,"%04X",(uint16_t)&__data_end);
-  uart_puts("| 0x"); uart_puts(buffer);
-  sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__data_end-(uint16_t)&__data_start));
-  uart_puts("| "); uart_puts(buffer); uart_puts(" B[.DATA]\n");
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__data_start);
+  uart_puts_P(msg_ramDump_data_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__data_end);
+  uart_puts_P(msg_ramDump_addr_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%4d",(uint16_t)((uint16_t)&__data_end-(uint16_t)&__data_start));
+  uart_puts_P(msg_ramDump_seperator); uart_puts(buffer); uart_puts_P(msg_ramDump_data_footer);
 
-  sprintf(buffer,"%04X",(uint16_t)&__bss_start);
-  uart_puts("[.BSS ] 0x"); uart_puts(buffer);
-  sprintf(buffer,"%04X",(uint16_t)&__bss_end);
-  uart_puts("| 0x"); uart_puts(buffer);
-  sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__bss_end-(uint16_t)&__bss_start));
-  uart_puts("| "); uart_puts(buffer); uart_puts(" B[.BSS ]\n");
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__bss_start);
+  uart_puts_P(msg_ramDump_bss_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__bss_end);
+  uart_puts_P(msg_ramDump_addr_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%4d",(uint16_t)((uint16_t)&__bss_end-(uint16_t)&__bss_start));
+  uart_puts_P(msg_ramDump_seperator); uart_puts(buffer); uart_puts_P(msg_ramDump_bss_footer);
 
-  sprintf(buffer,"%04X",(uint16_t)&__tdat_start);
-  uart_puts("[.TDAT] 0x"); uart_puts(buffer);
-  sprintf(buffer,"%04X",(uint16_t)&__tdat_end);
-  uart_puts("| 0x"); uart_puts(buffer);
-  sprintf(buffer,"%4d",(uint16_t)((uint16_t)&__tdat_end-(uint16_t)&__tdat_start));
-  uart_puts("| "); uart_puts(buffer); uart_puts(" B[.TDAT]\n");  
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__tdat_start);
+  uart_puts_P(msg_ramDump_tdat_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__tdat_end);
+  uart_puts_P(msg_ramDump_addr_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%4d",(uint16_t)((uint16_t)&__tdat_end-(uint16_t)&__tdat_start));
+  uart_puts_P(msg_ramDump_seperator); uart_puts(buffer); uart_puts_P(msg_ramDump_tdat_footer);  
 
-  sprintf(buffer,"%04X",(uint16_t)&__heap_start);
-  uart_puts("[HEAP ] 0x"); uart_puts(buffer);
-  sprintf(buffer,"%04X",(uint16_t)__heap_end);
-  uart_puts("| 0x"); uart_puts(buffer);
-  sprintf(buffer,"%4d",__heap_size);
-  uart_puts("| "); uart_puts(buffer); uart_puts(" B[HEAP ]\n");
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)&__heap_start);
+  uart_puts_P(msg_ramDump_heap_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)__heap_end);
+  uart_puts_P(msg_ramDump_addr_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%4d",__heap_size);
+  uart_puts_P(msg_ramDump_seperator); uart_puts(buffer); uart_puts_P(msg_ramDump_heap_footer);
 
-  sprintf(buffer,"%04X",(uint16_t)__stack_ptr);
-  uart_puts("[STACK] 0x"); uart_puts(buffer);
-  sprintf(buffer,"%04X",RAMEND);
-  uart_puts("| 0x"); uart_puts(buffer);
-  sprintf(buffer,"%4d",__stack_size);
-  uart_puts("| "); uart_puts(buffer); uart_puts(" B[STACK]\n");
+  snprintf(buffer,sizeof(buffer),"%04X",(uint16_t)__stack_ptr);
+  uart_puts_P(msg_ramDump_stack_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%04X",RAMEND);
+  uart_puts_P(msg_ramDump_addr_header); uart_puts(buffer);
+  snprintf(buffer,sizeof(buffer),"%4d",__stack_size);
+  uart_puts_P(msg_ramDump_seperator); uart_puts(buffer); uart_puts_P(msg_ramDump_stack_footer);
 
-  uart_puts("[FREE ]---------------| ");
-  sprintf(buffer, "%4d",ram_total_free);
+  uart_puts_P(msg_ramDump_free_header);
+  snprintf(buffer,sizeof(buffer),"%4d",ram_total_free);
   uart_puts(buffer);
-  uart_puts(" B[FREE ]\n");
+  uart_puts_P(msg_ramDump_free_footer);
 
-  uart_puts("[#####]====[MEMORY STATUS]====[#####]\n");
+  uart_puts_P(msg_ramDump_header1);
 }
 void taskSerialSystemDebugger(void*pvParameters){
-  char buffer[21]{};
+  char buffer[configMAX_TASK_NAME_LEN+1]={0};
   byte i=0;
   uint8_t nameLength{};
   TaskStatus_t taskStatus{};
   for(;;){
       uart_putc('\n');
-      uart_puts("[####################]====TASK STATUS===[##]\n");
-      uart_puts("[     TASK NAME      ]STACK|  STATE  |PR[ID]\n");
+      uart_puts_P(msg_serialSystemDebugger_header1);
+      uart_puts_P(msg_serialSystemDebugger_header2);
       for(i=0;i<TASK_N;i++){
-        memset(buffer,0,sizeof(buffer));
+        memset((void*)buffer,0,sizeof(buffer));
         if(taskHandles[i]==nullptr)
           continue;
         vTaskGetInfo(taskHandles[i],&taskStatus,pdTRUE,eInvalid);
         sprintf(buffer,"%s",taskStatus.pcTaskName);
         nameLength=strlen(taskStatus.pcTaskName);
         memset(buffer+nameLength,' ',sizeof(buffer)-nameLength);
-        buffer[20]='\0';
+        buffer[configMAX_TASK_NAME_LEN-1]='\0';
         uart_putc('['); uart_puts(buffer); uart_putc(']');
         sprintf(buffer,"%5d",taskStatus.usStackHighWaterMark);
         uart_puts(buffer); uart_putc('|');
         switch(taskStatus.eCurrentState){
           case eReady:
-            uart_puts("Ready    ");
+            uart_puts_P(msg_serialSystemDebugger_taskReady);
           break;
           case eRunning:
-            uart_puts("Running  ");
+            uart_puts_P(msg_serialSystemDebugger_taskRunning);
           break;
           case eBlocked:
-            uart_puts("Blocked  ");
+            uart_puts_P(msg_serialSystemDebugger_taskBlocked);
             break;
           case eSuspended:
-            uart_puts("Suspended");
+            uart_puts_P(msg_serialSystemDebugger_taskSuspended);
           break;
           case eDeleted:
-            uart_puts("Deleted  ");
+            uart_puts_P(msg_serialSystemDebugger_taskDeleted);
             break;
           default:
-            uart_puts("Unknown  ");
+            uart_puts_P(msg_serialSystemDebugger_taskInvalid);
         }
         uart_puts("| "); uart_putc(taskStatus.uxCurrentPriority);
         sprintf(buffer,"%2d",i);
         uart_putc('['); uart_puts(buffer); uart_puts("]\n");
       }
-    uart_puts("[####################]====TASK STATUS===[##]\n");
+    uart_puts_P(msg_serialSystemDebugger_footer);
 	  uart_putc('\n');
 
     updateMemoryUsage();

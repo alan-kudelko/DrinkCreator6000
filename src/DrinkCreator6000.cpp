@@ -9,25 +9,42 @@
 #include <uart.h>
 #include <i2c.h>
 #include <avr/pgmspace.h>
+#include <DrinkCreator6000_Progmem.h>
 
-void lastError_dump(sSystemError*lastError){
-  // Convert code to be MISRA C 2025 compliant
-  char buffer[70]{};
-         uart_puts("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]\n");
-    sprintf(buffer,"[XXXXX]%-50s[XXXXX]\n",lastError->errorText);
+#define LAST_ERROR_BUFFER_SIZE 51
+#define LAST_BOOTUP_BUFFER_SIZE 6
+
+void lastError_dump(const sSystemError*lastError){
+  /* MISRA C 2025 Rule 21.6: snprintf is used with bounds checking */
+
+  char buffer[LAST_ERROR_BUFFER_SIZE]={0};
+
+  uart_puts_P(msg_lastError_header);
+
+  uart_puts_P(msg_X_Marker);
+  snprintf(buffer,sizeof(buffer),"%-50s",lastError->errorText);
+
   uart_puts(buffer);
-    sprintf(buffer,"[XXXXX]Failure after:           %3d days %2d h %2d min %2d s[XXXXX]\n",lastError->days,lastError->hours,lastError->minutes,lastError->seconds);
-  uart_puts(buffer);
-         uart_puts("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]\n");
+  uart_puts_P(msg_X_Marker);
   uart_putc('\n');
-}
-void lastBootup_dump(uint16_t*bootup){
-  char buffer[6]{};
 
-  uart_puts("[#####] Bootups count: ");
-  snprintf(buffer,sizeof(buffer),"%4d",*bootup);
+  uart_puts_P(msg_lastError_failureAfter);
+  snprintf(buffer,sizeof(buffer),"%3d days %2d h %2d min %2d s",lastError->days,lastError->hours,lastError->minutes,lastError->seconds);
   uart_puts(buffer);
-  uart_puts("  [#####]");
+  uart_puts_P(msg_X_Marker);
+  uart_putc('\n');
+
+  uart_puts_P(msg_lastError_header);
+}
+void lastBootup_dump(const uint16_t*bootup){
+  /* MISRA C 2025 Rule 21.6: snprintf is used with bounds checking */
+  char buffer[LAST_BOOTUP_BUFFER_SIZE]={0};
+
+  uart_puts_P(msg_lastBootup_header);
+  snprintf(buffer,sizeof(buffer),"%-5d",*bootup);
+  uart_puts(buffer);
+  uart_putc(' ');
+  uart_puts_P(msg_HASH_Marker);
   uart_putc('\n');
 }
 void normalStart(){
@@ -36,13 +53,13 @@ void normalStart(){
   //taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,"MAIN"         ,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
   //taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput           ,"READ INPUT"   ,TASK_READ_INPUT_STACK_SIZE             ,NULL,2,readInputStack           ,&readInputTCB);            // 3
   //taskHandles[TASK_SERIAL_INPUT]   =xTaskCreateStatic(taskSerialInput         ,"SERIAL INPUT" ,TASK_SERIAL_INPUT_STACK_SIZE           ,NULL,2,serialInputStack         ,&serialInputTCB);          // 4
-  taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen        ,"UPDATE SCREEN",TASK_UPDATE_SCREEN_STACK_SIZE          ,NULL,1,updateScreenStack        ,&updateScreenTCB);         // 5
+  //taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen        ,"UPDATE SCREEN",TASK_UPDATE_SCREEN_STACK_SIZE          ,NULL,1,updateScreenStack        ,&updateScreenTCB);         // 5
   //taskHandles[TASK_READ_TEMP]      =xTaskCreateStatic(taskReadTemp            ,"READ TEMP"    ,TASK_READ_TEMP_STACK_SIZE              ,NULL,1,readTempStack            ,&readTempTCB);             // 6
   //taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp        ,"REGULATE TEMP",TASK_REGULATE_TEMP_STACK_SIZE          ,NULL,1,regulateTempStack        ,&regulateTempTCB);         // 7
-  taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
-  taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
+  //taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
+  //taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
   //taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,"SHOW INFO"    ,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
-  taskHandles[TASK_WELCOME_SCREEN] =xTaskCreateStatic(taskWelcomeScreen       ,"WELCOME"      ,TASK_WELCOME_SCREEN_STACK_SIZE         ,NULL,1,welcomeScreenStack       ,&welcomeScreenTCB);        // 11  
+ // taskHandles[TASK_WELCOME_SCREEN] =xTaskCreateStatic(taskWelcomeScreen       ,"WELCOME"      ,TASK_WELCOME_SCREEN_STACK_SIZE         ,NULL,1,welcomeScreenStack       ,&welcomeScreenTCB);        // 11  
 }
 void faultStart(){
   // After fault operating mode
@@ -53,13 +70,13 @@ void faultStart(){
   //taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,"MAIN"         ,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
   //taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput           ,"READ INPUT"   ,TASK_READ_INPUT_STACK_SIZE             ,NULL,2,readInputStack           ,&readInputTCB);            // 3
   //taskHandles[TASK_SERIAL_INPUT]   =xTaskCreateStatic(taskSerialInput         ,"SERIAL INPUT" ,TASK_SERIAL_INPUT_STACK_SIZE           ,NULL,2,serialInputStack         ,&serialInputTCB);          // 4
-  taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen        ,"UPDATE SCREEN",TASK_UPDATE_SCREEN_STACK_SIZE          ,NULL,1,updateScreenStack        ,&updateScreenTCB);         // 5
+  //taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen        ,"UPDATE SCREEN",TASK_UPDATE_SCREEN_STACK_SIZE          ,NULL,1,updateScreenStack        ,&updateScreenTCB);         // 5
   //taskHandles[TASK_READ_TEMP]      =xTaskCreateStatic(taskReadTemp            ,"READ TEMP"    ,TASK_READ_TEMP_STACK_SIZE              ,NULL,1,readTempStack            ,&readTempTCB);             // 6
   //taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp        ,"REGULATE TEMP",TASK_REGULATE_TEMP_STACK_SIZE          ,NULL,1,regulateTempStack        ,&regulateTempTCB);         // 7
-  taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
-  taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
+  //taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
+  //taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
   //taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,"SHOW INFO"    ,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
-  taskHandles[TASK_WELCOME_SCREEN]=NULL;
+  //taskHandles[TASK_WELCOME_SCREEN]=NULL;
   
   UI_Context.currentTask=SHOW_INFO;
   UI_Context.currentMenu=4;
@@ -92,29 +109,25 @@ int main(void){
   uart_init();
   sei();  // Enable global interrupts if needed
   _delay_ms(10);
-  uart_puts("[  1  ] UART is ready!       [#####]\n");
+  uart_puts_P(msg_UartReady);
 
   while(!eeprom_is_ready());
 
-  uart_puts("[  2  ] EEPROM is ready!     [#####]\n");
+  uart_puts_P(msg_EEPROMReady);
+
   EEPROMUpdateBootups(&bootupsCount);
   EEPROMGetLastStartupError(&lastSystemError);
   
   initializeIO();
-  uart_puts("[  3  ] IO initialized       [#####]\n");
+  uart_puts_P(msg_IOInitialized);
   
   initializeMemory();
-  uart_puts("[  4  ] Memory initialized   [#####]\n");
+  uart_puts_P(msg_MemoryInitialized);
   //initializeHardware();
-  uart_puts("[  5  ] Hardware is ready!   [#####]\n");
+  uart_puts_P(msg_HardwareReady);
 
-  uart_puts("[  6  ] Interrupts attached! [#####]\n");
+  uart_puts_P(msg_InterruptsAttached);
 
-  uart_puts("[  7  ] Start up ...         [#####]\n");
-
-  //uart_puts("[  7  ] Fault start up ...   [#####]\n");
-
-  
   //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
   // For now I will try method without interrupt
   
@@ -125,12 +138,19 @@ int main(void){
   // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
   // So we treat this saved SP as the top of the main stack (pre-RTOS).  
   
+  if(lastSystemError.confirmed){
+    uart_puts_P(msg_NormalStartUp);
+    normalStart();
+  }
+  else{
+    uart_puts_P(msg_FaultStartUp);
+    faultStart();
+  }
+
   ram_dump();
   
- // if(lastSystemError.confirmed)
-  //  normalStart();
-  //else
-  //  faultStart();
+  _delay_ms(1000);
+  vTaskStartScheduler();
   // calibrate max value of idleCounterPerSecond
   // calibrateIdleLoop(); architecture should be changed to main setup task for this to work
   //vTaskStartScheduler();

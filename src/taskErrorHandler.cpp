@@ -1,6 +1,7 @@
 #include "taskErrorHandler.h"
 #include <avr/wdt.h>  
 #include <uart.h>
+#include <DrinkCreator6000_Progmem.h>
 
 void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 
@@ -84,8 +85,8 @@ void taskErrorHandler(void*pvParameters){
       for(i=2;i<TASK_N;i++)
           vTaskSuspend(taskHandles[i]);  
 
-      stopCooler();
-      stopPumps();
+      //stopCooler();
+      //stopPumps();
       
       displayCorruptedGuardZone(&guardZoneId);
       
@@ -93,9 +94,9 @@ void taskErrorHandler(void*pvParameters){
       lastError.taskId=guardZoneId;        
       EEPROMUpdateLastStartupError(&lastError);
        
-      uart_puts("[####################]====SYSTEM CRITICAL====[##]\n");
+      uart_puts_P(msg_errorHandler_header);
       uart_puts((const char*)lastError.errorText); uart_putc('\n');
-      uart_puts("[####################]====SYSTEM CRITICAL====[##]\n");
+      uart_puts_P(msg_errorHandler_header);
       uart_putc('\n');
       
       for(i=0;i<5;i++){

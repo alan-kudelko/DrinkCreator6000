@@ -32,7 +32,11 @@ void uart_puts(const char*s){
 }
 
 void uart_puts_P(const char*s){
-    while()
+    char c=pgm_read_byte(s++);
+    while(c!=0){
+        uart_putc(c);
+        c=pgm_read_byte(s++);
+    }
 }
 
 ISR(USART0_RX_vect){
