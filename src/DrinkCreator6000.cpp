@@ -6,22 +6,26 @@
 
 #include <Wire.h>
 #include <util/delay.h>
+#include <uart.h>
 
 void lastError_dump(sSystemError*lastError){
   char buffer[70]{};
-  Serial.println(F("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]"));
-    sprintf(buffer,"[XXXXX]%50s[XXXXX]",lastError->errorText);
-  Serial.println(buffer);
-    sprintf(buffer,"[XXXXX]Failure after:           %3d days %2d h %2d min %2d s[XXXXX]",lastError->days,lastError->hours,lastError->minutes,lastError->seconds);
-  Serial.println(buffer);
-  Serial.println(F("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]"));
-  Serial.println(F(""));
+         uart_puts("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]\n");
+    sprintf(buffer,"[XXXXX]%-50s[XXXXX]\n",lastError->errorText);
+  uart_puts(buffer);
+    sprintf(buffer,"[XXXXX]Failure after:           %3d days %2d h %2d min %2d s[XXXXX]\n",lastError->days,lastError->hours,lastError->minutes,lastError->seconds);
+  uart_puts(buffer);
+         uart_puts("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]\n");
+  uart_putc('\n');
 }
 void lastBootup_dump(uint16_t*bootup){
-  Serial.print(F("[#####]Bootups count: "));
-  Serial.print(*bootup);
-  Serial.println(F("[#####]"));
-  Serial.println(F(""));
+  char buffer[6]{};
+
+  uart_puts("[#####] Bootups count: ");
+  snprintf(buffer,sizeof(buffer),"%4d",*bootup);
+  uart_puts(buffer);
+  uart_puts("  [#####]");
+  uart_putc('\n');
 }
 void normalStart(){
   taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
@@ -78,51 +82,40 @@ void calibrateIdleLoop(){
 // Temperature regulation task:
 // Uses global temperature variables to control Peltier elements
 // by switching their pins HIGH or LOW based on hysteresis thresholds.
-
-#define BAUD 9600
-#define UBRR_VALUE ((F_CPU / (16UL * BAUD)) - 1)
-
-void uart_init(void) {
-    UBRR0H = (uint8_t)(UBRR_VALUE >> 8);
-    UBRR0L = (uint8_t)UBRR_VALUE;
-    UCSR0B = (1 << TXEN0); // Enable transmitter
-    UCSR0C = (1 << UCSZ01) | (1 << UCSZ00); // 8-bit data
-}
-
-void uart_putc(char c) {
-    while (!(UCSR0A & (1 << UDRE0))); // Wait for empty transmit buffer
-    UDR0 = c;
-}
-
-void uart_puts(const char* s) {
-    while (*s) uart_putc(*s++);
-}
+//////////////////////////////////////////////////////////////////
 
 int main(void){
-    uart_init();
-    sei();  // Enable global interrupts if needed
+  uart_init();
+  sei();  // Enable global interrupts if needed
+  _delay_ms(10);
+  uart_puts("[  1  ] UART is ready!       [#####]\n");
 
-    uart_puts("Start!\r\n");
+  while(!eeprom_is_ready());
 
-    while (1) {
-        uart_puts("Hello Baremetal!\r\n");
-        _delay_ms(500);
-    }
- // while(!eeprom_is_ready());
-
-  //EEPROMUpdateBootups(&bootupsCount);
-  //EEPROMGetLastStartupError(&lastSystemError);
+  uart_puts("[  2  ] EEPROM is ready!     [#####]\n");
+  EEPROMUpdateBootups(&bootupsCount);
+  EEPROMGetLastStartupError(&lastSystemError);
   
-  //initializeIO();
-  //initializeMemory();
+  initializeIO();
+  uart_puts("[  3  ] IO initialized       [#####]\n");
+  
+  initializeMemory();
+  uart_puts("[  4  ] Memory initialized   [#####]\n");
   //initializeHardware();
+  uart_puts("[  5  ] Hardware is ready!   [#####]\n");
+
+  uart_puts("[  6  ] Interrupts attached! [#####]\n");
+
+  uart_puts("[  7  ] Start up ...         [#####]\n");
+
+  uart_puts("[  7  ] Fault start up ...   [#####]\n");
 
   
   //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
   // For now I will try method without interrupt
   
-  //lastBootup_dump(&bootupsCount);  
-  //lastError_dump(&lastSystemError);
+  lastBootup_dump(&bootupsCount);  
+  lastError_dump(&lastSystemError);
   __stack_ptr=(uint8_t*)SP;
   
   // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
@@ -137,5 +130,4 @@ int main(void){
   // calibrate max value of idleCounterPerSecond
   // calibrateIdleLoop(); architecture should be changed to main setup task for this to work
   //vTaskStartScheduler();
-  Serial.print("Werdon");
 }

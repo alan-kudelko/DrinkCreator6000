@@ -60,6 +60,7 @@ file(GLOB ARDUINO_CORE_SOURCES
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/utility/*.c"
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino/*.cpp"
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino/*.c"
+    "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.c"
 )
 message(STATUS "Adding project headers")
 file(GLOB PROJECT_HEADERS
@@ -79,6 +80,7 @@ file(GLOB ARDUINO_CORE_HEADERS
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/utility/*.h"
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino/*.h"
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/variants/mega/*.h"
+    "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.h"
 )
 include_directories(
     "${AVR_ROOT}/avr/include"
@@ -95,6 +97,7 @@ include_directories(
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/utility"
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino"
     "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/variants/mega"
+    "${CMAKE_SOURCE_DIR}/avr_peripherals/uart"
 )
 # Disable MSVC
 set(CMAKE_FIND_ROOT_PATH "${AVR_ROOT}")

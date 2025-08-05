@@ -11,7 +11,8 @@
 #include <semphr.h>
 
 #include <LiquidCrystal_I2C.h>
-#include "DrinkCreator6000_DataTypes.h"
+#include <DrinkCreator6000_DataTypes.h>
+#include <DrinkCreator6000_Config_C.h>
 
 //////////////////////////////////////////////////////////////////
 // IO Mapping:

@@ -4,10 +4,6 @@
       "name": "AVR",
       "compilerPath": "${workspaceFolder}/tools/bin/avr-g++.exe",
       "intelliSenseMode": "gcc-x64",
-      "defines": [
-        "F_CPU=16000000UL",
-        "__AVR_ATmega2560__"
-      ],
       "includePath": [
         "${workspaceFolder}/include",
         "${workspaceFolder}/tools/avr/include",
@@ -22,7 +18,8 @@
         "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src/utility",
         "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
         "${workspaceFolder}/ArduinoCore-avr/variants/mega",
-        "${workspaceFolder}/ArduinoCore-avr/cores/arduino"
+        "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
+        "${workspaceFolder}/avr_peripherals/uart"
       ],
       "browse": {
         "path": [
@@ -37,7 +34,8 @@
           "${workspaceFolder}/ArduinoCore-avr/libraries/Wire/src/utility",
           "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
           "${workspaceFolder}/ArduinoCore-avr/variants/mega",
-          "${workspaceFolder}/ArduinoCore-avr/cores/arduino"
+          "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
+          "${workspaceFolder}/avr_peripherals/uart"
         ],
         "limitSymbolsToIncludedHeaders": true
       }
