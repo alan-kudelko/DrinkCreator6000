@@ -20,15 +20,19 @@ void uart_init(void){
     UCSR0B|=(1<<RXCIE0); 
 }
 
-void uart_putc(char c) {
+void uart_putc(char c){
     while(!(UCSR0A&(1<<UDRE0)));
 	
     UDR0=c;
 }
 
-void uart_puts(const char*s) {
+void uart_puts(const char*s){
     while(*s)
 		uart_putc(*s++);
+}
+
+void uart_puts_P(const char*s){
+    while()
 }
 
 ISR(USART0_RX_vect){
@@ -44,7 +48,7 @@ ISR(USART0_RX_vect){
     }
 }
 
-int16_t uart_getc(void) {
+int16_t uart_getc(void){
     if(uart_rx_buffer_head==uart_rx_buffer_tail){ // Check if buffer is empty
         return -1;  // Buffer is empty
     }

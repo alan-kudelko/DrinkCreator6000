@@ -19,7 +19,8 @@
         "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
         "${workspaceFolder}/ArduinoCore-avr/variants/mega",
         "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
-        "${workspaceFolder}/avr_peripherals/uart"
+        "${workspaceFolder}/avr_peripherals/uart",
+        "${workspaceFolder}/avr_peripherals/i2c"
       ],
       "browse": {
         "path": [
@@ -35,7 +36,8 @@
           "${workspaceFolder}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C",
           "${workspaceFolder}/ArduinoCore-avr/variants/mega",
           "${workspaceFolder}/ArduinoCore-avr/cores/arduino",
-          "${workspaceFolder}/avr_peripherals/uart"
+          "${workspaceFolder}/avr_peripherals/uart",
+          "${workspaceFolder}/avr_peripherals/i2c"
         ],
         "limitSymbolsToIncludedHeaders": true
       }

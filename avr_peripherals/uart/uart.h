@@ -21,7 +21,9 @@ void uart_init(void);
 
 void uart_putc(char c);
 
-void uart_puts(const char* s);
+void uart_puts(const char*s);
+
+void uart_puts_P(const char*s);
 
 // Note: This module defines ISR(USART_RX_vect) internally in uart.c
 

@@ -7,6 +7,8 @@
 #include <Wire.h>
 #include <util/delay.h>
 #include <uart.h>
+#include <i2c.h>
+#include <avr/pgmspace.h>
 
 void lastError_dump(sSystemError*lastError){
   // Convert code to be MISRA C 2025 compliant
@@ -84,6 +86,7 @@ void calibrateIdleLoop(){
 // Uses global temperature variables to control Peltier elements
 // by switching their pins HIGH or LOW based on hysteresis thresholds.
 //////////////////////////////////////////////////////////////////
+
 
 int main(void){
   uart_init();
