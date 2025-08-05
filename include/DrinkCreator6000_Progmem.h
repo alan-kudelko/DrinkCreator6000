@@ -41,12 +41,26 @@ extern const char msg_X_Marker[]                    PROGMEM;
 extern const char msg_HASH_Marker[]                 PROGMEM;
 
 extern const char msg_UartReady[]                   PROGMEM;
-extern const char msg_EEPROMReady[]                 PROGMEM;
 extern const char msg_IOInitialized[]               PROGMEM;
+extern const char msg_EEPROMReady[]                 PROGMEM;
 extern const char msg_MemoryInitialized[]           PROGMEM;
 extern const char msg_HardwareReady[]               PROGMEM;
 extern const char msg_InterruptsAttached[]          PROGMEM;
 extern const char msg_NormalStartUp[]               PROGMEM;
 extern const char msg_FaultStartUp[]                PROGMEM;
+
+extern const char taskErrorHandler_name[]           PROGMEM;
+extern const char taskStackDebug_name[]             PROGMEM;
+extern const char taskMain_name[]                   PROGMEM;
+extern const char taskReadInput_name[]              PROGMEM;
+extern const char taskSerialInput_name[]            PROGMEM;
+extern const char taskUpdateScreen_name[]           PROGMEM;
+extern const char taskReadTemp_name[]               PROGMEM;
+extern const char taskRegTemp_name[]                PROGMEM;
+extern const char taskSelectDrink_name[]            PROGMEM;
+extern const char taskOrderDrink_name[]             PROGMEM;
+extern const char taskShowInfo_name[]               PROGMEM;
+extern const char taskWelcome_name[]                PROGMEM;
+extern const char*const taskNames[]                 PROGMEM;
 
 #endif // _DRINK_CREATOR_6000_PROGMEM_H_

@@ -13,6 +13,7 @@
 #include <LiquidCrystal_I2C.h>
 #include <DrinkCreator6000_DataTypes.h>
 #include <DrinkCreator6000_Config_C.h>
+#include <DrinkCreator6000_Pins.h>
 
 //////////////////////////////////////////////////////////////////
 // IO Mapping:
@@ -22,13 +23,13 @@
 //enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
 
 enum{
-  INTPin=19,
-  Pelt1Pin=9,
-  Pelt2Pin=8,
-  FansPin=7,
-  DSPin=3,
-  STPin=4,
-  SHPin=5
+  INTPin=19, //Done
+  Pelt1Pin=9, //Done
+  Pelt2Pin=8, //Done
+  FansPin=7, //Done
+  DSPin=3, //Done
+  STPin=4, //Done
+  SHPin=5 //Done
 };
 
 enum{
@@ -55,10 +56,10 @@ enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
 enum{TASK_READ_TEMP_STACK_SIZE=120};               //6
 enum{TASK_REGULATE_TEMP_STACK_SIZE=120};           //7
 enum{TASK_SELECT_DRINK_STACK_SIZE=230};            //8
-enum{TASK_ORDER_DRINK_STACK_SIZE=150};             //9
+enum{TASK_ORDER_DRINK_STACK_SIZE=256};             //9
 enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
 enum{TASK_WELCOME_SCREEN_STACK_SIZE=210};          //11 // Tuned, 48 words in reserve //160 words causes overflow
-enum{TASK_TEST_HARDWARE_STACK_SIZE=1};             //12
+enum{TASK_TEST_HARDWARE_STACK_SIZE=150};             //12
 // Stack size - will need "tuning" in final release
 enum{
   TASK_ERROR_HANDLER=0,
@@ -80,7 +81,7 @@ extern const char*TaskNames[];
 enum{GUARD_ZONE_SIZE=32};
 enum{MEMORY_FILL_PATTERN=0xAA};
 // Guard zone size between task stacks	 
-enum{TASK_N=12};
+//enum{TASK_N=12};
 // Task count
 enum{
   TASK_ERROR_HANDLER_REFRESH_RATE=500,     // 0
@@ -120,22 +121,22 @@ extern volatile StackType_t guardZone1[];
 extern StackType_t serialSystemDebuggerStack[];  //1
 
 extern volatile StackType_t guardZone2[];
-//extern StackType_t mainStack[];                  //2
+extern StackType_t mainStack[];                  //2
 
 extern volatile StackType_t guardZone3[];
-//extern StackType_t readInputStack[];             //3
+extern StackType_t readInputStack[];             //3
 
 extern volatile StackType_t guardZone4[];
-//extern StackType_t serialInputStack[];           //4
+extern StackType_t serialInputStack[];           //4
 
 extern volatile StackType_t guardZone5[];
 extern StackType_t updateScreenStack[];          //5
 
 extern volatile StackType_t guardZone6[];
-//extern StackType_t readTempStack[];              //6
+extern StackType_t readTempStack[];              //6
 
 extern volatile StackType_t guardZone7[];
-//extern StackType_t regulateTempStack[];          //7
+extern StackType_t regulateTempStack[];          //7
 
 extern volatile StackType_t guardZone8[];
 extern StackType_t selectDrinkStack[];           //8
@@ -144,7 +145,7 @@ extern volatile StackType_t guardZone9[];
 extern StackType_t orderDrinkStack[];            //9
 
 extern volatile StackType_t guardZone10[];
-//extern StackType_t showSystemInfoStack[];        //10
+extern StackType_t showSystemInfoStack[];        //10
 
 extern volatile StackType_t guardZone11[];
 extern StackType_t welcomeScreenStack[];         //11

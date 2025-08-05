@@ -67,7 +67,7 @@ void taskErrorHandler(void*pvParameters){
         for(;i<TASK_N;i++)
           vTaskSuspend(taskHandles[i]);            
         f_errorOccured=true;
-        sprintf(lastError.errorText,"Guard zone %d corrupted in task: %s",guardZoneId,TaskNames[guardZoneId]);
+        snprintf(lastError.errorText,50,"Guard zone %d corrupted in task: %s",guardZoneId,TaskNames[guardZoneId]);
       }
 //      if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
 //        f_errorOccured=true;

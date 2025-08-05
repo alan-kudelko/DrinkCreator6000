@@ -103,7 +103,7 @@ void taskSerialSystemDebugger(void*pvParameters){
           default:
             uart_puts_P(msg_serialSystemDebugger_taskInvalid);
         }
-        uart_puts("| "); uart_putc(taskStatus.uxCurrentPriority);
+        uart_puts("| "); uart_putc(taskStatus.uxCurrentPriority+48);
         sprintf(buffer,"%2d",i);
         uart_putc('['); uart_puts(buffer); uart_puts("]\n");
       }

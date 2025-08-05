@@ -7,8 +7,8 @@
 #include <avr/pgmspace.h>
 
 
-#define UART_TX_BUFFER_SIZE 64
-#define UART_RX_BUFFER_SIZE 64
+#define UART_TX_BUFFER_SIZE 96
+#define UART_RX_BUFFER_SIZE 96
 
 #ifdef __cplusplus
 extern "C" {

@@ -1,4 +1,6 @@
 #include <DrinkCreator6000_Progmem.h>
+#include <FreeRTOSConfig.h>
+#include <DrinkCreator6000_Config_C.h>
 
 #ifdef __cplusplus
 extern "C"{
@@ -10,7 +12,7 @@ const char msg_lastError_footer[]      PROGMEM="[XXXXX]================[LAST ERR
 const char msg_lastError_failureAfter[]PROGMEM="[XXXXX]Failure after:           ";
 
 // Messages for last bootup dump
-const char msg_lastBootup_header[]PROGMEM="[#####]====[MEMORY STATUS]====[#####]\n";
+const char msg_lastBootup_header[]PROGMEM="[#####] Bootups count: ";
 
 // Memory dump messages
 const char msg_ramDump_header1[]     PROGMEM="[#####]====[MEMORY STATUS]====[#####]\n";
@@ -49,13 +51,41 @@ const char msg_X_Marker[]   PROGMEM="[XXXXX]";
 const char msg_HASH_Marker[]PROGMEM="[#####]";
 // Messages for initialization and startup
 const char msg_UartReady[]         PROGMEM="[  1  ] UART is ready!       [#####]\n";
-const char msg_EEPROMReady[]       PROGMEM="[  2  ] EEPROM is ready!     [#####]\n";
-const char msg_IOInitialized[]     PROGMEM="[  3  ] IO initialized       [#####]\n";
+const char msg_IOInitialized[]     PROGMEM="[  2  ] IO initialized       [#####]\n";
+const char msg_EEPROMReady[]       PROGMEM="[  3  ] EEPROM is ready!     [#####]\n";
 const char msg_MemoryInitialized[] PROGMEM="[  4  ] Memory initialized   [#####]\n";
 const char msg_HardwareReady[]     PROGMEM="[  5  ] Hardware is ready!   [#####]\n";
 const char msg_InterruptsAttached[]PROGMEM="[  6  ] Interrupts attached! [#####]\n";
 const char msg_NormalStartUp[]     PROGMEM="[  7  ] Start up ...         [#####]\n";
 const char msg_FaultStartUp[]      PROGMEM="[  7  ] Fault start up ...   [#####]\n";
+
+// 
+const char taskErrorHandler_name[configMAX_TASK_NAME_LEN]           PROGMEM="ERROR HANDLER";
+const char taskStackDebug_name[configMAX_TASK_NAME_LEN]             PROGMEM="STACK DEBUG";
+const char taskMain_name[configMAX_TASK_NAME_LEN]                   PROGMEM="MAIN";
+const char taskReadInput_name[configMAX_TASK_NAME_LEN]              PROGMEM="READ INPUT";
+const char taskSerialInput_name[configMAX_TASK_NAME_LEN]            PROGMEM="SERIAL INPUT";
+const char taskUpdateScreen_name[configMAX_TASK_NAME_LEN]           PROGMEM="UPDATE SCREEN";
+const char taskReadTemp_name[configMAX_TASK_NAME_LEN]               PROGMEM="READ TEMP";
+const char taskRegTemp_name[configMAX_TASK_NAME_LEN]                PROGMEM="REGULATE TEMP";
+const char taskSelectDrink_name[configMAX_TASK_NAME_LEN]            PROGMEM="SELECT DRINK";
+const char taskOrderDrink_name[configMAX_TASK_NAME_LEN]             PROGMEM="ORDER DRINK";
+const char taskShowInfo_name[configMAX_TASK_NAME_LEN]               PROGMEM="SHOW INFO";
+const char taskWelcome_name[configMAX_TASK_NAME_LEN]                PROGMEM="WELCOME";
+const char*const taskNames[TASK_N]                                  PROGMEM={
+    taskErrorHandler_name,
+    taskStackDebug_name,
+    taskMain_name,
+    taskReadInput_name,
+    taskSerialInput_name,
+    taskUpdateScreen_name,
+    taskReadTemp_name,
+    taskRegTemp_name,
+    taskSelectDrink_name,
+    taskOrderDrink_name,
+    taskShowInfo_name,
+    taskWelcome_name
+};
 
 #ifdef __cplusplus
 }

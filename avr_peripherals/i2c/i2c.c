@@ -1,8 +1,13 @@
 #include <i2c.h>
 #include <avr/io.h>
 #include <avr/interrupt.h>
+#include <DrinkCreator6000_Pins.h>
 
 void i2c_init(void){
+    // Setup SDA and SCL pins as INPUTS
+    DDRD&=~(1<<I2C_SCL_PIN);
+    DDRD&=~(1<<I2C_SDA_PIN);
+
     TWSR&=(~((1<<TWPS0)|(1<<TWPS1))); // Set prescaler to 1
     TWBR=(uint8_t)TWBR_VALUE; // Set bit rate register for I2C speed
     TWCR=(1<<TWEN); // Enable TWI (I2C)

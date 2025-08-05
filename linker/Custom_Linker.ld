@@ -192,29 +192,29 @@ SECTIONS
 	PROVIDE (__tdat_start = . );
 	
 	KEEP(*(.tdat.guardZone0));	
-	*(.tdat.errorHandlerStack);	
+	KEEP(*(.tdat.errorHandlerStack));	
 	KEEP(*(.tdat.guardZone1));	
-	*(.tdat.serialSystemDebuggerStack);	
+	KEEP(*(.tdat.serialSystemDebuggerStack));	
 	KEEP(*(.tdat.guardZone2));	
-	*(.tdat.mainStack);	
+	KEEP(*(.tdat.mainStack));	
 	KEEP(*(.tdat.guardZone3));	
-	*(.tdat.readInputStack);
+	KEEP(*(.tdat.readInputStack));
 	KEEP(*(.tdat.guardZone4));	
-	*(.tdat.serialInputStack);	
+	KEEP(*(.tdat.serialInputStack));	
 	KEEP(*(.tdat.guardZone5));	
-	*(.tdat.updateScreenStack);	
+	KEEP(*(.tdat.updateScreenStack));	
 	KEEP(*(.tdat.guardZone6));	
-	*(.tdat.readtempStack);
+	KEEP(*(.tdat.readtempStack));
 	KEEP(*(.tdat.guardZone7));	
-	*(.tdat.regulateTempStack);
+	KEEP(*(.tdat.regulateTempStack));
 	KEEP(*(.tdat.guardZone8));	
-	*(.tdat.selectDrinkStack);	
+	KEEP(*(.tdat.selectDrinkStack));	
 	KEEP(*(.tdat.guardZone9));	
-	*(.tdat.orderDrinkStack);	
+	KEEP(*(.tdat.orderDrinkStack));	
 	KEEP(*(.tdat.guardZone10));	
-	*(.tdat.showSystemInfoStack);
+	KEEP(*(.tdat.showSystemInfoStack));
 	KEEP(*(.tdat.guardZone11));
-	*(.tdat.welcomeScreenStack);
+	KEEP(*(.tdat.welcomeScreenStack));
 	
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))

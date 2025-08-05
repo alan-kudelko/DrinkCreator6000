@@ -2,14 +2,17 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <string.h>
+#include <DrinkCreator6000_Pins.h>
 
-volatile uint8_t uart_buffer_rx[UART_RX_BUFFER_SIZE];
+volatile uint8_t uart_buffer_rx[UART_RX_BUFFER_SIZE]={0};
 volatile uint8_t uart_rx_buffer_head=0;
 volatile uint8_t uart_rx_buffer_tail=0;
 volatile uint8_t uart_rx_error_counter=0;
 
 void uart_init(void){
-    memset((void*)uart_buffer_rx,0,sizeof(uart_buffer_rx));
+    // Setting up TX and RX pins
+    DDRE&=~(1<<UART0_RX_PIN);
+    DDRE|=(1<<UART0_TX_PIN);
     // Setting up baud rate in UBBR register
     UBRR0H=(uint8_t)(UBRR_VALUE>>8);
     UBRR0L=(uint8_t)UBRR_VALUE;
