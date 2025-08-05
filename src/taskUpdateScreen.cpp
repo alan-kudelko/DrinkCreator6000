@@ -8,7 +8,7 @@ void taskUpdateScreen(void*pvParameters){
   uint8_t j=0;
   
   for(;;){
-    if(xQueueReceive(qScreenData,&receivedLcdData,pdMS_TO_TICKS(0))==pdPASS){
+    if(xQueueReceive(qScreenData,(void*)&receivedLcdData,pdMS_TO_TICKS(0))==pdPASS){
       if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(0))==pdPASS){
         for(i=0;i<LCD_HEIGHT;i++){
           lcd.setCursor(0,i);

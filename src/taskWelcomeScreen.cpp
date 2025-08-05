@@ -21,7 +21,7 @@ void taskWelcomeScreen(void*pvParameters){
     if(notification==0)
 	   vTaskDelete(NULL);
 	}
-	memset(screenData.lines[2]+1,0xFF,10*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
+	memset((void*)(screenData.lines[2]+1),0xFF,10*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
 	sprintf(screenData.lines[2]+13,"%3u %%",100*timePassed/TASK_WELCOME_TICKS_TO_CLOSE);
   
 	timePassed++;

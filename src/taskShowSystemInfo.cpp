@@ -7,17 +7,17 @@ void showInfo_Firmware_Sub_0(sScreenData*screenData){
   sprintf(screenData->lines[3],"%s %d","Startup count: ",bootupsCount);
 }
 void showInfo_Firmware_Sub_1(sScreenData*screenData){
-  uint64_t runTimeFromMillis=0;
+  uint32_t currentRunTimeMS=0;
   uint8_t runTimeDays=0;
   uint8_t runTimeHours=0;
   uint8_t runTimeMinutes=0;
   uint8_t runTimeSeconds=0;
 
-  runTimeFromMillis=millis()/1000;
-  runTimeDays=runTimeFromMillis/86400;
-  runTimeHours=runTimeFromMillis/3600%24;
-  runTimeMinutes=runTimeFromMillis/60%60;
-  runTimeSeconds=runTimeFromMillis%60;
+  currentRunTimeMS=xTaskGetTickCount()*portTICK_PERIOD_MS;
+  runTimeDays=currentRunTimeMS/86400;
+  runTimeHours=currentRunTimeMS/3600%24;
+  runTimeMinutes=currentRunTimeMS/60%60;
+  runTimeSeconds=currentRunTimeMS%60;
   
   sprintf(screenData->lines[0],"%s","Drink Creator 6000");
   sprintf(screenData->lines[1],"%s","Current run time");  
@@ -25,7 +25,7 @@ void showInfo_Firmware_Sub_1(sScreenData*screenData){
   sprintf(screenData->lines[2],"%02d %s %02d %s",runTimeDays,"days",runTimeHours,"h");
   
 
-  memset(screenData->lines[3],0,sizeof(screenData->lines[3]));
+  memset((void*)screenData->lines[3],0,sizeof(screenData->lines[3]));
   
   sprintf(screenData->lines[3],"%02d %s  %02d %s",runTimeMinutes,"min",runTimeSeconds,"s");
 }
@@ -57,7 +57,7 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context
   if(UI_context->currentSubMenu>4)
     UI_context->currentSubMenu=3;
 
-  memset(screenData,0,sizeof(sScreenData));
+  memset((void*)screenData,0,sizeof(sScreenData));
   
   if(UI_context->currentSubMenu==0){
 	  // Free RAM
@@ -69,7 +69,7 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context
 	  memset(buffer,'-',sizeof(buffer)-1);
 	  buffer[0]='[';
 	  buffer[11]=']';
-	  memset(buffer+1,'#',ram_percent/10);
+	  memset((void*)(buffer+1),'#',ram_percent/10);
     sprintf(screenData->lines[1],"%s %4u B/%4u B","Usage:",ram_in_use,ram_size);
     sprintf(screenData->lines[2],"%12s %3u %%",buffer,ram_percent);
     uint8_t cpuLoad=100-((idleCounterPerSecond*100)/idleCalib);
@@ -95,7 +95,7 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context
   }
   else if(UI_context->currentSubMenu==3){
 	  //heap segment
-    sprintf(screenData->lines[1],"HEAP:  0x%04X-0x%04X",(uint16_t)&__heap_start,__heap_end);
+    sprintf(screenData->lines[1],"HEAP:  0x%04X-0x%04X",(uint16_t)&__heap_start,(uint16_t)__heap_end);
 	  //stack segment	
     sprintf(screenData->lines[2],"STACK: 0x%04X-0x%04X",(uint16_t)__stack_ptr,RAMEND);
 	  //Size of each memory segment
@@ -140,7 +140,7 @@ void showInfo_Task_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
       default:
         strcpy(buffer,"Unknown");
     }	
-	  memcpy(screenData->lines[3]+11,buffer,9);
+	  memcpy((void*)(screenData->lines[3]+11),(void*)buffer,9);
   }
 }
 void showInfo_Error_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
@@ -151,7 +151,7 @@ void showInfo_Error_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context)
   if(UI_context->currentSubMenu>=(int16_t)errorTextLength-LCD_WIDTH+1)
     UI_context->currentSubMenu=0;
   
-  memcpy(screenData->lines[0],lastSystemError.errorText+UI_context->currentSubMenu,LCD_WIDTH);
+  memcpy((void*)screenData->lines[0],(void*)(lastSystemError.errorText+UI_context->currentSubMenu),LCD_WIDTH);
   
   strncpy(screenData->lines[1],"Fault time signature",LCD_WIDTH);
   sprintf(screenData->lines[2],"%02d days %02d h",lastSystemError.days,lastSystemError.hours);
@@ -186,7 +186,7 @@ void taskShowSystemInfo(void*pvParameters){
       }
     }
 	  if(f_run==1){
-      memset(&screenData,0,sizeof(screenData));
+      memset((void*)&screenData,0,sizeof(screenData));
 	    // Context will be managed by main task
       if(UI_Context.currentMenu>5)
         UI_Context.currentMenu=0;

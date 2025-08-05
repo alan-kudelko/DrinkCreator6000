@@ -109,36 +109,6 @@ void taskSerialSystemDebugger(void*pvParameters){
 
     updateMemoryUsage();
 	  ram_dump();
-    // Stack, heap etc
-	/*
-    Serial.print("stack_ptr: ");
-    Serial.println(uint16_t(stack_ptr),HEX);
-
-    Serial.print("heap_end: ");
-    Serial.println(uint16_t(heap_end),HEX);
-
-    
-    Serial.print("stack_size: ");
-    Serial.println(uint16_t(stack_size),HEX);
-    
-    Serial.print("heap_size: ");
-    Serial.println(uint16_t(heap_size),HEX);
-
-    Serial.print("ram_total_free: ");
-    Serial.println(uint16_t(ram_total_free));
-    
-    Serial.print("ram_in_use: ");
-    Serial.println(uint16_t(ram_in_use));
-
-    Serial.print("ram_size: ");
-    Serial.println(uint16_t(ram_size));
-
-    Serial.print("__data_start: ");
-    Serial.println(uint16_t(&__data_start),HEX);
-
-    Serial.print("__data_end: ");
-    Serial.println(uint16_t(&__data_end),HEX);
-	*/
     vTaskDelay(pdMS_TO_TICKS(2000));
   }
 }

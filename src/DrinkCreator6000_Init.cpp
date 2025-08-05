@@ -1,6 +1,7 @@
 #include "DrinkCreator6000_Init.h"
 #include <Arduino.h>
 #include <Wire.h>
+#include <uart.h>
 //////////////////////////////////////////////////////////////////
 // IO initialization:
 // Configures I/O pins and attaches interrupts related to pin events
@@ -40,7 +41,7 @@ void initializeMemory(){
 // shift register (74HC595), and temperature sensor
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// Serial init
-  Serial.begin(115200);	
+  uart_init();
 ////////////////////////////////////////////////////////////////// LCD init	
   lcd.begin();
   lcd.backlight();

@@ -1,9 +1,12 @@
 #include <uart.h>
-#include <DrinkCreator6000_Config_C.h>
 #include <avr/io.h>
+#include <avr/interrupt.h>
 #include <string.h>
 
-uint8_t uart_buffer_rx[UART_RX_BUFFER_SIZE];
+volatile uint8_t uart_buffer_rx[UART_RX_BUFFER_SIZE];
+volatile uint8_t uart_rx_buffer_head=0;
+volatile uint8_t uart_rx_buffer_tail=0;
+volatile uint8_t uart_rx_error_counter=0;
 
 void uart_init(void){
     memset((void*)uart_buffer_rx,0,sizeof(uart_buffer_rx));
@@ -26,4 +29,42 @@ void uart_putc(char c) {
 void uart_puts(const char*s) {
     while(*s)
 		uart_putc(*s++);
+}
+
+ISR(USART0_RX_vect){
+    uint8_t data=UDR0; // Read received data
+    uint8_t next_head=(uart_rx_buffer_head+1)%UART_RX_BUFFER_SIZE; // Calculate next head position
+
+    if(next_head!=uart_rx_buffer_tail){
+        uart_buffer_rx[uart_rx_buffer_head]=data; // Store data in buffer
+        uart_rx_buffer_head=next_head; // Update head position
+    }
+    else{
+        uart_rx_error_counter++; // Buffer overflow, increment error counter
+    }
+}
+
+int16_t uart_getc(void) {
+    if(uart_rx_buffer_head==uart_rx_buffer_tail){ // Check if buffer is empty
+        return -1;  // Buffer is empty
+    }
+    else{
+        uint8_t data=uart_buffer_rx[uart_rx_buffer_tail]; // Read data from buffer
+        uart_rx_buffer_tail=(uart_rx_buffer_tail+1)%UART_RX_BUFFER_SIZE; // Update tail position
+        return data;
+    }
+}
+
+int16_t uart_peekc(void){
+    if(uart_rx_buffer_head==uart_rx_buffer_tail){ // Check if buffer is empty
+        return -1;  // Buffer is empty
+    }
+    else{
+        uint8_t data=uart_buffer_rx[uart_rx_buffer_tail]; // Peek data from buffer
+        return data; // Return the data without removing it from the buffer
+    }
+}
+
+uint8_t uart_rx_error_count(void){
+    return uart_rx_error_counter; // Return the number of errors
 }

@@ -9,6 +9,7 @@
 #include <uart.h>
 
 void lastError_dump(sSystemError*lastError){
+  // Convert code to be MISRA C 2025 compliant
   char buffer[70]{};
          uart_puts("[XXXXX]================[LAST ERROR DUMP]=================[XXXXX]\n");
     sprintf(buffer,"[XXXXX]%-50s[XXXXX]\n",lastError->errorText);
@@ -108,7 +109,7 @@ int main(void){
 
   uart_puts("[  7  ] Start up ...         [#####]\n");
 
-  uart_puts("[  7  ] Fault start up ...   [#####]\n");
+  //uart_puts("[  7  ] Fault start up ...   [#####]\n");
 
   
   //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
@@ -121,7 +122,7 @@ int main(void){
   // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
   // So we treat this saved SP as the top of the main stack (pre-RTOS).  
   
-  ram_dump();  
+  ram_dump();
   
  // if(lastSystemError.confirmed)
   //  normalStart();

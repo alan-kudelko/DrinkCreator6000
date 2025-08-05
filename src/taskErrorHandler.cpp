@@ -1,5 +1,6 @@
 #include "taskErrorHandler.h"
 #include <avr/wdt.h>  
+#include <uart.h>
 
 void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 
@@ -20,12 +21,12 @@ void softwareReset(){
   while(true);
 }
 void generateErrorInfo(sSystemError*lastError){
-  uint32_t runTimeFromMillis=0;
-  runTimeFromMillis=millis()/1000;
-  lastError->days=runTimeFromMillis/3600/24;
-  lastError->hours=runTimeFromMillis/3600%24;
-  lastError->minutes=runTimeFromMillis/60%60;
-  lastError->seconds=runTimeFromMillis%60;
+  uint32_t currentRunTimeMS=0;
+  currentRunTimeMS=xTaskGetTickCount()*portTICK_PERIOD_MS;
+  lastError->days=currentRunTimeMS/3600/24;
+  lastError->hours=currentRunTimeMS/3600%24;
+  lastError->minutes=currentRunTimeMS/60%60;
+  lastError->seconds=currentRunTimeMS%60;
   lastError->confirmed=false;
 }
 void checkGuardZones(uint8_t*guardZoneId){
@@ -42,14 +43,17 @@ void checkGuardZones(uint8_t*guardZoneId){
 }
 void displayCorruptedGuardZone(uint8_t*guardZoneId){
   uint8_t i=0;
+  char buffer[3]{};
   for(;i<GUARD_ZONE_SIZE;i++){
-    Serial.print("0X");
-    Serial.print(*((uint8_t*)(guardZones[*guardZoneId]+i)),HEX);
-    Serial.print(' ');
+    uart_puts("0X");
+    snprintf(buffer,sizeof(buffer),"%02X",*((uint8_t*)(guardZones[*guardZoneId]+i)));
+    uart_puts(buffer);
+    uart_putc(' ');
   }
-  Serial.println("");
+  uart_putc('\n');
 }
 void taskErrorHandler(void*pvParameters){
+  // Convert code to be MISRA C 2025 compliant
   uint8_t i=1;
   uint8_t guardZoneId=0;
   sSystemError lastError{};
@@ -89,10 +93,10 @@ void taskErrorHandler(void*pvParameters){
       lastError.taskId=guardZoneId;        
       EEPROMUpdateLastStartupError(&lastError);
        
-      Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
-      Serial.println((const char*)lastError.errorText);
-      Serial.println(F("[####################]====SYSTEM CRITICAL====[##]"));
-      Serial.println("");
+      uart_puts("[####################]====SYSTEM CRITICAL====[##]\n");
+      uart_puts((const char*)lastError.errorText); uart_putc('\n');
+      uart_puts("[####################]====SYSTEM CRITICAL====[##]\n");
+      uart_putc('\n');
       
       for(i=0;i<5;i++){
         vTaskDelay(pdMS_TO_TICKS(1000));

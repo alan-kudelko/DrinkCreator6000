@@ -1,4 +1,5 @@
 #include "taskReadInput.h"
+#include <uart.h>
 
 void taskReadInput(void*pvParameters){
   uint8_t keyboardInput=0; // Input read from INTCAPA
@@ -17,8 +18,11 @@ void taskReadInput(void*pvParameters){
                 
         xSemaphoreGive(mux_I2CLock);
         
-        Serial.print("Dane klawa: ");
-        Serial.println(keyboardInput,BIN);
+        uart_puts("Dane klawa: ");
+        char buffer[6];
+        snprintf(buffer,sizeof(buffer),"0x%3X",keyboardInput);
+        uart_puts(buffer);
+        uart_putc('\n');
 
         xQueueSend(qKeyboardData,&keyboardInput,pdMS_TO_TICKS(50));
         // Up to this point I'm handling the first interrupt which occurred
