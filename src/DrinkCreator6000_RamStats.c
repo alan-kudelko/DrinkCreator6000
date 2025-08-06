@@ -1,8 +1,9 @@
-#include <DrinkCreator6000_RamStats.h>
 #include <stdint.h>
 #include <stddef.h>
 #include <avr/io.h>
 #include <avr/iom2560.h>
+
+#include <DrinkCreator6000_RamStats.h>
 
 uint16_t __tdat_size=0;
 

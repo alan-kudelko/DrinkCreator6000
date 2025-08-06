@@ -1,36 +1,45 @@
+/**
+ * @file DrinkCreator6000_Pins.h
+ * @brief IO Mapping: Pin definitions and button mappings
+ *
+ * This header defines the mapping between microcontroller ports and
+ * the hardware components (buttons, sensors, actuators) used in the project.
+ * 
+ * The pins are grouped by their respective ports.
+ */
+
 #ifndef _DRINK_CREATOR6000_PINS_H_
     #define _DRINK_CREATOR6000_PINS_H_
 
-// This project is intended to run on the ATmega2560 in a TQFP-64 package.
-// Therefore, all pin definitions are based on the ATmega2560 pinout.
-// However, development and testing are currently being performed on an ATmega2561,
-// so the actual pin mappings may correspond to the ATmega2561 where applicable.
+/** @name Port B Pin Definitions
+ *  @{
+ */
+#define KEYBOARD_INT_PIN       PB0 /**< Keyboard interrupt input pin */
 
-//////////////////////////////////////////////////////////////////
-// IO Mapping:
-// Pin definitions and button mappings  
-// Address of MCP23017 I²C expander
+#define PELTIER2_PIN           PB4 /**< Second Peltier module control pin */
+#define BUZZER_PIN             PB5 /**< Buzzer control pin */
+/** @} */
 
-// Port B
-#define KEYBOARD_INT_PIN       PB0
+/** @name Port D Pin Definitions
+ *  @{
+ */
+#define I2C_SCL_PIN            PD0 /**< I2C Clock line */
+#define I2C_SDA_PIN            PD1 /**< I2C Data line */
+/** @} */
 
-#define PELTIER2_PIN           PB4
-#define BUZZER_PIN             PB5
+/** @name Port E Pin Definitions
+ *  @{
+ */
+#define UART0_RX_PIN           PE0 /**< UART0 Receive pin */
+#define UART0_TX_PIN           PE1 /**< UART0 Transmit pin */
+#define DS_PIN                 PE2 /**< Data Strobe or related sensor pin */
+#define ST_PIN                 PE3 /**< Shift register STrobe pin */
+#define SH_PIN                 PE4 /**< Shift register Shift pin */
+#define CIRCULATION_PUMP_PIN   PE5 /**< Circulation pump control pin */
+#define FANS_PIN               PE6 /**< Fans control pin */
+#define PELTIER1_PIN           PE7 /**< First Peltier module control pin */
+/** @} */
 
-// Port D
-#define I2C_SCL_PIN            PD0
-#define I2C_SDA_PIN            PD1
-
-// Port E
-#define UART0_RX_PIN           PE0
-#define UART0_TX_PIN           PE1
-#define DS_PIN                 PE2
-#define ST_PIN                 PE3
-#define SH_PIN                 PE4
-#define CIRCULATION_PUMP_PIN   PE5
-#define FANS_PIN               PE6
-#define PELTIER1_PIN           PE7
-
-//Check for conflicts on PCB
+/** @note Check for pin conflicts on PCB before finalizing the design */
 
 #endif // _DRINK_CREATOR6000_PINS_H_

@@ -3,7 +3,7 @@
 #include <uart.h>
 #include <DrinkCreator6000_Progmem.h>
 
-void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
+extern "C" void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 
 void stopPumps(){
   digitalWrite(STPin,LOW);

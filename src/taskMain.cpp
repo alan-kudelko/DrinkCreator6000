@@ -1,6 +1,6 @@
 #include "taskMain.h"
 
-void EEPROMUpdateLastStartupError(sSystemError*);
+extern "C" void EEPROMUpdateLastStartupError(sSystemError*);
 // Each operation should update current context
 // If one or more field is modified, operation should be atomic
 // incrementing and decrementing submenus can be common for all the tasks

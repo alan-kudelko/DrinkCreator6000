@@ -1,6 +1,8 @@
 #include "taskShowSystemInfo.h"
 #include <DrinkCreator6000_RamStats.h>
 
+extern "C" void updateMemoryUsage(void);
+
 void showInfo_Firmware_Sub_0(sScreenData*screenData){
   sprintf(screenData->lines[0],"%s","Drink Creator 6000");
   sprintf(screenData->lines[1],"%s","Software ver. 3.0");
