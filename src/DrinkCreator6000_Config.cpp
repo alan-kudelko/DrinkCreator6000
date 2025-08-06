@@ -4,20 +4,6 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
-const char*TaskNames[TASK_N]{
-  "ERROR HANDLER",
-  "STACK DEBUG",
-  "MAIN",
-  "READ INPUT",
-  "SERIAL INPUT",
-  "UPDATE SCREEN",
-  "READ TEMP",
-  "REGULATE TEMP",
-  "SELECT DRINK",
-  "ORDER DRINK",
-  "SHOW INFO",
-  "WELCOME"
-};
 StaticTask_t errorHandlerTCB         __attribute__((section(".tdat"))); //0
 StaticTask_t serialSystemDebuggerTCB __attribute__((section(".tdat"))); //1
 StaticTask_t mainTCB                 __attribute__((section(".tdat"))); //2
@@ -163,17 +149,6 @@ const uint8_t pumpsEff[8]{
   200,
   200
 };
-//////////////////////////////////////////////////////////////////
-// RAM-related symbols and global memory variables:
-void* __heap_end=NULL;
-uint8_t* __stack_ptr=NULL;
-uint16_t __tdat_size=0;
-
-uint16_t __heap_size=0;
-uint16_t __stack_size=0;
-uint16_t ram_total_free=0;
-uint16_t ram_in_use=0;
-const uint16_t ram_size=uint16_t(RAMEND)-uint16_t(&__data_start)+1;
 // Idle task counter
 volatile uint32_t idleCounter=0;
 volatile uint32_t idleCounterLast=0;

@@ -10,6 +10,7 @@
 #include <i2c.h>
 #include <avr/pgmspace.h>
 #include <DrinkCreator6000_Progmem.h>
+#include <DrinkCreator6000_RamStats.h>
 
 #define LAST_ERROR_BUFFER_SIZE 51
 #define LAST_BOOTUP_BUFFER_SIZE 6

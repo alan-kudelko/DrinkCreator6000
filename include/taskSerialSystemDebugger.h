@@ -13,7 +13,7 @@
 
 #include "DrinkCreator6000_Config.h"
 
-void updateMemoryUsage();
+extern "C" void updateMemoryUsage();
 void ram_dump();
 void taskSerialSystemDebugger(void*pvParameters);
 

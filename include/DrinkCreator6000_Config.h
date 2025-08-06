@@ -1,5 +1,5 @@
 #ifndef _DRINK_CREATOR6000_CONFIG_H_
-#define _DRINK_CREATOR6000_CONFIG_H_
+  #define _DRINK_CREATOR6000_CONFIG_H_
 
 #include <FreeRTOS.h>
 #include <task.h>
@@ -76,7 +76,6 @@ enum{
   TASK_WELCOME_SCREEN=11,
   TASK_TEST_HARDWAER=12
 };
-extern const char*TaskNames[];
 // Task identifiers
 enum{GUARD_ZONE_SIZE=32};
 enum{MEMORY_FILL_PATTERN=0xAA};
@@ -263,30 +262,6 @@ extern const char ingredients[][LCD_WIDTH-4-4];
 //
 extern const uint8_t pumpsEff[];
 // Pumps efficiency in ml/min
-//////////////////////////////////////////////////////////////////
-// RAM-related symbols and global memory variables:
-extern uint16_t __data_start;
-extern uint16_t __data_end;
-
-extern uint16_t __bss_start;
-extern uint16_t __bss_end;
-
-extern uint16_t __tdat_start;
-extern uint16_t __tdat_end;
-extern uint16_t __tdat_size;
-
-extern uint16_t __heap_start;
-extern void*__brkval;
-
-extern void* __heap_end;
-extern uint8_t*__stack_ptr;
-
-extern uint16_t __heap_size;
-extern uint16_t __stack_size;
-
-extern uint16_t ram_total_free;
-extern uint16_t ram_in_use;
-extern const uint16_t ram_size;
 // Idle task counter
 enum{INTERVAL_TICKS=1000}; // CPU usage update interval
 extern volatile uint32_t idleCounter;

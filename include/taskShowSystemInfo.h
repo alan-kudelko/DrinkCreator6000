@@ -13,8 +13,6 @@
 
 #include "DrinkCreator6000_Config.h"
 
-void updateMemoryUsage();
-
 void showInfo_Firmware_Sub_0(sScreenData*screenData);
 
 void showInfo_Firmware_Sub_1(sScreenData*screenData);

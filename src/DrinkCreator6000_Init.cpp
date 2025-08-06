@@ -3,6 +3,7 @@
 #include <Wire.h>
 #include <uart.h>
 #include <i2c.h>
+
 //////////////////////////////////////////////////////////////////
 // IO initialization:
 // Configures I/O pins and attaches interrupts related to pin events

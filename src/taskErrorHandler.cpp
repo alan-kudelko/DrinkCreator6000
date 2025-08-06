@@ -58,7 +58,9 @@ void taskErrorHandler(void*pvParameters){
   uint8_t i=1;
   uint8_t guardZoneId=0;
   sSystemError lastError{};
+  char taskNameBuffer[configMAX_TASK_NAME_LEN]={0};
   bool f_errorOccured=false;
+  const char*taskName=NULL;
   
   for(;;){
     if(!f_errorOccured){
@@ -67,7 +69,10 @@ void taskErrorHandler(void*pvParameters){
         for(;i<TASK_N;i++)
           vTaskSuspend(taskHandles[i]);            
         f_errorOccured=true;
-        snprintf(lastError.errorText,50,"Guard zone %d corrupted in task: %s",guardZoneId,TaskNames[guardZoneId]);
+        taskName=(const char*)pgm_read_ptr(&taskNames[guardZoneId]);
+        strncpy_P(taskNameBuffer, taskName,configMAX_TASK_NAME_LEN-1);
+        taskNameBuffer[configMAX_TASK_NAME_LEN-1]='\0';
+        snprintf(lastError.errorText,sizeof(lastError.errorText),"Guard zone %d corrupted in task: %s",guardZoneId,taskNameBuffer);
       }
 //      if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
 //        f_errorOccured=true;

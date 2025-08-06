@@ -3,16 +3,8 @@
 #include <DrinkCreator6000_Progmem.h>
 #include <FreeRTOS.h>
 
+#include <DrinkCreator6000_RamStats.h>
 
-void updateMemoryUsage(){
-  __heap_end=__brkval?__brkval:(void*)&__heap_start;
-  __heap_size=(uint16_t)__heap_end-(uint16_t)&__heap_start;
-  __stack_size=(uint16_t)RAMEND-(uint16_t)__stack_ptr;
-  __tdat_size=(uint16_t)&__tdat_end-(uint16_t)&__tdat_start;
-  
-  ram_total_free=(uint16_t)__stack_ptr-(uint16_t)__heap_end;
-  ram_in_use=(uint16_t)ram_size-(uint16_t)ram_total_free;
-}
 void ram_dump(){
   // Convert code to be MISRA C 2025 compliant
   char buffer[5]={0};

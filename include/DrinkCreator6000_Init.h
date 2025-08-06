@@ -3,8 +3,6 @@
 
 #include "DrinkCreator6000_Config.h"
 
-extern void setInputFlag();
-
 //////////////////////////////////////////////////////////////////
 // IO initialization: 
 // Configures I/O pins and attaches interrupts related to pin events

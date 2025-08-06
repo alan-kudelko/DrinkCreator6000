@@ -1,4 +1,5 @@
 #include "taskShowSystemInfo.h"
+#include <DrinkCreator6000_RamStats.h>
 
 void showInfo_Firmware_Sub_0(sScreenData*screenData){
   sprintf(screenData->lines[0],"%s","Drink Creator 6000");
@@ -50,18 +51,18 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
   sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
 }
 void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
-  updateMemoryUsage();  
+    updateMemoryUsage();  
   
-  if(UI_context->currentSubMenu==4)
-    UI_context->currentSubMenu=0;
-  if(UI_context->currentSubMenu>4)
-    UI_context->currentSubMenu=3;
+    if(UI_context->currentSubMenu==4)
+      UI_context->currentSubMenu=0;
+    if(UI_context->currentSubMenu>4)
+      UI_context->currentSubMenu=3;
 
-  memset((void*)screenData,0,sizeof(sScreenData));
+    memset((void*)screenData,0,sizeof(sScreenData));
   
-  if(UI_context->currentSubMenu==0){
-	  // Free RAM
-	  char buffer[13]{};
+    if(UI_context->currentSubMenu==0){
+	    // Free RAM
+	    char buffer[13]{};
     
 	  uint8_t ram_percent=100*uint32_t(ram_in_use)/ram_size;  
     
