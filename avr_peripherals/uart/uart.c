@@ -1,8 +1,15 @@
 #include <uart.h>
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <string.h>
 #include <DrinkCreator6000_Pins.h>
+
+
+volatile uint8_t uart_buffer_tx[UART_TX_BUFFER_SIZE]={0};
+volatile uint8_t uart_tx_buffer_head=0;
+volatile uint8_t uart_tx_buffer_tail=0;
+volatile uint8_t uart_tx_error_counter=0;
 
 volatile uint8_t uart_buffer_rx[UART_RX_BUFFER_SIZE]={0};
 volatile uint8_t uart_rx_buffer_head=0;
@@ -23,23 +30,61 @@ void uart_init(void){
     UCSR0B|=(1<<RXCIE0); 
 }
 
-void uart_putc(char c){
-    while(!(UCSR0A&(1<<UDRE0)));
-	
-    UDR0=c;
-}
-
-void uart_puts(const char*s){
-    while(*s)
-		uart_putc(*s++);
-}
-
-void uart_puts_P(const char*s){
-    char c=pgm_read_byte(s++);
-    while(c!=0){
-        uart_putc(c);
-        c=pgm_read_byte(s++);
+ISR(USART0_UDRE_vect){
+    if(uart_tx_buffer_head!=uart_tx_buffer_tail){
+        UDR0=uart_buffer_tx[uart_tx_buffer_tail];
+        uart_tx_buffer_tail=(uart_tx_buffer_tail+1)%UART_TX_BUFFER_SIZE;
     }
+    else{
+        UCSR0B&=~(1<<UDRIE0);
+    }
+}
+
+int16_t uart_putc(char c){
+    uint16_t copiedCharacters=-1;
+
+    uint8_t next_head=(uart_tx_buffer_head+1)%UART_TX_BUFFER_SIZE;
+
+    if(next_head==uart_tx_buffer_tail){
+        copiedCharacters=0;
+        return copiedCharacters; // 0 if there is no space in the buffer
+    }
+
+    uart_buffer_tx[uart_tx_buffer_head]=c;
+    uart_tx_buffer_head=next_head;
+
+    UCSR0B|=(1<<UDRIE0); // Enable interrupts - data registers empty
+
+    return copiedCharacters; // -1 if character is copied
+}
+
+int16_t uart_puts(const char*s){
+    int16_t copiedCharacters=0;
+    while(*s){
+		if(uart_putc(*s++)>=0){
+            return copiedCharacters;
+        }
+
+        copiedCharacters++;
+    }
+    copiedCharacters=-1;
+    return copiedCharacters;
+}
+
+int16_t uart_puts_P(const char*s){
+    int16_t copiedCharacters=0;
+
+    char c=pgm_read_byte(s++);
+
+    while(c!=0){
+        if(uart_putc(c)>=0){
+            return copiedCharacters;
+        }
+        c=pgm_read_byte(s++);
+        copiedCharacters++;
+    }
+    copiedCharacters=-1;
+    return copiedCharacters;
 }
 
 ISR(USART0_RX_vect){

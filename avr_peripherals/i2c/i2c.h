@@ -1,5 +1,5 @@
 #ifndef _I2C_H_
-#define _I2C_H_
+    #define _I2C_H_
 
 // Master Transmitter
 #define TW_START              0x08  // START condition transmitted
@@ -24,12 +24,15 @@
 #define I2C_READ_ACK          0x01 // Acknowledge for reading next byte
 #define I2C_READ_NACK         0x00 // No acknowledge for reading last byte
 
+#define I2C_RX_BUFFER_SIZE    64
+#define I2C_TX_BUFFER_SIZE    64
+
 #include <DrinkCreator6000_Config_C.h>
 #include <stdint.h>
 
 #ifdef __cplusplus
-extern "C" {
-#endif 
+    extern "C" {
+#endif
 
 void i2c_init(void);
 
@@ -54,7 +57,7 @@ uint8_t i2c_read_byte_from_address(uint8_t address,uint8_t*data);
 uint8_t i2c_read_bytes_from_address(uint8_t address,uint8_t*data,uint8_t length);
 
 #ifdef __cplusplus
-}
+    }
 #endif // __cplusplus
 
 #endif // _I2C_H_

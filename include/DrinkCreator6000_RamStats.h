@@ -66,9 +66,8 @@ extern uint16_t ram_size;       /**< Total usable SRAM size */
 /**
  * @brief Initializes the RAM size value.
  *
- * Called automatically at startup via section `.init8`.
  */
-extern void initRamSize(void) __attribute__((section(".init8")));
+extern void initRamSize(void);
 
 /**
  * @brief Updates all RAM usage tracking variables.

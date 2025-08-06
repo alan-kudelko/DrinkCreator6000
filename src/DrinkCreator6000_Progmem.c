@@ -50,14 +50,15 @@ const char msg_errorHandler_header[] PROGMEM="[####################]====SYSTEM C
 const char msg_X_Marker[]   PROGMEM="[XXXXX]";
 const char msg_HASH_Marker[]PROGMEM="[#####]";
 // Messages for initialization and startup
-const char msg_UartReady[]         PROGMEM="[  1  ] UART is ready!       [#####]\n";
-const char msg_IOInitialized[]     PROGMEM="[  2  ] IO initialized       [#####]\n";
-const char msg_EEPROMReady[]       PROGMEM="[  3  ] EEPROM is ready!     [#####]\n";
-const char msg_MemoryInitialized[] PROGMEM="[  4  ] Memory initialized   [#####]\n";
-const char msg_HardwareReady[]     PROGMEM="[  5  ] Hardware is ready!   [#####]\n";
-const char msg_InterruptsAttached[]PROGMEM="[  6  ] Interrupts attached! [#####]\n";
-const char msg_NormalStartUp[]     PROGMEM="[  7  ] Start up ...         [#####]\n";
-const char msg_FaultStartUp[]      PROGMEM="[  7  ] Fault start up ...   [#####]\n";
+const char msg_UartReady[]         PROGMEM="[  1  ] UART is ready!        [#####]\n";
+const char msg_IOInitialized[]     PROGMEM="[  2  ] IO initialized        [#####]\n";
+const char msg_EEPROMReady[]       PROGMEM="[  3  ] EEPROM is ready!      [#####]\n";
+const char msg_RamSizeInitialized[]PROGMEM="[  4  ] RAM Size initialized! [#####]\n";
+const char msg_MemoryInitialized[] PROGMEM="[  5  ] Memory initialized    [#####]\n";
+const char msg_I2CReady[]          PROGMEM="[  6  ] I2C is ready!         [#####]\n";
+const char msg_InterruptsAttached[]PROGMEM="[  7  ] Interrupts ready!     [#####]\n";
+const char msg_NormalStartUp[]     PROGMEM="[  8  ] Start up ...          [#####]\n";
+const char msg_FaultStartUp[]      PROGMEM="[  8  ] Fault start up ...    [#####]\n";
 
 // 
 const char taskErrorHandler_name[configMAX_TASK_NAME_LEN]           PROGMEM="ERROR HANDLER";

@@ -107,36 +107,12 @@ void calibrateIdleLoop(){
 
 
 int main(void){
-    uart_init();
-    sei();
-    _delay_ms(10);
-    uart_puts_P(msg_UartReady);
-
-    initializeIO();
-    uart_puts_P(msg_IOInitialized);
-
-    while(!eeprom_is_ready());
-
-    uart_puts_P(msg_EEPROMReady);
-
-    EEPROMUpdateBootups(&bootupsCount);
-    EEPROMGetLastStartupError(&lastSystemError);
-  
-    initializeMemory();
-    uart_puts_P(msg_MemoryInitialized);
-
-    initializeHardware();
-    uart_puts_P(msg_HardwareReady);
-
-    // Need to think about it
-    uart_puts_P(msg_InterruptsAttached);
-
-    //attachInterrupt(digitalPinToInterrupt(INTPin),setInputFlag,FALLING);
-    // For now I will try method without interrupt
-  
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).  
-  
+    while(true);
+    EEPROMUpdateBootups(&bootupsCount);
+    EEPROMGetLastStartupError(&lastSystemError);
+
     if(lastSystemError.confirmed){
       uart_puts_P(msg_NormalStartUp);
       normalStart();

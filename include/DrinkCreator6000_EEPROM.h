@@ -30,21 +30,21 @@ struct sSystemError;
  * 
  * @param[in,out] bootupsCount Pointer to the bootup count variable to update.
  */
-extern void EEPROMUpdateBootups(uint16_t* bootupsCount);
+extern void EEPROMUpdateBootups(uint16_t*bootupsCount);
 
 /**
  * @brief Retrieves the last startup error from EEPROM.
  * 
  * @param[out] lastError Pointer to a structure where the last error will be copied.
  */
-extern void EEPROMGetLastStartupError(struct sSystemError* lastError);
+extern void EEPROMGetLastStartupError(struct sSystemError*lastError);
 
 /**
  * @brief Updates the last startup error stored in EEPROM.
  * 
  * @param[in] errorStruct Pointer to the system error structure to be saved.
  */
-extern void EEPROMUpdateLastStartupError(struct sSystemError* errorStruct);
+extern void EEPROMUpdateLastStartupError(struct sSystemError*errorStruct);
 
 #ifdef __cplusplus
 }

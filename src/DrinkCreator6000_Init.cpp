@@ -1,8 +1,38 @@
+#include <avr/io.h>
+#include <util/delay.h>
+#include <eeprom.h>
+
 #include "DrinkCreator6000_Init.h"
+#include <DrinkCreator6000_Progmem.h>
+#include <DrinkCreator6000_Config.h>
+
 #include <Arduino.h>
+
 #include <Wire.h>
 #include <uart.h>
 #include <i2c.h>
+
+extern "C" void initRamSize(void);
+
+void initializeUART(void){
+    const char*prostyNapis="Mamy tutaj ciekawy dlugi tekst ciekawe co sie popsuje";
+    uart_init();
+    sei();
+    _delay_ms(10);
+
+    int16_t uartCopiedCharacters=0;
+
+    do{
+      uartCopiedCharacters=uart_puts(prostyNapis+uartCopiedCharacters);
+      _delay_ms(1000);
+    }while(uartCopiedCharacters!=-1);
+
+
+  return;
+
+    while((uartCopiedCharacters=uart_puts_P(msg_UartReady+uartCopiedCharacters))!=-1)
+      _delay_ms(1);
+}
 
 //////////////////////////////////////////////////////////////////
 // IO initialization:
@@ -36,11 +66,24 @@ void initializeIO(){
     PORTE&=~(1<<FANS_PIN);
 
     sei();
+
+    int16_t uartCopiedCharacters=0;
+    while((uartCopiedCharacters=uart_puts_P(msg_IOInitialized+uartCopiedCharacters))!=-1)
+      _delay_ms(1);
+}
+
+void initializeEEPROM(void){
+    while(!eeprom_is_ready());
+
+    uart_puts_P(msg_EEPROMReady);
 }
 //////////////////////////////////////////////////////////////////
 // Memory initialization:
 // Static allocation of stacks, queues, semaphores, and mutexes
 void initializeMemory(){
+    initRamSize();
+    uart_puts_P(msg_RamSizeInitialized);
+
     qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
     qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
     qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
@@ -63,6 +106,8 @@ void initializeMemory(){
     memset((void*)guardZone9, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+
+    uart_puts_P(msg_MemoryInitialized);
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:
@@ -71,6 +116,7 @@ void initializeMemory(){
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// LCD init	
     i2c_init();
+    uart_puts_P(msg_I2CReady);
     //lcd.begin();
     //lcd.backlight();
     return;
@@ -126,4 +172,18 @@ void initializeHardware(){
   }
 ////////////////////////////////////////////////////////////////// Shift register init
 ////////////////////////////////////////////////////////////////// Thermometer init
+}
+void initializeInterrupts(void){
+    // Yet to be implemented
+    uart_puts_P(msg_InterruptsAttached);
+}
+
+void init8(void){
+    initializeUART();
+    return;
+    initializeIO();
+    initializeEEPROM();
+    initializeMemory();
+    initializeHardware();
+    initializeInterrupts();
 }

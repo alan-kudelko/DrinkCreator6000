@@ -3,8 +3,11 @@
 
 #include <stdint.h>
 
+#define DRINK_NAME_LENGTH 16
+
+
 struct sDrinkData{
-    char drinkName[16];
+    char drinkName[DRINK_NAME_LENGTH];
     uint16_t ingredients[8];
     uint16_t numberOfOrders;
     // Can be optimzed
