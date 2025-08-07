@@ -6,6 +6,8 @@
   "C_Cpp.errorSquiggles": "disabled",
   "files.associations": {
     "string.h": "c",
-    "interrupt.h": "c"
+    "interrupt.h": "c",
+    "drinkcreator6000_config_c.h": "c",
+    "drinkcreator6000_pins.h": "c"
   }
 }

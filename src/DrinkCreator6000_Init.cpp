@@ -15,23 +15,11 @@
 extern "C" void initRamSize(void);
 
 void initializeUART(void){
-    const char*prostyNapis="Mamy tutaj ciekawy dlugi tekst ciekawe co sie popsuje";
     uart_init();
     sei();
     _delay_ms(10);
 
-    int16_t uartCopiedCharacters=0;
-
-    do{
-      uartCopiedCharacters=uart_puts(prostyNapis+uartCopiedCharacters);
-      _delay_ms(1000);
-    }while(uartCopiedCharacters!=-1);
-
-
-  return;
-
-    while((uartCopiedCharacters=uart_puts_P(msg_UartReady+uartCopiedCharacters))!=-1)
-      _delay_ms(1);
+    uart_puts_P_blocking(msg_UartReady);
 }
 
 //////////////////////////////////////////////////////////////////
@@ -67,22 +55,20 @@ void initializeIO(){
 
     sei();
 
-    int16_t uartCopiedCharacters=0;
-    while((uartCopiedCharacters=uart_puts_P(msg_IOInitialized+uartCopiedCharacters))!=-1)
-      _delay_ms(1);
+    uart_puts_P_blocking(msg_IOInitialized);
 }
 
 void initializeEEPROM(void){
     while(!eeprom_is_ready());
 
-    uart_puts_P(msg_EEPROMReady);
+    uart_puts_P_blocking(msg_EEPROMReady);
 }
 //////////////////////////////////////////////////////////////////
 // Memory initialization:
 // Static allocation of stacks, queues, semaphores, and mutexes
 void initializeMemory(){
     initRamSize();
-    uart_puts_P(msg_RamSizeInitialized);
+    uart_puts_P_blocking(msg_RamSizeInitialized);
 
     qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
     qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
@@ -107,7 +93,7 @@ void initializeMemory(){
     memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
 
-    uart_puts_P(msg_MemoryInitialized);
+    uart_puts_P_blocking(msg_MemoryInitialized);
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:
@@ -116,7 +102,7 @@ void initializeMemory(){
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// LCD init	
     i2c_init();
-    uart_puts_P(msg_I2CReady);
+    uart_puts_P_blocking(msg_I2CReady);
     //lcd.begin();
     //lcd.backlight();
     return;
@@ -175,7 +161,7 @@ void initializeHardware(){
 }
 void initializeInterrupts(void){
     // Yet to be implemented
-    uart_puts_P(msg_InterruptsAttached);
+    uart_puts_P_blocking(msg_InterruptsAttached);
 }
 
 void init8(void){

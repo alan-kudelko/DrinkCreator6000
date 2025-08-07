@@ -20,33 +20,33 @@ void lastError_dump(const sSystemError*lastError){
 
   char buffer[LAST_ERROR_BUFFER_SIZE]={0};
 
-  uart_puts_P(msg_lastError_header);
+  uart_puts_P_blocking(msg_lastError_header);
 
-  uart_puts_P(msg_X_Marker);
+  uart_puts_P_blocking(msg_X_Marker);
   snprintf(buffer,sizeof(buffer),"%-50s",lastError->errorText);
 
-  uart_puts(buffer);
-  uart_puts_P(msg_X_Marker);
-  uart_putc('\n');
+  uart_puts_blocking(buffer);
+  uart_puts_P_blocking(msg_X_Marker);
+  uart_putc_blocking('\n');
 
-  uart_puts_P(msg_lastError_failureAfter);
+  uart_puts_P_blocking(msg_lastError_failureAfter);
   snprintf(buffer,sizeof(buffer),"%3d days %2d h %2d min %2d s",lastError->days,lastError->hours,lastError->minutes,lastError->seconds);
-  uart_puts(buffer);
-  uart_puts_P(msg_X_Marker);
-  uart_putc('\n');
+  uart_puts_blocking(buffer);
+  uart_puts_P_blocking(msg_X_Marker);
+  uart_putc_blocking('\n');
 
-  uart_puts_P(msg_lastError_header);
+  uart_puts_P_blocking(msg_lastError_header);
 }
 void lastBootup_dump(const uint16_t*bootup){
   /* MISRA C 2025 Rule 21.6: snprintf is used with bounds checking */
   char buffer[LAST_BOOTUP_BUFFER_SIZE]={0};
 
-  uart_puts_P(msg_lastBootup_header);
+  uart_puts_P_blocking(msg_lastBootup_header);
   snprintf(buffer,sizeof(buffer),"%-5d",*bootup);
-  uart_puts(buffer);
-  uart_putc(' ');
-  uart_puts_P(msg_HASH_Marker);
-  uart_putc('\n');
+  uart_puts_blocking(buffer);
+  uart_putc_blocking(' ');
+  uart_puts_P_blocking(msg_HASH_Marker);
+  uart_putc_blocking('\n');
 }
 void normalStart(){
   taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
@@ -114,14 +114,14 @@ int main(void){
     EEPROMGetLastStartupError(&lastSystemError);
 
     if(lastSystemError.confirmed){
-      uart_puts_P(msg_NormalStartUp);
+      uart_puts_P_blocking(msg_NormalStartUp);
       normalStart();
     }
     else{
-      uart_puts_P(msg_FaultStartUp);
+      uart_puts_P_blocking(msg_FaultStartUp);
       faultStart();
     }
-    uart_putc('\n');
+    uart_putc_blocking('\n');
 
     lastBootup_dump(&bootupsCount);  
     lastError_dump(&lastSystemError);

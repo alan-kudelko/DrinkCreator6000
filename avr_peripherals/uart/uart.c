@@ -5,16 +5,15 @@
 #include <string.h>
 #include <DrinkCreator6000_Pins.h>
 
-
 volatile uint8_t uart_buffer_tx[UART_TX_BUFFER_SIZE]={0};
 volatile uint8_t uart_tx_buffer_head=0;
 volatile uint8_t uart_tx_buffer_tail=0;
-volatile uint8_t uart_tx_error_counter=0;
+volatile uint16_t uart_tx_error_counter=0;
 
 volatile uint8_t uart_buffer_rx[UART_RX_BUFFER_SIZE]={0};
 volatile uint8_t uart_rx_buffer_head=0;
 volatile uint8_t uart_rx_buffer_tail=0;
-volatile uint8_t uart_rx_error_counter=0;
+volatile uint16_t uart_rx_error_counter=0;
 
 void uart_init(void){
     // Setting up TX and RX pins
@@ -36,55 +35,77 @@ ISR(USART0_UDRE_vect){
         uart_tx_buffer_tail=(uart_tx_buffer_tail+1)%UART_TX_BUFFER_SIZE;
     }
     else{
-        UCSR0B&=~(1<<UDRIE0);
+        UCSR0B&=~(1<<UDRIE0); // Disable empty data register interrupt
     }
 }
 
-int16_t uart_putc(char c){
-    uint16_t copiedCharacters=-1;
+void uart_putc_blocking(char c){
+    uint8_t next_head=(uart_tx_buffer_head+1)%UART_TX_BUFFER_SIZE;
 
+    while(next_head==uart_tx_buffer_tail){
+        // Wait until buffer is ready for new character  
+    }
+    uart_buffer_tx[uart_tx_buffer_head]=c;
+    uart_tx_buffer_head=next_head;
+
+    UCSR0B|=(1<<UDRIE0); // Enable interrupt on empty data register to call the ISR
+}
+
+void uart_puts_blocking(const char*s){
+    while(*s){
+        uart_putc_blocking(*s++);
+    }
+}
+
+void uart_puts_P_blocking(const char*s){
+    char c=pgm_read_byte(s++);
+    while(c){
+        uart_putc_blocking(c);
+        c=pgm_read_byte(s++);
+    }
+}
+
+void uart_putc_non_blocking(char c,int8_t*status){
     uint8_t next_head=(uart_tx_buffer_head+1)%UART_TX_BUFFER_SIZE;
 
     if(next_head==uart_tx_buffer_tail){
-        copiedCharacters=0;
-        return copiedCharacters; // 0 if there is no space in the buffer
+        *status=0;
+        return;
     }
 
     uart_buffer_tx[uart_tx_buffer_head]=c;
     uart_tx_buffer_head=next_head;
 
+    *status=-1; // Character was copied
     UCSR0B|=(1<<UDRIE0); // Enable interrupts - data registers empty
-
-    return copiedCharacters; // -1 if character is copied
 }
 
-int16_t uart_puts(const char*s){
-    int16_t copiedCharacters=0;
+void uart_puts_non_blocking(const char*s,int8_t*status){
+    int8_t characterStatus=-1;
     while(*s){
-		if(uart_putc(*s++)>=0){
-            return copiedCharacters;
+        uart_putc_non_blocking(*s++,&characterStatus);
+        if(characterStatus==0){
+            return;
         }
-
-        copiedCharacters++;
+        (*status)++;
     }
-    copiedCharacters=-1;
-    return copiedCharacters;
+    *status=-1; // All characters were copied
 }
 
-int16_t uart_puts_P(const char*s){
-    int16_t copiedCharacters=0;
-
+void uart_puts_P_non_blocking(const char*s,int8_t*status){
+    int8_t characterStatus=-1;
     char c=pgm_read_byte(s++);
 
     while(c!=0){
-        if(uart_putc(c)>=0){
-            return copiedCharacters;
+        uart_putc_non_blocking(c,&characterStatus);
+        if(characterStatus==0){
+            return;
         }
         c=pgm_read_byte(s++);
-        copiedCharacters++;
+        (*status)++;
     }
-    copiedCharacters=-1;
-    return copiedCharacters;
+
+    *status=-1; // All characters were copied
 }
 
 ISR(USART0_RX_vect){
@@ -121,6 +142,6 @@ int16_t uart_peekc(void){
     }
 }
 
-uint8_t uart_rx_error_count(void){
+uint16_t uart_rx_error_count(void){
     return uart_rx_error_counter; // Return the number of errors
 }

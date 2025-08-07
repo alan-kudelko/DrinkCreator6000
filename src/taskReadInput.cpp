@@ -18,11 +18,11 @@ void taskReadInput(void*pvParameters){
                 
         xSemaphoreGive(mux_I2CLock);
         
-        uart_puts("Dane klawa: ");
+        //uart_puts("Dane klawa: ");
         char buffer[6];
         snprintf(buffer,sizeof(buffer),"0x%3X",keyboardInput);
-        uart_puts(buffer);
-        uart_putc('\n');
+        //uart_puts(buffer);
+        //uart_putc('\n');
 
         xQueueSend(qKeyboardData,&keyboardInput,pdMS_TO_TICKS(50));
         // Up to this point I'm handling the first interrupt which occurred

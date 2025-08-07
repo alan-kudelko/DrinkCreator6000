@@ -1,6 +1,9 @@
 #ifndef _I2C_H_
     #define _I2C_H_
 
+#include <stdint.h>
+#include <DrinkCreator6000_Config_C.h>
+
 // Master Transmitter
 #define TW_START              0x08  // START condition transmitted
 #define TW_REP_START          0x10  // Repeated START condition transmitted
@@ -24,11 +27,22 @@
 #define I2C_READ_ACK          0x01 // Acknowledge for reading next byte
 #define I2C_READ_NACK         0x00 // No acknowledge for reading last byte
 
+#define READ_FLAG             0
+#define WRITE_FLAG            1
+#define LAST_PACKAGE          1
+#define NOT_LAST_PACKAGE      0
+#define ADDRESS_PACKAGE       0
+#define DATA_PACKAGE          1
+
+struct I2C_DATA{
+    uint8_t value; // Address or data
+    _Bool f_RW;    // Read 0, Write 1 flag
+    _Bool f_LP;    // Last package flag 1 - yes, 0 - no
+    _Bool f_Type;  // Package type 0 - address, 1 - data
+};
+
 #define I2C_RX_BUFFER_SIZE    64
 #define I2C_TX_BUFFER_SIZE    64
-
-#include <DrinkCreator6000_Config_C.h>
-#include <stdint.h>
 
 #ifdef __cplusplus
     extern "C" {
