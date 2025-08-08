@@ -10,7 +10,6 @@
 #include <portmacro.h>
 #include <semphr.h>
 
-#include <LiquidCrystal_I2C.h>
 #include <DrinkCreator6000_DataTypes.h>
 #include <DrinkCreator6000_Config_C.h>
 #include <DrinkCreator6000_Pins.h>
@@ -210,7 +209,7 @@ enum{
     - (scrollable) marks screens that support scrolling
     - (editable) marks screen that supports editing
 */
-extern LiquidCrystal_I2C lcd;
+//extern LiquidCrystal_I2C lcd;
 //////////////////////////////////////////////////////////////////
 // Flow control:
 // Queue sizes and buffers for inter-task communication

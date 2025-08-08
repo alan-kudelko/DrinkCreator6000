@@ -1,7 +1,6 @@
 #ifndef _TASK_SHOW_SYSTEM_INFO_H_
 #define _TASK_SHOW_SYSTEM_INFO_H_
 
-#include <Arduino.h>
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>

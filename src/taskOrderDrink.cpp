@@ -1,3 +1,6 @@
+#include <string.h>
+#include <stdio.h>
+
 #include "taskOrderDrink.h"
 
 void taskOrderDrink(void*pvParameters){

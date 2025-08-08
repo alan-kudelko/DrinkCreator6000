@@ -1,3 +1,6 @@
+#include <string.h>
+#include <stdio.h>
+
 #include "taskSelectDrink.h"
 
 void taskSelectDrink(void*pvParameters){  

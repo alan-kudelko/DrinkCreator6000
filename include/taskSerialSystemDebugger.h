@@ -1,7 +1,6 @@
 #ifndef _TASK_SERIAL_SYSTEM_DEBUGGER_H_
 #define _TASK_SERIAL_SYSTEM_DEBUGGER_H_
 
-#include <Arduino.h>
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>

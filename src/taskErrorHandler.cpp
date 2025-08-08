@@ -1,19 +1,20 @@
 #include "taskErrorHandler.h"
-#include <avr/wdt.h>  
+#include <avr/wdt.h> 
+#include <stdio.h>
 #include <uart.h>
 #include <DrinkCreator6000_Progmem.h>
 
 extern "C" void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 
 void stopPumps(){
-  digitalWrite(STPin,LOW);
-  shiftOut(DSPin,SHPin,0,LSBFIRST);
-  digitalWrite(STPin,HIGH);  
+  //digitalWrite(STPin,LOW);
+  //shiftOut(DSPin,SHPin,0,LSBFIRST);
+  //digitalWrite(STPin,HIGH);  
 }
 void stopCooler(){
-  digitalWrite(Pelt1Pin,LOW);
-  digitalWrite(Pelt1Pin,LOW);
-  digitalWrite(FansPin,LOW);
+  //digitalWrite(Pelt1Pin,LOW);
+  //digitalWrite(Pelt1Pin,LOW);
+  //digitalWrite(FansPin,LOW);
 }
 // This won't work for a while, I need ISP programmer to set High Fuse bits
 // See Atmega2560 datasheet
@@ -46,12 +47,12 @@ void displayCorruptedGuardZone(uint8_t*guardZoneId){
   uint8_t i=0;
   char buffer[3]{};
   for(;i<GUARD_ZONE_SIZE;i++){
-    //uart_puts("0X");
+    uart_puts_blocking("0X");
     snprintf(buffer,sizeof(buffer),"%02X",*((uint8_t*)(guardZones[*guardZoneId]+i)));
-    //uart_puts(buffer);
-    //uart_putc(' ');
+    uart_puts_blocking(buffer);
+    uart_putc_blocking(' ');
   }
-  //uart_putc('\n');
+  uart_putc_blocking('\n');
 }
 void taskErrorHandler(void*pvParameters){
   // Convert code to be MISRA C 2025 compliant
@@ -99,10 +100,10 @@ void taskErrorHandler(void*pvParameters){
       lastError.taskId=guardZoneId;        
       EEPROMUpdateLastStartupError(&lastError);
        
-      //uart_puts_P(msg_errorHandler_header);
-      //uart_puts((const char*)lastError.errorText); uart_putc('\n');
-      //uart_puts_P(msg_errorHandler_header);
-      //uart_putc('\n');
+      uart_puts_P_blocking(msg_errorHandler_header);
+      uart_puts_blocking((const char*)lastError.errorText); uart_putc_blocking('\n');
+      uart_puts_P_blocking(msg_errorHandler_header);
+      uart_putc_blocking('\n');
       
       for(i=0;i<5;i++){
         vTaskDelay(pdMS_TO_TICKS(1000));

@@ -1,7 +1,6 @@
 #ifndef _TAK_READ_TEMP_H
 #define _TAK_READ_TEMP_H
 
-#include <Arduino.h>
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>

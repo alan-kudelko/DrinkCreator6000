@@ -1,3 +1,6 @@
+#include <stdio.h>
+#include <string.h>
+
 #include "taskShowSystemInfo.h"
 #include <DrinkCreator6000_RamStats.h>
 
@@ -50,7 +53,7 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
   mantissa=uint8_t(temperatureHysteresis*10)%10;
   sprintf(screenData->lines[2],"Hyst: %d.%d\xDF""C",integer,mantissa);
   
-  sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
+  //sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
 }
 void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
     updateMemoryUsage();  

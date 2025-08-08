@@ -4,11 +4,11 @@
 
 #include "DrinkCreator6000_Tasks.h"
 
-#include <Wire.h>
 #include <util/delay.h>
 #include <uart.h>
 #include <i2c.h>
 #include <avr/pgmspace.h>
+#include <stdio.h>
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_RamStats.h>
 
@@ -109,7 +109,6 @@ void calibrateIdleLoop(){
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).  
-    while(true);
     EEPROMUpdateBootups(&bootupsCount);
     EEPROMGetLastStartupError(&lastSystemError);
 

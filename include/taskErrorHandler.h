@@ -1,7 +1,6 @@
 #ifndef _TASK_ERROR_HANDLER_H_
 #define _TASK_ERROR_HANDLER_H_
 
-#include <Arduino.h>
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>

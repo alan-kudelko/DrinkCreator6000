@@ -3,6 +3,11 @@
 #include <avr/interrupt.h>
 #include <DrinkCreator6000_Pins.h>
 
+volatile struct I2C_DATA i2c_buffer_tx[I2C_TX_BUFFER_SIZE]={0};
+volatile uint8_t i2c_tx_buffer_head=0;
+volatile uint8_t i2c_tx_buffer_tail=0;
+volatile uint8_t i2c_status=0;
+
 void i2c_init(void){
     // Setup SDA and SCL pins as INPUTS
     DDRD&=~(1<<I2C_SCL_PIN);
@@ -15,6 +20,10 @@ void i2c_init(void){
 
 void i2c_disable(void){
     TWCR&=(~(1<<TWEN)); // Disable TWI (I2C)
+}
+
+uint8_t i2c_get_status(void){
+    return i2c_status;
 }
 
 uint8_t i2c_begin_transmission(void){
@@ -32,116 +41,40 @@ void i2c_end_transmission(void){
     TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWSTO); // Clear interrupt flag, enable TWI and send STOP condition
 }
 
-uint8_t i2c_write_address(uint8_t address,uint8_t mode){
-    if(i2c_begin_transmission()){
-        return 1; // Error starting transmission
-    }
+ISR(TWI_vect){
+    uint8_t status=TWSR&TW_STATUS_MASK;
+    // Changed to FSM
 
-    TWDR=address<<1|mode; // Load address into data register (shifted left for W mode)
-
-    TWCR=(1<<TWINT)|(1<<TWEN); // Clear interrupt flag, enable TWI and send address
-
-    while(!(TWCR&(1<<TWINT))); // Wait for transmission to complete
-
-    uint8_t status=(TWSR&TW_STATUS_MASK); // Get status code
-
-    if(status!=TW_MT_SLA_ACK){ // Check if address was acknowledged
-        return 1; // Error occurred
-    }
-    return 0; // Address sent successfully
+    
 }
 
-uint8_t i2c_write_byte(uint8_t data){
-    TWDR=data; // Load data into data register
-    TWCR=(1<<TWINT)|(1<<TWEN); // Clear interrupt flag and enable TWI
-
-    while(!(TWCR&(1<<TWINT))); // Wait for transmission to complete
-
-    uint8_t status=(TWSR&TW_STATUS_MASK); // Get status code
-
-    if(status!=TW_MT_DATA_ACK){ // Check if data was transmitted successfully
-        return 1; // Error occurred
-    }
-    return 0;
-}
-
-uint8_t i2c_write_byte_to_address(uint8_t address,uint8_t data){
-    if(i2c_write_address(address,WRITE_MODE)){
-        return 1; // Error writing address
-    }
-    if(i2c_write_byte(data)){
-        return 1; // Error writing data
-    }
-    i2c_end_transmission(); // End transmission
-    return 0; // Data written successfully
-}
-
-uint8_t i2c_write_bytes_to_address(uint8_t address,const uint8_t*data,uint8_t length){
-    uint8_t i=0;
-    if(i2c_write_address(address,WRITE_MODE)){
-        return 1; // Error writing address
+uint8_t i2c_write_byte_blocking(uint8_t address,uint8_t data){
+    uint8_t new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+    while(new_head==i2c_tx_buffer_tail){
+        // Wait for space in the buffer
     }
 
-    for(i=0;i<length;i++){
-        if(i2c_write_byte(data[i])){
-            return 1; // Error writing data
-        }
-    }
-    i2c_end_transmission(); // End transmission
+    i2c_tx_buffer_head=new_head;
+    i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
+    i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
+    i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
+    i2c_buffer_tx[i2c_tx_buffer_head].f_Type=ADDRESS_PACKAGE;
 
-    return 0;
-}
+    TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWIE);
 
-uint8_t i2c_read_byte(uint8_t*data,uint8_t ack){
-    if(ack){
-        TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWEA); // Clear interrupt flag, enable TWI and enable ACK for next byte
-    }
-    else{
-        TWCR=(1<<TWINT)|(1<<TWEN); // Disable ACK
+    new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+
+    while(new_head==i2c_tx_buffer_tail){
+           // Wait for space in the buffer
     }
 
-    while(!(TWCR&(1<<TWINT))); // Wait for transmission to complete
+    i2c_tx_buffer_head=new_head;
+    i2c_buffer_tx[i2c_tx_buffer_head].value=data;
+    i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
+    i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
+    i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
 
-    uint8_t status=(TWSR&TW_STATUS_MASK); // Get status code
+    TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWIE);
 
-    if(status!=TW_MR_DATA_ACK && status!=TW_MR_DATA_NACK){ // Check if data was received successfully
-        return 1; // Error occurred
-    }
-    *data=TWDR; // Read data from data register
-    return 0;
-}
-
-uint8_t i2c_read_byte_from_address(uint8_t address,uint8_t*data){
-    if(i2c_begin_transmission()){
-        return 1; // Error starting transmission
-    }
-    if(i2c_write_address(address,READ_MODE)){ // Write address in read mode
-        i2c_end_transmission(); // End transmission if error occurred
-        return 1; // Error writing address
-    }
-    if(i2c_read_byte(data,I2C_READ_NACK)){
-        i2c_end_transmission(); // End transmission if error occurred
-        return 1; // Error reading byte
-    }
-    i2c_end_transmission(); // End transmission
-    return 0;
-}
-
-uint8_t i2c_read_bytes_from_address(uint8_t address,uint8_t*data,uint8_t length){
-    uint8_t i;
-    if(i2c_begin_transmission()){
-        return 1; // Error starting transmission
-    }
-    if(i2c_write_address(address,READ_MODE)){ // Write address in read mode
-        i2c_end_transmission(); // End transmission if error occurred
-        return 1; // Error writing address
-    }
-    for(i=0;i<length;i++){
-        if(i2c_read_byte(&data[i],i<length-1)){ // Read byte with ACK for all but the last byte
-            i2c_end_transmission(); // End transmission if error occurred
-            return 1; // Error reading byte
-        }
-    }
-    i2c_end_transmission(); // End transmission
     return 0;
 }

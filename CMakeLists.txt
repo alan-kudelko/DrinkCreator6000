@@ -53,13 +53,8 @@ file(GLOB RTOS_SOURCES
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/*.c"
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/*.c"
 )
-message(STATUS "Adding ArduinoCore-avr sources")
-file(GLOB ARDUINO_CORE_SOURCES
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/*.cpp"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/*.cpp"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/utility/*.c"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino/*.cpp"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino/*.c"
+message(STATUS "Adding AVR Peripherals sources")
+file(GLOB AVR_CORE_SOURCES
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.c"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c/*.c"
 )
@@ -74,13 +69,8 @@ file(GLOB RTOS_HEADERS
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/include*.hpp"
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/*.h"
 )
-message(STATUS "Adding ArduinoCore-avr headers")
-file(GLOB ARDUINO_CORE_HEADERS
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C/*.h"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/*.h"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/utility/*.h"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino/*.h"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/variants/mega/*.h"
+message(STATUS "Adding AVR Peripherals headers")
+file(GLOB AVR_CORE_HEADERS
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.h"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c/*.h"
 )
@@ -94,11 +84,6 @@ include_directories(
     "${CMAKE_SOURCE_DIR}/include"
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/include"
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Arduino-LiquidCrystal-I2C"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/libraries/Wire/src/utility"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/cores/arduino"
-    "${CMAKE_SOURCE_DIR}/ArduinoCore-avr/variants/mega"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c"
 )
@@ -123,15 +108,15 @@ add_executable(${PROJECT_NAME}
     ${PROJECT_HEADERS}
     ${RTOS_SOURCES}
     ${RTOS_HEADERS}
-    ${ARDUINO_CORE_SOURCES}
-    ${ARDUINO_CORE_HEADERS}
+    ${AVR_CORE_SOURCES}
+    ${AVR_CORE_HEADERS}
 )
 # Generate map file
 set_target_properties(${PROJECT_NAME} PROPERTIES
     LINK_FLAGS "-Wl,-Map=${PROJECT_NAME}.map"
 )
 message(STATUS "Final sources for ${PROJECT_NAME}:")
-foreach(src ${PROJECT_SOURCES} ${PROJECT_HEADERS} ${RTOS_SOURCES} ${RTOS_HEADERS} ${ARDUINO_CORE_SOURCES} ${ARDUINO_CORE_HEADERS})
+foreach(src ${PROJECT_SOURCES} ${PROJECT_HEADERS} ${RTOS_SOURCES} ${RTOS_HEADERS} ${AVR_CORE_SOURCES} ${AVR_CORE_HEADERS})
     message(STATUS "${src}")
 endforeach()
 # Generate hex file

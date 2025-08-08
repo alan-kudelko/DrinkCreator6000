@@ -72,7 +72,7 @@ volatile StackType_t* guardZones[TASK_N]={
 //////////////////////////////////////////////////////////////////
 // Screen data:
 // LCD dimensions and I2C address
-LiquidCrystal_I2C lcd(LCD_ADDR,LCD_WIDTH,LCD_HEIGHT);
+//LiquidCrystal_I2C lcd(LCD_ADDR,LCD_WIDTH,LCD_HEIGHT);
 //////////////////////////////////////////////////////////////////
 // Flow control:
 // Queue sizes and buffers for inter-task communication

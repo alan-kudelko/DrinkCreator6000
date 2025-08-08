@@ -76,12 +76,13 @@ void uart_putc_non_blocking(char c,int8_t*status){
     uart_buffer_tx[uart_tx_buffer_head]=c;
     uart_tx_buffer_head=next_head;
 
-    *status=-1; // Character was copied
+    (*status)=-1; // Character was copied
     UCSR0B|=(1<<UDRIE0); // Enable interrupts - data registers empty
 }
 
 void uart_puts_non_blocking(const char*s,int8_t*status){
     int8_t characterStatus=-1;
+    s+=*status;
     while(*s){
         uart_putc_non_blocking(*s++,&characterStatus);
         if(characterStatus==0){
@@ -89,11 +90,12 @@ void uart_puts_non_blocking(const char*s,int8_t*status){
         }
         (*status)++;
     }
-    *status=-1; // All characters were copied
+    (*status)=-1; // All characters were copied
 }
 
 void uart_puts_P_non_blocking(const char*s,int8_t*status){
     int8_t characterStatus=-1;
+    s+=*status;
     char c=pgm_read_byte(s++);
 
     while(c!=0){
@@ -105,7 +107,7 @@ void uart_puts_P_non_blocking(const char*s,int8_t*status){
         (*status)++;
     }
 
-    *status=-1; // All characters were copied
+    (*status)=-1; // All characters were copied
 }
 
 ISR(USART0_RX_vect){

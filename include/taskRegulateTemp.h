@@ -1,7 +1,6 @@
 #ifndef _TAK_REGULATE_TEMP_H_
 #define _TAK_REGULATE_TEMP_H_
 
-#include <Arduino.h>
 #include <FreeRTOS.h>
 #include <task.h>
 #include <queue.h>

@@ -12,7 +12,7 @@
  */
 
 #ifndef _UART_H_
-#define _UART_H_
+    #define _UART_H_
 
 #include <stdint.h>
 #include <avr/pgmspace.h>
@@ -31,7 +31,7 @@
 #define UART_BUFFER_EMPTY   0
 
 #ifdef __cplusplus
-extern "C" {
+    extern "C" {
 #endif
 
 // ========================
@@ -105,7 +105,7 @@ void uart_putc_blocking(char c);
  *
  * @param s Pointer to null-terminated string in RAM.
  */
-void uart_puts_blocking(const char *s);
+void uart_puts_blocking(const char*s);
 
 /**
  * @brief Sends a null-terminated string from PROGMEM over UART (blocking).
@@ -114,7 +114,7 @@ void uart_puts_blocking(const char *s);
  *
  * @param s Pointer to null-terminated string in PROGMEM.
  */
-void uart_puts_P_blocking(const char *s);
+void uart_puts_P_blocking(const char*s);
 
 // ============================
 // Non-blocking UART Functions
@@ -128,7 +128,7 @@ void uart_puts_P_blocking(const char *s);
  *  - `-1` if success (character accepted),
  *  - `0` if buffer full (character not sent).
  */
-void uart_putc_non_blocking(char c, int8_t *status);
+void uart_putc_non_blocking(char c,int8_t*status);
 
 /**
  * @brief Attempts to enqueue a null-terminated string from RAM (non-blocking).
@@ -140,7 +140,7 @@ void uart_putc_non_blocking(char c, int8_t *status);
  *  - `-1` if entire string queued,
  *  - `>= 0` number of characters successfully queued before buffer filled.
  */
-void uart_puts_non_blocking(const char *s, int8_t *status);
+void uart_puts_non_blocking(const char*s,int8_t*status);
 
 /**
  * @brief Attempts to enqueue a null-terminated string from PROGMEM (non-blocking).
@@ -152,7 +152,7 @@ void uart_puts_non_blocking(const char *s, int8_t *status);
  *  - `-1` if entire string queued,
  *  - `>= 0` number of characters successfully queued before buffer filled.
  */
-void uart_puts_P_non_blocking(const char *s, int8_t *status);
+void uart_puts_P_non_blocking(const char*s,int8_t*status);
 
 // ========================
 // Receive Functions
@@ -180,7 +180,7 @@ int16_t uart_peekc(void);
 uint16_t uart_rx_error_count(void);
 
 #ifdef __cplusplus
-}
+    }
 #endif
 
 #endif // _UART_H_
