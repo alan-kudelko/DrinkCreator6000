@@ -8,6 +8,8 @@
 #include <uart.h>
 #include <i2c.h>
 #include <avr/pgmspace.h>
+#include <avr/interrupt.h>
+
 #include <stdio.h>
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_RamStats.h>
@@ -105,6 +107,66 @@ void calibrateIdleLoop(){
 // by switching their pins HIGH or LOW based on hysteresis thresholds.
 //////////////////////////////////////////////////////////////////
 
+#define LCD_ADDR       0x27 // 7-bit
+#define LCD_BACKLIGHT  0x08
+#define LCD_ENABLE     0x04
+#define LCD_RS         0x01
+
+// Deklaracja Twojej funkcji blokującej transmisję
+uint8_t i2c_write_byte_blocking(uint8_t address, uint8_t data);
+
+// ---------------- LCD low-level ----------------
+
+static void lcd_write4(uint8_t nibble) {
+    i2c_write_byte_blocking(LCD_ADDR, nibble | LCD_BACKLIGHT);
+    _delay_us(150);
+    i2c_write_byte_blocking(LCD_ADDR, nibble | LCD_BACKLIGHT | LCD_ENABLE);
+    _delay_us(1000);
+    i2c_write_byte_blocking(LCD_ADDR, nibble | LCD_BACKLIGHT);
+    _delay_us(150);
+}
+
+static void lcd_send(uint8_t value, uint8_t mode) {
+    uint8_t high = (value & 0xF0) | mode;
+    uint8_t low  = ((value << 4) & 0xF0) | mode;
+    lcd_write4(high);
+    lcd_write4(low);
+    _delay_us(150);
+}
+
+static void lcd_cmd(uint8_t cmd) {
+    lcd_send(cmd, 0);
+    if (cmd == 0x01 || cmd == 0x02) {
+        _delay_ms(20);
+    }
+}
+
+static void lcd_data(uint8_t data) {
+    lcd_send(data, LCD_RS);
+}
+
+// ---------------- LCD init ----------------
+
+static void lcd_init(void) {
+    _delay_ms(50);
+
+    lcd_write4(0x30);
+    _delay_ms(5);
+    lcd_write4(0x30);
+    _delay_us(300);
+    lcd_write4(0x30);
+    _delay_us(300);
+    lcd_write4(0x20); // 4-bit
+    _delay_us(150);
+
+    lcd_cmd(0x28); // 4-bit, 2 line, 5x8
+    lcd_cmd(0x08); // display off
+    lcd_cmd(0x01); // clear
+    _delay_ms(2);
+    lcd_cmd(0x06); // entry mode
+    lcd_cmd(0x0C); // display on, cursor off
+}
+
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
@@ -113,25 +175,56 @@ int main(void){
     EEPROMGetLastStartupError(&lastSystemError);
 
     if(lastSystemError.confirmed){
-      uart_puts_P_blocking(msg_NormalStartUp);
+     // uart_puts_P_blocking(msg_NormalStartUp);
       normalStart();
     }
     else{
-      uart_puts_P_blocking(msg_FaultStartUp);
+      //uart_puts_P_blocking(msg_FaultStartUp);
       faultStart();
     }
     uart_putc_blocking('\n');
 
-    lastBootup_dump(&bootupsCount);  
-    lastError_dump(&lastSystemError);
+    //lastBootup_dump(&bootupsCount);  
+    //lastError_dump(&lastSystemError);
 
     __stack_ptr=(uint8_t*)SP;
     ram_dump();
 
     _delay_ms(100);
 
+    uint8_t c='A';
+    
+  lcd_init();
 
-    vTaskStartScheduler();
+    while(true){
+      uart_puts_blocking("Stan ring buffera (is empty):");
+      uart_put_hex(i2c_tx_buffer_is_empty());
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("Status FSM:");
+      uart_put_hex(i2c_get_status());
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("head:");
+      uart_put_hex(i2c_tx_buffer_head);
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("tail:");
+      uart_put_hex(i2c_tx_buffer_tail);
+      uart_putc_blocking('\n');
+
+      //_delay_ms(300);
+                      lcd_cmd(0x01); // Clear display
+        lcd_data((uint8_t)c);
+        c++;
+        if(c=='Z'+1)
+          c='A';
+          
+      _delay_ms(3000);
+    }
+
+
+    //vTaskStartScheduler();
     // calibrate max value of idleCounterPerSecond
     // calibrateIdleLoop(); architecture should be changed to main setup task for this to work
     //vTaskStartScheduler();

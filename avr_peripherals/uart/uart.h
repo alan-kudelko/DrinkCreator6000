@@ -19,7 +19,7 @@
 #include <DrinkCreator6000_Config_C.h>
 
 /// TX buffer size in bytes.
-#define UART_TX_BUFFER_SIZE 10
+#define UART_TX_BUFFER_SIZE 96
 
 /// RX buffer size in bytes.
 #define UART_RX_BUFFER_SIZE 96
@@ -179,6 +179,8 @@ int16_t uart_peekc(void);
  */
 uint16_t uart_rx_error_count(void);
 
+
+void uart_put_hex(uint8_t val);
 #ifdef __cplusplus
     }
 #endif

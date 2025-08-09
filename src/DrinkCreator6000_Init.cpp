@@ -60,18 +60,21 @@ void initializeIO(){
 }
 
 void initializeEEPROM(void){
+    cli();
     while(!eeprom_is_ready());
-
+    sei();
     uart_puts_P_blocking(msg_EEPROMReady);
 }
 //////////////////////////////////////////////////////////////////
 // Memory initialization:
 // Static allocation of stacks, queues, semaphores, and mutexes
 void initializeMemory(){
+        cli();
       initRamSize();
+      sei();
       uart_puts_P_blocking(msg_RamSizeInitialized);
 
-
+        cli();
       qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
       qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
       qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
@@ -94,7 +97,7 @@ void initializeMemory(){
       memset((void*)guardZone9, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
       memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
       memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-
+        sei();
       uart_puts_P_blocking(msg_MemoryInitialized);
 }
 //////////////////////////////////////////////////////////////////
@@ -103,11 +106,12 @@ void initializeMemory(){
 // shift register (74HC595), and temperature sensor
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// LCD init	
+    cli();
     i2c_init();
+    sei();
     uart_puts_P_blocking(msg_I2CReady);
     //lcd.begin();
     //lcd.backlight();
-    return;
 ////////////////////////////////////////////////////////////////// Keyboard init	  
 // Configure IOCON register SEQOP enabled (NOSEQOP), BANK=0
 //   Wire.beginTransmission(MCP_ADDR);

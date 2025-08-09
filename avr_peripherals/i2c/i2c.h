@@ -1,6 +1,8 @@
 #ifndef _I2C_H_
     #define _I2C_H_
 
+#warning "Timer4 used for managing I2C"
+
 #include <stdint.h>
 #include <stdbool.h>
 
@@ -22,6 +24,9 @@
 
 // Common
 #define TW_STATUS_MASK        0xF8
+#define TW_BUS_ERROR          0x00
+#define TW_NO_INFO            0xF8
+#define TW_STO                0xF8  // STOP condition transmitted (no specific code, używany gdy TWI jest gotowe)
 
 #define WRITE_MODE            0x00  // Write mode for I2C address
 #define READ_MODE             0x01  // Read mode for I2C address
@@ -41,8 +46,8 @@
 #define I2C_STATE_START_SENT     1  // START condition has been sent, waiting for acknowledgment
 #define I2C_STATE_ADDRESS_SENT   2  // Address sent, waiting for ACK/NACK
 #define I2C_STATE_DATA_SENT      3  // Data byte sent, waiting for ACK/NACK
-#define I2C_STATE_STOP_SENT      4  // STOP condition sent, transmission finished
-#define I2C_STATE_ERROR          5  // Error occurred during transmission
+#define I2C_STATE_ERROR          4  // Error occurred during transmission
+// Add FSM for reading data
 
 struct I2C_DATA{
     uint8_t value; // Address or data
@@ -52,7 +57,7 @@ struct I2C_DATA{
 };
 
 #define I2C_RX_BUFFER_SIZE    64
-#define I2C_TX_BUFFER_SIZE    64
+#define I2C_TX_BUFFER_SIZE    96
 
 #ifdef __cplusplus
     extern "C" {
@@ -68,6 +73,12 @@ void i2c_init(void);
 void i2c_disable(void);
 
 uint8_t i2c_get_status(void);
+
+static inline bool i2c_tx_buffer_is_empty(void){
+    return i2c_tx_buffer_head==i2c_tx_buffer_tail;
+}
+
+void i2c_tx_buffer_clear_until_next_address(void);
 
 uint8_t i2c_begin_transmission(void);
 

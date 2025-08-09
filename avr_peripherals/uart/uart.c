@@ -147,3 +147,8 @@ int16_t uart_peekc(void){
 uint16_t uart_rx_error_count(void){
     return uart_rx_error_counter; // Return the number of errors
 }
+void uart_put_hex(uint8_t val){
+    const char hex_chars[] = "0123456789ABCDEF";
+    uart_putc_blocking(hex_chars[(val >> 4) & 0x0F]);
+    uart_putc_blocking(hex_chars[val & 0x0F]);
+}
