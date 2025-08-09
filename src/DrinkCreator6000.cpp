@@ -214,13 +214,13 @@ int main(void){
       uart_putc_blocking('\n');
 
       //_delay_ms(300);
-                      lcd_cmd(0x01); // Clear display
-        lcd_data((uint8_t)c);
+                      //lcd_cmd(0x01); // Clear display
+        //lcd_data((uint8_t)c);
         c++;
         if(c=='Z'+1)
           c='A';
           
-      _delay_ms(3000);
+      _delay_ms(1000);
     }
 
 

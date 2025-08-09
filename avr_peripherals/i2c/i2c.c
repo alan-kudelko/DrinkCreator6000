@@ -13,13 +13,13 @@ void i2c_init(void){
     DDRD&=~(1<<I2C_SCL_PIN);
     DDRD&=~(1<<I2C_SDA_PIN);
     // Timer 4 used as clock for driving I2C after sending stop
-    TCCR4A=0;           // normal mode count to OCR4A
-    TCCR4B=0;
-    TCNT4=0;            // counter's zero
-    OCR4A=249;           // (10 us for prescaler=8 and 16 MHz clk)
-    TCCR4B|=(1<<WGM42);  // CTC mode (Clear Timer on Compare Match)
-    TCCR4B|=(1<<CS42)|(1<<CS40);   // prescaler 64
-    TIMSK4|=(1<<OCIE4A); // enable interrupts Compare A
+TCCR4A = 0;           // normal mode count to OCR4A
+TCCR4B = 0;
+TCNT4  = 0;           // counter's zero
+OCR4A  = 249;         // 10 us przy preskalerze 64 i 16 MHz clk
+TCCR4B |= (1 << WGM42);              // CTC mode
+TCCR4B |= (1 << CS42) | (1 << CS40); // prescaler 64
+TIMSK4 |= (1 << OCIE4A);             // enable interrupts Compare A
 
     TWSR&=(~((1<<TWPS0)|(1<<TWPS1))); // Set prescaler to 1
     TWBR=(uint8_t)TWBR_VALUE; // Set bit rate register for I2C speed
