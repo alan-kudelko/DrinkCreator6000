@@ -57,7 +57,7 @@ struct I2C_DATA{
 };
 
 #define I2C_RX_BUFFER_SIZE    64
-#define I2C_TX_BUFFER_SIZE    96
+#define I2C_TX_BUFFER_SIZE    126
 
 #ifdef __cplusplus
     extern "C" {

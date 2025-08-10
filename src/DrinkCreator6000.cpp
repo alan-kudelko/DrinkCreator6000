@@ -107,6 +107,24 @@ void calibrateIdleLoop(){
 // by switching their pins HIGH or LOW based on hysteresis thresholds.
 //////////////////////////////////////////////////////////////////
 
+void printI2C_status(){
+      uart_puts_blocking("Stan ring buffera (is empty):");
+      uart_put_hex(i2c_tx_buffer_is_empty());
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("Status FSM:");
+      uart_put_hex(i2c_get_status());
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("head:");
+      uart_put_hex(i2c_tx_buffer_head);
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("tail:");
+      uart_put_hex(i2c_tx_buffer_tail);
+      uart_putc_blocking('\n');
+}
+
 #define LCD_ADDR       0x27 // 7-bit
 #define LCD_BACKLIGHT  0x08
 #define LCD_ENABLE     0x04
@@ -166,6 +184,44 @@ static void lcd_init(void) {
     lcd_cmd(0x06); // entry mode
     lcd_cmd(0x0C); // display on, cursor off
 }
+void test_lcd_sequence(void) {
+    // Inicjalizacja LCD 4-bit
+    printI2C_status();
+    lcd_write4(0x30);  // tryb 8-bit, 1 raz
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_write4(0x30);  // tryb 8-bit, 2 raz
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_write4(0x30);  // tryb 8-bit, 3 raz
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_write4(0x20);  // tryb 4-bit
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_cmd(0x28);     // funkcja: 4-bit, 2 linie, 5x8 font
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_cmd(0x08);     // wyłącz wyświetlacz
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_cmd(0x01);     // wyczyść ekran
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_cmd(0x06);     // tryb wejścia: przesuwaj kursor w prawo
+    _delay_ms(2000);
+    printI2C_status();
+    lcd_cmd(0x0C);     // włącz wyświetlacz, bez kursora
+    _delay_ms(2000);
+
+    // Wyświetlamy napis "Hello world" po kolei, 2 sekundy na znak
+    const char *text = "Hello world";
+    for (const char *p = text; *p; ++p) {
+          printI2C_status();
+        lcd_data(*p);
+        _delay_ms(2000);
+    }
+}
 
 
 int main(void){
@@ -189,6 +245,16 @@ int main(void){
 
     __stack_ptr=(uint8_t*)SP;
     ram_dump();
+
+
+    if(true){
+      test_lcd_sequence();
+      
+      while(true){
+
+      }
+    }
+
 
     _delay_ms(100);
 
@@ -214,8 +280,8 @@ int main(void){
       uart_putc_blocking('\n');
 
       //_delay_ms(300);
-                      //lcd_cmd(0x01); // Clear display
-        //lcd_data((uint8_t)c);
+                      lcd_data(0x01); // Clear display
+        lcd_data((uint8_t)c);
         c++;
         if(c=='Z'+1)
           c='A';

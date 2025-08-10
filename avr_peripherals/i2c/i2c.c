@@ -98,6 +98,12 @@ ISR(TWI_vect){
             i2c_status=I2C_STATE_ERROR;
         break;
     }
+    if(i2c_tx_buffer_head==i2c_tx_buffer_tail){
+        TWCR=(1<<TWEN)|(1<<TWINT)|(1<<TWSTO);
+        i2c_status=I2C_STATE_IDLE;
+        TIMSK4|=(1<<OCIE4A);
+        return;
+    }
 
     // Changed to FSM
     switch(i2c_status){
@@ -166,30 +172,24 @@ ISR(TWI_vect){
 }
 
 uint8_t i2c_write_byte_blocking(uint8_t address,uint8_t data){
-    uint8_t new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+    uint8_t new_head=(i2c_tx_buffer_head+2)%I2C_TX_BUFFER_SIZE;
+    // Wait till there is space for two elements in the buffer
     while(new_head==i2c_tx_buffer_tail){
         // Wait for space in the buffer
         //uart_putc_blocking('c');
     }
-
-    i2c_tx_buffer_head=new_head;
+    cli();
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
     i2c_buffer_tx[i2c_tx_buffer_head].f_Type=ADDRESS_PACKAGE;
 
-    new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
-
-    while(new_head==i2c_tx_buffer_tail){
-        // Wait for space in the buffer
-        //uart_putc_blocking('c');
-    }
-
-    i2c_tx_buffer_head=new_head;
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     i2c_buffer_tx[i2c_tx_buffer_head].value=data;
     i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
     i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
-    
+    sei();
     return 0;
 }
