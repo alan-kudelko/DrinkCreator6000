@@ -223,12 +223,12 @@ extern SemaphoreHandle_t mux_I2CLock;
 extern SemaphoreHandle_t mux_SerialLock;
 // Semaphores and Mutexes handles
 
-extern volatile sUIContext UI_Context;
+extern volatile struct sUIContext UI_Context;
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters
 
-extern sSystemError lastSystemError;
+extern struct sSystemError lastSystemError;
 extern uint8_t f_errorConfirmed;
 extern uint16_t bootupsCount;
 
@@ -243,7 +243,7 @@ extern volatile bool f_enableISR;
 
 #define DRINK_COUNT 10
 
-extern const sDrinkData drink[];
+extern const struct sDrinkData drink[];
 //
 extern const char ingredients[][LCD_WIDTH-4-4];
 //

@@ -2,7 +2,7 @@
 #include "DrinkCreator6000_Init.h"
 #include "DrinkCreator6000_EEPROM.h"
 
-#include "DrinkCreator6000_Tasks.h"
+#include <DrinkCreator6000_Tasks.h>
 
 #include <util/delay.h>
 #include <uart.h>
@@ -259,7 +259,7 @@ int main(void){
     ram_dump();
 
 
-    if(true){
+    if(false){
       test_lcd_sequence();
       
       while(true){
@@ -272,9 +272,9 @@ int main(void){
 
     uint8_t c='A';
     
-  lcd_init();
+  //lcd_init();
 
-    while(true){
+    while(false){
       uart_puts_blocking("Stan ring buffera (is empty):");
       uart_put_hex_blocking(i2c_tx_buffer_is_empty());
       uart_putc_blocking('\n');
@@ -302,7 +302,7 @@ int main(void){
     }
 
 
-    //vTaskStartScheduler();
+    vTaskStartScheduler();
     // calibrate max value of idleCounterPerSecond
     // calibrateIdleLoop(); architecture should be changed to main setup task for this to work
     //vTaskStartScheduler();

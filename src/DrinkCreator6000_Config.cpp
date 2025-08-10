@@ -1,4 +1,4 @@
-#include "DrinkCreator6000_Config.h"
+#include <DrinkCreator6000_Config.h>
 
 //////////////////////////////////////////////////////////////////
 // Task data:
@@ -115,7 +115,7 @@ volatile bool f_enableISR=true;
 //////////////////////////////////////////////////////////////////
 // Drink data:
 // Drink definitions, ingredients, and pump efficiencies
-const sDrinkData drink[DRINK_COUNT]={
+const struct sDrinkData drink[DRINK_COUNT]={
   {"Raz",    50, 50, 50, 50, 50, 50, 50, 50, 0},                   //1
   {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
   {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //3

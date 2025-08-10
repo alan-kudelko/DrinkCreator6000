@@ -1,7 +1,7 @@
 #include <taskMain.h>
 #include <DrinkCreator6000_Config.h>
 
-extern "C" void EEPROMUpdateLastStartupError(sSystemError*);
+void EEPROMUpdateLastStartupError(struct sSystemError*);
 // Each operation should update current context
 // If one or more field is modified, operation should be atomic
 // incrementing and decrementing submenus can be common for all the tasks
@@ -9,7 +9,7 @@ extern "C" void EEPROMUpdateLastStartupError(sSystemError*);
 // and clip it if necessary
 // In some cases I.E specific menus and submenus some additional control logic should be implement here
 
-void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,volatile sUIContext*UI_context){
+void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
   if((*keyboardInput&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
     UI_context->currentSubMenu--;
   }
@@ -17,7 +17,7 @@ void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,volatile sUIContext*UI_
     UI_context->currentSubMenu++;
   }
 }
-void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,volatile sUIContext*UI_context){
+void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
   // Welcome screen with UI_Context change and activating taskSelectDrink as default
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
     taskENTER_CRITICAL();
@@ -29,7 +29,7 @@ void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,volatile s
     xTaskNotify(taskHandles[TASK_WELCOME_SCREEN],0,eSetValueWithOverwrite);
   }
 }
-void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,volatile sUIContext*UI_context){
+void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
   if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
     // Ordering drink with UI_Context change and data send
     taskENTER_CRITICAL();
@@ -56,7 +56,7 @@ void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,volatile sUIC
     xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite);
   }
 }
-void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,volatile sUIContext*UI_context){
+void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
   // if red button is pushed, there should be some kind of information that processed was aborted
   // of course all the pumps should be stopped
   if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
@@ -71,7 +71,7 @@ void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,volatile sUICo
     //Might change this in the future, because main should be responsible for everything  
   }
 }
-void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile sUIContext*UI_context){
+void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
   // UI_contect->currentTask==SHOW_INFO
   if((lastSystemError.confirmed==0)&&(UI_context->currentMenu==4)){
     if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){

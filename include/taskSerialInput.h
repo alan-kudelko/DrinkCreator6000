@@ -13,6 +13,14 @@
  *
  * @param pvParameters Task parameters (unused).
  */
+#ifdef __cplusplus
+    extern "C" {
+#endif // __cplusplus
+
 void taskSerialInput(void*pvParameters);
+
+#ifdef __cplusplus
+    }
+#endif // __cplusplus
 
 #endif // _TASK_SERIAL_INPUT_H_

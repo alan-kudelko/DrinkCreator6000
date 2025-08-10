@@ -56,6 +56,8 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000.cpp.obj: CXX_COMPILER__CMake
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/DrinkCreator6000_Config.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -64,6 +66,8 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj: CXX_COMPILER
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/DrinkCreator6000_EEPROM.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -72,6 +76,8 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.c.obj: C_COMPILER__CM
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/DrinkCreator6000_Init.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -80,6 +86,8 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj: CXX_COMPILER__
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Progmem.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/DrinkCreator6000_Progmem.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -88,6 +96,8 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Progmem.c.obj: C_COMPILER__C
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_RamStats.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/DrinkCreator6000_RamStats.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -96,6 +106,8 @@ build CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_RamStats.c.obj: C_COMPILER__
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/freertos_hooks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/freertos_hooks.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -104,6 +116,8 @@ build CMakeFiles/CMake_AVR.dir/src/freertos_hooks.c.obj: C_COMPILER__CMake_AVR_u
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskErrorHandler.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -112,14 +126,18 @@ build CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj: CXX_COMPILER__CMake
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
-build CMakeFiles/CMake_AVR.dir/src/taskMain.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskMain.cpp || cmake_object_order_depends_target_CMake_AVR
+build CMakeFiles/CMake_AVR.dir/src/taskMain.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskMain.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskMain.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskMain.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskOrderDrink.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -128,6 +146,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj: CXX_COMPILER__CMake_A
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskReadInput.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -136,6 +156,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj: CXX_COMPILER__CMake_AV
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskReadTemp.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -144,14 +166,18 @@ build CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj: CXX_COMPILER__CMake_AVR
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
-build CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskRegulateTemp.cpp || cmake_object_order_depends_target_CMake_AVR
+build CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskRegulateTemp.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
-  DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskRegulateTemp.cpp.obj.d
-  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z
+  DEP_FILE = CMakeFiles\CMake_AVR.dir\src\taskRegulateTemp.c.obj.d
+  FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskSelectDrink.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -160,6 +186,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj: CXX_COMPILER__CMake_
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskSerialInput.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskSerialInput.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -168,6 +196,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskSerialInput.c.obj: C_COMPILER__CMake_AVR_
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskSerialSystemDebugger.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -176,6 +206,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj: CXX_COMPILE
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskShowSystemInfo.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -184,6 +216,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj: CXX_COMPILER__CMa
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskUpdateScreen.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -192,6 +226,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj: CXX_COMPILER__CMake
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj: CXX_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/src/taskWelcomeScreen.cpp || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -200,6 +236,8 @@ build CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj: CXX_COMPILER__CMak
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\src
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/croutine.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/croutine.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -208,6 +246,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/croutine.c.obj: C_COMPIL
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/event_groups.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/event_groups.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -216,6 +256,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/event_groups.c.obj: C_CO
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/list.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/list.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -224,6 +266,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/list.c.obj: C_COMPILER__
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -232,6 +276,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel\portable\ThirdParty\GCC\ATmega
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/queue.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/queue.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -240,6 +286,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/queue.c.obj: C_COMPILER_
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -248,6 +296,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c.obj: C_C
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/tasks.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/tasks.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -256,6 +306,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/tasks.c.obj: C_COMPILER_
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/timers.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/timers.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -264,6 +316,8 @@ build CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/timers.c.obj: C_COMPILER
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\FreeRTOS\FreeRTOS-Kernel
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/avr_peripherals/i2c/i2c.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/avr_peripherals/i2c/i2c.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -272,6 +326,8 @@ build CMakeFiles/CMake_AVR.dir/avr_peripherals/i2c/i2c.c.obj: C_COMPILER__CMake_
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\avr_peripherals\i2c
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 build CMakeFiles/CMake_AVR.dir/avr_peripherals/uart/uart.c.obj: C_COMPILER__CMake_AVR_unscanned_Debug D$:/Projekty/DrinkCreator6000/avr_peripherals/uart/uart.c || cmake_object_order_depends_target_CMake_AVR
   CONFIG = Debug
@@ -280,6 +336,8 @@ build CMakeFiles/CMake_AVR.dir/avr_peripherals/uart/uart.c.obj: C_COMPILER__CMak
   INCLUDES = -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   OBJECT_FILE_DIR = CMakeFiles\CMake_AVR.dir\avr_peripherals\uart
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
+  TARGET_PDB = out\CMake_AVR.pdb
 
 
 # =============================================================================
@@ -289,15 +347,16 @@ build CMakeFiles/CMake_AVR.dir/avr_peripherals/uart/uart.c.obj: C_COMPILER__CMak
 #############################################
 # Link the executable out\CMake_AVR
 
-build out/CMake_AVR: CXX_EXECUTABLE_LINKER__CMake_AVR_Debug CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.c.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Progmem.c.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_RamStats.c.obj CMakeFiles/CMake_AVR.dir/src/freertos_hooks.c.obj CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskMain.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSerialInput.c.obj CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/croutine.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/event_groups.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/list.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/queue.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/tasks.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/timers.c.obj CMakeFiles/CMake_AVR.dir/avr_peripherals/i2c/i2c.c.obj CMakeFiles/CMake_AVR.dir/avr_peripherals/uart/uart.c.obj
+build out/CMake_AVR: CXX_EXECUTABLE_LINKER__CMake_AVR_Debug CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.c.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Init.cpp.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Progmem.c.obj CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_RamStats.c.obj CMakeFiles/CMake_AVR.dir/src/freertos_hooks.c.obj CMakeFiles/CMake_AVR.dir/src/taskErrorHandler.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskMain.c.obj CMakeFiles/CMake_AVR.dir/src/taskOrderDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadInput.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskReadTemp.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskRegulateTemp.c.obj CMakeFiles/CMake_AVR.dir/src/taskSelectDrink.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskSerialInput.c.obj CMakeFiles/CMake_AVR.dir/src/taskSerialSystemDebugger.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskShowSystemInfo.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj CMakeFiles/CMake_AVR.dir/src/taskWelcomeScreen.cpp.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/croutine.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/event_groups.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/list.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega/port.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/queue.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/stream_buffer.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/tasks.c.obj CMakeFiles/CMake_AVR.dir/FreeRTOS/FreeRTOS-Kernel/timers.c.obj CMakeFiles/CMake_AVR.dir/avr_peripherals/i2c/i2c.c.obj CMakeFiles/CMake_AVR.dir/avr_peripherals/uart/uart.c.obj
   CONFIG = Debug
   FLAGS = -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g
   LINK_FLAGS = -Wl,-T,D:/Projekty/DrinkCreator6000/linker/Custom_Linker.ld -Wl,-Map=CMake_AVR.map
   OBJECT_DIR = CMakeFiles\CMake_AVR.dir
   POST_BUILD = C:\WINDOWS\system32\cmd.exe /C "cd /D D:\Projekty\DrinkCreator6000\build && D:\Projekty\DrinkCreator6000\tools\bin\avr-objcopy -O ihex -R .eeprom D:/Projekty/DrinkCreator6000/build/out/CMake_AVR CMake_AVR.hex"
   PRE_LINK = cd .
+  TARGET_COMPILE_PDB = CMakeFiles\CMake_AVR.dir\
   TARGET_FILE = out\CMake_AVR
-  TARGET_PDB = CMake_AVR.dbg
+  TARGET_PDB = out\CMake_AVR.pdb
 
 
 #############################################
@@ -345,14 +404,14 @@ build all: phony out/CMake_AVR
 #############################################
 # Re-run CMake if any of its inputs changed.
 
-build build.ninja D$:/Projekty/DrinkCreator6000/build/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/4.1.0-rc4/CMakeASMCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeSystem.cmake D$:/Projekty/DrinkCreator6000/CMakeLists.txt
+build build.ninja D$:/Projekty/DrinkCreator6000/build/cmake_install.cmake: RERUN_CMAKE | C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeASMCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineASMCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestASMCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectASMLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/4.1.0-rc4/CMakeASMCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeSystem.cmake D$:/Projekty/DrinkCreator6000/CMakeLists.txt
   pool = console
 
 
 #############################################
 # A missing CMake input file is not an error.
 
-build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/4.1.0-rc4/CMakeASMCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeSystem.cmake D$:/Projekty/DrinkCreator6000/CMakeLists.txt: phony
+build C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeASMCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeASMInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompiler.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCXXInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCommonLanguageInclude.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeCompilerIdDetection.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineASMCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerABI.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineCompilerSupport.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeDetermineSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeFindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeGenericSystem.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeInitializeConfigs.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeLanguageInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitIncludeInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseImplicitLinkInfo.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeParseLibraryArchitecture.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystem.cmake.in C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeSystemSpecificInitialize.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestASMCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCXXCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/CMakeTestCompilerCommon.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ADSP-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMCC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/ARMClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/AppleClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Borland-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Bruce-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CMakeCommonCompilerMacros.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Clang-DetermineCompilerInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Compaq-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Cray-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/CrayClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Diab-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Embarcadero-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Fujitsu-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/FujitsuClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GHS-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-ASM.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-C.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-CXX.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU-FindBinUtils.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/GNU.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/HP-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IAR-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-C-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMCPP-CXX-DetermineVersionInternal.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IBMClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Intel-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/IntelLLVM-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/LCC-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/MSVC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVHPC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/NVIDIA-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OpenWatcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/OrangeC-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PGI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/PathScale-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Renesas-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SCO-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SDCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/SunPro-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TI-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TIClang-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Tasking-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/TinyCC-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/VisualAge-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/Watcom-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XL-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/XLClang-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-C-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Compiler/zOS-CXX-DetermineCompiler.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeASMLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCXXLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeCommonLinkerInformation.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeDetermineLinkerId.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectASMLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/CMakeInspectCXXLinker.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Internal/FeatureTesting.cmake C$:/Program$ Files/CMake/share/cmake-4.1/Modules/Platform/Generic.cmake CMakeCache.txt CMakeFiles/4.1.0-rc4/CMakeASMCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeCXXCompiler.cmake CMakeFiles/4.1.0-rc4/CMakeSystem.cmake D$:/Projekty/DrinkCreator6000/CMakeLists.txt: phony
 
 
 #############################################
