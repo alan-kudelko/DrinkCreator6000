@@ -109,19 +109,19 @@ void calibrateIdleLoop(){
 
 void printI2C_status(){
       uart_puts_blocking("Stan ring buffera (is empty):");
-      uart_put_hex(i2c_tx_buffer_is_empty());
+      uart_put_hex_blocking(i2c_tx_buffer_is_empty());
       uart_putc_blocking('\n');
 
       uart_puts_blocking("Status FSM:");
-      uart_put_hex(i2c_get_status());
+      uart_put_hex_blocking(i2c_get_status());
       uart_putc_blocking('\n');
 
       uart_puts_blocking("head:");
-      uart_put_hex(i2c_tx_buffer_head);
+      uart_put_hex_blocking(i2c_tx_buffer_head);
       uart_putc_blocking('\n');
 
       uart_puts_blocking("tail:");
-      uart_put_hex(i2c_tx_buffer_tail);
+      uart_put_hex_blocking(i2c_tx_buffer_tail);
       uart_putc_blocking('\n');
 }
 
@@ -129,9 +129,6 @@ void printI2C_status(){
 #define LCD_BACKLIGHT  0x08
 #define LCD_ENABLE     0x04
 #define LCD_RS         0x01
-
-// Deklaracja Twojej funkcji blokującej transmisję
-uint8_t i2c_write_byte_blocking(uint8_t address, uint8_t data);
 
 // ---------------- LCD low-level ----------------
 
@@ -184,6 +181,19 @@ static void lcd_init(void) {
     lcd_cmd(0x06); // entry mode
     lcd_cmd(0x0C); // display on, cursor off
 }
+
+void send_hello_world() {
+    // Tablica z danymi: najpierw adres z zapisem, potem znaki 'Hello world'
+    uint8_t data[] = {
+        (LCD_ADDR << 1) | WRITE_FLAG, // adres + write
+        'H', 'e', 'l', 'l', 'o', ' ',
+        'w', 'o', 'r', 'l', 'd'
+    };
+    uint8_t length = sizeof(data);
+
+    i2c_write_bytes_blocking(0x20, data + 1, length - 1);
+}
+
 void test_lcd_sequence(void) {
     // Inicjalizacja LCD 4-bit
     printI2C_status();
@@ -215,13 +225,15 @@ void test_lcd_sequence(void) {
     _delay_ms(2000);
 
     // Wyświetlamy napis "Hello world" po kolei, 2 sekundy na znak
-    const char *text = "Hello world";
-    for (const char *p = text; *p; ++p) {
-          printI2C_status();
-        lcd_data(*p);
-        _delay_ms(2000);
-    }
+    send_hello_world();
+    printI2C_status();
+    _delay_ms(2000);
+        printI2C_status();
+    uart_puts_blocking("Liczba bledow transmisji i2c: ");
+    uart_put_hex_blocking(i2c_tx_error_counter);
+    uart_putc_blocking('\n');
 }
+
 
 
 int main(void){
@@ -264,19 +276,19 @@ int main(void){
 
     while(true){
       uart_puts_blocking("Stan ring buffera (is empty):");
-      uart_put_hex(i2c_tx_buffer_is_empty());
+      uart_put_hex_blocking(i2c_tx_buffer_is_empty());
       uart_putc_blocking('\n');
 
       uart_puts_blocking("Status FSM:");
-      uart_put_hex(i2c_get_status());
+      uart_put_hex_blocking(i2c_get_status());
       uart_putc_blocking('\n');
 
       uart_puts_blocking("head:");
-      uart_put_hex(i2c_tx_buffer_head);
+      uart_put_hex_blocking(i2c_tx_buffer_head);
       uart_putc_blocking('\n');
 
       uart_puts_blocking("tail:");
-      uart_put_hex(i2c_tx_buffer_tail);
+      uart_put_hex_blocking(i2c_tx_buffer_tail);
       uart_putc_blocking('\n');
 
       //_delay_ms(300);

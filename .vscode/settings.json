@@ -8,6 +8,8 @@
     "string.h": "c",
     "interrupt.h": "c",
     "drinkcreator6000_config_c.h": "c",
-    "drinkcreator6000_pins.h": "c"
+    "drinkcreator6000_pins.h": "c",
+    "io.h": "c",
+    "pgmspace.h": "c"
   }
 }
