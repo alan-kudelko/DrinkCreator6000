@@ -7,7 +7,6 @@
  * 
  * The pins are grouped by their respective ports.
  */
-
 #ifndef _DRINK_CREATOR6000_PINS_H_
     #define _DRINK_CREATOR6000_PINS_H_
 

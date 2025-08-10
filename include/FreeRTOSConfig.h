@@ -27,19 +27,19 @@
  */
 
 #ifndef FREERTOS_CONFIG_H
-#define FREERTOS_CONFIG_H
+    #define FREERTOS_CONFIG_H
 
 /******************************************************************************/
 /* Hardware description related definitions. **********************************/
 /******************************************************************************/
 
-#define configCPU_CLOCK_HZ    ( ( unsigned long ) F_CPU )
+#define configCPU_CLOCK_HZ    ((unsigned long)F_CPU)
 
 /******************************************************************************/
 /* Scheduling behaviour related definitions. **********************************/
 /******************************************************************************/
 
-#define configTICK_RATE_HZ                         ( 1000U )
+#define configTICK_RATE_HZ                         (1000U)
 #define configUSE_PREEMPTION                       1
 #define configUSE_TIME_SLICING                     1
 #define configUSE_PORT_OPTIMISED_TASK_SELECTION    0
@@ -62,7 +62,7 @@
 /******************************************************************************/
 
 #define configUSE_TIMERS                0
-#define configTIMER_TASK_PRIORITY       ( configMAX_PRIORITIES - 1U )
+#define configTIMER_TASK_PRIORITY       (configMAX_PRIORITIES-1U)
 #define configTIMER_TASK_STACK_DEPTH    configMINIMAL_STACK_SIZE
 #define configTIMER_QUEUE_LENGTH        10U
 #define portUSE_TIMER2                  1

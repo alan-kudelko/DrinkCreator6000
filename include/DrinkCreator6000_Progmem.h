@@ -12,10 +12,9 @@
  */
 
 #ifndef _DRINK_CREATOR_6000_PROGMEM_H_
-#define _DRINK_CREATOR_6000_PROGMEM_H_
+    #define _DRINK_CREATOR_6000_PROGMEM_H_
 
 #include <avr/pgmspace.h>
-
 /** @name Headers and footers for error reports and system startup messages
  *  @{
  */

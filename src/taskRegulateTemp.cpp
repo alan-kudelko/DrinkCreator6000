@@ -1,4 +1,5 @@
-#include "taskRegulateTemp.h"
+#include <taskRegulateTemp.h>
+#include <DrinkCreator6000_Config.h>
 
 void taskRegulateTemp(void*pvParameters){
   for(;;){

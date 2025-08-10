@@ -5,10 +5,9 @@
 #include <string.h>
 #include <avr/eeprom.h>
 
-#include "DrinkCreator6000_Init.h"
+#include <DrinkCreator6000_Init.h>
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_Config.h>
-
 
 #include <uart.h>
 #include <i2c.h>

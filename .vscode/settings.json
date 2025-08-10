@@ -10,6 +10,10 @@
     "drinkcreator6000_config_c.h": "c",
     "drinkcreator6000_pins.h": "c",
     "io.h": "c",
-    "pgmspace.h": "c"
+    "pgmspace.h": "c",
+    "drinkcreator6000_eeprom.h": "c",
+    "drinkcreator6000_progmem.h": "c",
+    "freertosconfig.h": "c",
+    "drinkcreator6000_config.h": "c"
   }
 }

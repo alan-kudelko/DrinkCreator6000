@@ -1,17 +1,18 @@
+/**
+ * @file taskSerialInput.h
+ * @brief Task responsible for reading serial input data from UART.
+ *
+ * This task reads diagnostic or command data from the UART interface
+ * and sends it to the main task via the external queue `qKeyboardData`.
+ */
 #ifndef _TASK_SERIAL_INPUT_H_
-#define _TASK_SERIAL_INPUT_H_
+    #define _TASK_SERIAL_INPUT_H_
 
-#include <FreeRTOS.h>
-#include <task.h>
-#include <queue.h>
-#include <timers.h>
-#include <FreeRTOSConfig.h>
-#include <portable.h>
-#include <portmacro.h>
-#include <semphr.h>
-
-#include "DrinkCreator6000_Config.h"
-
+/**
+ * @brief Reads input data from UART and enqueues to main task.
+ *
+ * @param pvParameters Task parameters (unused).
+ */
 void taskSerialInput(void*pvParameters);
 
 #endif // _TASK_SERIAL_INPUT_H_

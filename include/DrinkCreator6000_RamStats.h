@@ -18,14 +18,13 @@
  * - `initRamSize()` runs during `.init8` (startup)
  * - `updateMemoryUsage()` updates usage values
  */
-
 #ifndef _DRINK_CREATOR6000_RAM_STATS_H_
     #define _DRINK_CREATOR6000_RAM_STATS_H_
 
 #include <stdint.h>
 
 #ifdef __cplusplus
-extern "C" {
+    extern "C" {
 #endif // __cplusplus
 
 /** @name Linker-provided memory region symbols
@@ -68,7 +67,6 @@ extern uint16_t ram_size;       /**< Total usable SRAM size */
  *
  */
 extern void initRamSize(void);
-
 /**
  * @brief Updates all RAM usage tracking variables.
  *

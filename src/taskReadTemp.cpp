@@ -1,4 +1,5 @@
-#include "taskReadTemp.h"
+#include <taskReadTemp.h>
+#include <DrinkCreator6000_Config.h>
 
 void taskReadTemp(void*pvParameters){
   for(;;){

@@ -1,28 +1,29 @@
+/**
+ * @file DrinkCreator6000_Tasks.h
+ * @brief Task includes and declarations for the DrinkCreator6000 FreeRTOS application.
+ *
+ * This header file includes all task-related headers and necessary FreeRTOS
+ * components used throughout the DrinkCreator6000 project.
+ *
+ * Each included task header corresponds to a specific application task,
+ * identified by a unique numeric ID (commented).
+ *
+ * @note This file centralizes task includes for easy management and integration.
+ */
 #ifndef _DRINK_CREATOR_6000_TASKS_H_
-#define _DRINK_CREATOR_6000_TASKS_H_
+    #define _DRINK_CREATOR_6000_TASKS_H_
 
-#include <FreeRTOS.h>
-#include <task.h>
-#include <queue.h>
-#include <timers.h>
-#include <FreeRTOSConfig.h>
-#include <portable.h>
-#include <portmacro.h>
-#include <semphr.h>
-
-#include "DrinkCreator6000_Config.h"
-
-#include "taskErrorHandler.h"          // 0
-#include "taskSerialSystemDebugger.h"  // 1
-#include "taskMain.h"                  // 2
-#include "taskReadInput.h"             // 3
-#include "taskSerialInput.h"           // 4
-#include "taskUpdateScreen.h"          // 5
-#include "taskReadTemp.h"              // 6
-#include "taskRegulateTemp.h"          // 7
-#include "taskSelectDrink.h"           // 8
-#include "taskOrderDrink.h"            // 9
-#include "taskShowSystemInfo.h"        // 10
-#include "taskWelcomeScreen.h"         // 11
+#include <taskErrorHandler.h>          ///< Task 0: Error handling
+#include <taskSerialSystemDebugger.h>  ///< Task 1: Serial system debugger
+#include <taskMain.h>                  ///< Task 2: Main application logic
+#include <taskReadInput.h>             ///< Task 3: Input reading
+#include <taskSerialInput.h>           ///< Task 4: Serial input processing
+#include <taskUpdateScreen.h>          ///< Task 5: LCD screen update
+#include <taskReadTemp.h>              ///< Task 6: Temperature reading
+#include <taskRegulateTemp.h>          ///< Task 7: Temperature regulation
+#include <taskSelectDrink.h>           ///< Task 8: Drink selection
+#include <taskOrderDrink.h>            ///< Task 9: Drink ordering
+#include <taskShowSystemInfo.h>        ///< Task 10: System info display
+#include <taskWelcomeScreen.h>         ///< Task 11: Welcome screen
 
 #endif // _DRINK_CREATOR_6000_TASKS_H_

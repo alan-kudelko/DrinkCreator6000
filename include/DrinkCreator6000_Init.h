@@ -7,23 +7,28 @@
  * initializing hardware peripherals such as UART, LCD, I²C devices,
  * and shift registers.
  */
-
 #ifndef _DRINK_CREATOR6000_INIT_H_
-#define _DRINK_CREATOR6000_INIT_H_
-
-#include "DrinkCreator6000_Config_C.h"
-
-void initializeUART(void);
+    #define _DRINK_CREATOR6000_INIT_H_
 
 /**
- * @brief Initializes I/O pins and attaches interrupts related to pin events.
+ * @brief Initialize UART peripheral and related settings.
  *
- * This function configures the directions and states of GPIO pins used by
- * external devices, such as buttons, relays, and control lines.
+ * Configures the UART for serial communication (typically for debugging),
+ * enables global interrupts, and sends a ready message.
+ */
+void initializeUART(void);
+/**
+ * @brief Initialize I/O pins and attach pin-related interrupts.
+ *
+ * Configures GPIO directions and states for connected hardware components
+ * such as buttons, relays, sensors, and control lines.
  */
 void initializeIO(void);
-
-
+/**
+ * @brief Initialize EEPROM memory access.
+ *
+ * Waits for EEPROM readiness and prepares it for read/write operations.
+ */
 void initializeEEPROM(void);
 /**
  * @brief Initializes memory resources for FreeRTOS.
@@ -32,18 +37,29 @@ void initializeEEPROM(void);
  * and mutexes. It also configures guard zones if enabled.
  */
 void initializeMemory(void);
-
 /**
- * @brief Initializes hardware peripherals.
+ * @brief Initialize RTOS memory resources and guard zones.
  *
- * Sets up UART (for debug output), the LCD display via I²C, the I²C
- * keyboard using MCP23017, the 74HC595 shift register, and the temperature
- * sensor (if applicable).
+ * Performs static allocation of task stacks, queues, semaphores, mutexes,
+ * and sets up memory guard zones to detect overruns.
  */
 void initializeHardware(void);
-
+/**
+ * @brief Initialize interrupt controllers and attach ISR handlers.
+ *
+ * Prepares all necessary interrupt vectors and priorities for system operation.
+ * Currently a placeholder pending implementation.
+ */
 void initializeInterrupts(void);
-
+/**
+ * @brief System startup routine executed early in the boot sequence.
+ *
+ * Calls all initialization functions in the correct order to prepare
+ * the system for operation.
+ *
+ * @note Marked with GCC `naked` and `used` attributes, and placed in the `.init8`
+ *       linker section for execution during startup.
+ */
 void init8(void)__attribute((naked,used,section(".init8")));
 
 #endif // _DRINK_CREATOR6000_INIT_H_

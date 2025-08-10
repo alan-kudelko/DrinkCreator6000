@@ -85,9 +85,9 @@
 },
 {
   "directory": "D:/Projekty/DrinkCreator6000/build",
-  "command": "D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z -o CMakeFiles\\CMake_AVR.dir\\src\\taskSerialInput.cpp.obj -c D:\\Projekty\\DrinkCreator6000\\src\\taskSerialInput.cpp",
-  "file": "D:/Projekty/DrinkCreator6000/src/taskSerialInput.cpp",
-  "output": "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMake_AVR.dir/src/taskSerialInput.cpp.obj"
+  "command": "D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c -mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall -g -o CMakeFiles\\CMake_AVR.dir\\src\\taskSerialInput.c.obj -c D:\\Projekty\\DrinkCreator6000\\src\\taskSerialInput.c",
+  "file": "D:/Projekty/DrinkCreator6000/src/taskSerialInput.c",
+  "output": "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMake_AVR.dir/src/taskSerialInput.c.obj"
 },
 {
   "directory": "D:/Projekty/DrinkCreator6000/build",

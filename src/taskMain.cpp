@@ -1,4 +1,5 @@
-#include "taskMain.h"
+#include <taskMain.h>
+#include <DrinkCreator6000_Config.h>
 
 extern "C" void EEPROMUpdateLastStartupError(sSystemError*);
 // Each operation should update current context

@@ -6,11 +6,8 @@
  * persistent data stored in the AVR EEPROM memory, including
  * the bootup counter and the last system error.
  */
-
 #ifndef _DRINK_CREATOR6000_EEPROM_H_
     #define _DRINK_CREATOR6000_EEPROM_H_
-
-#include <avr/eeprom.h>
 
 /** EEPROM address for storing the number of system boot-ups */
 #define EEPROM_BOOTUPS_ADDR      0x0C00
@@ -19,26 +16,22 @@
 #define EEPROM_LAST_ERROR_ADDR   0x0800
 
 #ifdef __cplusplus
-extern "C" {
-#endif
-
+    extern "C" {
+#endif // __cplusplus
 /** Forward declaration of system error structure */
 struct sSystemError;
-
 /**
  * @brief Updates the stored bootup count in EEPROM.
  * 
  * @param[in,out] bootupsCount Pointer to the bootup count variable to update.
  */
 extern void EEPROMUpdateBootups(uint16_t*bootupsCount);
-
 /**
  * @brief Retrieves the last startup error from EEPROM.
  * 
  * @param[out] lastError Pointer to a structure where the last error will be copied.
  */
 extern void EEPROMGetLastStartupError(struct sSystemError*lastError);
-
 /**
  * @brief Updates the last startup error stored in EEPROM.
  * 
@@ -47,7 +40,7 @@ extern void EEPROMGetLastStartupError(struct sSystemError*lastError);
 extern void EEPROMUpdateLastStartupError(struct sSystemError*errorStruct);
 
 #ifdef __cplusplus
-}
-#endif
+    }
+#endif // __cplusplus
 
 #endif // _DRINK_CREATOR6000_EEPROM_H_

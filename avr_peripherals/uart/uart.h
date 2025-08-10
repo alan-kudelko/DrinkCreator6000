@@ -15,11 +15,32 @@
 #ifndef _UART_H_
     #define _UART_H_
 
+#include <stdint.h>
 #include <DrinkCreator6000_Config_C.h>
 
-/// TX buffer size in bytes.
+/**
+ * @def UART_BAUD_RATE
+ * @brief UART communication baud rate in bits per second.
+ *
+ * Default is 9600 bps.
+ */
+#define UART_BAUD_RATE       9600
+/**
+ * @def UBRR_VALUE
+ * @brief UART Baud Rate Register value calculated from F_CPU and UART_BAUD_RATE.
+ *
+ * Used to configure the UART baud rate generator.
+ */
+#define UBRR_VALUE           ((F_CPU/(16UL*UART_BAUD_RATE))-1)
+/**
+ * @def UART_TX_BUFFER_SIZE
+ * @brief Size of the UART transmit buffer, in bytes.
+ */
 #define UART_TX_BUFFER_SIZE 96
-/// RX buffer size in bytes.
+/**
+ * @def UART_RX_BUFFER_SIZE
+ * @brief Size of the UART receive buffer, in bytes.
+ */
 #define UART_RX_BUFFER_SIZE 96
 /**
  * @typedef uart_tx_buf_index_t

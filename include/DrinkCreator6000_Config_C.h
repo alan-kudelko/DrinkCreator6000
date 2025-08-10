@@ -1,24 +1,42 @@
+/**
+ * @file DrinkCreator6000_Config_C.h
+ * @brief Configuration macros for CPU frequency, UART, I2C, and task count.
+ *
+ * This header defines compile-time constants used throughout the project:
+ * - CPU frequency (`F_CPU`)
+ * - AVR microcontroller model
+ * - Number of FreeRTOS tasks in the system
+ */
 #ifndef _DRINK_CREATOR6000_CONFIG_C_H_
-#define _DRINK_CREATOR6000_CONFIG_C_H_
-
-
-// Define the CPU frequency and the AVR model
+    #define _DRINK_CREATOR6000_CONFIG_C_H_
+/**
+ * @def F_CPU
+ * @brief CPU clock frequency in Hertz.
+ * 
+ * Default is 16 MHz (16,000,000 Hz).
+ */
 #ifndef F_CPU
     #define F_CPU 16000000UL
 #endif
-
+/**
+ * @def __AVR_ATmega2560__
+ * @brief Define to indicate the target MCU is ATmega2560.
+ */
 #ifndef __AVR_ATmega2560__
     #define __AVR_ATmega2560__ 1
 #endif
-// Define the UART baud rate and calculate UBRR value
-#define UART_BAUD_RATE       9600
-#define UBRR_VALUE           ((F_CPU/(16UL*UART_BAUD_RATE))-1)
+/**
+ * @brief Size of the guard zone (in bytes) placed between task stacks.
+ */
+#define GUARD_ZONE_SIZE 32
+/**
+ * @brief Memory fill pattern for guard zones, used to detect overflow.
+ */
+#define MEMORY_FILL_PATTERN 0xAA
 
-// Define the I2C frequency and calculate TWBR value
-#define I2C_FREQ       100000UL  // 100 kHz I2C frequency
-#define TWBR_VALUE     (((F_CPU/I2C_FREQ)-16UL)/2UL) // Calculate TWBR value for TWI (I2C) speed
 
-// Task count
+
 #define TASK_N 12
+
 
 #endif // _DRINK_CREATOR6000_CONFIG_C_H_

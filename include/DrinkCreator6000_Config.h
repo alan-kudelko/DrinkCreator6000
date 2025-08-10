@@ -9,6 +9,8 @@
 #include <portable.h>
 #include <portmacro.h>
 #include <semphr.h>
+#include <stdint.h>
+#include <stdbool.h>
 
 #include <DrinkCreator6000_DataTypes.h>
 #include <DrinkCreator6000_Config_C.h>
@@ -19,84 +21,70 @@
 // Pin definitions and button mappings  
 // Address of MCP23017 I²C expander
 
-//enum {DSPin=PIN_PC0, STPin=PIN_PC1, SHPin=PIN_PC2,OEnable=PIN_PC3,INTPin=PIN_PD2,THERMOMETER_PIN=PIN_PD3,Pelt1Pin=PIN_PD4,Pelt2Pin=PIN_PD5};
 
-enum{
-  INTPin=19, //Done
-  Pelt1Pin=9, //Done
-  Pelt2Pin=8, //Done
-  FansPin=7, //Done
-  DSPin=3, //Done
-  STPin=4, //Done
-  SHPin=5 //Done
-};
+#define E_GREEN_BUTTON 1
+#define E_LWHITE_BUTTON 2
+#define E_RWHITE_BUTTON 4
+#define E_BLUE_BUTTON 8
+#define E_RED_BUTTON 16
 
-enum{
-  E_GREEN_BUTTON=1,
-  E_LWHITE_BUTTON=2,
-  E_RWHITE_BUTTON=4,
-  E_BLUE_BUTTON=8,
-  E_RED_BUTTON=16
-};
-enum{
-  MCP_ADDR=0x20
-};
+#define MCP_ADDR 0x20
 //////////////////////////////////////////////////////////////////
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
 // Task refresh rates
-enum{TASK_ERROR_HANDLER_STACK_SIZE=230};           //0
-enum{TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE=260};  //1
-enum{TASK_MAIN_STACK_SIZE=150};                    //2
-enum{TASK_READ_INPUT_STACK_SIZE=180};              //3
-enum{TASK_SERIAL_INPUT_STACK_SIZE=150};            //4
-enum{TASK_UPDATE_SCREEN_STACK_SIZE=250};           //5
-enum{TASK_READ_TEMP_STACK_SIZE=120};               //6
-enum{TASK_REGULATE_TEMP_STACK_SIZE=120};           //7
-enum{TASK_SELECT_DRINK_STACK_SIZE=230};            //8
-enum{TASK_ORDER_DRINK_STACK_SIZE=256};             //9
-enum{TASK_SHOW_SYSTEM_INFO_STACK_SIZE=300};        //10
-enum{TASK_WELCOME_SCREEN_STACK_SIZE=210};          //11 // Tuned, 48 words in reserve //160 words causes overflow
-enum{TASK_TEST_HARDWARE_STACK_SIZE=150};             //12
+#define TASK_ERROR_HANDLER_STACK_SIZE 230           //0
+#define TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE 260  //1
+#define TASK_MAIN_STACK_SIZE 150                    //2
+#define TASK_READ_INPUT_STACK_SIZE 180              //3
+#define TASK_SERIAL_INPUT_STACK_SIZE 150            //4
+#define TASK_UPDATE_SCREEN_STACK_SIZE 250           //5
+#define TASK_READ_TEMP_STACK_SIZE 120               //6
+#define TASK_REGULATE_TEMP_STACK_SIZE 120           //7
+#define TASK_SELECT_DRINK_STACK_SIZE 230            //8
+#define TASK_ORDER_DRINK_STACK_SIZE 256             //9
+#define TASK_SHOW_SYSTEM_INFO_STACK_SIZE 300        //10
+#define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11 // Tuned, 48 words in reserve //160 words causes overflow
+#define TASK_TEST_HARDWARE_STACK_SIZE 150             //12
 // Stack size - will need "tuning" in final release
-enum{
-  TASK_ERROR_HANDLER=0,
-  TASK_SERIAL_DEBUGGER=1,
-  TASK_MAIN=2,
-  TASK_READ_INPUT=3,
-  TASK_SERIAL_INPUT=4,
-  TASK_UPDATE_SCREEN=5,
-  TASK_READ_TEMP=6,
-  TASK_REGULATE_TEMP=7,
-  TASK_SELECT_DRINK=8,
-  TASK_ORDER_DRINK=9,
-  TASK_SHOW_SYS_INFO=10,
-  TASK_WELCOME_SCREEN=11,
-  TASK_TEST_HARDWAER=12
-};
+
+#define TASK_ERROR_HANDLER 0
+#define TASK_SERIAL_DEBUGGER 1
+#define TASK_MAIN 2
+#define TASK_READ_INPUT 3
+#define TASK_SERIAL_INPUT 4
+#define TASK_UPDATE_SCREEN 5
+#define TASK_READ_TEMP 6
+#define TASK_REGULATE_TEMP 7
+#define TASK_SELECT_DRINK 8
+#define TASK_ORDER_DRINK 9
+#define TASK_SHOW_SYS_INFO 10
+#define TASK_WELCOME_SCREEN 11
+#define TASK_TEST_HARDWAER 12
 // Task identifiers
-enum{GUARD_ZONE_SIZE=32};
-enum{MEMORY_FILL_PATTERN=0xAA};
+
+#define GUARD_ZONE_SIZE 32
+#define MEMORY_FILL_PATTERN 0xAA
 // Guard zone size between task stacks	 
 //enum{TASK_N=12};
 // Task count
-enum{
-  TASK_ERROR_HANDLER_REFRESH_RATE=500,     // 0
-  TASK_SERIAL_DEBUGGER_REFRESH_RATE=2000,  // 1
-  TASK_MAIN_REFRESH_RATE=500,              // 2
-  TASK_READ_INPUT_REFRESH_RATE=100,        // 3  
-  TASK_SERIAL_INPUT_REFRESH_RATE=200,      // 4
-  TASK_UPDATE_SCREEN_REFRESH_RATE=300,     // 5
-  TASK_READ_TEMP_REFRESH_RATE=2000,        // 6
-  TASK_REGULATE_TEMP_REFRESH_RATE=5000,    // 7
-  TASK_SELECT_DRINK_REFRESH_RATE=1000,     // 8
-  TASK_ORDER_DRINK_REFRESH_RATE=500,       // 9
-  TASK_SHOW_SYSTEM_INFO_REFRESH_RATE=600,  // 10
-  TASK_WELCOME_SCREEN_REFRESH_RATE=500     // 11
-};
-enum{TASK_WELCOME_TICKS_TO_CLOSE=10};
+#define TASK_ERROR_HANDLER_REFRESH_RATE 500     // 0
+#define TASK_SERIAL_DEBUGGER_REFRESH_RATE 2000  // 1
+#define TASK_MAIN_REFRESH_RATE 500              // 2
+#define TASK_READ_INPUT_REFRESH_RATE 100        // 3  
+#define TASK_SERIAL_INPUT_REFRESH_RATE 200      // 4
+#define TASK_UPDATE_SCREEN_REFRESH_RATE 300     // 5
+#define TASK_READ_TEMP_REFRESH_RATE 2000        // 6
+#define TASK_REGULATE_TEMP_REFRESH_RATE 5000    // 7
+#define TASK_SELECT_DRINK_REFRESH_RATE 1000     // 8
+#define TASK_ORDER_DRINK_REFRESH_RATE 500       // 9
+#define TASK_SHOW_SYSTEM_INFO_REFRESH_RATE 600  // 10
+#define TASK_WELCOME_SCREEN_REFRESH_RATE 500     // 11
+
+#define TASK_WELCOME_TICKS_TO_CLOSE 10
 // Task refresh rates in ms
+
 extern StaticTask_t errorHandlerTCB;                                //0
 extern StaticTask_t serialSystemDebuggerTCB;                        //1
 extern StaticTask_t mainTCB;                                        //2
@@ -112,7 +100,8 @@ extern StaticTask_t welcomeScreenTCB;                               //11
 // Task control blocks
 extern TaskHandle_t taskHandles[TASK_N];
 // Task handles, assigned in the same order as identifiers
-extern volatile StackType_t guardZone0[];
+
+extern volatile StackType_t guardZone0[]; // Used in stack overflow detection
 extern StackType_t errorHandlerStack[];          //0
 
 extern volatile StackType_t guardZone1[];
@@ -153,38 +142,34 @@ extern volatile StackType_t*guardZones[]; // Used in stack overflow detection
 //////////////////////////////////////////////////////////////////
 // Screen data:
 // LCD dimensions and I2C address
-enum{
-  LCD_WIDTH=20,
-  LCD_HEIGHT=4,
-  LCD_ADDR=0x27
-};
-enum{
-  E_LOADING_BAR=17
-};
+
+#define LCD_WIDTH 20
+#define LCD_HEIGHT 4
+#define LCD_ADDR 0x27
+
+#define E_LOADING_BAR 17
 // LCD custom characters
-enum{
-  SHOW_INFO_MENUS_COUNT=4
-};
+
+#define SHOW_INFO_MENUS_COUNT 4
 // Show info submenu count
-enum{
-  WELCOME_SCREEN=0,
-  DRINK_SELECT=1,
-  DRINK_ORDER=2,
-  SHOW_INFO=3
-};
+
+#define WELCOME_SCREEN 0
+#define DRINK_SELECT 1
+#define DRINK_ORDER 2
+#define SHOW_INFO 3
 // Screen identifiers and navigation overview
 /*
     Screen transition diagram:
 
           +-------------+
           | 0 Welcome   |
-          +------+------+
+          +------+------+  
                  |
                  v
           +-------------+  
           | 1 Drink     |  (scrollable)
           | Select      |
-          +------+------+
+          +------+------+  
              /       \
             v         v
       +-------------+  +-------------+  (scrollable)
@@ -203,8 +188,7 @@ enum{
                    | 5 Test pumps     |  (scrollable)
                    |                  |
                    +------------------+
-				   
-				   
+
     Legend:
     - (scrollable) marks screens that support scrolling
     - (editable) marks screen that supports editing
@@ -213,11 +197,11 @@ enum{
 //////////////////////////////////////////////////////////////////
 // Flow control:
 // Queue sizes and buffers for inter-task communication
-enum{
-  SCREEN_QUEUE_BUFFER_COUNT=2,
-  KEYBOARD_QUEUE_BUFFER_COUNT=2,
-  ERROR_ID_QUEUE_BUFFER_COUNT=1
-};
+
+#define SCREEN_QUEUE_BUFFER_COUNT 2
+#define KEYBOARD_QUEUE_BUFFER_COUNT 2
+#define ERROR_ID_QUEUE_BUFFER_COUNT 1
+
 extern uint8_t screenQueueBuffer[];
 extern uint8_t keyboardQueueBuffer[];
 extern uint8_t errorIdQueueBuffer[];
@@ -238,10 +222,12 @@ extern SemaphoreHandle_t sem_ReadData;
 extern SemaphoreHandle_t mux_I2CLock;
 extern SemaphoreHandle_t mux_SerialLock;
 // Semaphores and Mutexes handles
+
 extern volatile sUIContext UI_Context;
 //////////////////////////////////////////////////////////////////
 // Global variables:
 // System error, flags, counters and temperature parameters
+
 extern sSystemError lastSystemError;
 extern uint8_t f_errorConfirmed;
 extern uint16_t bootupsCount;
@@ -254,7 +240,9 @@ extern volatile bool f_enableISR;
 //////////////////////////////////////////////////////////////////
 // Drink data:
 // Drink definitions, ingredients, and pump efficiencies
-enum{DRINK_COUNT=10};
+
+#define DRINK_COUNT 10
+
 extern const sDrinkData drink[];
 //
 extern const char ingredients[][LCD_WIDTH-4-4];
@@ -262,10 +250,13 @@ extern const char ingredients[][LCD_WIDTH-4-4];
 extern const uint8_t pumpsEff[];
 // Pumps efficiency in ml/min
 // Idle task counter
-enum{INTERVAL_TICKS=1000}; // CPU usage update interval
+
+#define INTERVAL_TICKS 1000 // CPU usage update interval
+
 extern volatile uint32_t idleCounter;
 extern volatile uint32_t idleCounterLast;
 extern volatile uint32_t idleCounterPerSecond;
 extern volatile uint32_t tickCount;
 extern volatile uint32_t idleCalib;
+
 #endif // _DRINK_CREATOR6000_CONFIG_H_

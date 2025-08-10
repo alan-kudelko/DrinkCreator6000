@@ -26,6 +26,25 @@
 #include <DrinkCreator6000_Config_C.h>
 
 /**
+ * @def I2C_FREQ
+ * @brief I2C bus frequency in Hertz.
+ *
+ * Default is 100 kHz.
+ */
+#define I2C_FREQ       100000UL  // 100 kHz I2C frequency
+/**
+ * @def TWBR_VALUE
+ * @brief TWI Bit Rate Register value calculated from F_CPU and I2C_FREQ.
+ *
+ * Used to configure the I2C clock speed.
+ */
+#define TWBR_VALUE     (((F_CPU/I2C_FREQ)-16UL)/2UL)
+/**
+ * @def TASK_N
+ * @brief Number of FreeRTOS tasks configured in the system.
+ */
+
+/**
  * @name I2C TWI Master Transmitter status codes
  * @{
  */
@@ -93,9 +112,15 @@ struct I2C_DATA {
     bool f_LP;     /**< Last package flag: 1 = last package, 0 = not last */
     bool f_Type;   /**< Package type: 0 = address, 1 = data */
 };
-/// TX buffer size in bytes.
+/**
+ * @def I2C_TX_BUFFER_SIZE
+ * @brief Size of the I2C transmit buffer, in bytes.
+ */
 #define I2C_TX_BUFFER_SIZE    126
-/// RX buffer size in bytes.
+/**
+ * @def I2C_RX_BUFFER_SIZE
+ * @brief Size of the I2C receive buffer, in bytes.
+ */
 #define I2C_RX_BUFFER_SIZE    64
 /**
  * @typedef i2c_tx_buf_index_t

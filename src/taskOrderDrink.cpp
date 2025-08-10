@@ -1,7 +1,8 @@
 #include <string.h>
 #include <stdio.h>
 
-#include "taskOrderDrink.h"
+#include <taskOrderDrink.h>
+#include <DrinkCreator6000_Config.h>
 
 void taskOrderDrink(void*pvParameters){
   uint32_t f_run=0;

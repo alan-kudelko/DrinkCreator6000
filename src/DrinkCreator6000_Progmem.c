@@ -3,7 +3,7 @@
 #include <DrinkCreator6000_Config_C.h>
 
 #ifdef __cplusplus
-extern "C"{
+    extern "C"{
 #endif // __cplusplus
 
 // Messages for last error dump
@@ -89,5 +89,5 @@ const char*const taskNames[TASK_N]                                  PROGMEM={
 };
 
 #ifdef __cplusplus
-}
+    }
 #endif // __cplusplus

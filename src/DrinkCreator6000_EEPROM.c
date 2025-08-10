@@ -1,3 +1,5 @@
+#include <avr/eeprom.h>
+
 #include <DrinkCreator6000_EEPROM.h>
 #include <DrinkCreator6000_DataTypes.h>
 
