@@ -3,6 +3,7 @@
 
 #include <taskOrderDrink.h>
 #include <DrinkCreator6000_Config.h>
+#include <DrinkCreator6000_DataTypes.h>
 
 void taskOrderDrink(void*pvParameters){
   uint32_t f_run=0;
@@ -12,10 +13,10 @@ void taskOrderDrink(void*pvParameters){
   uint8_t i=0;
   uint8_t progress=0; //0 - 100 % needed for loading bar and % value
 
-  uint16_t pumpTime[8]{};
+  uint16_t pumpTime[8]={0};
   uint16_t currentPumpTime=0;
   
-  sScreenData screenData{};
+  struct sScreenData screenData={0};
   // UI_Context should be used as a "queue" i mean, to indicate which drink should be ordered
   // upon received notification selected drink should be read from the EEPROM
   // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
@@ -23,7 +24,7 @@ void taskOrderDrink(void*pvParameters){
   
   for(;;){
     if(xTaskNotifyWait(0,0,&f_run,0)>0){
-      memset(screenData.lines[0],0,sizeof(sScreenData));
+      memset(screenData.lines[0],0,sizeof(struct sScreenData));
       sprintf(screenData.lines[0],"[%2d]%s",UI_Context.currentSubMenu+1,drink[UI_Context.currentSubMenu].drinkName);   
       memset(screenData.lines[3],'-',12);
       screenData.lines[3][0]='[';

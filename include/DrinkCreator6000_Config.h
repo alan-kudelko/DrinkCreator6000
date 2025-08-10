@@ -29,23 +29,42 @@
 #define E_RED_BUTTON 16
 
 #define MCP_ADDR 0x20
-//////////////////////////////////////////////////////////////////
-// Task data:
-// Stack sizes for all tasks and their IDs
-// Guard zones for stack overflow protection
-// Task refresh rates
+
+/** @brief Stack size (in words) for Error Handler task (ID 0). */
 #define TASK_ERROR_HANDLER_STACK_SIZE 230           //0
+/** @brief Stack size (in words) for Serial System Debugger task (ID 1). */
 #define TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE 260  //1
+/** @brief Stack size (in words) for Main task (ID 2). */
 #define TASK_MAIN_STACK_SIZE 150                    //2
+/** @brief Stack size (in words) for Read Input task (ID 3). */
 #define TASK_READ_INPUT_STACK_SIZE 180              //3
+/** @brief Stack size (in words) for Serial Input task (ID 4). */
 #define TASK_SERIAL_INPUT_STACK_SIZE 150            //4
+/** @brief Stack size (in words) for Update Screen task (ID 5). */
 #define TASK_UPDATE_SCREEN_STACK_SIZE 250           //5
+/** @brief Stack size (in words) for Read Temperature task (ID 6). */
 #define TASK_READ_TEMP_STACK_SIZE 120               //6
+/** @brief Stack size (in words) for Regulate Temperature task (ID 7). */
 #define TASK_REGULATE_TEMP_STACK_SIZE 120           //7
+/** @brief Stack size (in words) for Select Drink task (ID 8). */
 #define TASK_SELECT_DRINK_STACK_SIZE 230            //8
+/** @brief Stack size (in words) for Order Drink task (ID 9). */
 #define TASK_ORDER_DRINK_STACK_SIZE 256             //9
+/** @brief Stack size (in words) for Show System Info task (ID 10). */
 #define TASK_SHOW_SYSTEM_INFO_STACK_SIZE 300        //10
-#define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11 // Tuned, 48 words in reserve //160 words causes overflow
+/** 
+ * @brief Stack size (in words) for Welcome Screen task (ID 11). 
+ * Tuned with 48 words in reserve. 160 words caused overflow.
+ */
+#define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11
+/** @brief Stack size (in words) for Test Hardware task (ID 12). */
+#define TASK_TEST_HARDWARE_STACK_SIZE 150             //12
+/** 
+ * @brief Stack size (in words) for Welcome Screen task (ID 11). 
+ * Tuned with 48 words in reserve. 160 words caused overflow.
+ */
+#define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11
+/** @brief Stack size (in words) for Test Hardware task (ID 12). */
 #define TASK_TEST_HARDWARE_STACK_SIZE 150             //12
 // Stack size - will need "tuning" in final release
 
@@ -85,59 +104,81 @@
 #define TASK_WELCOME_TICKS_TO_CLOSE 10
 // Task refresh rates in ms
 
-extern StaticTask_t errorHandlerTCB;                                //0
-extern StaticTask_t serialSystemDebuggerTCB;                        //1
-extern StaticTask_t mainTCB;                                        //2
-extern StaticTask_t readInputTCB;                                   //3
-extern StaticTask_t serialInputTCB;                                 //4
-extern StaticTask_t updateScreenTCB;                                //5
-extern StaticTask_t readTempTCB;                                    //6
-extern StaticTask_t regulateTempTCB;                                //7
-extern StaticTask_t selectDrinkTCB;                                 //8
-extern StaticTask_t orderDrinkTCB;                                  //9
-extern StaticTask_t showSystemInfoTCB;                              //10
-extern StaticTask_t welcomeScreenTCB;                               //11
-// Task control blocks
-extern TaskHandle_t taskHandles[TASK_N];
-// Task handles, assigned in the same order as identifiers
+/**
+ * @brief Task control blocks (TCB) for all FreeRTOS tasks.
+ * 
+ * Each variable represents the static task control block for a specific task.
+ * These TCBs are used by the FreeRTOS kernel to manage task states and context.
+ * The order corresponds to the task IDs used throughout the system.
+ */
+extern StaticTask_t errorHandlerTCB;                                ///< Task Control Block for Error Handler task (ID 0)
+extern StaticTask_t serialSystemDebuggerTCB;                        ///< Task Control Block for Serial System Debugger task (ID 1)
+extern StaticTask_t mainTCB;                                        ///< Task Control Block for Main task (ID 2)
+extern StaticTask_t readInputTCB;                                   ///< Task Control Block for Read Input task (ID 3)
+extern StaticTask_t serialInputTCB;                                 ///< Task Control Block for Serial Input task (ID 4)
+extern StaticTask_t updateScreenTCB;                                ///< Task Control Block for Update Screen task (ID 5)
+extern StaticTask_t readTempTCB;                                    ///< Task Control Block for Read Temperature task (ID 6)
+extern StaticTask_t regulateTempTCB;                                ///< Task Control Block for Regulate Temperature task (ID 7)
+extern StaticTask_t selectDrinkTCB;                                 ///< Task Control Block for Select Drink task (ID 8)
+extern StaticTask_t orderDrinkTCB;                                  ///< Task Control Block for Order Drink task (ID 9)
+extern StaticTask_t showSystemInfoTCB;                              ///< Task Control Block for Show System Info task (ID 10)
+extern StaticTask_t welcomeScreenTCB;                               ///< Task Control Block for Welcome Screen task (ID 11)
+/**
+ * @brief Array of task handles.
+ * 
+ * This array holds the TaskHandle_t values for all created tasks,
+ * indexed by task ID corresponding to the order above.
+ */
+extern TaskHandle_t taskHandles[TASK_N];                            ///< Array of task handles for all tasks
+/** 
+ * @brief Guard zones used for detecting stack overflow for each task.
+ * 
+ * These are memory regions placed before each task stack to detect
+ * stack overflows by monitoring if the guard zone contents are overwritten.
+ */
+extern volatile StackType_t guardZone0[]; ///< Guard zone before Error Handler task stack
+extern StackType_t errorHandlerStack[];   ///< Stack for Error Handler task (ID 0)
 
-extern volatile StackType_t guardZone0[]; // Used in stack overflow detection
-extern StackType_t errorHandlerStack[];          //0
+extern volatile StackType_t guardZone1[]; ///< Guard zone before Serial System Debugger task stack
+extern StackType_t serialSystemDebuggerStack[]; ///< Stack for Serial System Debugger task (ID 1)
 
-extern volatile StackType_t guardZone1[];
-extern StackType_t serialSystemDebuggerStack[];  //1
+extern volatile StackType_t guardZone2[]; ///< Guard zone before Main task stack
+extern StackType_t mainStack[];            ///< Stack for Main task (ID 2)
 
-extern volatile StackType_t guardZone2[];
-extern StackType_t mainStack[];                  //2
+extern volatile StackType_t guardZone3[]; ///< Guard zone before Read Input task stack
+extern StackType_t readInputStack[];       ///< Stack for Read Input task (ID 3)
 
-extern volatile StackType_t guardZone3[];
-extern StackType_t readInputStack[];             //3
+extern volatile StackType_t guardZone4[]; ///< Guard zone before Serial Input task stack
+extern StackType_t serialInputStack[];     ///< Stack for Serial Input task (ID 4)
 
-extern volatile StackType_t guardZone4[];
-extern StackType_t serialInputStack[];           //4
+extern volatile StackType_t guardZone5[]; ///< Guard zone before Update Screen task stack
+extern StackType_t updateScreenStack[];    ///< Stack for Update Screen task (ID 5)
 
-extern volatile StackType_t guardZone5[];
-extern StackType_t updateScreenStack[];          //5
+extern volatile StackType_t guardZone6[]; ///< Guard zone before Read Temperature task stack
+extern StackType_t readTempStack[];        ///< Stack for Read Temperature task (ID 6)
 
-extern volatile StackType_t guardZone6[];
-extern StackType_t readTempStack[];              //6
+extern volatile StackType_t guardZone7[]; ///< Guard zone before Regulate Temperature task stack
+extern StackType_t regulateTempStack[];    ///< Stack for Regulate Temperature task (ID 7)
 
-extern volatile StackType_t guardZone7[];
-extern StackType_t regulateTempStack[];          //7
+extern volatile StackType_t guardZone8[]; ///< Guard zone before Select Drink task stack
+extern StackType_t selectDrinkStack[];     ///< Stack for Select Drink task (ID 8)
 
-extern volatile StackType_t guardZone8[];
-extern StackType_t selectDrinkStack[];           //8
+extern volatile StackType_t guardZone9[]; ///< Guard zone before Order Drink task stack
+extern StackType_t orderDrinkStack[];      ///< Stack for Order Drink task (ID 9)
 
-extern volatile StackType_t guardZone9[];
-extern StackType_t orderDrinkStack[];            //9
+extern volatile StackType_t guardZone10[]; ///< Guard zone before Show System Info task stack
+extern StackType_t showSystemInfoStack[];  ///< Stack for Show System Info task (ID 10)
 
-extern volatile StackType_t guardZone10[];
-extern StackType_t showSystemInfoStack[];        //10
+extern volatile StackType_t guardZone11[]; ///< Guard zone before Welcome Screen task stack
+extern StackType_t welcomeScreenStack[];   ///< Stack for Welcome Screen task (ID 11)
+/**
+ * @brief Array of pointers to all guard zones.
+ * 
+ * Used by the stack overflow detection routine to check each task's guard zone.
+ */
+extern volatile StackType_t* guardZones[]; ///< Array of pointers to guard zones for all tasks
 
-extern volatile StackType_t guardZone11[];
-extern StackType_t welcomeScreenStack[];         //11
 
-extern volatile StackType_t*guardZones[]; // Used in stack overflow detection
 // Task stacks and guard zones
 //////////////////////////////////////////////////////////////////
 // Screen data:

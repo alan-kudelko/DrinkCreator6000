@@ -1,8 +1,10 @@
-#include "taskErrorHandler.h"
+#include <taskErrorHandler.h>
 #include <avr/wdt.h> 
 #include <stdio.h>
 #include <uart.h>
 #include <DrinkCreator6000_Progmem.h>
+
+#include <DrinkCreator6000_Config.h>
 
 extern "C" void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 

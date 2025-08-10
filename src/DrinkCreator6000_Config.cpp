@@ -4,6 +4,7 @@
 // Task data:
 // Stack sizes for all tasks and their IDs
 // Guard zones for stack overflow protection
+
 StaticTask_t errorHandlerTCB         __attribute__((section(".tdat"))); //0
 StaticTask_t serialSystemDebuggerTCB __attribute__((section(".tdat"))); //1
 StaticTask_t mainTCB                 __attribute__((section(".tdat"))); //2
