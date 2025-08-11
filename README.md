@@ -353,6 +353,7 @@ This approach provides reliable short-press and long-press detection without the
 
 ### 7. Project Structure & File Overview  
 
+```
 
 📦 DrinkCreator6000/
 │
@@ -363,23 +364,23 @@ This approach provides reliable short-press and long-press detection without the
 ├── FreeRTOS/ # FreeRTOS source files for AVR platform
 ├── linker/ # Linker script and custom memory layout files
 ├── include/ # Project header files (configuration, data types, tasks, etc.)
-│ ├── DrinkCreator6000_Config.h
-│ ├── DrinkCreator6000_DataTypes.h
-│ ├── DrinkCreator6000_EEPROM.h
-│ ├── DrinkCreator6000_Init.h
-│ ├── DrinkCreator6000_Pins.h
-│ ├── DrinkCreator6000_Progmem.h
-│ ├── DrinkCreator6000_RamStats.h
-│ └── ... (other header files)
+│   ├── DrinkCreator6000_Config.h
+│   ├── DrinkCreator6000_DataTypes.h
+│   ├── DrinkCreator6000_EEPROM.h
+│   ├── DrinkCreator6000_Init.h
+│   ├── DrinkCreator6000_Pins.h
+│   ├── DrinkCreator6000_Progmem.h
+│   ├── DrinkCreator6000_RamStats.h
+│   └── ... (other header files)
 │
 ├── src/ # C/C++ source files implementing application logic and FreeRTOS tasks
-│ ├── DrinkCreator6000.cpp
-│ ├── DrinkCreator6000_Config.cpp
-│ ├── DrinkCreator6000_Init.cpp
-│ ├── DrinkCreator6000_EEPROM.c
-│ ├── DrinkCreator6000_Progmem.c
-│ ├── DrinkCreator6000_RamStats.c
-│ └── ... (other source files)
+│   ├── DrinkCreator6000.cpp
+│   ├── DrinkCreator6000_Config.cpp
+│   ├── DrinkCreator6000_Init.cpp
+│   ├── DrinkCreator6000_EEPROM.c
+│   ├── DrinkCreator6000_Progmem.c
+│   ├── DrinkCreator6000_RamStats.c
+│   └── ... (other source files)
 │
 ├── tools/ # Helper tools, including the complete AVR toolchain (avr-gcc, avr-libc)
 │
@@ -394,6 +395,7 @@ This approach provides reliable short-press and long-press detection without the
 ├── .gitignore # Git ignore configuration
 └── ... (other config and build files)
 
+```
 
 ---
 
