@@ -27,7 +27,6 @@ The entire unit is powered by a modified ATX computer power supply, delivering s
 This project integrates a wide range of hardware, software, and system-level concepts typically found in professional embedded systems. Below is a breakdown of the core technologies and components involved in the design and implementation of DrinkCreator6000:
 
 ### 🔌 Hardware & Electronics
-
 - Custom-designed PCB with ATmega2561 AVR microcontroller
 - 2004 I²C LCD display for UI rendering
 - MCP23017 I²C I/O expander for keypad handling
@@ -584,7 +583,6 @@ The build steps are outlined below and include:
 - Installing CMake
 - Installing Ninja as the build tool
 - Installing AVR-GCC toolchain
-- Installing Arduino core libraries
 - Installing AVRDUDE for uploading the compiled firmware
 - Building and uploading the project
 
@@ -596,13 +594,9 @@ The build steps are outlined below and include:
 
 #### 12.4 Installing AVR-GCC toolchain
 
-#### 12.5 Installing Arduino core libraries
+#### 12.5 Installing AVRDUDE for uploading the compiled firmware
 
-#### 12.6 Installing AVRDUDE for uploading the compiled firmware
+#### 12.6 Building and uploading the project
 
-#### 12.7 Building and uploading the project
-
-📚 Documentation
-The source code is fully documented using Doxygen, which generates up-to-date, browsable documentation from the annotated source files. The generated docs can be found in the docs/ directory and are updated as part of the build process.
 
 ---
