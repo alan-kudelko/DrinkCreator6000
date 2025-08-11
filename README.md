@@ -3,7 +3,7 @@ DrinkCreator6000 is a custom-built, FreeRTOS-based drink dispensing system that 
 
 The project runs under FreeRTOS with fully static memory allocation, ensuring high predictability and resilience. A custom memory section .tdat, defined in the linker script, is used to allocate all task stacks and their associated guard zones contiguously in SRAM, enabling precise monitoring and deterministic stack overflow detection.
 
-The firmware is developed using native AVR libraries alongside the Arduino framework, taking advantage of both low-level control and rapid prototyping features.
+The project was originally developed using the Arduino framework and libraries; however, these have been completely removed, as the Arduino IDE and Arduino libraries do not provide full control over the hardware and often hide critical implementation details. The build system has been migrated to Visual Studio Code with CMake, using a clean AVR toolchain for maximum transparency and flexibility. Additionally, the firmware is being refactored to comply with the MISRA C:2025 standard, enhancing code safety, readability, and portability in line with industry best practices.
 
 The user interface is presented on a 2004 character LCD driven via I²C, offering a multi-screen menu system for navigating functions such as drink selection, system diagnostics, and memory usage. Input is accepted both from a physical keypad connected through an MCP23017 I²C I/O expander and from the UART interface, allowing full control either physically or remotely.
 
@@ -16,8 +16,6 @@ The system supports hardware test functions, allowing verification of pumps, Pel
 
 The entire unit is powered by a modified ATX computer power supply, delivering stable 5V and 12V rails for logic and high-current subsystems.
 
-To improve project portability and maintainability, I am currently migrating the build system to Visual Studio Code with CMake, moving away from the Arduino IDE toward a more professional and transparent toolchain.
-Additionally, the firmware is being refactored to comply with the MISRA C:2025 standard, enhancing code safety, readability, and portability in line with industry best practices.
 
 > 🔧 Status: In development  
 > 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS AVR MCU.
