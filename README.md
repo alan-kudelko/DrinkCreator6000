@@ -353,7 +353,7 @@ This approach provides reliable short-press and long-press detection without the
 
 ### 7. Project Structure & File Overview  
 
-```
+
 📦 DrinkCreator6000/
 │
 ├── Datasheets/ # Documentation of used ICs and components
@@ -394,7 +394,6 @@ This approach provides reliable short-press and long-press detection without the
 ├── .gitignore # Git ignore configuration
 └── ... (other config and build files)
 
-```
 
 ---
 
