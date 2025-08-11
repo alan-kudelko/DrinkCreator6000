@@ -1,0 +1,9 @@
+<map id="initializeUART" name="initializeUART">
+<area shape="rect" id="Node000001" title="Initialize UART peripheral and related settings." alt="" coords="5,31,110,57"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html#a0c0ca72359ddf28dcd15900dfba19343" title="Initializes the UART peripheral and enables interrupts." alt="" coords="197,5,264,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,34,182,23,182,28,110,39"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="158,56,304,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,49,143,54,142,59,110,54"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="352,56,482,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="304,67,337,67,337,72,304,72"/>
+</map>

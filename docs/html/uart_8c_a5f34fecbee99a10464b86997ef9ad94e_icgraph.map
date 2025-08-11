@@ -1,0 +1,43 @@
+<map id="uart_puts_P_blocking" name="uart_puts_P_blocking">
+<area shape="rect" id="Node000001" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="642,259,788,285"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___init_8cpp.html#a9f3e8daea5d430665f0de87252e9d325" title="Initialize EEPROM memory access." alt="" coords="467,157,594,184"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="681,252,592,198,568,187,570,182,595,194,684,248"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="468,208,593,235"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="649,257,581,238,583,233,650,252"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___init_8cpp.html#a3ccbec98bbb2665600bc54a9126d5e58" title="Initialize interrupt controllers and attach ISR handlers." alt="" coords="469,259,592,285"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="626,275,593,275,593,269,626,269"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="489,5,572,32"/>
+<area shape="poly" id="edge7_Node000001_Node000006" title=" " alt="" coords="703,244,688,201,665,148,633,94,592,46,571,33,574,28,595,42,637,91,670,146,693,199,708,243"/>
+<area shape="rect" id="Node000007" href="$_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe" title="Initializes memory resources for FreeRTOS." alt="" coords="473,56,588,83"/>
+<area shape="poly" id="edge9_Node000001_Node000007" title=" " alt="" coords="699,246,658,172,628,132,592,97,574,85,576,81,595,93,632,129,662,169,704,243"/>
+<area shape="rect" id="Node000008" href="$_drink_creator6000___init_8cpp.html#a2114f7b73dcc806e3cbda15122d3b5ec" title="Initialize UART peripheral and related settings." alt="" coords="478,107,583,133"/>
+<area shape="poly" id="edge11_Node000001_Node000008" title=" " alt="" coords="693,248,650,198,622,171,592,148,572,136,574,132,595,143,626,167,654,194,697,245"/>
+<area shape="rect" id="Node000009" href="$_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="469,309,592,336"/>
+<area shape="poly" id="edge13_Node000001_Node000009" title=" " alt="" coords="650,292,583,311,581,306,649,287"/>
+<area shape="rect" id="Node000010" href="$_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="476,360,585,387"/>
+<area shape="poly" id="edge14_Node000001_Node000010" title=" " alt="" coords="684,296,595,350,570,362,568,357,592,346,681,292"/>
+<area shape="rect" id="Node000011" href="$task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="489,411,572,437"/>
+<area shape="poly" id="edge15_Node000001_Node000011" title=" " alt="" coords="697,299,654,350,626,377,595,401,573,413,570,408,592,396,622,373,650,346,693,296"/>
+<area shape="rect" id="Node000013" href="$task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="239,461,419,488"/>
+<area shape="poly" id="edge25_Node000001_Node000013" title=" " alt="" coords="706,301,690,337,666,378,635,419,595,452,553,471,508,482,463,487,420,487,420,482,462,481,507,476,551,466,592,447,631,415,662,376,685,334,701,299"/>
+<area shape="rect" id="Node000016" href="$task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="270,512,389,539"/>
+<area shape="poly" id="edge22_Node000001_Node000016" title=" " alt="" coords="709,301,695,344,673,397,640,449,619,472,595,492,545,516,491,530,437,535,389,534,389,529,437,529,490,525,543,511,592,487,615,468,636,446,668,394,690,343,704,299"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="306,132,352,159"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="451,163,352,151,353,145,452,158"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="477,204,351,156,353,151,479,199"/>
+<area shape="poly" id="edge6_Node000005_Node000003" title=" " alt="" coords="476,254,466,249,397,203,345,161,348,157,400,199,469,244,479,250"/>
+<area shape="poly" id="edge8_Node000006_Node000003" title=" " alt="" coords="479,41,469,46,400,92,348,134,345,129,397,88,466,42,476,36"/>
+<area shape="poly" id="edge10_Node000007_Node000003" title=" " alt="" coords="479,91,353,140,351,135,477,86"/>
+<area shape="poly" id="edge12_Node000008_Node000003" title=" " alt="" coords="464,131,353,145,352,140,463,126"/>
+<area shape="rect" id="Node000012" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,461,55,488"/>
+<area shape="poly" id="edge16_Node000011_Node000012" title=" " alt="" coords="474,425,307,428,205,436,103,452,56,467,54,462,102,447,204,431,307,423,474,420"/>
+<area shape="poly" id="edge17_Node000011_Node000013" title=" " alt="" coords="475,441,386,463,385,458,474,435"/>
+<area shape="rect" id="Node000014" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,512,184,539"/>
+<area shape="poly" id="edge18_Node000013_Node000014" title=" " alt="" coords="264,495,185,518,184,513,263,490"/>
+<area shape="rect" id="Node000015" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,461,191,488"/>
+<area shape="poly" id="edge20_Node000013_Node000015" title=" " alt="" coords="223,477,191,477,191,472,223,472"/>
+<area shape="poly" id="edge19_Node000014_Node000012" title=" " alt="" coords="100,508,54,488,56,483,102,503"/>
+<area shape="poly" id="edge21_Node000015_Node000012" title=" " alt="" coords="87,477,55,477,55,472,87,472"/>
+<area shape="poly" id="edge23_Node000016_Node000014" title=" " alt="" coords="254,528,185,528,185,523,254,523"/>
+<area shape="poly" id="edge24_Node000016_Node000015" title=" " alt="" coords="263,510,191,489,192,484,264,505"/>
+</map>

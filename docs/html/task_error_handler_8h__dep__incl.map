@@ -1,0 +1,9 @@
+<map id="include/taskErrorHandler.h" name="include/taskErrorHandler.h">
+<area shape="rect" id="Node000001" title="Task responsible for stack overflow diagnostics and system error handling." alt="" coords="99,5,274,32"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="6,80,175,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="162,44,117,82,113,77,158,40"/>
+<area shape="rect" id="Node000004" href="$task_error_handler_8cpp.html" title=" " alt="" coords="199,88,366,115"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="215,40,270,86,266,90,211,44"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="5,171,176,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="93,139,93,170,88,170,88,139"/>
+</map>

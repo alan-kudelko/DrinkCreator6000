@@ -1,0 +1,17 @@
+<map id="taskMain_ProcessScrollButtons" name="taskMain_ProcessScrollButtons">
+<area shape="rect" id="Node000001" title="Processes scroll button input and updates UI context accordingly." alt="" coords="585,47,792,73"/>
+<area shape="rect" id="Node000002" href="$task_main_8cpp.html#a93a397874ad2c7286c9476f527945874" title="Processes input in the Select Drink task context." alt="" coords="361,5,537,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="572,47,537,42,537,36,573,41"/>
+<area shape="rect" id="Node000007" href="$task_main_8cpp.html#a99b34cfbf434a8e1d1ab85a2ac2f46e3" title="Processes input in the Show System Info task context." alt="" coords="361,72,537,115"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="573,79,537,84,537,78,572,73"/>
+<area shape="rect" id="Node000003" href="$task_main_8cpp.html#ab733e4e9eec7a065878495d0cbd77718" title="Main FreeRTOS task that coordinates system workflow." alt="" coords="239,47,313,73"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="347,49,314,56,313,50,346,44"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,21,184,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="223,52,184,45,185,39,224,47"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,72,191,99"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="224,73,192,79,191,74,223,68"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,47,55,73"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="95,49,56,57,54,52,94,43"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="87,75,54,68,55,63,88,70"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="346,76,313,70,314,64,347,71"/>
+</map>

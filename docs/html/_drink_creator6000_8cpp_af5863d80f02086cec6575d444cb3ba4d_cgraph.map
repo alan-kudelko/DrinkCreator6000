@@ -1,0 +1,15 @@
+<map id="printI2C_status" name="printI2C_status">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,107,116,133"/>
+<area shape="rect" id="Node000002" href="$i2c_8c.html#a2e0c07e537bbbdb2a0eea00db38eadae" title="Returns the current status code of the I2C state machine." alt="" coords="188,5,294,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="75,104,113,73,162,42,175,36,177,41,165,46,116,78,79,108"/>
+<area shape="rect" id="Node000003" href="$i2c_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="164,56,319,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="110,103,176,85,177,90,112,109"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="166,107,317,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="116,117,150,117,150,123,116,123"/>
+<area shape="rect" id="Node000005" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="367,157,497,184"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="112,131,164,143,261,156,352,164,351,169,261,161,163,148,111,137"/>
+<area shape="rect" id="Node000006" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="176,208,306,235"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="81,132,119,159,165,187,190,199,188,204,162,192,116,163,78,136"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="295,131,365,150,364,155,294,137"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="294,205,364,186,365,191,295,210"/>
+</map>

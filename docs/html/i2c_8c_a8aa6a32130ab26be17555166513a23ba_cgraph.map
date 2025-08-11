@@ -1,0 +1,5 @@
+<map id="ISR" name="ISR">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,50,32"/>
+<area shape="rect" id="Node000002" href="$i2c_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="98,5,253,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,16,82,16,82,21,50,21"/>
+</map>

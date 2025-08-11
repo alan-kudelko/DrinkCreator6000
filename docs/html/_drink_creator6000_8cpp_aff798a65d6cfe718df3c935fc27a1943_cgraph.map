@@ -1,0 +1,7 @@
+<map id="send_hello_world" name="send_hello_world">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,127,32"/>
+<area shape="rect" id="Node000002" href="$i2c_8c.html#a9188b6d16a6e8cef301a63de5b8b4df7" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="175,5,342,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="127,16,159,16,159,21,127,21"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="390,5,520,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="343,16,374,16,374,21,343,21"/>
+</map>

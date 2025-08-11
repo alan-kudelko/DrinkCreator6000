@@ -1,0 +1,5 @@
+<map id="lcd_write4" name="lcd_write4">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,86,32"/>
+<area shape="rect" id="Node000002" href="$i2c_8c.html#a6d4174b1f00e66695e1b388db42d2a00" title="Sends a single data byte to the specified I2C slave address in blocking mode." alt="" coords="134,5,294,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,16,118,16,118,21,86,21"/>
+</map>

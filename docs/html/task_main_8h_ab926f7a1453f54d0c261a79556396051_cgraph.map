@@ -1,0 +1,7 @@
+<map id="taskMain_ProcessContext_taskShowSystemInfo" name="taskMain_ProcessContext_taskShowSystemInfo">
+<area shape="rect" id="Node000001" title="Processes input in the Show System Info task context." alt="" coords="5,23,181,65"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a6cf4f180c06759f7ea753731661cd701" title="Updates the last startup error stored in EEPROM." alt="" coords="229,5,445,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="181,32,213,29,213,34,181,38"/>
+<area shape="rect" id="Node000003" href="$task_main_8c.html#a6b949466055d74e804a149444979dd15" title="Processes scroll button input and updates UI context accordingly." alt="" coords="233,56,440,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,50,218,54,217,60,181,56"/>
+</map>

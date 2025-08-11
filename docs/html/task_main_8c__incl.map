@@ -1,0 +1,35 @@
+<map id="src/taskMain.c" name="src/taskMain.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="366,5,473,32"/>
+<area shape="rect" id="Node000002" href="$task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="300,80,385,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="408,34,368,71,365,67,404,31"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___config_8h.html" title=" " alt="" coords="582,80,761,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="464,30,614,73,612,78,463,35"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="5,155,210,181"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="302,110,164,152,162,147,301,105"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="145,229,209,256"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="121,180,156,216,152,220,118,184"/>
+<area shape="poly" id="edge15_Node000005_Node000003" title=" " alt="" coords="582,109,222,155,221,149,581,104"/>
+<area shape="poly" id="edge13_Node000005_Node000004" title=" " alt="" coords="582,105,410,125,330,140,274,157,231,186,198,219,194,216,228,182,272,152,329,135,409,120,581,100"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="284,155,379,181"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="612,110,394,156,393,151,611,105"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="403,155,460,181"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="630,110,476,156,474,151,629,105"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="484,155,552,181"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="646,110,560,150,558,145,644,105"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="576,155,644,181"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="663,109,632,145,628,141,659,105"/>
+<area shape="rect" id="Node000010" href="$_free_r_t_o_s_config_8h.html" title=" " alt="" coords="668,155,800,181"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="684,105,715,141,711,145,680,109"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="824,155,903,181"/>
+<area shape="poly" id="edge10_Node000005_Node000011" title=" " alt="" coords="706,105,817,146,815,151,704,110"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="926,155,1017,181"/>
+<area shape="poly" id="edge11_Node000005_Node000012" title=" " alt="" coords="725,105,912,150,910,155,723,110"/>
+<area shape="rect" id="Node000013" title=" " alt="" coords="1040,155,1116,181"/>
+<area shape="poly" id="edge12_Node000005_Node000013" title=" " alt="" coords="758,105,881,125,1026,151,1025,157,880,130,757,110"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="1140,155,1214,181"/>
+<area shape="poly" id="edge14_Node000005_Node000014" title=" " alt="" coords="762,101,927,121,1125,152,1124,157,926,126,761,106"/>
+<area shape="rect" id="Node000015" href="$_drink_creator6000___config___c_8h.html" title="Configuration macros for CPU frequency, UART, I2C, and task count." alt="" coords="1239,155,1435,181"/>
+<area shape="poly" id="edge16_Node000005_Node000015" title=" " alt="" coords="762,102,1224,152,1223,157,762,107"/>
+<area shape="rect" id="Node000016" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="1458,155,1626,181"/>
+<area shape="poly" id="edge17_Node000005_Node000016" title=" " alt="" coords="761,98,1060,118,1443,152,1443,157,1059,124,761,103"/>
+</map>

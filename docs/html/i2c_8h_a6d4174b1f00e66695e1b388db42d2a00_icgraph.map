@@ -1,0 +1,20 @@
+<map id="i2c_write_byte_blocking" name="i2c_write_byte_blocking">
+<area shape="rect" id="Node000001" title="Sends a single data byte to the specified I2C slave address in blocking mode." alt="" coords="649,17,809,44"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000_8cpp.html#a1015442ac55cc81e8ffbf52a10a1306a" title=" " alt="" coords="521,17,601,44"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="633,33,602,33,602,28,633,28"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html#a4a59a41d871b92d6f85df4e9093d05e5" title=" " alt="" coords="137,68,199,94"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="505,36,401,44,281,58,200,76,199,70,281,53,400,38,505,30"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a6acca73f9889e4e88d8eff4cd5f2d362" title=" " alt="" coords="399,68,473,94"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="513,52,472,70,470,65,511,47"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="103,17,233,44"/>
+<area shape="poly" id="edge10_Node000002_Node000006" title=" " alt="" coords="505,19,472,14,377,8,281,14,234,20,233,15,281,9,377,3,473,9,506,14"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#ae72239381eaf4e9753d11d063ab852f6" title=" " alt="" coords="281,68,351,94"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="384,84,352,84,352,78,384,78"/>
+<area shape="rect" id="Node000008" href="$_drink_creator6000_8cpp.html#a8a4e90ef3dde8cc3e92007c228867fb6" title=" " alt="" coords="281,118,351,145"/>
+<area shape="poly" id="edge8_Node000004_Node000008" title=" " alt="" coords="390,103,351,120,348,115,388,98"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="265,84,200,84,200,78,265,78"/>
+<area shape="poly" id="edge6_Node000005_Node000006" title=" " alt="" coords="266,67,208,47,210,42,267,62"/>
+<area shape="rect" id="Node000007" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,68,55,94"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="116,52,56,74,54,69,114,47"/>
+<area shape="poly" id="edge9_Node000008_Node000007" title=" " alt="" coords="265,131,188,124,102,109,54,93,56,88,103,104,189,119,266,126"/>
+</map>

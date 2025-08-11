@@ -1,0 +1,7 @@
+<map id="initializeEEPROM" name="initializeEEPROM">
+<area shape="rect" id="Node000001" title="Initialize EEPROM memory access." alt="" coords="5,5,132,32"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="180,5,326,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="132,16,164,16,164,21,132,21"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="374,5,504,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="326,16,359,16,359,21,326,21"/>
+</map>

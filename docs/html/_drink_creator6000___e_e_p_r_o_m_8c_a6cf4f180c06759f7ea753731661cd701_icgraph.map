@@ -1,0 +1,18 @@
+<map id="EEPROMUpdateLastStartupError" name="EEPROMUpdateLastStartupError">
+<area shape="rect" id="Node000001" title="Updates the last startup error stored in EEPROM." alt="" coords="630,31,846,57"/>
+<area shape="rect" id="Node000002" href="$task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="239,5,358,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="614,40,358,25,359,19,614,34"/>
+<area shape="rect" id="Node000006" href="$task_main_8c.html#a73ab051cc25ca96125a627be3342ef61" title="Processes input in the Show System Info task context." alt="" coords="406,52,582,95"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="614,62,583,65,582,60,614,56"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,5,184,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,21,184,21,184,16,223,16"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,56,191,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="243,40,190,58,188,53,241,35"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,33,56,41,54,36,94,27"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="87,59,54,52,55,47,88,54"/>
+<area shape="rect" id="Node000007" href="$task_main_8c.html#ab733e4e9eec7a065878495d0cbd77718" title="Main FreeRTOS task that coordinates system workflow." alt="" coords="262,56,336,83"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="391,74,336,73,336,67,391,69"/>
+<area shape="poly" id="edge8_Node000007_Node000003" title=" " alt="" coords="246,55,183,33,185,28,247,50"/>
+<area shape="poly" id="edge9_Node000007_Node000005" title=" " alt="" coords="246,72,191,72,191,67,246,67"/>
+</map>

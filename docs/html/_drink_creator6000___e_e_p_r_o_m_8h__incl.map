@@ -1,0 +1,5 @@
+<map id="include/DrinkCreator6000_EEPROM.h" name="include/DrinkCreator6000_EEPROM.h">
+<area shape="rect" id="Node000001" title="EEPROM access functions for bootup counts and last error storage." alt="" coords="5,5,174,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="41,96,138,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="92,49,92,80,87,80,87,49"/>
+</map>

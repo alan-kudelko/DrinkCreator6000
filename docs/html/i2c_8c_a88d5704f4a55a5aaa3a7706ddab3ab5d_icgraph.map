@@ -1,0 +1,7 @@
+<map id="i2c_read_byte" name="i2c_read_byte">
+<area shape="rect" id="Node000001" title=" " alt="" coords="196,47,298,73"/>
+<area shape="rect" id="Node000002" href="$i2c_8c.html#a9d4ab0ca9fa4e1b3e4d7a50582953276" title=" " alt="" coords="9,5,144,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,50,144,42,145,37,181,44"/>
+<area shape="rect" id="Node000003" href="$i2c_8c.html#aaebe585abe9d739533ce3383a7efe9d8" title=" " alt="" coords="5,72,148,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="181,76,148,82,147,77,180,70"/>
+</map>

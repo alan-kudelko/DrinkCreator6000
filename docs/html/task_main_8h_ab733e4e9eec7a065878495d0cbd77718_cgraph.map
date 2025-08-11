@@ -1,0 +1,16 @@
+<map id="taskMain" name="taskMain">
+<area shape="rect" id="Node000001" title="Main FreeRTOS task that coordinates system workflow." alt="" coords="5,113,80,140"/>
+<area shape="rect" id="Node000002" href="$task_main_8c.html#a021a4cab8903c066128f33db84b1bdca" title="Processes input in the Welcome Screen context." alt="" coords="128,5,303,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="57,111,87,85,126,58,136,53,138,57,129,62,91,89,60,115"/>
+<area shape="rect" id="Node000003" href="$task_main_8c.html#a78015f858010c519cd26b53104cb5686" title="Processes input in the Order Drink task context." alt="" coords="128,72,303,115"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="79,117,112,111,113,116,80,122"/>
+<area shape="rect" id="Node000004" href="$task_main_8c.html#aade9c6da80ede3c1c43db354571d1cda" title="Processes input in the Select Drink task context." alt="" coords="128,139,303,181"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="80,131,113,137,112,143,79,136"/>
+<area shape="rect" id="Node000006" href="$task_main_8c.html#a73ab051cc25ca96125a627be3342ef61" title="Processes input in the Show System Info task context." alt="" coords="128,205,303,248"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="60,138,91,165,129,191,138,196,136,201,126,196,87,169,57,142"/>
+<area shape="rect" id="Node000005" href="$task_main_8c.html#a6b949466055d74e804a149444979dd15" title="Processes scroll button input and updates UI context accordingly." alt="" coords="356,155,563,181"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="303,160,340,161,340,167,303,166"/>
+<area shape="poly" id="edge7_Node000006_Node000005" title=" " alt="" coords="303,203,385,183,386,188,304,208"/>
+<area shape="rect" id="Node000007" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a6cf4f180c06759f7ea753731661cd701" title="Updates the last startup error stored in EEPROM." alt="" coords="351,213,567,240"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="303,224,335,224,335,229,303,229"/>
+</map>

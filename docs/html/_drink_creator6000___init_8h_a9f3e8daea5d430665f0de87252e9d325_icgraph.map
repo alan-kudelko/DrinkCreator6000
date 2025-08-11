@@ -1,0 +1,5 @@
+<map id="initializeEEPROM" name="initializeEEPROM">
+<area shape="rect" id="Node000001" title="Initialize EEPROM memory access." alt="" coords="99,5,225,32"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>

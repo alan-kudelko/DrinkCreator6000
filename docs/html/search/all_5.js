@@ -1,0 +1,20 @@
+var searchData=
+[
+  ['e_5fblue_5fbutton_0',['E_BLUE_BUTTON',['../_drink_creator6000___config_8h.html#aafb92727831483e22cd8adf5fd1b1391',1,'DrinkCreator6000_Config.h']]],
+  ['e_5fgreen_5fbutton_1',['E_GREEN_BUTTON',['../_drink_creator6000___config_8h.html#afe16221532611c5adaaaaa0f84dfb057',1,'DrinkCreator6000_Config.h']]],
+  ['e_5floading_5fbar_2',['E_LOADING_BAR',['../_drink_creator6000___config_8h.html#ad7081e0f4f11f6039a0e69111ce86ef9',1,'DrinkCreator6000_Config.h']]],
+  ['e_5flwhite_5fbutton_3',['E_LWHITE_BUTTON',['../_drink_creator6000___config_8h.html#af6c4762340ef171d6f68f882eed06503',1,'DrinkCreator6000_Config.h']]],
+  ['e_5fred_5fbutton_4',['E_RED_BUTTON',['../_drink_creator6000___config_8h.html#a86e94d436e9eb8a471e6f7c4e4794900',1,'DrinkCreator6000_Config.h']]],
+  ['e_5frwhite_5fbutton_5',['E_RWHITE_BUTTON',['../_drink_creator6000___config_8h.html#a2bc6efaf0e0ade484e854f2722e5cfa1',1,'DrinkCreator6000_Config.h']]],
+  ['eeprom_5fbootups_5faddr_6',['EEPROM_BOOTUPS_ADDR',['../_drink_creator6000___e_e_p_r_o_m_8h.html#af8679db5ae75dca8a48fbee08f704784',1,'DrinkCreator6000_EEPROM.h']]],
+  ['eeprom_5flast_5ferror_5faddr_7',['EEPROM_LAST_ERROR_ADDR',['../_drink_creator6000___e_e_p_r_o_m_8h.html#a3c2e13050f8f413fe4b67673cbd4fc1d',1,'DrinkCreator6000_EEPROM.h']]],
+  ['eepromgetlaststartuperror_8',['EEPROMGetLastStartupError',['../_drink_creator6000___e_e_p_r_o_m_8h.html#a1a918f034530f75e431f69fefab82ba5',1,'EEPROMGetLastStartupError(struct sSystemError *lastError):&#160;DrinkCreator6000_EEPROM.c'],['../_drink_creator6000___e_e_p_r_o_m_8c.html#a1a918f034530f75e431f69fefab82ba5',1,'EEPROMGetLastStartupError(struct sSystemError *lastError):&#160;DrinkCreator6000_EEPROM.c']]],
+  ['eepromupdatebootups_9',['EEPROMUpdateBootups',['../_drink_creator6000___e_e_p_r_o_m_8h.html#a04546a6c5db76caa5fc348468dd96137',1,'EEPROMUpdateBootups(uint16_t *bootupsCount):&#160;DrinkCreator6000_EEPROM.c'],['../_drink_creator6000___e_e_p_r_o_m_8c.html#a04546a6c5db76caa5fc348468dd96137',1,'EEPROMUpdateBootups(uint16_t *bootupsCount):&#160;DrinkCreator6000_EEPROM.c']]],
+  ['eepromupdatelaststartuperror_10',['EEPROMUpdateLastStartupError',['../_drink_creator6000___e_e_p_r_o_m_8h.html#a6cf4f180c06759f7ea753731661cd701',1,'EEPROMUpdateLastStartupError(struct sSystemError *errorStruct):&#160;DrinkCreator6000_EEPROM.c'],['../_drink_creator6000___e_e_p_r_o_m_8c.html#a6cf4f180c06759f7ea753731661cd701',1,'EEPROMUpdateLastStartupError(struct sSystemError *errorStruct):&#160;DrinkCreator6000_EEPROM.c'],['../task_error_handler_8cpp.html#a0b9f30a4c0bab3d986bcd86603d56541',1,'EEPROMUpdateLastStartupError(sSystemError *errorStruct):&#160;DrinkCreator6000_EEPROM.c'],['../task_main_8c.html#a4ae5dbec350ffe02ffcbf8b6f6889690',1,'EEPROMUpdateLastStartupError(struct sSystemError *):&#160;DrinkCreator6000_EEPROM.c']]],
+  ['error_5fid_5fqueue_5fbuffer_5fcount_11',['ERROR_ID_QUEUE_BUFFER_COUNT',['../_drink_creator6000___config_8h.html#a53dd37365892a6c8e176d0c5202717f6',1,'DrinkCreator6000_Config.h']]],
+  ['errorhandlerstack_12',['errorHandlerStack',['../_drink_creator6000___config_8h.html#a1b46a6a512d1a043b93cf7ed0d446dc9',1,'DrinkCreator6000_Config.h']]],
+  ['errorhandlertcb_13',['errorHandlerTCB',['../_drink_creator6000___config_8h.html#a446655383f1e3e87453c344235cd1bd0',1,'DrinkCreator6000_Config.h']]],
+  ['erroridqueuebuffer_14',['errorIdQueueBuffer',['../_drink_creator6000___config_8h.html#a322970bf8dce8d2afbdce3804dee3eed',1,'errorIdQueueBuffer:&#160;DrinkCreator6000_Config.cpp'],['../_drink_creator6000___config_8cpp.html#ab031e42317911fc69697a2f67341a258',1,'errorIdQueueBuffer:&#160;DrinkCreator6000_Config.cpp']]],
+  ['erroridqueuestructbuffer_15',['errorIdQueueStructBuffer',['../_drink_creator6000___config_8h.html#a12f486cfd94909977ece3e59fa607a17',1,'errorIdQueueStructBuffer:&#160;DrinkCreator6000_Config.cpp'],['../_drink_creator6000___config_8cpp.html#a12f486cfd94909977ece3e59fa607a17',1,'errorIdQueueStructBuffer:&#160;DrinkCreator6000_Config.cpp']]],
+  ['errortext_16',['errorText',['../structs_system_error.html#a51e366b30c125348c37d5cf74dce8268',1,'sSystemError']]]
+];

@@ -31,13 +31,25 @@ struct sDrinkData{
     uint16_t numberOfOrders;
     // Can be optimzed
 };
-//struct to pass to taskActivatePumps(void*)
-struct sScreenData{
+/**
+ * @struct sScreenData
+ * @brief Structure containing data to be passed to the taskActivatePumps.
+ *
+ * This structure holds the text lines to be displayed on the LCD screen
+ * along with cursor position and blink control.
+ *
+ * @param lines Array of 4 strings, each up to 20 characters, representing
+ *              the LCD lines.
+ * @param lcdCursorX Cursor X position (0-19).
+ * @param lcdCursorY Cursor Y position (0-3).
+ * @param lcdCursorBlink Cursor blink flag (1 = blink enabled, 0 = disabled).
+ */
+struct sScreenData {
     char lines[4][20];
-    struct{
-        uint8_t lcdCursorX: 5;
-        uint8_t lcdCursorY: 2;
-        uint8_t lcdCursorBlink: 1;
+    struct {
+        uint8_t lcdCursorX:5;
+        uint8_t lcdCursorY:2;
+        uint8_t lcdCursorBlink:1;
     };
 };
 /**

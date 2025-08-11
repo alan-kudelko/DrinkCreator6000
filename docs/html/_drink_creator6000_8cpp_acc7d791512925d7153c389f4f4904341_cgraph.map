@@ -1,0 +1,11 @@
+<map id="lastError_dump" name="lastError_dump">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,23,115,50"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="357,23,487,50"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="106,20,162,8,236,3,309,8,356,17,355,22,309,14,236,8,163,14,107,25"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="171,23,301,50"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,34,155,34,155,39,115,39"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="163,74,309,100"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="110,48,173,66,171,71,108,53"/>
+<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="301,34,342,34,342,39,301,39"/>
+<area shape="poly" id="edge5_Node000004_Node000002" title=" " alt="" coords="287,71,355,52,357,57,289,76"/>
+</map>

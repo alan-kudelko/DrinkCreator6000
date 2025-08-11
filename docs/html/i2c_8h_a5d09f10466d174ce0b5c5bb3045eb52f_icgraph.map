@@ -1,0 +1,12 @@
+<map id="i2c_tx_buffer_is_empty" name="i2c_tx_buffer_is_empty">
+<area shape="rect" id="Node000001" title="Checks if the I2C TX buffer is empty." alt="" coords="439,56,595,83"/>
+<area shape="rect" id="Node000002" href="$i2c_8c.html#a8aa6a32130ab26be17555166513a23ba" title=" " alt="" coords="314,5,358,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="451,54,358,27,359,22,453,49"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,81,55,108"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="424,77,55,96,55,91,424,71"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="281,107,391,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="453,90,387,109,386,104,451,85"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="103,107,233,133"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="265,123,233,123,233,117,265,117"/>
+<area shape="poly" id="edge5_Node000005_Node000003" title=" " alt="" coords="87,108,54,102,55,96,88,102"/>
+</map>

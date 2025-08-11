@@ -9,21 +9,20 @@
 #ifndef _TASK_SELECT_DRINK_H_
     #define _TASK_SELECT_DRINK_H_
 
-#include <FreeRTOS.h>
-#include <task.h>
-#include <queue.h>
-#include <timers.h>
-#include <FreeRTOSConfig.h>
-#include <portable.h>
-#include <portmacro.h>
-#include <semphr.h>
-
-#include <DrinkCreator6000_Config.h>
 /**
  * @brief Handles the drink selection process.
  *
  * @param pvParameters Task parameters (unused).
  */
+
+#ifdef __cplusplus
+    extern "C" {
+#endif // __cplusplus
+
 void taskSelectDrink(void*pvParameters);
+
+#ifdef __cplusplus
+    }
+#endif // __cplusplus
 
 #endif // _TASK_SELECT_DRINK_H_

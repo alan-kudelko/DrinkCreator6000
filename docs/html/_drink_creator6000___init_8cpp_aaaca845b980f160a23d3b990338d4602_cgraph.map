@@ -1,0 +1,9 @@
+<map id="initializeHardware" name="initializeHardware">
+<area shape="rect" id="Node000001" title="Initialize RTOS memory resources and guard zones." alt="" coords="5,31,130,57"/>
+<area shape="rect" id="Node000002" href="$i2c_8c.html#a5730d9445429351b9f750084c5cb5aae" title="Initializes the I2C hardware and software buffers." alt="" coords="220,5,282,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="130,33,204,22,205,28,130,38"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="178,56,324,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="130,50,162,54,162,60,130,55"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="372,56,502,83"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="324,67,357,67,357,72,324,72"/>
+</map>

@@ -14,6 +14,7 @@
     "drinkcreator6000_eeprom.h": "c",
     "drinkcreator6000_progmem.h": "c",
     "freertosconfig.h": "c",
-    "drinkcreator6000_config.h": "c"
+    "drinkcreator6000_config.h": "c",
+    "taskselectdrink.h": "c"
   }
 }

@@ -1,0 +1,7 @@
+<map id="taskSerialInput" name="taskSerialInput">
+<area shape="rect" id="Node000001" title="Reads input data from UART and enqueues to main task." alt="" coords="5,31,114,57"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html#a69bd6dc9d81a10ff8fa3ae2620a74001" title="Retrieves the next character from the receive buffer." alt="" coords="167,5,242,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,32,151,25,152,30,115,37"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#ae1aa6b6bda0b1babfd7190d0e9ba070f" title="Peeks at the next character in the receive buffer without removing it." alt="" coords="162,56,247,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,51,147,57,146,62,114,56"/>
+</map>

@@ -1,0 +1,21 @@
+<map id="taskErrorHandler" name="taskErrorHandler">
+<area shape="rect" id="Node000001" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="5,157,125,184"/>
+<area shape="rect" id="Node000002" href="$task_error_handler_8cpp.html#aec1674c9f03d23adeade70b13447e79f" title=" " alt="" coords="217,5,344,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,155,109,100,138,68,171,42,201,28,203,33,174,46,141,72,113,103,76,158"/>
+<area shape="rect" id="Node000003" href="$task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="189,56,372,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="83,155,122,127,172,99,207,85,208,90,174,104,125,131,86,159"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="631,132,762,159"/>
+<area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="125,166,616,146,616,151,125,171"/>
+<area shape="rect" id="Node000005" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="445,107,575,133"/>
+<area shape="poly" id="edge9_Node000001_Node000005" title=" " alt="" coords="125,157,172,149,308,134,430,123,430,128,309,139,173,155,126,162"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a6cf4f180c06759f7ea753731661cd701" title="Updates the last startup error stored in EEPROM." alt="" coords="173,208,389,235"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="126,182,207,201,206,206,125,187"/>
+<area shape="rect" id="Node000007" href="$task_error_handler_8cpp.html#ae35084301e72c3a3e89868cc6bf1ff9d" title=" " alt="" coords="220,259,342,285"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="83,183,123,214,174,244,206,256,204,261,172,249,120,218,80,187"/>
+<area shape="rect" id="Node000008" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="437,259,583,285"/>
+<area shape="poly" id="edge10_Node000001_Node000008" title=" " alt="" coords="75,183,89,209,111,241,139,272,174,295,210,308,247,315,286,317,324,316,397,305,457,288,459,293,398,310,325,321,286,323,247,320,208,313,171,300,136,276,107,244,85,212,70,186"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="373,66,475,73,530,81,584,92,623,106,659,122,656,127,621,110,583,97,529,86,475,78,373,72"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="345,81,432,100,431,105,344,86"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="576,126,617,132,616,137,575,132"/>
+<area shape="poly" id="edge11_Node000008_Node000004" title=" " alt="" coords="530,256,661,165,664,170,533,260"/>
+</map>
