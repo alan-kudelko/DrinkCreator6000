@@ -528,6 +528,44 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 
 ### 12. Additional Notes  
 
+#### 12.1 Low-level Drivers
+
+This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
+
+##### UART Driver
+
+- Full-duplex UART driver for the ATmega2560 using the USART0 peripheral.
+- Supports blocking and non-blocking transmit and receive using ring buffers.
+- Implements hardware-level ISRs for transmit buffer empty (`USART_UDRE_vect`) and receive complete (`USART_RX_vect`).
+- Configurable TX and RX buffer sizes via macros.
+- Supports strings stored in flash memory (PROGMEM) with dedicated functions.
+- Completely independent of FreeRTOS or any other RTOS.
+
+##### I2C (TWI) Master Driver
+
+- Implements a master-mode I2C driver for ATmega2560.
+- Supports both blocking and non-blocking operations.
+- Uses a transmit buffer for queued data packets including addresses, read/write flags, and data.
+- Managed by ISRs for TWI events (`TWI_vect`) and a timer interrupt (`TIMER4_COMPA_vect`) for precise timing.
+- Timer4 is configured to generate interrupts approximately every 10 microseconds (prescaler 64, 16 MHz CPU clock).
+- Configurable buffer sizes for transmission and reception.
+- RTOS independent, allowing use in bare-metal or FreeRTOS environments.
+
+These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
+
+#### 12.2 System Initialization
+
+The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
+- Configures all I/O pins according to the custom hardware design.
+- Allocates memory statically for FreeRTOS objects such as tasks, queues, semaphores, and mutexes.
+- Initializes key hardware peripherals including UART, I²C devices (e.g., LCD, keypad expanders), and shift registers for pump control.
+- Implements a system startup routine that runs early during boot (placed in the `.init8` linker section), ensuring all components are ready before the scheduler starts.
+- The startup routine is marked with GCC `naked` and `used` attributes to control exact placement and prevent unwanted optimizations or removal.
+
+This careful initialization sequence ensures reliable and deterministic system behavior from power-up.
+
+
+
 ---
 
 ### 13. 🚀 How to build
