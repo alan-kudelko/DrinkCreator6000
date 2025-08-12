@@ -57,6 +57,7 @@ message(STATUS "Adding AVR Peripherals sources")
 file(GLOB AVR_CORE_SOURCES
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.c"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c/*.c"
+    "${CMAKE_SOURCE_DIR}/drivers/*.cpp"
 )
 message(STATUS "Adding project headers")
 file(GLOB PROJECT_HEADERS
@@ -73,6 +74,7 @@ message(STATUS "Adding AVR Peripherals headers")
 file(GLOB AVR_CORE_HEADERS
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.h"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c/*.h"
+    "${CMAKE_SOURCE_DIR}/drivers/*.h"
 )
 include_directories(
     "${AVR_ROOT}/avr/include"
@@ -86,6 +88,7 @@ include_directories(
     "${CMAKE_SOURCE_DIR}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c"
+    "${CMAKE_SOURCE_DIR}/drivers"
 )
 # Disable MSVC
 set(CMAKE_FIND_ROOT_PATH "${AVR_ROOT}")

@@ -40,10 +40,14 @@
  */
 #define TWBR_VALUE     (((F_CPU/I2C_FREQ)-16UL)/2UL)
 /**
- * @def TASK_N
- * @brief Number of FreeRTOS tasks configured in the system.
+ * @def USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
+ * @brief Enables (1) or disables (0) the use of a ring buffer for blocking I2C operations.
+ *
+ * When enabled, blocking I2C operations use a ring buffer to queue data before transmission,
+ * allowing asynchronous processing via interrupts. When disabled, blocking operations
+ * bypass the buffer and send data directly.
  */
-
+#define USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS 1
 /**
  * @name I2C TWI Master Transmitter status codes
  * @{
@@ -210,6 +214,9 @@ static inline bool i2c_tx_buffer_is_empty(void){
  * allowing the next transmission to be properly enqueued.
  */
 void i2c_tx_buffer_clear_until_next_address(void);
+
+
+void i2c_tx_buffer_show_contet(void);
 /**
  * @brief Sends a single data byte to the specified I2C slave address in blocking mode.
  *

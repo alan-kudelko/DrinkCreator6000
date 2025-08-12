@@ -4,7 +4,15 @@
 #include <DrinkCreator6000_Pins.h>
 #include <uart.h>
 
+#if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==0
+
+#warning "Blocking operations bypass the ring buffer (no buffering enabled)"
+
+#else
+
 #warning "Timer4 used exclusively for I2C management"
+
+#endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 
 volatile struct I2C_DATA i2c_buffer_tx[I2C_TX_BUFFER_SIZE]={0};
 volatile uint8_t i2c_tx_buffer_head=0;
@@ -17,17 +25,25 @@ void i2c_init(void){
     DDRD&=~(1<<I2C_SCL_PIN);
     DDRD&=~(1<<I2C_SDA_PIN);
     // Timer 4 used as clock for driving I2C after sending STOP
-    TCCR4A=0;                    // Normal mode, counting to OCR4A
-    TCCR4B=0;
-    TCNT4=0;                     // Reset timer counter to zero
-    OCR4A=249;                   // Set compare value for ~10 µs period (prescaler 64, 16 MHz clock)
-    TCCR4B|=(1<<WGM42);          // Enable CTC mode (Clear Timer on Compare)
-    TCCR4B|=(1<<CS42)|(1<<CS40); // Set prescaler to 64
-    TIMSK4|=(1<<OCIE4A);         // Enable Timer4 Compare A interrupt
+#if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
+    TCCR4A = 0;                    // Normal mode (timer counts up to OCR4A)
+    TCCR4B = 0;
+    TCNT4 = 0;                    // Reset timer counter to zero
+    OCR4A = 2;                    // Compare value for ~10 µs interrupt (prescaler 64, 16 MHz clock)
+                                  // 16 MHz / 64 = 250 kHz → 4 µs per tick
+                                  // OCR4A=2 → 3 ticks × 4 µs = 12 µs
+    TCCR4B |= (1 << WGM42);       // Enable CTC mode (Clear Timer on Compare Match)
+    TCCR4B |= (1 << CS42) | (1 << CS40); // Set prescaler to 64 (timer clock = 250 kHz)
+    TIMSK4 |= (1 << OCIE4A);      // Enable Timer4 Compare A Match interrupt
+#endif
     // Configure TWI (I2C) bit rate and enable peripheral
     TWSR&=~((1<<TWPS0)|(1<<TWPS1)); // Set prescaler bits to 0 (prescaler = 1)
     TWBR=(uint8_t)TWBR_VALUE;       // Set bit rate register (depends on desired speed)
     TWCR=(1<<TWEN);                 // Enable TWI (I2C) hardware
+
+    //Debug for measuring time in ISR
+    DDRH|=(1<<PH4);
+    PORTH|=(1<<PH4);
 }
 
 void i2c_disable(void){
@@ -53,6 +69,11 @@ void i2c_tx_buffer_clear_until_next_address(void){
     }while(i2c_tx_buffer_tail!=i2c_tx_buffer_head);
 }
 
+void i2c_tx_buffer_show_contet(void){
+
+}
+
+#if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
 // ISR for initializing I2C transmission on Timer4 Compare A interrupt
 // Triggered after sending STOP or when first package is queued
 ISR(TIMER4_COMPA_vect){
@@ -66,6 +87,7 @@ ISR(TIMER4_COMPA_vect){
 }
 
 ISR(TWI_vect){
+    PORTH&=~(1<<PH4);
     uint8_t status=TWSR&TW_STATUS_MASK;
 
     switch(status){
@@ -78,16 +100,16 @@ ISR(TWI_vect){
         break;
         case TW_MT_SLA_NACK:
         case TW_MT_DATA_NACK:
-            i2c_status=I2C_STATE_ERROR;
+           // i2c_status=I2C_STATE_ERROR;
             //i2c_tx_error_counter++;
-        break;
+        //break;
         case TW_MT_DATA_ACK:
             i2c_status=I2C_STATE_DATA_SENT;
         break; 
-        default:
-            i2c_status=I2C_STATE_ERROR;
-            i2c_tx_error_counter++;
-        break;
+        //default:
+        //    i2c_status=I2C_STATE_ERROR;
+        //    i2c_tx_error_counter++;
+       // break;
     }
     if(i2c_tx_buffer_head==i2c_tx_buffer_tail){
         TWCR=(1<<TWEN)|(1<<TWINT)|(1<<TWSTO);
@@ -160,9 +182,13 @@ ISR(TWI_vect){
             // Wyłączamy TWI lub restartujemy jak trzeba
         break;
     }
+    PORTH|=(1<<PH4);
 }
 
+#endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
+
 void i2c_write_byte_blocking(uint8_t address,uint8_t data){
+#if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
     uint8_t new_head=(i2c_tx_buffer_head+2)%I2C_TX_BUFFER_SIZE;
     // Wait until there is space for two elements in the TX buffer
     while (new_head==i2c_tx_buffer_tail){
@@ -182,6 +208,40 @@ cli(); // Disable interrupts to ensure atomic buffer update
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
     i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
 sei(); // Re-enable interrupts
+
+#else
+    #define I2C_TIMEOUT 10000
+    uint16_t timeout;
+    // START condition
+    TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_START) return; // error: start failed
+
+    // Send SLA+W (address + write)
+    TWDR = (address << 1) | WRITE_FLAG;
+    TWCR = (1 << TWINT) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_MT_SLA_ACK) return; // error: SLA+W not acked
+
+    // Send data byte
+    TWDR = data;
+    TWCR = (1 << TWINT) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_MT_DATA_ACK) return; // error: data not acked
+
+    // STOP condition
+    TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO);
+
+#endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 }
 
 void i2c_write_bytes_blocking(uint8_t address,uint8_t*data,uint8_t length){

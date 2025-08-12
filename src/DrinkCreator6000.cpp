@@ -14,6 +14,8 @@
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_RamStats.h>
 
+#include <HD44780_I2C.h>
+
 #define LAST_ERROR_BUFFER_SIZE 51
 #define LAST_BOOTUP_BUFFER_SIZE 6
 
@@ -123,118 +125,13 @@ void printI2C_status(){
       uart_puts_blocking("tail:");
       uart_put_hex_blocking(i2c_tx_buffer_tail);
       uart_putc_blocking('\n');
+
+      uart_puts_blocking("Liczba bledow transmisji i2c: ");
+      uart_put_hex_blocking(i2c_tx_error_counter);
+      uart_putc_blocking('\n');
 }
 
-#define LCD_ADDR       0x27 // 7-bit
-#define LCD_BACKLIGHT  0x08
-#define LCD_ENABLE     0x04
-#define LCD_RS         0x01
-
-// ---------------- LCD low-level ----------------
-
-static void lcd_write4(uint8_t nibble) {
-    i2c_write_byte_blocking(LCD_ADDR, nibble | LCD_BACKLIGHT);
-    _delay_us(150);
-    i2c_write_byte_blocking(LCD_ADDR, nibble | LCD_BACKLIGHT | LCD_ENABLE);
-    _delay_us(1000);
-    i2c_write_byte_blocking(LCD_ADDR, nibble | LCD_BACKLIGHT);
-    _delay_us(150);
-}
-
-static void lcd_send(uint8_t value, uint8_t mode) {
-    uint8_t high = (value & 0xF0) | mode;
-    uint8_t low  = ((value << 4) & 0xF0) | mode;
-    lcd_write4(high);
-    lcd_write4(low);
-    _delay_us(150);
-}
-
-static void lcd_cmd(uint8_t cmd) {
-    lcd_send(cmd, 0);
-    if (cmd == 0x01 || cmd == 0x02) {
-        _delay_ms(20);
-    }
-}
-
-static void lcd_data(uint8_t data) {
-    lcd_send(data, LCD_RS);
-}
-
-// ---------------- LCD init ----------------
-
-static void lcd_init(void) {
-    _delay_ms(50);
-
-    lcd_write4(0x30);
-    _delay_ms(5);
-    lcd_write4(0x30);
-    _delay_us(300);
-    lcd_write4(0x30);
-    _delay_us(300);
-    lcd_write4(0x20); // 4-bit
-    _delay_us(150);
-
-    lcd_cmd(0x28); // 4-bit, 2 line, 5x8
-    lcd_cmd(0x08); // display off
-    lcd_cmd(0x01); // clear
-    _delay_ms(2);
-    lcd_cmd(0x06); // entry mode
-    lcd_cmd(0x0C); // display on, cursor off
-}
-
-void send_hello_world() {
-    // Tablica z danymi: najpierw adres z zapisem, potem znaki 'Hello world'
-    uint8_t data[] = {
-        (LCD_ADDR << 1) | WRITE_FLAG, // adres + write
-        'H', 'e', 'l', 'l', 'o', ' ',
-        'w', 'o', 'r', 'l', 'd'
-    };
-    uint8_t length = sizeof(data);
-
-    i2c_write_bytes_blocking(0x20, data + 1, length - 1);
-}
-
-void test_lcd_sequence(void) {
-    // Inicjalizacja LCD 4-bit
-    printI2C_status();
-    lcd_write4(0x30);  // tryb 8-bit, 1 raz
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_write4(0x30);  // tryb 8-bit, 2 raz
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_write4(0x30);  // tryb 8-bit, 3 raz
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_write4(0x20);  // tryb 4-bit
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_cmd(0x28);     // funkcja: 4-bit, 2 linie, 5x8 font
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_cmd(0x08);     // wyłącz wyświetlacz
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_cmd(0x01);     // wyczyść ekran
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_cmd(0x06);     // tryb wejścia: przesuwaj kursor w prawo
-    _delay_ms(2000);
-    printI2C_status();
-    lcd_cmd(0x0C);     // włącz wyświetlacz, bez kursora
-    _delay_ms(2000);
-
-    // Wyświetlamy napis "Hello world" po kolei, 2 sekundy na znak
-    send_hello_world();
-    printI2C_status();
-    _delay_ms(2000);
-        printI2C_status();
-    uart_puts_blocking("Liczba bledow transmisji i2c: ");
-    uart_put_hex_blocking(i2c_tx_error_counter);
-    uart_putc_blocking('\n');
-}
-
-
+HD44780_LCD lcd(LCD_ADDR,20,4);
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
@@ -258,49 +155,31 @@ int main(void){
     __stack_ptr=(uint8_t*)SP;
     ram_dump();
 
+    lcd.begin_blocking();
+    _delay_ms(1000);
 
-    if(false){
-      test_lcd_sequence();
-      
-      while(true){
-
-      }
-    }
-
-
-    _delay_ms(100);
 
     uint8_t c='A';
-    
-  //lcd_init();
-
-    while(false){
-      uart_puts_blocking("Stan ring buffera (is empty):");
-      uart_put_hex_blocking(i2c_tx_buffer_is_empty());
-      uart_putc_blocking('\n');
-
-      uart_puts_blocking("Status FSM:");
-      uart_put_hex_blocking(i2c_get_status());
-      uart_putc_blocking('\n');
-
-      uart_puts_blocking("head:");
-      uart_put_hex_blocking(i2c_tx_buffer_head);
-      uart_putc_blocking('\n');
-
-      uart_puts_blocking("tail:");
-      uart_put_hex_blocking(i2c_tx_buffer_tail);
-      uart_putc_blocking('\n');
-
-      //_delay_ms(300);
-                      lcd_data(0x01); // Clear display
-        lcd_data((uint8_t)c);
+    uint8_t posX=0;
+    uint8_t posY=0;
+    while(true){
+        lcd.setCursor_blocking(posX,posY);
+        lcd.write_blocking(c);
         c++;
+        posX++;
+        if(posX==20){
+          posY++;
+          posX=0;
+        }
+        if(posY==4)
+          posY=0;
         if(c=='Z'+1)
           c='A';
-          
-      _delay_ms(1000);
+       // _delay_ms(1);
+              //printI2C_status();
     }
 
+    //_delay_ms(1000);
 
     vTaskStartScheduler();
     // calibrate max value of idleCounterPerSecond

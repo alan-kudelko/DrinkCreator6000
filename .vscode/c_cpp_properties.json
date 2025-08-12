@@ -14,7 +14,8 @@
         "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega",
         "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/MemMang",
         "${workspaceFolder}/avr_peripherals/uart",
-        "${workspaceFolder}/avr_peripherals/i2c"
+        "${workspaceFolder}/avr_peripherals/i2c",
+        "${workspaceFolder}/drivers"
       ],
       "browse": {
         "path": [
@@ -25,7 +26,8 @@
           "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega",
           "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/MemMang",
           "${workspaceFolder}/avr_peripherals/uart",
-          "${workspaceFolder}/avr_peripherals/i2c"
+          "${workspaceFolder}/avr_peripherals/i2c",
+          "${workspaceFolder}/drivers"
         ],
         "limitSymbolsToIncludedHeaders": true
       }
