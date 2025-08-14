@@ -16,7 +16,7 @@
  * Default is 16 MHz (16,000,000 Hz).
  */
 #ifndef F_CPU
-    #define F_CPU 16000000UL
+    #define F_CPU 8000000UL
 #endif
 /**
  * @def __AVR_ATmega2560__

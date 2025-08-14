@@ -133,6 +133,8 @@ void printI2C_status(){
 
 HD44780_LCD lcd(LCD_ADDR,20,4);
 
+
+
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).  
@@ -140,29 +142,38 @@ int main(void){
     EEPROMGetLastStartupError(&lastSystemError);
 
     if(lastSystemError.confirmed){
-     // uart_puts_P_blocking(msg_NormalStartUp);
+      uart_puts_P_blocking(msg_NormalStartUp);
       normalStart();
     }
     else{
-      //uart_puts_P_blocking(msg_FaultStartUp);
+      uart_puts_P_blocking(msg_FaultStartUp);
       faultStart();
     }
     uart_putc_blocking('\n');
 
-    //lastBootup_dump(&bootupsCount);  
-    //lastError_dump(&lastSystemError);
+    lastBootup_dump(&bootupsCount);  
+    lastError_dump(&lastSystemError);
 
     __stack_ptr=(uint8_t*)SP;
     ram_dump();
-
+    
+    _delay_ms(2000);
     lcd.begin_blocking();
-    _delay_ms(1000);
-
+      //printI2C_status();
 
     uint8_t c='A';
     uint8_t posX=0;
     uint8_t posY=0;
-    while(true){
+    //cli();
+    while(false){
+        PORTH^=(1<<PH4);
+        _delay_ms(1);
+        //i2c_write_byte_blocking(LCD_ADDR,0xFF);
+    }
+    while(false){
+      
+                    //printI2C_status();
+                    //uart_putc_blocking('\0');
         lcd.setCursor_blocking(posX,posY);
         lcd.write_blocking(c);
         c++;
@@ -175,11 +186,11 @@ int main(void){
           posY=0;
         if(c=='Z'+1)
           c='A';
-       // _delay_ms(1);
+        //_delay_ms(1000);
               //printI2C_status();
     }
 
-    //_delay_ms(1000);
+    _delay_ms(2000);
 
     vTaskStartScheduler();
     // calibrate max value of idleCounterPerSecond

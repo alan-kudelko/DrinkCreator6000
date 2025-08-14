@@ -105,9 +105,7 @@ void initializeMemory(){
 // shift register (74HC595), and temperature sensor
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// LCD init	
-    cli();
     i2c_init();
-    sei();
     uart_puts_P_blocking(msg_I2CReady);
     //lcd.begin();
     //lcd.backlight();

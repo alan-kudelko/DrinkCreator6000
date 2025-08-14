@@ -39,7 +39,7 @@
 /** @brief Stack size (in words) for Read Input task (ID 3). */
 #define TASK_READ_INPUT_STACK_SIZE 180              //3
 /** @brief Stack size (in words) for Serial Input task (ID 4). */
-#define TASK_SERIAL_INPUT_STACK_SIZE 150            //4
+#define TASK_SERIAL_INPUT_STACK_SIZE 180            //4
 /** @brief Stack size (in words) for Update Screen task (ID 5). */
 #define TASK_UPDATE_SCREEN_STACK_SIZE 250           //5
 /** @brief Stack size (in words) for Read Temperature task (ID 6). */

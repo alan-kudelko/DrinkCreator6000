@@ -38,7 +38,7 @@
  *
  * Used to configure the I2C clock speed.
  */
-#define TWBR_VALUE     (((F_CPU/I2C_FREQ)-16UL)/2UL)
+#define TWBR_VALUE     (((F_CPU/I2C_FREQ)-32UL)/2UL)
 /**
  * @def USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
  * @brief Enables (1) or disables (0) the use of a ring buffer for blocking I2C operations.
@@ -120,7 +120,7 @@ struct I2C_DATA {
  * @def I2C_TX_BUFFER_SIZE
  * @brief Size of the I2C transmit buffer, in bytes.
  */
-#define I2C_TX_BUFFER_SIZE    126
+#define I2C_TX_BUFFER_SIZE    255
 /**
  * @def I2C_RX_BUFFER_SIZE
  * @brief Size of the I2C receive buffer, in bytes.
@@ -171,6 +171,8 @@ extern volatile uint8_t i2c_tx_buffer_tail;
  * @brief Current status of the I2C state machine.
  */
 extern volatile uint8_t i2c_status;
+
+extern volatile uint8_t i2c_state;
 /**
  * @brief Counter of transmission errors detected on the I2C bus.
  */
@@ -203,7 +205,7 @@ uint8_t i2c_get_status(void);
  * @return true if the TX buffer is empty, false otherwise.
  */
 static inline bool i2c_tx_buffer_is_empty(void){
-    return i2c_tx_buffer_head == i2c_tx_buffer_tail;
+    return i2c_tx_buffer_head==i2c_tx_buffer_tail;
 }
 /**
  * @brief Clears the TX buffer until the next address package is found.

@@ -31,7 +31,7 @@
  *
  * Used to configure the UART baud rate generator.
  */
-#define UBRR_VALUE           ((F_CPU/(16UL*UART_BAUD_RATE))-1)
+#define UBRR_VALUE           ((F_CPU/(8UL*UART_BAUD_RATE))-1)
 /**
  * @def UART_TX_BUFFER_SIZE
  * @brief Size of the UART transmit buffer, in bytes.

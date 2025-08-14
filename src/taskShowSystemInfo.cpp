@@ -8,7 +8,7 @@ extern "C" void updateMemoryUsage(void);
 
 void showInfo_Firmware_Sub_0(sScreenData*screenData){
   sprintf(screenData->lines[0],"%s","Drink Creator 6000");
-  sprintf(screenData->lines[1],"%s","Software ver. 3.0");
+  sprintf(screenData->lines[1],"%s","Software ver. 5.0");
   sprintf(screenData->lines[2],"%s","Author: Alan Kudelko");
   sprintf(screenData->lines[3],"%s %d","Startup count: ",bootupsCount);
 }
@@ -19,7 +19,7 @@ void showInfo_Firmware_Sub_1(sScreenData*screenData){
   uint8_t runTimeMinutes=0;
   uint8_t runTimeSeconds=0;
 
-  currentRunTimeMS=xTaskGetTickCount()*portTICK_PERIOD_MS;
+  currentRunTimeMS=xTaskGetTickCount()/1000;
   runTimeDays=currentRunTimeMS/86400;
   runTimeHours=currentRunTimeMS/3600%24;
   runTimeMinutes=currentRunTimeMS/60%60;

@@ -29,34 +29,32 @@ void HD44780_LCD::begin_blocking(){
 		_displayfunction|=LCD_5x10DOTS;
 	}
 
-    _delay_ms(50);
-
     expanderWrite_blocking(_backlightval);
     _delay_ms(1000);
 
     write4bits_blocking(0x03<<4);
-    _delay_us(5000);
+    _delay_ms(1000);
 
     write4bits_blocking(0x03<<4);
-    _delay_us(5000);
+    _delay_ms(1000);
 
     write4bits_blocking(0x03<<4);
-    _delay_us(5000);
+    _delay_ms(1000);
 
     write4bits_blocking(0x02<<4);
-
+    _delay_ms(1000);
     command_blocking(LCD_FUNCTIONSET|_displayfunction);
-
+    _delay_ms(1000);
     _displaycontrol=LCD_DISPLAYON|LCD_CURSOROFF|LCD_BLINKOFF;
-
+    _delay_ms(1000);
     display_blocking();
-
+    _delay_ms(1000);
     clear_blocking();
 
     _displaymode=LCD_ENTRYLEFT|LCD_ENTRYSHIFTDECREMENT;
-
+    _delay_ms(1000);
     command_blocking(LCD_ENTRYMODESET|_displaymode);
-
+    _delay_ms(1000);
     home_blocking();
 }
 
