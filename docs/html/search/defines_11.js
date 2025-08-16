@@ -7,5 +7,6 @@ var searchData=
   ['uart_5fbuffer_5ffull_4',['UART_BUFFER_FULL',['../uart_8h.html#a2af939d9e21ad6bfb7532781850307da',1,'uart.h']]],
   ['uart_5frx_5fbuffer_5fsize_5',['UART_RX_BUFFER_SIZE',['../uart_8h.html#a5bdd6772c246436bb14377095de79b31',1,'uart.h']]],
   ['uart_5ftx_5fbuffer_5fsize_6',['UART_TX_BUFFER_SIZE',['../uart_8h.html#a05f5d709605c6317c97e4974bec3402a',1,'uart.h']]],
-  ['ubrr_5fvalue_7',['UBRR_VALUE',['../uart_8h.html#a0b029ff580b042a27aaac4bd2ec925e2',1,'uart.h']]]
+  ['ubrr_5fvalue_7',['UBRR_VALUE',['../uart_8h.html#a0b029ff580b042a27aaac4bd2ec925e2',1,'uart.h']]],
+  ['use_5fring_5fbuffer_5ffor_5fblocking_5foperations_8',['USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS',['../i2c_8h.html#af57ab7f973e3ed896331baaafb995918',1,'i2c.h']]]
 ];

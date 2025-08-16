@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -92,18 +99,33 @@ $(function(){initNavTree('structs_screen_data.html','','structs_screen_data-memb
 </div><!--header-->
 <div class="contents">
 
+<p>Structure containing data to be passed to the taskActivatePumps.  
+ <a href="#details">More...</a></p>
+
 <p><code>#include &lt;<a class="el" href="_drink_creator6000___data_types_8h_source.html">DrinkCreator6000_DataTypes.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:aeb79d3b6a8e198ecdb661ee19caec233" id="r_aeb79d3b6a8e198ecdb661ee19caec233"><td class="memItemLeft" align="right" valign="top">char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb79d3b6a8e198ecdb661ee19caec233">lines</a> [4][20]</td></tr>
 <tr class="memitem:"><td class="memItemLeft anon">struct {&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:a27ba8c2a36812ce6cdbf76f52cedb10e" id="r_a27ba8c2a36812ce6cdbf76f52cedb10e"><td class="memItemLeft anon">&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#a32a339e135ca564604f7fc2f769ebb7b">lcdCursorX</a>: 5&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:aea31b1d1c8f5ca5f854bbd5aee17a2bc" id="r_aea31b1d1c8f5ca5f854bbd5aee17a2bc"><td class="memItemLeft anon">&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#acf7f1b48cee2697b8fcc0c578c3a538b">lcdCursorY</a>: 2&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
-<tr class="memitem:a3d3c0a893ce51ea36278b91cc23163a9" id="r_a3d3c0a893ce51ea36278b91cc23163a9"><td class="memItemLeft anon">&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#aa3c8efc8169e6a5714a4ae53b3fa745b">lcdCursorBlink</a>: 1&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a27ba8c2a36812ce6cdbf76f52cedb10e" id="r_a27ba8c2a36812ce6cdbf76f52cedb10e"><td class="memItemLeft anon">&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#a32a339e135ca564604f7fc2f769ebb7b">lcdCursorX</a>:5&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:aea31b1d1c8f5ca5f854bbd5aee17a2bc" id="r_aea31b1d1c8f5ca5f854bbd5aee17a2bc"><td class="memItemLeft anon">&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#acf7f1b48cee2697b8fcc0c578c3a538b">lcdCursorY</a>:2&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
+<tr class="memitem:a3d3c0a893ce51ea36278b91cc23163a9" id="r_a3d3c0a893ce51ea36278b91cc23163a9"><td class="memItemLeft anon">&#160;&#160;&#160;uint8_t&#160;&#160;&#160;<a class="el" href="#aa3c8efc8169e6a5714a4ae53b3fa745b">lcdCursorBlink</a>:1&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 <tr class="memitem:acbb06c3d8be3e14d41a75ef5d65eb171" id="r_acbb06c3d8be3e14d41a75ef5d65eb171"><td class="memItemLeft anonEnd" valign="top">};&#160;</td><td class="memItemRight" valign="bottom"></td></tr>
 </table>
-<a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Structure containing data to be passed to the taskActivatePumps. </p>
+<p>This structure holds the text lines to be displayed on the LCD screen along with cursor position and blink control.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">lines</td><td>Array of 4 strings, each up to 20 characters, representing the LCD lines. </td></tr>
+    <tr><td class="paramname">lcdCursorX</td><td>Cursor X position (0-19). </td></tr>
+    <tr><td class="paramname">lcdCursorY</td><td>Cursor Y position (0-3). </td></tr>
+    <tr><td class="paramname">lcdCursorBlink</td><td>Cursor blink flag (1 = blink enabled, 0 = disabled). </td></tr>
+  </table>
+  </dd>
+</dl>
+</div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
 <a id="acbb06c3d8be3e14d41a75ef5d65eb171" name="acbb06c3d8be3e14d41a75ef5d65eb171"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#acbb06c3d8be3e14d41a75ef5d65eb171">&#9670;&#160;</a></span>[struct]</h2>
 

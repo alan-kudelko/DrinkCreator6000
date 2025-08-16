@@ -7,7 +7,9 @@
 
 #include <DrinkCreator6000_Init.h>
 #include <DrinkCreator6000_Progmem.h>
+#include <DrinkCreator6000_Config_C.h>
 #include <DrinkCreator6000_Config.h>
+#include <DrinkCreator6000_Pins.h>
 
 #include <uart.h>
 #include <i2c.h>
@@ -68,36 +70,36 @@ void initializeEEPROM(void){
 // Memory initialization:
 // Static allocation of stacks, queues, semaphores, and mutexes
 void initializeMemory(){
-        cli();
-      initRamSize();
-      sei();
-      uart_puts_P_blocking(msg_RamSizeInitialized);
+    cli();
+    initRamSize();
+    sei();
+    uart_puts_P_blocking(msg_RamSizeInitialized);
 
-        cli();
-      qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
-      qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
-      qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
+    cli();
+    qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
+    qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
+    qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
   
-      sem_ReadData=xSemaphoreCreateBinaryStatic(&semReadDataBuffer);
-      mux_I2CLock=xSemaphoreCreateMutexStatic(&muxI2CLockBuffer);
-      mux_SerialLock=xSemaphoreCreateMutexStatic(&muxSerialLockBuffer);
+    sem_ReadData=xSemaphoreCreateBinaryStatic(&semReadDataBuffer);
+    mux_I2CLock=xSemaphoreCreateMutexStatic(&muxI2CLockBuffer);
+    mux_SerialLock=xSemaphoreCreateMutexStatic(&muxSerialLockBuffer);
 
-      memset((void*)&UI_Context,0,sizeof(UI_Context));
+    memset((void*)&UI_Context,0,sizeof(UI_Context));
   
-      memset((void*)guardZone0, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone1, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone2, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone3, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone4, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone5, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone6, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone7, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone8, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone9, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-      memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
-        sei();
-      uart_puts_P_blocking(msg_MemoryInitialized);
+    memset((void*)guardZone0, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone1, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone2, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone3, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone4, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone5, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone6, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone7, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone8, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone9, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    sei();
+    uart_puts_P_blocking(msg_MemoryInitialized);
 }
 //////////////////////////////////////////////////////////////////
 // Hardware initialization:
@@ -106,7 +108,11 @@ void initializeMemory(){
 void initializeHardware(){
 ////////////////////////////////////////////////////////////////// LCD init	
     i2c_init();
+    i2c_enable();
     uart_puts_P_blocking(msg_I2CReady);
+
+    //lcd();
+
     //lcd.begin();
     //lcd.backlight();
 ////////////////////////////////////////////////////////////////// Keyboard init	  

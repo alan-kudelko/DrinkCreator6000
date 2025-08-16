@@ -30,32 +30,29 @@ void HD44780_LCD::begin_blocking(){
 	}
 
     expanderWrite_blocking(_backlightval);
-    _delay_ms(1000);
-
+    _delay_ms(5);
     write4bits_blocking(0x03<<4);
-    _delay_ms(1000);
-
+    _delay_us(5000);
     write4bits_blocking(0x03<<4);
-    _delay_ms(1000);
-
+    _delay_us(5000);
     write4bits_blocking(0x03<<4);
-    _delay_ms(1000);
-
+    _delay_us(200);
     write4bits_blocking(0x02<<4);
-    _delay_ms(1000);
+    _delay_us(200);
     command_blocking(LCD_FUNCTIONSET|_displayfunction);
-    _delay_ms(1000);
-    _displaycontrol=LCD_DISPLAYON|LCD_CURSOROFF|LCD_BLINKOFF;
-    _delay_ms(1000);
-    display_blocking();
-    _delay_ms(1000);
-    clear_blocking();
 
+    _displaycontrol=LCD_DISPLAYON|LCD_CURSOROFF|LCD_BLINKOFF;
+
+    display_blocking();
+    _delay_us(100);
+
+    clear_blocking();
+    _delay_us(3000);
     _displaymode=LCD_ENTRYLEFT|LCD_ENTRYSHIFTDECREMENT;
-    _delay_ms(1000);
     command_blocking(LCD_ENTRYMODESET|_displaymode);
-    _delay_ms(1000);
+
     home_blocking();
+    _delay_us(3000);
 }
 
 void HD44780_LCD::clear_blocking(){
@@ -180,7 +177,7 @@ void HD44780_LCD::write4bits_blocking(uint8_t value){
 
 void HD44780_LCD::expanderWrite_blocking(uint8_t value){
     _delay_us(2);
-    i2c_write_byte_blocking(_address,value|_backlightval);
+    i2c_write_byte_to_address_blocking(_address,value|_backlightval);
 }
 
 void HD44780_LCD::pulseEnable_blocking(uint8_t value){

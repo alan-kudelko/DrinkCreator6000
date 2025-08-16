@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -91,10 +98,11 @@ $(function(){initNavTree('globals_i.html','',''); });
 <div class="textblock">Here is a list of all file members with links to the files they belong to:</div>
 
 <h3 class="doxsection"><a id="index_i" name="index_i"></a>- i -</h3><ul>
-<li>i2c_buffer_tx&#160;:&#160;<a class="el" href="i2c_8c.html#ad6ef93db3176a9adcf49d495d8c2267c">i2c.c</a>, <a class="el" href="i2c_8h.html#ad6ef93db3176a9adcf49d495d8c2267c">i2c.h</a></li>
+<li>i2c_buffer_tx&#160;:&#160;<a class="el" href="i2c_8c.html#abe1f812dc6284ef881acc78023cd7a9d">i2c.c</a>, <a class="el" href="i2c_8h.html#abe1f812dc6284ef881acc78023cd7a9d">i2c.h</a></li>
 <li>i2c_disable()&#160;:&#160;<a class="el" href="i2c_8c.html#abe70f8fe4c72329b89ec526c749f50d7">i2c.c</a>, <a class="el" href="i2c_8h.html#abe70f8fe4c72329b89ec526c749f50d7">i2c.h</a></li>
+<li>i2c_enable()&#160;:&#160;<a class="el" href="i2c_8c.html#a5a1923e2271df541e858cb4e05d7b895">i2c.c</a>, <a class="el" href="i2c_8h.html#a5a1923e2271df541e858cb4e05d7b895">i2c.h</a></li>
+<li>i2c_error_counters&#160;:&#160;<a class="el" href="i2c_8c.html#af0c4e2f4e0af62fc7bc45e616dd761d5">i2c.c</a>, <a class="el" href="i2c_8h.html#af0c4e2f4e0af62fc7bc45e616dd761d5">i2c.h</a></li>
 <li>I2C_FREQ&#160;:&#160;<a class="el" href="i2c_8h.html#a8b7500a141450a9df212017430c0df9e">i2c.h</a></li>
-<li>i2c_get_status()&#160;:&#160;<a class="el" href="i2c_8c.html#a2e0c07e537bbbdb2a0eea00db38eadae">i2c.c</a>, <a class="el" href="i2c_8h.html#a2e0c07e537bbbdb2a0eea00db38eadae">i2c.h</a></li>
 <li>i2c_init()&#160;:&#160;<a class="el" href="i2c_8c.html#a5730d9445429351b9f750084c5cb5aae">i2c.c</a>, <a class="el" href="i2c_8h.html#a5730d9445429351b9f750084c5cb5aae">i2c.h</a></li>
 <li>I2C_READ_ACK&#160;:&#160;<a class="el" href="i2c_8h.html#a19e4e88cd63be86367db44d69c18bd40">i2c.h</a></li>
 <li>I2C_READ_NACK&#160;:&#160;<a class="el" href="i2c_8h.html#a77e78912d056ed106653c6ae19f983b3">i2c.h</a></li>
@@ -102,7 +110,9 @@ $(function(){initNavTree('globals_i.html','',''); });
 <li>I2C_RX_BUFFER_SIZE&#160;:&#160;<a class="el" href="i2c_8h.html#af47492c802fe313ca8455294843378f6">i2c.h</a></li>
 <li>I2C_SCL_PIN&#160;:&#160;<a class="el" href="_drink_creator6000___pins_8h.html#a0e4e08bab2fb484136d18b067bef372c">DrinkCreator6000_Pins.h</a></li>
 <li>I2C_SDA_PIN&#160;:&#160;<a class="el" href="_drink_creator6000___pins_8h.html#a2cade698267beb86ccaa38c14d35ab0f">DrinkCreator6000_Pins.h</a></li>
+<li>i2c_state&#160;:&#160;<a class="el" href="i2c_8c.html#a41fd49c4a663a655243908d0f709bd1a">i2c.c</a>, <a class="el" href="i2c_8h.html#a41fd49c4a663a655243908d0f709bd1a">i2c.h</a></li>
 <li>I2C_STATE_ADDRESS_SENT&#160;:&#160;<a class="el" href="i2c_8h.html#ac1aaf47d7389feab0be4edb7ea2ab2ae">i2c.h</a></li>
+<li>I2C_STATE_DATA_RECEIVED&#160;:&#160;<a class="el" href="i2c_8h.html#ad07634d5ed5abd7f4e2473117000c03b">i2c.h</a></li>
 <li>I2C_STATE_DATA_SENT&#160;:&#160;<a class="el" href="i2c_8h.html#a4a31ca4c828c1e98d0395950c2042a8d">i2c.h</a></li>
 <li>I2C_STATE_ERROR&#160;:&#160;<a class="el" href="i2c_8h.html#a8b9cbea0b5173f4fc60576dad01f3006">i2c.h</a></li>
 <li>I2C_STATE_IDLE&#160;:&#160;<a class="el" href="i2c_8h.html#ae3f6a60c396d9f1a51eb4ecc981951fa">i2c.h</a></li>
@@ -110,17 +120,16 @@ $(function(){initNavTree('globals_i.html','',''); });
 <li>i2c_status&#160;:&#160;<a class="el" href="i2c_8c.html#aec1f537d4e465641ecde4ad6ec87b894">i2c.c</a>, <a class="el" href="i2c_8h.html#aec1f537d4e465641ecde4ad6ec87b894">i2c.h</a></li>
 <li>i2c_tx_buf_index_t&#160;:&#160;<a class="el" href="i2c_8h.html#a57b79314a222c848e2e86e83758e667e">i2c.h</a></li>
 <li>i2c_tx_buffer_clear_until_next_address()&#160;:&#160;<a class="el" href="i2c_8c.html#a34466b1132aef1e13135a1a7bcf65ac0">i2c.c</a>, <a class="el" href="i2c_8h.html#a34466b1132aef1e13135a1a7bcf65ac0">i2c.h</a></li>
-<li>i2c_tx_buffer_head&#160;:&#160;<a class="el" href="i2c_8c.html#a54b54393520150aa2a89e8c318aad7f3">i2c.c</a>, <a class="el" href="i2c_8h.html#a54b54393520150aa2a89e8c318aad7f3">i2c.h</a></li>
+<li>i2c_tx_buffer_head&#160;:&#160;<a class="el" href="i2c_8c.html#a5b113d44bda8ed39efc026d277878c09">i2c.c</a>, <a class="el" href="i2c_8h.html#a5b113d44bda8ed39efc026d277878c09">i2c.h</a></li>
 <li>i2c_tx_buffer_is_empty()&#160;:&#160;<a class="el" href="i2c_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f">i2c.h</a></li>
 <li>I2C_TX_BUFFER_SIZE&#160;:&#160;<a class="el" href="i2c_8h.html#a547981ee4a0a60f7fa4826eb59ded9b7">i2c.h</a></li>
-<li>i2c_tx_buffer_tail&#160;:&#160;<a class="el" href="i2c_8c.html#a4c44f1e87478aaf608b3bf64e27b80fd">i2c.c</a>, <a class="el" href="i2c_8h.html#a4c44f1e87478aaf608b3bf64e27b80fd">i2c.h</a></li>
-<li>i2c_tx_error_counter&#160;:&#160;<a class="el" href="i2c_8c.html#a99bca54c0ee603fc72c4235723b4eb61">i2c.c</a>, <a class="el" href="i2c_8h.html#a99bca54c0ee603fc72c4235723b4eb61">i2c.h</a></li>
-<li>i2c_write_byte_blocking()&#160;:&#160;<a class="el" href="i2c_8c.html#a6d4174b1f00e66695e1b388db42d2a00">i2c.c</a>, <a class="el" href="i2c_8h.html#a6d4174b1f00e66695e1b388db42d2a00">i2c.h</a></li>
-<li>i2c_write_bytes_blocking()&#160;:&#160;<a class="el" href="i2c_8c.html#a9188b6d16a6e8cef301a63de5b8b4df7">i2c.c</a>, <a class="el" href="i2c_8h.html#a9188b6d16a6e8cef301a63de5b8b4df7">i2c.h</a></li>
-<li>idleCalib&#160;:&#160;<a class="el" href="_drink_creator6000___config_8h.html#a695065e78d99f5961d43c76d24f63ed4">DrinkCreator6000_Config.h</a>, <a class="el" href="_drink_creator6000___config_8cpp.html#a695065e78d99f5961d43c76d24f63ed4">DrinkCreator6000_Config.cpp</a></li>
-<li>idleCounter&#160;:&#160;<a class="el" href="_drink_creator6000___config_8h.html#a9e1162097f847ddd09718b93e851a18a">DrinkCreator6000_Config.h</a>, <a class="el" href="_drink_creator6000___config_8cpp.html#a9e1162097f847ddd09718b93e851a18a">DrinkCreator6000_Config.cpp</a></li>
-<li>idleCounterLast&#160;:&#160;<a class="el" href="_drink_creator6000___config_8h.html#a5258de2beffc873c68dcd0742143ba0e">DrinkCreator6000_Config.h</a>, <a class="el" href="_drink_creator6000___config_8cpp.html#a5258de2beffc873c68dcd0742143ba0e">DrinkCreator6000_Config.cpp</a></li>
-<li>idleCounterPerSecond&#160;:&#160;<a class="el" href="_drink_creator6000___config_8h.html#a0360d235859a092a4886a6cb39b78642">DrinkCreator6000_Config.h</a>, <a class="el" href="_drink_creator6000___config_8cpp.html#a0360d235859a092a4886a6cb39b78642">DrinkCreator6000_Config.cpp</a></li>
+<li>i2c_tx_buffer_tail&#160;:&#160;<a class="el" href="i2c_8c.html#aab3b5c0fa4c5e46e6d6009f357dc891e">i2c.c</a>, <a class="el" href="i2c_8h.html#aab3b5c0fa4c5e46e6d6009f357dc891e">i2c.h</a></li>
+<li>i2c_write_byte_to_address_blocking()&#160;:&#160;<a class="el" href="i2c_8c.html#a91bb1859c12fbc7c029b2a5a2309b240">i2c.c</a>, <a class="el" href="i2c_8h.html#a91bb1859c12fbc7c029b2a5a2309b240">i2c.h</a></li>
+<li>i2c_write_bytes_to_address_blocking()&#160;:&#160;<a class="el" href="i2c_8c.html#ae74a6ec74823b5c3816959f3f696e945">i2c.c</a>, <a class="el" href="i2c_8h.html#ae74a6ec74823b5c3816959f3f696e945">i2c.h</a></li>
+<li>idleCalib&#160;:&#160;<a class="el" href="_drink_creator6000___config___c_8h.html#a695065e78d99f5961d43c76d24f63ed4">DrinkCreator6000_Config_C.h</a>, <a class="el" href="_drink_creator6000___config___c_8c.html#a695065e78d99f5961d43c76d24f63ed4">DrinkCreator6000_Config_C.c</a></li>
+<li>idleCounter&#160;:&#160;<a class="el" href="_drink_creator6000___config___c_8h.html#a9e1162097f847ddd09718b93e851a18a">DrinkCreator6000_Config_C.h</a>, <a class="el" href="_drink_creator6000___config___c_8c.html#a9e1162097f847ddd09718b93e851a18a">DrinkCreator6000_Config_C.c</a></li>
+<li>idleCounterLast&#160;:&#160;<a class="el" href="_drink_creator6000___config___c_8h.html#a5258de2beffc873c68dcd0742143ba0e">DrinkCreator6000_Config_C.h</a>, <a class="el" href="_drink_creator6000___config___c_8c.html#a5258de2beffc873c68dcd0742143ba0e">DrinkCreator6000_Config_C.c</a></li>
+<li>idleCounterPerSecond&#160;:&#160;<a class="el" href="_drink_creator6000___config___c_8h.html#a0360d235859a092a4886a6cb39b78642">DrinkCreator6000_Config_C.h</a>, <a class="el" href="_drink_creator6000___config___c_8c.html#a0360d235859a092a4886a6cb39b78642">DrinkCreator6000_Config_C.c</a></li>
 <li>INCLUDE_eTaskGetState&#160;:&#160;<a class="el" href="_free_r_t_o_s_config_8h.html#a4fd1d67d54044ac86e8ffc890180f9f6">FreeRTOSConfig.h</a></li>
 <li>INCLUDE_uxTaskGetStackHighWaterMark&#160;:&#160;<a class="el" href="_free_r_t_o_s_config_8h.html#a23c7b4b41fe9b575cf2329c7cbe78b86">FreeRTOSConfig.h</a></li>
 <li>INCLUDE_uxTaskPriorityGet&#160;:&#160;<a class="el" href="_free_r_t_o_s_config_8h.html#a1279eb797355460aeeec06aa524e91df">FreeRTOSConfig.h</a></li>
@@ -138,7 +147,7 @@ $(function(){initNavTree('globals_i.html','',''); });
 <li>INCLUDE_xTaskGetSchedulerState&#160;:&#160;<a class="el" href="_free_r_t_o_s_config_8h.html#a9ed60ede556830584e6bfd4a3ab4f9de">FreeRTOSConfig.h</a></li>
 <li>INCLUDE_xTaskResumeFromISR&#160;:&#160;<a class="el" href="_free_r_t_o_s_config_8h.html#a85e3dae9f3daa26f24e679cb6793811e">FreeRTOSConfig.h</a></li>
 <li>INCLUDE_xTimerPendFunctionCall&#160;:&#160;<a class="el" href="_free_r_t_o_s_config_8h.html#a4b4336acd61a8e513ca2376be84326b5">FreeRTOSConfig.h</a></li>
-<li>ingredients&#160;:&#160;<a class="el" href="_drink_creator6000___config_8h.html#a6d347ae901cb7ca820643e3cbe70358a">DrinkCreator6000_Config.h</a>, <a class="el" href="_drink_creator6000___config_8cpp.html#a5cb5761e731c15c09baa7d7b3bf74fb0">DrinkCreator6000_Config.cpp</a></li>
+<li>ingredients&#160;:&#160;<a class="el" href="_drink_creator6000___config___c_8h.html#ae9d9471cd9ebe72ac00f5c5544e426f0">DrinkCreator6000_Config_C.h</a>, <a class="el" href="_drink_creator6000___config___c_8c.html#ab1e27bdd7b9cd7e916322cef51f5603b">DrinkCreator6000_Config_C.c</a></li>
 <li>init8()&#160;:&#160;<a class="el" href="_drink_creator6000___init_8h.html#a0bc2327e076efddf881536490acf4ffb">DrinkCreator6000_Init.h</a>, <a class="el" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155">DrinkCreator6000_Init.cpp</a></li>
 <li>initializeEEPROM()&#160;:&#160;<a class="el" href="_drink_creator6000___init_8h.html#a9f3e8daea5d430665f0de87252e9d325">DrinkCreator6000_Init.h</a>, <a class="el" href="_drink_creator6000___init_8cpp.html#a9f3e8daea5d430665f0de87252e9d325">DrinkCreator6000_Init.cpp</a></li>
 <li>initializeHardware()&#160;:&#160;<a class="el" href="_drink_creator6000___init_8h.html#a3ea452b7c2e273c2acaf4b4cd1226551">DrinkCreator6000_Init.h</a>, <a class="el" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602">DrinkCreator6000_Init.cpp</a></li>
@@ -147,7 +156,7 @@ $(function(){initNavTree('globals_i.html','',''); });
 <li>initializeMemory()&#160;:&#160;<a class="el" href="_drink_creator6000___init_8h.html#a55220b932943708be12fdcf12f8840f8">DrinkCreator6000_Init.h</a>, <a class="el" href="_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe">DrinkCreator6000_Init.cpp</a></li>
 <li>initializeUART()&#160;:&#160;<a class="el" href="_drink_creator6000___init_8h.html#a2114f7b73dcc806e3cbda15122d3b5ec">DrinkCreator6000_Init.h</a>, <a class="el" href="_drink_creator6000___init_8cpp.html#a2114f7b73dcc806e3cbda15122d3b5ec">DrinkCreator6000_Init.cpp</a></li>
 <li>initRamSize()&#160;:&#160;<a class="el" href="_drink_creator6000___ram_stats_8h.html#aeb775da3de784e3e877838416073024a">DrinkCreator6000_RamStats.h</a>, <a class="el" href="_drink_creator6000___init_8cpp.html#aeb775da3de784e3e877838416073024a">DrinkCreator6000_Init.cpp</a>, <a class="el" href="_drink_creator6000___ram_stats_8c.html#aeb775da3de784e3e877838416073024a">DrinkCreator6000_RamStats.c</a></li>
-<li>INTERVAL_TICKS&#160;:&#160;<a class="el" href="_drink_creator6000___config_8h.html#a90ddbfb667705368be7f86f7d658cfd8">DrinkCreator6000_Config.h</a></li>
+<li>INTERVAL_TICKS&#160;:&#160;<a class="el" href="_drink_creator6000___config___c_8h.html#a90ddbfb667705368be7f86f7d658cfd8">DrinkCreator6000_Config_C.h</a></li>
 <li>ISR()&#160;:&#160;<a class="el" href="i2c_8c.html#a8aa6a32130ab26be17555166513a23ba">i2c.c</a>, <a class="el" href="uart_8c.html#a95e67e677722a53e3ad9f1ffce2e7408">uart.c</a></li>
 </ul>
 </div><!-- contents -->

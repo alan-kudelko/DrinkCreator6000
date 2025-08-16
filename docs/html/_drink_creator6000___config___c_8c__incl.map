@@ -1,0 +1,17 @@
+<map id="src/DrinkCreator6000_Config_C.c" name="src/DrinkCreator6000_Config_C.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="166,5,312,48"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="141,96,337,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,49,242,80,236,80,236,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,100,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="208,126,100,167,98,162,206,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="124,171,181,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="226,125,181,163,177,159,222,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="206,171,273,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="242,123,242,155,236,155,236,123"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="298,171,373,197"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="257,121,308,159,305,163,254,125"/>
+<area shape="rect" id="Node000007" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="397,171,601,197"/>
+<area shape="poly" id="edge6_Node000002_Node000007" title=" " alt="" coords="285,121,440,163,438,169,284,126"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="467,245,531,272"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="502,198,502,230,496,230,496,198"/>
+</map>

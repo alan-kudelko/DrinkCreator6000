@@ -1,21 +1,28 @@
 <map id="avr_peripherals/i2c/i2c.c" name="avr_peripherals/i2c/i2c.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="274,5,405,48"/>
-<area shape="rect" id="Node000002" href="$i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="234,96,283,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="320,51,283,87,280,83,317,47"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="307,96,372,123"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="342,49,342,80,337,80,337,49"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="396,96,497,123"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="369,46,419,84,416,88,365,51"/>
-<area shape="rect" id="Node000008" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="521,96,688,123"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="406,45,550,89,548,94,404,50"/>
-<area shape="rect" id="Node000009" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="155,96,209,123"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="300,51,222,91,219,86,298,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="226,171,290,197"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="261,123,261,155,256,155,256,123"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="314,171,389,197"/>
-<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="276,121,325,159,322,163,273,125"/>
-<area shape="rect" id="Node000005" href="$_drink_creator6000___config___c_8h.html" title="Configuration macros for CPU frequency, UART, I2C, and task count." alt="" coords="5,171,202,197"/>
-<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="234,125,145,166,143,161,232,120"/>
-<area shape="poly" id="edge9_Node000009_Node000003" title=" " alt="" coords="197,121,236,158,232,162,194,125"/>
-<area shape="poly" id="edge10_Node000009_Node000005" title=" " alt="" coords="170,125,130,162,126,158,167,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="153,5,284,48"/>
+<area shape="rect" id="Node000002" href="$i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="59,96,109,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="185,51,119,90,117,85,183,46"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="133,96,197,123"/>
+<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="207,50,184,84,180,81,203,47"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="221,96,323,123"/>
+<area shape="poly" id="edge12_Node000001_Node000012" title=" " alt="" coords="235,47,257,81,253,84,230,50"/>
+<area shape="rect" id="Node000013" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="347,96,514,123"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="274,46,384,88,382,93,272,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="225,320,289,347"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,125,47,153,22,192,13,212,9,233,10,252,19,270,31,280,49,290,99,305,210,324,209,330,98,310,47,295,28,285,15,274,5,254,3,232,8,211,17,189,43,150,69,121"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="47,171,121,197"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="87,123,87,155,81,155,81,123"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="155,171,351,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="110,119,211,162,209,167,108,124"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="29,245,123,272"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="223,200,122,242,120,237,221,195"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="147,245,205,272"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="242,200,202,237,199,233,238,196"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="229,245,296,272"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="258,198,262,230,256,230,252,198"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="321,245,396,272"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="273,196,329,234,326,238,270,200"/>
+<area shape="rect" id="Node000010" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="420,245,625,272"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="301,195,462,238,460,243,300,200"/>
+<area shape="poly" id="edge10_Node000010_Node000003" title=" " alt="" coords="477,275,306,322,304,317,476,270"/>
 </map>

@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -103,7 +110,7 @@ $(function(){initNavTree('_drink_creator6000___e_e_p_r_o_m_8h_source.html','',''
 <div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    <span class="keyword">extern</span> <span class="stringliteral">&quot;C&quot;</span> {</div>
 <div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span><span class="preprocessor">#endif </span><span class="comment">// __cplusplus</span><span class="preprocessor"></span></div>
 <div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span><span class="keyword">struct </span><a class="code hl_struct" href="structs_system_error.html">sSystemError</a>;</div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="_drink_creator6000___e_e_p_r_o_m_8h.html#a04546a6c5db76caa5fc348468dd96137">EEPROMUpdateBootups</a>(uint16_t*<a class="code hl_variable" href="_drink_creator6000___config_8h.html#a59a55fb38089157b3c91c40decfc58f9">bootupsCount</a>);</div>
+<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="_drink_creator6000___e_e_p_r_o_m_8h.html#a04546a6c5db76caa5fc348468dd96137">EEPROMUpdateBootups</a>(uint16_t*<a class="code hl_variable" href="_drink_creator6000___config___c_8h.html#a59a55fb38089157b3c91c40decfc58f9">bootupsCount</a>);</div>
 <div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="_drink_creator6000___e_e_p_r_o_m_8h.html#a1a918f034530f75e431f69fefab82ba5">EEPROMGetLastStartupError</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structs_system_error.html">sSystemError</a>*lastError);</div>
 <div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span><span class="keyword">extern</span> <span class="keywordtype">void</span> <a class="code hl_function" href="_drink_creator6000___e_e_p_r_o_m_8h.html#a6cf4f180c06759f7ea753731661cd701">EEPROMUpdateLastStartupError</a>(<span class="keyword">struct</span> <a class="code hl_struct" href="structs_system_error.html">sSystemError</a>*errorStruct);</div>
 <div class="line"><a id="l00041" name="l00041"></a><span class="lineno">   41</span> </div>
@@ -112,11 +119,11 @@ $(function(){initNavTree('_drink_creator6000___e_e_p_r_o_m_8h_source.html','',''
 <div class="line"><a id="l00044" name="l00044"></a><span class="lineno">   44</span><span class="preprocessor">#endif </span><span class="comment">// __cplusplus</span></div>
 <div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
 <div class="line"><a id="l00046" name="l00046"></a><span class="lineno">   46</span><span class="preprocessor">#endif </span><span class="comment">// _DRINK_CREATOR6000_EEPROM_H_</span></div>
-<div class="ttc" id="a_drink_creator6000___config_8h_html_a59a55fb38089157b3c91c40decfc58f9"><div class="ttname"><a href="_drink_creator6000___config_8h.html#a59a55fb38089157b3c91c40decfc58f9">bootupsCount</a></div><div class="ttdeci">uint16_t bootupsCount</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_Config.cpp:109</div></div>
+<div class="ttc" id="a_drink_creator6000___config___c_8h_html_a59a55fb38089157b3c91c40decfc58f9"><div class="ttname"><a href="_drink_creator6000___config___c_8h.html#a59a55fb38089157b3c91c40decfc58f9">bootupsCount</a></div><div class="ttdeci">uint16_t bootupsCount</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_Config_C.c:109</div></div>
 <div class="ttc" id="a_drink_creator6000___e_e_p_r_o_m_8h_html_a04546a6c5db76caa5fc348468dd96137"><div class="ttname"><a href="_drink_creator6000___e_e_p_r_o_m_8h.html#a04546a6c5db76caa5fc348468dd96137">EEPROMUpdateBootups</a></div><div class="ttdeci">void EEPROMUpdateBootups(uint16_t *bootupsCount)</div><div class="ttdoc">Updates the stored bootup count in EEPROM.</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_EEPROM.c:6</div></div>
 <div class="ttc" id="a_drink_creator6000___e_e_p_r_o_m_8h_html_a1a918f034530f75e431f69fefab82ba5"><div class="ttname"><a href="_drink_creator6000___e_e_p_r_o_m_8h.html#a1a918f034530f75e431f69fefab82ba5">EEPROMGetLastStartupError</a></div><div class="ttdeci">void EEPROMGetLastStartupError(struct sSystemError *lastError)</div><div class="ttdoc">Retrieves the last startup error from EEPROM.</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_EEPROM.c:12</div></div>
 <div class="ttc" id="a_drink_creator6000___e_e_p_r_o_m_8h_html_a6cf4f180c06759f7ea753731661cd701"><div class="ttname"><a href="_drink_creator6000___e_e_p_r_o_m_8h.html#a6cf4f180c06759f7ea753731661cd701">EEPROMUpdateLastStartupError</a></div><div class="ttdeci">void EEPROMUpdateLastStartupError(struct sSystemError *errorStruct)</div><div class="ttdoc">Updates the last startup error stored in EEPROM.</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_EEPROM.c:16</div></div>
-<div class="ttc" id="astructs_system_error_html"><div class="ttname"><a href="structs_system_error.html">sSystemError</a></div><div class="ttdoc">Represents an error event in the system.</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_DataTypes.h:76</div></div>
+<div class="ttc" id="astructs_system_error_html"><div class="ttname"><a href="structs_system_error.html">sSystemError</a></div><div class="ttdoc">Represents an error event in the system.</div><div class="ttdef"><b>Definition</b> DrinkCreator6000_DataTypes.h:88</div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 </div><!-- container -->

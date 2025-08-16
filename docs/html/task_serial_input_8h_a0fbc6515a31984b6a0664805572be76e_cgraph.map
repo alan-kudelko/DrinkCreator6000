@@ -1,7 +1,12 @@
 <map id="taskSerialInput" name="taskSerialInput">
-<area shape="rect" id="Node000001" title="Reads input data from UART and enqueues to main task." alt="" coords="5,31,114,57"/>
-<area shape="rect" id="Node000002" href="$uart_8c.html#a69bd6dc9d81a10ff8fa3ae2620a74001" title="Retrieves the next character from the receive buffer." alt="" coords="167,5,242,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="114,32,151,25,152,30,115,37"/>
-<area shape="rect" id="Node000003" href="$uart_8c.html#ae1aa6b6bda0b1babfd7190d0e9ba070f" title="Peeks at the next character in the receive buffer without removing it." alt="" coords="162,56,247,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="115,51,147,57,146,62,114,56"/>
+<area shape="rect" id="Node000001" title="Reads input data from UART and enqueues to main task." alt="" coords="5,81,114,108"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html#a69bd6dc9d81a10ff8fa3ae2620a74001" title="Retrieves the next character from the receive buffer." alt="" coords="200,5,275,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,78,161,42,184,32,186,37,163,46,87,83"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#ae1aa6b6bda0b1babfd7190d0e9ba070f" title="Peeks at the next character in the receive buffer without removing it." alt="" coords="195,56,280,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="113,84,179,75,180,80,114,90"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="162,107,313,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="114,100,147,104,146,110,113,105"/>
+<area shape="rect" id="Node000005" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="361,132,491,159"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="83,106,119,127,162,143,209,151,257,154,345,152,346,157,256,160,208,156,161,148,117,131,80,111"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="314,128,346,132,345,137,313,133"/>
 </map>

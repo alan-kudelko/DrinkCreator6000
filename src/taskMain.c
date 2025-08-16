@@ -1,4 +1,7 @@
+#include <stdbool.h>
+
 #include <taskMain.h>
+#include <DrinkCreator6000_Config_C.h>
 #include <DrinkCreator6000_Config.h>
 
 void EEPROMUpdateLastStartupError(struct sSystemError*);

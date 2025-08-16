@@ -2,58 +2,61 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <DrinkCreator6000_Pins.h>
-#include <uart.h>
-#include <util/delay.h>
 
 #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==0
-
-#warning "Blocking operations bypass the ring buffer (no buffering enabled)"
-
+    #warning "Blocking operations bypass the ring buffer (no buffering enabled)"
 #else
-
-#warning "Timer4 used exclusively for I2C management"
-
+    #warning "Timer4 used exclusively for I2C management"
 #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 
-volatile struct I2C_DATA i2c_buffer_tx[I2C_TX_BUFFER_SIZE]={0};
-volatile uint8_t i2c_tx_buffer_head=0;
-volatile uint8_t i2c_tx_buffer_tail=0;
+volatile I2C_Data_t i2c_buffer_tx[I2C_TX_BUFFER_SIZE]={0};
+volatile i2c_tx_buf_index_t i2c_tx_buffer_head=0;
+volatile i2c_tx_buf_index_t i2c_tx_buffer_tail=0;
 volatile uint8_t i2c_status=0;
 volatile uint8_t i2c_state=I2C_STATE_IDLE;
-volatile uint16_t i2c_tx_error_counter=0;
+volatile I2C_ErrorCounters_t i2c_error_counters={0};
 
 void i2c_init(void){
-    // Setup SDA and SCL pins as inputs
+    // Configure SDA and SCL as inputs (open-drain mode handled by pull-ups)
     DDRD&=~(1<<I2C_SCL_PIN);
     DDRD&=~(1<<I2C_SDA_PIN);
-    // Timer 4 used as clock for driving I2C after sending STOP
-#if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
-TCCR4A = 0; TCCR4B = 0; TCNT4 = 0;
-OCR4A  = 255;
-TCCR4B |= (1<<WGM42);                 // CTC
-TCCR4B |= (1<<CS41) | (1<<CS40);      // /64  (0b011)  <<< UWAGA: to jest /64 - 4us
-TIMSK4 |= (1<<OCIE4A);
-#endif
-    // Configure TWI (I2C) bit rate and enable peripheral
-    TWSR&=~((1<<TWPS0)|(1<<TWPS1)); // Set prescaler bits to 0 (prescaler = 1)
-    TWBR=(uint8_t)TWBR_VALUE;       // Set bit rate register (depends on desired speed)
-    TWCR=(1<<TWEN)|(1<<TWIE)|(1<<TWINT);                 // Enable TWI (I2C) hardware
+    // Configure TWI bit rate
+    TWSR&=~((1<<TWPS0)|(1<<TWPS1));      // Prescaler = 1
+    TWBR=(uint8_t)TWBR_VALUE;            // Bit rate
+    TWCR=(1<<TWINT); // Enable TWI + interrupts
 
-    //Debug for measuring time in ISR
-    DDRH|=(1<<PH4);
-    //PORTH|=(1<<PH4);
+    #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
+        // Configure Timer4 for post-STOP polling
+        TCCR4A=0; 
+        TCCR4B=0; 
+        TCNT4=0;
+        OCR4A=TIMER4_POLLING_CYCLE;
+        TCCR4B|=(1<<WGM42);              // CTC mode
+        TCCR4B|=(1<<CS41)|(1<<CS40);     // Prescaler /64 (~4 µs tick)
+    #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
+
+    // Debug pins for timing measurement
+    DDRH|=(1<<PH4); // Debug pin for ISR(TIMER4_COMPA_vect)
+    DDRH|=(1<<PH3); // Debug pin for ISR(TWI_vect)
+}
+
+void i2c_enable(void){
+    TWCR=(1<<TWEN)|(1<<TWIE)|(1<<TWINT);
+
+    #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
+        TIMSK4|=(1<<OCIE4A);
+    #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 }
 
 void i2c_disable(void){
     TWCR&=~(1<<TWEN); // Disable TWI (I2C) peripheral
-}
-
-uint8_t i2c_get_status(void){
-    return i2c_status; // Return current I2C status code
+    #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
+        TIMSK4&=~(1<<OCIE4A);
+    #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 }
 
 void i2c_tx_buffer_clear_until_next_address(void){
-    uint8_t initialTail=i2c_tx_buffer_tail;
+    i2c_tx_buf_index_t initialTail=i2c_tx_buffer_tail;
     do{
         // Stop clearing if next address package found (and not at initial position)
         if((i2c_buffer_tx[i2c_tx_buffer_tail].f_Type==ADDRESS_PACKAGE)&&
@@ -67,26 +70,24 @@ void i2c_tx_buffer_clear_until_next_address(void){
     }while(i2c_tx_buffer_tail!=i2c_tx_buffer_head);
 }
 
-void i2c_tx_buffer_show_contet(void){
-
-}
-
 #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
 // ISR for initializing I2C transmission on Timer4 Compare A interrupt
 // Triggered after sending STOP or when first package is queued
 ISR(TIMER4_COMPA_vect){
     PORTH^=(1<<PH4);
     // Start I2C transmission only if state is IDLE and TX buffer is not empty
-    if((i2c_state==I2C_STATE_IDLE)&&(i2c_tx_buffer_is_empty()==0)&&(!(TWCR&(1<<TWINT)))&&(!(TWCR&(1<<TWSTO)))){
-        // Send START condition and enable TWI and TWI interrupt
-        OCR4A  = 4;
+    // Additionally i Check wheter stop signal is not present and
+    // if hardware successfully sent package
+    if((i2c_state==I2C_STATE_IDLE)&&(i2c_tx_buffer_is_empty()==0)&&(!(TWCR&(1<<TWSTO)))){
+        OCR4A=TIMER4_SENDING_CYCLE; // If there is some data in the buffer, process it as quickly as possible
         TIMSK4&=~(1<<OCIE4A); // Disable Timer4 Compare A interrupt
-        TWCR=(1<<TWINT)|(1<<TWSTA)|(1<<TWEN)|(1<<TWIE);
+        TWCR=(1<<TWINT)|(1<<TWSTA)|(1<<TWEN)|(1<<TWIE); // Send start signal
+        // After this trigger ISR(TWI_vect) handles transmission
     }
 }
 
 ISR(TWI_vect){
-    //PORTH&=~(1<<PH4);
+    PORTH^=(1<<PH3); // Debug
     i2c_status=TWSR&TW_STATUS_MASK;
 
     switch(i2c_status){
@@ -98,35 +99,44 @@ ISR(TWI_vect){
             i2c_state=I2C_STATE_ADDRESS_SENT;
         break;
         case TW_MT_SLA_NACK:
-        case TW_MT_DATA_NACK:
+        case TW_MR_SLA_NACK:
             i2c_state=I2C_STATE_ERROR;
-            i2c_tx_error_counter++;
+            i2c_error_counters.nack_address++;
         break;
         case TW_MT_DATA_ACK:
             i2c_state=I2C_STATE_DATA_SENT;
         break; 
+        case TW_MT_DATA_NACK:
+        case TW_MR_DATA_NACK:
+            i2c_state=I2C_STATE_ERROR;
+            i2c_error_counters.nack_data++;
+        break;
+        case TW_MR_SLA_ACK:
+            i2c_state=I2C_STATE_ADDRESS_SENT;
+        break;
+        case TW_MR_DATA_ACK:
+            i2c_state=I2C_STATE_DATA_RECEIVED;
+        break;
+        case TW_BUS_ERROR:
+            i2c_state=I2C_STATE_ERROR;
+            i2c_error_counters.bus_error++;
+        break;
         default:
             i2c_state=I2C_STATE_ERROR;
-            //i2c_tx_error_counter++;
-        break;
+            i2c_error_counters.unexpected_state++;
     }
-    if(i2c_tx_buffer_head==i2c_tx_buffer_tail){
-        TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT);
-        i2c_state=I2C_STATE_IDLE;
-        OCR4A  = 255;
-        TIMSK4|=(1<<OCIE4A);
-        return;
-    }
-
+    // Up to this moment this looks logical
     // Changed to FSM
     switch(i2c_state){
         case I2C_STATE_START_SENT:
-            // Wysyłamy adres z bufora (tail)
+            //Wysyłamy adres z bufora (tail)
             if(i2c_buffer_tx[i2c_tx_buffer_tail].f_Type==ADDRESS_PACKAGE){
                 TWDR=i2c_buffer_tx[i2c_tx_buffer_tail].value;
                 TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT);
-            }
+            } // To nie generuje problemu z przesuwaniem
             else{
+                // Rather obsolete since data is validated during copying to buffer
+                //i2c_tx_buffer_tail=(i2c_tx_buffer_tail+1)%I2C_TX_BUFFER_SIZE;
                 i2c_tx_buffer_clear_until_next_address();
                 TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT)|(1<<TWSTO);
                 i2c_state=I2C_STATE_IDLE;
@@ -177,28 +187,33 @@ ISR(TWI_vect){
         case I2C_STATE_ERROR:
             // Czyścimy bufor i przechodzimy do IDLE
             TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT)|(1<<TWSTO);
-            //i2c_tx_buffer_clear_until_next_address();
+            //i2c_tx_buffer_tail=(i2c_tx_buffer_tail+1)%I2C_TX_BUFFER_SIZE;
+            i2c_tx_buffer_clear_until_next_address();
             i2c_state=I2C_STATE_IDLE;
             TIMSK4|=(1<<OCIE4A);
             // Wyłączamy TWI lub restartujemy jak trzeba
         break;
     }
-    //PORTH|=(1<<PH4);
+
+    if(i2c_tx_buffer_head==i2c_tx_buffer_tail){
+        TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT);
+        i2c_state=I2C_STATE_IDLE;
+        OCR4A=TIMER4_POLLING_CYCLE;
+        TIMSK4|=(1<<OCIE4A);
+    }
 }
 
 #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 
-void i2c_write_byte_blocking(uint8_t address,uint8_t data){
+void i2c_write_byte_to_address_blocking(uint8_t address,uint8_t data){
 #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
-    uint8_t new_head=(i2c_tx_buffer_head+2)%I2C_TX_BUFFER_SIZE;
+    i2c_tx_buf_index_t new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     // Wait until there is space for two elements in the TX buffer
     while (new_head==i2c_tx_buffer_tail){
         // Busy wait
-        //_delay_us(1);
     }
-cli(); // Disable interrupts to ensure atomic buffer update
+    cli(); // Disable interrupts to ensure atomic buffer update
     // Enqueue address package with write flag
-    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
@@ -209,7 +224,8 @@ cli(); // Disable interrupts to ensure atomic buffer update
     i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
     i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
-sei(); // Re-enable interrupts
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+    sei(); // Re-enable interrupts
 
 #else
     #define I2C_TIMEOUT 10000
@@ -246,15 +262,15 @@ sei(); // Re-enable interrupts
 #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
 }
 
-void i2c_write_bytes_blocking(uint8_t address,uint8_t*data,uint8_t length){
-    uint8_t new_head=(i2c_tx_buffer_head+length+1)%I2C_TX_BUFFER_SIZE;
+void i2c_write_bytes_to_address_blocking(uint8_t address,uint8_t*data,uint8_t length){
+    i2c_tx_buf_index_t new_head=(i2c_tx_buffer_head+length+1)%I2C_TX_BUFFER_SIZE;
     uint8_t i;
+
     while(new_head==i2c_tx_buffer_tail){
         // Wait for enough space in the buffer
     }
-cli();
-    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
 
+    cli();
     i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
@@ -274,6 +290,7 @@ cli();
     i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
     i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
     i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
 
-sei();
+    sei();
 }

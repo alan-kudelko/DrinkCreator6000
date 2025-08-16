@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -112,15 +119,26 @@ Include dependency graph for uart.c:</div>
 <area shape="poly" title=" " alt="" coords="363,51,313,88,310,84,360,46"/>
 <area shape="rect" title=" " alt="" coords="357,96,421,123"/>
 <area shape="poly" title=" " alt="" coords="392,49,392,80,386,80,386,49"/>
-<area shape="rect" title=" " alt="" coords="477,171,541,197"/>
-<area shape="poly" title=" " alt="" coords="407,47,492,156,488,160,403,50"/>
+<area shape="rect" title=" " alt="" coords="477,320,541,347"/>
+<area shape="poly" title=" " alt="" coords="407,47,436,95,460,152,479,210,506,304,500,306,474,212,455,154,431,97,402,50"/>
 <area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="496,96,664,123"/>
 <area shape="poly" title=" " alt="" coords="439,46,537,87,535,92,437,51"/>
 <area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="687,96,742,123"/>
 <area shape="poly" title=" " alt="" coords="458,40,673,93,672,98,457,45"/>
-<area shape="poly" title=" " alt="" coords="688,123,557,169,555,164,686,118"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Configuration macros for CPU frequency, UART, I2C, and task count." alt="" coords="616,171,813,197"/>
-<area shape="poly" title=" " alt="" coords="717,123,717,155,712,155,712,123"/>
+<area shape="poly" title=" " alt="" coords="690,126,655,145,613,172,572,206,537,247,523,276,515,306,510,304,518,274,532,244,568,203,610,168,652,140,687,121"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="648,171,845,197"/>
+<area shape="poly" title=" " alt="" coords="723,122,737,155,732,158,718,124"/>
+<area shape="rect" title=" " alt="" coords="546,245,640,272"/>
+<area shape="poly" title=" " alt="" coords="721,200,635,241,633,236,719,195"/>
+<area shape="rect" title=" " alt="" coords="664,245,722,272"/>
+<area shape="poly" title=" " alt="" coords="739,199,714,234,709,231,735,196"/>
+<area shape="rect" title=" " alt="" coords="746,245,814,272"/>
+<area shape="poly" title=" " alt="" coords="755,197,770,230,765,232,750,199"/>
+<area shape="rect" title=" " alt="" coords="838,245,914,272"/>
+<area shape="poly" title=" " alt="" coords="770,196,841,235,839,240,768,200"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title=" " alt="" coords="938,245,1142,272"/>
+<area shape="poly" title=" " alt="" coords="799,195,974,239,973,244,797,201"/>
+<area shape="poly" title=" " alt="" coords="947,275,557,328,556,323,946,270"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -347,15 +365,22 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="uart_8c_a69498e6af9e8ce85f97d59b94a68a798_icgraph.png" border="0" usemap="#auart_8c_a69498e6af9e8ce85f97d59b94a68a798_icgraph" loading="lazy" alt=""/></div>
 <map name="auart_8c_a69498e6af9e8ce85f97d59b94a68a798_icgraph" id="auart_8c_a69498e6af9e8ce85f97d59b94a68a798_icgraph">
-<area shape="rect" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="439,31,591,57"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="444,30,391,21,294,15,198,14,55,20,55,14,197,9,294,10,392,16,444,24"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="281,31,391,57"/>
-<area shape="poly" title=" " alt="" coords="424,47,391,47,391,41,424,41"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="103,31,233,57"/>
-<area shape="poly" title=" " alt="" coords="444,64,392,72,336,76,281,72,219,61,220,55,281,67,336,71,391,67,444,58"/>
-<area shape="poly" title=" " alt="" coords="265,47,233,47,233,41,265,41"/>
-<area shape="poly" title=" " alt="" coords="87,32,54,26,55,20,88,26"/>
+<area shape="rect" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="575,31,726,57"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="416,5,527,32"/>
+<area shape="poly" title=" " alt="" coords="559,34,526,29,527,24,560,28"/>
+<area shape="rect" href="task_serial_input_8c.html#a0fbc6515a31984b6a0664805572be76e" title="Reads input data from UART and enqueues to main task." alt="" coords="250,56,358,83"/>
+<area shape="poly" title=" " alt="" coords="560,53,358,68,358,63,559,48"/>
+<area shape="rect" href="task_update_screen_8cpp.html#a95b4196d7cc3c3c908c70ec40498fd76" title=" " alt="" coords="239,5,368,32"/>
+<area shape="poly" title=" " alt="" coords="401,21,369,21,369,16,401,16"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,5,184,32"/>
+<area shape="poly" title=" " alt="" coords="224,21,184,21,184,16,224,16"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,56,191,83"/>
+<area shape="poly" title=" " alt="" coords="246,40,191,58,190,53,245,35"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" title=" " alt="" coords="95,33,56,41,54,36,94,27"/>
+<area shape="poly" title=" " alt="" coords="87,59,54,52,55,47,88,54"/>
+<area shape="poly" title=" " alt="" coords="245,53,183,33,185,28,246,48"/>
+<area shape="poly" title=" " alt="" coords="234,72,191,72,191,67,234,67"/>
 </map>
 </div>
 
@@ -389,89 +414,87 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="uart_8c_af2c1e30baca7b5a56455a70d3070ca94_icgraph.png" border="0" usemap="#auart_8c_af2c1e30baca7b5a56455a70d3070ca94_icgraph" loading="lazy" alt=""/></div>
 <map name="auart_8c_af2c1e30baca7b5a56455a70d3070ca94_icgraph" id="auart_8c_af2c1e30baca7b5a56455a70d3070ca94_icgraph">
-<area shape="rect" title="Sends a single character over UART (blocking)." alt="" coords="914,418,1044,445"/>
-<area shape="rect" href="task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="467,418,651,445"/>
-<area shape="poly" title=" " alt="" coords="899,434,651,434,651,429,899,429"/>
-<area shape="rect" href="task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="270,520,389,546"/>
-<area shape="poly" title=" " alt="" coords="919,416,829,396,714,380,652,378,590,381,528,391,468,409,427,432,391,463,362,495,342,521,338,518,358,492,387,459,424,428,466,404,526,386,589,376,652,373,715,375,830,390,920,411"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,469,55,496"/>
-<area shape="poly" title=" " alt="" coords="971,404,957,321,934,215,902,116,884,78,864,54,827,28,792,14,759,9,725,10,651,21,609,27,560,29,328,29,287,31,253,38,223,49,198,65,174,86,152,111,105,175,82,213,65,255,53,298,44,340,35,417,34,469,28,469,30,416,39,340,47,297,60,253,78,211,100,172,148,107,171,82,195,61,221,45,251,33,286,26,328,24,560,24,608,21,650,16,724,4,759,3,794,9,829,24,868,50,888,75,907,114,939,214,962,320,976,403"/>
-<area shape="rect" href="i2c_8c.html#a9188b6d16a6e8cef301a63de5b8b4df7" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="699,64,866,90"/>
-<area shape="poly" title=" " alt="" coords="973,403,965,343,947,265,933,224,914,183,892,145,864,111,838,93,841,89,868,107,896,142,919,181,938,222,952,264,970,342,978,403"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="264,165,394,192"/>
-<area shape="poly" title=" " alt="" coords="970,404,959,359,939,304,908,250,888,226,864,206,806,174,741,153,674,142,606,139,541,141,480,148,382,167,381,162,479,143,541,136,606,133,675,137,742,148,808,169,868,202,892,222,912,247,944,302,964,357,976,403"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="498,672,620,698"/>
-<area shape="poly" title=" " alt="" coords="963,459,922,510,896,537,868,561,803,600,735,632,669,656,614,674,612,669,668,651,733,627,801,595,864,556,893,533,918,506,958,456"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="504,773,614,800"/>
-<area shape="poly" title=" " alt="" coords="980,461,975,524,958,605,944,647,925,688,899,725,868,757,839,775,807,789,773,798,738,803,671,805,614,800,614,794,672,800,738,798,772,793,805,784,836,771,864,752,895,722,920,685,939,645,953,603,969,523,975,460"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="504,266,614,293"/>
-<area shape="poly" title=" " alt="" coords="946,412,908,387,865,365,799,340,731,319,614,292,615,287,733,314,801,335,867,360,911,383,948,407"/>
-<area shape="rect" href="task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="276,570,382,597"/>
-<area shape="poly" title=" " alt="" coords="976,461,962,543,939,649,907,748,889,785,868,810,816,845,765,871,716,886,667,892,619,887,569,873,518,848,466,814,448,797,439,780,434,742,433,703,428,683,417,661,385,626,351,600,355,596,389,622,422,658,433,681,438,702,439,742,444,778,453,794,469,810,521,844,571,868,620,882,667,887,715,881,763,866,813,841,864,806,884,782,903,746,934,648,957,542,971,460"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="239,672,419,698"/>
-<area shape="poly" title=" " alt="" coords="974,461,960,503,939,554,908,605,889,629,868,650,840,670,810,687,746,711,679,724,610,729,543,727,481,721,381,702,382,696,482,715,544,722,610,724,678,719,745,706,808,682,837,666,864,646,885,626,904,602,934,551,955,501,968,459"/>
-<area shape="rect" href="uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="707,216,858,242"/>
-<area shape="poly" title=" " alt="" coords="959,407,918,350,864,288,835,264,806,245,809,241,838,260,868,285,923,347,963,404"/>
-<area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="717,520,848,546"/>
-<area shape="poly" title=" " alt="" coords="939,455,811,522,809,517,937,450"/>
-<area shape="rect" href="uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="709,1001,856,1028"/>
-<area shape="poly" title=" " alt="" coords="978,461,968,541,948,653,916,782,894,846,868,908,834,962,799,1003,795,999,829,959,864,905,889,844,911,780,943,652,963,540,973,460"/>
-<area shape="poly" title=" " alt="" coords="514,454,363,522,361,517,512,449"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,570,184,597"/>
-<area shape="poly" title=" " alt="" coords="264,554,185,576,184,571,263,549"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,520,191,546"/>
-<area shape="poly" title=" " alt="" coords="254,536,191,536,191,530,254,530"/>
-<area shape="poly" title=" " alt="" coords="105,564,101,561,66,528,40,498,44,494,70,524,104,556,108,559"/>
-<area shape="poly" title=" " alt="" coords="100,516,54,496,56,491,102,511"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#aff798a65d6cfe718df3c935fc27a1943" title=" " alt="" coords="498,64,620,90"/>
-<area shape="poly" title=" " alt="" coords="683,80,620,80,620,74,683,74"/>
-<area shape="poly" title=" " alt="" coords="502,99,468,112,356,167,354,162,466,107,500,94"/>
-<area shape="poly" title=" " alt="" coords="249,172,211,173,173,179,136,192,104,212,91,231,78,260,58,335,44,412,36,469,30,468,38,412,53,333,73,258,86,228,101,209,134,187,172,174,211,168,249,167"/>
-<area shape="poly" title=" " alt="" coords="512,262,361,195,363,190,514,257"/>
-<area shape="poly" title=" " alt="" coords="260,586,184,586,184,581,260,581"/>
-<area shape="poly" title=" " alt="" coords="263,568,191,548,192,543,264,563"/>
-<area shape="poly" title=" " alt="" coords="289,666,171,600,174,595,291,662"/>
-<area shape="poly" title=" " alt="" coords="297,664,237,611,214,585,189,561,173,549,176,545,193,556,218,581,241,607,301,660"/>
-<area shape="poly" title=" " alt="" coords="692,230,583,236,525,244,468,257,403,279,338,306,217,367,118,427,52,471,49,467,115,423,215,363,336,301,401,274,467,252,524,239,583,230,691,224"/>
-<area shape="poly" title=" " alt="" coords="691,218,650,213,395,187,395,181,651,208,692,213"/>
-<area shape="poly" title=" " alt="" coords="706,249,615,270,614,265,705,244"/>
-<area shape="poly" title=" " alt="" coords="743,514,650,466,603,448,605,443,652,461,746,509"/>
-<area shape="poly" title=" " alt="" coords="702,536,389,536,389,530,702,530"/>
-<area shape="poly" title=" " alt="" coords="701,523,650,517,471,503,297,494,55,486,55,480,297,488,472,498,651,512,702,518"/>
-<area shape="poly" title=" " alt="" coords="757,510,709,461,649,409,600,377,558,358,516,339,466,307,393,246,341,194,345,190,397,242,469,303,519,334,560,353,602,373,652,404,713,457,761,506"/>
-<area shape="poly" title=" " alt="" coords="759,560,703,614,652,655,612,674,610,669,649,651,699,610,755,556"/>
-<area shape="poly" title=" " alt="" coords="767,561,718,632,653,712,616,747,581,775,578,770,612,743,649,709,714,628,762,558"/>
-<area shape="poly" title=" " alt="" coords="769,506,752,464,727,412,692,360,649,314,613,295,616,290,652,310,696,356,731,410,757,462,774,504"/>
-<area shape="poly" title=" " alt="" coords="702,545,383,581,382,575,702,539"/>
-<area shape="poly" title=" " alt="" coords="726,554,372,674,371,669,725,549"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="518,925,600,952"/>
-<area shape="poly" title=" " alt="" coords="772,562,724,674,690,744,653,813,611,877,574,926,569,923,606,874,648,810,686,741,719,672,767,560"/>
-<area shape="poly" title=" " alt="" coords="510,921,466,897,354,828,268,772,190,706,101,611,78,581,60,549,34,497,39,495,64,547,83,578,105,607,194,702,271,767,357,824,469,892,512,916"/>
-<area shape="poly" title=" " alt="" coords="502,928,466,909,441,875,403,815,336,700,340,697,408,813,445,872,469,904,504,923"/>
-<area shape="poly" title=" " alt="" coords="752,993,705,955,649,915,622,900,596,889,549,874,507,855,486,838,465,813,447,779,440,745,440,713,444,682,448,651,447,621,438,591,417,560,404,550,388,543,390,538,407,545,421,557,443,589,453,620,453,651,450,682,446,713,445,745,452,777,470,810,490,834,509,850,551,869,598,884,624,895,652,911,708,951,755,989"/>
-<area shape="poly" title=" " alt="" coords="769,988,723,884,689,822,649,763,614,728,579,701,583,697,617,724,653,759,694,819,728,882,773,986"/>
-<area shape="poly" title=" " alt="" coords="767,988,749,951,723,906,690,860,649,821,613,801,615,797,652,816,694,857,728,903,754,948,772,986"/>
-<area shape="poly" title=" " alt="" coords="693,1012,563,997,505,984,466,966,433,936,406,901,384,863,366,824,342,751,330,700,335,698,347,749,371,822,388,861,410,898,437,933,469,962,507,978,564,991,694,1007"/>
-<area shape="poly" title=" " alt="" coords="725,998,600,955,601,950,727,993"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#a9f3e8daea5d430665f0de87252e9d325" title="Initialize EEPROM memory access." alt="" coords="496,1280,622,1306"/>
-<area shape="poly" title=" " alt="" coords="777,1043,762,1092,737,1154,701,1216,679,1245,652,1270,624,1285,621,1281,649,1266,675,1241,697,1213,733,1151,757,1091,772,1042"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="497,1026,621,1053"/>
-<area shape="poly" title=" " alt="" coords="694,1027,622,1035,621,1030,693,1022"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#a3ccbec98bbb2665600bc54a9126d5e58" title="Initialize interrupt controllers and attach ISR handlers." alt="" coords="497,1077,621,1104"/>
-<area shape="poly" title=" " alt="" coords="735,1037,652,1068,614,1079,612,1074,650,1063,733,1032"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="518,1128,600,1154"/>
-<area shape="poly" title=" " alt="" coords="758,1041,711,1080,652,1118,602,1136,600,1131,649,1113,708,1076,754,1037"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe" title="Initializes memory resources for FreeRTOS." alt="" coords="501,1178,617,1205"/>
-<area shape="poly" title=" " alt="" coords="767,1043,721,1106,689,1140,652,1169,618,1184,616,1179,649,1164,685,1136,717,1103,763,1040"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#a2114f7b73dcc806e3cbda15122d3b5ec" title="Initialize UART peripheral and related settings." alt="" coords="507,1229,611,1256"/>
-<area shape="poly" title=" " alt="" coords="773,1044,756,1083,730,1131,695,1178,652,1219,633,1230,612,1237,611,1232,631,1225,649,1215,691,1175,725,1128,751,1081,768,1041"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="306,1153,352,1180"/>
-<area shape="poly" title=" " alt="" coords="481,1277,466,1270,430,1249,395,1225,344,1182,347,1178,399,1221,432,1245,469,1265,483,1272"/>
-<area shape="poly" title=" " alt="" coords="483,1061,469,1068,432,1088,399,1112,347,1155,344,1151,395,1108,430,1084,466,1063,481,1056"/>
-<area shape="poly" title=" " alt="" coords="492,1111,468,1118,353,1160,351,1155,466,1113,490,1106"/>
-<area shape="poly" title=" " alt="" coords="503,1150,353,1167,352,1161,502,1145"/>
-<area shape="poly" title=" " alt="" coords="485,1186,352,1172,353,1166,486,1181"/>
-<area shape="poly" title=" " alt="" coords="491,1227,466,1220,351,1178,353,1173,468,1215,492,1222"/>
+<area shape="rect" title="Sends a single character over UART (blocking)." alt="" coords="898,334,1028,360"/>
+<area shape="rect" href="task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="467,359,651,386"/>
+<area shape="poly" title=" " alt="" coords="883,355,651,369,651,364,883,349"/>
+<area shape="rect" href="task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="270,359,389,386"/>
+<area shape="poly" title=" " alt="" coords="882,344,693,339,580,342,468,350,390,362,389,357,467,344,580,336,693,334,883,339"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,460,55,487"/>
+<area shape="poly" title=" " alt="" coords="958,318,950,261,932,189,918,152,900,116,877,83,848,56,812,31,779,17,747,10,716,8,646,15,560,20,328,20,289,24,255,36,223,54,194,78,168,107,145,139,106,211,77,288,56,359,36,460,31,459,51,358,72,286,101,209,140,136,164,103,190,74,220,50,252,31,288,19,328,15,560,15,646,9,715,3,748,4,781,12,815,27,852,52,881,80,904,113,923,149,937,187,955,260,963,318"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="498,663,620,690"/>
+<area shape="poly" title=" " alt="" coords="963,376,956,434,938,507,924,546,905,583,881,616,852,645,825,662,796,675,735,689,674,692,620,689,620,684,674,687,734,684,795,670,823,657,848,641,877,613,900,580,919,544,933,506,951,433,958,375"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="504,612,614,639"/>
+<area shape="poly" title=" " alt="" coords="961,376,950,425,931,485,899,546,877,573,852,596,824,612,794,625,730,638,668,641,614,637,614,632,668,636,729,633,792,620,821,608,848,591,873,569,894,543,926,483,945,424,955,375"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="504,156,614,183"/>
+<area shape="poly" title=" " alt="" coords="947,321,931,292,909,260,882,229,849,204,820,190,790,180,727,168,667,164,614,166,614,161,667,159,728,163,791,175,822,185,851,199,885,225,913,256,936,289,952,318"/>
+<area shape="rect" href="task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="276,308,382,335"/>
+<area shape="poly" title=" " alt="" coords="898,332,850,323,743,312,659,309,467,316,383,321,382,315,467,311,659,304,743,306,850,318,899,327"/>
+<area shape="rect" href="task_serial_input_8c.html#a0fbc6515a31984b6a0664805572be76e" title="Reads input data from UART and enqueues to main task." alt="" coords="275,156,383,183"/>
+<area shape="poly" title=" " alt="" coords="956,319,947,268,929,205,915,174,897,144,875,117,849,96,817,79,784,66,750,59,714,55,642,58,571,71,503,91,443,115,355,158,353,153,440,110,501,86,569,66,641,52,714,50,751,53,786,61,819,74,851,91,879,114,901,141,919,171,934,203,953,266,962,318"/>
+<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="239,486,419,512"/>
+<area shape="poly" title=" " alt="" coords="940,374,900,412,852,450,757,514,712,534,651,552,600,562,559,565,518,561,467,552,408,536,358,515,360,510,410,531,468,547,519,556,559,559,600,557,650,547,710,529,755,509,848,446,897,408,937,370"/>
+<area shape="rect" href="uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="699,106,850,132"/>
+<area shape="poly" title=" " alt="" coords="950,320,935,283,913,238,884,193,848,153,819,135,822,131,852,149,888,190,918,236,940,281,955,318"/>
+<area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="709,410,840,436"/>
+<area shape="poly" title=" " alt="" coords="915,369,811,412,809,407,913,364"/>
+<area shape="rect" href="uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="701,815,848,842"/>
+<area shape="poly" title=" " alt="" coords="957,376,918,516,888,606,852,696,818,764,787,816,782,813,813,761,848,694,883,604,913,514,952,375"/>
+<area shape="poly" title=" " alt="" coords="452,375,389,375,389,370,452,370"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,308,184,335"/>
+<area shape="poly" title=" " alt="" coords="263,357,184,334,185,329,264,352"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,359,191,386"/>
+<area shape="poly" title=" " alt="" coords="254,375,191,375,191,370,254,370"/>
+<area shape="poly" title=" " alt="" coords="107,346,105,349,82,377,63,408,39,461,34,459,58,406,77,374,101,345,103,343"/>
+<area shape="poly" title=" " alt="" coords="120,398,49,462,45,458,117,394"/>
+<area shape="poly" title=" " alt="" coords="482,663,366,633,238,592,168,563,101,525,48,490,51,485,104,521,170,558,240,587,368,628,483,658"/>
+<area shape="poly" title=" " alt="" coords="494,610,55,483,56,478,496,605"/>
+<area shape="rect" href="task_update_screen_8cpp.html#a95b4196d7cc3c3c908c70ec40498fd76" title=" " alt="" coords="264,258,394,284"/>
+<area shape="poly" title=" " alt="" coords="502,191,468,204,356,260,354,255,466,199,500,186"/>
+<area shape="poly" title=" " alt="" coords="264,292,185,314,184,309,263,287"/>
+<area shape="poly" title=" " alt="" coords="251,293,240,299,226,310,216,322,207,335,193,349,176,361,173,356,189,345,203,331,212,319,222,306,238,294,249,288"/>
+<area shape="poly" title=" " alt="" coords="260,324,184,324,184,319,260,319"/>
+<area shape="poly" title=" " alt="" coords="264,342,192,363,191,357,263,337"/>
+<area shape="poly" title=" " alt="" coords="302,195,166,310,163,306,298,191"/>
+<area shape="poly" title=" " alt="" coords="297,194,268,218,241,247,226,274,219,298,211,322,193,349,179,360,175,356,189,345,206,320,214,297,221,272,237,244,264,214,293,190"/>
+<area shape="poly" title=" " alt="" coords="304,476,189,349,173,338,176,333,193,345,308,472"/>
+<area shape="poly" title=" " alt="" coords="295,479,166,388,169,384,298,474"/>
+<area shape="poly" title=" " alt="" coords="700,139,615,159,614,154,699,134"/>
+<area shape="poly" title=" " alt="" coords="683,127,580,135,468,147,384,161,383,156,467,142,579,129,683,121"/>
+<area shape="poly" title=" " alt="" coords="699,408,618,389,619,384,700,403"/>
+<area shape="poly" title=" " alt="" coords="694,421,586,413,467,400,389,387,390,382,468,395,586,408,694,416"/>
+<area shape="poly" title=" " alt="" coords="768,452,754,496,730,550,697,606,676,631,652,653,622,669,619,664,649,649,672,627,692,603,725,548,749,494,763,450"/>
+<area shape="poly" title=" " alt="" coords="752,450,652,552,580,614,576,610,649,548,749,446"/>
+<area shape="poly" title=" " alt="" coords="754,398,709,331,649,254,611,216,576,186,579,182,614,212,653,251,713,327,759,395"/>
+<area shape="poly" title=" " alt="" coords="743,402,701,373,650,349,579,332,507,323,439,320,383,321,383,316,439,315,507,318,580,327,652,344,703,369,746,398"/>
+<area shape="poly" title=" " alt="" coords="694,439,412,488,411,482,693,434"/>
+<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="518,511,600,538"/>
+<area shape="poly" title=" " alt="" coords="739,447,652,495,601,514,600,509,650,490,737,443"/>
+<area shape="poly" title=" " alt="" coords="502,521,419,512,420,506,503,515"/>
+<area shape="poly" title=" " alt="" coords="740,808,698,781,650,756,622,747,597,743,551,741,530,739,508,734,487,722,465,703,445,675,434,648,431,621,432,594,434,538,429,508,417,475,401,449,382,425,345,388,349,384,386,421,405,446,422,472,434,506,439,538,437,594,436,621,439,646,449,673,469,700,490,718,510,729,531,734,552,735,598,737,624,742,652,751,701,777,743,803"/>
+<area shape="poly" title=" " alt="" coords="773,858,763,914,743,984,727,1020,707,1054,682,1084,652,1109,628,1123,605,1131,584,1135,563,1134,519,1124,467,1110,394,1090,339,1068,290,1035,237,982,188,917,146,846,112,772,85,699,48,570,31,488,36,487,53,568,90,697,117,770,151,844,192,914,241,979,293,1031,341,1063,396,1085,468,1104,520,1119,563,1129,583,1129,604,1126,625,1118,649,1105,679,1080,703,1051,722,1017,738,982,758,913,768,857"/>
+<area shape="poly" title=" " alt="" coords="751,804,707,757,679,732,649,711,611,693,613,688,652,706,683,728,711,753,755,801"/>
+<area shape="poly" title=" " alt="" coords="759,802,742,767,718,727,686,687,649,653,613,637,615,632,652,649,690,683,722,724,746,765,764,799"/>
+<area shape="poly" title=" " alt="" coords="696,813,556,779,498,762,466,748,437,721,411,690,372,622,346,559,331,513,337,512,351,557,377,620,416,687,441,717,469,743,500,757,558,774,697,808"/>
+<area shape="poly" title=" " alt="" coords="760,802,717,709,685,654,649,602,614,567,579,540,583,536,617,563,653,599,690,651,722,706,765,799"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#a9f3e8daea5d430665f0de87252e9d325" title="Initialize EEPROM memory access." alt="" coords="496,866,622,892"/>
+<area shape="poly" title=" " alt="" coords="700,848,619,868,618,862,699,843"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="497,916,621,943"/>
+<area shape="poly" title=" " alt="" coords="743,853,701,881,652,907,620,918,619,913,650,902,698,876,741,849"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#a3ccbec98bbb2665600bc54a9126d5e58" title="Initialize interrupt controllers and attach ISR handlers." alt="" coords="497,967,621,994"/>
+<area shape="poly" title=" " alt="" coords="757,856,713,907,684,934,652,957,622,971,620,966,649,953,681,930,709,904,753,853"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="518,1018,600,1044"/>
+<area shape="poly" title=" " alt="" coords="764,857,746,892,722,932,690,973,652,1008,627,1021,601,1028,600,1023,625,1016,649,1003,686,970,718,929,742,889,759,855"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe" title="Initializes memory resources for FreeRTOS." alt="" coords="501,1068,617,1095"/>
+<area shape="poly" title=" " alt="" coords="768,857,754,901,730,956,697,1011,676,1036,652,1058,618,1076,616,1071,649,1054,672,1033,692,1008,725,953,749,899,763,855"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#a2114f7b73dcc806e3cbda15122d3b5ec" title="Initialize UART peripheral and related settings." alt="" coords="507,815,611,842"/>
+<area shape="poly" title=" " alt="" coords="686,831,611,831,611,826,686,826"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="306,942,352,968"/>
+<area shape="poly" title=" " alt="" coords="492,900,468,907,353,949,351,944,466,902,490,894"/>
+<area shape="poly" title=" " alt="" coords="481,941,352,955,352,950,481,935"/>
+<area shape="poly" title=" " alt="" coords="481,974,352,960,352,955,482,969"/>
+<area shape="poly" title=" " alt="" coords="502,1019,466,1008,351,966,353,961,468,1003,504,1014"/>
+<area shape="poly" title=" " alt="" coords="485,1067,466,1059,430,1038,395,1014,344,971,347,967,399,1010,432,1033,469,1054,488,1062"/>
+<area shape="poly" title=" " alt="" coords="493,846,468,856,432,877,399,900,347,943,344,939,395,896,430,872,466,851,491,841"/>
 </map>
 </div>
 
@@ -561,42 +584,42 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="uart_8c_a641869f983cd6b508fb6873b377770a2_icgraph.png" border="0" usemap="#auart_8c_a641869f983cd6b508fb6873b377770a2_icgraph" loading="lazy" alt=""/></div>
 <map name="auart_8c_a641869f983cd6b508fb6873b377770a2_icgraph" id="auart_8c_a641869f983cd6b508fb6873b377770a2_icgraph">
-<area shape="rect" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="699,217,829,244"/>
-<area shape="rect" href="task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="467,90,651,117"/>
-<area shape="poly" title=" " alt="" coords="737,208,698,172,649,138,609,120,611,115,652,133,701,168,741,204"/>
-<area shape="rect" href="task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="270,90,389,117"/>
-<area shape="poly" title=" " alt="" coords="749,204,734,173,712,138,684,106,649,81,613,67,575,59,535,58,496,60,423,74,366,92,364,87,422,69,495,55,535,52,575,54,615,62,652,76,688,102,717,135,739,170,754,201"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,192,55,218"/>
-<area shape="poly" title=" " alt="" coords="752,203,739,166,718,123,688,82,670,64,649,50,593,24,543,11,497,9,452,15,357,45,240,81,168,99,139,111,104,131,69,162,43,193,39,190,65,158,101,127,137,106,167,94,238,76,355,40,451,10,497,4,544,6,595,19,652,45,673,60,692,78,722,120,744,164,757,201"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="498,394,620,421"/>
-<area shape="poly" title=" " alt="" coords="752,259,713,322,685,356,652,385,622,399,620,394,649,380,681,352,709,319,747,256"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="504,445,614,472"/>
-<area shape="poly" title=" " alt="" coords="757,259,743,299,722,346,692,394,652,435,635,446,615,453,613,448,632,441,649,431,687,391,717,344,738,297,752,257"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="504,344,614,370"/>
-<area shape="poly" title=" " alt="" coords="741,257,701,292,652,327,611,345,609,341,649,323,698,288,737,253"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="264,293,394,320"/>
-<area shape="poly" title=" " alt="" coords="726,254,691,270,651,284,584,297,515,305,395,310,395,305,515,300,583,292,650,278,689,265,724,249"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="518,242,600,269"/>
-<area shape="poly" title=" " alt="" coords="684,243,601,253,600,248,683,238"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="239,192,419,218"/>
-<area shape="poly" title=" " alt="" coords="683,228,420,213,420,208,683,223"/>
-<area shape="rect" href="task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="276,141,382,168"/>
-<area shape="poly" title=" " alt="" coords="702,215,650,202,505,178,383,162,383,157,506,172,651,197,703,210"/>
-<area shape="poly" title=" " alt="" coords="452,106,389,106,389,101,452,101"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,141,184,168"/>
-<area shape="poly" title=" " alt="" coords="264,124,185,147,184,141,263,119"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,192,191,218"/>
-<area shape="poly" title=" " alt="" coords="256,123,240,131,226,143,216,155,207,168,193,182,176,193,173,189,189,178,203,164,212,151,222,139,238,127,254,118"/>
-<area shape="poly" title=" " alt="" coords="102,177,56,197,54,192,100,172"/>
-<area shape="poly" title=" " alt="" coords="87,208,55,208,55,202,87,202"/>
-<area shape="poly" title=" " alt="" coords="488,344,392,323,393,318,489,339"/>
-<area shape="poly" title=" " alt="" coords="249,310,175,301,137,291,101,277,65,250,39,221,43,217,68,246,104,272,139,286,176,295,249,304"/>
-<area shape="poly" title=" " alt="" coords="503,260,323,258,213,250,102,233,54,218,56,213,103,228,213,244,324,253,503,255"/>
-<area shape="poly" title=" " alt="" coords="502,246,392,221,393,216,503,241"/>
-<area shape="poly" title=" " alt="" coords="263,189,184,167,185,162,264,184"/>
-<area shape="poly" title=" " alt="" coords="223,208,191,208,191,202,223,202"/>
-<area shape="poly" title=" " alt="" coords="260,157,184,157,184,152,260,152"/>
-<area shape="poly" title=" " alt="" coords="264,175,192,195,191,190,263,170"/>
+<area shape="rect" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="733,183,863,209"/>
+<area shape="rect" href="task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="501,208,685,235"/>
+<area shape="poly" title=" " alt="" coords="718,209,686,213,685,207,717,203"/>
+<area shape="rect" href="task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="304,183,423,209"/>
+<area shape="poly" title=" " alt="" coords="717,199,423,199,423,193,717,193"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="103,259,225,285"/>
+<area shape="poly" title=" " alt="" coords="779,224,740,265,714,285,686,300,621,319,554,329,486,331,420,328,299,310,209,289,210,283,300,305,420,323,486,326,553,323,620,314,684,295,711,280,736,261,775,220"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="109,309,218,336"/>
+<area shape="poly" title=" " alt="" coords="786,225,770,253,748,284,720,313,686,336,623,359,557,372,490,377,423,376,360,370,302,360,210,339,212,334,303,355,361,364,423,371,489,372,556,367,622,354,683,331,716,309,744,281,765,250,781,222"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="538,259,648,285"/>
+<area shape="poly" title=" " alt="" coords="756,219,686,249,650,261,648,256,684,244,754,214"/>
+<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="552,5,634,32"/>
+<area shape="poly" title=" " alt="" coords="780,171,741,111,714,80,683,53,659,39,634,30,635,25,661,35,686,48,718,76,745,108,784,168"/>
+<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="273,69,453,96"/>
+<area shape="poly" title=" " alt="" coords="754,178,684,151,564,120,453,98,454,93,565,114,685,145,756,173"/>
+<area shape="rect" href="task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="310,132,416,159"/>
+<area shape="poly" title=" " alt="" coords="717,185,684,180,539,163,417,152,417,147,539,158,685,175,718,179"/>
+<area shape="poly" title=" " alt="" coords="486,212,423,205,424,200,487,207"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="127,157,201,184"/>
+<area shape="poly" title=" " alt="" coords="288,189,201,178,202,173,289,184"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="120,208,208,235"/>
+<area shape="poly" title=" " alt="" coords="289,208,208,218,208,213,288,203"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,233,55,260"/>
+<area shape="poly" title=" " alt="" coords="114,193,104,198,50,235,47,231,101,194,112,188"/>
+<area shape="poly" title=" " alt="" coords="105,235,56,245,55,239,104,230"/>
+<area shape="poly" title=" " alt="" coords="87,260,55,254,56,249,88,255"/>
+<area shape="poly" title=" " alt="" coords="112,305,101,300,47,262,50,258,104,295,114,300"/>
+<area shape="rect" href="task_update_screen_8cpp.html#a95b4196d7cc3c3c908c70ec40498fd76" title=" " alt="" coords="298,233,428,260"/>
+<area shape="poly" title=" " alt="" coords="522,267,428,256,428,251,522,262"/>
+<area shape="poly" title=" " alt="" coords="291,231,272,224,224,198,198,187,201,182,226,194,274,219,293,226"/>
+<area shape="poly" title=" " alt="" coords="282,239,208,230,209,224,283,234"/>
+<area shape="poly" title=" " alt="" coords="538,37,415,71,413,66,536,32"/>
+<area shape="poly" title=" " alt="" coords="315,105,274,122,195,159,193,154,272,118,313,100"/>
+<area shape="poly" title=" " alt="" coords="302,105,275,122,259,141,251,159,243,178,227,198,208,210,206,205,223,194,239,175,247,157,255,138,271,118,299,100"/>
+<area shape="poly" title=" " alt="" coords="295,157,202,169,201,163,294,151"/>
+<area shape="poly" title=" " alt="" coords="296,165,274,173,226,198,201,210,198,205,224,194,272,168,294,160"/>
 </map>
 </div>
 
@@ -685,47 +708,49 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="uart_8c_a5f34fecbee99a10464b86997ef9ad94e_icgraph.png" border="0" usemap="#auart_8c_a5f34fecbee99a10464b86997ef9ad94e_icgraph" loading="lazy" alt=""/></div>
 <map name="auart_8c_a5f34fecbee99a10464b86997ef9ad94e_icgraph" id="auart_8c_a5f34fecbee99a10464b86997ef9ad94e_icgraph">
-<area shape="rect" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="642,259,788,285"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#a9f3e8daea5d430665f0de87252e9d325" title="Initialize EEPROM memory access." alt="" coords="467,157,594,184"/>
-<area shape="poly" title=" " alt="" coords="681,252,592,198,568,187,570,182,595,194,684,248"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="468,208,593,235"/>
-<area shape="poly" title=" " alt="" coords="649,257,581,238,583,233,650,252"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#a3ccbec98bbb2665600bc54a9126d5e58" title="Initialize interrupt controllers and attach ISR handlers." alt="" coords="469,259,592,285"/>
-<area shape="poly" title=" " alt="" coords="626,275,593,275,593,269,626,269"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="489,5,572,32"/>
-<area shape="poly" title=" " alt="" coords="703,244,688,201,665,148,633,94,592,46,571,33,574,28,595,42,637,91,670,146,693,199,708,243"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe" title="Initializes memory resources for FreeRTOS." alt="" coords="473,56,588,83"/>
-<area shape="poly" title=" " alt="" coords="699,246,658,172,628,132,592,97,574,85,576,81,595,93,632,129,662,169,704,243"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#a2114f7b73dcc806e3cbda15122d3b5ec" title="Initialize UART peripheral and related settings." alt="" coords="478,107,583,133"/>
-<area shape="poly" title=" " alt="" coords="693,248,650,198,622,171,592,148,572,136,574,132,595,143,626,167,654,194,697,245"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="469,309,592,336"/>
-<area shape="poly" title=" " alt="" coords="650,292,583,311,581,306,649,287"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="476,360,585,387"/>
-<area shape="poly" title=" " alt="" coords="684,296,595,350,570,362,568,357,592,346,681,292"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="489,411,572,437"/>
-<area shape="poly" title=" " alt="" coords="697,299,654,350,626,377,595,401,573,413,570,408,592,396,622,373,650,346,693,296"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="239,461,419,488"/>
-<area shape="poly" title=" " alt="" coords="706,301,690,337,666,378,635,419,595,452,553,471,508,482,463,487,420,487,420,482,462,481,507,476,551,466,592,447,631,415,662,376,685,334,701,299"/>
-<area shape="rect" href="task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="270,512,389,539"/>
-<area shape="poly" title=" " alt="" coords="709,301,695,344,673,397,640,449,619,472,595,492,545,516,491,530,437,535,389,534,389,529,437,529,490,525,543,511,592,487,615,468,636,446,668,394,690,343,704,299"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="306,132,352,159"/>
-<area shape="poly" title=" " alt="" coords="451,163,352,151,353,145,452,158"/>
-<area shape="poly" title=" " alt="" coords="477,204,351,156,353,151,479,199"/>
-<area shape="poly" title=" " alt="" coords="476,254,466,249,397,203,345,161,348,157,400,199,469,244,479,250"/>
-<area shape="poly" title=" " alt="" coords="479,41,469,46,400,92,348,134,345,129,397,88,466,42,476,36"/>
-<area shape="poly" title=" " alt="" coords="479,91,353,140,351,135,477,86"/>
-<area shape="poly" title=" " alt="" coords="464,131,353,145,352,140,463,126"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,461,55,488"/>
-<area shape="poly" title=" " alt="" coords="474,425,307,428,205,436,103,452,56,467,54,462,102,447,204,431,307,423,474,420"/>
-<area shape="poly" title=" " alt="" coords="475,441,386,463,385,458,474,435"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,512,184,539"/>
-<area shape="poly" title=" " alt="" coords="264,495,185,518,184,513,263,490"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,461,191,488"/>
-<area shape="poly" title=" " alt="" coords="223,477,191,477,191,472,223,472"/>
-<area shape="poly" title=" " alt="" coords="100,508,54,488,56,483,102,503"/>
-<area shape="poly" title=" " alt="" coords="87,477,55,477,55,472,87,472"/>
-<area shape="poly" title=" " alt="" coords="254,528,185,528,185,523,254,523"/>
-<area shape="poly" title=" " alt="" coords="263,510,191,489,192,484,264,505"/>
+<area shape="rect" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="663,284,809,311"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#a9f3e8daea5d430665f0de87252e9d325" title="Initialize EEPROM memory access." alt="" coords="488,5,615,32"/>
+<area shape="poly" title=" " alt="" coords="726,270,712,222,690,162,657,100,636,72,613,46,596,35,599,30,616,42,640,68,661,97,694,160,717,220,731,268"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="489,56,614,83"/>
+<area shape="poly" title=" " alt="" coords="722,271,706,232,683,186,651,138,613,97,595,85,598,81,616,93,656,135,687,183,711,230,727,269"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#a3ccbec98bbb2665600bc54a9126d5e58" title="Initialize interrupt controllers and attach ISR handlers." alt="" coords="490,107,613,133"/>
+<area shape="poly" title=" " alt="" coords="717,272,675,210,646,177,613,147,594,136,596,132,616,143,650,173,679,207,722,269"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="510,157,593,184"/>
+<area shape="poly" title=" " alt="" coords="709,275,666,237,613,198,590,187,593,182,616,194,669,232,712,271"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe" title="Initializes memory resources for FreeRTOS." alt="" coords="494,208,609,235"/>
+<area shape="poly" title=" " alt="" coords="687,280,614,249,586,238,588,233,616,244,689,275"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#a2114f7b73dcc806e3cbda15122d3b5ec" title="Initialize UART peripheral and related settings." alt="" coords="499,259,604,285"/>
+<area shape="poly" title=" " alt="" coords="647,288,604,282,605,277,647,282"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="289,360,411,387"/>
+<area shape="poly" title=" " alt="" coords="690,319,615,344,508,363,412,373,412,367,507,358,614,339,689,314"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,411,55,437"/>
+<area shape="poly" title=" " alt="" coords="647,305,512,314,355,328,208,348,148,361,104,374,73,392,48,412,44,408,70,388,102,370,147,355,207,343,354,323,512,308,647,299"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="103,411,212,437"/>
+<area shape="poly" title=" " alt="" coords="705,322,664,348,616,370,562,388,506,401,395,419,293,426,213,428,212,423,293,421,394,413,505,396,560,383,614,366,661,343,702,318"/>
+<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="510,512,593,539"/>
+<area shape="poly" title=" " alt="" coords="726,326,685,407,654,454,616,495,589,514,586,509,613,491,649,450,680,405,721,324"/>
+<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="260,461,440,488"/>
+<area shape="poly" title=" " alt="" coords="723,326,681,388,651,419,616,445,574,463,528,475,483,481,441,483,441,477,483,475,527,469,572,458,613,440,648,415,677,384,718,323"/>
+<area shape="rect" href="task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="290,512,410,539"/>
+<area shape="poly" title=" " alt="" coords="733,327,723,378,702,441,686,473,667,504,644,531,616,553,587,567,555,574,522,576,489,573,428,559,380,542,382,537,430,554,490,568,522,571,554,569,585,562,613,548,640,527,663,501,682,471,697,439,718,377,728,326"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="328,132,373,159"/>
+<area shape="poly" title=" " alt="" coords="500,41,490,46,421,92,369,134,366,129,418,88,487,42,497,36"/>
+<area shape="poly" title=" " alt="" coords="500,91,374,140,372,135,498,86"/>
+<area shape="poly" title=" " alt="" coords="475,132,373,145,373,140,474,127"/>
+<area shape="poly" title=" " alt="" coords="495,166,373,151,374,145,496,161"/>
+<area shape="poly" title=" " alt="" coords="498,204,372,156,374,151,500,199"/>
+<area shape="poly" title=" " alt="" coords="497,254,487,249,418,203,366,161,369,157,421,199,490,244,500,250"/>
+<area shape="poly" title=" " alt="" coords="274,379,191,387,103,401,56,417,54,412,102,396,191,381,274,374"/>
+<area shape="poly" title=" " alt="" coords="87,427,55,427,55,421,87,421"/>
+<area shape="poly" title=" " alt="" coords="495,514,406,491,407,486,496,509"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="120,512,194,539"/>
+<area shape="poly" title=" " alt="" coords="283,495,195,518,194,513,281,490"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="113,461,202,488"/>
+<area shape="poly" title=" " alt="" coords="245,477,202,477,202,472,245,472"/>
+<area shape="poly" title=" " alt="" coords="107,506,101,502,66,470,40,440,44,436,70,466,104,498,110,502"/>
+<area shape="poly" title=" " alt="" coords="107,458,54,436,56,431,109,453"/>
+<area shape="poly" title=" " alt="" coords="275,528,195,528,195,523,275,523"/>
+<area shape="poly" title=" " alt="" coords="281,510,201,489,203,484,282,505"/>
 </map>
 </div>
 

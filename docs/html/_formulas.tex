@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{iftex}
+\usepackage{ifthen}
+\usepackage{epsfig}
+\usepackage[utf8]{inputenc}
+\usepackage{xcolor}
+\ifPDFTeX
+\usepackage{newunicodechar}
+  \makeatletter
+    \def\doxynewunicodechar#1#2{%
+    \@tempswafalse
+    \edef\nuc@tempa{\detokenize{#1}}%
+    \if\relax\nuc@tempa\relax
+      \nuc@emptyargerr
+    \else
+      \edef\@tempb{\expandafter\@car\nuc@tempa\@nil}%
+      \nuc@check
+      \if@tempswa
+        \@namedef{u8:\nuc@tempa}{#2}%
+      \fi
+    \fi
+  }
+  \makeatother
+  \doxynewunicodechar{⁻}{${}^{-}$}% Superscript minus
+  \doxynewunicodechar{²}{${}^{2}$}% Superscript two
+  \doxynewunicodechar{³}{${}^{3}$}% Superscript three
+
+\fi
+\pagestyle{empty}
+\begin{document}
+\[OCR4A = \frac{T_{interrupt}}{T_{tick}} - 1
+\]
+\pagebreak
+
+$T_{interrupt}$
+\pagebreak
+
+$T_{tick}$
+\pagebreak
+
+\[T_{interrupt} = (OCR4A + 1) * T_{tick} = (255 + 1) * 4\mu s \approx 1.024\ ms
+\]
+\pagebreak
+
+\[T_{interrupt} = (OCR4A + 1) * T_{tick}
+\]
+\pagebreak
+
+\[T_{interrupt} = (14 + 1) * 4\mu s = 60\mu s
+\]
+\pagebreak
+
+\end{document}

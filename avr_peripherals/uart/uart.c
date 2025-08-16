@@ -52,11 +52,13 @@ void uart_putc_blocking(char c){
     while(next_head==uart_tx_buffer_tail){
         // busy wait (blocking)
     }
+    cli();
     // Place character in buffer and update head index
     uart_buffer_tx[uart_tx_buffer_head]=c;
     uart_tx_buffer_head=next_head;
     // Enable Data Register Empty Interrupt to start transmission
     UCSR0B|=(1<<UDRIE0);
+    sei();
 }
 
 void uart_puts_blocking(const char*s){

@@ -4,6 +4,8 @@
 #include <uart.h>
 #include <i2c.h>
 
+extern void printI2C_status(void);
+
 extern HD44780_LCD lcd;
 
 void taskUpdateScreen(void*pvParameters){
@@ -49,6 +51,7 @@ void taskUpdateScreen(void*pvParameters){
                    lcd.noBlink_blocking();
                 }
             xSemaphoreGive(mux_I2CLock);
+            printI2C_status();
             }
         }
     vTaskDelayUntil(&xLastWakeTime,pdMS_TO_TICKS(TASK_UPDATE_SCREEN_REFRESH_RATE)); 

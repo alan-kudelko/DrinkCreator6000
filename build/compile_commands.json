@@ -13,6 +13,12 @@
 },
 {
   "directory": "D:/Projekty/DrinkCreator6000/build",
+  "command": "D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c -ID:/Projekty/DrinkCreator6000/drivers -mmcu=atmega2560 -Os -DF_CPU=8000000UL -Wall -g -o CMakeFiles\\CMake_AVR.dir\\src\\DrinkCreator6000_Config_C.c.obj -c D:\\Projekty\\DrinkCreator6000\\src\\DrinkCreator6000_Config_C.c",
+  "file": "D:/Projekty/DrinkCreator6000/src/DrinkCreator6000_Config_C.c",
+  "output": "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_Config_C.c.obj"
+},
+{
+  "directory": "D:/Projekty/DrinkCreator6000/build",
   "command": "D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c -ID:/Projekty/DrinkCreator6000/drivers -mmcu=atmega2560 -Os -DF_CPU=8000000UL -Wall -g -o CMakeFiles\\CMake_AVR.dir\\src\\DrinkCreator6000_EEPROM.c.obj -c D:\\Projekty\\DrinkCreator6000\\src\\DrinkCreator6000_EEPROM.c",
   "file": "D:/Projekty/DrinkCreator6000/src/DrinkCreator6000_EEPROM.c",
   "output": "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMake_AVR.dir/src/DrinkCreator6000_EEPROM.c.obj"

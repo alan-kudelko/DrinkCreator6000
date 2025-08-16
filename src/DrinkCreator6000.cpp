@@ -115,7 +115,7 @@ void printI2C_status(){
       uart_putc_blocking('\n');
 
       uart_puts_blocking("Status FSM:");
-      uart_put_hex_blocking(i2c_get_status());
+      uart_put_hex_blocking(i2c_status);
       uart_putc_blocking('\n');
 
       uart_puts_blocking("head:");
@@ -127,13 +127,29 @@ void printI2C_status(){
       uart_putc_blocking('\n');
 
       uart_puts_blocking("Liczba bledow transmisji i2c: ");
-      uart_put_hex_blocking(i2c_tx_error_counter);
+      uart_puts_blocking("Arbitracja: ");
+      uart_put_hex_blocking(i2c_error_counters.arbitration_lost);
       uart_putc_blocking('\n');
+
+      uart_puts_blocking("nack_data: ");
+      uart_put_hex_blocking(i2c_error_counters.nack_data);
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("nack adddress: ");
+      uart_put_hex_blocking(i2c_error_counters.nack_address);
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("unexpected_state: ");
+      uart_put_hex_blocking(i2c_error_counters.unexpected_state);
+      uart_putc_blocking('\n');
+
+      uart_puts_blocking("bus_error: ");
+      uart_put_hex_blocking(i2c_error_counters.bus_error);
+      uart_putc_blocking('\n');
+
 }
 
 HD44780_LCD lcd(LCD_ADDR,20,4);
-
-
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
@@ -155,11 +171,16 @@ int main(void){
     lastError_dump(&lastSystemError);
 
     __stack_ptr=(uint8_t*)SP;
-    ram_dump();
-    
-    _delay_ms(2000);
+    //ram_dump();
+    sei();
+    TIMSK4|=(1<<OCIE4A);
     lcd.begin_blocking();
       //printI2C_status();
+    //_delay_ms(5000);
+    //i2c_write_byte_blocking(0x27,0xff);
+    //    i2c_write_byte_blocking(0x27,0xAA);
+    //lcd.setCursor_blocking(0,0);
+    //lcd.write_blocking('A');
 
     uint8_t c='A';
     uint8_t posX=0;
@@ -171,8 +192,8 @@ int main(void){
         //i2c_write_byte_blocking(LCD_ADDR,0xFF);
     }
     while(false){
-      
-                    //printI2C_status();
+      //i2c_tx_buffer_show_contet();
+      //printI2C_status();
                     //uart_putc_blocking('\0');
         lcd.setCursor_blocking(posX,posY);
         lcd.write_blocking(c);
@@ -186,7 +207,7 @@ int main(void){
           posY=0;
         if(c=='Z'+1)
           c='A';
-        //_delay_ms(1000);
+        //delay_ms(5000);
               //printI2C_status();
     }
 

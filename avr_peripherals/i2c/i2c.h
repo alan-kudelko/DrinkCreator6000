@@ -12,7 +12,11 @@
  * @note Communication is performed through a buffer and ISR (in the source file).
  *
  * @note Timer4 is used exclusively for I2C management, configured to generate
- * interrupts at approximately 10 microseconds interval (with prescaler 64 and 16 MHz CPU clock).
+ * interrupts at approximately 10 microseconds interval (with prescaler 64 and 8 MHz CPU clock).
+ *
+ * @note The `TIMER4_POLLING_CYCLE` macro defines the number of Timer4 ticks between
+ * bus polling operations, while the `TIMER4_SENDING_CYCLE` macro specifies the number
+ * of ticks between consecutive data bytes sent on the bus.
  *
  * Timer4 Compare A interrupt (`TIMER4_COMPA_vect`) and TWI interrupt (`TWI_vect`) handlers
  * are implemented internally in `i2c.c`.
@@ -48,10 +52,53 @@
  * bypass the buffer and send data directly.
  */
 #define USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS 1
+
+#if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
+/**
+ * @def TIMER4_POLLING_CYCLE
+ * @brief OCR4A value for Timer 4 in "polling" mode.
+ *
+ * Timer 4 generates an interrupt at a defined period, used to check whether 
+ * there are data in the I2C buffer to be sent. The OCR4A value sets the time 
+ * between consecutive ISR calls.
+ *
+ * Calculation of OCR4A:
+ * @f[
+ * OCR4A = \frac{T_{interrupt}}{T_{tick}} - 1
+ * @f]
+ * where:
+ * - @f$T_{interrupt}@f$ is the desired interrupt period (in seconds),
+ * - @f$T_{tick}@f$ is the timer tick period (here 4 µs = 4e-6 s).
+ *
+ * For OCR4A = 255 with 4 µs tick:
+ * @f[
+ * T_{interrupt} = (OCR4A + 1) * T_{tick} = (255 + 1) * 4\mu s \approx 1.024\ ms
+ * @f]
+ */
+#define TIMER4_POLLING_CYCLE 255
+/**
+ * @def TIMER4_SENDING_CYCLE
+ * @brief OCR4A value for Timer 4 in "sending" mode (fast ISR during active I2C transmission).
+ *
+ * The timer interval is reduced to accelerate polling while sending data.
+ *
+ * Calculation of OCR4A:
+ * @f[
+ * T_{interrupt} = (OCR4A + 1) * T_{tick}
+ * @f]
+ *
+ * For OCR4A = 4 with 4 µs tick:
+ * @f[
+ * T_{interrupt} = (14 + 1) * 4\mu s = 60\mu s
+ * @f]
+ */
+#define TIMER4_SENDING_CYCLE 14
 /**
  * @name I2C TWI Master Transmitter status codes
  * @{
  */
+#endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
+
 #define TW_START              0x08  /**< START condition transmitted */
 #define TW_REP_START          0x10  /**< Repeated START condition transmitted */
 #define TW_MT_SLA_ACK         0x18  /**< SLA+W transmitted, ACK received */
@@ -102,6 +149,7 @@
 #define I2C_STATE_ADDRESS_SENT   2  /**< Address sent, waiting for ACK/NACK */
 #define I2C_STATE_DATA_SENT      3  /**< Data byte sent, waiting for ACK/NACK */
 #define I2C_STATE_ERROR          4  /**< Error occurred during transmission */
+#define I2C_STATE_DATA_RECEIVED  5  /**< Data byte received from slave, waiting for next action */
 /** @} */
 
 /**
@@ -110,12 +158,22 @@
  * Contains the value (address or data), flags indicating read/write,
  * whether this is the last package, and the package type (address or data).
  */
-struct I2C_DATA {
+typedef struct{
     uint8_t value; /**< Address or data byte */
     bool f_RW;     /**< Read/write flag: 1 = read, 0 = write */
     bool f_LP;     /**< Last package flag: 1 = last package, 0 = not last */
     bool f_Type;   /**< Package type: 0 = address, 1 = data */
-};
+}I2C_Data_t;
+/**
+ * @brief Counters for different I2C/TWI error types
+ */
+typedef struct{
+    uint16_t bus_error;          /**< Bus error (illegal start/stop condition) */
+    uint16_t nack_address;       /**< NACK received after sending SLA+W or SLA+R */
+    uint16_t nack_data;          /**< NACK received after sending data byte */
+    uint16_t arbitration_lost;   /**< Arbitration lost during transmission */
+    uint16_t unexpected_state;   /**< Any unexpected/unhandled TWI status */
+}I2C_ErrorCounters_t;
 /**
  * @def I2C_TX_BUFFER_SIZE
  * @brief Size of the I2C transmit buffer, in bytes.
@@ -158,47 +216,75 @@ struct I2C_DATA {
 /**
  * @brief Transmit buffer holding I2C data packets to be sent.
  */
-extern volatile struct I2C_DATA i2c_buffer_tx[I2C_TX_BUFFER_SIZE];
+extern volatile I2C_Data_t i2c_buffer_tx[I2C_TX_BUFFER_SIZE];
 /**
  * @brief Index of the head position in the TX buffer.
  */
-extern volatile uint8_t i2c_tx_buffer_head;
+extern volatile i2c_tx_buf_index_t i2c_tx_buffer_head;
 /**
  * @brief Index of the tail position in the TX buffer.
  */
-extern volatile uint8_t i2c_tx_buffer_tail;
+extern volatile i2c_tx_buf_index_t i2c_tx_buffer_tail;
 /**
  * @brief Current status of the I2C state machine.
  */
+/**
+ * @brief Status of the current I²C operation.
+ *
+ * Stores the last TWI/I²C status code (from the TWSR register),
+ * indicating the current bus condition, e.g.:
+ * - START condition transmitted
+ * - SLA+W / SLA+R transmitted and ACK/NACK received
+ * - Data byte transmitted/received with ACK/NACK
+ * - Bus errors (arbitration lost, ACK failure, etc.)
+ */
 extern volatile uint8_t i2c_status;
 
+/**
+ * @brief Current state of the I²C finite state machine (FSM).
+ *
+ * Represents the current step of the I²C driver’s FSM during transmission.
+ * The FSM is updated in the `TWI_vect` interrupt handler
+ * in response to TWI status codes.
+ */
 extern volatile uint8_t i2c_state;
 /**
- * @brief Counter of transmission errors detected on the I2C bus.
+ * @brief I²C error counters.
+ *
+ * Holds cumulative counts of specific I²C/TWI error events
+ * detected by the driver during operation.
+ *
+ * These counters can be used for diagnostics and long-term
+ * monitoring of bus reliability.
+ *
+ * Typical fields inside ::I2C_ErrorCounters_t may include:
+ * - **arbitration_lost** — number of times bus arbitration was lost
+ * - **nack_on_address** — number of NACKs received after sending SLA+W or SLA+R
+ * - **nack_on_data** — number of NACKs received after sending a data byte
+ * - **bus_error** — number of illegal START/STOP conditions detected
+ *
+ * The structure is updated inside the `TWI_vect` ISR
+ * whenever an error-related TWI status code is encountered.
  */
-extern volatile uint16_t i2c_tx_error_counter;
+extern volatile I2C_ErrorCounters_t i2c_error_counters;
 // ========================
 // Core I2C Functions
 // ========================
 /**
- * @brief Initializes the I2C hardware and software buffers.
+ * @brief Initialize I²C (TWI) hardware and optional Timer4 support.
  *
- * Configures the TWI peripheral, timer, and prepares internal buffers
- * for I2C communication in Master mode.
+ * Configures SDA/SCL pins, sets TWI speed, and optionally sets up Timer4
+ * for polling cycles after STOP condition (used in blocking ring buffer mode).
  */
 void i2c_init(void);
 /**
- * @brief Disables the I2C hardware and related interrupts.
- *
- * Stops the TWI peripheral and disables the timer used for I2C management.
+ * @brief Enable I²C hardware (and Timer4 if used).
+ */
+void i2c_enable(void);
+/**
+ * @brief Disable I²C hardware (and Timer4 if used).
  */
 void i2c_disable(void);
-/**
- * @brief Returns the current status code of the I2C state machine.
- *
- * @return I2C status code (one of the defined TW_* or I2C_STATE_* values).
- */
-uint8_t i2c_get_status(void);
 /**
  * @brief Checks if the I2C TX buffer is empty.
  *
@@ -216,9 +302,6 @@ static inline bool i2c_tx_buffer_is_empty(void){
  * allowing the next transmission to be properly enqueued.
  */
 void i2c_tx_buffer_clear_until_next_address(void);
-
-
-void i2c_tx_buffer_show_contet(void);
 /**
  * @brief Sends a single data byte to the specified I2C slave address in blocking mode.
  *
@@ -230,7 +313,7 @@ void i2c_tx_buffer_show_contet(void);
  * @param address 7-bit I2C slave address.
  * @param data    Single byte to be transmitted.
  */
-void i2c_write_byte_blocking(uint8_t address,uint8_t data);
+void i2c_write_byte_to_address_blocking(uint8_t address,uint8_t data);
 /**
  * @brief Sends multiple data bytes to the specified I2C slave address in blocking mode.
  *
@@ -243,7 +326,7 @@ void i2c_write_byte_blocking(uint8_t address,uint8_t data);
  * @param data    Pointer to the data array to be transmitted.
  * @param length  Number of bytes to send.
  */
-void i2c_write_bytes_blocking(uint8_t address,uint8_t*data,uint8_t length);
+void i2c_write_bytes_to_address_blocking(uint8_t address,uint8_t*data,uint8_t length);
 
 #ifdef __cplusplus
     }

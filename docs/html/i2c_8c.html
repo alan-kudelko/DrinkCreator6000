@@ -17,6 +17,13 @@
 <link href="search/search.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="search/searchdata.js"></script>
 <script type="text/javascript" src="search/search.js"></script>
+<script type="text/x-mathjax-config">
+MathJax.Hub.Config({
+  extensions: ["tex2jax.js"],
+  jax: ["input/TeX","output/HTML-CSS"],
+});
+</script>
+<script type="text/javascript" async="async" src="https://cdn.jsdelivr.net/npm/mathjax@2/MathJax.js"></script>
 <link href="doxygen.css" rel="stylesheet" type="text/css" />
 </head>
 <body>
@@ -95,63 +102,71 @@ $(function(){initNavTree('i2c_8c.html','',''); });
 <code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &lt;avr/interrupt.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___pins_8h_source.html">DrinkCreator6000_Pins.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="uart_8h_source.html">uart.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for i2c.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="i2c_8c__incl.png" border="0" usemap="#aavr__peripherals_2i2c_2i2c_8c" loading="lazy" alt=""/></div>
 <map name="aavr__peripherals_2i2c_2i2c_8c" id="aavr__peripherals_2i2c_2i2c_8c">
-<area shape="rect" title=" " alt="" coords="274,5,405,48"/>
-<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="234,96,283,123"/>
-<area shape="poly" title=" " alt="" coords="320,51,283,87,280,83,317,47"/>
-<area shape="rect" title=" " alt="" coords="307,96,372,123"/>
-<area shape="poly" title=" " alt="" coords="342,49,342,80,337,80,337,49"/>
-<area shape="rect" title=" " alt="" coords="396,96,497,123"/>
-<area shape="poly" title=" " alt="" coords="369,46,419,84,416,88,365,51"/>
-<area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="521,96,688,123"/>
-<area shape="poly" title=" " alt="" coords="406,45,550,89,548,94,404,50"/>
-<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="155,96,209,123"/>
-<area shape="poly" title=" " alt="" coords="300,51,222,91,219,86,298,46"/>
-<area shape="rect" title=" " alt="" coords="226,171,290,197"/>
-<area shape="poly" title=" " alt="" coords="261,123,261,155,256,155,256,123"/>
-<area shape="rect" title=" " alt="" coords="314,171,389,197"/>
-<area shape="poly" title=" " alt="" coords="276,121,325,159,322,163,273,125"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Configuration macros for CPU frequency, UART, I2C, and task count." alt="" coords="5,171,202,197"/>
-<area shape="poly" title=" " alt="" coords="234,125,145,166,143,161,232,120"/>
-<area shape="poly" title=" " alt="" coords="197,121,236,158,232,162,194,125"/>
-<area shape="poly" title=" " alt="" coords="170,125,130,162,126,158,167,121"/>
+<area shape="rect" title=" " alt="" coords="153,5,284,48"/>
+<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="59,96,109,123"/>
+<area shape="poly" title=" " alt="" coords="185,51,119,90,117,85,183,46"/>
+<area shape="rect" title=" " alt="" coords="133,96,197,123"/>
+<area shape="poly" title=" " alt="" coords="207,50,184,84,180,81,203,47"/>
+<area shape="rect" title=" " alt="" coords="221,96,323,123"/>
+<area shape="poly" title=" " alt="" coords="235,47,257,81,253,84,230,50"/>
+<area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="347,96,514,123"/>
+<area shape="poly" title=" " alt="" coords="274,46,384,88,382,93,272,51"/>
+<area shape="rect" title=" " alt="" coords="225,320,289,347"/>
+<area shape="poly" title=" " alt="" coords="73,125,47,153,22,192,13,212,9,233,10,252,19,270,31,280,49,290,99,305,210,324,209,330,98,310,47,295,28,285,15,274,5,254,3,232,8,211,17,189,43,150,69,121"/>
+<area shape="rect" title=" " alt="" coords="47,171,121,197"/>
+<area shape="poly" title=" " alt="" coords="87,123,87,155,81,155,81,123"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="155,171,351,197"/>
+<area shape="poly" title=" " alt="" coords="110,119,211,162,209,167,108,124"/>
+<area shape="rect" title=" " alt="" coords="29,245,123,272"/>
+<area shape="poly" title=" " alt="" coords="223,200,122,242,120,237,221,195"/>
+<area shape="rect" title=" " alt="" coords="147,245,205,272"/>
+<area shape="poly" title=" " alt="" coords="242,200,202,237,199,233,238,196"/>
+<area shape="rect" title=" " alt="" coords="229,245,296,272"/>
+<area shape="poly" title=" " alt="" coords="258,198,262,230,256,230,252,198"/>
+<area shape="rect" title=" " alt="" coords="321,245,396,272"/>
+<area shape="poly" title=" " alt="" coords="273,196,329,234,326,238,270,200"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title=" " alt="" coords="420,245,625,272"/>
+<area shape="poly" title=" " alt="" coords="301,195,462,238,460,243,300,200"/>
+<area shape="poly" title=" " alt="" coords="477,275,306,322,304,317,476,270"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:a5730d9445429351b9f750084c5cb5aae" id="r_a5730d9445429351b9f750084c5cb5aae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5730d9445429351b9f750084c5cb5aae">i2c_init</a> (void)</td></tr>
-<tr class="memdesc:a5730d9445429351b9f750084c5cb5aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the I2C hardware and software buffers.  <br /></td></tr>
+<tr class="memdesc:a5730d9445429351b9f750084c5cb5aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize I²C (TWI) hardware and optional Timer4 support.  <br /></td></tr>
+<tr class="memitem:a5a1923e2271df541e858cb4e05d7b895" id="r_a5a1923e2271df541e858cb4e05d7b895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a1923e2271df541e858cb4e05d7b895">i2c_enable</a> (void)</td></tr>
+<tr class="memdesc:a5a1923e2271df541e858cb4e05d7b895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable I²C hardware (and Timer4 if used).  <br /></td></tr>
 <tr class="memitem:abe70f8fe4c72329b89ec526c749f50d7" id="r_abe70f8fe4c72329b89ec526c749f50d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe70f8fe4c72329b89ec526c749f50d7">i2c_disable</a> (void)</td></tr>
-<tr class="memdesc:abe70f8fe4c72329b89ec526c749f50d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the I2C hardware and related interrupts.  <br /></td></tr>
-<tr class="memitem:a2e0c07e537bbbdb2a0eea00db38eadae" id="r_a2e0c07e537bbbdb2a0eea00db38eadae"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2e0c07e537bbbdb2a0eea00db38eadae">i2c_get_status</a> (void)</td></tr>
-<tr class="memdesc:a2e0c07e537bbbdb2a0eea00db38eadae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current status code of the I2C state machine.  <br /></td></tr>
+<tr class="memdesc:abe70f8fe4c72329b89ec526c749f50d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable I²C hardware (and Timer4 if used).  <br /></td></tr>
 <tr class="memitem:a34466b1132aef1e13135a1a7bcf65ac0" id="r_a34466b1132aef1e13135a1a7bcf65ac0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a34466b1132aef1e13135a1a7bcf65ac0">i2c_tx_buffer_clear_until_next_address</a> (void)</td></tr>
 <tr class="memdesc:a34466b1132aef1e13135a1a7bcf65ac0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Clears the TX buffer until the next address package is found.  <br /></td></tr>
 <tr class="memitem:a8aa6a32130ab26be17555166513a23ba" id="r_a8aa6a32130ab26be17555166513a23ba"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8aa6a32130ab26be17555166513a23ba">ISR</a> (TIMER4_COMPA_vect)</td></tr>
 <tr class="memitem:a474f42eedbdc093683fdb4b88be3c48f" id="r_a474f42eedbdc093683fdb4b88be3c48f"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a474f42eedbdc093683fdb4b88be3c48f">ISR</a> (TWI_vect)</td></tr>
-<tr class="memitem:a6d4174b1f00e66695e1b388db42d2a00" id="r_a6d4174b1f00e66695e1b388db42d2a00"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6d4174b1f00e66695e1b388db42d2a00">i2c_write_byte_blocking</a> (uint8_t address, uint8_t data)</td></tr>
-<tr class="memdesc:a6d4174b1f00e66695e1b388db42d2a00"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single data byte to the specified I2C slave address in blocking mode.  <br /></td></tr>
-<tr class="memitem:a9188b6d16a6e8cef301a63de5b8b4df7" id="r_a9188b6d16a6e8cef301a63de5b8b4df7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9188b6d16a6e8cef301a63de5b8b4df7">i2c_write_bytes_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
-<tr class="memdesc:a9188b6d16a6e8cef301a63de5b8b4df7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends multiple data bytes to the specified I2C slave address in blocking mode.  <br /></td></tr>
+<tr class="memitem:a91bb1859c12fbc7c029b2a5a2309b240" id="r_a91bb1859c12fbc7c029b2a5a2309b240"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91bb1859c12fbc7c029b2a5a2309b240">i2c_write_byte_to_address_blocking</a> (uint8_t address, uint8_t data)</td></tr>
+<tr class="memdesc:a91bb1859c12fbc7c029b2a5a2309b240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single data byte to the specified I2C slave address in blocking mode.  <br /></td></tr>
+<tr class="memitem:ae74a6ec74823b5c3816959f3f696e945" id="r_ae74a6ec74823b5c3816959f3f696e945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74a6ec74823b5c3816959f3f696e945">i2c_write_bytes_to_address_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:ae74a6ec74823b5c3816959f3f696e945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends multiple data bytes to the specified I2C slave address in blocking mode.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:ad6ef93db3176a9adcf49d495d8c2267c" id="r_ad6ef93db3176a9adcf49d495d8c2267c"><td class="memItemLeft" align="right" valign="top">volatile struct <a class="el" href="struct_i2_c___d_a_t_a.html">I2C_DATA</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ad6ef93db3176a9adcf49d495d8c2267c">i2c_buffer_tx</a> [<a class="el" href="i2c_8h.html#a547981ee4a0a60f7fa4826eb59ded9b7">I2C_TX_BUFFER_SIZE</a>] ={0}</td></tr>
-<tr class="memdesc:ad6ef93db3176a9adcf49d495d8c2267c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit buffer holding I2C data packets to be sent.  <br /></td></tr>
-<tr class="memitem:a54b54393520150aa2a89e8c318aad7f3" id="r_a54b54393520150aa2a89e8c318aad7f3"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54b54393520150aa2a89e8c318aad7f3">i2c_tx_buffer_head</a> =0</td></tr>
-<tr class="memdesc:a54b54393520150aa2a89e8c318aad7f3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the head position in the TX buffer.  <br /></td></tr>
-<tr class="memitem:a4c44f1e87478aaf608b3bf64e27b80fd" id="r_a4c44f1e87478aaf608b3bf64e27b80fd"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a4c44f1e87478aaf608b3bf64e27b80fd">i2c_tx_buffer_tail</a> =0</td></tr>
-<tr class="memdesc:a4c44f1e87478aaf608b3bf64e27b80fd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the tail position in the TX buffer.  <br /></td></tr>
-<tr class="memitem:aec1f537d4e465641ecde4ad6ec87b894" id="r_aec1f537d4e465641ecde4ad6ec87b894"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec1f537d4e465641ecde4ad6ec87b894">i2c_status</a> =<a class="el" href="i2c_8h.html#ae3f6a60c396d9f1a51eb4ecc981951fa">I2C_STATE_IDLE</a></td></tr>
+<tr class="memitem:abe1f812dc6284ef881acc78023cd7a9d" id="r_abe1f812dc6284ef881acc78023cd7a9d"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_i2_c___data__t.html">I2C_Data_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe1f812dc6284ef881acc78023cd7a9d">i2c_buffer_tx</a> [<a class="el" href="i2c_8h.html#a547981ee4a0a60f7fa4826eb59ded9b7">I2C_TX_BUFFER_SIZE</a>] ={0}</td></tr>
+<tr class="memdesc:abe1f812dc6284ef881acc78023cd7a9d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Transmit buffer holding I2C data packets to be sent.  <br /></td></tr>
+<tr class="memitem:a5b113d44bda8ed39efc026d277878c09" id="r_a5b113d44bda8ed39efc026d277878c09"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="i2c_8h.html#a57b79314a222c848e2e86e83758e667e">i2c_tx_buf_index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5b113d44bda8ed39efc026d277878c09">i2c_tx_buffer_head</a> =0</td></tr>
+<tr class="memdesc:a5b113d44bda8ed39efc026d277878c09"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the head position in the TX buffer.  <br /></td></tr>
+<tr class="memitem:aab3b5c0fa4c5e46e6d6009f357dc891e" id="r_aab3b5c0fa4c5e46e6d6009f357dc891e"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="i2c_8h.html#a57b79314a222c848e2e86e83758e667e">i2c_tx_buf_index_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aab3b5c0fa4c5e46e6d6009f357dc891e">i2c_tx_buffer_tail</a> =0</td></tr>
+<tr class="memdesc:aab3b5c0fa4c5e46e6d6009f357dc891e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the tail position in the TX buffer.  <br /></td></tr>
+<tr class="memitem:aec1f537d4e465641ecde4ad6ec87b894" id="r_aec1f537d4e465641ecde4ad6ec87b894"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec1f537d4e465641ecde4ad6ec87b894">i2c_status</a> =0</td></tr>
 <tr class="memdesc:aec1f537d4e465641ecde4ad6ec87b894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current status of the I2C state machine.  <br /></td></tr>
-<tr class="memitem:a99bca54c0ee603fc72c4235723b4eb61" id="r_a99bca54c0ee603fc72c4235723b4eb61"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a99bca54c0ee603fc72c4235723b4eb61">i2c_tx_error_counter</a> =0</td></tr>
-<tr class="memdesc:a99bca54c0ee603fc72c4235723b4eb61"><td class="mdescLeft">&#160;</td><td class="mdescRight">Counter of transmission errors detected on the I2C bus.  <br /></td></tr>
+<tr class="memitem:a41fd49c4a663a655243908d0f709bd1a" id="r_a41fd49c4a663a655243908d0f709bd1a"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41fd49c4a663a655243908d0f709bd1a">i2c_state</a> =<a class="el" href="i2c_8h.html#ae3f6a60c396d9f1a51eb4ecc981951fa">I2C_STATE_IDLE</a></td></tr>
+<tr class="memdesc:a41fd49c4a663a655243908d0f709bd1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current state of the I²C finite state machine (FSM).  <br /></td></tr>
+<tr class="memitem:af0c4e2f4e0af62fc7bc45e616dd761d5" id="r_af0c4e2f4e0af62fc7bc45e616dd761d5"><td class="memItemLeft" align="right" valign="top">volatile <a class="el" href="struct_i2_c___error_counters__t.html">I2C_ErrorCounters_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af0c4e2f4e0af62fc7bc45e616dd761d5">i2c_error_counters</a> ={0}</td></tr>
+<tr class="memdesc:af0c4e2f4e0af62fc7bc45e616dd761d5"><td class="mdescLeft">&#160;</td><td class="mdescRight">I²C error counters.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="abe70f8fe4c72329b89ec526c749f50d7" name="abe70f8fe4c72329b89ec526c749f50d7"></a>
@@ -169,19 +184,18 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Disables the I2C hardware and related interrupts. </p>
-<p>Stops the TWI peripheral and disables the timer used for I2C management. </p>
+<p>Disable I²C hardware (and Timer4 if used). </p>
 
 </div>
 </div>
-<a id="a2e0c07e537bbbdb2a0eea00db38eadae" name="a2e0c07e537bbbdb2a0eea00db38eadae"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2e0c07e537bbbdb2a0eea00db38eadae">&#9670;&#160;</a></span>i2c_get_status()</h2>
+<a id="a5a1923e2271df541e858cb4e05d7b895" name="a5a1923e2271df541e858cb4e05d7b895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1923e2271df541e858cb4e05d7b895">&#9670;&#160;</a></span>i2c_enable()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">uint8_t i2c_get_status </td>
+          <td class="memname">void i2c_enable </td>
           <td>(</td>
           <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
@@ -189,21 +203,17 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Returns the current status code of the I2C state machine. </p>
-<dl class="section return"><dt>Returns</dt><dd>I2C status code (one of the defined TW_* or I2C_STATE_* values). </dd></dl>
+<p>Enable I²C hardware (and Timer4 if used). </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="i2c_8c_a2e0c07e537bbbdb2a0eea00db38eadae_icgraph.png" border="0" usemap="#ai2c_8c_a2e0c07e537bbbdb2a0eea00db38eadae_icgraph" loading="lazy" alt=""/></div>
-<map name="ai2c_8c_a2e0c07e537bbbdb2a0eea00db38eadae_icgraph" id="ai2c_8c_a2e0c07e537bbbdb2a0eea00db38eadae_icgraph">
-<area shape="rect" title="Returns the current status code of the I2C state machine." alt="" coords="439,5,546,32"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="424,21,55,21,55,16,424,16"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="281,31,391,57"/>
-<area shape="poly" title=" " alt="" coords="424,32,392,38,391,32,423,27"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="103,31,233,57"/>
-<area shape="poly" title=" " alt="" coords="265,47,233,47,233,41,265,41"/>
-<area shape="poly" title=" " alt="" coords="87,32,54,26,55,20,88,26"/>
+<div class="center"><img src="i2c_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph.png" border="0" usemap="#ai2c_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph" loading="lazy" alt=""/></div>
+<map name="ai2c_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph" id="ai2c_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph">
+<area shape="rect" title="Enable I²C hardware (and Timer4 if used)." alt="" coords="271,5,354,32"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="255,21,224,21,224,16,255,16"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
 </map>
 </div>
 
@@ -224,14 +234,14 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes the I2C hardware and software buffers. </p>
-<p>Configures the TWI peripheral, timer, and prepares internal buffers for I2C communication in Master mode. </p>
+<p>Initialize I²C (TWI) hardware and optional Timer4 support. </p>
+<p>Configures SDA/SCL pins, sets TWI speed, and optionally sets up Timer4 for polling cycles after STOP condition (used in blocking ring buffer mode). </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="i2c_8c_a5730d9445429351b9f750084c5cb5aae_icgraph.png" border="0" usemap="#ai2c_8c_a5730d9445429351b9f750084c5cb5aae_icgraph" loading="lazy" alt=""/></div>
 <map name="ai2c_8c_a5730d9445429351b9f750084c5cb5aae_icgraph" id="ai2c_8c_a5730d9445429351b9f750084c5cb5aae_icgraph">
-<area shape="rect" title="Initializes the I2C hardware and software buffers." alt="" coords="271,5,333,32"/>
+<area shape="rect" title="Initialize I²C (TWI) hardware and optional Timer4 support." alt="" coords="271,5,333,32"/>
 <area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="99,5,223,32"/>
 <area shape="poly" title=" " alt="" coords="255,21,223,21,223,16,255,16"/>
 <area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
@@ -271,14 +281,14 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a6d4174b1f00e66695e1b388db42d2a00" name="a6d4174b1f00e66695e1b388db42d2a00"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6d4174b1f00e66695e1b388db42d2a00">&#9670;&#160;</a></span>i2c_write_byte_blocking()</h2>
+<a id="a91bb1859c12fbc7c029b2a5a2309b240" name="a91bb1859c12fbc7c029b2a5a2309b240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91bb1859c12fbc7c029b2a5a2309b240">&#9670;&#160;</a></span>i2c_write_byte_to_address_blocking()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void i2c_write_byte_blocking </td>
+          <td class="memname">void i2c_write_byte_to_address_blocking </td>
           <td>(</td>
           <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
         </tr>
@@ -299,42 +309,17 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="i2c_8c_a6d4174b1f00e66695e1b388db42d2a00_icgraph.png" border="0" usemap="#ai2c_8c_a6d4174b1f00e66695e1b388db42d2a00_icgraph" loading="lazy" alt=""/></div>
-<map name="ai2c_8c_a6d4174b1f00e66695e1b388db42d2a00_icgraph" id="ai2c_8c_a6d4174b1f00e66695e1b388db42d2a00_icgraph">
-<area shape="rect" title="Sends a single data byte to the specified I2C slave address in blocking mode." alt="" coords="649,17,809,44"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a1015442ac55cc81e8ffbf52a10a1306a" title=" " alt="" coords="521,17,601,44"/>
-<area shape="poly" title=" " alt="" coords="633,33,602,33,602,28,633,28"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a4a59a41d871b92d6f85df4e9093d05e5" title=" " alt="" coords="137,68,199,94"/>
-<area shape="poly" title=" " alt="" coords="505,36,401,44,281,58,200,76,199,70,281,53,400,38,505,30"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a6acca73f9889e4e88d8eff4cd5f2d362" title=" " alt="" coords="399,68,473,94"/>
-<area shape="poly" title=" " alt="" coords="513,52,472,70,470,65,511,47"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="103,17,233,44"/>
-<area shape="poly" title=" " alt="" coords="505,19,472,14,377,8,281,14,234,20,233,15,281,9,377,3,473,9,506,14"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#ae72239381eaf4e9753d11d063ab852f6" title=" " alt="" coords="281,68,351,94"/>
-<area shape="poly" title=" " alt="" coords="384,84,352,84,352,78,384,78"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a8a4e90ef3dde8cc3e92007c228867fb6" title=" " alt="" coords="281,118,351,145"/>
-<area shape="poly" title=" " alt="" coords="390,103,351,120,348,115,388,98"/>
-<area shape="poly" title=" " alt="" coords="265,84,200,84,200,78,265,78"/>
-<area shape="poly" title=" " alt="" coords="266,67,208,47,210,42,267,62"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,68,55,94"/>
-<area shape="poly" title=" " alt="" coords="116,52,56,74,54,69,114,47"/>
-<area shape="poly" title=" " alt="" coords="265,131,188,124,102,109,54,93,56,88,103,104,189,119,266,126"/>
-</map>
-</div>
 
 </div>
 </div>
-<a id="a9188b6d16a6e8cef301a63de5b8b4df7" name="a9188b6d16a6e8cef301a63de5b8b4df7"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9188b6d16a6e8cef301a63de5b8b4df7">&#9670;&#160;</a></span>i2c_write_bytes_blocking()</h2>
+<a id="ae74a6ec74823b5c3816959f3f696e945" name="ae74a6ec74823b5c3816959f3f696e945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74a6ec74823b5c3816959f3f696e945">&#9670;&#160;</a></span>i2c_write_bytes_to_address_blocking()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void i2c_write_bytes_blocking </td>
+          <td class="memname">void i2c_write_bytes_to_address_blocking </td>
           <td>(</td>
           <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
         </tr>
@@ -361,30 +346,6 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="i2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_cgraph.png" border="0" usemap="#ai2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_cgraph" loading="lazy" alt=""/></div>
-<map name="ai2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_cgraph" id="ai2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_cgraph">
-<area shape="rect" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="5,5,173,32"/>
-<area shape="rect" href="uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="221,5,351,32"/>
-<area shape="poly" title=" " alt="" coords="173,16,205,16,205,21,173,21"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="i2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_icgraph.png" border="0" usemap="#ai2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_icgraph" loading="lazy" alt=""/></div>
-<map name="ai2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_icgraph" id="ai2c_8c_a9188b6d16a6e8cef301a63de5b8b4df7_icgraph">
-<area shape="rect" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="450,5,618,32"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#aff798a65d6cfe718df3c935fc27a1943" title=" " alt="" coords="281,5,402,32"/>
-<area shape="poly" title=" " alt="" coords="435,21,403,21,403,16,435,16"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a0aae5557f8eef2c3e09971114f8ac08c" title=" " alt="" coords="103,5,233,32"/>
-<area shape="poly" title=" " alt="" coords="265,21,233,21,233,16,265,16"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,5,55,32"/>
-<area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
-</map>
-</div>
 
 </div>
 </div>
@@ -443,19 +404,61 @@ Here is the call graph for this function:</div>
 </div>
 </div>
 <a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="ad6ef93db3176a9adcf49d495d8c2267c" name="ad6ef93db3176a9adcf49d495d8c2267c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad6ef93db3176a9adcf49d495d8c2267c">&#9670;&#160;</a></span>i2c_buffer_tx</h2>
+<a id="abe1f812dc6284ef881acc78023cd7a9d" name="abe1f812dc6284ef881acc78023cd7a9d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe1f812dc6284ef881acc78023cd7a9d">&#9670;&#160;</a></span>i2c_buffer_tx</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile struct <a class="el" href="struct_i2_c___d_a_t_a.html">I2C_DATA</a> i2c_buffer_tx[<a class="el" href="i2c_8h.html#a547981ee4a0a60f7fa4826eb59ded9b7">I2C_TX_BUFFER_SIZE</a>] ={0}</td>
+          <td class="memname">volatile <a class="el" href="struct_i2_c___data__t.html">I2C_Data_t</a> i2c_buffer_tx[<a class="el" href="i2c_8h.html#a547981ee4a0a60f7fa4826eb59ded9b7">I2C_TX_BUFFER_SIZE</a>] ={0}</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Transmit buffer holding I2C data packets to be sent. </p>
+
+</div>
+</div>
+<a id="af0c4e2f4e0af62fc7bc45e616dd761d5" name="af0c4e2f4e0af62fc7bc45e616dd761d5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c4e2f4e0af62fc7bc45e616dd761d5">&#9670;&#160;</a></span>i2c_error_counters</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile <a class="el" href="struct_i2_c___error_counters__t.html">I2C_ErrorCounters_t</a> i2c_error_counters ={0}</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>I²C error counters. </p>
+<p>Holds cumulative counts of specific I²C/TWI error events detected by the driver during operation.</p>
+<p>These counters can be used for diagnostics and long-term monitoring of bus reliability.</p>
+<p>Typical fields inside <a class="el" href="struct_i2_c___error_counters__t.html" title="Counters for different I2C/TWI error types.">I2C_ErrorCounters_t</a> may include:</p><ul>
+<li><b>arbitration_lost</b> — number of times bus arbitration was lost</li>
+<li><b>nack_on_address</b> — number of NACKs received after sending SLA+W or SLA+R</li>
+<li><b>nack_on_data</b> — number of NACKs received after sending a data byte</li>
+<li><b>bus_error</b> — number of illegal START/STOP conditions detected</li>
+</ul>
+<p>The structure is updated inside the <span class="tt">TWI_vect</span> ISR whenever an error-related TWI status code is encountered. </p>
+
+</div>
+</div>
+<a id="a41fd49c4a663a655243908d0f709bd1a" name="a41fd49c4a663a655243908d0f709bd1a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a41fd49c4a663a655243908d0f709bd1a">&#9670;&#160;</a></span>i2c_state</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t i2c_state =<a class="el" href="i2c_8h.html#ae3f6a60c396d9f1a51eb4ecc981951fa">I2C_STATE_IDLE</a></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Current state of the I²C finite state machine (FSM). </p>
+<p>Represents the current step of the I²C driver’s FSM during transmission. The FSM is updated in the <span class="tt">TWI_vect</span> interrupt handler in response to TWI status codes. </p>
 
 </div>
 </div>
@@ -466,23 +469,30 @@ Here is the call graph for this function:</div>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile uint8_t i2c_status =<a class="el" href="i2c_8h.html#ae3f6a60c396d9f1a51eb4ecc981951fa">I2C_STATE_IDLE</a></td>
+          <td class="memname">volatile uint8_t i2c_status =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Current status of the I2C state machine. </p>
+<p>Status of the current I²C operation.</p>
+<p>Stores the last TWI/I²C status code (from the TWSR register), indicating the current bus condition, e.g.:</p><ul>
+<li>START condition transmitted</li>
+<li>SLA+W / SLA+R transmitted and ACK/NACK received</li>
+<li>Data byte transmitted/received with ACK/NACK</li>
+<li>Bus errors (arbitration lost, ACK failure, etc.) </li>
+</ul>
 
 </div>
 </div>
-<a id="a54b54393520150aa2a89e8c318aad7f3" name="a54b54393520150aa2a89e8c318aad7f3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a54b54393520150aa2a89e8c318aad7f3">&#9670;&#160;</a></span>i2c_tx_buffer_head</h2>
+<a id="a5b113d44bda8ed39efc026d277878c09" name="a5b113d44bda8ed39efc026d277878c09"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5b113d44bda8ed39efc026d277878c09">&#9670;&#160;</a></span>i2c_tx_buffer_head</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile uint8_t i2c_tx_buffer_head =0</td>
+          <td class="memname">volatile <a class="el" href="i2c_8h.html#a57b79314a222c848e2e86e83758e667e">i2c_tx_buf_index_t</a> i2c_tx_buffer_head =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -491,35 +501,19 @@ Here is the call graph for this function:</div>
 
 </div>
 </div>
-<a id="a4c44f1e87478aaf608b3bf64e27b80fd" name="a4c44f1e87478aaf608b3bf64e27b80fd"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a4c44f1e87478aaf608b3bf64e27b80fd">&#9670;&#160;</a></span>i2c_tx_buffer_tail</h2>
+<a id="aab3b5c0fa4c5e46e6d6009f357dc891e" name="aab3b5c0fa4c5e46e6d6009f357dc891e"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aab3b5c0fa4c5e46e6d6009f357dc891e">&#9670;&#160;</a></span>i2c_tx_buffer_tail</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">volatile uint8_t i2c_tx_buffer_tail =0</td>
+          <td class="memname">volatile <a class="el" href="i2c_8h.html#a57b79314a222c848e2e86e83758e667e">i2c_tx_buf_index_t</a> i2c_tx_buffer_tail =0</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>Index of the tail position in the TX buffer. </p>
-
-</div>
-</div>
-<a id="a99bca54c0ee603fc72c4235723b4eb61" name="a99bca54c0ee603fc72c4235723b4eb61"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a99bca54c0ee603fc72c4235723b4eb61">&#9670;&#160;</a></span>i2c_tx_error_counter</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint16_t i2c_tx_error_counter =0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Counter of transmission errors detected on the I2C bus. </p>
 
 </div>
 </div>
