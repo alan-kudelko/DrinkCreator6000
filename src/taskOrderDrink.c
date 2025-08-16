@@ -2,8 +2,7 @@
 #include <stdio.h>
 
 #include <taskOrderDrink.h>
-#include <DrinkCreator6000_Config.h>
-#include <DrinkCreator6000_DataTypes.h>
+#include <DrinkCreator6000_Config_C.h>
 
 void taskOrderDrink(void*pvParameters){
   uint32_t f_run=0;

@@ -1,16 +1,19 @@
+/**
+ * @file taskShowSystemInfo.h
+ * @brief Task for displaying system information on the user interface.
+ *
+ * This task periodically gathers and presents key system metrics, including:
+ * - Firmware version and system uptime
+ * - RAM usage and per-module memory consumption
+ * - Refrigerator temperature and configured setpoints
+ * - Last system error
+ * - Author of the project
+ * - Status of FreeRTOS tasks
+ */
 #ifndef _TASK_SHOW_SYSTEM_INFO_H_
-#define _TASK_SHOW_SYSTEM_INFO_H_
+    #define _TASK_SHOW_SYSTEM_INFO_H_
 
-#include <FreeRTOS.h>
-#include <task.h>
-#include <queue.h>
-#include <timers.h>
-#include <FreeRTOSConfig.h>
-#include <portable.h>
-#include <portmacro.h>
-#include <semphr.h>
-
-#include "DrinkCreator6000_Config.h"
+#include <DrinkCreator6000_DataTypes.h>
 
 void showInfo_Firmware_Sub_0(sScreenData*screenData);
 

@@ -98,12 +98,15 @@ $(function(){initNavTree('task_order_drink_8h.html','',''); });
   <div class="headertitle"><div class="title">taskOrderDrink.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Task definitions and interfaces for controlling drink orders.  
+<a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_order_drink_8h__dep__incl.png" border="0" usemap="#ainclude_2task_order_drink_8hdep" loading="lazy" alt=""/></div>
 <map name="ainclude_2task_order_drink_8hdep" id="ainclude_2task_order_drink_8hdep">
-<area shape="rect" title=" " alt="" coords="97,5,262,32"/>
+<area shape="rect" title="Task definitions and interfaces for controlling drink orders." alt="" coords="97,5,262,32"/>
 <area shape="rect" href="_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="6,80,175,123"/>
 <area shape="poly" title=" " alt="" coords="156,45,115,81,112,78,153,41"/>
 <area shape="rect" href="task_order_drink_8c.html" title=" " alt="" coords="199,88,342,115"/>
@@ -119,7 +122,14 @@ This graph shows which files directly or indirectly include this file:</div>
 Functions</h2></td></tr>
 <tr class="memitem:abcc89efddd6ca2f5b799b4e3fa1c5a7b" id="r_abcc89efddd6ca2f5b799b4e3fa1c5a7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcc89efddd6ca2f5b799b4e3fa1c5a7b">taskOrderDrink</a> (void *pvParameters)</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Task definitions and interfaces for controlling drink orders. </p>
+<p>This header declares the FreeRTOS task responsible for managing drink preparation, including:</p><ul>
+<li>Sequencing pumps according to the selected recipe</li>
+<li>Controlling pump activation duration (pouring time)</li>
+<li>Coordinating task synchronization with other system modules </li>
+</ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="abcc89efddd6ca2f5b799b4e3fa1c5a7b" name="abcc89efddd6ca2f5b799b4e3fa1c5a7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcc89efddd6ca2f5b799b4e3fa1c5a7b">&#9670;&#160;</a></span>taskOrderDrink()</h2>
 

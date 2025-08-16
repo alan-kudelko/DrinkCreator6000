@@ -7,14 +7,11 @@
 #include <util/delay.h>
 #include <uart.h>
 #include <i2c.h>
-#include <avr/pgmspace.h>
 #include <avr/interrupt.h>
 
 #include <stdio.h>
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_RamStats.h>
-
-#include <HD44780_I2C.h>
 
 #define LAST_ERROR_BUFFER_SIZE 51
 #define LAST_BOOTUP_BUFFER_SIZE 6
@@ -148,8 +145,6 @@ void printI2C_status(){
       uart_putc_blocking('\n');
 
 }
-
-HD44780_LCD lcd(LCD_ADDR,20,4);
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.

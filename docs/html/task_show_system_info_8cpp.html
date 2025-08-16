@@ -100,51 +100,39 @@ $(function(){initNavTree('task_show_system_info_8cpp.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="task_show_system_info_8h_source.html">taskShowSystemInfo.h</a>&quot;</code><br />
+<code>#include &lt;<a class="el" href="task_show_system_info_8h_source.html">taskShowSystemInfo.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___ram_stats_8h_source.html">DrinkCreator6000_RamStats.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_drink_creator6000___config___c_8h_source.html">DrinkCreator6000_Config_C.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for taskShowSystemInfo.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_show_system_info_8cpp__incl.png" border="0" usemap="#asrc_2task_show_system_info_8cpp" loading="lazy" alt=""/></div>
 <map name="asrc_2task_show_system_info_8cpp" id="asrc_2task_show_system_info_8cpp">
-<area shape="rect" title=" " alt="" coords="356,5,549,32"/>
-<area shape="rect" title=" " alt="" coords="269,80,329,107"/>
-<area shape="poly" title=" " alt="" coords="427,35,341,75,339,70,425,30"/>
-<area shape="rect" title=" " alt="" coords="354,80,418,107"/>
-<area shape="poly" title=" " alt="" coords="443,34,409,70,406,67,439,31"/>
-<area shape="rect" href="task_show_system_info_8h.html" title=" " alt="" coords="442,80,599,107"/>
-<area shape="poly" title=" " alt="" coords="466,31,500,67,496,70,462,34"/>
-<area shape="rect" href="_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="810,229,1010,256"/>
-<area shape="poly" title=" " alt="" coords="550,28,667,46,795,72,855,88,907,107,949,129,977,153,983,172,977,191,963,208,945,223,941,218,959,204,972,188,978,172,973,156,946,133,905,112,853,93,794,77,666,51,549,34"/>
-<area shape="rect" title=" " alt="" coords="5,304,100,331"/>
-<area shape="poly" title=" " alt="" coords="442,108,282,132,214,146,176,157,140,186,109,222,84,259,67,291,62,288,80,256,105,219,136,182,174,152,212,140,281,127,441,103"/>
-<area shape="rect" title=" " alt="" coords="124,304,181,331"/>
-<area shape="poly" title=" " alt="" coords="442,108,295,131,234,144,202,157,179,186,165,222,158,258,155,289,150,289,153,257,160,220,175,184,199,153,232,139,294,126,441,103"/>
-<area shape="rect" title=" " alt="" coords="434,304,501,331"/>
-<area shape="poly" title=" " alt="" coords="519,108,506,155,475,289,470,288,501,154,514,106"/>
-<area shape="rect" title=" " alt="" coords="522,155,591,181"/>
-<area shape="poly" title=" " alt="" coords="529,106,546,139,541,142,524,108"/>
-<area shape="rect" href="_free_r_t_o_s_config_8h.html" title=" " alt="" coords="614,155,747,181"/>
-<area shape="poly" title=" " alt="" coords="549,105,640,145,638,150,547,110"/>
-<area shape="rect" title=" " alt="" coords="771,155,849,181"/>
-<area shape="poly" title=" " alt="" coords="572,105,756,151,755,156,570,110"/>
-<area shape="rect" title=" " alt="" coords="873,155,963,181"/>
-<area shape="poly" title=" " alt="" coords="597,105,858,151,857,157,596,110"/>
-<area shape="rect" title=" " alt="" coords="526,304,601,331"/>
-<area shape="poly" title=" " alt="" coords="519,108,512,141,512,181,530,240,552,289,547,291,525,241,507,182,507,140,514,107"/>
-<area shape="rect" href="_drink_creator6000___config_8h.html" title=" " alt="" coords="212,155,392,181"/>
-<area shape="poly" title=" " alt="" coords="483,110,355,152,354,147,482,105"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="200,229,396,256"/>
-<area shape="poly" title=" " alt="" coords="304,182,302,214,297,214,298,182"/>
-<area shape="poly" title=" " alt="" coords="256,259,111,302,109,297,254,254"/>
-<area shape="poly" title=" " alt="" coords="274,259,193,299,190,294,271,254"/>
-<area shape="poly" title=" " alt="" coords="328,254,424,295,422,300,326,259"/>
-<area shape="poly" title=" " alt="" coords="345,254,512,299,510,304,343,259"/>
-<area shape="rect" href="_drink_creator6000___data_types_8h.html" title=" " alt="" coords="205,304,409,331"/>
-<area shape="poly" title=" " alt="" coords="302,256,306,288,301,289,297,257"/>
-<area shape="rect" title=" " alt="" coords="440,379,505,405"/>
-<area shape="poly" title=" " alt="" coords="337,329,430,369,428,374,335,334"/>
-<area shape="poly" title=" " alt="" coords="873,259,520,378,518,373,871,254"/>
+<area shape="rect" title=" " alt="" coords="182,5,375,32"/>
+<area shape="rect" title=" " alt="" coords="5,80,66,107"/>
+<area shape="poly" title=" " alt="" coords="237,35,82,81,80,76,235,30"/>
+<area shape="rect" title=" " alt="" coords="90,80,154,107"/>
+<area shape="poly" title=" " alt="" coords="252,35,164,75,162,71,250,30"/>
+<area shape="rect" href="task_show_system_info_8h.html" title="FreeRTOS task for displaying system information on the user interface." alt="" coords="402,80,560,107"/>
+<area shape="poly" title=" " alt="" coords="314,30,432,72,430,77,313,35"/>
+<area shape="rect" href="_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="178,80,378,107"/>
+<area shape="poly" title=" " alt="" coords="281,33,281,64,276,64,276,33"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="584,80,780,107"/>
+<area shape="poly" title=" " alt="" coords="349,30,597,74,596,79,349,35"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="324,155,528,181"/>
+<area shape="poly" title=" " alt="" coords="473,109,447,144,443,140,469,106"/>
+<area shape="rect" title=" " alt="" coords="319,229,384,256"/>
+<area shape="poly" title=" " alt="" coords="415,184,377,221,373,217,411,180"/>
+<area shape="poly" title=" " alt="" coords="284,106,296,140,314,180,335,215,331,218,309,183,291,142,279,108"/>
+<area shape="poly" title=" " alt="" coords="638,110,486,153,485,147,637,105"/>
+<area shape="rect" title=" " alt="" coords="744,155,839,181"/>
+<area shape="poly" title=" " alt="" coords="703,105,761,144,759,148,700,109"/>
+<area shape="rect" title=" " alt="" coords="863,155,920,181"/>
+<area shape="poly" title=" " alt="" coords="719,105,849,149,847,154,718,110"/>
+<area shape="rect" title=" " alt="" coords="552,155,620,181"/>
+<area shape="poly" title=" " alt="" coords="667,109,617,147,613,143,664,105"/>
+<area shape="rect" title=" " alt="" coords="644,155,720,181"/>
+<area shape="poly" title=" " alt="" coords="685,107,685,139,680,139,680,107"/>
 </map>
 </div>
 </div><table class="memberdecls">

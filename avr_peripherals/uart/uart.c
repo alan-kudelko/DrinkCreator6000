@@ -2,7 +2,6 @@
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <string.h>
-#include <stdint.h>
 
 #include <DrinkCreator6000_Pins.h>
 

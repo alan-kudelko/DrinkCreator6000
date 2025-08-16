@@ -2,7 +2,7 @@
 #include <stdio.h>
 
 #include <taskSelectDrink.h>
-#include <DrinkCreator6000_Config.h>
+#include <DrinkCreator6000_Config_C.h>
 
 void taskSelectDrink(void*pvParameters){  
     uint32_t f_run=0;

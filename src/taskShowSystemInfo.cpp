@@ -1,8 +1,10 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "taskShowSystemInfo.h"
+#include <taskShowSystemInfo.h>
 #include <DrinkCreator6000_RamStats.h>
+
+#include <DrinkCreator6000_Config_C.h>
 
 extern "C" void updateMemoryUsage(void);
 

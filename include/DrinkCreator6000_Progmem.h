@@ -74,6 +74,8 @@ extern const char msg_EEPROMReady[]                   PROGMEM; /**< Message indi
 extern const char msg_RamSizeInitialized[]            PROGMEM;
 extern const char msg_MemoryInitialized[]             PROGMEM; /**< Message indicating memory subsystem is initialized */
 extern const char msg_I2CReady[]                      PROGMEM; /**< Message indicating hardware components are ready */
+extern const char msg_lcdReady[]                      PROGMEM; /**< Message indicating lcd is ready */
+extern const char msg_mcpReady[]                      PROGMEM; /**< Message indicating mcp is ready */
 extern const char msg_InterruptsAttached[]            PROGMEM; /**< Message indicating interrupts are attached */
 extern const char msg_NormalStartUp[]                 PROGMEM; /**< Message indicating normal system startup */
 extern const char msg_FaultStartUp[]                  PROGMEM; /**< Message indicating system startup with faults */

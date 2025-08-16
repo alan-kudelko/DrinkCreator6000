@@ -4,7 +4,6 @@
 #include <taskSerialSystemDebugger.h>
 #include <uart.h>
 #include <DrinkCreator6000_Progmem.h>
-#include <FreeRTOS.h>
 
 #include <DrinkCreator6000_RamStats.h>
 

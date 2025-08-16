@@ -98,49 +98,20 @@ $(function(){initNavTree('task_show_system_info_8h.html','',''); });
   <div class="headertitle"><div class="title">taskShowSystemInfo.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="textblock"><code>#include &lt;FreeRTOS.h&gt;</code><br />
-<code>#include &lt;task.h&gt;</code><br />
-<code>#include &lt;queue.h&gt;</code><br />
-<code>#include &lt;timers.h&gt;</code><br />
-<code>#include &lt;<a class="el" href="_free_r_t_o_s_config_8h_source.html">FreeRTOSConfig.h</a>&gt;</code><br />
-<code>#include &lt;portable.h&gt;</code><br />
-<code>#include &lt;portmacro.h&gt;</code><br />
-<code>#include &lt;semphr.h&gt;</code><br />
-<code>#include &quot;<a class="el" href="_drink_creator6000___config_8h_source.html">DrinkCreator6000_Config.h</a>&quot;</code><br />
+
+<p>FreeRTOS task for displaying system information on the user interface.  
+<a href="#details">More...</a></p>
+<div class="textblock"><code>#include &lt;<a class="el" href="_drink_creator6000___data_types_8h_source.html">DrinkCreator6000_DataTypes.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for taskShowSystemInfo.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_show_system_info_8h__incl.png" border="0" usemap="#ainclude_2task_show_system_info_8h" loading="lazy" alt=""/></div>
 <map name="ainclude_2task_show_system_info_8h" id="ainclude_2task_show_system_info_8h">
-<area shape="rect" title=" " alt="" coords="393,5,595,32"/>
-<area shape="rect" title=" " alt="" coords="5,229,100,256"/>
-<area shape="poly" title=" " alt="" coords="393,25,342,31,289,42,235,58,186,82,147,112,114,148,87,185,68,217,64,214,83,182,110,145,144,108,183,78,233,53,287,37,341,26,392,20"/>
-<area shape="rect" title=" " alt="" coords="124,229,181,256"/>
-<area shape="poly" title=" " alt="" coords="393,34,286,53,242,66,213,82,188,112,172,147,162,183,157,214,152,214,157,182,167,145,184,109,209,78,240,61,285,48,392,28"/>
-<area shape="rect" title=" " alt="" coords="434,229,501,256"/>
-<area shape="poly" title=" " alt="" coords="491,33,478,81,470,153,469,214,464,214,465,152,473,79,486,32"/>
-<area shape="rect" title=" " alt="" coords="532,80,600,107"/>
-<area shape="poly" title=" " alt="" coords="508,31,545,67,541,71,504,34"/>
-<area shape="rect" href="_free_r_t_o_s_config_8h.html" title=" " alt="" coords="624,80,756,107"/>
-<area shape="poly" title=" " alt="" coords="529,30,642,72,640,77,527,35"/>
-<area shape="rect" title=" " alt="" coords="780,80,858,107"/>
-<area shape="poly" title=" " alt="" coords="553,30,765,76,764,82,552,35"/>
-<area shape="rect" title=" " alt="" coords="882,80,972,107"/>
-<area shape="poly" title=" " alt="" coords="581,30,867,77,866,82,580,35"/>
-<area shape="rect" title=" " alt="" coords="526,229,601,256"/>
-<area shape="poly" title=" " alt="" coords="500,32,522,106,557,214,552,215,517,107,495,33"/>
-<area shape="rect" href="_drink_creator6000___config_8h.html" title=" " alt="" coords="223,80,402,107"/>
-<area shape="poly" title=" " alt="" coords="463,35,359,76,357,71,461,30"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="209,155,405,181"/>
-<area shape="poly" title=" " alt="" coords="314,107,312,139,307,139,309,107"/>
-<area shape="poly" title=" " alt="" coords="264,184,112,227,111,222,262,179"/>
-<area shape="poly" title=" " alt="" coords="281,184,194,225,192,220,279,179"/>
-<area shape="poly" title=" " alt="" coords="336,179,427,220,424,225,334,184"/>
-<area shape="poly" title=" " alt="" coords="352,179,511,224,510,229,351,184"/>
-<area shape="rect" href="_drink_creator6000___data_types_8h.html" title=" " alt="" coords="205,229,409,256"/>
-<area shape="poly" title=" " alt="" coords="310,182,310,214,304,214,304,182"/>
-<area shape="rect" title=" " alt="" coords="275,304,339,331"/>
-<area shape="poly" title=" " alt="" coords="310,257,310,288,304,288,304,257"/>
+<area shape="rect" title="FreeRTOS task for displaying system information on the user interface." alt="" coords="6,5,209,32"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="5,80,210,107"/>
+<area shape="poly" title=" " alt="" coords="110,33,110,64,105,64,105,33"/>
+<area shape="rect" title=" " alt="" coords="75,155,140,181"/>
+<area shape="poly" title=" " alt="" coords="110,107,110,139,105,139,105,107"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -148,7 +119,7 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_show_system_info_8h__dep__incl.png" border="0" usemap="#ainclude_2task_show_system_info_8hdep" loading="lazy" alt=""/></div>
 <map name="ainclude_2task_show_system_info_8hdep" id="ainclude_2task_show_system_info_8hdep">
-<area shape="rect" title=" " alt="" coords="92,5,294,32"/>
+<area shape="rect" title="FreeRTOS task for displaying system information on the user interface." alt="" coords="92,5,294,32"/>
 <area shape="rect" href="_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="6,80,175,123"/>
 <area shape="poly" title=" " alt="" coords="167,44,118,82,115,77,164,40"/>
 <area shape="rect" href="task_show_system_info_8cpp.html" title=" " alt="" coords="199,88,392,115"/>
@@ -171,7 +142,17 @@ Functions</h2></td></tr>
 <tr class="memitem:a10e55bdc75caee36a00d4dd60f4d6f37" id="r_a10e55bdc75caee36a00d4dd60f4d6f37"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a10e55bdc75caee36a00d4dd60f4d6f37">showInfo_ConfError_Sub_0</a> (<a class="el" href="structs_screen_data.html">sScreenData</a> *screenData, <a class="el" href="structs_u_i_context.html">sUIContext</a> *<a class="el" href="_drink_creator6000___config___c_8h.html#a9515bbcdf03ddc040c2270f6f7a8e2bd">UI_Context</a>)</td></tr>
 <tr class="memitem:afb6336486c86df2872ba9ab89f81f4e7" id="r_afb6336486c86df2872ba9ab89f81f4e7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afb6336486c86df2872ba9ab89f81f4e7">taskShowSystemInfo</a> (void *pvParameters)</td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>FreeRTOS task for displaying system information on the user interface. </p>
+<p>This task periodically gathers and presents key system metrics, including:</p><ul>
+<li>Firmware version and system uptime</li>
+<li>RAM usage and per-module memory consumption</li>
+<li>Refrigerator temperature and configured setpoints</li>
+<li>Last system error</li>
+<li>Author of the project</li>
+<li>Status of FreeRTOS tasks </li>
+</ul>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a10e55bdc75caee36a00d4dd60f4d6f37" name="a10e55bdc75caee36a00d4dd60f4d6f37"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a10e55bdc75caee36a00d4dd60f4d6f37">&#9670;&#160;</a></span>showInfo_ConfError_Sub_0()</h2>
 

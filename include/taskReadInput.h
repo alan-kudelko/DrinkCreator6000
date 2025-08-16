@@ -9,16 +9,6 @@
 #ifndef _TASK_READ_INPUT_H_
     #define _TASK_READ_INPUT_H_
 
-#include <FreeRTOS.h>
-#include <task.h>
-#include <queue.h>
-#include <timers.h>
-#include <FreeRTOSConfig.h>
-#include <portable.h>
-#include <portmacro.h>
-#include <semphr.h>
-
-#include <DrinkCreator6000_Config.h>
 /**
  * @brief Reads input data from MCP23017 and enqueues to main task.
  *

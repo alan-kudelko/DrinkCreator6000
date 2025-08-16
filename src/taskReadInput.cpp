@@ -1,5 +1,7 @@
-#include "taskReadInput.h"
 #include <stdio.h>
+
+#include <taskReadInput.h>
+
 #include <uart.h>
 
 

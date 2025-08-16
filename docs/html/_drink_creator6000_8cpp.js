@@ -6,7 +6,6 @@ var _drink_creator6000_8cpp =
     [ "faultStart", "_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6", null ],
     [ "lastBootup_dump", "_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1", null ],
     [ "lastError_dump", "_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341", null ],
-    [ "lcd", "_drink_creator6000_8cpp.html#a5254b2b7ca2e5b73323f050acc049b3c", null ],
     [ "main", "_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe", null ],
     [ "normalStart", "_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2", null ],
     [ "printI2C_status", "_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d", null ],

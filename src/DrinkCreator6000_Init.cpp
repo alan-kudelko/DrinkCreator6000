@@ -7,7 +7,6 @@
 
 #include <DrinkCreator6000_Init.h>
 #include <DrinkCreator6000_Progmem.h>
-#include <DrinkCreator6000_Config_C.h>
 #include <DrinkCreator6000_Config.h>
 #include <DrinkCreator6000_Pins.h>
 
@@ -111,10 +110,14 @@ void initializeHardware(){
     i2c_enable();
     uart_puts_P_blocking(msg_I2CReady);
 
-    //lcd();
+    lcd.begin_blocking();
+    _delay_ms(3);
+    lcd.backlight_blocking();
+    uart_puts_P_blocking(msg_lcdReady);
 
-    //lcd.begin();
-    //lcd.backlight();
+    //mcp.begin_blocking();
+    uart_puts_P_blocking(msg_mcpReady);
+
 ////////////////////////////////////////////////////////////////// Keyboard init	  
 // Configure IOCON register SEQOP enabled (NOSEQOP), BANK=0
 //   Wire.beginTransmission(MCP_ADDR);

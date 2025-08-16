@@ -1,7 +1,14 @@
 #include <stdio.h>
 #include <string.h>
 
-#include "taskWelcomeScreen.h"
+#include <DrinkCreator6000_Config_C.h>
+#include <timers.h>
+#include <portable.h>
+#include <portmacro.h>
+
+#include <taskWelcomeScreen.h>
+
+
 
 void taskWelcomeScreen(void*pvParameters){
   uint16_t timePassed=0;

@@ -1,19 +1,21 @@
 <map id="src/DrinkCreator6000_Config.cpp" name="src/DrinkCreator6000_Config.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="166,5,312,48"/>
-<area shape="rect" id="Node000002" href="$_drink_creator6000___config_8h.html" title=" " alt="" coords="150,96,329,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="242,49,242,80,236,80,236,49"/>
-<area shape="rect" id="Node000003" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="141,171,337,197"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="242,123,242,155,236,155,236,123"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,245,100,272"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,200,100,242,98,237,206,195"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="124,245,181,272"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="226,200,181,237,177,233,222,196"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="206,245,273,272"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="242,198,242,230,236,230,236,198"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="298,245,373,272"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="257,196,308,234,305,238,254,200"/>
-<area shape="rect" id="Node000008" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="397,245,601,272"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="285,195,440,238,438,243,284,200"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="467,320,531,347"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="502,273,502,304,496,304,496,273"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="148,5,293,48"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="25,96,205,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,51,145,88,142,84,192,46"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="237,96,433,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,46,306,85,303,89,248,51"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,121,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,125,83,160,79,157,104,122"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="145,171,240,197"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,126,232,166,230,161,309,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="264,171,321,197"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="330,125,310,159,305,156,325,122"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="345,171,413,197"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="345,122,366,156,361,159,340,125"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="437,171,513,197"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="361,121,438,161,436,165,358,126"/>
+<area shape="rect" id="Node000009" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="537,171,741,197"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="389,121,572,164,571,169,388,126"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="607,245,671,272"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="642,198,642,230,636,230,636,198"/>
 </map>

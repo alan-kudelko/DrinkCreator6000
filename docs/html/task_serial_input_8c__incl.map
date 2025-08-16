@@ -1,25 +1,21 @@
 <map id="src/taskSerialInput.c" name="src/taskSerialInput.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="105,5,246,32"/>
-<area shape="rect" id="Node000002" href="$task_serial_input_8h.html" title="Task responsible for reading serial input data from UART." alt="" coords="5,80,125,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="158,35,98,74,95,69,155,30"/>
-<area shape="rect" id="Node000003" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="148,80,203,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="178,33,178,64,173,64,173,33"/>
-<area shape="rect" id="Node000011" href="$_drink_creator6000___config_8h.html" title=" " alt="" coords="227,80,407,107"/>
-<area shape="poly" id="edge11_Node000001_Node000011" title=" " alt="" coords="201,30,280,70,278,75,199,35"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="324,304,388,331"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="165,109,142,138,118,176,110,196,106,217,109,236,118,254,130,264,148,274,198,289,308,308,307,314,196,294,146,279,127,269,114,258,103,238,101,217,105,195,113,174,137,134,161,106"/>
-<area shape="rect" id="Node000005" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="219,155,415,181"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="201,105,280,145,278,150,199,110"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="127,229,222,256"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="293,184,214,224,212,219,291,179"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="246,229,303,256"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="312,183,292,217,287,215,307,181"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="327,229,395,256"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="327,180,348,215,343,217,322,183"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="419,229,495,256"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="343,180,420,219,418,224,340,184"/>
-<area shape="rect" id="Node000010" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="519,229,723,256"/>
-<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="371,179,554,223,553,228,370,185"/>
-<area shape="poly" id="edge10_Node000010_Node000004" title=" " alt="" coords="575,259,404,306,402,301,574,254"/>
-<area shape="poly" id="edge12_Node000011_Node000005" title=" " alt="" coords="320,107,320,139,314,139,314,107"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="112,5,254,32"/>
+<area shape="rect" id="Node000002" href="$task_serial_input_8h.html" title="Task responsible for reading serial input data from UART." alt="" coords="69,80,188,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="176,34,149,69,145,66,172,31"/>
+<area shape="rect" id="Node000003" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="212,80,266,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="195,31,222,66,218,69,191,34"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="141,155,337,181"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="242,107,242,139,236,139,236,107"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="5,229,100,256"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="208,184,100,226,98,221,206,179"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="124,229,181,256"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="226,184,181,221,177,217,222,180"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="206,229,273,256"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="242,182,242,214,236,214,236,182"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="298,229,373,256"/>
+<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="257,180,308,218,305,222,254,184"/>
+<area shape="rect" id="Node000009" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="397,229,601,256"/>
+<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="285,179,440,222,438,227,284,184"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="467,304,531,331"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="502,257,502,288,496,288,496,257"/>
 </map>

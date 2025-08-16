@@ -304,5 +304,16 @@ extern volatile uint32_t idleCalib;
 
 #define MCP_ADDR 0x20
 
+#define E_LOADING_BAR 17
+// LCD custom characters
+
+#define SHOW_INFO_MENUS_COUNT 4
+// Show info submenu count
+
+#define WELCOME_SCREEN 0
+#define DRINK_SELECT 1
+#define DRINK_ORDER 2
+#define SHOW_INFO 3
+
 
 #endif // _DRINK_CREATOR6000_CONFIG_C_H_

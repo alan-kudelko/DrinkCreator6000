@@ -1,20 +1,19 @@
 <map id="avr_peripherals/i2c/i2c.h" name="avr_peripherals/i2c/i2c.h">
-<area shape="rect" id="Node000001" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="19,5,150,48"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="226,245,290,272"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="67,50,41,81,18,119,11,139,8,159,11,178,20,196,32,206,50,215,100,231,211,250,210,255,98,236,48,220,29,210,16,199,6,180,3,159,6,138,14,117,37,78,63,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="47,96,122,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="87,49,87,80,82,80,82,49"/>
-<area shape="rect" id="Node000004" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="156,96,352,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="129,46,215,87,212,91,127,51"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="29,171,124,197"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="224,126,122,167,120,162,222,121"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="148,171,205,197"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="242,125,203,162,199,158,239,121"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="229,171,297,197"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="258,123,262,155,257,156,253,124"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="321,171,397,197"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="274,121,330,159,327,164,271,125"/>
-<area shape="rect" id="Node000009" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="421,171,625,197"/>
-<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="301,121,462,164,461,169,300,126"/>
-<area shape="poly" id="edge9_Node000009_Node000002" title=" " alt="" coords="478,200,306,247,305,242,476,195"/>
+<area shape="rect" id="Node000001" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="94,5,224,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="42,96,116,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,50,104,87,100,83,137,47"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="141,96,337,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,47,218,83,214,87,178,50"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="5,171,100,197"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,126,100,167,98,162,206,121"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="124,171,181,197"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="226,125,181,163,177,159,222,121"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="206,171,273,197"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="242,123,242,155,236,155,236,123"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="298,171,373,197"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="257,121,308,159,305,163,254,125"/>
+<area shape="rect" id="Node000008" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="397,171,601,197"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="285,121,440,163,438,169,284,126"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="467,245,531,272"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="502,198,502,230,496,230,496,198"/>
 </map>

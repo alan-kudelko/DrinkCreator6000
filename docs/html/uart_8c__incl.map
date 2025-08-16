@@ -1,31 +1,29 @@
 <map id="avr_peripherals/uart/uart.c" name="avr_peripherals/uart/uart.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="322,5,457,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="268,5,404,48"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,96,120,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="322,47,129,94,128,89,320,42"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="268,51,121,94,119,89,267,45"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="144,96,208,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="335,51,224,93,222,88,333,46"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="296,51,216,91,213,86,293,46"/>
 <area shape="rect" id="Node000004" title=" " alt="" coords="232,96,333,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="363,51,313,88,310,84,360,46"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="324,50,302,84,297,81,320,47"/>
 <area shape="rect" id="Node000005" title=" " alt="" coords="357,96,421,123"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="392,49,392,80,386,80,386,49"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="477,320,541,347"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="407,47,436,95,460,152,479,210,506,304,500,306,474,212,455,154,431,97,402,50"/>
-<area shape="rect" id="Node000007" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="496,96,664,123"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="439,46,537,87,535,92,437,51"/>
-<area shape="rect" id="Node000008" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="687,96,742,123"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="458,40,673,93,672,98,457,45"/>
-<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="690,126,655,145,613,172,572,206,537,247,523,276,515,306,510,304,518,274,532,244,568,203,610,168,652,140,687,121"/>
-<area shape="rect" id="Node000009" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="648,171,845,197"/>
-<area shape="poly" id="edge9_Node000008_Node000009" title=" " alt="" coords="723,122,737,155,732,158,718,124"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="546,245,640,272"/>
-<area shape="poly" id="edge10_Node000009_Node000010" title=" " alt="" coords="721,200,635,241,633,236,719,195"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="664,245,722,272"/>
-<area shape="poly" id="edge11_Node000009_Node000011" title=" " alt="" coords="739,199,714,234,709,231,735,196"/>
-<area shape="rect" id="Node000012" title=" " alt="" coords="746,245,814,272"/>
-<area shape="poly" id="edge12_Node000009_Node000012" title=" " alt="" coords="755,197,770,230,765,232,750,199"/>
-<area shape="rect" id="Node000013" title=" " alt="" coords="838,245,914,272"/>
-<area shape="poly" id="edge13_Node000009_Node000013" title=" " alt="" coords="770,196,841,235,839,240,768,200"/>
-<area shape="rect" id="Node000014" href="$_drink_creator6000___data_types_8h.html" title=" " alt="" coords="938,245,1142,272"/>
-<area shape="poly" id="edge14_Node000009_Node000014" title=" " alt="" coords="799,195,974,239,973,244,797,201"/>
-<area shape="poly" id="edge15_Node000014_Node000006" title=" " alt="" coords="947,275,557,328,556,323,946,270"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="352,47,375,81,370,84,347,50"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="446,96,613,123"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="387,46,486,87,484,92,385,51"/>
+<area shape="rect" id="Node000007" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="637,96,691,123"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="405,40,622,93,621,98,403,45"/>
+<area shape="rect" id="Node000008" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="566,171,762,197"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="666,123,666,155,661,155,661,123"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="430,245,524,272"/>
+<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="632,200,525,242,523,237,630,195"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="548,245,606,272"/>
+<area shape="poly" id="edge9_Node000008_Node000010" title=" " alt="" coords="650,200,605,237,602,233,647,196"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="630,245,698,272"/>
+<area shape="poly" id="edge10_Node000008_Node000011" title=" " alt="" coords="666,198,666,230,661,230,661,198"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="722,245,798,272"/>
+<area shape="poly" id="edge11_Node000008_Node000012" title=" " alt="" coords="682,196,733,234,729,238,679,200"/>
+<area shape="rect" id="Node000013" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="822,245,1026,272"/>
+<area shape="poly" id="edge12_Node000008_Node000013" title=" " alt="" coords="710,195,864,238,863,243,708,200"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="892,320,956,347"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="926,273,926,304,921,304,921,273"/>
 </map>

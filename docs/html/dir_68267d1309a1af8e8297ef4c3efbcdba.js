@@ -1,7 +1,7 @@
 var dir_68267d1309a1af8e8297ef4c3efbcdba =
 [
     [ "DrinkCreator6000.cpp", "_drink_creator6000_8cpp.html", "_drink_creator6000_8cpp" ],
-    [ "DrinkCreator6000_Config.cpp", "_drink_creator6000___config_8cpp.html", null ],
+    [ "DrinkCreator6000_Config.cpp", "_drink_creator6000___config_8cpp.html", "_drink_creator6000___config_8cpp" ],
     [ "DrinkCreator6000_Config_C.c", "_drink_creator6000___config___c_8c.html", "_drink_creator6000___config___c_8c" ],
     [ "DrinkCreator6000_EEPROM.c", "_drink_creator6000___e_e_p_r_o_m_8c.html", "_drink_creator6000___e_e_p_r_o_m_8c" ],
     [ "DrinkCreator6000_Init.cpp", "_drink_creator6000___init_8cpp.html", "_drink_creator6000___init_8cpp" ],

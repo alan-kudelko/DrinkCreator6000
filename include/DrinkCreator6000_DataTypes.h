@@ -1,5 +1,5 @@
 /**
- * @file DrinkCreator6000_Data_Types.h
+ * @file DrinkCreator6000_DataTypes.h
  * @brief Custom data types for controlling application context in the DrinkCreator6000 project.
  *
  * This module defines shared data structures and enumerations used to control
@@ -102,7 +102,7 @@ struct sSystemError{
  * - The active menu and submenu
  * - UI behavior flags (e.g., auto-scrolling)
  */
-struct sUIContext {
+struct sUIContext{
     /**
      * @brief Auto-scroll enable flag.
      *

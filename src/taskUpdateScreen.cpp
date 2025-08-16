@@ -1,6 +1,5 @@
 #include <taskUpdateScreen.h>
 #include <DrinkCreator6000_Config.h>
-#include <HD44780_I2C.h>
 #include <uart.h>
 #include <i2c.h>
 

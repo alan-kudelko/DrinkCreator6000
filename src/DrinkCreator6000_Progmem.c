@@ -56,9 +56,11 @@ const char msg_EEPROMReady[]       PROGMEM="[  3  ] EEPROM is ready!      [#####
 const char msg_RamSizeInitialized[]PROGMEM="[  4  ] RAM Size initialized! [#####]\n";
 const char msg_MemoryInitialized[] PROGMEM="[  5  ] Memory initialized    [#####]\n";
 const char msg_I2CReady[]          PROGMEM="[  6  ] I2C is ready!         [#####]\n";
-const char msg_InterruptsAttached[]PROGMEM="[  7  ] Interrupts ready!     [#####]\n";
-const char msg_NormalStartUp[]     PROGMEM="[  8  ] Start up ...          [#####]\n";
-const char msg_FaultStartUp[]      PROGMEM="[  8  ] Fault start up ...    [#####]\n";
+const char msg_lcdReady[]          PROGMEM="[  7  ] LCD is ready!         [#####]\n";
+const char msg_mcpReady[]          PROGMEM="[  8  ] MCP is ready!         [#####]\n";
+const char msg_InterruptsAttached[]PROGMEM="[  9  ] Interrupts ready!     [#####]\n";
+const char msg_NormalStartUp[]     PROGMEM="[ 10  ] Start up ...          [#####]\n";
+const char msg_FaultStartUp[]      PROGMEM="[ 10  ] Fault start up ...    [#####]\n";
 
 // 
 const char taskErrorHandler_name[configMAX_TASK_NAME_LEN]           PROGMEM="ERROR HANDLER";

@@ -1,6 +1,5 @@
 #include <taskSerialInput.h>
 #include <uart.h>
-#include <DrinkCreator6000_Config.h>
 
 void taskSerialInput(void*pvParameters){
     uint8_t keyboardData=0;

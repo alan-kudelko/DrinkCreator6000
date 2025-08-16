@@ -24,7 +24,6 @@
 #ifndef _I2C_H_
     #define _I2C_H_
 
-#include <stdint.h>
 #include <stdbool.h>
 
 #include <DrinkCreator6000_Config_C.h>

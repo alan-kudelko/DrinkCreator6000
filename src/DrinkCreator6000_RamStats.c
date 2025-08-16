@@ -1,4 +1,3 @@
-#include <stdint.h>
 #include <stddef.h>
 #include <avr/io.h>
 #include <avr/iom2560.h>

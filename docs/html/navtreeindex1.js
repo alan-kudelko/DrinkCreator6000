@@ -1,5 +1,6 @@
 var NAVTREEINDEX1 =
 {
+"_drink_creator6000___pins_8h.html#a1744729b4030c487ba132edc93c23c95":[1,0,1,5,6],
 "_drink_creator6000___pins_8h.html#a2cade698267beb86ccaa38c14d35ab0f":[1,0,1,5,5],
 "_drink_creator6000___pins_8h.html#a3d6873d2070deee0fef91673207d64cd":[1,0,1,5,7],
 "_drink_creator6000___pins_8h.html#a546d8c7a2647a8619cac7e0af87e046a":[1,0,1,5,3],
@@ -248,6 +249,5 @@ var NAVTREEINDEX1 =
 "structs_screen_data.html#aeb79d3b6a8e198ecdb661ee19caec233":[0,0,3,3],
 "structs_system_error.html":[0,0,4],
 "structs_system_error.html#a51e366b30c125348c37d5cf74dce8268":[0,0,4,2],
-"structs_system_error.html#a85b9051688297106abca659dc33a5e6d":[0,0,4,5],
-"structs_system_error.html#a92ac68f94c5d4cce9158b93ee9fd8135":[0,0,4,3]
+"structs_system_error.html#a85b9051688297106abca659dc33a5e6d":[0,0,4,5]
 };

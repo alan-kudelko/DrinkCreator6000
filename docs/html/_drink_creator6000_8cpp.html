@@ -105,131 +105,86 @@ $(function(){initNavTree('_drink_creator6000_8cpp.html','',''); });
 <code>#include &lt;util/delay.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="uart_8h_source.html">uart.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="i2c_8h_source.html">i2c.h</a>&gt;</code><br />
-<code>#include &lt;avr/pgmspace.h&gt;</code><br />
 <code>#include &lt;avr/interrupt.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___progmem_8h_source.html">DrinkCreator6000_Progmem.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___ram_stats_8h_source.html">DrinkCreator6000_RamStats.h</a>&gt;</code><br />
-<code>#include &lt;HD44780_I2C.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for DrinkCreator6000.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="_drink_creator6000_8cpp__incl.png" border="0" usemap="#asrc_2_drink_creator6000_8cpp" loading="lazy" alt=""/></div>
 <map name="asrc_2_drink_creator6000_8cpp" id="asrc_2_drink_creator6000_8cpp">
-<area shape="rect" title=" " alt="" coords="2077,5,2248,32"/>
-<area shape="rect" href="_drink_creator6000___config_8h.html" title=" " alt="" coords="910,229,1090,256"/>
-<area shape="poly" title=" " alt="" coords="2077,25,1644,41,1043,70,749,88,498,109,317,132,262,144,236,157,231,168,237,180,248,187,268,195,329,208,410,218,506,225,713,235,895,238,894,243,713,240,506,231,410,223,328,213,267,200,246,192,232,183,226,168,233,153,261,139,316,127,497,104,749,83,1042,65,1644,36,2077,20"/>
-<area shape="rect" href="_drink_creator6000___init_8h.html" title="System initialization routines for the DrinkCreator6000." alt="" coords="1879,80,2038,107"/>
-<area shape="poly" title=" " alt="" coords="2128,35,2010,77,2008,72,2126,30"/>
-<area shape="rect" href="_drink_creator6000___e_e_p_r_o_m_8h.html" title="EEPROM access functions for bootup counts and last error storage." alt="" coords="2063,80,2262,107"/>
-<area shape="poly" title=" " alt="" coords="2165,33,2165,64,2160,64,2160,33"/>
-<area shape="rect" href="_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="1006,80,1183,107"/>
-<area shape="poly" title=" " alt="" coords="2077,28,1199,88,1198,82,2077,23"/>
-<area shape="rect" title=" " alt="" coords="2286,80,2370,107"/>
-<area shape="poly" title=" " alt="" coords="2192,30,2286,71,2284,76,2190,35"/>
-<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="118,229,172,256"/>
-<area shape="poly" title=" " alt="" coords="2077,23,1752,28,1300,37,847,55,658,68,515,83,362,101,299,119,224,157,189,186,163,219,159,215,185,182,221,152,297,114,361,96,514,77,657,62,846,50,1300,32,1752,22,2077,18"/>
-<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="39,229,88,256"/>
-<area shape="poly" title=" " alt="" coords="2077,23,1684,27,1137,37,622,54,434,67,368,74,325,83,254,110,188,147,132,187,90,221,87,217,128,183,185,143,251,105,323,77,367,69,434,62,622,49,1137,31,1684,22,2077,18"/>
-<area shape="rect" title=" " alt="" coords="2503,155,2617,181"/>
-<area shape="poly" title=" " alt="" coords="2248,16,2346,19,2452,28,2501,36,2545,46,2580,60,2605,78,2612,95,2609,113,2599,130,2587,145,2582,142,2595,127,2604,111,2606,96,2600,82,2578,65,2543,51,2500,41,2451,33,2345,24,2248,22"/>
-<area shape="rect" title=" " alt="" coords="2665,80,2766,107"/>
-<area shape="poly" title=" " alt="" coords="2248,27,2432,48,2647,77,2650,78,2649,83,2646,83,2431,54,2248,32"/>
-<area shape="rect" title=" " alt="" coords="2791,80,2851,107"/>
-<area shape="poly" title=" " alt="" coords="2248,21,2482,38,2628,54,2776,77,2775,83,2627,59,2482,43,2248,26"/>
-<area shape="rect" href="_drink_creator6000___progmem_8h.html" title="Constant strings stored in flash memory (PROGMEM) for diagnostics and display." alt="" coords="2393,80,2590,107"/>
-<area shape="poly" title=" " alt="" coords="2221,30,2420,74,2419,79,2220,35"/>
-<area shape="rect" href="_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="2186,304,2387,331"/>
-<area shape="poly" title=" " alt="" coords="2077,28,2015,35,1953,46,1900,61,1881,71,1869,82,1864,93,1869,105,1884,122,1899,131,1932,138,1971,140,1992,144,2016,152,2086,187,2153,226,2258,293,2255,297,2150,230,2083,192,2013,157,1991,149,1970,146,1932,144,1897,136,1880,126,1864,108,1858,93,1864,78,1878,67,1898,57,1952,41,2014,30,2076,23"/>
-<area shape="rect" title=" " alt="" coords="2876,80,2991,107"/>
-<area shape="poly" title=" " alt="" coords="2248,22,2517,42,2686,57,2860,77,2860,82,2686,63,2517,47,2248,28"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="759,304,955,331"/>
-<area shape="poly" title=" " alt="" coords="976,259,897,299,895,294,974,254"/>
-<area shape="rect" title=" " alt="" coords="1014,379,1108,405"/>
-<area shape="poly" title=" " alt="" coords="894,329,1012,370,1010,375,892,334"/>
-<area shape="rect" title=" " alt="" coords="1132,379,1190,405"/>
-<area shape="poly" title=" " alt="" coords="917,329,1118,376,1117,381,916,334"/>
-<area shape="rect" title=" " alt="" coords="1429,379,1496,405"/>
-<area shape="poly" title=" " alt="" coords="956,322,1163,341,1287,356,1414,376,1413,381,1286,361,1162,346,955,328"/>
-<area shape="rect" title=" " alt="" coords="1329,379,1404,405"/>
-<area shape="poly" title=" " alt="" coords="947,329,1314,381,1313,386,946,334"/>
-<area shape="rect" href="_drink_creator6000___data_types_8h.html" title=" " alt="" coords="206,379,410,405"/>
-<area shape="poly" title=" " alt="" coords="761,334,419,379,419,373,761,329"/>
-<area shape="rect" title=" " alt="" coords="205,453,269,480"/>
-<area shape="poly" title=" " alt="" coords="297,408,262,444,258,440,294,404"/>
-<area shape="rect" href="task_error_handler_8h.html" title="Task responsible for stack overflow diagnostics and system error handling." alt="" coords="247,155,377,181"/>
-<area shape="poly" title=" " alt="" coords="1006,103,736,123,393,157,392,152,736,118,1006,98"/>
-<area shape="rect" href="task_serial_system_debugger_8h.html" title=" " alt="" coords="1670,155,1861,181"/>
-<area shape="poly" title=" " alt="" coords="1183,101,1655,152,1654,157,1183,107"/>
-<area shape="rect" href="task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="236,304,321,331"/>
-<area shape="poly" title=" " alt="" coords="1006,97,804,98,561,106,446,114,348,124,275,139,251,147,236,157,227,171,223,187,227,224,242,259,262,290,257,293,238,262,222,225,217,187,222,169,233,153,248,142,273,134,347,119,446,108,561,101,804,93,1006,92"/>
-<area shape="rect" href="task_read_input_8h.html" title="Task responsible for reading input data from MCP23017 via I2C." alt="" coords="1885,155,2002,181"/>
-<area shape="poly" title=" " alt="" coords="1183,96,1483,115,1674,131,1870,152,1869,157,1674,136,1483,120,1183,102"/>
-<area shape="rect" href="task_serial_input_8h.html" title="Task responsible for reading serial input data from UART." alt="" coords="402,155,521,181"/>
-<area shape="poly" title=" " alt="" coords="1006,105,796,126,537,157,536,151,796,120,1006,100"/>
-<area shape="rect" href="task_update_screen_8h.html" title="Screen update task for DrinkCreator6000." alt="" coords="544,155,685,181"/>
-<area shape="poly" title=" " alt="" coords="1011,110,700,156,700,151,1010,105"/>
-<area shape="rect" href="task_read_temp_8h.html" title="Task for reading temperature data from an ATtiny configured as an I2C slave." alt="" coords="709,155,829,181"/>
-<area shape="poly" title=" " alt="" coords="1038,110,842,153,840,148,1037,105"/>
-<area shape="rect" href="task_regulate_temp_8h.html" title="Temperature regulation task for DrinkCreator6000." alt="" coords="853,155,994,181"/>
-<area shape="poly" title=" " alt="" coords="1066,110,969,151,967,146,1064,105"/>
-<area shape="rect" href="task_select_drink_8h.html" title="Task responsible for selecting a drink to order." alt="" coords="1194,155,1320,181"/>
-<area shape="poly" title=" " alt="" coords="1124,105,1216,145,1214,150,1122,110"/>
-<area shape="rect" href="task_order_drink_8h.html" title=" " alt="" coords="1344,155,1464,181"/>
-<area shape="poly" title=" " alt="" coords="1149,105,1335,148,1334,153,1148,110"/>
-<area shape="rect" href="task_show_system_info_8h.html" title=" " alt="" coords="1488,155,1645,181"/>
-<area shape="poly" title=" " alt="" coords="1178,105,1473,150,1472,155,1177,110"/>
-<area shape="rect" href="task_welcome_screen_8h.html" title=" " alt="" coords="1018,155,1171,181"/>
-<area shape="poly" title=" " alt="" coords="1097,107,1097,139,1092,139,1092,107"/>
-<area shape="poly" title=" " alt="" coords="1669,183,1657,184,1105,235,1104,230,1657,179,1669,177"/>
-<area shape="poly" title=" " alt="" coords="1773,181,1782,218,1780,239,1771,258,1678,281,1480,318,1124,381,1123,376,1479,313,1677,276,1767,254,1775,237,1776,218,1768,182"/>
-<area shape="poly" title=" " alt="" coords="1783,180,1800,196,1814,215,1822,237,1821,248,1815,258,1803,267,1783,277,1722,296,1548,334,1354,366,1206,387,1205,382,1354,361,1547,329,1721,291,1781,272,1800,263,1811,254,1816,246,1817,237,1810,218,1796,199,1779,184"/>
-<area shape="poly" title=" " alt="" coords="1822,179,1901,202,1942,218,1979,236,2009,256,2029,279,2033,292,2033,305,2028,319,2018,332,2001,347,1979,358,1924,373,1858,380,1784,381,1634,377,1567,377,1511,380,1511,375,1567,372,1634,372,1784,376,1857,374,1923,367,1977,353,1998,342,2014,329,2023,316,2028,304,2028,293,2024,282,2006,260,1977,240,1940,223,1899,207,1821,184"/>
-<area shape="poly" title=" " alt="" coords="1801,180,1830,193,1856,211,1871,233,1872,245,1866,258,1810,277,1687,311,1420,380,1419,375,1686,305,1808,272,1862,254,1867,244,1866,235,1853,215,1827,198,1799,184"/>
-<area shape="rect" title=" " alt="" coords="1532,229,1601,256"/>
-<area shape="poly" title=" " alt="" coords="1731,184,1616,226,1614,221,1730,179"/>
-<area shape="rect" href="_free_r_t_o_s_config_8h.html" title=" " alt="" coords="1624,229,1757,256"/>
-<area shape="poly" title=" " alt="" coords="1754,184,1716,221,1712,217,1750,180"/>
-<area shape="rect" title=" " alt="" coords="1315,229,1394,256"/>
-<area shape="poly" title=" " alt="" coords="1680,185,1409,231,1408,226,1679,179"/>
-<area shape="rect" title=" " alt="" coords="1417,229,1508,256"/>
-<area shape="poly" title=" " alt="" coords="1713,185,1524,230,1522,224,1711,179"/>
-<area shape="poly" title=" " alt="" coords="286,330,300,363,295,365,281,332"/>
-<area shape="poly" title=" " alt="" coords="1885,182,1873,184,1660,206,1447,222,1105,240,1105,235,1447,217,1659,200,1873,179,1884,177"/>
-<area shape="poly" title=" " alt="" coords="1928,184,1870,220,1794,258,1698,294,1614,318,1539,334,1467,344,1316,357,1227,366,1124,381,1123,376,1226,361,1315,352,1466,338,1538,328,1613,313,1696,289,1792,254,1867,216,1925,179"/>
-<area shape="poly" title=" " alt="" coords="1954,181,1967,215,1970,236,1968,257,1951,301,1937,318,1915,333,1205,390,1205,385,1914,328,1934,314,1946,299,1963,255,1965,236,1962,216,1949,183"/>
-<area shape="poly" title=" " alt="" coords="1963,180,1998,208,2035,247,2048,269,2056,291,2055,312,2043,332,2031,340,2012,347,1957,357,1800,369,1631,375,1512,381,1511,375,1631,370,1799,364,1956,352,2011,342,2029,336,2039,329,2050,311,2050,291,2043,271,2030,250,1995,212,1960,184"/>
-<area shape="poly" title=" " alt="" coords="1969,180,1992,195,2012,214,2024,235,2024,247,2018,258,1986,293,1955,321,1923,342,1891,358,1858,368,1825,375,1756,378,1603,369,1516,370,1420,381,1419,376,1515,364,1603,364,1756,373,1824,370,1857,363,1889,353,1920,338,1951,317,1983,289,2014,254,2019,245,2019,236,2008,217,1988,199,1966,184"/>
-<area shape="poly" title=" " alt="" coords="1885,182,1617,231,1616,226,1884,177"/>
-<area shape="poly" title=" " alt="" coords="1900,184,1750,227,1749,222,1899,179"/>
-<area shape="poly" title=" " alt="" coords="1885,182,1874,184,1744,198,1642,205,1540,214,1410,232,1409,226,1539,208,1642,200,1744,193,1873,179,1885,177"/>
-<area shape="poly" title=" " alt="" coords="1885,182,1874,184,1700,207,1523,232,1523,226,1699,201,1873,179,1884,177"/>
-<area shape="poly" title=" " alt="" coords="1488,182,1476,184,1105,231,1104,226,1475,179,1487,177"/>
-<area shape="poly" title=" " alt="" coords="1488,184,1337,209,1272,222,1237,232,1189,262,1145,299,1082,368,1078,364,1142,295,1186,258,1235,227,1271,217,1336,204,1487,179"/>
-<area shape="poly" title=" " alt="" coords="1489,185,1356,209,1302,221,1272,232,1238,261,1210,297,1189,333,1174,365,1169,363,1184,331,1206,294,1234,257,1269,227,1300,216,1355,204,1488,179"/>
-<area shape="poly" title=" " alt="" coords="1490,185,1374,208,1328,220,1306,231,1295,248,1295,258,1303,264,1318,269,1363,278,1387,287,1410,302,1435,332,1454,364,1449,366,1431,335,1406,306,1385,292,1361,283,1317,274,1300,269,1290,261,1290,247,1302,227,1327,215,1373,202,1489,179"/>
-<area shape="poly" title=" " alt="" coords="1488,184,1363,207,1313,219,1288,231,1280,247,1278,265,1281,283,1289,302,1314,337,1342,366,1339,370,1310,341,1285,304,1276,285,1272,265,1275,246,1285,227,1311,214,1362,201,1487,179"/>
-<area shape="poly" title=" " alt="" coords="1569,182,1569,214,1564,214,1564,182"/>
-<area shape="poly" title=" " alt="" coords="1589,180,1657,219,1655,224,1587,184"/>
-<area shape="poly" title=" " alt="" coords="1530,184,1407,226,1405,221,1529,179"/>
-<area shape="poly" title=" " alt="" coords="1550,184,1494,222,1491,218,1547,180"/>
-<area shape="poly" title=" " alt="" coords="1080,184,1030,222,1027,218,1076,180"/>
-<area shape="poly" title=" " alt="" coords="1018,183,853,209,785,222,755,231,745,247,745,263,749,304,746,318,749,329,764,342,788,352,854,369,929,379,998,385,998,391,928,385,853,374,787,357,762,346,744,332,741,318,744,304,739,263,740,246,752,227,784,217,852,204,1018,178"/>
-<area shape="poly" title=" " alt="" coords="1018,183,886,206,832,219,806,231,801,243,806,255,823,272,840,283,857,288,876,290,919,291,943,294,969,301,1052,336,1123,369,1121,374,1050,341,967,307,942,300,918,297,876,296,856,294,838,288,819,276,802,257,796,243,802,227,831,214,885,200,1017,177"/>
-<area shape="poly" title=" " alt="" coords="1024,184,949,204,919,217,901,231,896,243,900,254,1414,376,1413,381,897,258,890,243,896,228,916,212,947,199,1023,179"/>
-<area shape="poly" title=" " alt="" coords="1027,185,920,208,877,220,856,231,852,243,856,254,912,272,1039,306,1314,375,1313,380,1037,311,910,277,853,258,846,243,853,228,875,216,919,203,1026,179"/>
-<area shape="poly" title=" " alt="" coords="1171,177,1517,227,1517,232,1171,183"/>
-<area shape="poly" title=" " alt="" coords="1172,177,1183,179,1395,202,1609,226,1609,231,1394,207,1182,184,1171,183"/>
-<area shape="poly" title=" " alt="" coords="1141,179,1301,224,1299,229,1139,184"/>
-<area shape="poly" title=" " alt="" coords="1162,179,1403,226,1402,231,1161,185"/>
-<area shape="poly" title=" " alt="" coords="173,244,744,302,744,307,172,249"/>
-<area shape="poly" title=" " alt="" coords="150,256,165,321,178,363,196,404,219,440,214,442,191,407,173,365,160,322,145,257"/>
-<area shape="poly" title=" " alt="" coords="90,249,107,253,280,279,454,296,613,306,743,311,743,316,613,311,453,301,279,284,106,259,88,255"/>
-<area shape="poly" title=" " alt="" coords="74,255,116,320,179,404,215,441,211,445,175,407,112,323,69,258"/>
-<area shape="rect" title=" " alt="" coords="5,304,80,331"/>
-<area shape="poly" title=" " alt="" coords="63,257,53,290,48,288,58,256"/>
-<area shape="poly" title=" " alt="" coords="2506,105,2540,141,2536,145,2502,109"/>
-<area shape="poly" title=" " alt="" coords="2191,334,1887,371,1508,408,1139,433,780,450,285,467,284,462,780,445,1139,427,1508,403,1887,365,2190,329"/>
+<area shape="rect" title=" " alt="" coords="1850,5,2020,32"/>
+<area shape="rect" href="_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="281,80,461,107"/>
+<area shape="poly" title=" " alt="" coords="1849,27,476,90,476,84,1849,21"/>
+<area shape="rect" href="_drink_creator6000___init_8h.html" title="System initialization routines for the DrinkCreator6000." alt="" coords="793,80,952,107"/>
+<area shape="poly" title=" " alt="" coords="1850,26,1472,45,1223,61,968,82,967,77,1223,56,1472,40,1850,21"/>
+<area shape="rect" href="_drink_creator6000___e_e_p_r_o_m_8h.html" title="EEPROM access functions for bootup counts and last error storage." alt="" coords="977,80,1176,107"/>
+<area shape="poly" title=" " alt="" coords="1849,29,1562,51,1192,82,1191,77,1562,45,1849,23"/>
+<area shape="rect" href="_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="1200,80,1376,107"/>
+<area shape="poly" title=" " alt="" coords="1850,32,1392,83,1391,78,1849,27"/>
+<area shape="rect" title=" " alt="" coords="1800,80,1883,107"/>
+<area shape="poly" title=" " alt="" coords="1920,35,1871,73,1868,68,1917,30"/>
+<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="1908,80,1962,107"/>
+<area shape="poly" title=" " alt="" coords="1938,33,1938,64,1932,64,1932,33"/>
+<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="1986,80,2036,107"/>
+<area shape="poly" title=" " alt="" coords="1950,31,1989,67,1985,71,1946,34"/>
+<area shape="rect" title=" " alt="" coords="2060,80,2162,107"/>
+<area shape="poly" title=" " alt="" coords="1967,30,2067,71,2065,76,1965,35"/>
+<area shape="rect" title=" " alt="" coords="2186,80,2246,107"/>
+<area shape="poly" title=" " alt="" coords="1987,30,2172,77,2170,82,1986,35"/>
+<area shape="rect" href="_drink_creator6000___progmem_8h.html" title="Constant strings stored in flash memory (PROGMEM) for diagnostics and display." alt="" coords="2271,80,2468,107"/>
+<area shape="poly" title=" " alt="" coords="2012,30,2279,74,2278,80,2011,35"/>
+<area shape="rect" href="_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="2376,229,2576,256"/>
+<area shape="poly" title=" " alt="" coords="2021,21,2150,27,2294,39,2417,55,2459,66,2482,78,2493,94,2500,111,2503,148,2498,184,2489,215,2484,214,2493,183,2498,148,2494,112,2488,96,2479,82,2457,71,2416,61,2294,44,2150,33,2021,26"/>
+<area shape="rect" title=" " alt="" coords="5,155,121,181"/>
+<area shape="poly" title=" " alt="" coords="318,110,132,153,131,148,316,105"/>
+<area shape="rect" href="task_error_handler_8h.html" title="Task responsible for stack overflow diagnostics and system error handling." alt="" coords="144,155,275,181"/>
+<area shape="poly" title=" " alt="" coords="1200,108,1189,109,938,126,741,131,543,137,291,157,290,152,543,132,741,125,937,120,1188,104,1200,103"/>
+<area shape="rect" href="task_serial_system_debugger_8h.html" title=" " alt="" coords="299,155,491,181"/>
+<area shape="poly" title=" " alt="" coords="1200,108,1189,109,998,125,849,134,699,142,506,157,506,152,699,137,849,128,998,120,1188,104,1200,103"/>
+<area shape="rect" href="task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="515,155,600,181"/>
+<area shape="poly" title=" " alt="" coords="1200,108,1189,109,1029,122,903,129,777,137,616,157,615,152,776,132,903,123,1029,117,1188,104,1200,103"/>
+<area shape="rect" href="task_read_input_8h.html" title="Task responsible for reading input data from MCP23017 via I2C." alt="" coords="624,155,742,181"/>
+<area shape="poly" title=" " alt="" coords="1200,108,1189,109,974,131,757,157,756,152,974,126,1188,104,1200,103"/>
+<area shape="rect" href="task_serial_input_8h.html" title="Task responsible for reading serial input data from UART." alt="" coords="766,155,885,181"/>
+<area shape="poly" title=" " alt="" coords="1203,110,901,157,900,151,1203,105"/>
+<area shape="rect" href="task_update_screen_8h.html" title="Screen update task for DrinkCreator6000." alt="" coords="909,155,1049,181"/>
+<area shape="poly" title=" " alt="" coords="1235,110,1049,153,1047,148,1233,105"/>
+<area shape="rect" href="task_read_temp_8h.html" title="Task for reading temperature data from an ATtiny configured as an I2C slave." alt="" coords="1074,155,1194,181"/>
+<area shape="poly" title=" " alt="" coords="1263,110,1175,150,1173,145,1260,105"/>
+<area shape="rect" href="task_regulate_temp_8h.html" title="Temperature regulation task for DrinkCreator6000." alt="" coords="1218,155,1359,181"/>
+<area shape="poly" title=" " alt="" coords="1291,107,1291,139,1286,139,1286,107"/>
+<area shape="rect" href="task_select_drink_8h.html" title="Task responsible for selecting a drink to order." alt="" coords="1383,155,1508,181"/>
+<area shape="poly" title=" " alt="" coords="1317,105,1405,145,1403,150,1315,110"/>
+<area shape="rect" href="task_order_drink_8h.html" title="Task definitions and interfaces for controlling drink orders." alt="" coords="1532,155,1652,181"/>
+<area shape="poly" title=" " alt="" coords="1342,105,1525,148,1524,153,1341,110"/>
+<area shape="rect" href="task_show_system_info_8h.html" title="FreeRTOS task for displaying system information on the user interface." alt="" coords="1676,155,1834,181"/>
+<area shape="poly" title=" " alt="" coords="1371,105,1661,150,1661,155,1370,110"/>
+<area shape="rect" href="task_welcome_screen_8h.html" title=" " alt="" coords="1858,155,2010,181"/>
+<area shape="poly" title=" " alt="" coords="1377,101,1842,152,1842,157,1376,106"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="1692,229,1896,256"/>
+<area shape="poly" title=" " alt="" coords="601,177,613,179,761,196,912,210,1210,228,1475,237,1676,239,1676,244,1475,242,1210,233,912,215,760,201,612,184,600,182"/>
+<area shape="rect" title=" " alt="" coords="2070,304,2134,331"/>
+<area shape="poly" title=" " alt="" coords="1848,254,2055,302,2054,308,1847,259"/>
+<area shape="poly" title=" " alt="" coords="1764,181,1782,214,1778,217,1759,183"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="2034,155,2230,181"/>
+<area shape="poly" title=" " alt="" coords="1963,102,2084,146,2083,151,1962,107"/>
+<area shape="poly" title=" " alt="" coords="2074,185,1868,228,1867,223,2072,179"/>
+<area shape="rect" title=" " alt="" coords="1928,229,2022,256"/>
+<area shape="poly" title=" " alt="" coords="2106,184,2018,225,2015,220,2104,179"/>
+<area shape="rect" title=" " alt="" coords="2046,229,2104,256"/>
+<area shape="poly" title=" " alt="" coords="2124,184,2096,219,2092,215,2120,180"/>
+<area shape="rect" title=" " alt="" coords="2128,229,2195,256"/>
+<area shape="poly" title=" " alt="" coords="2140,181,2153,214,2148,216,2135,183"/>
+<area shape="rect" title=" " alt="" coords="2220,229,2295,256"/>
+<area shape="poly" title=" " alt="" coords="2155,180,2224,219,2222,224,2153,184"/>
+<area shape="poly" title=" " alt="" coords="2033,105,2099,144,2097,149,2031,110"/>
+<area shape="rect" title=" " alt="" coords="2255,155,2330,181"/>
+<area shape="poly" title=" " alt="" coords="2037,100,2049,104,2240,151,2239,156,2048,109,2035,106"/>
+<area shape="rect" title=" " alt="" coords="2354,155,2468,181"/>
+<area shape="poly" title=" " alt="" coords="2379,106,2399,140,2394,143,2375,109"/>
+<area shape="poly" title=" " alt="" coords="2411,259,2150,309,2149,304,2410,254"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -247,7 +202,6 @@ Functions</h2></td></tr>
 <tr class="memitem:a54b14b665d04a631991869b21065bf90" id="r_a54b14b665d04a631991869b21065bf90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a54b14b665d04a631991869b21065bf90">vApplicationStackOverflowHook</a> (TaskHandle_t xTask, char *pcTaskName)</td></tr>
 <tr class="memitem:a0d0d9efa5b1e7f7b28abd55078ab2ab6" id="r_a0d0d9efa5b1e7f7b28abd55078ab2ab6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0d0d9efa5b1e7f7b28abd55078ab2ab6">calibrateIdleLoop</a> ()</td></tr>
 <tr class="memitem:af5863d80f02086cec6575d444cb3ba4d" id="r_af5863d80f02086cec6575d444cb3ba4d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af5863d80f02086cec6575d444cb3ba4d">printI2C_status</a> ()</td></tr>
-<tr class="memitem:a5254b2b7ca2e5b73323f050acc049b3c" id="r_a5254b2b7ca2e5b73323f050acc049b3c"><td class="memItemLeft" align="right" valign="top">HD44780_LCD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5254b2b7ca2e5b73323f050acc049b3c">lcd</a> (<a class="el" href="_drink_creator6000___config___c_8h.html#a6a90c49be18cd45434c04afd79b0bf9d">LCD_ADDR</a>, 20, 4)</td></tr>
 <tr class="memitem:a840291bc02cba5474a4cb46a9b9566fe" id="r_a840291bc02cba5474a4cb46a9b9566fe"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a840291bc02cba5474a4cb46a9b9566fe">main</a> (void)</td></tr>
 </table>
 <a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
@@ -509,32 +463,6 @@ Here is the caller graph for this function:</div>
 <area shape="poly" title=" " alt="" coords="87,21,55,21,55,16,87,16"/>
 </map>
 </div>
-
-</div>
-</div>
-<a id="a5254b2b7ca2e5b73323f050acc049b3c" name="a5254b2b7ca2e5b73323f050acc049b3c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5254b2b7ca2e5b73323f050acc049b3c">&#9670;&#160;</a></span>lcd()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">HD44780_LCD lcd </td>
-          <td>(</td>
-          <td class="paramtype"><a class="el" href="_drink_creator6000___config___c_8h.html#a6a90c49be18cd45434c04afd79b0bf9d">LCD_ADDR</a></td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">20</td>          <td class="paramname"><span class="paramname"><em></em></span>, </td>
-        </tr>
-        <tr>
-          <td class="paramkey"></td>
-          <td></td>
-          <td class="paramtype">4</td>          <td class="paramname"><span class="paramname"><em></em></span>&#160;)</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
 
 </div>
 </div>

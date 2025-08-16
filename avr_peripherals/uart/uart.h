@@ -15,7 +15,6 @@
 #ifndef _UART_H_
     #define _UART_H_
 
-#include <stdint.h>
 #include <DrinkCreator6000_Config_C.h>
 
 /**

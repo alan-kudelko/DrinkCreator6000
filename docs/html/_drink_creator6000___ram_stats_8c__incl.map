@@ -1,14 +1,13 @@
 <map id="src/DrinkCreator6000_RamStats.c" name="src/DrinkCreator6000_RamStats.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="77,5,223,48"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="178,171,242,197"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="78,51,46,64,21,81,13,90,9,100,9,110,15,121,29,136,45,149,84,167,125,177,163,180,162,186,124,182,82,172,42,154,25,140,10,124,4,111,3,99,8,88,17,77,43,60,76,46"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="25,96,93,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="128,51,86,88,83,84,125,47"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="118,96,182,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="153,49,153,80,147,80,147,49"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="206,96,310,123"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="179,46,230,84,227,88,176,51"/>
-<area shape="rect" id="Node000006" href="$_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="334,96,534,123"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="224,46,375,89,374,94,222,51"/>
-<area shape="poly" id="edge6_Node000006_Node000002" title=" " alt="" coords="396,126,258,170,256,165,394,121"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="111,5,256,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,74,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,51,77,90,74,86,145,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="98,96,162,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="172,50,149,84,145,81,168,47"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="186,96,290,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="200,47,223,82,219,85,195,50"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="314,96,514,123"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="244,46,364,88,362,93,242,51"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="382,171,446,197"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="417,123,417,155,412,155,412,123"/>
 </map>

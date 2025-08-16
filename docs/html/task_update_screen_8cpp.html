@@ -100,7 +100,6 @@ $(function(){initNavTree('task_update_screen_8cpp.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;<a class="el" href="task_update_screen_8h_source.html">taskUpdateScreen.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___config_8h_source.html">DrinkCreator6000_Config.h</a>&gt;</code><br />
-<code>#include &lt;HD44780_I2C.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="uart_8h_source.html">uart.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="i2c_8h_source.html">i2c.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -108,37 +107,34 @@ Include dependency graph for taskUpdateScreen.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_update_screen_8cpp__incl.png" border="0" usemap="#asrc_2task_update_screen_8cpp" loading="lazy" alt=""/></div>
 <map name="asrc_2task_update_screen_8cpp" id="asrc_2task_update_screen_8cpp">
-<area shape="rect" title=" " alt="" coords="218,5,394,32"/>
+<area shape="rect" title=" " alt="" coords="242,5,418,32"/>
 <area shape="rect" href="task_update_screen_8h.html" title="Screen update task for DrinkCreator6000." alt="" coords="5,80,146,107"/>
-<area shape="poly" title=" " alt="" coords="267,35,131,77,130,72,265,30"/>
-<area shape="rect" href="_drink_creator6000___config_8h.html" title=" " alt="" coords="388,80,568,107"/>
-<area shape="poly" title=" " alt="" coords="337,30,435,71,433,76,335,35"/>
-<area shape="rect" title=" " alt="" coords="248,80,364,107"/>
-<area shape="poly" title=" " alt="" coords="309,33,309,64,304,64,304,33"/>
-<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="170,80,224,107"/>
-<area shape="poly" title=" " alt="" coords="289,35,230,74,227,69,286,30"/>
-<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="718,80,767,107"/>
-<area shape="poly" title=" " alt="" coords="383,30,702,83,702,88,382,35"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="345,155,542,181"/>
-<area shape="poly" title=" " alt="" coords="475,108,458,142,454,139,470,106"/>
-<area shape="rect" title=" " alt="" coords="363,229,457,256"/>
-<area shape="poly" title=" " alt="" coords="440,183,425,216,420,214,435,181"/>
-<area shape="rect" title=" " alt="" coords="482,229,539,256"/>
-<area shape="poly" title=" " alt="" coords="457,180,490,216,487,220,453,184"/>
-<area shape="rect" title=" " alt="" coords="171,229,238,256"/>
-<area shape="poly" title=" " alt="" coords="403,184,254,229,253,224,401,179"/>
-<area shape="rect" title=" " alt="" coords="263,229,338,256"/>
-<area shape="poly" title=" " alt="" coords="420,184,341,224,338,219,417,179"/>
-<area shape="rect" href="_drink_creator6000___data_types_8h.html" title=" " alt="" coords="563,229,767,256"/>
-<area shape="poly" title=" " alt="" coords="483,179,612,221,611,226,481,184"/>
-<area shape="rect" title=" " alt="" coords="633,304,697,331"/>
-<area shape="poly" title=" " alt="" coords="668,257,668,288,662,288,662,257"/>
-<area shape="poly" title=" " alt="" coords="225,100,238,104,386,147,384,152,236,109,224,106"/>
-<area shape="poly" title=" " alt="" coords="190,108,171,138,154,177,149,198,147,218,151,237,161,254,184,265,227,276,355,293,499,304,617,311,617,317,499,310,354,298,226,281,182,270,158,258,146,239,142,219,143,197,149,175,167,135,185,106"/>
-<area shape="poly" title=" " alt="" coords="718,103,511,153,510,148,717,98"/>
-<area shape="poly" title=" " alt="" coords="753,106,770,134,786,173,793,216,790,237,782,257,768,274,751,288,713,307,711,302,748,284,764,271,777,255,785,236,788,216,781,174,765,136,748,108"/>
-<area shape="rect" title=" " alt="" coords="842,155,917,181"/>
-<area shape="poly" title=" " alt="" coords="767,105,843,145,841,149,765,110"/>
+<area shape="poly" title=" " alt="" coords="287,35,135,78,134,73,285,30"/>
+<area shape="rect" href="_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="170,80,349,107"/>
+<area shape="poly" title=" " alt="" coords="320,34,284,71,280,67,316,31"/>
+<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="374,80,428,107"/>
+<area shape="poly" title=" " alt="" coords="344,31,380,67,376,71,341,34"/>
+<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="452,80,502,107"/>
+<area shape="poly" title=" " alt="" coords="357,30,439,71,437,75,355,35"/>
+<area shape="rect" title=" " alt="" coords="182,155,297,181"/>
+<area shape="poly" title=" " alt="" coords="259,108,250,141,244,139,253,106"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="321,155,518,181"/>
+<area shape="poly" title=" " alt="" coords="407,107,415,139,410,140,402,108"/>
+<area shape="rect" title=" " alt="" coords="186,229,280,256"/>
+<area shape="poly" title=" " alt="" coords="388,184,281,226,279,221,386,179"/>
+<area shape="rect" title=" " alt="" coords="304,229,362,256"/>
+<area shape="poly" title=" " alt="" coords="406,184,361,221,358,217,403,180"/>
+<area shape="rect" title=" " alt="" coords="386,229,453,256"/>
+<area shape="poly" title=" " alt="" coords="422,182,422,214,417,214,417,182"/>
+<area shape="rect" title=" " alt="" coords="478,229,553,256"/>
+<area shape="poly" title=" " alt="" coords="438,180,488,218,485,222,435,184"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="577,229,782,256"/>
+<area shape="poly" title=" " alt="" coords="466,179,620,222,619,227,464,184"/>
+<area shape="rect" title=" " alt="" coords="647,304,712,331"/>
+<area shape="poly" title=" " alt="" coords="682,257,682,288,677,288,677,257"/>
+<area shape="poly" title=" " alt="" coords="469,109,441,144,437,141,465,106"/>
+<area shape="rect" title=" " alt="" coords="542,155,617,181"/>
+<area shape="poly" title=" " alt="" coords="496,105,550,143,547,147,493,109"/>
 </map>
 </div>
 </div><table class="memberdecls">
