@@ -153,13 +153,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
 Macros</h2></td></tr>
-<tr class="memitem:a615aed21aa6825462b7c17b0c238ffe2" id="r_a615aed21aa6825462b7c17b0c238ffe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a615aed21aa6825462b7c17b0c238ffe2">UART_BAUD_RATE</a>&#160;&#160;&#160;9600</td></tr>
+<tr class="memitem:a615aed21aa6825462b7c17b0c238ffe2" id="r_a615aed21aa6825462b7c17b0c238ffe2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a615aed21aa6825462b7c17b0c238ffe2">UART_BAUD_RATE</a>&#160;&#160;&#160;19200</td></tr>
 <tr class="memdesc:a615aed21aa6825462b7c17b0c238ffe2"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART communication baud rate in bits per second.  <br /></td></tr>
 <tr class="memitem:a0b029ff580b042a27aaac4bd2ec925e2" id="r_a0b029ff580b042a27aaac4bd2ec925e2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0b029ff580b042a27aaac4bd2ec925e2">UBRR_VALUE</a>&#160;&#160;&#160;((<a class="el" href="_drink_creator6000___config___c_8h.html#a43bafb28b29491ec7f871319b5a3b2f8">F_CPU</a>/(8UL*<a class="el" href="#a615aed21aa6825462b7c17b0c238ffe2">UART_BAUD_RATE</a>))-1)</td></tr>
 <tr class="memdesc:a0b029ff580b042a27aaac4bd2ec925e2"><td class="mdescLeft">&#160;</td><td class="mdescRight">UART Baud Rate Register value calculated from F_CPU and UART_BAUD_RATE.  <br /></td></tr>
 <tr class="memitem:a05f5d709605c6317c97e4974bec3402a" id="r_a05f5d709605c6317c97e4974bec3402a"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05f5d709605c6317c97e4974bec3402a">UART_TX_BUFFER_SIZE</a>&#160;&#160;&#160;96</td></tr>
 <tr class="memdesc:a05f5d709605c6317c97e4974bec3402a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the UART transmit buffer, in bytes.  <br /></td></tr>
-<tr class="memitem:a5bdd6772c246436bb14377095de79b31" id="r_a5bdd6772c246436bb14377095de79b31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</a>&#160;&#160;&#160;96</td></tr>
+<tr class="memitem:a5bdd6772c246436bb14377095de79b31" id="r_a5bdd6772c246436bb14377095de79b31"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5bdd6772c246436bb14377095de79b31">UART_RX_BUFFER_SIZE</a>&#160;&#160;&#160;4</td></tr>
 <tr class="memdesc:a5bdd6772c246436bb14377095de79b31"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of the UART receive buffer, in bytes.  <br /></td></tr>
 <tr class="memitem:a2af939d9e21ad6bfb7532781850307da" id="r_a2af939d9e21ad6bfb7532781850307da"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2af939d9e21ad6bfb7532781850307da">UART_BUFFER_FULL</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memdesc:a2af939d9e21ad6bfb7532781850307da"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return code indicating UART buffer is full.  <br /></td></tr>
@@ -232,13 +232,13 @@ This driver uses UART0 (USART0) peripheral on the ATmega2560, which has four UAR
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UART_BAUD_RATE&#160;&#160;&#160;9600</td>
+          <td class="memname">#define UART_BAUD_RATE&#160;&#160;&#160;19200</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
 <p>UART communication baud rate in bits per second. </p>
-<p>Default is 9600 bps. </p>
+<p>Default is 115200 bps. </p>
 
 </div>
 </div>
@@ -281,7 +281,7 @@ This driver uses UART0 (USART0) peripheral on the ATmega2560, which has four UAR
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define UART_RX_BUFFER_SIZE&#160;&#160;&#160;96</td>
+          <td class="memname">#define UART_RX_BUFFER_SIZE&#160;&#160;&#160;4</td>
         </tr>
       </table>
 </div><div class="memdoc">

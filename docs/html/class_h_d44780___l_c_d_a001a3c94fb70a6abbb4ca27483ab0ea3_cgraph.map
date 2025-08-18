@@ -1,0 +1,16 @@
+<map id="HD44780_LCD::autoscroll_blocking" name="HD44780_LCD::autoscroll_blocking">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,180,48"/>
+<area shape="rect" id="Node000002" href="$class_h_d44780___l_c_d.html#aa723dd6c37ed4f64357dd799f0bfcf1f" title=" " alt="" coords="228,5,403,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="180,24,212,24,212,29,180,29"/>
+<area shape="rect" id="Node000003" href="$class_h_d44780___l_c_d.html#ad8ab487055211b690cee1e0528a4d209" title=" " alt="" coords="451,13,652,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="403,24,435,24,435,29,403,29"/>
+<area shape="rect" id="Node000004" href="$class_h_d44780___l_c_d.html#ac80b32dd0c2da4f386626bc0a3a7a914" title=" " alt="" coords="700,5,875,48"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="653,24,684,24,684,29,653,29"/>
+<area shape="rect" id="Node000005" href="$class_h_d44780___l_c_d.html#ad0f56d904736df402bb3fc238c859aef" title=" " alt="" coords="1160,5,1361,48"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="875,21,923,20,1112,20,1144,21,1144,26,1112,25,923,25,875,26"/>
+<area shape="rect" id="Node000007" href="$class_h_d44780___l_c_d.html#a44b1be4b7a17256a003d37c4c49a151d" title=" " alt="" coords="923,35,1112,77"/>
+<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="875,35,907,39,907,45,874,40"/>
+<area shape="rect" id="Node000006" href="$i2c__ringbuffer_8c.html#a91bb1859c12fbc7c029b2a5a2309b240" title=" " alt="" coords="1409,5,1586,48"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1362,24,1394,24,1394,29,1362,29"/>
+<area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="1112,42,1144,38,1145,43,1113,47"/>
+</map>

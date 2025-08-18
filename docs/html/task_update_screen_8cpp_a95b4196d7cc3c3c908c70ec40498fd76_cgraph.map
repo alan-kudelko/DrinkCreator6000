@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,81,135,108"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="183,81,293,108"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="135,92,167,92,167,97,135,97"/>
-<area shape="rect" id="Node000003" href="$i2c_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="341,5,496,32"/>
+<area shape="rect" id="Node000003" href="$i2c__ringbuffer_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="341,5,496,32"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="263,78,340,42,357,35,359,40,342,46,266,83"/>
 <area shape="rect" id="Node000004" href="$uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="343,56,494,83"/>
 <area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="293,84,328,79,328,85,294,90"/>

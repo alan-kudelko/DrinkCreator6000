@@ -101,15 +101,21 @@ $(function(){initNavTree('_drink_creator6000___config_8h.html','',''); });
 
 <p>Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables.  
 <a href="#details">More...</a></p>
-<div class="textblock"><code>#include &lt;HD44780_I2C.h&gt;</code><br />
+<div class="textblock"><code>#include &lt;<a class="el" href="_h_d44780___i2_c_8h_source.html">HD44780_I2C.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_m_c_p230_x_x_8h_source.html">MCP230XX.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for DrinkCreator6000_Config.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="_drink_creator6000___config_8h__incl.png" border="0" usemap="#ainclude_2_drink_creator6000___config_8h" loading="lazy" alt=""/></div>
 <map name="ainclude_2_drink_creator6000___config_8h" id="ainclude_2_drink_creator6000___config_8h">
-<area shape="rect" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="5,5,174,48"/>
-<area shape="rect" title=" " alt="" coords="32,96,147,123"/>
-<area shape="poly" title=" " alt="" coords="92,49,92,80,87,80,87,49"/>
+<area shape="rect" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="44,5,212,48"/>
+<area shape="rect" href="_h_d44780___i2_c_8h.html" title="Command and flag definitions for controlling HD44780&#45;based character LCDs via I²C." alt="" coords="5,96,121,123"/>
+<area shape="poly" title=" " alt="" coords="114,50,85,86,81,82,109,47"/>
+<area shape="rect" href="_m_c_p230_x_x_8h.html" title="Class interface and register definitions for MCP23017/MCP23008 I²C GPIO expanders." alt="" coords="144,96,246,123"/>
+<area shape="poly" title=" " alt="" coords="148,47,177,82,173,86,143,50"/>
+<area shape="rect" title=" " alt="" coords="96,171,160,197"/>
+<area shape="poly" title=" " alt="" coords="76,121,109,157,105,161,72,125"/>
+<area shape="poly" title=" " alt="" coords="185,125,152,161,148,157,181,121"/>
 </map>
 </div>
 </div><div class="textblock"><div class="dynheader">
@@ -135,12 +141,13 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
-<tr class="memitem:a139d86ce0992c3f29a438ddef79b693a" id="r_a139d86ce0992c3f29a438ddef79b693a"><td class="memItemLeft" align="right" valign="top">HD44780_LCD&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a139d86ce0992c3f29a438ddef79b693a">lcd</a></td></tr>
+<tr class="memitem:a139d86ce0992c3f29a438ddef79b693a" id="r_a139d86ce0992c3f29a438ddef79b693a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_h_d44780___l_c_d.html">HD44780_LCD</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a139d86ce0992c3f29a438ddef79b693a">lcd</a></td></tr>
+<tr class="memitem:a5898b38d106b66b79121cfd0fbc6575a" id="r_a5898b38d106b66b79121cfd0fbc6575a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="class_m_c_p230_x_x.html">MCP230XX</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5898b38d106b66b79121cfd0fbc6575a">mcp</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables. </p>
 <p>This header defines project-wide configuration macros and declares global C++ objects used across the DrinkCreator6000 project, such as:</p><ul>
-<li>HD44780_LCD controller object</li>
+<li><a class="el" href="class_h_d44780___l_c_d.html">HD44780_LCD</a> controller object</li>
 <li>MCP2300XX I/O expander object</li>
 </ul>
 <dl class="section note"><dt>Note</dt><dd>These are global variables in C++ and accessible from any module including this header. </dd></dl>
@@ -155,7 +162,29 @@ Variables</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">HD44780_LCD lcd</td>
+          <td class="memname"><a class="el" href="class_h_d44780___l_c_d.html">HD44780_LCD</a> lcd</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a5898b38d106b66b79121cfd0fbc6575a" name="a5898b38d106b66b79121cfd0fbc6575a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5898b38d106b66b79121cfd0fbc6575a">&#9670;&#160;</a></span>mcp</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="class_m_c_p230_x_x.html">MCP230XX</a> mcp</td>
         </tr>
       </table>
   </td>

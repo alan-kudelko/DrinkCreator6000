@@ -1,0 +1,7 @@
+<map id="avr_peripherals/i2c/i2c_common.c" name="avr_peripherals/i2c/i2c_common.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,136,48"/>
+<area shape="rect" id="Node000002" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="17,96,124,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,49,73,80,68,80,68,49"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="38,171,103,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,123,73,155,68,155,68,123"/>
+</map>

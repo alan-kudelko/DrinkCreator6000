@@ -1,19 +1,13 @@
 <map id="avr_peripherals/i2c/i2c.h" name="avr_peripherals/i2c/i2c.h">
-<area shape="rect" id="Node000001" title="I2C (TWI) Master driver for AVR (ATmega2560)." alt="" coords="94,5,224,48"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="42,96,116,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="140,50,104,87,100,83,137,47"/>
-<area shape="rect" id="Node000003" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="141,96,337,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="182,47,218,83,214,87,178,50"/>
-<area shape="rect" id="Node000004" title=" " alt="" coords="5,171,100,197"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="208,126,100,167,98,162,206,121"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="124,171,181,197"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="226,125,181,163,177,159,222,121"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="206,171,273,197"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="242,123,242,155,236,155,236,123"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="298,171,373,197"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="257,121,308,159,305,163,254,125"/>
-<area shape="rect" id="Node000008" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="397,171,601,197"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="285,121,440,163,438,169,284,126"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="467,245,531,272"/>
-<area shape="poly" id="edge8_Node000008_Node000009" title=" " alt="" coords="502,198,502,230,496,230,496,198"/>
+<area shape="rect" id="Node000001" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="39,5,169,48"/>
+<area shape="rect" id="Node000002" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="5,171,112,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,49,86,97,69,157,64,155,81,95,95,47"/>
+<area shape="rect" id="Node000004" href="$i2c__ringbuffer_8h.html" title="Non&#45;blocking I2C (TWI) Master driver for AVR (ATmega2560) using a TX ring buffer." alt="" coords="96,96,205,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="118,47,138,81,133,84,114,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="72,245,136,272"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,196,90,231,86,233,64,199"/>
+<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="136,125,88,163,84,159,133,121"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="149,124,126,198,115,232,110,230,121,197,144,122"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="187,171,261,197"/>
+<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="165,121,202,158,198,161,161,125"/>
 </map>

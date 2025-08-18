@@ -1,0 +1,21 @@
+<map id="HD44780_LCD::load_custom_character_blocking" name="HD44780_LCD::load_custom_character_blocking">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,39,198,81"/>
+<area shape="rect" id="Node000002" href="$class_h_d44780___l_c_d.html#a75dfd45f0eebda6a338e2262ea6372b4" title=" " alt="" coords="246,39,428,81"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="198,57,230,57,230,63,198,63"/>
+<area shape="rect" id="Node000003" href="$class_h_d44780___l_c_d.html#aa723dd6c37ed4f64357dd799f0bfcf1f" title=" " alt="" coords="476,5,651,48"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="428,44,460,39,461,44,428,49"/>
+<area shape="rect" id="Node000009" href="$class_h_d44780___l_c_d.html#af09a5f21c99cfd816fec79155ab4d8f7" title=" " alt="" coords="490,72,637,115"/>
+<area shape="poly" id="edge9_Node000002_Node000009" title=" " alt="" coords="428,71,475,78,474,83,428,76"/>
+<area shape="rect" id="Node000004" href="$class_h_d44780___l_c_d.html#ad8ab487055211b690cee1e0528a4d209" title=" " alt="" coords="699,47,901,73"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="652,36,686,41,685,47,651,42"/>
+<area shape="rect" id="Node000005" href="$class_h_d44780___l_c_d.html#ac80b32dd0c2da4f386626bc0a3a7a914" title=" " alt="" coords="949,39,1123,81"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="901,57,933,57,933,63,901,63"/>
+<area shape="rect" id="Node000006" href="$class_h_d44780___l_c_d.html#ad0f56d904736df402bb3fc238c859aef" title=" " alt="" coords="1408,39,1610,81"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1123,54,1171,53,1360,53,1393,54,1392,59,1360,59,1171,59,1124,60"/>
+<area shape="rect" id="Node000008" href="$class_h_d44780___l_c_d.html#a44b1be4b7a17256a003d37c4c49a151d" title=" " alt="" coords="1171,68,1360,111"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="1123,68,1156,73,1155,78,1123,74"/>
+<area shape="rect" id="Node000007" href="$i2c__ringbuffer_8c.html#a91bb1859c12fbc7c029b2a5a2309b240" title=" " alt="" coords="1658,39,1834,81"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="1610,57,1642,57,1642,63,1610,63"/>
+<area shape="poly" id="edge8_Node000008_Node000006" title=" " alt="" coords="1360,75,1392,71,1393,77,1361,81"/>
+<area shape="poly" id="edge10_Node000009_Node000004" title=" " alt="" coords="637,80,685,73,686,79,637,86"/>
+</map>

@@ -8,5 +8,6 @@ var searchData=
   ['e_5frwhite_5fbutton_5',['E_RWHITE_BUTTON',['../_drink_creator6000___config___c_8h.html#a2bc6efaf0e0ade484e854f2722e5cfa1',1,'DrinkCreator6000_Config_C.h']]],
   ['eeprom_5fbootups_5faddr_6',['EEPROM_BOOTUPS_ADDR',['../_drink_creator6000___e_e_p_r_o_m_8h.html#af8679db5ae75dca8a48fbee08f704784',1,'DrinkCreator6000_EEPROM.h']]],
   ['eeprom_5flast_5ferror_5faddr_7',['EEPROM_LAST_ERROR_ADDR',['../_drink_creator6000___e_e_p_r_o_m_8h.html#a3c2e13050f8f413fe4b67673cbd4fc1d',1,'DrinkCreator6000_EEPROM.h']]],
-  ['error_5fid_5fqueue_5fbuffer_5fcount_8',['ERROR_ID_QUEUE_BUFFER_COUNT',['../_drink_creator6000___config___c_8h.html#a53dd37365892a6c8e176d0c5202717f6',1,'DrinkCreator6000_Config_C.h']]]
+  ['en_8',['En',['../_h_d44780___i2_c_8h.html#ab5ef25ebfe582f7bf0d93e2770548e2c',1,'HD44780_I2C.h']]],
+  ['error_5fid_5fqueue_5fbuffer_5fcount_9',['ERROR_ID_QUEUE_BUFFER_COUNT',['../_drink_creator6000___config___c_8h.html#a53dd37365892a6c8e176d0c5202717f6',1,'DrinkCreator6000_Config_C.h']]]
 ];

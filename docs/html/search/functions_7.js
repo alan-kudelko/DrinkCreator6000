@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['lastbootup_5fdump_0',['lastBootup_dump',['../_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1',1,'DrinkCreator6000.cpp']]],
-  ['lasterror_5fdump_1',['lastError_dump',['../_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341',1,'DrinkCreator6000.cpp']]],
-  ['lcd_2',['lcd',['../_drink_creator6000___config_8cpp.html#a96172959f32fea939e72b4133fbc55c4',1,'DrinkCreator6000_Config.cpp']]]
+  ['generateerrorinfo_0',['generateErrorInfo',['../task_error_handler_8cpp.html#ae35084301e72c3a3e89868cc6bf1ff9d',1,'taskErrorHandler.cpp']]],
+  ['getbacklight_5fnon_5fblocking_1',['getBacklight_non_Blocking',['../class_h_d44780___l_c_d.html#a0a10014c068abd642c3ffdca31b409a0',1,'HD44780_LCD']]]
 ];

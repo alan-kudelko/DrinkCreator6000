@@ -1,0 +1,5 @@
+<map id="ISR" name="ISR">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,13,50,40"/>
+<area shape="rect" id="Node000002" href="$i2c__ringbuffer_8c.html#a34466b1132aef1e13135a1a7bcf65ac0" title="Clears the TX buffer until the next address package is found." alt="" coords="98,5,235,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,24,82,24,82,29,50,29"/>
+</map>

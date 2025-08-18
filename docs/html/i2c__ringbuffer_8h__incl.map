@@ -1,0 +1,10 @@
+<map id="avr_peripherals/i2c/i2c_ringbuffer.h" name="avr_peripherals/i2c/i2c_ringbuffer.h">
+<area shape="rect" id="Node000001" title="Non&#45;blocking I2C (TWI) Master driver for AVR (ATmega2560) using a TX ring buffer." alt="" coords="5,5,136,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="58,171,123,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="50,50,37,66,26,84,20,103,24,122,38,142,57,159,53,163,34,146,19,124,15,103,21,82,32,63,46,47"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="33,96,108,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="73,49,73,80,68,80,68,49"/>
+<area shape="rect" id="Node000004" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="132,96,238,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="102,46,156,85,153,89,99,51"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="170,125,121,163,117,159,167,121"/>
+</map>

@@ -14,6 +14,7 @@
     #define _DRINK_CREATOR6000_CONFIG_H_
 
 #include <HD44780_I2C.h>
+#include <MCP230XX.h>
 
 
 // Task stacks and guard zones
@@ -22,6 +23,7 @@
 // LCD dimensions and I2C address
 
 extern HD44780_LCD lcd;
+extern MCP230XX mcp;
 // Screen identifiers and navigation overview
 /*
     Screen transition diagram:

@@ -1,21 +1,25 @@
 <map id="src/DrinkCreator6000_Config.cpp" name="src/DrinkCreator6000_Config.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="148,5,293,48"/>
-<area shape="rect" id="Node000002" href="$_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="25,96,205,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="195,51,145,88,142,84,192,46"/>
-<area shape="rect" id="Node000004" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="237,96,433,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="251,46,306,85,303,89,248,51"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="5,171,121,197"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="108,125,83,160,79,157,104,122"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="145,171,240,197"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="311,126,232,166,230,161,309,121"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="264,171,321,197"/>
-<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="330,125,310,159,305,156,325,122"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="345,171,413,197"/>
-<area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="345,122,366,156,361,159,340,125"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="437,171,513,197"/>
-<area shape="poly" id="edge7_Node000004_Node000008" title=" " alt="" coords="361,121,438,161,436,165,358,126"/>
-<area shape="rect" id="Node000009" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="537,171,741,197"/>
-<area shape="poly" id="edge8_Node000004_Node000009" title=" " alt="" coords="389,121,572,164,571,169,388,126"/>
-<area shape="rect" id="Node000010" title=" " alt="" coords="607,245,671,272"/>
-<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="642,198,642,230,636,230,636,198"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="233,5,378,48"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="105,96,285,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="279,51,226,89,223,85,276,46"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="361,96,557,123"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="346,46,423,86,420,91,344,51"/>
+<area shape="rect" id="Node000003" href="$_h_d44780___i2_c_8h.html" title="Command and flag definitions for controlling HD44780&#45;based character LCDs via I²C." alt="" coords="5,171,121,197"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="173,126,100,165,98,161,171,121"/>
+<area shape="rect" id="Node000005" href="$_m_c_p230_x_x_8h.html" title="Class interface and register definitions for MCP23017/MCP23008 I²C GPIO expanders." alt="" coords="144,171,246,197"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="198,123,198,155,192,155,192,123"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="163,245,227,272"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="87,196,160,235,158,240,85,200"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="198,198,198,230,192,230,192,198"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="269,171,364,197"/>
+<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="435,126,356,166,354,161,433,121"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="388,171,445,197"/>
+<area shape="poly" id="edge8_Node000006_Node000008" title=" " alt="" coords="454,125,434,159,429,156,449,122"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="469,171,537,197"/>
+<area shape="poly" id="edge9_Node000006_Node000009" title=" " alt="" coords="469,122,490,156,485,159,464,125"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="561,171,637,197"/>
+<area shape="poly" id="edge10_Node000006_Node000010" title=" " alt="" coords="485,121,562,161,560,165,482,126"/>
+<area shape="rect" id="Node000011" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="661,171,865,197"/>
+<area shape="poly" id="edge11_Node000006_Node000011" title=" " alt="" coords="513,121,696,164,695,169,512,126"/>
+<area shape="poly" id="edge12_Node000011_Node000004" title=" " alt="" coords="664,201,243,254,242,249,663,195"/>
 </map>

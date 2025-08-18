@@ -1,6 +1,6 @@
 <map id="printI2C_status" name="printI2C_status">
 <area shape="rect" id="Node000001" title=" " alt="" coords="5,81,116,108"/>
-<area shape="rect" id="Node000002" href="$i2c_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="164,5,319,32"/>
+<area shape="rect" id="Node000002" href="$i2c__ringbuffer_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="164,5,319,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,78,163,42,179,35,181,40,165,46,88,83"/>
 <area shape="rect" id="Node000003" href="$uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="166,56,317,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,84,150,79,151,85,117,90"/>

@@ -1,5 +1,5 @@
 <map id="include/taskShowSystemInfo.h" name="include/taskShowSystemInfo.h">
-<area shape="rect" id="Node000001" title="FreeRTOS task for displaying system information on the user interface." alt="" coords="6,5,209,32"/>
+<area shape="rect" id="Node000001" title="Task for displaying system information on the user interface." alt="" coords="6,5,209,32"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="5,80,210,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="110,33,110,64,105,64,105,33"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="75,155,140,181"/>

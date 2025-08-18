@@ -1,0 +1,7 @@
+<map id="i2c_enable" name="i2c_enable">
+<area shape="rect" id="Node000001" title="Enable I²C hardware and Timer4." alt="" coords="271,5,354,32"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="99,5,223,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="255,21,224,21,224,16,255,16"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>

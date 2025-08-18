@@ -94,6 +94,6 @@
 <area shape="poly" id="edge56_Node000037_Node000005" title=" " alt="" coords="517,655,654,638,736,623,817,604,886,579,888,584,818,609,737,629,655,643,518,661"/>
 <area shape="poly" id="edge57_Node000037_Node000006" title=" " alt="" coords="516,651,552,635,596,601,635,560,690,485,694,488,639,564,600,605,555,640,518,655"/>
 <area shape="poly" id="edge55_Node000037_Node000024" title=" " alt="" coords="518,670,555,686,570,699,579,712,588,725,603,736,621,745,618,750,600,741,584,728,575,715,566,702,552,690,516,675"/>
-<area shape="rect" id="Node000038" href="$i2c_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="632,700,787,727"/>
+<area shape="rect" id="Node000038" href="$i2c__ringbuffer_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="632,700,787,727"/>
 <area shape="poly" id="edge54_Node000037_Node000038" title=" " alt="" coords="518,671,626,694,625,699,517,677"/>
 </map>

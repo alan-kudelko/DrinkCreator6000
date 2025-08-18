@@ -36,6 +36,6 @@ var searchData=
   ['updatememoryusage_33',['updateMemoryUsage',['../_drink_creator6000___ram_stats_8h.html#a8b8422d6157a1281dab2d0103add13bc',1,'updateMemoryUsage(void):&#160;DrinkCreator6000_RamStats.c'],['../task_serial_system_debugger_8h.html#a2c819460e6318dac5f4d6c68e9c94850',1,'updateMemoryUsage():&#160;DrinkCreator6000_RamStats.c'],['../_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc',1,'updateMemoryUsage(void):&#160;DrinkCreator6000_RamStats.c'],['../task_show_system_info_8cpp.html#a8b8422d6157a1281dab2d0103add13bc',1,'updateMemoryUsage(void):&#160;DrinkCreator6000_RamStats.c']]],
   ['updatescreenstack_34',['updateScreenStack',['../_drink_creator6000___config___c_8h.html#ab82c923d8813d9cb60dddc152809687c',1,'DrinkCreator6000_Config_C.h']]],
   ['updatescreentcb_35',['updateScreenTCB',['../_drink_creator6000___config___c_8h.html#a96cc3a3225f0971cc28bad2dfc451aea',1,'DrinkCreator6000_Config_C.h']]],
-  ['use_5fring_5fbuffer_5ffor_5fblocking_5foperations_36',['USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS',['../i2c_8h.html#af57ab7f973e3ed896331baaafb995918',1,'i2c.h']]],
+  ['use_5fring_5fbuffer_5ffor_5fi2c_5foperations_36',['USE_RING_BUFFER_FOR_I2C_OPERATIONS',['../i2c__common_8h.html#aae8d092c55c1873cd1d3e3861c19f3d6',1,'i2c_common.h']]],
   ['used_37',['used',['../_drink_creator6000___init_8h.html#ae42ac974af50b5cbffacf3006fe8a812',1,'DrinkCreator6000_Init.h']]]
 ];

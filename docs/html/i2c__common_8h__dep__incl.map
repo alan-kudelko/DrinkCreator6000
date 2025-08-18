@@ -1,0 +1,25 @@
+<map id="avr_peripherals/i2c/i2c_common.h" name="avr_peripherals/i2c/i2c_common.h">
+<area shape="rect" id="Node000001" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="390,5,521,48"/>
+<area shape="rect" id="Node000002" href="$i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="313,187,443,229"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="375,37,309,45,241,58,183,75,162,86,148,98,138,118,142,135,156,151,180,164,244,184,313,197,312,202,243,189,178,169,153,155,137,138,133,117,144,94,159,81,181,70,240,53,308,40,375,32"/>
+<area shape="rect" id="Node000007" href="$i2c__blocking_8c.html" title=" " alt="" coords="158,96,289,139"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="388,56,279,98,277,93,386,51"/>
+<area shape="rect" id="Node000008" href="$i2c__blocking_8h.html" title="Blocking I2C (TWI) Master operations for AVR (ATmega2560) without TX buffer." alt="" coords="313,96,443,139"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="430,62,398,97,394,94,426,58"/>
+<area shape="rect" id="Node000009" href="$i2c__common_8c.html" title=" " alt="" coords="468,96,598,139"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="485,58,517,94,513,97,481,62"/>
+<area shape="rect" id="Node000010" href="$i2c__ringbuffer_8c.html" title=" " alt="" coords="673,187,803,229"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="536,32,603,40,671,53,730,70,752,81,767,94,776,117,775,142,766,167,755,187,750,185,761,164,770,141,771,118,763,98,749,86,728,75,670,58,602,45,536,37"/>
+<area shape="rect" id="Node000011" href="$i2c__ringbuffer_8h.html" title="Non&#45;blocking I2C (TWI) Master driver for AVR (ATmega2560) using a TX ring buffer." alt="" coords="622,96,753,139"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="525,51,634,93,632,98,523,56"/>
+<area shape="rect" id="Node000003" href="$_h_d44780___i2_c_8cpp.html" title=" " alt="" coords="5,285,178,312"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="299,236,133,287,132,282,297,231"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="202,285,373,312"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="348,242,302,287,298,283,344,238"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___init_8cpp.html" title=" " alt="" coords="396,277,542,320"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="412,238,450,275,446,279,408,242"/>
+<area shape="rect" id="Node000006" href="$task_update_screen_8cpp.html" title=" " alt="" coords="566,285,742,312"/>
+<area shape="poly" id="edge5_Node000002_Node000006" title=" " alt="" coords="458,232,615,282,614,287,456,237"/>
+<area shape="poly" id="edge11_Node000011_Node000002" title=" " alt="" coords="608,144,444,191,443,185,607,139"/>
+<area shape="poly" id="edge12_Node000011_Node000010" title=" " alt="" coords="709,151,729,185,724,188,705,154"/>
+</map>

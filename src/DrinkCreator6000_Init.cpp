@@ -171,6 +171,7 @@ void initializeHardware(){
 ////////////////////////////////////////////////////////////////// Shift register init
 ////////////////////////////////////////////////////////////////// Thermometer init
 }
+
 void initializeInterrupts(void){
     // Yet to be implemented
     uart_puts_P_blocking(msg_InterruptsAttached);

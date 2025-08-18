@@ -16,6 +16,8 @@
     "freertosconfig.h": "c",
     "drinkcreator6000_config.h": "c",
     "taskselectdrink.h": "c",
-    "taskmain.h": "c"
+    "taskmain.h": "c",
+    "i2c_ringbuffer.h": "c",
+    "stdint.h": "c"
   }
 }

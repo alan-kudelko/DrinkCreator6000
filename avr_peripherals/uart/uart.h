@@ -21,9 +21,9 @@
  * @def UART_BAUD_RATE
  * @brief UART communication baud rate in bits per second.
  *
- * Default is 9600 bps.
+ * Default is 115200 bps.
  */
-#define UART_BAUD_RATE       9600
+#define UART_BAUD_RATE       19200
 /**
  * @def UBRR_VALUE
  * @brief UART Baud Rate Register value calculated from F_CPU and UART_BAUD_RATE.
@@ -40,7 +40,7 @@
  * @def UART_RX_BUFFER_SIZE
  * @brief Size of the UART receive buffer, in bytes.
  */
-#define UART_RX_BUFFER_SIZE 96
+#define UART_RX_BUFFER_SIZE 4
 /**
  * @typedef uart_tx_buf_index_t
  * @brief Index type for TX buffer positions.

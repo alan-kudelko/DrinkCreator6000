@@ -50,7 +50,11 @@ void lastBootup_dump(const uint16_t*bootup){
   uart_putc_blocking('\n');
 }
 void normalStart(){
-  taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
+  char buffer[configMAX_TASK_NAME_LEN]={0};
+
+  strncpy_P(buffer,taskErrorHandler_name,configMAX_TASK_NAME_LEN);
+
+  taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,buffer,TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
   taskHandles[TASK_SERIAL_DEBUGGER]=xTaskCreateStatic(taskSerialSystemDebugger,"STACK DEBUG"  ,TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE ,NULL,1,serialSystemDebuggerStack,&serialSystemDebuggerTCB); // 1
   taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,"MAIN"         ,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
   taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput           ,"READ INPUT"   ,TASK_READ_INPUT_STACK_SIZE             ,NULL,2,readInputStack           ,&readInputTCB);            // 3
@@ -107,6 +111,7 @@ void calibrateIdleLoop(){
 //////////////////////////////////////////////////////////////////
 
 void printI2C_status(){
+      #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
       uart_puts_blocking("Stan ring buffera (is empty):");
       uart_put_hex_blocking(i2c_tx_buffer_is_empty());
       uart_putc_blocking('\n');
@@ -123,6 +128,7 @@ void printI2C_status(){
       uart_put_hex_blocking(i2c_tx_buffer_tail);
       uart_putc_blocking('\n');
 
+      #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
       uart_puts_blocking("Liczba bledow transmisji i2c: ");
       uart_puts_blocking("Arbitracja: ");
       uart_put_hex_blocking(i2c_error_counters.arbitration_lost);

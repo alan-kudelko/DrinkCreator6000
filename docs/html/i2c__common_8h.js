@@ -1,0 +1,26 @@
+var i2c__common_8h =
+[
+    [ "I2C_ErrorCounters_t", "struct_i2_c___error_counters__t.html", "struct_i2_c___error_counters__t" ],
+    [ "I2C_FREQ", "i2c__common_8h.html#a8b7500a141450a9df212017430c0df9e", null ],
+    [ "I2C_READ_ACK", "i2c__common_8h.html#a19e4e88cd63be86367db44d69c18bd40", null ],
+    [ "I2C_READ_NACK", "i2c__common_8h.html#a77e78912d056ed106653c6ae19f983b3", null ],
+    [ "READ_MODE", "i2c__common_8h.html#a064cc7153fdb5596b2079d865dd9e055", null ],
+    [ "TW_BUS_ERROR", "i2c__common_8h.html#a90d373160b1d0a3f0c454af83c57df71", null ],
+    [ "TW_MR_DATA_ACK", "i2c__common_8h.html#a3c8c79b2ecb8d22358839890161cc33b", null ],
+    [ "TW_MR_DATA_NACK", "i2c__common_8h.html#a532f0ffa12f684346c74a5cbec15950e", null ],
+    [ "TW_MR_SLA_ACK", "i2c__common_8h.html#ac16504b87d15d83b97bb0ce61577bb40", null ],
+    [ "TW_MR_SLA_NACK", "i2c__common_8h.html#a655325b6f8a1818103b126cc3774d8e8", null ],
+    [ "TW_MT_DATA_ACK", "i2c__common_8h.html#a4c28186053b5298305b131ad3e1111f7", null ],
+    [ "TW_MT_DATA_NACK", "i2c__common_8h.html#a91c107a74d268f8578d866ed1bbbd4f3", null ],
+    [ "TW_MT_SLA_ACK", "i2c__common_8h.html#a85cae14b4190042335d25ed9a1b72369", null ],
+    [ "TW_MT_SLA_NACK", "i2c__common_8h.html#aca64b973c51d6548a962c1d7cae0663e", null ],
+    [ "TW_NO_INFO", "i2c__common_8h.html#abcff70642634cb53e9d8e93872f70c90", null ],
+    [ "TW_REP_START", "i2c__common_8h.html#a8dce3e4b7e35355a8add9ed63d1fa3ab", null ],
+    [ "TW_START", "i2c__common_8h.html#a8ec630c2063d0353c53d140b99382d80", null ],
+    [ "TW_STATUS_MASK", "i2c__common_8h.html#a8d3aca0acc182f459a51797321728168", null ],
+    [ "TW_STO", "i2c__common_8h.html#aa6cdedd1ab9925e4b4459b1f055e7ed7", null ],
+    [ "TWBR_VALUE", "i2c__common_8h.html#a878f90cbeadf645d3c751158e246397f", null ],
+    [ "USE_RING_BUFFER_FOR_I2C_OPERATIONS", "i2c__common_8h.html#aae8d092c55c1873cd1d3e3861c19f3d6", null ],
+    [ "WRITE_MODE", "i2c__common_8h.html#aa2fe33f497c74e0b5a72f36f121b2ef0", null ],
+    [ "i2c_error_counters", "i2c__common_8h.html#af0c4e2f4e0af62fc7bc45e616dd761d5", null ]
+];
