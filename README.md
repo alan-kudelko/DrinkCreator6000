@@ -602,7 +602,7 @@ MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the free
 | Q7.2       | Freezer fan        | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
 | Q8         | Radiator fans      | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
 
-**Note:** All calculations assume $V_{GS} = 5\,\text{V}$.
+**Note:** All calculations assume $R_{DS(on)}$ value at $V_{GS} = 5\,\text{V}$.
 
 #### 10.4 PCB Layout
 
