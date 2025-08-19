@@ -637,6 +637,26 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 
 This module serves as the main processing unit in the project, handling all digital I/O, communication, and control tasks.
 
+#### 11.3 Shift Register
+
+![74HC595](Media/ElectricalSchematic/Shift_Register.png)
+
+**74HC595 Shift Register** — Serial-in, parallel-out shift register used to control the drink-dispensing pumps.
+- Decoupling capacitor for stable power supply filtering.  
+- Receives serial data from the microcontroller and converts it to parallel outputs.  
+- Each output is connected to the gate of a MOSFET that switches an individual pump. 
+
+#### 11.4 Keyboard driver
+
+![MCP23008](Media/ElectricalSchematic/MCP23008.png)
+
+**MCP23008 I²C GPIO Expander** — Used as the keyboard controller.  
+- Communicates with the microcontroller via the I²C bus.  
+- The **INT pin** signals when new keypress data is available.  
+- An external pull-up resistor is connected to the INT pin.  
+- Internal pull-ups on the GPIO pins can be enabled via the MCP23008 configuration registers, so no external pull-ups are needed for the keyboard lines.  
+- Reads the status of the keys and provides it to the microcontroller for processing.
+
 
 
 ---
