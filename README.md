@@ -558,7 +558,7 @@ Therefore, the amount of free memory available in the system is calculated as:
   - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
   - **Timer1** drives the buzzer output on pin **PB5**, enabling PWM control for generating sound frequencies.  
 
-### 10.2 Bill of Materials (BOM)
+#### 10.2 Bill of Materials (BOM)
 
 | Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
 |------------------------|-----------------|-------------|----------|-----------------|
@@ -567,9 +567,32 @@ Therefore, the amount of free memory available in the system is calculated as:
 | U3                     | IC              | SOIC-16     | 1        | CH340G          |
 | U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
 | U5                     | MCU             | SOIC-8      | 1        | ATTINY85-20SU   |
+| Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF     |
+| Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF    |
 
 
-#### 10.3 PCB Layout
+#### 10.3 MOSFET Power Dissipation Calculations
+
+This section contains calculations of the power dissipated by the MOSFETs to verify that the selected transistors can safely handle the intended load. Since these MOSFETs will not be driven by a PWM signal, switching losses are not considered; only conduction losses due to RDS(on) are included.
+The power dissipated on a MOSFET can be calculated using the conduction losses formula:
+P_D = I_D^2 × R_DS(on)
+
+Where:
+- P_D – power dissipated on the MOSFET [W]
+- I_D – drain current through the MOSFET [A]
+- R_DS(on) – MOSFET on-resistance at the given gate-source voltage [Ω]
+
+##### 10.3.1 MOSFETs Q1, Q2
+
+MOSFETs Q1 and Q2 will control the Peltier elements, each drawing 6 A at 12 V. Therefore, it is crucial that these transistors exhibit minimal power dissipation, which requires a low RDS(on). The calculations in this section are intended to confirm that the MOSFETs will operate safely under full load without excessive heating.
+
+
+
+
+
+#### 10.4 PCB Layout
+
+
 
 Preview of the custom-designed AVR board used in the project:
 
