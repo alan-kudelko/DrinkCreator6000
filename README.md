@@ -583,23 +583,26 @@ Where:
 - $I_D$ – drain current through the MOSFET [A]
 - $R_{DS(on)}$ – MOSFET on-resistance at the given gate-source voltage [Ω]
 
-##### 10.3.1 MOSFETs Q1, Q2
-
 MOSFETs Q1 and Q2 will control the Peltier elements, each drawing $I_D = 6\text{A}$ at $V_{DS} = 12\text{V}$. Therefore, it is crucial that these transistors exhibit minimal power dissipation, which requires a low  $R_{DS(on)}$. The calculations in this section are intended to confirm that the MOSFETs will operate safely under full load without excessive heating.
 
-##### 10.3.2 MOSFETs Q3 - Q8
+MOSFETS Q3 - Q7.1 controll the pumps which are powered by $V_{DS} = 12\text{V}$ and have a rated power of $P = 3\text{W}$, which corresponds to a current of approximately $I_D = 250\text{mA}$.
 
-The pumps are powered by $V_{DS} = 12\text{V}$ and have a rated power of $P = 3\text{W}$, which corresponds to a current of approximately $I_D = 250\text{mA}$
-
-The gate-source voltage $V_{GS}$ is $5\,\text{V}$. From the $\text{R}_{DS(on)}$ vs $V_{GS}$ curve, the on-resistance can be read as below $100\,\text{m}\Omega$. Using this value with a safety margin, we calculate the voltage drop across the MOSFET: $V_{DS} = I_D \cdot R_{DS(on)} \lesssim 0.25\,\text{A} \cdot 0.1\,\Omega = 0.025\,\text{V}$.
-
-The corresponding power dissipation in the MOSFET is $P_D = I_D^2 \cdot R_{DS(on)} \lesssim (0.25\,\text{A})^2 \cdot 0.1\,\Omega = 6.25\,\text{mW}$.
-
-This confirms that MOSFETs Q3–Q6 will operate safely under full load with negligible heating.
+MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the freezer, which are also powered by $V_{DS} = 12\text{V}$ and consume around $I_D = 100\text{mA}$ each.
 
 
+| Transistor | Function           | Current (A) | R<sub>DS(on)</sub> (Ω) | Power Loss (P<sub>D</sub>) | Max Power Loss (P<sub>D,max</sub>) |
+|------------|--------------------|------------|------------------------|----------------------------|-----------------------------------|
+| Q1         | Peltier element 1  | 6          | 0.008                  | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q2         | Peltier element 2  | 6          | 0.008                  | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q3         | Pump 1, 2          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q4         | Pump 3, 4          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q5         | Pump 5, 6          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q6         | Pump 7, 8          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q7.1       | Circulation pump   | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q7.2       | Freezer fan        | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Q8         | Radiator fans      | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
 
-
+**Note:** All calculations assume $V_{GS} = 5\,\text{V}$.
 
 #### 10.4 PCB Layout
 
