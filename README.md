@@ -574,8 +574,9 @@ Therefore, the amount of free memory available in the system is calculated as:
 #### 10.3 MOSFET Power Dissipation Calculations
 
 This section contains calculations of the power dissipated by the MOSFETs to verify that the selected transistors can safely handle the intended load. Since these MOSFETs will not be driven by a PWM signal, switching losses are not considered; only conduction losses due to RDS(on) are included.
+
 The power dissipated on a MOSFET can be calculated using the conduction losses formula:
-P_D = I_D^2 × R_DS(on)
+$P_D = I_D^2 \cdot R_{DS(on)}$
 
 Where:
 - P_D – power dissipated on the MOSFET [W]
