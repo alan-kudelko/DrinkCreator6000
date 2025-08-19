@@ -561,7 +561,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 | Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
 |------------------------|-----------------|-------------|----------|-----------------|
-| U1                     | MCU             | TQFP-64     | 1        | ATmega2560      |
+| U1                     | MCU             | TQFP-64     | 1        | ATmega2561      |
 | U2                     | IC              | SOIC-16     | 1        | 74HC595         |
 | U3                     | IC              | SOIC-16     | 1        | CH340G          |
 | U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
@@ -618,17 +618,17 @@ Preview of the custom-designed AVR board used in the project:
 ### 11. 🔌 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
 
-#### 11.1 USB Port with UART converter for ATmega2560
+#### 11.1 USB Port with UART converter for ATmega2561
 
 ![USB Port](Media/ElectricalSchematic/USB_UART.png)
 
-**USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2560 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
+**USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2561 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
 
-#### 11.2 ATmega2560
+#### 11.2 ATmega2561
 
-![ATmega2560](Media/ElectricalSchematic/ATmega2560.png)
+![ATmega2561](Media/ElectricalSchematic/ATmega2560.png)
 
-**ATmega2560 Microcontroller Module** — Central microcontroller of the board. Features include:  
+**ATmega2561 Microcontroller Module** — Central microcontroller of the board. Features include:  
 - Decoupling capacitors for stable power supply filtering.  
 - Connection to an external crystal oscillator with its load capacitors for precise clocking.  
 - Reset button for manual reset of the MCU.
