@@ -585,13 +585,13 @@ Where:
 
 ##### 10.3.1 MOSFETs Q1, Q2
 
-MOSFETs Q1 and Q2 will control the Peltier elements, each drawing $I_D = 6 A$ at $V_{DS} = 12 V$. Therefore, it is crucial that these transistors exhibit minimal power dissipation, which requires a low RDS(on). The calculations in this section are intended to confirm that the MOSFETs will operate safely under full load without excessive heating.
+MOSFETs Q1 and Q2 will control the Peltier elements, each drawing $I_D = 6 \text{A}$ at $V_{DS} = 12 \text{V}$. Therefore, it is crucial that these transistors exhibit minimal power dissipation, which requires a low  $R_{DS(on})$. The calculations in this section are intended to confirm that the MOSFETs will operate safely under full load without excessive heating.
 
 ##### 10.3.2 MOSFETs Q3 - Q8
 
 ### Calculations for MOSFETs Q3–Q6
 
-The pumps are powered by 12 V and have a rated power of 3 W, which corresponds to a current of approximately $I_D = 250$ mA
+The pumps are powered by $V_{DS} = 12 \text{V}$ and have a rated power of $P = 3 \text{W}$, which corresponds to a current of approximately $I_D = 250 \text{mA}$
 
 The gate-source voltage $V_{GS}$ is $5\,\text{V}$. From the $\text{R}_{DS(on)}$ vs $V_{GS}$ curve, the on-resistance can be read as below $100\,\text{m}\Omega$. Using this value with a safety margin, we calculate the voltage drop across the MOSFET: $V_{DS} = I_D \cdot R_{DS(on)} \lesssim 0.25\,\text{A} \cdot 0.1\,\Omega = 0.025\,\text{V}$.
 
