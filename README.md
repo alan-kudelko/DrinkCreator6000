@@ -551,7 +551,6 @@ Therefore, the amount of free memory available in the system is calculated as:
 | PD6 (T1)           | 🟢 LED Ring DI |
 | PD7 (T0)           | 🟢 LED Ring DO |
 
-
 *Note:*  
 - Timer usage in the system:  
   - **Timer2** is used by FreeRTOS for the system tick. This provides a precise periodic interrupt to drive task scheduling and timing functions.  
@@ -569,6 +568,9 @@ Therefore, the amount of free memory available in the system is calculated as:
 | U5                     | MCU             | SOIC-8      | 1        | ATTINY85-20SU   |
 | Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF     |
 | Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF    |
+| X1                | Crystal Oscillator   | HC-49/U     | 1        | 16 MHz          |
+| X2                | Crystal Oscillator   | HC-49/U     | 1        | 12 MHz          |
+
 
 
 #### 10.3 MOSFET Power Dissipation Calculations
@@ -606,8 +608,6 @@ MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the free
 
 #### 10.4 PCB Layout
 
-
-
 Preview of the custom-designed AVR board used in the project:
 
 ![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
@@ -617,6 +617,10 @@ Preview of the custom-designed AVR board used in the project:
 
 ### 11. 🔌 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
+
+#### 11.1 USB port with UART converter for ATmega2560
+
+![USB Port](Media/ElectricalSchematic/USB_UART.png)
 
 ---
 
