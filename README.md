@@ -512,7 +512,83 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 ---
 
-### 10. 🧩 PCB Layout  
+### 10. 🧩 PCB
+
+#### 10.1 MCU Pinout (TQFP-64 ATmega2560)
+
+| Pin | Usage      |
+|-----|------------|
+| PE0 (RXD0/PCINT8)  | Unused |
+| PE1 (TXD0)         | Unused |
+| PE2 (XCK0/AIN0)    | Unused |
+| PE3 (OC3A/AIN1)    | Unused |
+| PE4 (OC3B/INT4)    | Unused |
+| PE5 (OC3C/INT5)    | Unused |
+| PE6 (T3/INT6)      | Unused |
+| PE7 (ICP3/INT7)    | Unused |
+| VCC                | Power  |
+| GND                | Ground |
+| PB0 (SS/PCINT0)    | Unused |
+| PB1 (SCK/PCINT1)   | Unused |
+| PB2 (MOSI/PCINT2)  | Unused |
+| PB3 (MISO/PCINT3)  | Unused |
+| PB4 (OC2A/PCINT4)  | Unused |
+| PB5 (OC1A/PCINT5)  | Unused |
+| PB6 (OC1B/PCINT6)  | Unused |
+| PB7 (OC0A/OC1C/PCINT7) | Unused |
+| PG3 (TOSC2)        | Unused |
+| PG4 (TOSC1)        | Unused |
+| RESET              | Reset  |
+| VCC                | Power  |
+| GND                | Ground |
+| XTAL2              | Crystal |
+| XTAL1              | Crystal |
+| PL0 (ICP4)         | Unused |
+| PL1 (OC5A)         | Unused |
+| PL2 (OC5B)         | Unused |
+| PL3 (OC5C)         | Unused |
+| PL4 (OC5D/T5)      | Unused |
+| PL5 (OC5E)         | Unused |
+| PL6 (OC5F)         | Unused |
+| PL7 (OC5G)         | Unused |
+| PD0 (SCL/INT0)     | Unused |
+| PD1 (SDA/INT1)     | Unused |
+| PD2 (RXD1/INT2)    | Unused |
+| PD3 (TXD1/INT3)    | Unused |
+| PD4 (ICP1)         | Unused |
+| PD5 (XCK1)         | Unused |
+| PD6 (T1)           | Unused |
+| PD7 (T0)           | Unused |
+| PG0 (WR)           | Unused |
+| PG1 (RD)           | Unused |
+| PC0 (A8)           | Unused |
+| PC1 (A9)           | Unused |
+| PC2 (A10)          | Unused |
+| PC3 (A11)          | Unused |
+| PC4 (A12)          | Unused |
+| PC5 (A13)          | Unused |
+| PC6 (A14)          | Unused |
+| PC7 (A15)          | Unused |
+| PJ0 (RXD3/PCINT9)  | Unused |
+| PJ1 (TXD3/PCINT10) | Unused |
+| PJ2 (XCK3/PCINT11) | Unused |
+| PJ3 (PCINT12)      | Unused |
+| PJ4 (PCINT13)      | Unused |
+| PJ5 (PCINT14)      | Unused |
+| PJ6 (PCINT15)      | Unused |
+| PG2 (ALE)          | Unused |
+| PA7 (AD7)          | Unused |
+| PA6 (AD6)          | Unused |
+| PA5 (AD5)          | Unused |
+| PA4 (AD4)          | Unused |
+| PA3 (AD3)          | Unused |
+| PA2 (AD2)          | Unused |
+| PA1 (AD1)          | Unused |
+| PA0 (AD0)          | Unused |
+
+
+#### 10.2 PCB Layout
+
 Preview of the custom-designed AVR board used in the project:
 
 ![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
