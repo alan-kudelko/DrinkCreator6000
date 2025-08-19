@@ -590,17 +590,17 @@ MOSFETS Q3 - Q7.1 controll the pumps which are powered by $V_{DS} = 12\text{V}$ 
 MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the freezer, which are also powered by $V_{DS} = 12\text{V}$ and consume around $I_D = 100\text{mA}$ each.
 
 
-| Transistor | Function           | Current (A) | R<sub>DS(on)</sub> (Ω) | Power Loss (P<sub>D</sub>) | Max Power Loss (P<sub>D,max</sub>) |
-|------------|--------------------|------------|------------------------|----------------------------|-----------------------------------|
-| Q1         | Peltier element 1  | 6          | 0.008                  | $P_D = I_D^2 \cdot R_{DS(on)}$ | $P_{D_{MAX}} = 2\text{W} |
-| Q2         | Peltier element 2  | 6          | 0.008                  | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q3         | Pump 1, 2          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q4         | Pump 3, 4          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q5         | Pump 5, 6          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q6         | Pump 7, 8          | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q7.1       | Circulation pump   | 0.25       | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q7.2       | Freezer fan        | 0.100      | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
-| Q8         | Radiator fans      | 0.100      | 0.1                    | $P_D = I_D^2 \cdot R_{DS(on)}$ | TBD |
+| Transistor | Function           | Current [A] | R<sub>DS(on)</sub> [Ω] | Power Loss (P<sub>D</sub>) [W] | Max Power Loss (P<sub>D,max</sub>) [W] | Temperature rise [°C] |
+|------------|--------------------|------------|------------------------|----------------------------|-----------------------------------|--------------------------------|
+| Q1         | Peltier element 1  | 6          | 0.03                   | 1.1 | 125 | 68 |
+| Q2         | Peltier element 2  | 6          | 0.03                   | 1.1 | 125 | 68 |
+| Q3         | Pump 1, 2          | 0.25       | 0.1                    | > 0.01 | 2 | Negligible |
+| Q4         | Pump 3, 4          | 0.25       | 0.1                    | > 0.01 | 2 | Negligible |
+| Q5         | Pump 5, 6          | 0.25       | 0.1                    | > 0.01 | 2 | Negligible |
+| Q6         | Pump 7, 8          | 0.25       | 0.1                    | > 0.01 | 2 | Negligible |
+| Q7.1       | Circulation pump   | 0.25       | 0.1                    | > 0.01 | 2 | Negligible |
+| Q7.2       | Freezer fan        | 0.100      | 0.1                    | > 0.01 | 2 | Negligible |
+| Q8         | Radiator fans      | 0.100      | 0.1                    | > 0.01 | 2 | Negligible |
 
 **Note:** All calculations assume $R_{DS(on)}$ value at $V_{GS} = 5\,\text{V}$.
 
