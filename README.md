@@ -514,7 +514,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 ### 10. 🧩 PCB
 
-### 10.1 MCU Pinout (TQFP-64 ATmega2560)
+#### 10.1 MCU Pinout (TQFP-64 ATmega2560)
 
 | Pin | Usage |
 |-----|-------|
@@ -558,9 +558,18 @@ Therefore, the amount of free memory available in the system is calculated as:
   - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
   - **Timer1** drives the buzzer output on pin **PB5**, enabling PWM control for generating sound frequencies.  
 
+### 10.2 Bill of Materials (BOM)
+
+| Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
+|------------------------|-----------------|-------------|----------|-----------------|
+| U1                     | MCU             | TQFP-64     | 1        | ATmega2560      |
+| U2                     | IC              | SOIC-16     | 1        | 74HC595         |
+| U3                     | IC              | SOIC-16     | 1        | CH340G          |
+| U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
+| U5                     | MCU             | SOIC-8      | 1        | ATTINY85-20SU   |
 
 
-#### 10.2 PCB Layout
+#### 10.3 PCB Layout
 
 Preview of the custom-designed AVR board used in the project:
 
