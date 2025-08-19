@@ -579,9 +579,9 @@ The power dissipated on a MOSFET can be calculated using the conduction losses f
 $P_D = I_D^2 \cdot R_{DS(on)}$
 
 Where:
-- P_D – power dissipated on the MOSFET [W]
-- I_D – drain current through the MOSFET [A]
-- R_DS(on) – MOSFET on-resistance at the given gate-source voltage [Ω]
+- $P_D$ – power dissipated on the MOSFET [W]
+- $I_D$ – drain current through the MOSFET [A]
+- $R_DS(on)$ – MOSFET on-resistance at the given gate-source voltage [Ω]
 
 ##### 10.3.1 MOSFETs Q1, Q2
 
