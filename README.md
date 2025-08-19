@@ -624,6 +624,21 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 
 **USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2560 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
 
+#### 11.2 ATmega2560
+
+![ATmega2560](Media/ElectricalSchematic/ATmega2560.png)
+
+**ATmega2560 Microcontroller Module** — Central microcontroller of the board. Features include:  
+- Decoupling capacitors for stable power supply filtering.  
+- Connection to an external crystal oscillator with its load capacitors for precise clocking.  
+- Reset button for manual reset of the MCU.
+- Labeled “nets” for organized signal routing in EasyEDA.
+- Diagnostic LED connected to the SCK pin (PB5), used for basic status indication or debugging.
+
+This module serves as the main processing unit in the project, handling all digital I/O, communication, and control tasks.
+
+
+
 ---
 
 ### 12. Additional Notes  
