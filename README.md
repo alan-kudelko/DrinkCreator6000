@@ -514,77 +514,50 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 ### 10. 🧩 PCB
 
-#### 10.1 MCU Pinout (TQFP-64 ATmega2560)
+### 10.1 MCU Pinout (TQFP-64 ATmega2560)
 
-| Pin | Usage      |
-|-----|------------|
-| PE0 (RXD0/PCINT8)  | Unused |
-| PE1 (TXD0)         | Unused |
-| PE2 (XCK0/AIN0)    | Unused |
-| PE3 (OC3A/AIN1)    | Unused |
-| PE4 (OC3B/INT4)    | Unused |
-| PE5 (OC3C/INT5)    | Unused |
-| PE6 (T3/INT6)      | Unused |
-| PE7 (ICP3/INT7)    | Unused |
-| VCC                | Power  |
-| GND                | Ground |
-| PB0 (SS/PCINT0)    | Unused |
-| PB1 (SCK/PCINT1)   | Unused |
-| PB2 (MOSI/PCINT2)  | Unused |
-| PB3 (MISO/PCINT3)  | Unused |
-| PB4 (OC2A/PCINT4)  | Unused |
-| PB5 (OC1A/PCINT5)  | Unused |
-| PB6 (OC1B/PCINT6)  | Unused |
-| PB7 (OC0A/OC1C/PCINT7) | Unused |
-| PG3 (TOSC2)        | Unused |
-| PG4 (TOSC1)        | Unused |
-| RESET              | Reset  |
-| VCC                | Power  |
-| GND                | Ground |
-| XTAL2              | Crystal |
-| XTAL1              | Crystal |
-| PL0 (ICP4)         | Unused |
-| PL1 (OC5A)         | Unused |
-| PL2 (OC5B)         | Unused |
-| PL3 (OC5C)         | Unused |
-| PL4 (OC5D/T5)      | Unused |
-| PL5 (OC5E)         | Unused |
-| PL6 (OC5F)         | Unused |
-| PL7 (OC5G)         | Unused |
-| PD0 (SCL/INT0)     | Unused |
-| PD1 (SDA/INT1)     | Unused |
-| PD2 (RXD1/INT2)    | Unused |
-| PD3 (TXD1/INT3)    | Unused |
-| PD4 (ICP1)         | Unused |
-| PD5 (XCK1)         | Unused |
-| PD6 (T1)           | Unused |
-| PD7 (T0)           | Unused |
-| PG0 (WR)           | Unused |
-| PG1 (RD)           | Unused |
-| PC0 (A8)           | Unused |
-| PC1 (A9)           | Unused |
-| PC2 (A10)          | Unused |
-| PC3 (A11)          | Unused |
-| PC4 (A12)          | Unused |
-| PC5 (A13)          | Unused |
-| PC6 (A14)          | Unused |
-| PC7 (A15)          | Unused |
-| PJ0 (RXD3/PCINT9)  | Unused |
-| PJ1 (TXD3/PCINT10) | Unused |
-| PJ2 (XCK3/PCINT11) | Unused |
-| PJ3 (PCINT12)      | Unused |
-| PJ4 (PCINT13)      | Unused |
-| PJ5 (PCINT14)      | Unused |
-| PJ6 (PCINT15)      | Unused |
-| PG2 (ALE)          | Unused |
-| PA7 (AD7)          | Unused |
-| PA6 (AD6)          | Unused |
-| PA5 (AD5)          | Unused |
-| PA4 (AD4)          | Unused |
-| PA3 (AD3)          | Unused |
-| PA2 (AD2)          | Unused |
-| PA1 (AD1)          | Unused |
-| PA0 (AD0)          | Unused |
+| Pin | Usage |
+|-----|-------|
+| PE0 (RXD0/PCINT8)  | 🟢 USART0 RX / ICSP Serial Data in |
+| PE1 (TXD0)         | 🟢 USART0 TX / ICSP Serial Data out |
+| PE2 (XCK0/AIN0)    | ⚪ Unused |
+| PE3 (OC3A/AIN1)    | 🟢 Radiator fan 1 MOSFET's gate |
+| PE4 (OC3B/INT4)    | 🟢 Radiator fan 2 MOSFET's gate |
+| PE5 (OC3C/INT5)    | 🟢 Cooler fan MOSFET's gate |
+| PE6 (T3/INT6)      | 🟢 Circulation pump MOSFET's gate |
+| PE7 (ICP3/INT7)    | ⚪ Unused |
+| PB0 (SS/PCINT0)    | ⚪ Unused |
+| PB1 (SCK/PCINT1)   | 🟢 ICSP Serial Clock |
+| PB2 (MOSI/PCINT2)  | ⚪ Unused |
+| PB3 (MISO/PCINT3)  | ⚪ Unused |
+| PB4 (OC2A/PCINT4)  | ⚪ Unused |
+| PB5 (OC1A/PCINT5)  | 🟢 Buzzer NPN's base |
+| PB6 (OC1B/PCINT6)  | ⚪ Unused |
+| PB7 (OC0A/OC1C/PCINT7) | ⚪ Unused |
+| PC0 (A8)           | 🟢 74HC595 Serial data input |
+| PC1 (A9)           | 🟢 74HC595 Storage register clock input |
+| PC2 (A10)          | 🟢 74HC595 Shift register clock input |
+| PC3 (A11)          | 🟢 74HC595 Output enable (active LOW) |
+| PC4 (A12)          | ⚪ Unused |
+| PC5 (A13)          | ⚪ Unused |
+| PC6 (A14)          | ⚪ Unused |
+| PC7 (A15)          | ⚪ Unused |
+| PD0 (SCL/INT0)     | 🔵 I2C SCL |
+| PD1 (SDA/INT1)     | 🔵 I2C SDA |	
+| PD2 (RXD1/INT2)    | 🟢 MCP23008 INT |
+| PD3 (TXD1/INT3)    | 🟢 MCP23008 RESET |
+| PD4 (ICP1)         | 🟢 Peltier element 1 MOSFET's gate |
+| PD5 (XCK1)         | 🟢 Peltier element 2 MOSFET's gate |
+| PD6 (T1)           | 🟢 LED Ring DI |
+| PD7 (T0)           | 🟢 LED Ring DO |
+
+
+*Note:*  
+- Timer usage in the system:  
+  - **Timer2** is used by FreeRTOS for the system tick. This provides a precise periodic interrupt to drive task scheduling and timing functions.  
+  - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
+  - **Timer1** drives the buzzer output on pin **PB5**, enabling PWM control for generating sound frequencies.  
+
 
 
 #### 10.2 PCB Layout
