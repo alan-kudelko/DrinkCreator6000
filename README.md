@@ -618,9 +618,11 @@ Preview of the custom-designed AVR board used in the project:
 ### 11. 🔌 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
 
-#### 11.1 USB port with UART converter for ATmega2560
+#### 11.1 USB Port with UART converter for ATmega2560
 
 ![USB Port](Media/ElectricalSchematic/USB_UART.png)
+
+**USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2560 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
 
 ---
 
