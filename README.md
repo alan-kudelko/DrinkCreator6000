@@ -203,7 +203,7 @@ Screen transition diagram:
 ### 1. 🛠️ Hardware and Libraries Requirements
 
 #### 1.1 Hardware
-- ATmega2560 / ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
+- ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
 - LCD 2004 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
 - 74HC595 shift register for pump control
 - MCP23017 I²C I/O expander for keypad
@@ -514,7 +514,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 ### 10. 🧩 PCB
 
-#### 10.1 MCU Pinout (TQFP-64 ATmega2560)
+#### 10.1 MCU Pinout (TQFP-64 ATmega2561)
 
 | Pin | Usage |
 |-----|-------|
@@ -532,7 +532,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 | PB3 (MISO/PCINT3)  | ⚪ Unused |
 | PB4 (OC2A/PCINT4)  | ⚪ Unused |
 | PB5 (OC1A/PCINT5)  | 🟢 Buzzer NPN's base |
-| PB6 (OC1B/PCINT6)  | ⚪ Unused |
+| PB6 (OC1B/PCINT6)  | 🔴 Open Drain Slave Data Ready |
 | PB7 (OC0A/OC1C/PCINT7) | ⚪ Unused |
 | PC0 (A8)           | 🟢 74HC595 Serial data input |
 | PC1 (A9)           | 🟢 74HC595 Storage register clock input |
@@ -557,7 +557,35 @@ Therefore, the amount of free memory available in the system is calculated as:
   - **Timer2** is used by FreeRTOS for the system tick. This provides a precise periodic interrupt to drive task scheduling and timing functions.  
   - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
 
-#### 10.2 Bill of Materials (BOM)
+#### 10.2 MCU Pinout (TQFP-32 ATmega328p)
+
+| Pin | Usage |
+|-----|-------|
+| PD0 (RXD)          | 🟢 USART0 RX |
+| PD1 (TXD)          | 🟢 USART0 TX |
+| PD2 (INT0)         | ⚪ Unused |
+| PD3 (OC2B/INT1)    | ⚪ Unused |
+| PD4 (T0/XCK)       | ⚪ Unused |
+| PD5 (OC0B/T1)      | ⚪ Unused |
+| PD6 (OC0A/AIN0)    | ⚪ Unused |
+| PD7 (AIN1)         | ⚪ Unused |
+| PB0 (ICP1/CLKO)    | 🔴 Open Drain Slave Data Ready |
+| PB1 (OC1A)         | 🟢 1-WIRE interface |
+| PB2 (SS/OC1B)      | ⚪ Unused |
+| PB3 (MOSI/OC2A)    | 🟢 ICSP Serial Data in |
+| PB4 (MISO)         | 🟢 ICSP Serial Data out |
+| PB5 (SCK)          | 🟢 ICSP Serial Clock |
+| PC0 (ADC0)         | ⚪ Unused |
+| PC1 (ADC1)         | ⚪ Unused |
+| PC2 (ADC2)         | ⚪ Unused |
+| PC3 (ADC3)         | ⚪ Unused |
+| PC4 (ADC4/SDA)     | 🔵 I2C SDA |
+| PC5 (ADC5/SCL)     | 🔵 I2C SCL |
+
+*Note:* 
+- PB0 is used to indicate that thermometers data is ready to read by master IC (ATmega2561)
+
+#### 10.3 Bill of Materials (BOM)
 
 | Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
 |------------------------|-----------------|-------------|----------|-----------------|
@@ -565,7 +593,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 | U2                     | IC              | SOIC-16     | 1        | 74HC595         |
 | U3                     | IC              | SOIC-16     | 1        | CH340G          |
 | U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
-| U5                     | MCU             | SOIC-8      | 1        | ATTINY84A-SSU   |
+| U5                     | MCU             | TQFP-32     | 1        | ATmega328PB-AUR   |
 | Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF or other with low RDS(on) resistance   |
 | Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF    |
 | X1                | Crystal Oscillator   | HC-49/U     | 1        | 16 MHz          |
@@ -573,7 +601,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 
 
-#### 10.3 MOSFET Power Dissipation Calculations
+#### 10.4 MOSFET Power Dissipation Calculations
 
 This section contains calculations of the power dissipated by the MOSFETs to verify that the selected transistors can safely handle the intended load. Since these MOSFETs will not be driven by a PWM signal, switching losses are not considered; only conduction losses due to RDS(on) are included.
 
@@ -606,7 +634,7 @@ MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the free
 
 **Note:** All calculations assume $R_{DS(on)}$ value at $V_{GS} = 5\,\text{V}$.
 
-#### 10.4 PCB Layout
+#### 10.5 PCB Layout
 
 Preview of the custom-designed AVR board used in the project:
 
@@ -669,7 +697,7 @@ This project implements custom low-level drivers for core communication peripher
 
 ##### UART Driver
 
-- Full-duplex UART driver for the ATmega2560 using the USART0 peripheral.
+- Full-duplex UART driver for the ATmega2561 using the USART0 peripheral.
 - Supports blocking and non-blocking transmit and receive using ring buffers.
 - Implements hardware-level ISRs for transmit buffer empty (`USART_UDRE_vect`) and receive complete (`USART_RX_vect`).
 - Configurable TX and RX buffer sizes via macros.
@@ -678,7 +706,7 @@ This project implements custom low-level drivers for core communication peripher
 
 ##### I2C (TWI) Master Driver
 
-- Implements a master-mode I2C driver for ATmega2560 / ATmega2561.
+- Implements a master-mode I2C driver for ATmega2561.
 - Supports both blocking and non-blocking operations.
 - Uses a transmit buffer for queued data packets including addresses, read/write flags, and data.
 - Managed by ISRs for TWI events (`TWI_vect`) and a timer interrupt (`TIMER4_COMPA_vect`) for precise timing.
