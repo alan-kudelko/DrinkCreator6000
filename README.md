@@ -565,7 +565,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 | U2                     | IC              | SOIC-16     | 1        | 74HC595         |
 | U3                     | IC              | SOIC-16     | 1        | CH340G          |
 | U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
-| U5                     | MCU             | SOIC-8      | 1        | ATTINY85-20SU   |
+| U5                     | MCU             | SOIC-8      | 1        | ATTINY84A-SSU   |
 | Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF or other with low RDS(on) resistance   |
 | Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF    |
 | X1                | Crystal Oscillator   | HC-49/U     | 1        | 16 MHz          |
