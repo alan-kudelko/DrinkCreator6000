@@ -552,10 +552,10 @@ Therefore, the amount of free memory available in the system is calculated as:
 | PD7 (T0)           | 🟢 LED Ring DO |
 
 *Note:*  
-- Timer usage in the system:  
+- Timer usage in the system:
+  - **Timer1** drives the buzzer output on pin **PB5**, enabling PWM control for generating sound frequencies.  
   - **Timer2** is used by FreeRTOS for the system tick. This provides a precise periodic interrupt to drive task scheduling and timing functions.  
   - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
-  - **Timer1** drives the buzzer output on pin **PB5**, enabling PWM control for generating sound frequencies.  
 
 #### 10.2 Bill of Materials (BOM)
 
@@ -566,7 +566,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 | U3                     | IC              | SOIC-16     | 1        | CH340G          |
 | U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
 | U5                     | MCU             | SOIC-8      | 1        | ATTINY85-20SU   |
-| Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF     |
+| Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF or other with low RDS(on) resistance   |
 | Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF    |
 | X1                | Crystal Oscillator   | HC-49/U     | 1        | 16 MHz          |
 | X2                | Crystal Oscillator   | HC-49/U     | 1        | 12 MHz          |
