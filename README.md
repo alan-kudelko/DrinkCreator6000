@@ -538,8 +538,8 @@ Therefore, the amount of free memory available in the system is calculated as:
 | PC1 (A9)           | 🟢 74HC595 Storage register clock input |
 | PC2 (A10)          | 🟢 74HC595 Shift register clock input |
 | PC3 (A11)          | 🟢 74HC595 Output enable (active LOW) |
-| PC4 (A12)          | ⚪ Unused |
-| PC5 (A13)          | ⚪ Unused |
+| PC4 (A12)          | 🟢 LED Ring DI |
+| PC5 (A13)          | 🟢 LED Ring DO |
 | PC6 (A14)          | ⚪ Unused |
 | PC7 (A15)          | ⚪ Unused |
 | PD0 (SCL/INT0)     | 🔵 I2C SCL |
