@@ -1,4 +1,3 @@
-<img width="179" height="17" alt="image" src="https://github.com/user-attachments/assets/63eb217a-533e-4c6a-9e4f-d48671ab2758" /># DrinkCreator6000 – RTOS System on Custom AVR Board
 DrinkCreator6000 is a custom-built, FreeRTOS-based drink dispensing system that runs on an ATmega2561 AVR microcontroller mounted on a custom-made PCB. The entire system has been engineered from scratch, combining real-time software, robust hardware design, and a structured task-based architecture.
 
 The project runs under FreeRTOS with fully static memory allocation, ensuring high predictability and resilience. A custom memory section .tdat, defined in the linker script, is used to allocate all task stacks and their associated guard zones contiguously in SRAM, enabling precise monitoring and deterministic stack overflow detection.
