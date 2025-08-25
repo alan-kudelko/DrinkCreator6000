@@ -1,4 +1,4 @@
-# DrinkCreator6000 – RTOS System on Custom AVR Board
+<img width="179" height="17" alt="image" src="https://github.com/user-attachments/assets/63eb217a-533e-4c6a-9e4f-d48671ab2758" /># DrinkCreator6000 – RTOS System on Custom AVR Board
 DrinkCreator6000 is a custom-built, FreeRTOS-based drink dispensing system that runs on an ATmega2561 AVR microcontroller mounted on a custom-made PCB. The entire system has been engineered from scratch, combining real-time software, robust hardware design, and a structured task-based architecture.
 
 The project runs under FreeRTOS with fully static memory allocation, ensuring high predictability and resilience. A custom memory section .tdat, defined in the linker script, is used to allocate all task stacks and their associated guard zones contiguously in SRAM, enabling precise monitoring and deterministic stack overflow detection.
@@ -589,16 +589,32 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 | Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
 |------------------------|-----------------|-------------|----------|-----------------|
-| U1                     | MCU             | TQFP-64     | 1        | ATmega2561      |
-| U2                     | IC              | SOIC-16     | 1        | 74HC595         |
+| U1                     | MCU             | TQFP-64     | 1        | ATMEGA2561-16AU |
+| U2                     | IC              | SOIC-16     | 1        | 74HC595D(BJ)    |
 | U3                     | IC              | SOIC-16     | 1        | CH340G          |
 | U4                     | IC              | SOIC-18     | 1        | MCP23008T-E/SO  |
-| U5                     | MCU             | TQFP-32     | 1        | ATmega328PB-AUR   |
+| U5                     | MCU             | TQFP-32     | 1        | ATmega328PB-AUR |
 | Q1 - Q2                | N-MOSFET        | TO-220-3    | 2        | IRFB7545PBF or other with low RDS(on) resistance   |
-| Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF    |
+| Q3 - Q8                | Dual N-MOSFET   | SOIC-8      | 6        | IRF7380TRPBF or NTMD4N03R2G |
 | X1                | Crystal Oscillator   | HC-49/U     | 1        | 16 MHz          |
 | X2                | Crystal Oscillator   | HC-49/U     | 1        | 12 MHz          |
-
+| NPN               | BJT Transistor       | TO-92       | 1        | BC547B          |
+| BUZZER            | Buzzer               | Custom      | 1        | HCM1212X        |
+| R2, R5            | Resistor             | R0603       | 2        | 100 Ω           |
+| R39,R40,R3,R4     | Resistor             | R1206       | 4        | 100 Ω           |
+| R10               | Resistor             | R1206       | 1        | 330 Ω           |
+| R15,R16           | Resistor             | R0603       | 2        | 1 kΩ            |
+| R11,R19,R21,R23,R25,R27,R30,R32,R33,R43,R45,R47,R49 | Resistor | R1206 | 13 | 1 kΩ  |
+| R35               | Resistor             | R1206       | 1        | 1.5 kΩ          |
+| R12,R13           | Resistor             | R0603       | 2        | 4.7 kΩ          |
+| R1,R36,R37,R41    | Resistor             | R1206       | 4        | 4.7 kΩ          |
+| R17,R18,R14,R6,R7,R8,R9 | Resistor       | R0603       | 7        | 10 kΩ           |
+| R42,R44,R46,R48,R20,R22,R24,R26,R28,R29,R31,R34 | Resistor | R1206 | 12 | 10 kΩ     |
+| C1,C2,C8,C9       | Capacitor            | C0603       | 4        | 22 pF           |
+| C14,C15,C11,C13,C3,C4,C5,C7 | Capacitor  | C1206       | 8        | 100 nF          |
+| C6                | Capacitor            | CAP-D4.0×F1.5 | 1      | 22 uF           |
+| C12               | Capacitor            | CAP-10*12   | 1        | 270 uF          |
+| LED2,LED3         | LED                  | LED0603     | 2        | Red LEDs        |
 
 
 #### 10.4 MOSFET Power Dissipation Calculations
