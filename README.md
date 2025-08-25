@@ -655,6 +655,9 @@ Preview of the custom-designed AVR board used in the project:
 
 ![PCB Layout - top view](Media/PCB_TOP_VIEW.PNG)
 ![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW.PNG)
+![PCB Layout - top view](Media/PCB_TOP_VIEW_2D.PNG)
+![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW_2D.PNG)
+
 
 ---
 
