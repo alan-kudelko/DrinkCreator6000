@@ -165,6 +165,10 @@ Screen transition diagram:
 
 ### 2. 🛠️ System's architecture overview
 
+Startup sequence of the project
+
+![Startup Sequence](Media/StartupSequence.png)
+
 ### 2.1 System Initialization `.init8`
 
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
