@@ -138,9 +138,15 @@ Screen transition diagram:
 
 ---
 
+## Technical Table of Contents
+- [1. Project Structure & File Overview](#1-project-structure--file-overview)
+  
+---
+
+
 ## ⚙️ Technical Overview
 
-### 1. Project Structure & File Overview  
+### 1. Project Structure & File Overview
 
 	📦 DrinkCreator6000/
  	│
@@ -273,7 +279,7 @@ During normal operation, tasks communicate as illustrated in the diagram below.
 
 ### 4. Navigation & UI Context  
 
-Navigation within the user interface is managed through a global structure named UI_Context. This structure enables switching between different tasks by activating or deactivating them as necessary. The core control and navigation logic is implemented in the taskMain function.
+Navigation within the user interface is managed through a global volatile structure named UI_Context. This structure enables switching between different tasks by activating or deactivating them as necessary. The core control and navigation logic is implemented in the taskMain function.
 
 The UI_Context structure is defined as follows:
 
@@ -326,7 +332,7 @@ An example of this control logic is shown below:
 
 #### 5.1 UART
 
-#### 5.2 I2C
+#### 5.2 I²C
 
 ---
 
@@ -334,7 +340,7 @@ An example of this control logic is shown below:
 
 #### 6.1 Configuration of MCP23008
 
-The MCP23008 is a 8-bit I/O expander IC that provides additional GPIO pins via an I2C interface. It features 11 registers that enable control of 8 pins. Its primary advantage lies in its ability to expand the number of input and output lines available to a microcontroller.
+The MCP23008 is a 8-bit I/O expander IC that provides additional GPIO pins via an I²C interface. It features 11 registers that enable control of 8 pins. Its primary advantage lies in its ability to expand the number of input and output lines available to a microcontroller.
 
 However, this IC was selected due to its inclusion of two interrupt pin, which can be utilized to signal when a button press occurs. Moreover, it maintains the previous button states within dedicated registers, allowing the interrupt to be serviced at a later time without the need for immediate response. The stored button states persist until the data is read from the device, ensuring no input events are lost.
 
@@ -748,3 +754,4 @@ The build steps are outlined below and include:
 #### 11.6 Building and uploading the project
 
 ---
+
