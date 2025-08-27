@@ -271,8 +271,7 @@ During normal operation, tasks communicate as illustrated in the diagram below.
 
 ---
 
-
-### 5. Navigation & UI Context  
+### 4. Navigation & UI Context  
 
 Navigation within the user interface is managed through a global structure named UI_Context. This structure enables switching between different tasks by activating or deactivating them as necessary. The core control and navigation logic is implemented in the taskMain function.
 
@@ -323,6 +322,14 @@ An example of this control logic is shown below:
 
 ---
 
+### 5. Low level drivers
+
+#### 5.1 UART
+
+#### 5.2 I2C
+
+---
+
 ### 6. Input Handling & MCP23008  
 
 #### 6.1 Configuration of MCP23008
@@ -352,9 +359,9 @@ This approach provides reliable short-press and long-press detection without the
 
 ---
 
-### 8. 💾 Memory Layout
+### 7. 💾 Memory Layout
 
-#### 8.1 EEPROM Map
+#### 7.1 EEPROM Map
 
 | Address (hex) | Size (bytes) | Description                       |
 |---------------|--------------|-----------------------------------|
@@ -365,7 +372,7 @@ This approach provides reliable short-press and long-press detection without the
 | 0x0800        | 135          | Last saved error                  |
 | 0x0C00        | 2            | Bootups count                     |
 
-#### 8.2 RAM Map
+#### 7.2 RAM Map
 
 ![Current memory map](Media/ATmega2561_Data_Memory_Map.PNG)
 
@@ -391,7 +398,7 @@ This approach provides reliable short-press and long-press detection without the
 - The `__stack_ptr` variable is initialized with the value of the `SP` register before the RTOS scheduler starts. On AVR microcontrollers, `SP` holds the current stack pointer. However, after the scheduler starts, `SP` is overwritten with the stack pointer of the currently executing task, which would lead to incorrect free memory calculations if used directly.
 
 
-#### 8.3 Custom RAM Segments
+#### 7.3 Custom RAM Segments
 
 When compiling a program, the linker is responsible for placing variables and code into the correct memory segments — for example, initialized variables go into the `.data` section, uninitialized variables into `.bss`, and so on. This process is usually handled automatically by the default linker script.
 
@@ -462,7 +469,7 @@ After compiling and inspecting the .map file, I confirmed that the .tdat section
     .tdat.guardZone1
                     0x00801208      0x20  C:\Users\kujon\AppData\Local\Temp\ccjR9wYB.ltrans0.ltrans.o
 
-#### 8.4 Free Memory Calculation  
+#### 7.4 Free Memory Calculation  
 
 Free memory calculation is straightforward on AVR microcontrollers.
 
@@ -474,7 +481,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 
     Free memory = __stack_ptr - __heap_end
 
-#### 8.5 RAM Usage Overview (Start, End, Size)
+#### 7.5 RAM Usage Overview (Start, End, Size)
 
 | Region    | Start Address | End Address | Size (bytes) |
 |-----------|---------------|-------------|--------------|
@@ -492,9 +499,54 @@ Therefore, the amount of free memory available in the system is calculated as:
   
 ---
 
-### 11. 🧩 PCB
+### 8. 🔌 Electrical Schematic  
+Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
 
-#### 11.1 MCU Pinout (TQFP-64 ATmega2561)
+#### 8.1 USB Port with UART converter for ATmega2561
+
+![USB Port](Media/ElectricalSchematic/USB_UART.png)
+
+**USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2561 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
+
+#### 8.2 ATmega2561
+
+![ATmega2561](Media/ElectricalSchematic/ATmega2560.png)
+
+**ATmega2561 Microcontroller Module** — Central microcontroller of the board. Features include:  
+- Decoupling capacitors for stable power supply filtering.  
+- Connection to an external crystal oscillator with its load capacitors for precise clocking.  
+- Reset button for manual reset of the MCU.
+- Labeled “nets” for organized signal routing in EasyEDA.
+- Diagnostic LED connected to the SCK pin (PB5), used for basic status indication or debugging.
+
+This module serves as the main processing unit in the project, handling all digital I/O, communication, and control tasks.
+
+#### 8.3 Shift Register
+
+![74HC595](Media/ElectricalSchematic/Shift_Register.png)
+
+**74HC595 Shift Register** — Serial-in, parallel-out shift register used to control the drink-dispensing pumps.
+- Decoupling capacitor for stable power supply filtering.  
+- Receives serial data from the microcontroller and converts it to parallel outputs.  
+- Each output is connected to the gate of a MOSFET that switches an individual pump. 
+
+#### 8.4 Keyboard driver
+
+![MCP23008](Media/ElectricalSchematic/MCP23008.png)
+
+**MCP23008 I²C GPIO Expander** — Used as the keyboard controller.  
+- Communicates with the microcontroller via the I²C bus.  
+- The **INT pin** signals when new keypress data is available.  
+- An external pull-up resistor is connected to the INT pin.  
+- Internal pull-ups on the GPIO pins can be enabled via the MCP23008 configuration registers, so no external pull-ups are needed for the keyboard lines.  
+- Reads the status of the keys and provides it to the microcontroller for processing.
+
+---
+
+
+### 9. 🧩 PCB
+
+#### 9.1 MCU Pinout (TQFP-64 ATmega2561)
 
 | Pin | Usage |
 |-----|-------|
@@ -528,7 +580,7 @@ Therefore, the amount of free memory available in the system is calculated as:
   - **Timer2** is used by FreeRTOS for the system tick. This provides a precise periodic interrupt to drive task scheduling and timing functions.  
   - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
 
-#### 11.2 MCU Pinout (TQFP-32 ATmega328p)
+#### 9.2 MCU Pinout (TQFP-32 ATmega328p)
 
 | Pin | Usage |
 |-----|-------|
@@ -546,7 +598,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 *Note:* 
 - PB0 is used to indicate that thermometers data is ready to read by master IC (ATmega2561)
 
-#### 11.3 Bill of Materials (BOM)
+#### 9.3 Bill of Materials (BOM)
 
 | Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
 |------------------------|-----------------|-------------|----------|-----------------|
@@ -578,7 +630,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 | LED2,LED3         | LED                  | LED0603     | 2        | Red LEDs        |
 
 
-#### 11.4 MOSFET Power Dissipation Calculations
+#### 9.4 MOSFET Power Dissipation Calculations
 
 This section contains calculations of the power dissipated by the MOSFETs to verify that the selected transistors can safely handle the intended load. Since these MOSFETs will not be driven by a PWM signal, switching losses are not considered; only conduction losses due to RDS(on) are included.
 
@@ -611,7 +663,7 @@ MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the free
 
 **Note:** All calculations assume $R_{DS(on)}$ value at $V_{GS} = 5\,\text{V}$.
 
-#### 11.5 PCB Layout
+#### 9.5 PCB Layout
 
 Preview of the custom-designed AVR board used in the project:
 
@@ -620,58 +672,11 @@ Preview of the custom-designed AVR board used in the project:
 ![PCB Layout - top view](Media/PCB_TOP_VIEW_2D.PNG)
 ![PCB Layout - bottom view](Media/PCB_BOTTOM_VIEW_2D.PNG)
 
-
 ---
 
-### 12. 🔌 Electrical Schematic  
-Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
+### 10. Additional Notes  
 
-#### 12.1 USB Port with UART converter for ATmega2561
-
-![USB Port](Media/ElectricalSchematic/USB_UART.png)
-
-**USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2561 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
-
-#### 12.2 ATmega2561
-
-![ATmega2561](Media/ElectricalSchematic/ATmega2560.png)
-
-**ATmega2561 Microcontroller Module** — Central microcontroller of the board. Features include:  
-- Decoupling capacitors for stable power supply filtering.  
-- Connection to an external crystal oscillator with its load capacitors for precise clocking.  
-- Reset button for manual reset of the MCU.
-- Labeled “nets” for organized signal routing in EasyEDA.
-- Diagnostic LED connected to the SCK pin (PB5), used for basic status indication or debugging.
-
-This module serves as the main processing unit in the project, handling all digital I/O, communication, and control tasks.
-
-#### 12.3 Shift Register
-
-![74HC595](Media/ElectricalSchematic/Shift_Register.png)
-
-**74HC595 Shift Register** — Serial-in, parallel-out shift register used to control the drink-dispensing pumps.
-- Decoupling capacitor for stable power supply filtering.  
-- Receives serial data from the microcontroller and converts it to parallel outputs.  
-- Each output is connected to the gate of a MOSFET that switches an individual pump. 
-
-#### 12.4 Keyboard driver
-
-![MCP23008](Media/ElectricalSchematic/MCP23008.png)
-
-**MCP23008 I²C GPIO Expander** — Used as the keyboard controller.  
-- Communicates with the microcontroller via the I²C bus.  
-- The **INT pin** signals when new keypress data is available.  
-- An external pull-up resistor is connected to the INT pin.  
-- Internal pull-ups on the GPIO pins can be enabled via the MCP23008 configuration registers, so no external pull-ups are needed for the keyboard lines.  
-- Reads the status of the keys and provides it to the microcontroller for processing.
-
-
-
----
-
-### 13. Additional Notes  
-
-#### 13.1 Low-level Drivers
+#### 10.1 Low-level Drivers
 
 This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
 
@@ -696,7 +701,7 @@ This project implements custom low-level drivers for core communication peripher
 
 These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
 
-#### 13.2 System Initialization
+#### 10.2 System Initialization
 
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
 - Configures all I/O pins according to the custom hardware design.
@@ -711,7 +716,7 @@ This careful initialization sequence ensures reliable and deterministic system b
 
 ---
 
-### 14. 🚀 How to build
+### 11. 🚀 How to build
 
 This project **was originally built and uploaded using the Arduino IDE**, which allowed for quick prototyping and development. However, due to the limitations of the Arduino environment — such as lack of build transparency and limited control over the toolchain — the project has been successfully **migrated to Visual Studio Code with a CMake-based build system**.
 
@@ -730,17 +735,16 @@ The build steps are outlined below and include:
 - Installing AVRDUDE for uploading the compiled firmware
 - Building and uploading the project
 
-#### 12.1 Installing VS Code
+#### 11.1 Installing VS Code
 
-#### 12.2 Installing CMake
+#### 11.2 Installing CMake
 
-#### 12.3 Installing Ninja as the build tool
+#### 11.3 Installing Ninja as the build tool
 
-#### 12.4 Installing AVR-GCC toolchain
+#### 11.4 Installing AVR-GCC toolchain
 
-#### 12.5 Installing AVRDUDE for uploading the compiled firmware
+#### 11.5 Installing AVRDUDE for uploading the compiled firmware
 
-#### 12.6 Building and uploading the project
-
+#### 11.6 Building and uploading the project
 
 ---
