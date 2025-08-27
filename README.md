@@ -169,7 +169,7 @@ Startup sequence of the project
 
 ![Startup Sequence](Media/StartupSequence.png)
 
-### 2.1 System Initialization `.init8`
+#### 2.1 System Initialization `.init8`
 
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
 - Configures all I/O pins according to the custom hardware design.
@@ -180,7 +180,7 @@ The project includes a dedicated initialization module responsible for preparing
 
 This initialization routine executes prior to main(), ensuring all hardware and RTOS structures are fully prepared before normal system operation. By placing the initialization in the dedicated .init8 linker section, main() remains simpler and less dependent on header files across the project.
 
-### 2.2 System normal start
+#### 2.2 System normal start
 
 During normal startup, all tasks are created and initialized according to the system design:
 
@@ -191,7 +191,7 @@ During normal startup, all tasks are created and initialized according to the sy
 
 This setup enables full system functionality, supporting both user interaction and automated beverage processing.
 
-### 2.3 System fault start
+#### 2.3 System fault start
 
 In case of a critical fault, the system performs a fault startup with a minimal set of tasks:
 
@@ -201,7 +201,22 @@ In case of a critical fault, the system performs a fault startup with a minimal 
 
 This approach ensures safe recovery, prevents re-execution of the failing task, and provides immediate visibility of the fault.
 
-After the tasks are created, `__stack_ptr` is set to the current SP value, and the RTOS scheduler is started.
+After the tasks are created, `__stack_ptr` is set to the current SP value, the RTOS scheduler is started, and the system begins normal operation.
+
+#### 2.4 Normal operation
+
+During normal operation, the system uses queues, mutexes, notifications, global variables and semaphores to control information exchange between tasks. All control structures are listed below:
+
+| Type       | Name             | Size / Elements | Description |
+|------------|-----------------|----------------|-------------|
+| Queue      | qScreenData      | SCREEN_QUEUE_BUFFER_COUNT=2             | Queue for passing screen update data between tasks |
+| Queue      | qKeyboardData    | KEYBOARD_QUEUE_BUFFER_COUNT=2              | Queue for keyboard/input events |
+| Queue      | qErrorId         | ERROR_ID_QUEUE_BUFFER_COUNT=1              | Queue for error IDs to be processed/logged |
+| Semaphore  | sem_ReadData     | N/A            | Binary semaphore to signal data read completion |
+| Mutex      | mux_I2CLock      | N/A            | Mutex protecting access to I²C bus |
+| Mutex      | mux_SerialLock   | N/A            | Mutex protecting access to UART/serial port |
+| Volatile struct sUIContext | UI_Context  | N/A            | Global UI context structure managing screen/task states |
+
 
 ---
 
