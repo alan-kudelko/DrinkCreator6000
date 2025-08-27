@@ -165,7 +165,7 @@ Screen transition diagram:
 
 ### 2. 🛠️ System's architecture overview
 
-### 1.1 System Initialization
+### 2.1 System Initialization `.init8`
 
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
 - Configures all I/O pins according to the custom hardware design.
@@ -174,9 +174,11 @@ The project includes a dedicated initialization module responsible for preparing
 - Implements a system startup routine that runs early during boot (placed in the `.init8` linker section), ensuring all components are ready before the scheduler starts.
 - The startup routine is marked with GCC `naked` and `used` attributes to control exact placement and prevent unwanted optimizations or removal.
 
-This careful initialization sequence ensures reliable and deterministic system behavior from power-up.
+This initialization routine executes prior to main(), ensuring all hardware and RTOS structures are fully prepared before normal system operation. By placing the initialization in the dedicated .init8 linker section, main() remains simpler and less dependent on header files across the project.
 
+### 2.2 System normal start
 
+### 2.3 System fault start
 
 ---
 
