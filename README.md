@@ -142,7 +142,7 @@ Screen transition diagram:
 
 1. [Project Structure & File Overview](#1--project-structure--file-overview)
 2. [Task Overview](#2--task-overview)
-3. [System's architecture overview](#3--systems-architecture-overview)
+3. [System's architecture overview](#3-%EF%B8%8F-systems-architecture-overview)
    - [3.1 System Initialization `.init8`](#31-system-initialization-init8)
    - [3.2 System normal start](#32-system-normal-start)
    - [3.3 System fault start](#33-system-fault-start)
