@@ -100,61 +100,7 @@ This section provides a visual presentation of the DrinkCreator6000 project, inc
 | 5  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
 
 Screen transition diagram:
-  
-                            ╔════════════════════╗  
-                            ║Drink Creator 6000  ║   
-    0 Welcome Screen        ║Initializing...     ║ 
-                            ║Please wait         ║                         
-                            ║[#####-----]  50 %  ║   
-                            ╚════════════════════╝ 
-                                      ║
-                                      ║
-                                      ▼                         2 Drink Order Screen                    Submenu[1]
-                            ╔════════════════════╗             ╔════════════════════╗             ╔════════════════════╗
-                            ║[01]Test Drink      ║             ║[01]Test Drink      ║ Submenu[1]  ║[01]Test Drink      ║
-    1 Drink Select Screen   ║Whiskey       50[ml]║  ═ ═ ═ ═ >  ║                    ║ --------->  ║                    ║
-                            ║Rum          100[ml]║             ║Please wait...      ║             ║Done!               ║
-                            ║Cola         250[ml]║             ║[########--]  82%   ║             ║[##########] 100%   ║                    
-                            ╚════════════════════╝             ╚════════════════════╝             ╚════════════════════╝
-                                      ║
-                                      ║        +<----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------<+
-                                      ║        |                                                                                                                                                                                    |
-                                      ▼        ▼                                                                                                                                                                                    |
-                            ╔════════════════════╗             ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗            ╔════════════════════╗       |
-                            ║Drink Creator 6000  ║  Submenu[1] ║Drink Creator 6000  ║ Submenu[2] ║Drink Creator 6000  ║ Submenu[3] ║RAM Info            ║ Submenu[4] ║RAM Info            ║ Submenu[5] ║RAM Info            ║       |
-    3 Show System Info[0]   ║Software ver. 3.0   ║  ---------> ║Current run time    ║ ---------> ║T: 21.2°C  S:11.0°C ║ ---------> ║Usage: 6722 B/8192 B║ ---------> ║.data: 0x0200-0x1522║ ---------> ║HEAP:  0x1BF7-0x1BF7║ ----->+
-                            ║Author: Alan Kudelko║             ║21 days  19 h       ║            ║Hyst: 4.0°C         ║            ║[########--]  82%   ║            ║.bss:  0x1522-0x1BF7║            ║STACK: 0x21B5-0x21FF║
-                            ║Startup count: 1000 ║             ║39 min   22 s       ║            ║Status: Cooling     ║            ║                    ║            ║Size:  4898 B 1749 B║            ║Size:     0 B   74 B║
-                            ╚════════════════════╝             ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝            ╚════════════════════╝
-                                      ║
-                                      ║
-                                      ▼
-                            ╔════════════════════╗             ╔════════════════════╗
-                            ║[03]Task information║  Submenu[1] ║[03]Task information║
-    4 Show Task Stack Info  ║UPDATE SCREEN       ║  ---------> ║####################║
-                            ║Highwater mark:  100║             ║  MEMORY CORRUPTED  ║
-                            ║PR:1 State:Suspended║             ║####################║
-                            ╚════════════════════╝             ╚════════════════════╝
-                                      ║
-                                      ║        +<-------------------------------------------+
-                                      ║        |                                            |
-                                      ▼        ▼                                            |
-                            ╔════════════════════╗             ╔════════════════════╗       |
-                            ║Stack overflow in t:║ Submenu[1]  ║Error confirmed     ║       |
-    5 Show Last Error       ║Error time signature║ --------->  ║EEPROM updated      ║ ----->+
-                            ║21 days  19 h       ║             ║                    ║
-                            ║39 min   22 s       ║             ║                    ║ 
-                            ╚════════════════════╝             ╚════════════════════╝
-                                     ║
-                                     ║
-                                     ▼
-                           ╔════════════════════╗              ╔════════════════════╗
-                           ║HW Testing Mode     ║  Submenu[1]  ║HW Testing Mode     ║
-    6 Test hardware        ║Pumps Test Menu     ║  --------->  ║Pumps Test Menu     ║
-                           ║Pump ID: 12345678   ║              ║Pump ID: 12345678   ║
-                           ║Status: 0b00000011  ║              ║Status: 0b00000011  ║
-                           ╚════════════════════╝              ╚════════════════════╝
-			   
+     
 ![UI Navigation](Media/UI_Flow_Chart.png)
 
 ---
