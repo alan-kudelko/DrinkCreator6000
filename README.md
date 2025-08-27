@@ -165,7 +165,7 @@ Screen transition diagram:
    - [8.2 ATmega2561](#82-atmega2561)  
    - [8.3 Shift Register](#83-shift-register)  
    - [8.4 Keyboard driver](#84-keyboard-driver)  
-9. [🧩 PCB](#-pcb)  
+9. [🧩 PCB](#pcb)  
    - [9.1 MCU Pinout (TQFP-64 ATmega2561)](#91-mcu-pinout-tqfp-64-atmega2561)  
    - [9.2 MCU Pinout (TQFP-32 ATmega328p)](#92-mcu-pinout-tqfp-32-atmega328p)  
    - [9.3 Bill of Materials (BOM)](#93-bill-of-materials-bom)  
