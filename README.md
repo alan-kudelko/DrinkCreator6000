@@ -139,14 +139,53 @@ Screen transition diagram:
 ---
 
 ## Technical Table of Contents
-- [1. Project Structure & File Overview](#1-project-structure--file-overview)
+
+1. [📦 Project Structure & File Overview](#-project-structure--file-overview)  
+2. [🧵 Task Overview](#-task-overview)  
+3. [🛠️ System's architecture overview](#-systems-architecture-overview)  
+   - [3.1 System Initialization `.init8`](#31-system-initialization-init8)  
+   - [3.2 System normal start](#32-system-normal-start)  
+   - [3.3 System fault start](#33-system-fault-start)  
+   - [3.4 Normal operation](#34-normal-operation)  
+4. [Navigation & UI Context](#4-navigation--ui-context)  
+5. [Low level drivers](#5-low-level-drivers)  
+   - [5.1 UART](#51-uart)  
+   - [5.2 I²C](#52-i²c)  
+6. [Input Handling & MCP23008](#6-input-handling--mcp23008)  
+   - [6.1 Configuration of MCP23008](#61-configuration-of-mcp23008)  
+   - [6.2 Reading data from MCP23008](#62-reading-data-from-mcp23008)  
+7. [💾 Memory Layout](#-memory-layout)  
+   - [7.1 EEPROM Map](#71-eeprom-map)  
+   - [7.2 RAM Map](#72-ram-map)  
+   - [7.3 Custom RAM Segments](#73-custom-ram-segments)  
+   - [7.4 Free Memory Calculation](#74-free-memory-calculation)  
+   - [7.5 RAM Usage Overview (Start, End, Size)](#75-ram-usage-overview-start-end-size)  
+8. [🔌 Electrical Schematic](#-electrical-schematic)  
+   - [8.1 USB Port with UART converter for ATmega2561](#81-usb-port-with-uart-converter-for-atmega2561)  
+   - [8.2 ATmega2561](#82-atmega2561)  
+   - [8.3 Shift Register](#83-shift-register)  
+   - [8.4 Keyboard driver](#84-keyboard-driver)  
+9. [🧩 PCB](#-pcb)  
+   - [9.1 MCU Pinout (TQFP-64 ATmega2561)](#91-mcu-pinout-tqfp-64-atmega2561)  
+   - [9.2 MCU Pinout (TQFP-32 ATmega328p)](#92-mcu-pinout-tqfp-32-atmega328p)  
+   - [9.3 Bill of Materials (BOM)](#93-bill-of-materials-bom)  
+   - [9.4 MOSFET Power Dissipation Calculations](#94-mosfet-power-dissipation-calculations)  
+   - [9.5 PCB Layout](#95-pcb-layout)  
+10. [Additional Notes](#10-additional-notes)  
+11. [🚀 How to build](#-how-to-build)  
+   - [11.1 Installing VS Code](#111-installing-vs-code)  
+   - [11.2 Installing CMake](#112-installing-cmake)  
+   - [11.3 Installing Ninja as the build tool](#113-installing-ninja-as-the-build-tool)  
+   - [11.4 Installing AVR-GCC toolchain](#114-installing-avr-gcc-toolchain)  
+   - [11.5 Installing AVRDUDE for uploading the compiled firmware](#115-installing-avrdude-for-uploading-the-compiled-firmware)  
+   - [11.6 Building and uploading the project](#116-building-and-uploading-the-project)  
   
 ---
 
 
 ## ⚙️ Technical Overview
 
-### 1. Project Structure & File Overview
+### 1. 📦 Project Structure & File Overview
 
 	📦 DrinkCreator6000/
  	│
