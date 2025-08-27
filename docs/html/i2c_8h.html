@@ -139,12 +139,6 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 </div>
 <p><a href="i2c_8h_source.html">Go to the source code of this file.</a></p>
-<table class="memberdecls">
-<tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
-Variables</h2></td></tr>
-<tr class="memitem:aec1f537d4e465641ecde4ad6ec87b894" id="r_aec1f537d4e465641ecde4ad6ec87b894"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec1f537d4e465641ecde4ad6ec87b894">i2c_status</a></td></tr>
-<tr class="memdesc:aec1f537d4e465641ecde4ad6ec87b894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the current I²C operation.  <br /></td></tr>
-</table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer. </p>
 <p>This module implements I2C communication in Master mode with a choice of blocking or non-blocking operations depending on whether the TX buffer (ring buffer) is used.</p>
@@ -155,38 +149,7 @@ Variables</h2></td></tr>
 <dl class="section note"><dt>Note</dt><dd>TX buffer usage is controlled via the <span class="tt">USE_RING_BUFFER_FOR_I2C_OPERATIONS</span> macro. </dd>
 <dd>
 Timer4 Compare A (<span class="tt">TIMER4_COMPA_vect</span>) and TWI interrupt (<span class="tt">TWI_vect</span>) are used internally to manage non-blocking transmission when the buffer is enabled. </dd></dl>
-</div><a name="doc-var-members" id="doc-var-members"></a><h2 id="header-doc-var-members" class="groupheader">Variable Documentation</h2>
-<a id="aec1f537d4e465641ecde4ad6ec87b894" name="aec1f537d4e465641ecde4ad6ec87b894"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aec1f537d4e465641ecde4ad6ec87b894">&#9670;&#160;</a></span>i2c_status</h2>
-
-<div class="memitem">
-<div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint8_t i2c_status</td>
-        </tr>
-      </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
-</div><div class="memdoc">
-
-<p>Status of the current I²C operation. </p>
-<p>Stores the last TWI/I²C status code (from the TWSR register), indicating the current bus condition, e.g.:</p><ul>
-<li>START condition transmitted</li>
-<li>SLA+W / SLA+R transmitted and ACK/NACK received</li>
-<li>Data byte transmitted/received with ACK/NACK</li>
-<li>Bus errors (arbitration lost, ACK failure, etc.) </li>
-</ul>
-
-</div>
-</div>
-</div><!-- contents -->
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

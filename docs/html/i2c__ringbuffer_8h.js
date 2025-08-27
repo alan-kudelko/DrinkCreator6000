@@ -2,6 +2,7 @@ var i2c__ringbuffer_8h =
 [
     [ "I2C_Data_t", "struct_i2_c___data__t.html", "struct_i2_c___data__t" ],
     [ "ADDRESS_PACKAGE", "i2c__ringbuffer_8h.html#aeecd740e1b25bfabae49e45628a75869", null ],
+    [ "DA_BIT", "i2c__ringbuffer_8h.html#a6027dafcc1a393794288675aaa0449ec", null ],
     [ "DATA_PACKAGE", "i2c__ringbuffer_8h.html#ae9087d23a50a61f9d92ca1d6818e9139", null ],
     [ "I2C_RX_BUFFER_SIZE", "i2c__ringbuffer_8h.html#af47492c802fe313ca8455294843378f6", null ],
     [ "I2C_STATE_ADDRESS_SENT", "i2c__ringbuffer_8h.html#ac1aaf47d7389feab0be4edb7ea2ab2ae", null ],
@@ -12,8 +13,10 @@ var i2c__ringbuffer_8h =
     [ "I2C_STATE_START_SENT", "i2c__ringbuffer_8h.html#abaadc33325af0f9fab5d70b9dcefbb00", null ],
     [ "I2C_TX_BUFFER_SIZE", "i2c__ringbuffer_8h.html#a547981ee4a0a60f7fa4826eb59ded9b7", null ],
     [ "LAST_PACKAGE", "i2c__ringbuffer_8h.html#a177534082408c004b9e85877b9d026ad", null ],
+    [ "LP_BIT", "i2c__ringbuffer_8h.html#a9f147b3a3d65d9ded66779bef8056ecb", null ],
     [ "NOT_LAST_PACKAGE", "i2c__ringbuffer_8h.html#a5ee7f544aa492d779cd8e031534160cb", null ],
     [ "READ_FLAG", "i2c__ringbuffer_8h.html#a013b5aa673f45bca79848684bb2b7f6e", null ],
+    [ "RW_BIT", "i2c__ringbuffer_8h.html#ae825b0afbc4d9119b626fd77770295fe", null ],
     [ "TIMER4_POLLING_CYCLE", "i2c__ringbuffer_8h.html#a24007cd8c0a6a3aae0965b4032a92c2d", null ],
     [ "TIMER4_SENDING_CYCLE", "i2c__ringbuffer_8h.html#ab7f7ead164f2e3dc08ce8a60ff6819ab", null ],
     [ "WRITE_FLAG", "i2c__ringbuffer_8h.html#a06e9b431be0da4da79c54eb2b27de980", null ],
@@ -25,9 +28,12 @@ var i2c__ringbuffer_8h =
     [ "i2c_tx_buffer_clear_until_next_address", "i2c__ringbuffer_8h.html#a34466b1132aef1e13135a1a7bcf65ac0", null ],
     [ "i2c_tx_buffer_is_empty", "i2c__ringbuffer_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f", null ],
     [ "i2c_write_byte_to_address_blocking", "i2c__ringbuffer_8h.html#a91bb1859c12fbc7c029b2a5a2309b240", null ],
+    [ "i2c_write_byte_to_address_non_blocking", "i2c__ringbuffer_8h.html#a3340873d4d96bc2b3fd606ac298ed51c", null ],
     [ "i2c_write_bytes_to_address_blocking", "i2c__ringbuffer_8h.html#ae74a6ec74823b5c3816959f3f696e945", null ],
+    [ "i2c_write_bytes_to_address_non_blocking", "i2c__ringbuffer_8h.html#af1e6cced888d45c8d102d872acea1b76", null ],
     [ "i2c_buffer_tx", "i2c__ringbuffer_8h.html#abe1f812dc6284ef881acc78023cd7a9d", null ],
     [ "i2c_state", "i2c__ringbuffer_8h.html#a41fd49c4a663a655243908d0f709bd1a", null ],
+    [ "i2c_status", "i2c__ringbuffer_8h.html#aec1f537d4e465641ecde4ad6ec87b894", null ],
     [ "i2c_tx_buffer_head", "i2c__ringbuffer_8h.html#a5b113d44bda8ed39efc026d277878c09", null ],
     [ "i2c_tx_buffer_tail", "i2c__ringbuffer_8h.html#aab3b5c0fa4c5e46e6d6009f357dc891e", null ]
 ];

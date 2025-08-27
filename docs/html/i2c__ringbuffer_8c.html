@@ -144,6 +144,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a91bb1859c12fbc7c029b2a5a2309b240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single data byte to the specified I2C slave address in blocking mode.  <br /></td></tr>
 <tr class="memitem:ae74a6ec74823b5c3816959f3f696e945" id="r_ae74a6ec74823b5c3816959f3f696e945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74a6ec74823b5c3816959f3f696e945">i2c_write_bytes_to_address_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
 <tr class="memdesc:ae74a6ec74823b5c3816959f3f696e945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends multiple data bytes to the specified I2C slave address in blocking mode.  <br /></td></tr>
+<tr class="memitem:a3340873d4d96bc2b3fd606ac298ed51c" id="r_a3340873d4d96bc2b3fd606ac298ed51c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3340873d4d96bc2b3fd606ac298ed51c">i2c_write_byte_to_address_non_blocking</a> (uint8_t address, uint8_t data)</td></tr>
+<tr class="memdesc:a3340873d4d96bc2b3fd606ac298ed51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a single data byte to be sent to the specified I²C slave address in non-blocking mode.  <br /></td></tr>
+<tr class="memitem:af1e6cced888d45c8d102d872acea1b76" id="r_af1e6cced888d45c8d102d872acea1b76"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e6cced888d45c8d102d872acea1b76">i2c_write_bytes_to_address_non_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:af1e6cced888d45c8d102d872acea1b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues multiple data bytes to be sent to the specified I²C slave address in non-blocking mode.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -369,6 +373,38 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a3340873d4d96bc2b3fd606ac298ed51c" name="a3340873d4d96bc2b3fd606ac298ed51c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3340873d4d96bc2b3fd606ac298ed51c">&#9670;&#160;</a></span>i2c_write_byte_to_address_non_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_write_byte_to_address_non_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enqueues a single data byte to be sent to the specified I²C slave address in non-blocking mode. </p>
+<p>This function attempts to add the address and data byte to the TX buffer. If the buffer is full, the function returns immediately with a status code indicating failure. Intended for use with RTOS or cooperative multitasking to avoid blocking the CPU.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I²C slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Single byte to be transmitted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t Returns 0 if the data was successfully queued, 1 if the TX buffer is full. </dd></dl>
+
+</div>
+</div>
 <a id="ae74a6ec74823b5c3816959f3f696e945" name="ae74a6ec74823b5c3816959f3f696e945"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae74a6ec74823b5c3816959f3f696e945">&#9670;&#160;</a></span>i2c_write_bytes_to_address_blocking()</h2>
 
@@ -403,6 +439,44 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af1e6cced888d45c8d102d872acea1b76" name="af1e6cced888d45c8d102d872acea1b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e6cced888d45c8d102d872acea1b76">&#9670;&#160;</a></span>i2c_write_bytes_to_address_non_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_write_bytes_to_address_non_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enqueues multiple data bytes to be sent to the specified I²C slave address in non-blocking mode. </p>
+<p>This function attempts to add the address and multiple data bytes to the TX buffer. If there is not enough free space in the buffer, it returns immediately with a failure status. Suitable for RTOS-based or cooperative multitasking environments to avoid blocking the CPU.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I²C slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the array of bytes to be transmitted. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to enqueue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t Returns 0 if all bytes were successfully queued, 1 if the TX buffer did not have enough space. </dd></dl>
 
 </div>
 </div>

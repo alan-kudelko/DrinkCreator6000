@@ -15,5 +15,6 @@ var searchData=
   ['regulatetemptcb_12',['regulateTempTCB',['../_drink_creator6000___config___c_8h.html#abfc9d4892baa5e71b74e3dee7b0674a1',1,'DrinkCreator6000_Config_C.h']]],
   ['righttoleft_5fblocking_13',['rightToLeft_blocking',['../class_h_d44780___l_c_d.html#a3b4af8d942a284d41aa075e04adc6252',1,'HD44780_LCD']]],
   ['rs_14',['Rs',['../_h_d44780___i2_c_8h.html#a345d1a871beb9e772c3bf9ef75412bb5',1,'HD44780_I2C.h']]],
-  ['rw_15',['Rw',['../_h_d44780___i2_c_8h.html#a98b6a2661a04ebbc1b3f38da70306814',1,'HD44780_I2C.h']]]
+  ['rw_15',['Rw',['../_h_d44780___i2_c_8h.html#a98b6a2661a04ebbc1b3f38da70306814',1,'HD44780_I2C.h']]],
+  ['rw_5fbit_16',['RW_BIT',['../i2c__ringbuffer_8h.html#ae825b0afbc4d9119b626fd77770295fe',1,'i2c_ringbuffer.h']]]
 ];

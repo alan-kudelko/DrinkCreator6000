@@ -30,8 +30,14 @@
 #define WRITE_FLAG            0     /**< Flag indicating write operation */
 #define LAST_PACKAGE          1     /**< Flag indicating last package */
 #define NOT_LAST_PACKAGE      0     /**< Flag indicating not last package */
+#define DATA_PACKAGE          1     /**< Flag indicating data package */   
 #define ADDRESS_PACKAGE       0     /**< Flag indicating address package */
-#define DATA_PACKAGE          1     /**< Flag indicating data package */    
+
+#define RW_BIT 0
+#define LP_BIT 1
+#define DA_BIT 2
+
+// By default package is address package with write flag and not last package
 
 /**
  * @def TIMER4_POLLING_CYCLE
@@ -129,9 +135,7 @@
  */
 typedef struct{
     uint8_t value; /**< Address or data byte */
-    bool f_RW;     /**< Read/write flag: 1 = read, 0 = write */
-    bool f_LP;     /**< Last package flag: 1 = last package, 0 = not last */
-    bool f_Type;   /**< Package type: 0 = address, 1 = data */
+    uint8_t flags; /**< Package flags */
 }I2C_Data_t;
 
 
@@ -239,6 +243,38 @@ void i2c_write_byte_to_address_blocking(uint8_t address,uint8_t data);
  * @param length  Number of bytes to send.
  */
 void i2c_write_bytes_to_address_blocking(uint8_t address,uint8_t*data,uint8_t length);
+
+// ========================
+// Non blocking I2C Functions using buffer
+// ========================
+
+/**
+ * @brief Enqueues a single data byte to be sent to the specified I²C slave address in non-blocking mode.
+ *
+ * This function attempts to add the address and data byte to the TX buffer. If the buffer is full,
+ * the function returns immediately with a status code indicating failure.
+ * Intended for use with RTOS or cooperative multitasking to avoid blocking the CPU.
+ *
+ * @param address 7-bit I²C slave address.
+ * @param data    Single byte to be transmitted.
+ * @return uint8_t Returns 0 if the data was successfully queued, 1 if the TX buffer is full.
+ */
+uint8_t i2c_write_byte_to_address_non_blocking(uint8_t address,uint8_t data);
+
+/**
+ * @brief Enqueues multiple data bytes to be sent to the specified I²C slave address in non-blocking mode.
+ *
+ * This function attempts to add the address and multiple data bytes to the TX buffer.
+ * If there is not enough free space in the buffer, it returns immediately with a failure status.
+ * Suitable for RTOS-based or cooperative multitasking environments to avoid blocking the CPU.
+ *
+ * @param address 7-bit I²C slave address.
+ * @param data    Pointer to the array of bytes to be transmitted.
+ * @param length  Number of bytes to enqueue.
+ * @return uint8_t Returns 0 if all bytes were successfully queued, 1 if the TX buffer did not have enough space.
+ */
+uint8_t i2c_write_bytes_to_address_non_blocking(uint8_t address,uint8_t*data,uint8_t length);
+
 
 #ifdef __cplusplus
     }

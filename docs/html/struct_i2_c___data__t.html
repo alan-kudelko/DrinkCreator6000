@@ -107,56 +107,24 @@ $(function(){initNavTree('struct_i2_c___data__t.html','','struct_i2_c___data__t-
 <tr class="heading"><td colspan="2"><h2 id="header-pub-attribs" class="groupheader"><a id="pub-attribs" name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
 <tr class="memitem:a07c901f89be5b7182e3df585836e0f35" id="r_a07c901f89be5b7182e3df585836e0f35"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a07c901f89be5b7182e3df585836e0f35">value</a></td></tr>
-<tr class="memitem:a3d603f8302d1044bb9ac1806561174e1" id="r_a3d603f8302d1044bb9ac1806561174e1"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3d603f8302d1044bb9ac1806561174e1">f_RW</a></td></tr>
-<tr class="memitem:abbd2b37e73df6827d4f3b880889c0163" id="r_abbd2b37e73df6827d4f3b880889c0163"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abbd2b37e73df6827d4f3b880889c0163">f_LP</a></td></tr>
-<tr class="memitem:a7b955d1f912c266738c3ced9b055f3ca" id="r_a7b955d1f912c266738c3ced9b055f3ca"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a7b955d1f912c266738c3ced9b055f3ca">f_Type</a></td></tr>
+<tr class="memitem:a42146c2b855ed34a99bb5a7f7c8e8bd2" id="r_a42146c2b855ed34a99bb5a7f7c8e8bd2"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a42146c2b855ed34a99bb5a7f7c8e8bd2">flags</a></td></tr>
 </table>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Structure representing a single I2C data packet. </p>
 <p>Contains the value (address or data), flags indicating read/write, whether this is the last package, and the package type (address or data). </p>
 </div><a name="doc-variable-members" id="doc-variable-members"></a><h2 id="header-doc-variable-members" class="groupheader">Member Data Documentation</h2>
-<a id="abbd2b37e73df6827d4f3b880889c0163" name="abbd2b37e73df6827d4f3b880889c0163"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#abbd2b37e73df6827d4f3b880889c0163">&#9670;&#160;</a></span>f_LP</h2>
+<a id="a42146c2b855ed34a99bb5a7f7c8e8bd2" name="a42146c2b855ed34a99bb5a7f7c8e8bd2"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a42146c2b855ed34a99bb5a7f7c8e8bd2">&#9670;&#160;</a></span>flags</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">bool I2C_Data_t::f_LP</td>
+          <td class="memname">uint8_t I2C_Data_t::flags</td>
         </tr>
       </table>
 </div><div class="memdoc">
-<p>Last package flag: 1 = last package, 0 = not last </p>
-
-</div>
-</div>
-<a id="a3d603f8302d1044bb9ac1806561174e1" name="a3d603f8302d1044bb9ac1806561174e1"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a3d603f8302d1044bb9ac1806561174e1">&#9670;&#160;</a></span>f_RW</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool I2C_Data_t::f_RW</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Read/write flag: 1 = read, 0 = write </p>
-
-</div>
-</div>
-<a id="a7b955d1f912c266738c3ced9b055f3ca" name="a7b955d1f912c266738c3ced9b055f3ca"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a7b955d1f912c266738c3ced9b055f3ca">&#9670;&#160;</a></span>f_Type</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">bool I2C_Data_t::f_Type</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-<p>Package type: 0 = address, 1 = data </p>
+<p>Package flags </p>
 
 </div>
 </div>

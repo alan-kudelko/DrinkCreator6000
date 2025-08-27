@@ -55,8 +55,7 @@ void i2c_tx_buffer_clear_until_next_address(void){
     i2c_tx_buf_index_t initialTail=i2c_tx_buffer_tail;
     do{
         // Stop clearing if next address package found (and not at initial position)
-        if((i2c_buffer_tx[i2c_tx_buffer_tail].f_Type==ADDRESS_PACKAGE)&&
-            (i2c_tx_buffer_tail!=initialTail)){
+        if((((i2c_buffer_tx[i2c_tx_buffer_tail].flags>>DA_BIT)&0x01)==ADDRESS_PACKAGE)&&(i2c_tx_buffer_tail!=initialTail)){
             break;
         }
         // Advance tail pointer to clear current data
@@ -125,7 +124,7 @@ ISR(TWI_vect){
     switch(i2c_state){
         case I2C_STATE_START_SENT:
             //Wysyłamy adres z bufora (tail)
-            if(i2c_buffer_tx[i2c_tx_buffer_tail].f_Type==ADDRESS_PACKAGE){
+            if(((i2c_buffer_tx[i2c_tx_buffer_tail].flags>>DA_BIT)&0x01)==ADDRESS_PACKAGE){
                 TWDR=i2c_buffer_tx[i2c_tx_buffer_tail].value;
                 TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT);
             } // To nie generuje problemu z przesuwaniem
@@ -140,7 +139,7 @@ ISR(TWI_vect){
         break;
         case I2C_STATE_ADDRESS_SENT:
             i2c_tx_buffer_tail=(i2c_tx_buffer_tail+1)%I2C_TX_BUFFER_SIZE;
-            if(i2c_buffer_tx[i2c_tx_buffer_tail].f_Type==DATA_PACKAGE){
+            if(((i2c_buffer_tx[i2c_tx_buffer_tail].flags>>DA_BIT)&0x01)==DATA_PACKAGE){
                 TWDR=i2c_buffer_tx[i2c_tx_buffer_tail].value;
                 TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT);
             }
@@ -155,7 +154,7 @@ ISR(TWI_vect){
             // Sprawdzamy czy ta paczka była ostatnia
             // Jeżeli tak to wysyłamy stop, jak nie
             // wysyłamy dane dalej
-            if(i2c_buffer_tx[i2c_tx_buffer_tail].f_LP==LAST_PACKAGE){
+            if(((i2c_buffer_tx[i2c_tx_buffer_tail].flags>>LP_BIT)&0x01)==LAST_PACKAGE){
                 TWCR=(1<<TWIE)|(1<<TWEN)|(1<<TWINT)|(1<<TWSTO);
                 i2c_state=I2C_STATE_IDLE;
                 i2c_tx_buffer_tail=(i2c_tx_buffer_tail+1)%I2C_TX_BUFFER_SIZE;
@@ -164,7 +163,7 @@ ISR(TWI_vect){
             else{
                 i2c_tx_buffer_tail=(i2c_tx_buffer_tail+1)%I2C_TX_BUFFER_SIZE;
                 // Jeśli jest jeszcze paczka w buforze
-                if(i2c_buffer_tx[i2c_tx_buffer_tail].f_Type==ADDRESS_PACKAGE){
+                if(((i2c_buffer_tx[i2c_tx_buffer_tail].flags>>DA_BIT)&0x01)==ADDRESS_PACKAGE){
                     // Obsluz blad
                     // Przejdz w idle
                     // zakoncz transmisje
@@ -201,21 +200,17 @@ ISR(TWI_vect){
 void i2c_write_byte_to_address_blocking(uint8_t address,uint8_t data){
     i2c_tx_buf_index_t new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     // Wait until there is space for two elements in the TX buffer
-    while (new_head==i2c_tx_buffer_tail){
+    while(new_head==i2c_tx_buffer_tail){
         // Busy wait
     }
     cli(); // Disable interrupts to ensure atomic buffer update
     // Enqueue address package with write flag
     i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_Type=ADDRESS_PACKAGE;
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(NOT_LAST_PACKAGE<<LP_BIT)|(ADDRESS_PACKAGE<<DA_BIT);
     // Enqueue data package and mark as last package
     i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     i2c_buffer_tx[i2c_tx_buffer_head].value=data;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(LAST_PACKAGE<<LP_BIT)|(DATA_PACKAGE<<DA_BIT);
     i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
     sei(); // Re-enable interrupts
 }
@@ -230,26 +225,68 @@ void i2c_write_bytes_to_address_blocking(uint8_t address,uint8_t*data,uint8_t le
 
     cli();
     i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_Type=ADDRESS_PACKAGE;  
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(NOT_LAST_PACKAGE<<LP_BIT)|(ADDRESS_PACKAGE<<DA_BIT);
 
     for(i=0;i<length-1;i++){
         i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
 
         i2c_buffer_tx[i2c_tx_buffer_head].value=data[i];
-        i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
-        i2c_buffer_tx[i2c_tx_buffer_head].f_LP=NOT_LAST_PACKAGE;
-        i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
+        i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(NOT_LAST_PACKAGE<<LP_BIT)|(DATA_PACKAGE<<DA_BIT);
     }
     i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
 
     i2c_buffer_tx[i2c_tx_buffer_head].value=data[i];
-    i2c_buffer_tx[i2c_tx_buffer_head].f_RW=WRITE_FLAG;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_LP=LAST_PACKAGE;
-    i2c_buffer_tx[i2c_tx_buffer_head].f_Type=DATA_PACKAGE;
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(LAST_PACKAGE<<LP_BIT)|(DATA_PACKAGE<<DA_BIT);;
     i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
 
     sei();
 }
+
+uint8_t i2c_write_byte_to_address_non_blocking(uint8_t address,uint8_t data){
+    i2c_tx_buf_index_t new_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+    // Wait until there is space for two elements in the TX buffer
+    if(new_head==i2c_tx_buffer_tail){
+        return 1;
+    }
+    cli(); // Disable interrupts to ensure atomic buffer update
+    // Enqueue address package with write flag
+    i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(NOT_LAST_PACKAGE<<LP_BIT)|(ADDRESS_PACKAGE<<DA_BIT);
+    // Enqueue data package and mark as last package
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+    i2c_buffer_tx[i2c_tx_buffer_head].value=data;
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(LAST_PACKAGE<<LP_BIT)|(DATA_PACKAGE<<DA_BIT);
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+    sei(); // Re-enable interrupts    
+    return 0;
+}
+
+uint8_t i2c_write_bytes_to_address_non_blocking(uint8_t address,uint8_t*data,uint8_t length){
+    i2c_tx_buf_index_t new_head=(i2c_tx_buffer_head+length+1)%I2C_TX_BUFFER_SIZE;
+    uint8_t i;
+
+    if(new_head==i2c_tx_buffer_tail){
+        return 1;
+    }
+
+    cli();
+    i2c_buffer_tx[i2c_tx_buffer_head].value=(address<<1)|WRITE_FLAG;
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(NOT_LAST_PACKAGE<<LP_BIT)|(ADDRESS_PACKAGE<<DA_BIT);
+
+    for(i=0;i<length-1;i++){
+        i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+
+        i2c_buffer_tx[i2c_tx_buffer_head].value=data[i];
+        i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(NOT_LAST_PACKAGE<<LP_BIT)|(DATA_PACKAGE<<DA_BIT);
+    }
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+
+    i2c_buffer_tx[i2c_tx_buffer_head].value=data[i];
+    i2c_buffer_tx[i2c_tx_buffer_head].flags=(WRITE_FLAG<<RW_BIT)|(LAST_PACKAGE<<LP_BIT)|(DATA_PACKAGE<<DA_BIT);;
+    i2c_tx_buffer_head=(i2c_tx_buffer_head+1)%I2C_TX_BUFFER_SIZE;
+
+    sei();
+    return 0;
+}
+
 #endif // USE_RING_BUFFER_FOR_I2C_OPERATIONS==1

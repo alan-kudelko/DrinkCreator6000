@@ -153,8 +153,11 @@ Macros</h2></td></tr>
 <tr class="memitem:a06e9b431be0da4da79c54eb2b27de980" id="r_a06e9b431be0da4da79c54eb2b27de980"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a06e9b431be0da4da79c54eb2b27de980">WRITE_FLAG</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memitem:a177534082408c004b9e85877b9d026ad" id="r_a177534082408c004b9e85877b9d026ad"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a177534082408c004b9e85877b9d026ad">LAST_PACKAGE</a>&#160;&#160;&#160;1</td></tr>
 <tr class="memitem:a5ee7f544aa492d779cd8e031534160cb" id="r_a5ee7f544aa492d779cd8e031534160cb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5ee7f544aa492d779cd8e031534160cb">NOT_LAST_PACKAGE</a>&#160;&#160;&#160;0</td></tr>
-<tr class="memitem:aeecd740e1b25bfabae49e45628a75869" id="r_aeecd740e1b25bfabae49e45628a75869"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeecd740e1b25bfabae49e45628a75869">ADDRESS_PACKAGE</a>&#160;&#160;&#160;0</td></tr>
 <tr class="memitem:ae9087d23a50a61f9d92ca1d6818e9139" id="r_ae9087d23a50a61f9d92ca1d6818e9139"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae9087d23a50a61f9d92ca1d6818e9139">DATA_PACKAGE</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:aeecd740e1b25bfabae49e45628a75869" id="r_aeecd740e1b25bfabae49e45628a75869"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeecd740e1b25bfabae49e45628a75869">ADDRESS_PACKAGE</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:ae825b0afbc4d9119b626fd77770295fe" id="r_ae825b0afbc4d9119b626fd77770295fe"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae825b0afbc4d9119b626fd77770295fe">RW_BIT</a>&#160;&#160;&#160;0</td></tr>
+<tr class="memitem:a9f147b3a3d65d9ded66779bef8056ecb" id="r_a9f147b3a3d65d9ded66779bef8056ecb"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9f147b3a3d65d9ded66779bef8056ecb">LP_BIT</a>&#160;&#160;&#160;1</td></tr>
+<tr class="memitem:a6027dafcc1a393794288675aaa0449ec" id="r_a6027dafcc1a393794288675aaa0449ec"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6027dafcc1a393794288675aaa0449ec">DA_BIT</a>&#160;&#160;&#160;2</td></tr>
 <tr class="memitem:a24007cd8c0a6a3aae0965b4032a92c2d" id="r_a24007cd8c0a6a3aae0965b4032a92c2d"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a24007cd8c0a6a3aae0965b4032a92c2d">TIMER4_POLLING_CYCLE</a>&#160;&#160;&#160;255</td></tr>
 <tr class="memdesc:a24007cd8c0a6a3aae0965b4032a92c2d"><td class="mdescLeft">&#160;</td><td class="mdescRight">OCR4A value for Timer 4 in "polling" mode.  <br /></td></tr>
 <tr class="memitem:ab7f7ead164f2e3dc08ce8a60ff6819ab" id="r_ab7f7ead164f2e3dc08ce8a60ff6819ab"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab7f7ead164f2e3dc08ce8a60ff6819ab">TIMER4_SENDING_CYCLE</a>&#160;&#160;&#160;14</td></tr>
@@ -183,6 +186,10 @@ Functions</h2></td></tr>
 <tr class="memdesc:a91bb1859c12fbc7c029b2a5a2309b240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single data byte to the specified I2C slave address in blocking mode.  <br /></td></tr>
 <tr class="memitem:ae74a6ec74823b5c3816959f3f696e945" id="r_ae74a6ec74823b5c3816959f3f696e945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74a6ec74823b5c3816959f3f696e945">i2c_write_bytes_to_address_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
 <tr class="memdesc:ae74a6ec74823b5c3816959f3f696e945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends multiple data bytes to the specified I2C slave address in blocking mode.  <br /></td></tr>
+<tr class="memitem:a3340873d4d96bc2b3fd606ac298ed51c" id="r_a3340873d4d96bc2b3fd606ac298ed51c"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a3340873d4d96bc2b3fd606ac298ed51c">i2c_write_byte_to_address_non_blocking</a> (uint8_t address, uint8_t data)</td></tr>
+<tr class="memdesc:a3340873d4d96bc2b3fd606ac298ed51c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues a single data byte to be sent to the specified I²C slave address in non-blocking mode.  <br /></td></tr>
+<tr class="memitem:af1e6cced888d45c8d102d872acea1b76" id="r_af1e6cced888d45c8d102d872acea1b76"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#af1e6cced888d45c8d102d872acea1b76">i2c_write_bytes_to_address_non_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:af1e6cced888d45c8d102d872acea1b76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enqueues multiple data bytes to be sent to the specified I²C slave address in non-blocking mode.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -194,6 +201,8 @@ Variables</h2></td></tr>
 <tr class="memdesc:aab3b5c0fa4c5e46e6d6009f357dc891e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Index of the tail position in the TX buffer.  <br /></td></tr>
 <tr class="memitem:a41fd49c4a663a655243908d0f709bd1a" id="r_a41fd49c4a663a655243908d0f709bd1a"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a41fd49c4a663a655243908d0f709bd1a">i2c_state</a></td></tr>
 <tr class="memdesc:a41fd49c4a663a655243908d0f709bd1a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Current status of the I2C state machine.  <br /></td></tr>
+<tr class="memitem:aec1f537d4e465641ecde4ad6ec87b894" id="r_aec1f537d4e465641ecde4ad6ec87b894"><td class="memItemLeft" align="right" valign="top">volatile uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aec1f537d4e465641ecde4ad6ec87b894">i2c_status</a></td></tr>
+<tr class="memdesc:aec1f537d4e465641ecde4ad6ec87b894"><td class="mdescLeft">&#160;</td><td class="mdescRight">Status of the current I²C operation.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-member-group" class="groupheader"><a id="member-group" name="member-group"></a>
 I2C TWI Master Transmitter status codes</h2></td></tr>
@@ -234,6 +243,20 @@ Timer4 is configured with prescaler 64 to generate ~10 µs ticks for I2C schedul
       </table>
 </div><div class="memdoc">
 <p>Flag indicating address package </p>
+
+</div>
+</div>
+<a id="a6027dafcc1a393794288675aaa0449ec" name="a6027dafcc1a393794288675aaa0449ec"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6027dafcc1a393794288675aaa0449ec">&#9670;&#160;</a></span>DA_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define DA_BIT&#160;&#160;&#160;2</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -389,6 +412,20 @@ Timer4 is configured with prescaler 64 to generate ~10 µs ticks for I2C schedul
 
 </div>
 </div>
+<a id="a9f147b3a3d65d9ded66779bef8056ecb" name="a9f147b3a3d65d9ded66779bef8056ecb"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9f147b3a3d65d9ded66779bef8056ecb">&#9670;&#160;</a></span>LP_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define LP_BIT&#160;&#160;&#160;1</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a5ee7f544aa492d779cd8e031534160cb" name="a5ee7f544aa492d779cd8e031534160cb"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5ee7f544aa492d779cd8e031534160cb">&#9670;&#160;</a></span>NOT_LAST_PACKAGE</h2>
 
@@ -416,6 +453,20 @@ Timer4 is configured with prescaler 64 to generate ~10 µs ticks for I2C schedul
       </table>
 </div><div class="memdoc">
 <p>Flag indicating read operation </p>
+
+</div>
+</div>
+<a id="ae825b0afbc4d9119b626fd77770295fe" name="ae825b0afbc4d9119b626fd77770295fe"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae825b0afbc4d9119b626fd77770295fe">&#9670;&#160;</a></span>RW_BIT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RW_BIT&#160;&#160;&#160;0</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
 
 </div>
 </div>
@@ -692,6 +743,38 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
+<a id="a3340873d4d96bc2b3fd606ac298ed51c" name="a3340873d4d96bc2b3fd606ac298ed51c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a3340873d4d96bc2b3fd606ac298ed51c">&#9670;&#160;</a></span>i2c_write_byte_to_address_non_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_write_byte_to_address_non_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enqueues a single data byte to be sent to the specified I²C slave address in non-blocking mode. </p>
+<p>This function attempts to add the address and data byte to the TX buffer. If the buffer is full, the function returns immediately with a status code indicating failure. Intended for use with RTOS or cooperative multitasking to avoid blocking the CPU.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I²C slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Single byte to be transmitted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t Returns 0 if the data was successfully queued, 1 if the TX buffer is full. </dd></dl>
+
+</div>
+</div>
 <a id="ae74a6ec74823b5c3816959f3f696e945" name="ae74a6ec74823b5c3816959f3f696e945"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae74a6ec74823b5c3816959f3f696e945">&#9670;&#160;</a></span>i2c_write_bytes_to_address_blocking()</h2>
 
@@ -726,6 +809,44 @@ Here is the caller graph for this function:</div>
   </table>
   </dd>
 </dl>
+
+</div>
+</div>
+<a id="af1e6cced888d45c8d102d872acea1b76" name="af1e6cced888d45c8d102d872acea1b76"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af1e6cced888d45c8d102d872acea1b76">&#9670;&#160;</a></span>i2c_write_bytes_to_address_non_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_write_bytes_to_address_non_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enqueues multiple data bytes to be sent to the specified I²C slave address in non-blocking mode. </p>
+<p>This function attempts to add the address and multiple data bytes to the TX buffer. If there is not enough free space in the buffer, it returns immediately with a failure status. Suitable for RTOS-based or cooperative multitasking environments to avoid blocking the CPU.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I²C slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the array of bytes to be transmitted. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to enqueue. </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>uint8_t Returns 0 if all bytes were successfully queued, 1 if the TX buffer did not have enough space. </dd></dl>
 
 </div>
 </div>
@@ -777,6 +898,36 @@ Here is the caller graph for this function:</div>
 <p>Current status of the I2C state machine. </p>
 <p>Current state of the I²C finite state machine (FSM).</p>
 <p>Represents the current step of the I²C driver’s FSM during transmission. The FSM is updated in the <span class="tt">TWI_vect</span> interrupt handler in response to TWI status codes. </p>
+
+</div>
+</div>
+<a id="aec1f537d4e465641ecde4ad6ec87b894" name="aec1f537d4e465641ecde4ad6ec87b894"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aec1f537d4e465641ecde4ad6ec87b894">&#9670;&#160;</a></span>i2c_status</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">volatile uint8_t i2c_status</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Status of the current I²C operation. </p>
+<p>Stores the last TWI/I²C status code (from the TWSR register), indicating the current bus condition, e.g.:</p><ul>
+<li>START condition transmitted</li>
+<li>SLA+W / SLA+R transmitted and ACK/NACK received</li>
+<li>Data byte transmitted/received with ACK/NACK</li>
+<li>Bus errors (arbitration lost, ACK failure, etc.) </li>
+</ul>
 
 </div>
 </div>

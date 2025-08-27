@@ -35,5 +35,6 @@ var searchData=
   ['lcd_5freturnhome_32',['LCD_RETURNHOME',['../_h_d44780___i2_c_8h.html#a154c86a887633d0f6d9988e4dbb1f419',1,'HD44780_I2C.h']]],
   ['lcd_5fsetcgramaddr_33',['LCD_SETCGRAMADDR',['../_h_d44780___i2_c_8h.html#aae6ea856879c11dee58493184582a52f',1,'HD44780_I2C.h']]],
   ['lcd_5fsetddramaddr_34',['LCD_SETDDRAMADDR',['../_h_d44780___i2_c_8h.html#a15008b832807a208d9d88c74e6751ebf',1,'HD44780_I2C.h']]],
-  ['lcd_5fwidth_35',['LCD_WIDTH',['../_drink_creator6000___config___c_8h.html#a19693eac3018d3e7800fde141921b812',1,'DrinkCreator6000_Config_C.h']]]
+  ['lcd_5fwidth_35',['LCD_WIDTH',['../_drink_creator6000___config___c_8h.html#a19693eac3018d3e7800fde141921b812',1,'DrinkCreator6000_Config_C.h']]],
+  ['lp_5fbit_36',['LP_BIT',['../i2c__ringbuffer_8h.html#a9f147b3a3d65d9ded66779bef8056ecb',1,'i2c_ringbuffer.h']]]
 ];

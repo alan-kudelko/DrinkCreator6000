@@ -52,7 +52,7 @@ var NAVTREEINDEX =
 "_drink_creator6000_8cpp.html",
 "_drink_creator6000___pins_8h.html#a0a7167f2699112dd16a7e01529118206",
 "_m_c_p230_x_x_8h.html#acd51750f882579380d04830f0afe9573",
-"task_error_handler_8h.html"
+"task_error_handler_8cpp.html#a7dd54fc66122a231da37b565f13d23c5"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';
