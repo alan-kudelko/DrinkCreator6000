@@ -222,7 +222,9 @@ During normal operation, the system uses queues, mutexes, notifications, global 
 | float setTemperature |||
 | float temperatureHysteresis |||
 
+During normal operation, tasks communicate as illustrated in the diagram below.
 
+![Normal operation overview](Media/NormalOperation.png)
 
 ---
 
