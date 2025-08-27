@@ -141,11 +141,7 @@ Screen transition diagram:
 
 ## ⚙️ Technical Overview
 
-### 1. 🛠️ System's architecture overview
-
----
-
-### 2. 🧵 Task Overview
+### 1. 🧵 Task Overview
 
 | Task ID | Task Name                  | Description                                                                                                               | Priority | Stack Size | Free Stack |
 |---------|----------------------------|---------------------------------------------------------------------------------------------------------------------------|----------|------------|------------|
@@ -166,6 +162,21 @@ Screen transition diagram:
 *Note:*  
 - Task stacks will be fine-tuned in the final release
 - The taskWelcomeScreen and taskTestHardware tasks share the same TCB and stack, as the former is deleted upon completion. This memory reuse is required due to limited available RAM (~800 bytes remaining) and provides a practical demonstration of task stack and TCB reuse in highly constrained memory environments
+
+### 2. 🛠️ System's architecture overview
+
+### 1.1 System Initialization
+
+The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
+- Configures all I/O pins according to the custom hardware design.
+- Allocates memory statically for FreeRTOS objects such as tasks, queues, semaphores, and mutexes.
+- Initializes key hardware peripherals including UART, I²C devices (e.g., LCD, keypad expanders), and shift registers for pump control.
+- Implements a system startup routine that runs early during boot (placed in the `.init8` linker section), ensuring all components are ready before the scheduler starts.
+- The startup routine is marked with GCC `naked` and `used` attributes to control exact placement and prevent unwanted optimizations or removal.
+
+This careful initialization sequence ensures reliable and deterministic system behavior from power-up.
+
+
 
 ---
 
