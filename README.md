@@ -25,14 +25,15 @@ The entire unit is powered by a modified ATX computer power supply, delivering s
 This project integrates a wide range of hardware, software, and system-level concepts typically found in professional embedded systems. Below is a breakdown of the core technologies and components involved in the design and implementation of DrinkCreator6000:
 
 ### 🔌 Hardware & Electronics
-- Custom-designed PCB with ATmega2561 AVR microcontroller
-- 2004 I²C LCD display for UI rendering
-- MCP23017 I²C I/O expander for keypad handling
-- 74HC595 shift register to control peristaltic pumps
-- Peltier modules for cooling with dedicated water circulation pump
-- 1-Wire digital thermometer for internal temperature measurement
-- Modified 400 W ATX power supply (5V / 12V rails)
-- Fully enclosed, thermally insulated cooling chamber (polystyrene foam + aluminum lining, waterproof)
+- Custom PCB with ATmega2561 AVR MCU – Main microcontroller managing all system functions
+- ATmega328P as I²C Slave – Co-microcontroller responsible for reading temperature from a 1-Wire digital thermometer
+- MCP23008 I²C I/O expander - for keypad handling
+- 74HC595 shift register - Controls peristaltic pumps by converting serial signals to parallel outputs
+- 20x04 I²C LCD display for UI rendering
+- Peltier Modules with Water Circulation Pump – Provide cooling for the chamber, supported by a dedicated circulation pump.
+- 1-Wire digital thermometer - Monitors internal temperature of the cooling chamber
+- Modified 400 W ATX power supply - Supplies stable 5V and 12V rails for logic circuits and high-power components
+- Fully enclosed, thermally insulated cooling chamber - Constructed from polystyrene with sealed aluminum lining for waterproofing and thermal isolation
 
 ### 🧠 System Architecture & Concepts
 - Real-time system based on FreeRTOS
@@ -81,13 +82,9 @@ The source code is fully documented using Doxygen, which generates up-to-date, b
 
 This section provides a visual presentation of the DrinkCreator6000 project, including photographs of the assembled machine, its hardware components, and screenshots illustrating the system’s operation. It aims to deliver a comprehensive understanding of the device’s physical design and functional behavior.
 
-### 🎬 UI interface Demo
+### 🎬 UI Demos
 
 [![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/Mg_Gc56w8Ac/0.jpg)](https://www.youtube.com/watch?v=Mg_Gc56w8Ac)
-
-### 🎬 Project Demo
-
-(Will be here soon)
 
 ---
 
@@ -191,7 +188,7 @@ Screen transition diagram:
 - 🔄 Implement `stopCooler()` function to safely disable the cooling system
 - 🔄 Refactor embedded codebase to comply with MISRA C:2025 coding standard for improved safety, portability, and maintainability
 - 🔄 Develop custom low-level UART and I2C drivers with queuing support, non-blocking read/write operations, and efficient MCU time usage
-- 🔄 Refactor project structure and clean up `#include` dependencies based on Doxygen documentation analysis
+- ✅ Refactor project structure and clean up `#include` dependencies based on Doxygen documentation analysis
 - ✅ Migrate project to VS Code, CMake, and Ninja build system with `avr-gcc` toolchain
 
 ---
@@ -202,7 +199,7 @@ Screen transition diagram:
 
 #### 1.1 Hardware
 - ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
-- LCD 2004 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
+- LCD 20x04 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
 - 74HC595 shift register for pump control
 - MCP23017 I²C I/O expander for keypad
 
@@ -236,7 +233,7 @@ Screen transition diagram:
 
 *Note:*  
 - Task stacks will be fine-tuned in the final release
-- taskWelcomeScreen and taskTestHardware share the same TCB and stack, as the former is deleted after execution. This reuse is necessary due to limited RAM (~800 bytes remaining). This setup also helps me better understand the behavior of task stack/TCB reuse in constrained memory environments
+- The taskWelcomeScreen and taskTestHardware tasks share the same TCB and stack, as the former is deleted upon completion. This memory reuse is required due to limited available RAM (~800 bytes remaining) and provides a practical demonstration of task stack and TCB reuse in highly constrained memory environments
 
 ---
 
