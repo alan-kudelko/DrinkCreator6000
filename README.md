@@ -182,7 +182,26 @@ This initialization routine executes prior to main(), ensuring all hardware and 
 
 ### 2.2 System normal start
 
+During normal startup, all tasks are created and initialized according to the system design:
+
+- `taskWelcomeScreen` executes briefly to present a decorative startup display
+- Core tasks are created, including `taskMain`, `taskReadInput`, `taskUpdateScreen`, `taskReadTemp`, `taskRegulateTemp`, `taskSelectDrink`, and `taskOrderDrink`
+- Peripheral tasks for serial input, system monitoring, and UI updates are also initialized
+- The global `SystemContext` (FSM-based) is initialized to the `taskWelcomeScreen` context
+
+This setup enables full system functionality, supporting both user interaction and automated beverage processing.
+
 ### 2.3 System fault start
+
+In case of a critical fault, the system performs a fault startup with a minimal set of tasks:
+
+- The task that caused the fault is not created
+- `taskWelcomeScreen` is non created
+- The global `SystemContext` is set to display the last recorded fault, and all tasks except the one that caused the fault are initialized normally
+
+This approach ensures safe recovery, prevents re-execution of the failing task, and provides immediate visibility of the fault.
+
+After the tasks are created, `__stack_ptr` is set to the current SP value, and the RTOS scheduler is started.
 
 ---
 
