@@ -141,21 +141,7 @@ Screen transition diagram:
 
 ## ⚙️ Technical Overview
 
-### 1. 🛠️ Hardware and Libraries Requirements
-
-#### 1.1 Hardware
-- ATmega2561 microcontroller — or an Arduino Mega board for prototyping convenience
-- LCD 20x04 display with I²C backpack (e.g., based on HD44780, PCA9633, or AiP31068)
-- 74HC595 shift register for pump control
-- MCP23017 I²C I/O expander for keypad
-
-#### 1.2 Software
-- Firmware developed in C / C++ using native AVR libraries (`avr-libc`) with low-level register access
-- FreeRTOS (AVR port) for real-time multitasking
-- Custom drivers for UART and I2C with queuing and non-blocking communication
-- Build system based on Visual Studio Code, CMake, and Ninja with `avr-gcc` toolchain
-- Doxygen for automatic code documentation generation
-- Firmware is gradually refactored to comply with MISRA C:2025 coding standard to improve safety, readability, and maintainability
+### 1. 🛠️ System's architecture overview
 
 ---
 
@@ -183,23 +169,6 @@ Screen transition diagram:
 
 ---
 
-### 3. 📊 RAM Usage Overview (Start, End, Size)
-
-| Region    | Start Address | End Address | Size (bytes) |
-|-----------|---------------|-------------|--------------|
-| .data     | 0x0200        | 0x0B08      | 2312         |
-| .bss      | 0x0B08        | 0x10AC      | 1444         |
-| .tdat     | 0x10AC        | 0x1EB0      | 3588         |
-| Heap      | 0x1BF7        | 0x1BF7      | 0            |
-| CPU Stack | 0x21B5        | 0x21FF      | 154          |
-
-**Total free memory:** 836 bytes
-
-*Note:*  
-- FreeRTOS task stacks are statically allocated and included within the `.tdat` segment.
-- The CPU Stack refers to the main processor stack (used before the scheduler starts), not individual task stacks.
-  
----
 ### 4. 💾 EEPROM Memory Map
 
 | Address (hex) | Size (bytes) | Description                       |
@@ -453,36 +422,45 @@ Therefore, the amount of free memory available in the system is calculated as:
 
 ---
 
-### 10. 🧩 PCB
+### 10. 📊 RAM Usage Overview (Start, End, Size)
 
-#### 10.1 MCU Pinout (TQFP-64 ATmega2561)
+| Region    | Start Address | End Address | Size (bytes) |
+|-----------|---------------|-------------|--------------|
+| .data     | 0x0200        | 0x0B08      | 2312         |
+| .bss      | 0x0B08        | 0x10AC      | 1444         |
+| .tdat     | 0x10AC        | 0x1EB0      | 3588         |
+| Heap      | 0x1BF7        | 0x1BF7      | 0            |
+| CPU Stack | 0x21B5        | 0x21FF      | 154          |
+
+**Total free memory:** 836 bytes
+
+*Note:*  
+- FreeRTOS task stacks are statically allocated and included within the `.tdat` segment.
+- The CPU Stack refers to the main processor stack (used before the scheduler starts), not individual task stacks.
+  
+---
+
+### 11. 🧩 PCB
+
+#### 11.1 MCU Pinout (TQFP-64 ATmega2561)
 
 | Pin | Usage |
 |-----|-------|
 | PE0 (RXD0/PCINT8)  | 🟢 USART0 RX / ICSP Serial Data in |
 | PE1 (TXD0)         | 🟢 USART0 TX / ICSP Serial Data out |
-| PE2 (XCK0/AIN0)    | ⚪ Unused |
 | PE3 (OC3A/AIN1)    | 🟢 Radiator fan 1 MOSFET's gate |
 | PE4 (OC3B/INT4)    | 🟢 Radiator fan 2 MOSFET's gate |
 | PE5 (OC3C/INT5)    | 🟢 Cooler fan MOSFET's gate |
 | PE6 (T3/INT6)      | 🟢 Circulation pump MOSFET's gate |
-| PE7 (ICP3/INT7)    | ⚪ Unused |
-| PB0 (SS/PCINT0)    | ⚪ Unused |
 | PB1 (SCK/PCINT1)   | 🟢 ICSP Serial Clock |
-| PB2 (MOSI/PCINT2)  | ⚪ Unused |
-| PB3 (MISO/PCINT3)  | ⚪ Unused |
-| PB4 (OC2A/PCINT4)  | ⚪ Unused |
 | PB5 (OC1A/PCINT5)  | 🟢 Buzzer NPN's base |
 | PB6 (OC1B/PCINT6)  | 🔴 Open Drain Slave Data Ready |
-| PB7 (OC0A/OC1C/PCINT7) | ⚪ Unused |
 | PC0 (A8)           | 🟢 74HC595 Serial data input |
 | PC1 (A9)           | 🟢 74HC595 Storage register clock input |
 | PC2 (A10)          | 🟢 74HC595 Shift register clock input |
 | PC3 (A11)          | 🟢 74HC595 Output enable (active LOW) |
 | PC4 (A12)          | 🟢 LED Ring DI |
 | PC5 (A13)          | 🟢 LED Ring DO |
-| PC6 (A14)          | ⚪ Unused |
-| PC7 (A15)          | ⚪ Unused |
 | PD0 (SCL/INT0)     | 🔵 I2C SCL |
 | PD1 (SDA/INT1)     | 🔵 I2C SDA |	
 | PD2 (RXD1/INT2)    | 🟢 MCP23008 INT |
@@ -498,35 +476,25 @@ Therefore, the amount of free memory available in the system is calculated as:
   - **Timer2** is used by FreeRTOS for the system tick. This provides a precise periodic interrupt to drive task scheduling and timing functions.  
   - **Timer4** is dedicated to the custom I²C driver with ring buffer support, allowing non-blocking I²C communication. The timer triggers interrupts for handling I²C events, so CPU time is not blocked during transfers.  
 
-#### 10.2 MCU Pinout (TQFP-32 ATmega328p)
+#### 11.2 MCU Pinout (TQFP-32 ATmega328p)
 
 | Pin | Usage |
 |-----|-------|
 | PD0 (RXD)          | 🟢 USART0 RX |
 | PD1 (TXD)          | 🟢 USART0 TX |
-| PD2 (INT0)         | ⚪ Unused |
-| PD3 (OC2B/INT1)    | ⚪ Unused |
-| PD4 (T0/XCK)       | ⚪ Unused |
-| PD5 (OC0B/T1)      | ⚪ Unused |
-| PD6 (OC0A/AIN0)    | ⚪ Unused |
-| PD7 (AIN1)         | ⚪ Unused |
 | PB0 (ICP1/CLKO)    | 🔴 Open Drain Slave Data Ready |
 | PB1 (OC1A)         | 🟢 1-WIRE interface |
 | PB2 (SS/OC1B)      | ⚪ Unused |
 | PB3 (MOSI/OC2A)    | 🟢 ICSP Serial Data in |
 | PB4 (MISO)         | 🟢 ICSP Serial Data out |
 | PB5 (SCK)          | 🟢 ICSP Serial Clock |
-| PC0 (ADC0)         | ⚪ Unused |
-| PC1 (ADC1)         | ⚪ Unused |
-| PC2 (ADC2)         | ⚪ Unused |
-| PC3 (ADC3)         | ⚪ Unused |
 | PC4 (ADC4/SDA)     | 🔵 I2C SDA |
 | PC5 (ADC5/SCL)     | 🔵 I2C SCL |
 
 *Note:* 
 - PB0 is used to indicate that thermometers data is ready to read by master IC (ATmega2561)
 
-#### 10.3 Bill of Materials (BOM)
+#### 11.3 Bill of Materials (BOM)
 
 | Reference / Designator | Component       | Footprint   | Quantity | Notes / Value   |
 |------------------------|-----------------|-------------|----------|-----------------|
@@ -558,7 +526,7 @@ Therefore, the amount of free memory available in the system is calculated as:
 | LED2,LED3         | LED                  | LED0603     | 2        | Red LEDs        |
 
 
-#### 10.4 MOSFET Power Dissipation Calculations
+#### 11.4 MOSFET Power Dissipation Calculations
 
 This section contains calculations of the power dissipated by the MOSFETs to verify that the selected transistors can safely handle the intended load. Since these MOSFETs will not be driven by a PWM signal, switching losses are not considered; only conduction losses due to RDS(on) are included.
 
@@ -591,7 +559,7 @@ MOSFETS Q7.2 - Q8 controll the radiator fans and circulation fan inside the free
 
 **Note:** All calculations assume $R_{DS(on)}$ value at $V_{GS} = 5\,\text{V}$.
 
-#### 10.5 PCB Layout
+#### 11.5 PCB Layout
 
 Preview of the custom-designed AVR board used in the project:
 
@@ -603,16 +571,16 @@ Preview of the custom-designed AVR board used in the project:
 
 ---
 
-### 11. 🔌 Electrical Schematic  
+### 12. 🔌 Electrical Schematic  
 Full schematic of the system, including MCU, Peltier drivers, shift register control, keypad interface, and LCD wiring:
 
-#### 11.1 USB Port with UART converter for ATmega2561
+#### 12.1 USB Port with UART converter for ATmega2561
 
 ![USB Port](Media/ElectricalSchematic/USB_UART.png)
 
 **USB Port with UART Converter (CH340G)** — Provides USB connectivity to the ATmega2561 through an integrated CH340G USB-to-UART bridge. Used mainly for debugging, and testing via a virtual COM port.
 
-#### 11.2 ATmega2561
+#### 12.2 ATmega2561
 
 ![ATmega2561](Media/ElectricalSchematic/ATmega2560.png)
 
@@ -625,7 +593,7 @@ Full schematic of the system, including MCU, Peltier drivers, shift register con
 
 This module serves as the main processing unit in the project, handling all digital I/O, communication, and control tasks.
 
-#### 11.3 Shift Register
+#### 12.3 Shift Register
 
 ![74HC595](Media/ElectricalSchematic/Shift_Register.png)
 
@@ -634,7 +602,7 @@ This module serves as the main processing unit in the project, handling all digi
 - Receives serial data from the microcontroller and converts it to parallel outputs.  
 - Each output is connected to the gate of a MOSFET that switches an individual pump. 
 
-#### 11.4 Keyboard driver
+#### 12.4 Keyboard driver
 
 ![MCP23008](Media/ElectricalSchematic/MCP23008.png)
 
@@ -649,9 +617,9 @@ This module serves as the main processing unit in the project, handling all digi
 
 ---
 
-### 12. Additional Notes  
+### 13. Additional Notes  
 
-#### 12.1 Low-level Drivers
+#### 13.1 Low-level Drivers
 
 This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
 
@@ -676,7 +644,7 @@ This project implements custom low-level drivers for core communication peripher
 
 These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
 
-#### 12.2 System Initialization
+#### 13.2 System Initialization
 
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
 - Configures all I/O pins according to the custom hardware design.
@@ -691,7 +659,7 @@ This careful initialization sequence ensures reliable and deterministic system b
 
 ---
 
-### 13. 🚀 How to build
+### 14. 🚀 How to build
 
 This project **was originally built and uploaded using the Arduino IDE**, which allowed for quick prototyping and development. However, due to the limitations of the Arduino environment — such as lack of build transparency and limited control over the toolchain — the project has been successfully **migrated to Visual Studio Code with a CMake-based build system**.
 
