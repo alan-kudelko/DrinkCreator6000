@@ -216,6 +216,12 @@ During normal operation, the system uses queues, mutexes, notifications, global 
 | Mutex      | mux_I2CLock      | N/A            | Mutex protecting access to I²C bus |
 | Mutex      | mux_SerialLock   | N/A            | Mutex protecting access to UART/serial port |
 | Volatile struct sUIContext | UI_Context  | N/A            | Global UI context structure managing screen/task states |
+| struct sSystemError lastSystemError |||
+| uint16_t bootupsCount |||
+| float currentTemperature |||
+| float setTemperature |||
+| float temperatureHysteresis |||
+
 
 
 ---
