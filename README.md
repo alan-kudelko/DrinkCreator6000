@@ -172,7 +172,7 @@ Screen transition diagram:
    - [9.4 MOSFET Power Dissipation Calculations](#94-mosfet-power-dissipation-calculations)  
    - [9.5 PCB Layout](#95-pcb-layout)  
 10. [Additional Notes](#10-additional-notes)  
-11. [How to build](#11-how-to-build)  
+11. [How to build](#11--how-to-build)  
    - [11.1 Installing VS Code](#111-installing-vs-code)  
    - [11.2 Installing CMake](#112-installing-cmake)  
    - [11.3 Installing Ninja as the build tool](#113-installing-ninja-as-the-build-tool)  
