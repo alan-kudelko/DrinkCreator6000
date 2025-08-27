@@ -265,20 +265,20 @@ An example of this control logic is shown below:
 
 ---
 
-### 6. Input Handling & MCP23017  
+### 6. Input Handling & MCP23008  
 
-#### 6.1 Configuration of MCP23017
+#### 6.1 Configuration of MCP23008
 
-The MCP23017 is a 16-bit I/O expander IC that provides additional GPIO pins via an I2C interface. It features 22 registers (comprising 11 register pairs) that enable control of 16 pins, organized into two 8-bit ports (Port A and Port B). Its primary advantage lies in its ability to expand the number of input and output lines available to a microcontroller.
+The MCP23008 is a 8-bit I/O expander IC that provides additional GPIO pins via an I2C interface. It features 11 registers that enable control of 8 pins. Its primary advantage lies in its ability to expand the number of input and output lines available to a microcontroller.
 
-However, this IC was selected due to its inclusion of two interrupt pins, which can be utilized to signal when a button press occurs. Moreover, it maintains the previous button states within dedicated registers, allowing the interrupt to be serviced at a later time without the need for immediate response. The stored button states persist until the data is read from the device, ensuring no input events are lost.
+However, this IC was selected due to its inclusion of two interrupt pin, which can be utilized to signal when a button press occurs. Moreover, it maintains the previous button states within dedicated registers, allowing the interrupt to be serviced at a later time without the need for immediate response. The stored button states persist until the data is read from the device, ensuring no input events are lost.
 
 
-#### 6.2 Reading data from MCP23017
+#### 6.2 Reading data from MCP23008
 
-Button input handling is implemented using a dedicated FreeRTOS task, which waits on a binary semaphore. This semaphore is released by an interrupt service routine (ISR) whenever the MCP23017 triggers a change on either INTA or INTB. This design ensures that input processing is deferred from the ISR context, minimizing interrupt latency and preserving real-time responsiveness.
+Button input handling is implemented using a dedicated FreeRTOS task, which waits on a binary semaphore. This semaphore is released by an interrupt service routine (ISR) whenever the MCP23008 triggers a change on INTA. This design ensures that input processing is deferred from the ISR context, minimizing interrupt latency and preserving real-time responsiveness.
 
-When the semaphore is acquired, the task reads the INTCAP (Interrupt Capture) registers, which store the latched state of both Port A and Port B at the exact moment the interrupt occurred. This guarantees that no input event is lost — even if there's a delay between the interrupt and task execution.
+When the semaphore is acquired, the task reads the INTCAP (Interrupt Capture) registers, which store the latched state of Port at the exact moment the interrupt occurred. This guarantees that no input event is lost — even if there's a delay between the interrupt and task execution.
 
 The input algorithm implements:
 
@@ -286,7 +286,7 @@ Debouncing: Each press is verified against the real-time GPIOx registers. If the
 
 Hold detection: A button is considered “held” if the value read from INTCAPx matches the current state in GPIOx for a given number of cycles, with delays between checks.
 
-Active-low logic: All inputs are configured as active-low, with internal pull-ups enabled in the MCP23017. A LOW signal indicates a button press.
+Active-low logic: All inputs are configured as active-low, with internal pull-ups enabled in the MCP23008. A LOW signal indicates a button press.
 
 Deferred execution: No I²C communication occurs inside the ISR. Instead, the ISR only sets the read flag, and the task performs all data handling asynchronously.
 
