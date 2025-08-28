@@ -113,5 +113,5 @@ void taskErrorHandler(void*pvParameters){
       // reset MCU
     }
     vTaskDelay(pdMS_TO_TICKS(50));
-  }
+    }
 }
