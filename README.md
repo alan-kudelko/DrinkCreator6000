@@ -314,6 +314,15 @@ During normal operation, tasks communicate as illustrated in the diagram below.
 
 ![Normal operation overview](Media/DataFlowDiagram.png)
 
+*Note:*  
+- 🟦 **Blue** – Queues (`QueueHandle_t`)  
+- 🟨 **Yellow** – Global variables  
+- ⚪ **White, dashed lines** – Task notifications  
+- 🟧 **Orange** – Mutexes (`MutexHandle_t`)  
+- 🟩 **Green** – Semaphores (`SemaphoreHandle_t`)  
+
+
+
 ---
 
 ### 4. Navigation & UI Context  
