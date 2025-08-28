@@ -312,7 +312,7 @@ During normal operation, the system uses queues, mutexes, notifications, global 
 
 During normal operation, tasks communicate as illustrated in the diagram below.
 
-![Normal operation overview](Media/NormalOperation.png)
+![Normal operation overview](Media/DataFlowDiagram.png)
 
 ---
 
