@@ -330,6 +330,12 @@ During normal operation, tasks communicate as illustrated in the diagram below.
 - 🟥 **Red, dahsed lines** – Task notifications
 - 🟧 **Orange** – Mutexes (`MutexHandle_t`)  
 
+During normal operation, `taskMain` coordinates other tasks based on the global context variable UI_Context. It issues task notifications to trigger activation and suspension of specific tasks as required by the current state.
+
+If a fault is detected by `taskErrorHandler`, all running tasks are immediately suspended, the fault record is written to EEPROM, and the system performs a restart to ensure safe recovery.
+
+Global variables do not require protection through mutexes or semaphores, since they are not critical for the stability of the system. The `UI_Context` structure is also not protected, as all operations on it are atomic—ensuring that all fields of the structure are written simultaneously. Moreover, tasks never modify the field that determines the currently active task; instead, they only update fields related to their respective submenus. If any submenu field contains an invalid (out-of-range) value, it is automatically reset to a default value within the currently executing task. This situation can only occur during switching of the currently running task and results in the worst case in displaying the first submenu of the running task.
+
 ---
 
 ### 4. Navigation & UI Context  
