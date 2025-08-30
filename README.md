@@ -303,21 +303,19 @@ During normal operation, the system uses queues, mutexes, notifications, global 
 | Mutex                        | mux_I2CLock           | N/A                           | Mutex protecting access to I²C bus |
 | Mutex                        | mux_SerialLock        | N/A                           | Mutex protecting access to UART/serial port |
 | Volatile struct sUIContext   | UI_Context            | N/A                           | Global UI context structure managing screen/task states |
-| struct sSystemError          | lastSystemError       | N/A                           | |
-| uint16_t                     | bootupsCount          | N/A                           | |
-| float                        | currentTemperature    | N/A                           | |
-| float                        | setTemperature        | N/A                           | |
-| float                        | temperatureHysteresis | N/A                           | |
+| struct sSystemError          | lastSystemError       | N/A                           | Structure containing information and time signature of last system's error |
+| uint16_t                     | bootupsCount          | N/A                           | BootupCount of the system |
+| float                        | currentTemperature    | N/A                           | Current temperature inside the freezer |
+| float                        | setTemperature        | N/A                           | Regulation set temperature for the freezer |
+| float                        | temperatureHysteresis | N/A                           | Hysteresis width of temperature regulation|
 | volatile uint32_t            | idleCounter           | N/A                           | |
 | volatile uint32_t            | idleCounterLast       | N/A                           | |
 | volatile uint32_t            | idleCounterPerSecond  | N/A                           | |
-| volatile uint32_t            | tickCount             | N/A                           | |
+| volatile uint32_t            | tickCount             | N/A                           | Idle tick hook count, used to calculate CPU usage |
 | volatile uint32_t            | idleCalib             | N/A                           | |
-| const struct sDrinkData[]    | drink                 | N/A                           | |
-| const char[]                 | ingredients           | N/A                           | |
-| const uint8_t[]              | pumpsEff              | N/A                           | |
-
-
+| const struct sDrinkData[]    | drink                 | N/A                           | Drinks data, name, volumes |
+| const char[]                 | ingredients           | N/A                           | Names of ingredients used for creating drinks |
+| const uint8_t[]              | pumpsEff              | N/A                           | Pumps efficiency values (may require manual calibration for different beverages) |
 
 During normal operation, tasks communicate as illustrated in the diagram below.
 
