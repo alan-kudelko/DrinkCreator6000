@@ -317,7 +317,8 @@ During normal operation, tasks communicate as illustrated in the diagram below.
 *Note:*  
 - 🟦 **Blue** – Queues (`QueueHandle_t`)  
 - 🟨 **Yellow** – Global variables  
-- ⚪ **White, dashed lines** – Task notifications  
+- ⬜ **White, dashed lines** – Task notifications
+- 🟥 **Red, dahsed lines** – Task notifications
 - 🟧 **Orange** – Mutexes (`MutexHandle_t`)  
 - 🟩 **Green** – Semaphores (`SemaphoreHandle_t`)  
 
