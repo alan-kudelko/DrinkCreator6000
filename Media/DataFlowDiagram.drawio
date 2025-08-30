@@ -212,6 +212,14 @@
         <mxCell id="HnXs1HMfGt2ZgMy22FsK-70" value="vAppplicationIdleHook" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;align=center;glass=0;shadow=0;strokeWidth=2;perimeterSpacing=0;strokeColor=#4C566A;fillColor=none;fontColor=#C9D1D9;verticalAlign=middle;spacingLeft=0;spacingTop=0;fontFamily=Helvetica;" vertex="1" parent="1">
           <mxGeometry x="-443" y="-408" width="105" height="55" as="geometry" />
         </mxCell>
+        <mxCell id="HnXs1HMfGt2ZgMy22FsK-163" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;strokeColor=#FFB02E;strokeWidth=2;" edge="1" parent="1" source="HnXs1HMfGt2ZgMy22FsK-71" target="HnXs1HMfGt2ZgMy22FsK-25">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="-258" y="-441" />
+              <mxPoint x="142" y="-441" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
         <mxCell id="HnXs1HMfGt2ZgMy22FsK-71" value="idleCounter&lt;div&gt;idleCounterLast&lt;/div&gt;&lt;div&gt;idleCounterPerSecond&lt;/div&gt;&lt;div&gt;tickCount&lt;/div&gt;&lt;div&gt;idleCalib&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;fontSize=10;align=center;glass=0;shadow=0;strokeWidth=2;perimeterSpacing=0;strokeColor=#FFB02E;fillColor=none;fontColor=#C9D1D9;verticalAlign=middle;spacingLeft=0;spacingTop=0;fontFamily=Helvetica;" vertex="1" parent="1">
           <mxGeometry x="-311" y="-416.5" width="105" height="72" as="geometry" />
         </mxCell>
