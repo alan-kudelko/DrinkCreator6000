@@ -242,7 +242,6 @@ extern SemaphoreHandle_t mux_SerialLock;
 
 extern volatile struct sUIContext UI_Context;
 
-
 // ========================
 // Global Variables
 // ========================
@@ -314,6 +313,5 @@ extern volatile uint32_t idleCalib;
 #define DRINK_SELECT 1
 #define DRINK_ORDER 2
 #define SHOW_INFO 3
-
 
 #endif // _DRINK_CREATOR6000_CONFIG_C_H_
