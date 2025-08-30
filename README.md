@@ -295,20 +295,29 @@ After the tasks are created, `__stack_ptr` is set to the current SP value, the R
 
 During normal operation, the system uses queues, mutexes, notifications, global variables and semaphores to control information exchange between tasks. All control structures are listed below:
 
-| Type       | Name             | Size / Elements | Description |
-|------------|-----------------|----------------|-------------|
-| Queue      | qScreenData      | SCREEN_QUEUE_BUFFER_COUNT=2             | Queue for passing screen update data between tasks |
-| Queue      | qKeyboardData    | KEYBOARD_QUEUE_BUFFER_COUNT=2              | Queue for keyboard/input events |
-| Queue      | qErrorId         | ERROR_ID_QUEUE_BUFFER_COUNT=1              | Queue for error IDs to be processed/logged |
-| Semaphore  | sem_ReadData     | N/A            | Binary semaphore to signal data read completion |
-| Mutex      | mux_I2CLock      | N/A            | Mutex protecting access to I²C bus |
-| Mutex      | mux_SerialLock   | N/A            | Mutex protecting access to UART/serial port |
-| Volatile struct sUIContext | UI_Context  | N/A            | Global UI context structure managing screen/task states |
-| struct sSystemError lastSystemError |||
-| uint16_t bootupsCount |||
-| float currentTemperature |||
-| float setTemperature |||
-| float temperatureHysteresis |||
+| Type                         | Name                  | Elements                      | Description |
+|------------------------------|-----------------------|-------------------------------|-------------|
+| Queue                        | qScreenData           | SCREEN_QUEUE_BUFFER_COUNT=2   | Queue for passing screen update data between tasks |
+| Queue                        | qKeyboardData         | KEYBOARD_QUEUE_BUFFER_COUNT=2 | Queue for keyboard/input events |
+| Queue                        | qErrorId              | ERROR_ID_QUEUE_BUFFER_COUNT=1 | Queue for error IDs to be processed/logged |
+| Mutex                        | mux_I2CLock           | N/A                           | Mutex protecting access to I²C bus |
+| Mutex                        | mux_SerialLock        | N/A                           | Mutex protecting access to UART/serial port |
+| Volatile struct sUIContext   | UI_Context            | N/A                           | Global UI context structure managing screen/task states |
+| struct sSystemError          | lastSystemError       | N/A                           | |
+| uint16_t                     | bootupsCount          | N/A                           | |
+| float                        | currentTemperature    | N/A                           | |
+| float                        | setTemperature        | N/A                           | |
+| float                        | temperatureHysteresis | N/A                           | |
+| volatile uint32_t            | idleCounter           | N/A                           | |
+| volatile uint32_t            | idleCounterLast       | N/A                           | |
+| volatile uint32_t            | idleCounterPerSecond  | N/A                           | |
+| volatile uint32_t            | tickCount             | N/A                           | |
+| volatile uint32_t            | idleCalib             | N/A                           | |
+| const struct sDrinkData[]    | drink                 | N/A                           | |
+| const char[]                 | ingredients           | N/A                           | |
+| const uint8_t[]              | pumpsEff              | N/A                           | |
+
+
 
 During normal operation, tasks communicate as illustrated in the diagram below.
 
@@ -320,9 +329,6 @@ During normal operation, tasks communicate as illustrated in the diagram below.
 - ⬜ **White, dashed lines** – Task notifications
 - 🟥 **Red, dahsed lines** – Task notifications
 - 🟧 **Orange** – Mutexes (`MutexHandle_t`)  
-- 🟩 **Green** – Semaphores (`SemaphoreHandle_t`)  
-
-
 
 ---
 
