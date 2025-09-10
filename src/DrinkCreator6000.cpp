@@ -172,7 +172,7 @@ int main(void){
     lastError_dump(&lastSystemError);
 
     __stack_ptr=(uint8_t*)SP;
-    //ram_dump();
+    ram_dump();
     sei();
     TIMSK4|=(1<<OCIE4A);
     lcd.begin_blocking();
