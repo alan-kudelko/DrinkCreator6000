@@ -81,6 +81,8 @@ The source code is fully documented using Doxygen, which generates up-to-date, b
 
 This section provides a visual presentation of the DrinkCreator6000 project, including photographs of the assembled machine, its hardware components, and screenshots illustrating the system’s operation. It aims to deliver a comprehensive understanding of the device’s physical design and functional behavior.
 
+![Machine Overview](Media/Machine_Overview.jpeg)
+
 ### 🎬 UI Demos
 
 [![DrinkCreator6000 UI Demo](https://img.youtube.com/vi/Mg_Gc56w8Ac/0.jpg)](https://www.youtube.com/watch?v=Mg_Gc56w8Ac)
