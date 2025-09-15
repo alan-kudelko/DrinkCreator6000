@@ -18,6 +18,7 @@
     "taskselectdrink.h": "c",
     "taskmain.h": "c",
     "i2c_ringbuffer.h": "c",
-    "stdint.h": "c"
+    "stdint.h": "c",
+    "uart.h": "c"
   }
 }
