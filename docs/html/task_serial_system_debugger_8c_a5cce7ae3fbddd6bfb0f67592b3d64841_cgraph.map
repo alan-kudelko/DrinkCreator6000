@@ -1,0 +1,12 @@
+<map id="ram_dump" name="ram_dump">
+<area shape="rect" id="Node000001" title="Dumps memory usage via UART." alt="" coords="5,56,88,83"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="144,5,274,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="87,54,149,35,150,40,89,59"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="136,56,282,83"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="88,67,120,67,120,72,88,72"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables." alt="" coords="136,107,282,133"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="89,80,150,99,149,104,87,85"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="330,31,460,57"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="275,25,315,30,315,36,274,30"/>
+<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="282,57,314,52,315,58,283,62"/>
+</map>

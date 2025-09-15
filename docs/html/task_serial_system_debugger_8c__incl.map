@@ -1,0 +1,33 @@
+<map id="src/taskSerialSystemDebugger.c" name="src/taskSerialSystemDebugger.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="219,5,432,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,70,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="273,35,85,82,84,77,272,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="94,80,154,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="291,35,170,78,168,73,290,30"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="691,304,755,331"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="283,35,247,53,232,66,220,81,196,129,186,172,187,192,192,212,203,233,219,254,242,265,285,276,413,293,557,304,675,311,675,317,557,310,412,298,284,281,240,270,216,258,199,236,188,214,182,193,180,171,191,127,215,79,228,62,244,49,280,30"/>
+<area shape="rect" id="Node000005" href="$task_serial_system_debugger_8h.html" title="Task and utilities for serial system debugging and RAM usage reporting." alt="" coords="230,80,421,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="328,33,328,64,323,64,323,33"/>
+<area shape="rect" id="Node000006" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="445,80,499,107"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="352,30,434,70,432,75,350,35"/>
+<area shape="rect" id="Node000013" href="$_drink_creator6000___progmem_8h.html" title="Constant strings stored in flash memory (PROGMEM) for diagnostics and display." alt="" coords="534,80,731,107"/>
+<area shape="poly" id="edge13_Node000001_Node000013" title=" " alt="" coords="380,30,564,73,563,79,379,35"/>
+<area shape="rect" id="Node000015" href="$_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="743,155,943,181"/>
+<area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="433,26,607,46,687,60,744,78,789,107,824,141,821,145,786,111,742,82,686,66,607,51,432,31"/>
+<area shape="rect" id="Node000007" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="365,155,561,181"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="473,108,469,140,464,139,468,107"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="229,229,323,256"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="431,184,324,226,322,221,429,179"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="348,229,405,256"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="449,184,404,221,401,217,446,180"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="429,229,496,256"/>
+<area shape="poly" id="edge9_Node000007_Node000010" title=" " alt="" coords="466,182,466,214,460,214,460,182"/>
+<area shape="rect" id="Node000011" title=" " alt="" coords="521,229,596,256"/>
+<area shape="poly" id="edge10_Node000007_Node000011" title=" " alt="" coords="481,180,532,218,528,222,478,184"/>
+<area shape="rect" id="Node000012" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="621,229,825,256"/>
+<area shape="poly" id="edge11_Node000007_Node000012" title=" " alt="" coords="509,179,663,222,662,227,507,184"/>
+<area shape="poly" id="edge12_Node000012_Node000004" title=" " alt="" coords="726,257,726,288,720,288,720,257"/>
+<area shape="rect" id="Node000014" title=" " alt="" coords="586,155,700,181"/>
+<area shape="poly" id="edge14_Node000013_Node000014" title=" " alt="" coords="637,107,641,139,636,140,631,108"/>
+<area shape="poly" id="edge16_Node000015_Node000004" title=" " alt="" coords="848,181,851,217,848,238,840,257,826,274,808,288,771,306,769,301,806,283,822,270,835,255,843,237,846,217,843,182"/>
+</map>

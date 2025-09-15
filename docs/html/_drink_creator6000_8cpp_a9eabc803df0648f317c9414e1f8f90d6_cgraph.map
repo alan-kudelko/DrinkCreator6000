@@ -16,7 +16,7 @@
 <area shape="poly" id="edge27_Node000001_Node000020" title=" " alt="" coords="47,904,53,946,66,1003,90,1064,108,1092,129,1117,148,1129,145,1133,126,1121,103,1095,85,1067,61,1004,47,946,42,905"/>
 <area shape="rect" id="Node000021" href="$task_serial_input_8c.html#a0fbc6515a31984b6a0664805572be76e" title="Reads input data from UART and enqueues to main task." alt="" coords="394,700,502,727"/>
 <area shape="poly" id="edge28_Node000001_Node000021" title=" " alt="" coords="74,874,400,731,402,736,76,879"/>
-<area shape="rect" id="Node000025" href="$task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="128,168,308,195"/>
+<area shape="rect" id="Node000025" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="128,168,308,195"/>
 <area shape="poly" id="edge34_Node000001_Node000025" title=" " alt="" coords="43,876,72,708,96,585,125,459,167,318,204,208,209,210,172,319,130,461,101,587,77,709,49,877"/>
 <area shape="rect" id="Node000028" href="$task_show_system_info_8cpp.html#afb6336486c86df2872ba9ab89f81f4e7" title=" " alt="" coords="145,877,291,904"/>
 <area shape="poly" id="edge43_Node000001_Node000028" title=" " alt="" coords="80,888,129,888,129,893,80,893"/>
@@ -65,7 +65,7 @@
 <area shape="poly" id="edge39_Node000025_Node000005" title=" " alt="" coords="227,166,277,111,313,81,355,59,422,35,484,17,541,6,595,3,648,11,699,29,752,59,806,104,829,136,849,183,866,242,881,306,903,435,915,532,910,533,898,436,876,308,861,243,844,185,824,138,802,107,748,64,697,34,646,16,595,9,542,11,485,22,424,40,357,64,316,86,281,114,231,169"/>
 <area shape="poly" id="edge40_Node000025_Node000006" title=" " alt="" coords="255,193,357,230,409,242,451,248,493,257,541,280,586,315,625,356,657,397,680,432,676,435,653,400,621,360,582,319,538,285,491,262,451,253,408,247,355,235,253,198"/>
 <area shape="poly" id="edge41_Node000025_Node000009" title=" " alt="" coords="231,166,282,123,317,101,355,84,394,75,434,72,514,76,587,91,646,109,645,114,586,96,513,81,434,77,395,81,357,89,320,105,285,127,234,170"/>
-<area shape="rect" id="Node000026" href="$task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="406,193,489,220"/>
+<area shape="rect" id="Node000026" href="$task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="406,193,489,220"/>
 <area shape="poly" id="edge35_Node000025_Node000026" title=" " alt="" coords="309,189,391,198,391,203,308,194"/>
 <area shape="rect" id="Node000027" href="$_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables." alt="" coords="623,193,768,220"/>
 <area shape="poly" id="edge42_Node000025_Node000027" title=" " alt="" coords="308,175,419,174,540,179,610,188,609,193,539,184,419,179,308,180"/>

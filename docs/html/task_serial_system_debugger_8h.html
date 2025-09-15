@@ -98,16 +98,19 @@ $(function(){initNavTree('task_serial_system_debugger_8h.html','',''); });
   <div class="headertitle"><div class="title">taskSerialSystemDebugger.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Task and utilities for serial system debugging and RAM usage reporting.  
+<a href="#details">More...</a></p>
 <div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_serial_system_debugger_8h__dep__incl.png" border="0" usemap="#ainclude_2task_serial_system_debugger_8hdep" loading="lazy" alt=""/></div>
 <map name="ainclude_2task_serial_system_debugger_8hdep" id="ainclude_2task_serial_system_debugger_8hdep">
-<area shape="rect" title=" " alt="" coords="116,5,286,48"/>
+<area shape="rect" title="Task and utilities for serial system debugging and RAM usage reporting." alt="" coords="112,5,282,48"/>
 <area shape="rect" href="_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="6,96,175,139"/>
-<area shape="poly" title=" " alt="" coords="165,60,118,97,115,93,162,56"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html" title=" " alt="" coords="198,104,426,131"/>
-<area shape="poly" title=" " alt="" coords="240,56,298,101,295,106,237,60"/>
+<area shape="poly" title=" " alt="" coords="163,60,117,97,114,93,159,56"/>
+<area shape="rect" href="task_serial_system_debugger_8c.html" title=" " alt="" coords="198,104,412,131"/>
+<area shape="poly" title=" " alt="" coords="235,56,292,102,288,106,232,60"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html" title=" " alt="" coords="5,187,176,213"/>
 <area shape="poly" title=" " alt="" coords="93,155,93,186,88,186,88,155"/>
 </map>
@@ -115,16 +118,83 @@ This graph shows which files directly or indirectly include this file:</div>
 </div>
 <p><a href="task_serial_system_debugger_8h_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:ab4c121a705ba689834cc3b0f7fc817c7" id="r_ab4c121a705ba689834cc3b0f7fc817c7"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab4c121a705ba689834cc3b0f7fc817c7">RAM_DUMP_BUFFER_LENGTH</a>&#160;&#160;&#160;5</td></tr>
+<tr class="memdesc:ab4c121a705ba689834cc3b0f7fc817c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Length of the buffer used for formatting memory addresses and sizes.  <br /></td></tr>
+<tr class="memitem:a382365b9e2f37805f49d8a9058700c88" id="r_a382365b9e2f37805f49d8a9058700c88"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a382365b9e2f37805f49d8a9058700c88">RAM_DUMP_ADDR_FMT</a>&#160;&#160;&#160;&quot;%04X&quot;</td></tr>
+<tr class="memdesc:a382365b9e2f37805f49d8a9058700c88"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format string for printing 16-bit memory addresses in hexadecimal.  <br /></td></tr>
+<tr class="memitem:a05c598a07ea8c1703644ec2dc08c6dc8" id="r_a05c598a07ea8c1703644ec2dc08c6dc8"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a05c598a07ea8c1703644ec2dc08c6dc8">RAM_DUMP_SIZE_FMT</a>&#160;&#160;&#160;&quot;%4d&quot;</td></tr>
+<tr class="memdesc:a05c598a07ea8c1703644ec2dc08c6dc8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Format string for printing memory sizes in decimal.  <br /></td></tr>
+</table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a2c819460e6318dac5f4d6c68e9c94850" id="r_a2c819460e6318dac5f4d6c68e9c94850"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c819460e6318dac5f4d6c68e9c94850">updateMemoryUsage</a> ()</td></tr>
-<tr class="memdesc:a2c819460e6318dac5f4d6c68e9c94850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates all RAM usage tracking variables.  <br /></td></tr>
-<tr class="memitem:a27f804d84cca754286ed71e404d93d44" id="r_a27f804d84cca754286ed71e404d93d44"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a27f804d84cca754286ed71e404d93d44">ram_dump</a> ()</td></tr>
+<tr class="memitem:a8b8422d6157a1281dab2d0103add13bc" id="r_a8b8422d6157a1281dab2d0103add13bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b8422d6157a1281dab2d0103add13bc">updateMemoryUsage</a> (void)</td></tr>
+<tr class="memdesc:a8b8422d6157a1281dab2d0103add13bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates internal memory usage counters.  <br /></td></tr>
+<tr class="memitem:a5cce7ae3fbddd6bfb0f67592b3d64841" id="r_a5cce7ae3fbddd6bfb0f67592b3d64841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cce7ae3fbddd6bfb0f67592b3d64841">ram_dump</a> (void)</td></tr>
+<tr class="memdesc:a5cce7ae3fbddd6bfb0f67592b3d64841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dumps memory usage via UART.  <br /></td></tr>
 <tr class="memitem:a82f2bfb81de043f58e60f95ea4f8483e" id="r_a82f2bfb81de043f58e60f95ea4f8483e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82f2bfb81de043f58e60f95ea4f8483e">taskSerialSystemDebugger</a> (void *pvParameters)</td></tr>
+<tr class="memdesc:a82f2bfb81de043f58e60f95ea4f8483e"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS task for serial system debugging.  <br /></td></tr>
 </table>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Task and utilities for serial system debugging and RAM usage reporting. </p>
+<p>This header provides declarations for functions and macros used to monitor and report memory usage on the AVR-based system. It includes utilities to dump memory sections (.data, .bss, .tdat, heap, stack) via UART.</p>
+<p>The serial system debugger task can periodically send RAM usage information or respond to on-demand requests, facilitating debugging and performance monitoring of the embedded system.</p>
+<dl class="section note"><dt>Note</dt><dd>All UART output is currently blocking. </dd>
+<dd>
+Memory boundaries and sizes are reported in hexadecimal and decimal formats using macros for formatting. </dd></dl>
+</div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="a382365b9e2f37805f49d8a9058700c88" name="a382365b9e2f37805f49d8a9058700c88"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a382365b9e2f37805f49d8a9058700c88">&#9670;&#160;</a></span>RAM_DUMP_ADDR_FMT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RAM_DUMP_ADDR_FMT&#160;&#160;&#160;&quot;%04X&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format string for printing 16-bit memory addresses in hexadecimal. </p>
+
+</div>
+</div>
+<a id="ab4c121a705ba689834cc3b0f7fc817c7" name="ab4c121a705ba689834cc3b0f7fc817c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab4c121a705ba689834cc3b0f7fc817c7">&#9670;&#160;</a></span>RAM_DUMP_BUFFER_LENGTH</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RAM_DUMP_BUFFER_LENGTH&#160;&#160;&#160;5</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Length of the buffer used for formatting memory addresses and sizes. </p>
+
+</div>
+</div>
+<a id="a05c598a07ea8c1703644ec2dc08c6dc8" name="a05c598a07ea8c1703644ec2dc08c6dc8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a05c598a07ea8c1703644ec2dc08c6dc8">&#9670;&#160;</a></span>RAM_DUMP_SIZE_FMT</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define RAM_DUMP_SIZE_FMT&#160;&#160;&#160;&quot;%4d&quot;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Format string for printing memory sizes in decimal. </p>
+
+</div>
+</div>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a27f804d84cca754286ed71e404d93d44" name="a27f804d84cca754286ed71e404d93d44"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a27f804d84cca754286ed71e404d93d44">&#9670;&#160;</a></span>ram_dump()</h2>
+<a id="a5cce7ae3fbddd6bfb0f67592b3d64841" name="a5cce7ae3fbddd6bfb0f67592b3d64841"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5cce7ae3fbddd6bfb0f67592b3d64841">&#9670;&#160;</a></span>ram_dump()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -132,17 +202,30 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void ram_dump </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Dumps memory usage via UART. </p>
+<p>Prints boundaries and sizes of memory sections:</p><ul>
+<li>.data</li>
+<li>.bss</li>
+<li>.tdat</li>
+<li>heap</li>
+<li>stack</li>
+</ul>
+<p>Each section's start and end addresses are printed in hexadecimal, and the size is printed in decimal. The output is sent using blocking UART functions.</p>
+<dl class="section note"><dt>Note</dt><dd>This function relies on const PROGMEM strings for headers, footers, and separators. </dd>
+<dd>
+Buffer length and formatting are controlled by RAM_DUMP_BUFFER_LENGTH, RAM_DUMP_ADDR_FMT, and RAM_DUMP_SIZE_FMT macros. </dd></dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="task_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_cgraph.png" border="0" usemap="#atask_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_cgraph" loading="lazy" alt=""/></div>
-<map name="atask_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_cgraph" id="atask_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_cgraph">
-<area shape="rect" title=" " alt="" coords="5,56,88,83"/>
+<div class="center"><img src="task_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph.png" border="0" usemap="#atask_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph" loading="lazy" alt=""/></div>
+<map name="atask_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph" id="atask_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph">
+<area shape="rect" title="Dumps memory usage via UART." alt="" coords="5,56,88,83"/>
 <area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="144,5,274,32"/>
 <area shape="poly" title=" " alt="" coords="87,54,149,35,150,40,89,59"/>
 <area shape="rect" href="uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="136,56,282,83"/>
@@ -157,18 +240,19 @@ Here is the call graph for this function:</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
-<div class="center"><img src="task_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_icgraph.png" border="0" usemap="#atask_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_icgraph" loading="lazy" alt=""/></div>
-<map name="atask_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_icgraph" id="atask_serial_system_debugger_8h_a27f804d84cca754286ed71e404d93d44_icgraph">
-<area shape="rect" title=" " alt="" coords="467,31,550,57"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a82f2bfb81de043f58e60f95ea4f8483e" title=" " alt="" coords="239,31,419,57"/>
-<area shape="poly" title=" " alt="" coords="452,47,420,47,420,41,452,41"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,5,184,32"/>
-<area shape="poly" title=" " alt="" coords="223,32,184,26,185,21,224,27"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,56,191,83"/>
-<area shape="poly" title=" " alt="" coords="224,61,192,66,191,61,223,56"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
-<area shape="poly" title=" " alt="" coords="95,33,56,41,54,36,94,27"/>
-<area shape="poly" title=" " alt="" coords="87,59,54,52,55,47,88,54"/>
+<div class="center"><img src="task_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph.png" border="0" usemap="#atask_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph" loading="lazy" alt=""/></div>
+<map name="atask_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph" id="atask_serial_system_debugger_8h_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph">
+<area shape="rect" title="Dumps memory usage via UART." alt="" coords="467,6,550,32"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,58"/>
+<area shape="poly" title=" " alt="" coords="452,16,382,11,294,8,198,11,103,22,56,36,54,31,102,16,198,6,294,3,382,5,452,10"/>
+<area shape="rect" href="task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="239,31,419,58"/>
+<area shape="poly" title=" " alt="" coords="452,30,420,34,419,29,452,24"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,31,184,58"/>
+<area shape="poly" title=" " alt="" coords="223,47,184,47,184,42,223,42"/>
+<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,82,191,108"/>
+<area shape="poly" title=" " alt="" coords="264,65,192,85,191,80,263,60"/>
+<area shape="poly" title=" " alt="" coords="94,47,55,47,55,42,94,42"/>
+<area shape="poly" title=" " alt="" coords="100,78,54,57,56,53,102,73"/>
 </map>
 </div>
 
@@ -188,13 +272,22 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>FreeRTOS task for serial system debugging. </p>
+<p>This task can periodically output system RAM usage information over UART or respond to requests from other tasks or commands.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">pvParameters</td><td>Pointer to FreeRTOS task parameters (unused). </td></tr>
+  </table>
+  </dd>
+</dl>
 <div class="dynheader">
 Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_cgraph.png" border="0" usemap="#atask_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_cgraph" loading="lazy" alt=""/></div>
 <map name="atask_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_cgraph" id="atask_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_cgraph">
-<area shape="rect" title=" " alt="" coords="5,75,186,102"/>
-<area shape="rect" href="task_serial_system_debugger_8cpp.html#a27f804d84cca754286ed71e404d93d44" title=" " alt="" coords="234,75,316,102"/>
+<area shape="rect" title="FreeRTOS task for serial system debugging." alt="" coords="5,75,186,102"/>
+<area shape="rect" href="task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="234,75,316,102"/>
 <area shape="poly" title=" " alt="" coords="186,86,218,86,218,91,186,91"/>
 <area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="372,75,502,102"/>
 <area shape="poly" title=" " alt="" coords="159,100,234,111,275,114,316,111,367,103,367,108,316,116,275,119,233,116,158,105"/>
@@ -216,7 +309,7 @@ Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_icgraph.png" border="0" usemap="#atask_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_icgraph" loading="lazy" alt=""/></div>
 <map name="atask_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_icgraph" id="atask_serial_system_debugger_8h_a82f2bfb81de043f58e60f95ea4f8483e_icgraph">
-<area shape="rect" title=" " alt="" coords="239,31,419,57"/>
+<area shape="rect" title="FreeRTOS task for serial system debugging." alt="" coords="239,31,419,57"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,5,184,32"/>
 <area shape="poly" title=" " alt="" coords="223,32,184,26,185,21,224,27"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,56,191,83"/>
@@ -229,8 +322,8 @@ Here is the caller graph for this function:</div>
 
 </div>
 </div>
-<a id="a2c819460e6318dac5f4d6c68e9c94850" name="a2c819460e6318dac5f4d6c68e9c94850"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a2c819460e6318dac5f4d6c68e9c94850">&#9670;&#160;</a></span>updateMemoryUsage()</h2>
+<a id="a8b8422d6157a1281dab2d0103add13bc" name="a8b8422d6157a1281dab2d0103add13bc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b8422d6157a1281dab2d0103add13bc">&#9670;&#160;</a></span>updateMemoryUsage()</h2>
 
 <div class="memitem">
 <div class="memproto">
@@ -238,13 +331,16 @@ Here is the caller graph for this function:</div>
         <tr>
           <td class="memname">void updateMemoryUsage </td>
           <td>(</td>
-          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
           <td></td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Updates all RAM usage tracking variables. </p>
+<p>Updates internal memory usage counters. </p>
+<p>This function scans current allocations and updates counters used by the RAM dump routine.</p>
+<dl class="section note"><dt>Note</dt><dd>Compliant with MISRA C:2025 – explicit void in prototype.</dd></dl>
+<p>Updates internal memory usage counters.</p>
 <p>Call this function at runtime to refresh memory usage stats. Calculates heap, stack, tdata usage and updates global RAM stats. </p>
 
 </div>

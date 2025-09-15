@@ -16,7 +16,7 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "taskRegulateTemp.c", "task_regulate_temp_8c.html", "task_regulate_temp_8c" ],
     [ "taskSelectDrink.c", "task_select_drink_8c.html", "task_select_drink_8c" ],
     [ "taskSerialInput.c", "task_serial_input_8c.html", "task_serial_input_8c" ],
-    [ "taskSerialSystemDebugger.cpp", "task_serial_system_debugger_8cpp.html", "task_serial_system_debugger_8cpp" ],
+    [ "taskSerialSystemDebugger.c", "task_serial_system_debugger_8c.html", "task_serial_system_debugger_8c" ],
     [ "taskShowSystemInfo.cpp", "task_show_system_info_8cpp.html", "task_show_system_info_8cpp" ],
     [ "taskUpdateScreen.cpp", "task_update_screen_8cpp.html", "task_update_screen_8cpp" ],
     [ "taskWelcomeScreen.cpp", "task_welcome_screen_8cpp.html", "task_welcome_screen_8cpp" ]

@@ -16,7 +16,7 @@ var searchData=
   ['taskselectdrink_2eh_13',['taskSelectDrink.h',['../task_select_drink_8h.html',1,'']]],
   ['taskserialinput_2ec_14',['taskSerialInput.c',['../task_serial_input_8c.html',1,'']]],
   ['taskserialinput_2eh_15',['taskSerialInput.h',['../task_serial_input_8h.html',1,'']]],
-  ['taskserialsystemdebugger_2ecpp_16',['taskSerialSystemDebugger.cpp',['../task_serial_system_debugger_8cpp.html',1,'']]],
+  ['taskserialsystemdebugger_2ec_16',['taskSerialSystemDebugger.c',['../task_serial_system_debugger_8c.html',1,'']]],
   ['taskserialsystemdebugger_2eh_17',['taskSerialSystemDebugger.h',['../task_serial_system_debugger_8h.html',1,'']]],
   ['taskshowsysteminfo_2ecpp_18',['taskShowSystemInfo.cpp',['../task_show_system_info_8cpp.html',1,'']]],
   ['taskshowsysteminfo_2eh_19',['taskShowSystemInfo.h',['../task_show_system_info_8h.html',1,'']]],
