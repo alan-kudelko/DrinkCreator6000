@@ -14,4 +14,3 @@ void taskRegulateTemp(void*pvParameters){
     vTaskDelay(pdMS_TO_TICKS(TASK_REGULATE_TEMP_REFRESH_RATE));
   }
 }
-

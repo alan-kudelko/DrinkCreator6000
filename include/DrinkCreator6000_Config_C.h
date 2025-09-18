@@ -33,14 +33,14 @@
  * Default is 8 MHz (8,000,000 Hz).
  */
 #ifndef F_CPU
-    #define F_CPU 8000000UL
+    #define F_CPU 16000000UL
 #endif
 /**
  * @def __AVR_ATmega2560__
  * @brief Define to indicate the target MCU is ATmega2560.
  */
-#ifndef __AVR_ATmega2560__
-    #define __AVR_ATmega2560__ 1
+#ifndef __AVR_ATmega2561__
+    #define __AVR_ATmega2561__ 1
 #endif
 
 // ========================

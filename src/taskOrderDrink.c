@@ -1,25 +1,58 @@
 #include <string.h>
 #include <stdio.h>
 
+#include <avr/io.h>
+#include <util/delay.h>
+
 #include <taskOrderDrink.h>
 #include <DrinkCreator6000_Config_C.h>
+#include <DrinkCreator6000_Pins.h>
+
+void shiftOut(uint8_t value){
+    uint8_t i=0;
+
+    // SH_PIN PC2 -> Shift Clock
+    // DS_PIN PC0 -> Serial Data
+    // ST_PIN PC1 -> Latch
+
+    // Latch jest open drain, a przynajmniej musi
+    // W sumie wszystko mamy tutaj open drain
+    PORTC&=~(1<<ST_PIN);
+
+    for(;i<8;i++){
+        if(value&(1<<(7-i))){
+            PORTC|=(1<<DS_PIN);
+        }
+        else{
+            PORTC&=~(1<<DS_PIN);
+        }
+
+        PORTC|=(1<<SH_PIN);
+        _delay_us(1);
+        PORTC&=~(1<<SH_PIN);
+        _delay_us(1);
+
+    }
+
+    PORTC|=(1<<ST_PIN);
+}
 
 void taskOrderDrink(void*pvParameters){
-  uint32_t f_run=0;
-  uint16_t totalTime=0;
-  uint32_t currentTime=0;
-  uint8_t currentPumpId=0;
-  uint8_t i=0;
-  uint8_t progress=0; //0 - 100 % needed for loading bar and % value
+    uint32_t f_run=0;
+    uint16_t totalTime=0;
+    uint32_t currentTime=0;
+    uint8_t currentPumpId=0;
+    uint8_t i=0;
+    uint8_t progress=0; //0 - 100 % needed for loading bar and % value
 
-  uint16_t pumpTime[8]={0};
-  uint16_t currentPumpTime=0;
+    uint16_t pumpTime[8]={0};
+    uint16_t currentPumpTime=0;
   
-  struct sScreenData screenData={0};
-  // UI_Context should be used as a "queue" i mean, to indicate which drink should be ordered
-  // upon received notification selected drink should be read from the EEPROM
-  // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
-  // I don't like that but for now i let this as it is
+    struct sScreenData screenData={0};
+    // UI_Context should be used as a "queue" i mean, to indicate which drink should be ordered
+    // upon received notification selected drink should be read from the EEPROM
+    // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
+    // I don't like that but for now i let this as it is
   
   for(;;){
     if(xTaskNotifyWait(0,0,&f_run,0)>0){
@@ -51,6 +84,8 @@ void taskOrderDrink(void*pvParameters){
       }
       if(f_run==0){
         // Drink order finished succesfully
+        shiftOut(0);
+
         strcpy(screenData.lines[2],"Done!");
         memset(screenData.lines[3]+1,'#',progress/10);
         sprintf(screenData.lines[3]+13,"%3d %%",progress);
@@ -67,6 +102,8 @@ void taskOrderDrink(void*pvParameters){
       }
       if(f_run==2){
         // Drink order aborted
+        shiftOut(0);
+
         strcpy(screenData.lines[2],"Aborted");
         memset(screenData.lines[3]+1,'#',progress/10);
         sprintf(screenData.lines[3]+13,"%3d %%",progress);
@@ -94,17 +131,14 @@ void taskOrderDrink(void*pvParameters){
       if(currentPumpTime==pumpTime[currentPumpId]){
         currentPumpId++;
         currentPumpTime=0;
-        //Serial.print("Zmiana pompy na: "); Serial.print(currentPumpId+1); Serial.print(" czas zmiany curentTime/totalTime: "); Serial.print(currentTime); Serial.print('/'); Serial.println(totalTime); Serial.print("Progress: "); Serial.println(100*(float)currentTime/totalTime);
       }
-      
-      //activatePumps(1<<currentPumpId) sth like this
+      shiftOut(1<<currentPumpId);
             
       currentTime++;
       currentPumpTime++;
       progress=100*currentTime/totalTime;
 
       if(currentTime==totalTime){
-        // stop pumps
         xTaskNotify(taskHandles[TASK_ORDER_DRINK],0,eSetValueWithOverwrite);   
       }
     }

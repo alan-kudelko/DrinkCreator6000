@@ -39,14 +39,14 @@ void initializeIO(){
 
     // Verify pins of 74HC595
     // Initialize shift register's DS pin as OUTPUT
-    DDRE|=(1<<DS_PIN);
-    PORTB&=~(1<<DS_PIN);
+    DDRC|=(1<<DS_PIN);
+    PORTC&=~(1<<DS_PIN);
     // Initialize shift register's ST pin as OUTPUT
-    DDRE|=(1<<ST_PIN);
-    PORTB&=~(1<<ST_PIN);
+    DDRC|=(1<<ST_PIN);
+    PORTC&=~(1<<ST_PIN);
     // Initialize shift register's SH pin as OUTPUT
-    DDRE|=(1<<SH_PIN);
-    PORTB&=~(1<<SH_PIN);
+    DDRC|=(1<<SH_PIN);
+    PORTC&=~(1<<SH_PIN);
     // Initialize circulation pump pin as OUTPUT
     DDRE|=(1<<CIRCULATION_PUMP_PIN);
     PORTB&=~(1<<CIRCULATION_PUMP_PIN);

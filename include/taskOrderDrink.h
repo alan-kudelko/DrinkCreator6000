@@ -15,6 +15,8 @@
     extern "C" {
 #endif // __cplusplus
 
+void shiftOut(uint8_t value);
+
 void taskOrderDrink(void*pvParameters);
 
 #ifdef __cplusplus

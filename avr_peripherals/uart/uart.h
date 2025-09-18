@@ -23,14 +23,14 @@
  *
  * Default is 115200 bps.
  */
-#define UART_BAUD_RATE       19200
+#define UART_BAUD_RATE       9600
 /**
  * @def UBRR_VALUE
  * @brief UART Baud Rate Register value calculated from F_CPU and UART_BAUD_RATE.
  *
  * Used to configure the UART baud rate generator.
  */
-#define UBRR_VALUE           ((F_CPU/(8UL*UART_BAUD_RATE))-1)
+#define UBRR_VALUE           ((F_CPU/(16UL*UART_BAUD_RATE))-1)
 /**
  * @def UART_TX_BUFFER_SIZE
  * @brief Size of the UART transmit buffer, in bytes.

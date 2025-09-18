@@ -31,9 +31,9 @@
  */
 #define UART0_RX_PIN           PE0 /**< UART0 Receive pin */
 #define UART0_TX_PIN           PE1 /**< UART0 Transmit pin */
-#define DS_PIN                 PE2 /**< Data Strobe or related sensor pin */
-#define ST_PIN                 PE3 /**< Shift register STrobe pin */
-#define SH_PIN                 PE4 /**< Shift register Shift pin */
+#define DS_PIN                 PC0 /**< Data Strobe or related sensor pin */
+#define ST_PIN                 PC1 /**< Shift register STrobe pin */
+#define SH_PIN                 PC2 /**< Shift register Shift pin */
 #define CIRCULATION_PUMP_PIN   PE5 /**< Circulation pump control pin */
 #define FANS_PIN               PE6 /**< Fans control pin */
 #define PELTIER1_PIN           PE7 /**< First Peltier module control pin */
