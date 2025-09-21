@@ -20,6 +20,7 @@ volatile uint16_t uart_rx_error_counter=0;
 void uart_init(void){
     // Setting up TX and RX pins
     DDRE&=~(1<<UART0_RX_PIN);
+    PORTE|=(1<<UART0_RX_PIN);
     DDRE|=(1<<UART0_TX_PIN);
     // Setting up baud rate in UBBR register
     UBRR0H=(uint8_t)(UBRR_VALUE>>8);

@@ -8,8 +8,6 @@
 
 #include <taskWelcomeScreen.h>
 
-
-
 void taskWelcomeScreen(void*pvParameters){
   uint16_t timePassed=0;
   uint8_t keyboardData=E_GREEN_BUTTON;

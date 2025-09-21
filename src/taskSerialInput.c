@@ -14,8 +14,8 @@ void taskSerialInput(void*pvParameters){
         }
         if(uart_peekc()!=-1){
             keyboardData=(1<<(uart_getc()-'0'-1)); // We need the test data to be powers of 2
-            uart_put_hex_blocking(keyboardData);
-            uart_putc_blocking('\n');
+            //uart_put_hex_blocking(keyboardData);
+            //uart_putc_blocking('\n');
             xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
         }
     }

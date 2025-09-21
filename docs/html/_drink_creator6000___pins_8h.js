@@ -7,10 +7,15 @@ var _drink_creator6000___pins_8h =
     [ "I2C_SCL_PIN", "_drink_creator6000___pins_8h.html#a0e4e08bab2fb484136d18b067bef372c", null ],
     [ "I2C_SDA_PIN", "_drink_creator6000___pins_8h.html#a2cade698267beb86ccaa38c14d35ab0f", null ],
     [ "KEYBOARD_INT_PIN", "_drink_creator6000___pins_8h.html#a1744729b4030c487ba132edc93c23c95", null ],
+    [ "KEYBOARD_RESET_PIN", "_drink_creator6000___pins_8h.html#ab6d4715ad3343b6ce2e06016444bbf85", null ],
+    [ "LED_RING", "_drink_creator6000___pins_8h.html#a159d945fe05427ac0bc91e1695a1964a", null ],
+    [ "LED_RING_DI", "_drink_creator6000___pins_8h.html#aafff3e85bceeed7dbe83a21fe2e67001", null ],
+    [ "OE_PIN", "_drink_creator6000___pins_8h.html#a0fa3399634093edf1dcb5f2e1363d7fe", null ],
     [ "PELTIER1_PIN", "_drink_creator6000___pins_8h.html#a3d6873d2070deee0fef91673207d64cd", null ],
     [ "PELTIER2_PIN", "_drink_creator6000___pins_8h.html#a92558c042a5b548c6d206971ea950cf8", null ],
     [ "SH_PIN", "_drink_creator6000___pins_8h.html#a0a7167f2699112dd16a7e01529118206", null ],
     [ "ST_PIN", "_drink_creator6000___pins_8h.html#ad9cab0de928a8312f94762e42b8f498e", null ],
+    [ "TEMPDATA_RDY", "_drink_creator6000___pins_8h.html#a1f0caf299058a228bf196fa89ff7a60f", null ],
     [ "UART0_RX_PIN", "_drink_creator6000___pins_8h.html#af99e6777e3f2418cba487ab9c928f769", null ],
     [ "UART0_TX_PIN", "_drink_creator6000___pins_8h.html#af7018c3d4c500f40da605793cb4fcd6d", null ]
 ];

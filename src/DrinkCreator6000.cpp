@@ -12,6 +12,7 @@
 #include <stdio.h>
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_RamStats.h>
+#include <DrinkCreator6000_Pins.h>
 
 #define LAST_ERROR_BUFFER_SIZE 51
 #define LAST_BOOTUP_BUFFER_SIZE 6
@@ -152,9 +153,49 @@ void printI2C_status(){
 
 }
 
+ISR(TIMER1_COMPA_vect){
+    PORTB^=(1<<BUZZER_PIN);
+}
+
+void activateBuzzer(void){
+    TIMSK1|=(1<<OCIE1A);
+}
+
+void deactivateBuzzer(void){
+    TIMSK1&=~(1<<OCIE1A);
+    PORTB&=~(1<<BUZZER_PIN);
+}
+
+extern void shiftOut(uint8_t value);
+
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).  
+    //shiftOut(0x00);
+    activateBuzzer();
+    _delay_ms(100);
+    deactivateBuzzer();
+    //PORTC&=~(1<<OE_PIN);
+    PORTE|=(1<<CIRCULATION_PUMP_PIN)|(1<<FANS_PIN);
+
+    uint8_t pumpId=0x01;
+
+    // for(uint8_t i=0;i<8;i++){
+    //     shiftOut(pumpId);
+    //     pumpId<<=1;
+    //     _delay_ms(((double)1000)*60*5*2);
+    // }
+    //     activateBuzzer();
+    // while(true){
+
+    // }
+
+    //Cycle finished
+    //Change water
+    while(true){
+
+    }
+
     EEPROMUpdateBootups(&bootupsCount);
     EEPROMGetLastStartupError(&lastSystemError);
 

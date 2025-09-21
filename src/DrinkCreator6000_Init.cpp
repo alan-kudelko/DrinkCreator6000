@@ -18,7 +18,7 @@ extern "C" void initRamSize(void);
 void initializeUART(void){
     uart_init();
     sei();
-    _delay_ms(10);
+    _delay_ms(100);
 
     uart_puts_P_blocking(msg_UartReady);
 }
@@ -29,14 +29,32 @@ void initializeUART(void){
 void initializeIO(){
     cli();
     // Initialize keyboard interrupt pin as INPUT with PULLUP
-    DDRB&=~(1<<KEYBOARD_INT_PIN);
-    PORTB|=(1<<KEYBOARD_INT_PIN);
+    DDRD&=~(1<<KEYBOARD_INT_PIN);
+    PORTD|=(1<<KEYBOARD_INT_PIN);
+    // Initialize MCP23008 ic reset pin as output
+    // Disabled by default
+    DDRD|=(1<<KEYBOARD_RESET_PIN);
+    PORTD|=(1<<KEYBOARD_RESET_PIN);
     // Initialize peltier2 pin as OUTPUT
-    DDRB|=(1<<PELTIER2_PIN);
+    DDRD|=(1<<PELTIER1_PIN);
+    DDRD|=(1<<PELTIER2_PIN);
+    PORTD&=~(1<<PELTIER1_PIN);
+    PORTD&=~(1<<PELTIER2_PIN);    
+    // Initialize LED ring pins
+    // To be done
+
+
     // Initialize buffer pin as OUTPUT
+    // and configure buzzers frequency
     DDRB|=(1<<BUZZER_PIN);
     PORTB&=~(1<<BUZZER_PIN);
-
+    TCCR1A=0;
+    TCNT1=0;
+    OCR1A=249;
+    TCCR1B|=(1<<WGM12);
+    TCCR1B|=(1<<CS11)|(1<<CS10);
+    // Initialize ATmega328p ready pin
+    DDRB&=~(1<<TEMPDATA_RDY);
     // Verify pins of 74HC595
     // Initialize shift register's DS pin as OUTPUT
     DDRC|=(1<<DS_PIN);
@@ -47,13 +65,18 @@ void initializeIO(){
     // Initialize shift register's SH pin as OUTPUT
     DDRC|=(1<<SH_PIN);
     PORTC&=~(1<<SH_PIN);
-    // Initialize circulation pump pin as OUTPUT
+    // Initialize shift register's OE pin as OUTPUT
+    // By default pulled high (Disabled)
+    DDRC|=(1<<OE_PIN);
+    PORTC|=(1<<OE_PIN);
+    // Initialize circulation pump pin
+    // Disabled by default
     DDRE|=(1<<CIRCULATION_PUMP_PIN);
-    PORTB&=~(1<<CIRCULATION_PUMP_PIN);
-    // Initialize fans pin as OUTPUT
+    PORTE&=~(1<<CIRCULATION_PUMP_PIN);
+    // Initialize fans pin
+    // Disabled by default
     DDRE|=(1<<FANS_PIN);
     PORTE&=~(1<<FANS_PIN);
-
     sei();
 
     uart_puts_P_blocking(msg_IOInitialized);

@@ -1,6 +1,6 @@
 var _drink_creator6000___config___c_8h =
 [
-    [ "__AVR_ATmega2560__", "_drink_creator6000___config___c_8h.html#abf42623921c4853f2e40a168b3b6ea81", null ],
+    [ "__AVR_ATmega2561__", "_drink_creator6000___config___c_8h.html#afad8262d9692acec53b9af04952b7209", null ],
     [ "DRINK_COUNT", "_drink_creator6000___config___c_8h.html#a6625e84570deee3d7049779b8c17a6be", null ],
     [ "DRINK_ORDER", "_drink_creator6000___config___c_8h.html#ab4a1913a948b4d3cdfb67fa60a3b5c28", null ],
     [ "DRINK_SELECT", "_drink_creator6000___config___c_8h.html#ae305e50c838cfdd2ffa6829260927e13", null ],

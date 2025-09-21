@@ -84,7 +84,7 @@ void taskOrderDrink(void*pvParameters){
       }
       if(f_run==0){
         // Drink order finished succesfully
-        shiftOut(0);
+        //shiftOut(0);
 
         strcpy(screenData.lines[2],"Done!");
         memset(screenData.lines[3]+1,'#',progress/10);
@@ -102,7 +102,7 @@ void taskOrderDrink(void*pvParameters){
       }
       if(f_run==2){
         // Drink order aborted
-        shiftOut(0);
+        //shiftOut(0);
 
         strcpy(screenData.lines[2],"Aborted");
         memset(screenData.lines[3]+1,'#',progress/10);
@@ -132,7 +132,7 @@ void taskOrderDrink(void*pvParameters){
         currentPumpId++;
         currentPumpTime=0;
       }
-      shiftOut(1<<currentPumpId);
+      //shiftOut(1<<currentPumpId);
             
       currentTime++;
       currentPumpTime++;

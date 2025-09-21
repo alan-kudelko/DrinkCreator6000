@@ -100,42 +100,69 @@ $(function(){initNavTree('task_order_drink_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;string.h&gt;</code><br />
 <code>#include &lt;stdio.h&gt;</code><br />
+<code>#include &lt;avr/io.h&gt;</code><br />
+<code>#include &lt;util/delay.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="task_order_drink_8h_source.html">taskOrderDrink.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___config___c_8h_source.html">DrinkCreator6000_Config_C.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_drink_creator6000___pins_8h_source.html">DrinkCreator6000_Pins.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for taskOrderDrink.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_order_drink_8c__incl.png" border="0" usemap="#asrc_2task_order_drink_8c" loading="lazy" alt=""/></div>
 <map name="asrc_2task_order_drink_8c" id="asrc_2task_order_drink_8c">
-<area shape="rect" title=" " alt="" coords="110,5,253,32"/>
+<area shape="rect" title=" " alt="" coords="237,5,379,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,70,107"/>
-<area shape="poly" title=" " alt="" coords="158,35,78,75,75,70,155,30"/>
+<area shape="poly" title=" " alt="" coords="261,35,85,82,84,77,259,30"/>
 <area shape="rect" title=" " alt="" coords="94,80,154,107"/>
-<area shape="poly" title=" " alt="" coords="174,34,146,69,141,66,169,31"/>
-<area shape="rect" href="task_order_drink_8h.html" title="Task definitions and interfaces for controlling drink orders." alt="" coords="179,80,299,107"/>
-<area shape="poly" title=" " alt="" coords="194,31,222,66,217,69,189,34"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="323,80,520,107"/>
-<area shape="poly" title=" " alt="" coords="224,30,365,72,364,78,223,35"/>
-<area shape="rect" title=" " alt="" coords="188,155,282,181"/>
-<area shape="poly" title=" " alt="" coords="390,110,283,151,281,146,388,105"/>
-<area shape="rect" title=" " alt="" coords="306,155,364,181"/>
-<area shape="poly" title=" " alt="" coords="408,109,363,147,360,143,405,105"/>
-<area shape="rect" title=" " alt="" coords="388,155,455,181"/>
-<area shape="poly" title=" " alt="" coords="424,107,424,139,419,139,419,107"/>
-<area shape="rect" title=" " alt="" coords="480,155,555,181"/>
-<area shape="poly" title=" " alt="" coords="440,105,490,143,487,147,437,109"/>
-<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="579,155,784,181"/>
-<area shape="poly" title=" " alt="" coords="468,105,622,147,621,153,466,110"/>
-<area shape="rect" title=" " alt="" coords="649,229,714,256"/>
-<area shape="poly" title=" " alt="" coords="684,182,684,214,679,214,679,182"/>
+<area shape="poly" title=" " alt="" coords="277,35,169,77,168,72,275,30"/>
+<area shape="rect" title=" " alt="" coords="179,80,243,107"/>
+<area shape="poly" title=" " alt="" coords="293,35,241,73,238,69,290,30"/>
+<area shape="rect" title=" " alt="" coords="266,80,350,107"/>
+<area shape="poly" title=" " alt="" coords="311,33,311,64,306,64,306,33"/>
+<area shape="rect" href="task_order_drink_8h.html" title="Task definitions and interfaces for controlling drink orders." alt="" coords="373,80,494,107"/>
+<area shape="poly" title=" " alt="" coords="331,30,400,70,397,74,329,35"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="518,80,714,107"/>
+<area shape="poly" title=" " alt="" coords="363,30,548,73,547,79,362,35"/>
+<area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="738,80,905,107"/>
+<area shape="poly" title=" " alt="" coords="380,27,723,75,722,81,379,33"/>
+<area shape="rect" title=" " alt="" coords="382,155,477,181"/>
+<area shape="poly" title=" " alt="" coords="585,110,477,151,475,146,583,105"/>
+<area shape="rect" title=" " alt="" coords="501,155,558,181"/>
+<area shape="poly" title=" " alt="" coords="603,109,558,147,554,143,599,105"/>
+<area shape="rect" title=" " alt="" coords="582,155,650,181"/>
+<area shape="poly" title=" " alt="" coords="619,107,619,139,614,139,614,107"/>
+<area shape="rect" title=" " alt="" coords="674,155,750,181"/>
+<area shape="poly" title=" " alt="" coords="634,105,685,143,682,147,631,109"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="774,155,978,181"/>
+<area shape="poly" title=" " alt="" coords="662,105,817,147,815,153,661,110"/>
+<area shape="rect" title=" " alt="" coords="844,229,908,256"/>
+<area shape="poly" title=" " alt="" coords="879,182,879,214,874,214,874,182"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
+<tr class="memitem:a5d466c5205576fd46cf42690267b4222" id="r_a5d466c5205576fd46cf42690267b4222"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d466c5205576fd46cf42690267b4222">shiftOut</a> (uint8_t value)</td></tr>
 <tr class="memitem:abcc89efddd6ca2f5b799b4e3fa1c5a7b" id="r_abcc89efddd6ca2f5b799b4e3fa1c5a7b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abcc89efddd6ca2f5b799b4e3fa1c5a7b">taskOrderDrink</a> (void *pvParameters)</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="a5d466c5205576fd46cf42690267b4222" name="a5d466c5205576fd46cf42690267b4222"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5d466c5205576fd46cf42690267b4222">&#9670;&#160;</a></span>shiftOut()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void shiftOut </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>value</em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="abcc89efddd6ca2f5b799b4e3fa1c5a7b" name="abcc89efddd6ca2f5b799b4e3fa1c5a7b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abcc89efddd6ca2f5b799b4e3fa1c5a7b">&#9670;&#160;</a></span>taskOrderDrink()</h2>
 

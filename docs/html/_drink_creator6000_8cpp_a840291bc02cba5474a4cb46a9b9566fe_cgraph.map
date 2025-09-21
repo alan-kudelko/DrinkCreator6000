@@ -1,131 +1,124 @@
 <map id="main" name="main">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,943,55,969"/>
-<area shape="rect" id="Node000002" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a1a918f034530f75e431f69fefab82ba5" title="Retrieves the last startup error from EEPROM." alt="" coords="103,5,298,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="29,942,32,766,42,479,51,331,64,199,80,98,89,64,100,43,102,41,106,44,105,45,94,66,85,99,69,200,57,331,48,479,37,766,34,942"/>
-<area shape="rect" id="Node000003" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a04546a6c5db76caa5fc348468dd96137" title="Updates the stored bootup count in EEPROM." alt="" coords="116,56,285,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="29,942,33,776,45,508,54,370,66,247,82,152,90,120,101,100,111,89,115,93,105,103,95,122,87,154,72,247,60,370,50,508,39,776,34,942"/>
-<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="163,943,238,969"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="55,953,148,953,148,959,55,959"/>
-<area shape="rect" id="Node000008" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="1070,855,1200,881"/>
-<area shape="poly" id="edge83_Node000001_Node000008" title=" " alt="" coords="29,942,31,876,39,768,56,634,70,562,88,490,110,418,138,350,170,287,209,231,254,185,307,149,367,125,400,119,435,117,667,117,723,115,773,108,861,97,902,97,941,106,982,126,1024,159,1042,182,1058,212,1084,290,1103,385,1117,491,1132,696,1136,839,1131,839,1127,696,1112,491,1098,386,1079,291,1053,214,1037,185,1020,163,979,130,940,111,901,103,861,102,774,114,724,120,667,123,435,123,400,125,368,131,309,153,258,189,213,235,175,290,142,353,115,420,93,491,75,563,62,635,44,768,36,876,34,942"/>
-<area shape="rect" id="Node000012" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="841,1656,987,1683"/>
-<area shape="poly" id="edge84_Node000001_Node000012" title=" " alt="" coords="34,970,40,1112,54,1338,75,1556,89,1634,97,1660,105,1676,175,1751,210,1780,246,1805,282,1824,319,1840,357,1851,396,1858,477,1860,563,1849,656,1826,757,1794,797,1774,834,1747,890,1693,894,1697,837,1751,800,1778,759,1798,658,1831,564,1854,477,1865,395,1863,356,1856,317,1845,280,1829,243,1809,207,1784,171,1754,100,1679,92,1662,84,1635,70,1556,48,1338,35,1113,29,970"/>
-<area shape="rect" id="Node000029" href="$task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="625,1656,707,1683"/>
-<area shape="poly" id="edge82_Node000001_Node000029" title=" " alt="" coords="37,969,64,1069,89,1144,122,1229,164,1319,215,1408,276,1492,311,1531,348,1566,378,1588,411,1607,481,1635,550,1653,610,1662,609,1668,549,1658,479,1641,408,1612,375,1593,344,1570,307,1535,272,1496,211,1411,159,1321,117,1231,84,1145,59,1070,32,971"/>
-<area shape="rect" id="Node000042" href="$_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="605,829,727,856"/>
-<area shape="poly" id="edge61_Node000001_Node000042" title=" " alt="" coords="54,945,102,928,222,884,275,867,346,852,409,844,474,839,589,837,589,843,474,844,410,849,346,857,277,872,224,889,104,933,56,950"/>
-<area shape="rect" id="Node000043" href="$_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="611,1757,721,1784"/>
-<area shape="poly" id="edge65_Node000001_Node000043" title=" " alt="" coords="34,970,37,1075,47,1237,55,1323,68,1403,84,1469,105,1516,128,1546,153,1574,212,1623,277,1662,347,1694,417,1719,484,1738,597,1760,596,1765,482,1743,415,1724,345,1699,275,1667,209,1627,150,1578,124,1550,100,1519,79,1471,63,1404,50,1324,41,1238,31,1075,29,970"/>
-<area shape="rect" id="Node000044" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="156,993,244,1020"/>
-<area shape="poly" id="edge69_Node000001_Node000044" title=" " alt="" coords="56,962,103,979,142,990,140,995,102,984,54,967"/>
-<area shape="rect" id="Node000005" href="$task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="376,753,496,780"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="217,940,405,788,408,792,220,944"/>
-<area shape="rect" id="Node000013" href="$task_main_8c.html#ab733e4e9eec7a065878495d0cbd77718" title="Main FreeRTOS task that coordinates system workflow." alt="" coords="399,332,473,359"/>
-<area shape="poly" id="edge16_Node000004_Node000013" title=" " alt="" coords="204,941,422,372,427,374,209,943"/>
-<area shape="rect" id="Node000019" href="$task_order_drink_8c.html#abcc89efddd6ca2f5b799b4e3fa1c5a7b" title=" " alt="" coords="382,968,491,995"/>
-<area shape="poly" id="edge24_Node000004_Node000019" title=" " alt="" coords="238,957,366,971,366,977,238,963"/>
-<area shape="rect" id="Node000020" href="$task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="383,1479,489,1505"/>
-<area shape="poly" id="edge25_Node000004_Node000020" title=" " alt="" coords="239,953,271,960,287,968,300,980,322,1011,337,1042,345,1073,348,1103,341,1164,325,1224,309,1284,302,1344,305,1374,312,1404,326,1434,348,1465,370,1481,367,1485,344,1469,322,1437,307,1406,299,1375,297,1344,304,1283,320,1223,336,1163,343,1103,340,1074,332,1044,318,1013,296,983,284,973,269,965,238,959"/>
-<area shape="rect" id="Node000021" href="$task_read_temp_8cpp.html#a4eb4fa103966e3d40e8d480862e2233e" title="FreeRTOS task function that reads temperature data via I2C." alt="" coords="382,1069,491,1096"/>
-<area shape="poly" id="edge28_Node000004_Node000021" title=" " alt="" coords="238,956,270,964,300,979,317,998,325,1018,332,1037,348,1055,368,1067,365,1071,344,1059,327,1040,320,1020,312,1001,296,983,268,969,237,962"/>
-<area shape="rect" id="Node000022" href="$task_regulate_temp_8c.html#a48a02fc26fe5c4c4f7832e1d6a96ecee" title=" " alt="" coords="371,867,501,893"/>
-<area shape="poly" id="edge29_Node000004_Node000022" title=" " alt="" coords="237,940,345,903,369,896,370,901,347,908,239,945"/>
-<area shape="rect" id="Node000023" href="$task_select_drink_8c.html#a8ceeb0dd4eb5ca705df2278b22da21fb" title="Handles the drink selection process." alt="" coords="379,917,493,944"/>
-<area shape="poly" id="edge30_Node000004_Node000023" title=" " alt="" coords="238,949,364,936,364,941,238,955"/>
-<area shape="rect" id="Node000024" href="$task_serial_input_8c.html#a0fbc6515a31984b6a0664805572be76e" title="Reads input data from UART and enqueues to main task." alt="" coords="382,1019,490,1045"/>
-<area shape="poly" id="edge31_Node000004_Node000024" title=" " alt="" coords="239,961,299,979,323,992,347,1004,368,1012,366,1017,345,1009,321,996,297,984,237,966"/>
-<area shape="rect" id="Node000028" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="346,1428,526,1455"/>
-<area shape="poly" id="edge37_Node000004_Node000028" title=" " alt="" coords="239,954,271,961,287,969,300,979,324,1011,337,1041,342,1071,342,1100,338,1164,340,1199,349,1238,386,1335,423,1413,418,1415,381,1338,343,1239,335,1200,333,1164,336,1100,336,1071,332,1043,319,1014,296,983,284,973,269,966,237,959"/>
-<area shape="rect" id="Node000031" href="$task_show_system_info_8cpp.html#afb6336486c86df2872ba9ab89f81f4e7" title=" " alt="" coords="363,1200,509,1227"/>
-<area shape="poly" id="edge46_Node000004_Node000031" title=" " alt="" coords="239,955,270,962,300,979,314,995,323,1010,330,1040,335,1071,348,1107,379,1151,412,1187,408,1191,375,1154,344,1109,329,1073,325,1041,318,1012,310,998,296,983,268,967,237,960"/>
-<area shape="rect" id="Node000039" href="$task_update_screen_8cpp.html#a95b4196d7cc3c3c908c70ec40498fd76" title=" " alt="" coords="372,703,501,729"/>
-<area shape="poly" id="edge55_Node000004_Node000039" title=" " alt="" coords="204,941,222,902,251,847,292,789,317,762,344,739,356,732,359,737,348,743,321,766,296,792,256,850,227,904,209,944"/>
-<area shape="rect" id="Node000006" href="$task_error_handler_8cpp.html#aec1674c9f03d23adeade70b13447e79f" title=" " alt="" coords="602,627,730,653"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="495,754,525,739,540,723,548,706,556,688,573,670,593,658,596,662,576,674,561,691,553,708,545,726,528,743,497,759"/>
-<area shape="rect" id="Node000007" href="$task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="574,728,758,755"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="496,757,559,750,559,756,496,763"/>
-<area shape="poly" id="edge12_Node000005_Node000008" title=" " alt="" coords="495,756,525,739,537,724,543,709,546,675,550,642,558,627,573,613,597,598,620,589,641,585,662,586,706,596,759,612,815,633,870,660,922,691,971,724,1054,789,1111,842,1108,846,1051,794,968,728,919,695,867,664,813,638,757,617,705,601,662,591,641,591,621,594,599,603,576,617,562,630,555,644,551,676,548,710,541,727,528,743,498,760"/>
-<area shape="rect" id="Node000009" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="849,880,979,907"/>
-<area shape="poly" id="edge13_Node000005_Node000009" title=" " alt="" coords="496,768,619,782,689,796,759,815,783,826,807,840,870,871,868,876,804,845,781,831,757,820,688,801,618,787,496,773"/>
-<area shape="rect" id="Node000010" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a6cf4f180c06759f7ea753731661cd701" title="Updates the last startup error stored in EEPROM." alt="" coords="806,303,1022,329"/>
-<area shape="poly" id="edge10_Node000005_Node000010" title=" " alt="" coords="495,757,511,750,524,740,547,705,555,671,554,637,548,602,542,567,540,532,549,496,572,461,594,442,615,431,636,425,658,424,704,423,729,419,757,410,824,374,880,337,883,341,827,378,759,414,731,424,705,428,658,429,637,431,617,436,597,446,576,464,554,499,546,533,547,567,553,601,559,636,560,672,551,707,528,743,514,755,497,762"/>
-<area shape="rect" id="Node000011" href="$task_error_handler_8cpp.html#ae35084301e72c3a3e89868cc6bf1ff9d" title=" " alt="" coords="605,525,727,552"/>
-<area shape="poly" id="edge11_Node000005_Node000011" title=" " alt="" coords="495,757,511,750,524,739,540,719,547,699,548,657,549,613,557,591,572,569,590,555,593,559,576,573,561,593,555,614,554,657,552,700,545,722,528,743,514,754,497,761"/>
-<area shape="poly" id="edge14_Node000005_Node000012" title=" " alt="" coords="454,778,506,821,539,845,575,866,603,876,628,880,675,880,697,881,718,886,739,897,760,917,776,945,787,980,794,1021,796,1067,793,1171,783,1282,774,1393,771,1496,774,1542,780,1582,791,1616,808,1642,828,1658,825,1662,804,1646,787,1618,775,1583,769,1542,766,1496,769,1393,778,1282,788,1171,791,1068,788,1022,782,981,771,947,756,920,736,901,716,891,696,886,674,885,627,885,601,881,573,870,537,850,502,826,451,783"/>
-<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="720,753,1023,835,1070,848,1068,853,1021,840,718,758"/>
-<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="716,753,759,771,832,819,889,867,885,871,828,824,756,776,714,758"/>
-<area shape="poly" id="edge9_Node000009_Node000008" title=" " alt="" coords="979,883,1054,875,1055,880,980,889"/>
-<area shape="poly" id="edge15_Node000012_Node000008" title=" " alt="" coords="987,1662,1005,1654,1020,1642,1038,1617,1054,1584,1080,1497,1100,1391,1114,1276,1128,1051,1131,897,1137,897,1133,1052,1119,1276,1105,1392,1085,1498,1059,1586,1042,1620,1024,1646,1008,1659,989,1667"/>
-<area shape="rect" id="Node000014" href="$task_main_8c.html#a021a4cab8903c066128f33db84b1bdca" title="Processes input in the Welcome Screen context." alt="" coords="578,291,754,333"/>
-<area shape="poly" id="edge17_Node000013_Node000014" title=" " alt="" coords="474,337,562,324,563,330,474,343"/>
-<area shape="rect" id="Node000015" href="$task_main_8c.html#a78015f858010c519cd26b53104cb5686" title="Processes input in the Order Drink task context." alt="" coords="578,357,754,400"/>
-<area shape="poly" id="edge18_Node000013_Node000015" title=" " alt="" coords="474,348,563,361,562,366,474,353"/>
-<area shape="rect" id="Node000016" href="$task_main_8c.html#aade9c6da80ede3c1c43db354571d1cda" title="Processes input in the Select Drink task context." alt="" coords="578,157,754,200"/>
-<area shape="poly" id="edge19_Node000013_Node000016" title=" " alt="" coords="446,330,497,273,533,239,573,210,581,205,583,210,576,214,536,244,501,277,450,333"/>
-<area shape="rect" id="Node000018" href="$task_main_8c.html#a73ab051cc25ca96125a627be3342ef61" title="Processes input in the Show System Info task context." alt="" coords="578,224,754,267"/>
-<area shape="poly" id="edge21_Node000013_Node000018" title=" " alt="" coords="463,329,573,276,588,270,590,275,575,281,465,334"/>
-<area shape="rect" id="Node000017" href="$task_main_8c.html#a6b949466055d74e804a149444979dd15" title="Processes scroll button input and updates UI context accordingly." alt="" coords="810,173,1018,200"/>
-<area shape="poly" id="edge20_Node000016_Node000017" title=" " alt="" coords="754,179,795,180,794,185,754,184"/>
-<area shape="poly" id="edge22_Node000018_Node000010" title=" " alt="" coords="744,265,850,295,849,300,743,270"/>
-<area shape="poly" id="edge23_Node000018_Node000017" title=" " alt="" coords="753,222,839,202,840,207,755,227"/>
-<area shape="poly" id="edge26_Node000020_Node000008" title=" " alt="" coords="491,1494,511,1502,528,1515,542,1534,551,1552,558,1589,556,1626,548,1662,542,1697,541,1731,551,1763,561,1779,576,1794,605,1804,658,1810,803,1809,945,1797,996,1789,1020,1779,1032,1762,1043,1731,1064,1637,1082,1513,1097,1372,1119,1089,1130,897,1135,897,1124,1090,1102,1372,1087,1514,1069,1638,1048,1732,1036,1764,1024,1783,997,1794,946,1803,803,1815,658,1815,604,1809,573,1798,557,1782,546,1766,535,1732,536,1697,543,1661,550,1625,553,1589,546,1554,537,1536,524,1519,508,1507,489,1499"/>
-<area shape="poly" id="edge27_Node000020_Node000009" title=" " alt="" coords="490,1496,550,1499,622,1493,658,1486,693,1474,726,1458,756,1437,784,1399,810,1341,834,1270,855,1191,887,1035,906,921,911,922,892,1036,860,1192,839,1271,815,1343,789,1402,760,1441,729,1463,695,1479,659,1491,622,1499,551,1504,489,1502"/>
-<area shape="poly" id="edge36_Node000024_Node000008" title=" " alt="" coords="491,1033,614,1033,686,1028,757,1017,834,998,891,976,1021,916,1090,886,1092,891,1023,921,894,981,835,1003,758,1023,686,1033,614,1038,491,1038"/>
-<area shape="rect" id="Node000025" href="$uart_8c.html#a69bd6dc9d81a10ff8fa3ae2620a74001" title="Retrieves the next character from the receive buffer." alt="" coords="628,931,704,957"/>
-<area shape="poly" id="edge32_Node000024_Node000025" title=" " alt="" coords="490,1018,525,1004,549,986,573,967,612,952,614,957,576,972,552,990,528,1009,492,1023"/>
-<area shape="rect" id="Node000026" href="$uart_8c.html#ae1aa6b6bda0b1babfd7190d0e9ba070f" title="Peeks at the next character in the receive buffer without removing it." alt="" coords="623,981,709,1008"/>
-<area shape="poly" id="edge33_Node000024_Node000026" title=" " alt="" coords="490,1021,608,1001,608,1007,491,1026"/>
-<area shape="rect" id="Node000027" href="$uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="838,525,990,552"/>
-<area shape="poly" id="edge34_Node000024_Node000027" title=" " alt="" coords="490,1024,509,1017,524,1005,547,969,556,933,554,898,548,862,541,825,539,788,548,751,572,714,594,695,615,685,637,680,659,679,705,678,730,674,756,663,795,640,831,613,888,561,891,565,834,617,798,644,759,668,731,679,706,683,659,684,638,685,617,690,597,700,576,718,553,753,545,789,546,825,553,861,559,897,561,934,552,971,528,1008,511,1022,492,1029"/>
-<area shape="poly" id="edge35_Node000027_Node000008" title=" " alt="" coords="991,549,1024,569,1051,599,1074,634,1092,671,1106,709,1125,782,1134,839,1129,839,1120,783,1101,711,1087,673,1069,637,1047,603,1020,573,989,554"/>
-<area shape="poly" id="edge42_Node000028_Node000008" title=" " alt="" coords="491,1453,549,1463,618,1467,689,1460,724,1451,756,1436,797,1411,835,1382,904,1314,963,1238,1013,1157,1053,1078,1085,1004,1123,896,1128,897,1090,1006,1058,1080,1017,1160,967,1241,908,1318,839,1386,800,1416,759,1441,726,1456,690,1465,618,1472,548,1468,490,1458"/>
-<area shape="poly" id="edge43_Node000028_Node000009" title=" " alt="" coords="527,1435,593,1429,660,1420,718,1407,740,1398,756,1389,781,1364,804,1337,841,1276,868,1209,887,1141,900,1075,907,1014,911,922,916,922,912,1014,905,1075,892,1142,873,1211,845,1278,808,1340,785,1368,759,1393,743,1403,720,1412,661,1426,593,1435,527,1440"/>
-<area shape="poly" id="edge44_Node000028_Node000012" title=" " alt="" coords="513,1453,528,1465,548,1494,555,1525,554,1555,549,1585,545,1614,545,1642,554,1668,576,1693,610,1713,647,1725,687,1728,727,1726,805,1710,869,1687,871,1692,807,1715,728,1732,687,1734,646,1730,608,1718,573,1697,550,1671,540,1643,540,1614,544,1584,549,1555,550,1525,543,1497,524,1468,510,1457"/>
-<area shape="poly" id="edge38_Node000028_Node000029" title=" " alt="" coords="512,1453,528,1465,545,1486,552,1508,554,1551,555,1594,561,1615,576,1635,592,1648,611,1657,609,1662,590,1653,572,1639,557,1617,549,1595,548,1551,547,1509,540,1489,524,1469,509,1457"/>
-<area shape="rect" id="Node000030" href="$_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables." alt="" coords="841,1605,986,1632"/>
-<area shape="poly" id="edge45_Node000028_Node000030" title=" " alt="" coords="511,1453,528,1465,541,1481,548,1498,552,1531,555,1563,562,1578,576,1591,605,1609,637,1622,670,1631,704,1636,772,1638,834,1632,834,1638,773,1643,704,1642,669,1636,635,1627,603,1614,573,1595,558,1581,550,1565,546,1532,543,1499,537,1484,525,1469,508,1457"/>
-<area shape="poly" id="edge39_Node000029_Node000009" title=" " alt="" coords="690,1653,724,1627,755,1592,802,1501,838,1404,865,1305,884,1208,897,1117,905,1036,910,922,915,922,910,1037,903,1118,890,1209,870,1307,843,1406,807,1503,760,1595,728,1631,693,1657"/>
-<area shape="poly" id="edge40_Node000029_Node000012" title=" " alt="" coords="708,1667,825,1667,825,1672,708,1672"/>
-<area shape="poly" id="edge41_Node000029_Node000030" title=" " alt="" coords="707,1658,830,1633,831,1638,708,1664"/>
-<area shape="rect" id="Node000032" href="$task_show_system_info_8cpp.html#ae9bb5b66ee89b33e99df5b873b235553" title=" " alt="" coords="597,1083,735,1125"/>
-<area shape="poly" id="edge47_Node000031_Node000032" title=" " alt="" coords="458,1197,510,1167,573,1135,586,1129,588,1134,575,1140,513,1172,461,1202"/>
-<area shape="rect" id="Node000033" href="$task_show_system_info_8cpp.html#ae9de119193dbd4bf7e1c7a52fc8111ed" title=" " alt="" coords="588,1149,744,1176"/>
-<area shape="poly" id="edge48_Node000031_Node000033" title=" " alt="" coords="500,1197,587,1177,588,1183,501,1202"/>
-<area shape="rect" id="Node000034" href="$task_show_system_info_8cpp.html#aad395a48a7b481fca071491bfea2ced3" title=" " alt="" coords="576,1200,756,1227"/>
-<area shape="poly" id="edge49_Node000031_Node000034" title=" " alt="" coords="509,1211,561,1211,561,1216,509,1216"/>
-<area shape="rect" id="Node000035" href="$task_show_system_info_8cpp.html#aa0e5de19d10d1fb88558994dfe03cb7d" title=" " alt="" coords="576,1251,756,1277"/>
-<area shape="poly" id="edge50_Node000031_Node000035" title=" " alt="" coords="501,1225,588,1244,587,1249,500,1230"/>
-<area shape="rect" id="Node000036" href="$task_show_system_info_8cpp.html#a7bed8e3be0c70a38ac1b03047b70ffb1" title=" " alt="" coords="578,1555,754,1581"/>
-<area shape="poly" id="edge51_Node000031_Node000036" title=" " alt="" coords="449,1226,650,1540,645,1543,444,1229"/>
-<area shape="rect" id="Node000037" href="$task_show_system_info_8cpp.html#acb1a606f257b9378d8ecca8e83fd68e8" title=" " alt="" coords="588,1301,744,1328"/>
-<area shape="poly" id="edge53_Node000031_Node000037" title=" " alt="" coords="460,1225,511,1255,575,1287,593,1294,592,1299,573,1292,509,1260,457,1229"/>
-<area shape="rect" id="Node000038" href="$task_show_system_info_8cpp.html#ad35c851af774eabc4b9ff6ef68e130c6" title=" " alt="" coords="587,1352,745,1379"/>
-<area shape="poly" id="edge54_Node000031_Node000038" title=" " alt="" coords="450,1225,501,1280,536,1311,576,1338,587,1343,585,1348,573,1342,533,1315,497,1284,446,1229"/>
-<area shape="poly" id="edge52_Node000036_Node000030" title=" " alt="" coords="736,1579,831,1599,830,1604,734,1585"/>
-<area shape="rect" id="Node000040" href="$_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="611,475,721,501"/>
-<area shape="poly" id="edge56_Node000039_Node000040" title=" " alt="" coords="440,701,457,663,485,612,524,558,547,533,573,511,595,499,597,504,576,516,551,537,528,561,490,615,462,666,445,703"/>
-<area shape="poly" id="edge59_Node000040_Node000008" title=" " alt="" coords="721,473,799,458,887,446,968,445,1000,450,1024,461,1046,487,1066,528,1083,579,1098,636,1120,751,1133,839,1128,840,1115,752,1092,637,1078,581,1061,530,1042,490,1020,465,999,455,968,450,888,452,800,464,722,478"/>
-<area shape="poly" id="edge60_Node000040_Node000009" title=" " alt="" coords="722,492,742,500,759,511,797,552,828,598,853,647,873,698,899,793,912,864,907,865,894,794,868,699,848,649,823,600,793,555,756,515,739,504,721,497"/>
-<area shape="poly" id="edge58_Node000040_Node000027" title=" " alt="" coords="722,497,831,519,830,524,721,502"/>
-<area shape="rect" id="Node000041" href="$i2c__ringbuffer_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="836,475,992,501"/>
-<area shape="poly" id="edge57_Node000040_Node000041" title=" " alt="" coords="722,485,821,485,821,491,722,491"/>
-<area shape="poly" id="edge62_Node000042_Node000008" title=" " alt="" coords="728,843,1055,861,1055,866,727,849"/>
-<area shape="poly" id="edge63_Node000042_Node000009" title=" " alt="" coords="728,852,834,874,833,880,727,858"/>
-<area shape="poly" id="edge64_Node000042_Node000012" title=" " alt="" coords="729,851,746,860,760,873,776,903,787,941,794,985,796,1034,792,1144,782,1262,772,1379,769,1488,772,1536,779,1578,790,1614,808,1642,828,1658,825,1662,804,1646,786,1616,774,1580,766,1536,763,1488,767,1379,776,1261,786,1143,791,1034,788,985,782,942,772,905,756,876,743,864,726,855"/>
-<area shape="poly" id="edge66_Node000043_Node000008" title=" " alt="" coords="721,1774,790,1775,871,1766,913,1756,952,1741,988,1720,1020,1693,1039,1666,1056,1631,1084,1538,1104,1425,1117,1301,1126,1176,1130,1061,1132,897,1137,897,1135,1061,1131,1177,1123,1301,1109,1425,1089,1539,1061,1633,1044,1669,1024,1696,992,1725,954,1746,914,1761,872,1771,790,1780,721,1779"/>
-<area shape="poly" id="edge67_Node000043_Node000009" title=" " alt="" coords="690,1755,725,1729,742,1712,755,1693,784,1627,811,1533,835,1423,856,1304,889,1076,907,922,912,922,894,1077,861,1305,840,1424,816,1535,789,1628,760,1696,746,1716,728,1733,693,1759"/>
-<area shape="poly" id="edge68_Node000043_Node000012" title=" " alt="" coords="708,1754,757,1736,869,1687,871,1692,759,1741,710,1759"/>
-<area shape="poly" id="edge70_Node000044_Node000005" title=" " alt="" coords="244,1001,272,994,296,979,309,965,317,951,324,921,328,889,344,853,373,817,403,788,407,792,376,821,348,856,334,891,329,922,322,953,314,968,300,983,274,999,246,1007"/>
-<area shape="poly" id="edge71_Node000044_Node000013" title=" " alt="" coords="244,1003,272,995,296,979,322,945,336,912,342,880,342,848,337,777,337,736,343,690,387,509,424,373,429,374,392,510,349,691,342,736,342,776,348,848,347,881,341,914,327,948,300,983,275,1000,246,1008"/>
-<area shape="poly" id="edge72_Node000044_Node000019" title=" " alt="" coords="245,999,366,986,366,991,245,1005"/>
-<area shape="poly" id="edge73_Node000044_Node000020" title=" " alt="" coords="204,1020,208,1097,215,1154,226,1217,244,1283,269,1349,303,1411,348,1465,370,1479,367,1483,344,1469,299,1414,264,1352,239,1285,221,1218,209,1154,203,1098,199,1020"/>
-<area shape="poly" id="edge74_Node000044_Node000021" title=" " alt="" coords="240,1018,347,1055,370,1062,369,1067,345,1060,239,1023"/>
-<area shape="poly" id="edge75_Node000044_Node000022" title=" " alt="" coords="244,1000,271,992,296,979,312,961,320,943,327,923,344,903,355,896,358,901,348,907,332,925,325,944,317,964,300,983,273,997,246,1005"/>
-<area shape="poly" id="edge76_Node000044_Node000023" title=" " alt="" coords="244,995,297,979,321,966,345,954,364,947,366,952,347,958,323,971,299,984,246,1000"/>
-<area shape="poly" id="edge77_Node000044_Node000024" title=" " alt="" coords="245,1009,367,1022,366,1027,245,1014"/>
-<area shape="poly" id="edge78_Node000044_Node000028" title=" " alt="" coords="212,1019,423,1413,418,1415,207,1022"/>
-<area shape="poly" id="edge79_Node000044_Node000031" title=" " alt="" coords="219,1019,410,1188,406,1192,216,1023"/>
-<area shape="poly" id="edge80_Node000044_Node000039" title=" " alt="" coords="244,1003,272,995,296,979,316,950,324,921,324,892,320,862,315,832,315,801,323,770,344,740,356,730,359,734,348,743,328,772,321,802,321,831,325,861,329,891,329,922,321,953,300,983,274,1000,245,1008"/>
-<area shape="rect" id="Node000045" href="$task_welcome_screen_8cpp.html#aecbf1d34e34abcc6ae4b5fadf9b6d22a" title=" " alt="" coords="366,1529,507,1556"/>
-<area shape="poly" id="edge81_Node000044_Node000045" title=" " alt="" coords="204,1020,205,1105,210,1167,220,1238,238,1312,264,1386,300,1455,322,1487,348,1515,354,1521,350,1525,344,1519,318,1490,295,1458,259,1388,233,1314,215,1239,205,1168,200,1105,198,1020"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,259,55,285"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000_8cpp.html#ae42d2ee13177744fdd0b596ac3306d0b" title=" " alt="" coords="146,5,254,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="29,258,31,216,41,158,63,96,79,67,101,42,130,25,133,29,104,46,84,70,67,98,46,160,37,217,34,259"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html#ac3dcb50dc366196efd39a5595307c352" title=" " alt="" coords="139,56,262,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="30,258,36,224,48,180,69,133,83,111,101,93,123,79,126,83,104,97,87,115,73,136,53,181,41,225,35,259"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a1a918f034530f75e431f69fefab82ba5" title="Retrieves the last startup error from EEPROM." alt="" coords="103,107,298,133"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="33,257,55,202,75,170,101,143,107,139,111,143,104,147,79,173,60,204,38,259"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a04546a6c5db76caa5fc348468dd96137" title="Updates the stored bootup count in EEPROM." alt="" coords="116,157,285,184"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="40,257,66,228,101,200,128,187,130,192,104,205,70,232,44,260"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="163,1069,238,1096"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="35,285,56,479,77,624,105,771,126,853,150,933,191,1054,186,1056,145,934,121,854,100,773,72,624,51,480,30,286"/>
+<area shape="rect" id="Node000010" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="1070,613,1200,640"/>
+<area shape="poly" id="edge77_Node000001_Node000010" title=" " alt="" coords="54,260,102,245,195,229,267,221,435,219,667,219,774,217,819,218,861,222,901,232,940,248,980,273,1024,309,1053,341,1077,378,1096,418,1110,459,1128,537,1135,597,1130,598,1122,538,1105,461,1091,420,1072,381,1049,344,1020,313,977,278,938,253,899,237,860,228,819,223,774,223,667,224,435,224,268,226,195,234,103,251,55,265"/>
+<area shape="rect" id="Node000014" href="$uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="841,411,987,437"/>
+<area shape="poly" id="edge78_Node000001_Node000014" title=" " alt="" coords="55,268,193,263,398,261,506,263,608,269,694,279,759,295,800,316,837,343,893,397,890,401,834,347,797,320,757,300,693,284,607,274,506,268,398,266,193,268,55,273"/>
+<area shape="rect" id="Node000030" href="$task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="625,765,707,792"/>
+<area shape="poly" id="edge76_Node000001_Node000030" title=" " alt="" coords="40,285,74,359,139,473,182,535,231,596,286,652,347,700,379,719,413,734,483,756,551,768,609,774,609,780,551,774,482,761,411,739,377,723,345,705,283,656,227,600,177,538,134,475,70,362,35,287"/>
+<area shape="rect" id="Node000041" href="$_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="605,309,727,336"/>
+<area shape="poly" id="edge55_Node000001_Node000041" title=" " alt="" coords="55,277,103,288,236,305,370,314,589,320,589,326,370,320,236,310,102,293,54,282"/>
+<area shape="rect" id="Node000042" href="$_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="611,360,721,387"/>
+<area shape="poly" id="edge59_Node000001_Node000042" title=" " alt="" coords="49,283,74,300,104,315,169,334,237,349,373,367,497,374,596,374,596,379,497,379,372,373,236,354,168,339,102,320,71,305,46,288"/>
+<area shape="rect" id="Node000043" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="156,1120,244,1147"/>
+<area shape="poly" id="edge63_Node000001_Node000043" title=" " alt="" coords="34,286,38,449,50,711,59,846,71,966,86,1058,95,1088,105,1106,121,1119,142,1127,140,1132,119,1124,101,1110,90,1090,81,1059,66,967,54,847,44,712,33,449,29,286"/>
+<area shape="rect" id="Node000007" href="$task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="376,664,496,691"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="207,1067,417,703,422,705,212,1070"/>
+<area shape="rect" id="Node000015" href="$task_main_8c.html#ab733e4e9eec7a065878495d0cbd77718" title="Main FreeRTOS task that coordinates system workflow." alt="" coords="399,1600,473,1627"/>
+<area shape="poly" id="edge18_Node000006_Node000015" title=" " alt="" coords="239,1081,271,1088,287,1095,300,1106,324,1137,337,1167,342,1196,343,1225,340,1287,341,1322,349,1361,389,1486,426,1584,421,1586,384,1488,343,1362,336,1322,334,1287,337,1225,337,1196,332,1168,319,1140,296,1110,284,1100,269,1093,237,1086"/>
+<area shape="rect" id="Node000021" href="$task_order_drink_8c.html#abcc89efddd6ca2f5b799b4e3fa1c5a7b" title=" " alt="" coords="382,1171,491,1197"/>
+<area shape="poly" id="edge26_Node000006_Node000021" title=" " alt="" coords="238,1085,269,1092,299,1106,315,1119,324,1132,333,1144,347,1156,368,1166,366,1171,345,1161,329,1148,320,1135,311,1122,297,1110,267,1097,237,1090"/>
+<area shape="rect" id="Node000022" href="$task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="383,1069,489,1096"/>
+<area shape="poly" id="edge27_Node000006_Node000022" title=" " alt="" coords="238,1080,368,1080,368,1085,238,1085"/>
+<area shape="rect" id="Node000023" href="$task_read_temp_8cpp.html#a4eb4fa103966e3d40e8d480862e2233e" title="FreeRTOS task function that reads temperature data via I2C." alt="" coords="382,1272,491,1299"/>
+<area shape="poly" id="edge30_Node000006_Node000023" title=" " alt="" coords="238,1081,270,1089,300,1106,315,1125,323,1145,325,1184,327,1222,334,1240,348,1258,368,1272,365,1276,344,1262,329,1243,322,1223,320,1184,317,1146,310,1128,296,1110,268,1094,237,1086"/>
+<area shape="rect" id="Node000024" href="$task_regulate_temp_8c.html#a48a02fc26fe5c4c4f7832e1d6a96ecee" title=" " alt="" coords="371,1323,501,1349"/>
+<area shape="poly" id="edge31_Node000006_Node000024" title=" " alt="" coords="238,1081,271,1088,286,1095,300,1106,318,1132,326,1158,327,1184,325,1209,322,1235,323,1260,331,1284,348,1309,359,1318,355,1322,344,1312,326,1287,318,1261,317,1235,320,1209,322,1184,321,1159,314,1134,296,1110,283,1100,269,1093,237,1086"/>
+<area shape="rect" id="Node000025" href="$task_select_drink_8c.html#a8ceeb0dd4eb5ca705df2278b22da21fb" title="Handles the drink selection process." alt="" coords="379,867,493,893"/>
+<area shape="poly" id="edge32_Node000006_Node000025" title=" " alt="" coords="207,1067,226,1034,257,989,297,943,345,903,363,893,366,898,347,908,301,947,261,993,231,1037,211,1070"/>
+<area shape="rect" id="Node000026" href="$task_serial_input_8c.html#a0fbc6515a31984b6a0664805572be76e" title="Reads input data from UART and enqueues to main task." alt="" coords="382,1120,490,1147"/>
+<area shape="poly" id="edge33_Node000006_Node000026" title=" " alt="" coords="239,1088,367,1116,366,1121,238,1093"/>
+<area shape="rect" id="Node000029" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="346,917,526,944"/>
+<area shape="poly" id="edge36_Node000006_Node000029" title=" " alt="" coords="221,1067,400,951,402,955,224,1071"/>
+<area shape="rect" id="Node000032" href="$task_show_system_info_8cpp.html#afb6336486c86df2872ba9ab89f81f4e7" title=" " alt="" coords="363,1221,509,1248"/>
+<area shape="poly" id="edge45_Node000006_Node000032" title=" " alt="" coords="239,1082,270,1090,300,1106,312,1119,319,1132,325,1158,330,1183,337,1195,348,1207,353,1211,350,1215,344,1211,332,1199,325,1185,320,1159,314,1134,307,1122,296,1110,268,1095,237,1087"/>
+<area shape="rect" id="Node000040" href="$task_update_screen_8cpp.html#a95b4196d7cc3c3c908c70ec40498fd76" title=" " alt="" coords="372,1019,501,1045"/>
+<area shape="poly" id="edge54_Node000006_Node000040" title=" " alt="" coords="238,1072,355,1047,357,1052,239,1077"/>
+<area shape="rect" id="Node000008" href="$task_error_handler_8cpp.html#aec1674c9f03d23adeade70b13447e79f" title=" " alt="" coords="602,512,730,539"/>
+<area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="448,662,499,611,535,581,573,555,599,542,602,547,576,560,538,585,503,615,452,665"/>
+<area shape="rect" id="Node000009" href="$task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="574,613,758,640"/>
+<area shape="poly" id="edge8_Node000007_Node000009" title=" " alt="" coords="495,662,587,641,588,647,497,667"/>
+<area shape="poly" id="edge14_Node000007_Node000010" title=" " alt="" coords="491,689,592,709,725,725,799,728,874,726,949,717,1021,700,1069,677,1107,648,1111,652,1071,682,1023,705,950,722,874,731,799,734,725,731,591,714,490,694"/>
+<area shape="rect" id="Node000011" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="849,664,979,691"/>
+<area shape="poly" id="edge15_Node000007_Node000011" title=" " alt="" coords="496,675,833,675,833,680,496,680"/>
+<area shape="rect" id="Node000012" href="$_drink_creator6000___e_e_p_r_o_m_8c.html#a6cf4f180c06759f7ea753731661cd701" title="Updates the last startup error stored in EEPROM." alt="" coords="806,1360,1022,1387"/>
+<area shape="poly" id="edge12_Node000007_Node000012" title=" " alt="" coords="451,689,579,854,670,977,760,1107,841,1240,901,1345,896,1348,837,1242,755,1109,666,980,575,857,446,693"/>
+<area shape="rect" id="Node000013" href="$task_error_handler_8cpp.html#ae35084301e72c3a3e89868cc6bf1ff9d" title=" " alt="" coords="605,461,727,488"/>
+<area shape="poly" id="edge13_Node000007_Node000013" title=" " alt="" coords="442,662,460,629,489,584,527,538,573,498,590,489,592,493,576,502,531,541,493,587,465,631,447,665"/>
+<area shape="poly" id="edge16_Node000007_Node000014" title=" " alt="" coords="438,663,452,619,478,559,496,527,518,497,543,470,573,447,603,432,634,420,700,407,766,404,825,407,825,412,766,409,701,412,636,425,605,436,576,452,547,473,522,500,501,530,483,561,457,621,444,664"/>
+<area shape="poly" id="edge9_Node000009_Node000010" title=" " alt="" coords="758,624,1054,624,1054,629,758,629"/>
+<area shape="poly" id="edge10_Node000009_Node000011" title=" " alt="" coords="736,638,834,658,833,664,734,643"/>
+<area shape="poly" id="edge11_Node000011_Node000010" title=" " alt="" coords="975,661,1058,641,1060,647,976,666"/>
+<area shape="poly" id="edge17_Node000014_Node000010" title=" " alt="" coords="932,436,1110,601,1106,605,928,440"/>
+<area shape="rect" id="Node000016" href="$task_main_8c.html#a021a4cab8903c066128f33db84b1bdca" title="Processes input in the Welcome Screen context." alt="" coords="578,1792,754,1835"/>
+<area shape="poly" id="edge19_Node000015_Node000016" title=" " alt="" coords="475,1613,503,1621,528,1637,543,1655,550,1673,554,1708,557,1744,563,1761,576,1778,578,1780,574,1784,572,1782,559,1763,551,1745,548,1709,545,1674,538,1657,525,1641,500,1626,473,1618"/>
+<area shape="rect" id="Node000017" href="$task_main_8c.html#a78015f858010c519cd26b53104cb5686" title="Processes input in the Order Drink task context." alt="" coords="578,1659,754,1701"/>
+<area shape="poly" id="edge20_Node000015_Node000017" title=" " alt="" coords="475,1621,527,1636,578,1651,576,1656,526,1641,473,1626"/>
+<area shape="rect" id="Node000018" href="$task_main_8c.html#aade9c6da80ede3c1c43db354571d1cda" title="Processes input in the Select Drink task context." alt="" coords="578,1725,754,1768"/>
+<area shape="poly" id="edge21_Node000015_Node000018" title=" " alt="" coords="475,1615,502,1623,528,1637,545,1655,553,1675,561,1693,576,1711,581,1715,577,1719,573,1715,556,1696,548,1677,541,1658,525,1641,500,1628,473,1620"/>
+<area shape="rect" id="Node000020" href="$task_main_8c.html#a73ab051cc25ca96125a627be3342ef61" title="Processes input in the Show System Info task context." alt="" coords="578,1592,754,1635"/>
+<area shape="poly" id="edge23_Node000015_Node000020" title=" " alt="" coords="474,1611,563,1611,563,1616,474,1616"/>
+<area shape="rect" id="Node000019" href="$task_main_8c.html#a6b949466055d74e804a149444979dd15" title="Processes scroll button input and updates UI context accordingly." alt="" coords="810,1692,1018,1719"/>
+<area shape="poly" id="edge22_Node000018_Node000019" title=" " alt="" coords="754,1729,814,1719,815,1724,755,1735"/>
+<area shape="poly" id="edge24_Node000020_Node000012" title=" " alt="" coords="738,1589,756,1578,803,1535,842,1487,874,1439,896,1399,901,1402,879,1442,847,1490,806,1539,759,1582,740,1594"/>
+<area shape="poly" id="edge25_Node000020_Node000019" title=" " alt="" coords="728,1633,759,1644,863,1684,861,1689,757,1649,726,1638"/>
+<area shape="poly" id="edge28_Node000022_Node000010" title=" " alt="" coords="490,1085,600,1088,668,1085,742,1076,817,1060,891,1036,960,1001,991,979,1020,954,1049,920,1073,882,1092,840,1106,798,1123,717,1130,655,1135,656,1128,718,1111,799,1097,842,1078,884,1054,923,1024,958,994,983,962,1005,893,1040,819,1065,743,1081,669,1090,600,1094,490,1091"/>
+<area shape="poly" id="edge29_Node000022_Node000011" title=" " alt="" coords="489,1069,525,1055,588,1017,648,972,704,922,755,871,838,774,892,702,897,705,842,777,759,875,707,926,651,976,591,1021,528,1060,491,1074"/>
+<area shape="rect" id="Node000027" href="$uart_8c.html#a69bd6dc9d81a10ff8fa3ae2620a74001" title="Retrieves the next character from the receive buffer." alt="" coords="628,1171,704,1197"/>
+<area shape="poly" id="edge34_Node000026_Node000027" title=" " alt="" coords="491,1143,613,1170,612,1175,490,1148"/>
+<area shape="rect" id="Node000028" href="$uart_8c.html#ae1aa6b6bda0b1babfd7190d0e9ba070f" title="Peeks at the next character in the receive buffer without removing it." alt="" coords="623,1120,709,1147"/>
+<area shape="poly" id="edge35_Node000026_Node000028" title=" " alt="" coords="491,1131,608,1131,608,1136,491,1136"/>
+<area shape="poly" id="edge41_Node000029_Node000010" title=" " alt="" coords="526,914,638,892,757,859,835,832,895,808,952,779,1020,734,1071,692,1111,650,1114,654,1074,696,1024,738,954,783,897,813,837,837,758,864,639,897,528,920"/>
+<area shape="poly" id="edge42_Node000029_Node000011" title=" " alt="" coords="499,914,525,903,539,893,548,882,558,870,573,859,623,838,665,829,707,821,756,802,794,778,830,751,887,700,891,704,834,755,797,782,759,806,708,827,666,834,624,843,576,864,562,874,552,885,543,896,528,908,501,919"/>
+<area shape="poly" id="edge43_Node000029_Node000014" title=" " alt="" coords="511,915,524,903,539,885,548,866,557,829,555,791,548,754,540,716,538,677,547,639,558,619,572,600,594,580,615,570,637,565,659,564,705,563,730,559,756,548,795,525,831,498,888,446,891,450,834,502,798,529,759,553,731,564,706,569,659,570,638,570,617,575,597,585,576,603,562,622,552,640,544,678,546,715,553,753,560,791,562,829,553,868,543,888,528,907,514,919"/>
+<area shape="poly" id="edge37_Node000029_Node000030" title=" " alt="" coords="506,914,525,903,542,881,548,858,555,833,572,809,590,797,609,788,611,793,593,801,576,813,559,836,553,859,547,883,528,907,509,919"/>
+<area shape="rect" id="Node000031" href="$_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables." alt="" coords="841,917,986,944"/>
+<area shape="poly" id="edge44_Node000029_Node000031" title=" " alt="" coords="527,928,825,928,825,933,527,933"/>
+<area shape="poly" id="edge38_Node000030_Node000011" title=" " alt="" coords="700,762,864,695,866,699,702,767"/>
+<area shape="poly" id="edge39_Node000030_Node000014" title=" " alt="" coords="675,763,755,650,892,449,897,452,760,654,680,766"/>
+<area shape="poly" id="edge40_Node000030_Node000031" title=" " alt="" coords="691,790,879,907,876,911,688,795"/>
+<area shape="rect" id="Node000033" href="$task_show_system_info_8cpp.html#ae9bb5b66ee89b33e99df5b873b235553" title=" " alt="" coords="597,1424,735,1467"/>
+<area shape="poly" id="edge46_Node000032_Node000033" title=" " alt="" coords="511,1246,528,1258,543,1277,551,1297,554,1335,556,1373,563,1392,576,1410,586,1418,582,1422,572,1414,558,1394,551,1374,548,1335,546,1298,539,1280,524,1262,508,1251"/>
+<area shape="rect" id="Node000034" href="$task_show_system_info_8cpp.html#ae9de119193dbd4bf7e1c7a52fc8111ed" title=" " alt="" coords="588,1491,744,1517"/>
+<area shape="poly" id="edge47_Node000032_Node000034" title=" " alt="" coords="511,1246,528,1258,548,1286,556,1314,556,1342,553,1370,550,1397,550,1424,558,1450,576,1477,579,1480,575,1483,572,1480,553,1453,545,1425,544,1397,548,1369,551,1342,550,1315,543,1288,524,1262,508,1250"/>
+<area shape="rect" id="Node000035" href="$task_show_system_info_8cpp.html#aad395a48a7b481fca071491bfea2ced3" title=" " alt="" coords="576,1541,756,1568"/>
+<area shape="poly" id="edge48_Node000032_Node000035" title=" " alt="" coords="511,1245,528,1258,551,1293,559,1327,558,1361,553,1395,547,1429,546,1462,555,1495,576,1528,579,1530,575,1534,572,1531,550,1497,541,1462,542,1428,548,1394,553,1361,554,1328,546,1295,524,1262,508,1249"/>
+<area shape="rect" id="Node000036" href="$task_show_system_info_8cpp.html#aa0e5de19d10d1fb88558994dfe03cb7d" title=" " alt="" coords="576,1272,756,1299"/>
+<area shape="poly" id="edge49_Node000032_Node000036" title=" " alt="" coords="501,1246,588,1265,587,1271,500,1251"/>
+<area shape="rect" id="Node000037" href="$task_show_system_info_8cpp.html#a7bed8e3be0c70a38ac1b03047b70ffb1" title=" " alt="" coords="578,1221,754,1248"/>
+<area shape="poly" id="edge50_Node000032_Node000037" title=" " alt="" coords="509,1232,563,1232,563,1237,509,1237"/>
+<area shape="rect" id="Node000038" href="$task_show_system_info_8cpp.html#acb1a606f257b9378d8ecca8e83fd68e8" title=" " alt="" coords="588,1323,744,1349"/>
+<area shape="poly" id="edge52_Node000032_Node000038" title=" " alt="" coords="503,1246,528,1258,543,1271,553,1284,561,1296,576,1308,586,1314,583,1319,573,1313,557,1300,548,1287,539,1274,525,1262,501,1251"/>
+<area shape="rect" id="Node000039" href="$task_show_system_info_8cpp.html#ad35c851af774eabc4b9ff6ef68e130c6" title=" " alt="" coords="587,1373,745,1400"/>
+<area shape="poly" id="edge53_Node000032_Node000039" title=" " alt="" coords="510,1246,528,1258,540,1271,547,1284,553,1310,559,1336,565,1348,576,1359,581,1363,578,1368,573,1363,561,1351,554,1337,548,1311,542,1286,536,1274,525,1262,507,1251"/>
+<area shape="poly" id="edge51_Node000037_Node000031" title=" " alt="" coords="737,1219,756,1207,786,1180,812,1148,855,1079,884,1011,902,958,907,959,889,1013,859,1081,816,1151,790,1183,759,1211,739,1223"/>
+<area shape="poly" id="edge56_Node000041_Node000010" title=" " alt="" coords="727,308,793,302,871,303,911,308,951,318,989,333,1024,354,1051,379,1074,409,1092,442,1107,477,1125,544,1134,598,1129,599,1120,545,1102,479,1088,445,1070,412,1047,383,1020,358,986,338,949,323,910,313,871,308,793,307,727,314"/>
+<area shape="poly" id="edge57_Node000041_Node000011" title=" " alt="" coords="729,330,760,346,902,649,897,651,756,350,727,334"/>
+<area shape="poly" id="edge58_Node000041_Node000014" title=" " alt="" coords="724,334,759,346,821,373,876,401,874,405,819,378,757,350,722,339"/>
+<area shape="poly" id="edge60_Node000042_Node000010" title=" " alt="" coords="721,359,787,351,866,350,907,354,948,363,987,377,1023,396,1048,417,1069,441,1100,496,1121,552,1132,597,1127,599,1115,553,1095,498,1064,444,1044,420,1021,401,985,381,946,368,906,359,865,355,787,356,722,364"/>
+<area shape="poly" id="edge61_Node000042_Node000011" title=" " alt="" coords="688,385,723,412,760,448,803,501,843,556,900,649,895,652,838,559,799,504,756,451,719,416,685,389"/>
+<area shape="poly" id="edge62_Node000042_Node000014" title=" " alt="" coords="722,382,830,404,829,410,721,387"/>
+<area shape="poly" id="edge64_Node000043_Node000007" title=" " alt="" coords="244,1129,272,1122,296,1106,319,1076,331,1048,335,1019,335,991,331,928,334,893,343,854,380,770,416,702,421,705,384,772,349,856,339,894,337,928,340,991,341,1020,336,1049,323,1079,300,1110,274,1127,245,1135"/>
+<area shape="poly" id="edge65_Node000043_Node000015" title=" " alt="" coords="211,1146,424,1585,419,1587,206,1148"/>
+<area shape="poly" id="edge66_Node000043_Node000021" title=" " alt="" coords="246,1140,367,1167,366,1172,244,1145"/>
+<area shape="poly" id="edge67_Node000043_Node000022" title=" " alt="" coords="244,1121,367,1095,368,1100,246,1127"/>
+<area shape="poly" id="edge68_Node000043_Node000023" title=" " alt="" coords="215,1145,269,1200,306,1231,347,1258,368,1267,366,1272,345,1262,303,1235,265,1204,211,1149"/>
+<area shape="poly" id="edge69_Node000043_Node000024" title=" " alt="" coords="211,1146,231,1179,261,1223,301,1269,348,1308,358,1315,355,1319,344,1313,297,1273,257,1227,226,1182,207,1149"/>
+<area shape="poly" id="edge70_Node000043_Node000025" title=" " alt="" coords="244,1129,272,1122,296,1106,314,1082,321,1057,322,1032,320,1007,317,981,318,955,326,929,344,903,363,890,366,894,348,907,331,932,323,956,322,981,325,1007,327,1032,326,1058,318,1084,300,1110,274,1126,246,1134"/>
+<area shape="poly" id="edge71_Node000043_Node000026" title=" " alt="" coords="245,1131,366,1131,366,1136,245,1136"/>
+<area shape="poly" id="edge72_Node000043_Node000029" title=" " alt="" coords="244,1127,272,1120,296,1106,315,1083,322,1060,329,1034,344,1005,371,976,400,951,404,955,375,979,348,1008,334,1036,328,1061,320,1086,300,1110,274,1125,246,1133"/>
+<area shape="poly" id="edge73_Node000043_Node000032" title=" " alt="" coords="226,1145,280,1175,347,1207,366,1214,364,1219,345,1212,278,1180,223,1150"/>
+<area shape="poly" id="edge74_Node000043_Node000040" title=" " alt="" coords="244,1125,271,1117,297,1106,311,1094,320,1081,329,1068,345,1055,356,1049,358,1054,347,1060,333,1072,324,1084,315,1097,299,1110,273,1122,246,1130"/>
+<area shape="rect" id="Node000044" href="$task_welcome_screen_8cpp.html#aecbf1d34e34abcc6ae4b5fadf9b6d22a" title=" " alt="" coords="366,1651,507,1677"/>
+<area shape="poly" id="edge75_Node000043_Node000044" title=" " alt="" coords="204,1147,205,1231,210,1292,221,1362,238,1436,264,1509,300,1577,322,1608,348,1637,354,1642,350,1646,344,1641,318,1612,296,1580,259,1511,233,1437,216,1363,205,1293,200,1231,198,1147"/>
 </map>
