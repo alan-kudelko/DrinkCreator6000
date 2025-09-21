@@ -28,9 +28,9 @@ void shiftOut(uint8_t value){
         }
 
         PORTC|=(1<<SH_PIN);
-        _delay_us(1);
+        _delay_us(2);
         PORTC&=~(1<<SH_PIN);
-        _delay_us(1);
+        _delay_us(2);
 
     }
 
@@ -54,8 +54,8 @@ void taskOrderDrink(void*pvParameters){
     // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
     // I don't like that but for now i let this as it is
   
-  for(;;){
-    if(xTaskNotifyWait(0,0,&f_run,0)>0){
+    for(;;){
+      if(xTaskNotifyWait(0,0,&f_run,0)>0){
       memset(screenData.lines[0],0,sizeof(struct sScreenData));
       sprintf(screenData.lines[0],"[%2d]%s",UI_Context.currentSubMenu+1,drink[UI_Context.currentSubMenu].drinkName);   
       memset(screenData.lines[3],'-',12);
@@ -84,7 +84,7 @@ void taskOrderDrink(void*pvParameters){
       }
       if(f_run==0){
         // Drink order finished succesfully
-        //shiftOut(0);
+        shiftOut(0x00);
 
         strcpy(screenData.lines[2],"Done!");
         memset(screenData.lines[3]+1,'#',progress/10);
@@ -102,7 +102,7 @@ void taskOrderDrink(void*pvParameters){
       }
       if(f_run==2){
         // Drink order aborted
-        //shiftOut(0);
+        shiftOut(0x00);
 
         strcpy(screenData.lines[2],"Aborted");
         memset(screenData.lines[3]+1,'#',progress/10);
@@ -132,7 +132,7 @@ void taskOrderDrink(void*pvParameters){
         currentPumpId++;
         currentPumpTime=0;
       }
-      //shiftOut(1<<currentPumpId);
+      shiftOut(1<<currentPumpId);
             
       currentTime++;
       currentPumpTime++;
@@ -143,5 +143,5 @@ void taskOrderDrink(void*pvParameters){
       }
     }
     vTaskDelay(pdMS_TO_TICKS(TASK_ORDER_DRINK_REFRESH_RATE));
-  }
+    }
 }

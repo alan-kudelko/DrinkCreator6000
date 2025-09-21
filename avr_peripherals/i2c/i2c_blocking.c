@@ -8,7 +8,7 @@
 
 #include <DrinkCreator6000_Pins.h>
 
-#warning "I2C are blocking"
+#warning "I2C operations are blocking"
 
 void i2c_init(void){
     // Configure SDA and SCL as inputs (open-drain mode handled by pull-ups)

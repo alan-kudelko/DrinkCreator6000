@@ -30,7 +30,7 @@
  * @def F_CPU
  * @brief CPU clock frequency in Hertz.
  * 
- * Default is 8 MHz (8,000,000 Hz).
+ * Default is 16 MHz (16,000,000 Hz).
  */
 #ifndef F_CPU
     #define F_CPU 16000000UL

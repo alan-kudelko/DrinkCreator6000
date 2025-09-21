@@ -16,9 +16,12 @@
 extern "C" void initRamSize(void);
 
 void initializeUART(void){
+    MCUSR=0;
+    wdt_disable();
+
     uart_init();
     sei();
-    _delay_ms(100);
+    _delay_ms(50);
 
     uart_puts_P_blocking(msg_UartReady);
 }

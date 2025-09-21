@@ -22,7 +22,7 @@ void lastError_dump(const sSystemError*lastError){
 
     char buffer[LAST_ERROR_BUFFER_SIZE]={0};
 
-    uart_puts_P_blocking(msg_lastError_header);
+    uart_puts_P_blocking(msg_lastError_header); 
 
     uart_puts_P_blocking(msg_X_Marker);
     snprintf(buffer,sizeof(buffer),"%-50s",lastError->errorText);
@@ -167,34 +167,23 @@ void deactivateBuzzer(void){
 }
 
 extern void shiftOut(uint8_t value);
+extern void softwareReset(void);
+
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
-    // So we treat this saved SP as the top of the main stack (pre-RTOS).  
-    //shiftOut(0x00);
+    // So we treat this saved SP as the top of the main stack (pre-RTOS).
+
+    shiftOut(0x00);
     activateBuzzer();
-    _delay_ms(100);
+    _delay_ms(33);
     deactivateBuzzer();
-    //PORTC&=~(1<<OE_PIN);
+
+    PORTC&=~(1<<OE_PIN);
     PORTE|=(1<<CIRCULATION_PUMP_PIN)|(1<<FANS_PIN);
 
-    uint8_t pumpId=0x01;
+        PORTD=(1<<PELTIER1_PIN)|(1<<PELTIER2_PIN);
 
-    // for(uint8_t i=0;i<8;i++){
-    //     shiftOut(pumpId);
-    //     pumpId<<=1;
-    //     _delay_ms(((double)1000)*60*5*2);
-    // }
-    //     activateBuzzer();
-    // while(true){
-
-    // }
-
-    //Cycle finished
-    //Change water
-    while(true){
-
-    }
 
     EEPROMUpdateBootups(&bootupsCount);
     EEPROMGetLastStartupError(&lastSystemError);
@@ -217,41 +206,6 @@ int main(void){
     sei();
     TIMSK4|=(1<<OCIE4A);
     lcd.begin_blocking();
-      //printI2C_status();
-    //_delay_ms(5000);
-    //i2c_write_byte_blocking(0x27,0xff);
-    //    i2c_write_byte_blocking(0x27,0xAA);
-    //lcd.setCursor_blocking(0,0);
-    //lcd.write_blocking('A');
-
-    uint8_t c='A';
-    uint8_t posX=0;
-    uint8_t posY=0;
-    //cli();
-    while(false){
-        PORTH^=(1<<PH4);
-        _delay_ms(1);
-        //i2c_write_byte_blocking(LCD_ADDR,0xFF);
-    }
-    while(false){
-      //i2c_tx_buffer_show_contet();
-      //printI2C_status();
-                    //uart_putc_blocking('\0');
-        lcd.setCursor_blocking(posX,posY);
-        lcd.write_blocking(c);
-        c++;
-        posX++;
-        if(posX==20){
-          posY++;
-          posX=0;
-        }
-        if(posY==4)
-          posY=0;
-        if(c=='Z'+1)
-          c='A';
-        //delay_ms(5000);
-              //printI2C_status();
-    }
 
     _delay_ms(2000);
 

@@ -74,10 +74,10 @@
  *
  * For OCR4A = 4 with 4 µs tick:
  * @f[
- * T_{interrupt} = (14 + 1) * 4\mu s = 60\mu s
+ * T_{interrupt} = (39 + 1) * 4\mu s = 160\mu s
  * @f]
  */
-#define TIMER4_SENDING_CYCLE 14
+#define TIMER4_SENDING_CYCLE 39
 /**
  * @name I2C TWI Master Transmitter status codes
  * @{

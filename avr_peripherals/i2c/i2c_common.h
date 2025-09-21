@@ -26,14 +26,14 @@
  *
  * Default is 100 kHz.
  */
-#define I2C_FREQ       100000UL  // 100 kHz I2C frequency
+#define I2C_FREQ       400000UL  // 100 kHz I2C frequency
 /**
  * @def TWBR_VALUE
  * @brief TWI Bit Rate Register value calculated from F_CPU and I2C_FREQ.
  *
  * Used to configure the I2C clock speed.
  */
-#define TWBR_VALUE     (((F_CPU/I2C_FREQ)-32UL)/2UL)
+#define TWBR_VALUE (((F_CPU/I2C_FREQ)-32UL)/2UL)  // -> 64
 /**
  * @def USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
  * @brief Enables (1) or disables (0) the use of a ring buffer for blocking I2C operations.

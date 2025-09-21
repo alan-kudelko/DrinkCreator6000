@@ -1,5 +1,6 @@
 #include <taskErrorHandler.h>
 #include <avr/wdt.h> 
+#include <avr/interrupt.h>
 #include <stdio.h>
 #include <uart.h>
 #include <DrinkCreator6000_Progmem.h>
@@ -11,7 +12,7 @@ extern "C" void EEPROMUpdateLastStartupError(sSystemError*errorStruct);
 void stopPumps(){
   //digitalWrite(STPin,LOW);
   //shiftOut(DSPin,SHPin,0,LSBFIRST);
-  //digitalWrite(STPin,HIGH);  
+  //digitalWrite(STPin,HIGH);
 }
 void stopCooler(){
   //digitalWrite(Pelt1Pin,LOW);
@@ -21,8 +22,11 @@ void stopCooler(){
 // This won't work for a while, I need ISP programmer to set High Fuse bits
 // See Atmega2560 datasheet
 void softwareReset(){
-  wdt_enable(WDTO_15MS);
-  while(true);
+    cli();
+    wdt_enable(WDTO_15MS);
+    while(true){
+
+    }
 }
 void generateErrorInfo(sSystemError*lastError){
   uint32_t currentRunTimeMS=0;
