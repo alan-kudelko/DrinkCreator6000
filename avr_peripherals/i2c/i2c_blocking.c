@@ -66,6 +66,97 @@ void i2c_write_byte_to_address_blocking(uint8_t address,uint8_t data){
 }
 
 void i2c_write_bytes_to_address_blocking(uint8_t address,uint8_t*data,uint8_t length){
+    #define I2C_TIMEOUT 10000
+    uint16_t timeout;
+    // START condition
+    TWCR = (1 << TWINT) | (1 << TWSTA) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_START) return; // error: start failed
 
+    // Send SLA+W (address + write)
+    TWDR = (address << 1) | WRITE_MODE;
+    TWCR = (1 << TWINT) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_MT_SLA_ACK) return; // error: SLA+W not acked
+
+    // Send data byte
+    TWDR = data[0];
+    TWCR = (1 << TWINT) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_MT_DATA_ACK) return; // error: data not acked
+
+        // Send data byte
+    TWDR = data[1];
+    TWCR = (1 << TWINT) | (1 << TWEN);
+    timeout = I2C_TIMEOUT;
+    while (!(TWCR & (1 << TWINT))) {
+        if (--timeout == 0) return; // timeout error
+    }
+    if ((TWSR & 0xF8) != TW_MT_DATA_ACK) return; // error: data not acked
+    // STOP condition
+    TWCR = (1 << TWINT) | (1 << TWEN) | (1 << TWSTO);
 }
+
+uint8_t i2c_read_reg_from_adddress_blocking(uint8_t address,uint8_t reg){
+        #define I2C_TIMEOUT 10000
+    uint16_t timeout;
+    uint8_t retval=0;
+    // Send start condition
+    TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWSTA);
+            timeout = I2C_TIMEOUT;
+    while(!(TWCR&(1<<TWINT))){
+        if (--timeout == 0) return 0; // timeout error
+    }
+    // Send address with write mode
+    // to specify target register
+    TWDR=(address<<1)|WRITE_MODE;
+    TWCR=(1<<TWINT)|(1<<TWEN);
+        timeout = I2C_TIMEOUT;
+    while(!(TWCR&(1<<TWINT))){
+         if (--timeout == 0) return 0; // timeout error       
+    }
+    // Send target register
+    TWDR=reg;
+    TWCR=(1<<TWINT)|(1<<TWEN);
+            timeout = I2C_TIMEOUT;
+    while(!(TWCR&(1<<TWINT))){
+        if (--timeout == 0) return 0; // timeout error
+    }
+    // Send repeated start
+    TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWSTA);
+            timeout = I2C_TIMEOUT;
+    while(!(TWCR&(1<<TWINT))){
+        if (--timeout == 0) return 0; // timeout error
+    }
+    TWDR=(address<<1)|READ_MODE;
+    TWCR=(1<<TWINT)|(1<<TWEN);
+            timeout = I2C_TIMEOUT;
+    while(!(TWCR&(1<<TWINT))){
+        if (--timeout == 0) return 0; // timeout error
+    }
+    // Read byte
+    TWCR=(1<<TWINT)|(1<<TWEN);
+            timeout = I2C_TIMEOUT;
+    while(!(TWCR&(1<<TWINT))){
+        if (--timeout == 0) return 0; // timeout error
+    }
+    retval=TWDR;
+    TWCR=(1<<TWINT)|(1<<TWEN)|(1<<TWSTO);
+
+    return retval;
+}
+
+uint8_t i2c_read_regs_from_address_blocking(uint8_t address,uint8_t reg,uint8_t*data,uint8_t count){
+    return 0;
+}
+
 #endif // USE_RING_BUFFER_FOR_I2C_OPERATIONS==0

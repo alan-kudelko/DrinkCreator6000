@@ -15,27 +15,27 @@ void showInfo_Firmware_Sub_0(sScreenData*screenData){
   sprintf(screenData->lines[3],"%s %d","Startup count: ",bootupsCount);
 }
 void showInfo_Firmware_Sub_1(sScreenData*screenData){
-  uint32_t currentRunTimeMS=0;
-  uint8_t runTimeDays=0;
-  uint8_t runTimeHours=0;
-  uint8_t runTimeMinutes=0;
-  uint8_t runTimeSeconds=0;
+    uint32_t currentRunTimeMS=0;
+    uint8_t runTimeDays=0;
+    uint8_t runTimeHours=0;
+    uint8_t runTimeMinutes=0;
+    uint8_t runTimeSeconds=0;
 
-  currentRunTimeMS=xTaskGetTickCount()/1000;
-  runTimeDays=currentRunTimeMS/86400;
-  runTimeHours=currentRunTimeMS/3600%24;
-  runTimeMinutes=currentRunTimeMS/60%60;
-  runTimeSeconds=currentRunTimeMS%60;
+    currentRunTimeMS=xTaskGetTickCount()/1000;
+    runTimeDays=currentRunTimeMS/86400;
+    runTimeHours=(currentRunTimeMS/3600)%24;
+    runTimeMinutes=(currentRunTimeMS/60)%60;
+    runTimeSeconds=currentRunTimeMS%60;
   
-  sprintf(screenData->lines[0],"%s","Drink Creator 6000");
-  sprintf(screenData->lines[1],"%s","Current run time");  
+    sprintf(screenData->lines[0],"%s","Drink Creator 6000");
+    sprintf(screenData->lines[1],"%s","Current run time");  
   
-  sprintf(screenData->lines[2],"%02d %s %02d %s",runTimeDays,"days",runTimeHours,"h");
+    sprintf(screenData->lines[2],"%02d %s %02d %s",runTimeDays,"days",runTimeHours,"h");
   
 
-  memset((void*)screenData->lines[3],0,sizeof(screenData->lines[3]));
+    memset((void*)screenData->lines[3],0,sizeof(screenData->lines[3]));
   
-  sprintf(screenData->lines[3],"%02d %s  %02d %s",runTimeMinutes,"min",runTimeSeconds,"s");
+    sprintf(screenData->lines[3],"%02d %s  %02d %s",runTimeMinutes,"min",runTimeSeconds,"s");
 }
 void showInfo_Temp_Sub_0(sScreenData*screenData){
   // sprintf with %f is disabled on AVR, because it requires extra code
@@ -69,19 +69,17 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context
   
     if(UI_context->currentSubMenu==0){
 	    // Free RAM
-	    char buffer[13]{};
+	      char buffer[13]{};
     
-	  uint8_t ram_percent=100*uint32_t(ram_in_use)/ram_size;  
+	      uint8_t ram_percent=100*uint32_t(ram_in_use)/ram_size;  
     
-    sprintf(screenData->lines[0],"%s","RAM & CPU Info");	  
+    sprintf(screenData->lines[0],"%s","RAM Info");	  
 	  memset(buffer,'-',sizeof(buffer)-1);
 	  buffer[0]='[';
 	  buffer[11]=']';
 	  memset((void*)(buffer+1),'#',ram_percent/10);
     sprintf(screenData->lines[1],"%s %4u B/%4u B","Usage:",ram_in_use,ram_size);
     sprintf(screenData->lines[2],"%12s %3u %%",buffer,ram_percent);
-    uint8_t cpuLoad=100-((idleCounterPerSecond*100)/idleCalib);
-    sprintf(screenData->lines[3],"CPU: %3d%%",cpuLoad);
     return;
   }
   

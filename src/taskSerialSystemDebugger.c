@@ -166,6 +166,18 @@ void ram_dump(void){
     uart_puts_P_blocking(msg_ramDump_header1);
 }
 
+// Added temporarliy for diagnostics of MCP23008
+
+void mcp_dump(void){
+    if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(0))==pdPASS){
+        
+
+        xSemaphoreGive(mux_I2CLock);
+    }
+
+
+}
+
 void taskSerialSystemDebugger(void*pvParameters){
     /* buffer is initialized with NULL characters to avoid undefined content
      * Rule: MISRA C 2025 Dir 9.2 – all automatic variables must be initialized */

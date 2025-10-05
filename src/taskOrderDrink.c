@@ -8,6 +8,9 @@
 #include <DrinkCreator6000_Config_C.h>
 #include <DrinkCreator6000_Pins.h>
 
+extern void activateBuzzer(void);
+extern void deactivateBuzzer(void);
+
 void shiftOut(uint8_t value){
     uint8_t i=0;
 
@@ -89,9 +92,18 @@ void taskOrderDrink(void*pvParameters){
         strcpy(screenData.lines[2],"Done!");
         memset(screenData.lines[3]+1,'#',progress/10);
         sprintf(screenData.lines[3]+13,"%3d %%",progress);
-             
+
+        vTaskDelay(pdMS_TO_TICKS(150));
+        activateBuzzer();
+        vTaskDelay(pdMS_TO_TICKS(70));
+        deactivateBuzzer();
+        vTaskDelay(pdMS_TO_TICKS(100));
+        activateBuzzer();
+        vTaskDelay(pdMS_TO_TICKS(60));
+        deactivateBuzzer();
+
         for(i=0;i<5;i++)
-          xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+          xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(100));
           
         taskENTER_CRITICAL();
         UI_Context.currentTask=DRINK_SELECT;
@@ -107,9 +119,13 @@ void taskOrderDrink(void*pvParameters){
         strcpy(screenData.lines[2],"Aborted");
         memset(screenData.lines[3]+1,'#',progress/10);
         sprintf(screenData.lines[3]+13,"%3d %%",progress);
-             
+
+        activateBuzzer();
+        vTaskDelay(pdMS_TO_TICKS(200));
+        deactivateBuzzer();             
+
         for(i=0;i<5;i++)
-          xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+          xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(100));
           
         taskENTER_CRITICAL();
         UI_Context.currentTask=DRINK_SELECT;

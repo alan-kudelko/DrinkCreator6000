@@ -31,9 +31,8 @@ void initializeUART(void){
 // Configures I/O pins and attaches interrupts related to pin events
 void initializeIO(){
     cli();
-    // Initialize keyboard interrupt pin as INPUT with PULLUP
+    // Initialize keyboard interrupt pin as INPUT
     DDRD&=~(1<<KEYBOARD_INT_PIN);
-    PORTD|=(1<<KEYBOARD_INT_PIN);
     // Initialize MCP23008 ic reset pin as output
     // Disabled by default
     DDRD|=(1<<KEYBOARD_RESET_PIN);
@@ -45,7 +44,8 @@ void initializeIO(){
     PORTD&=~(1<<PELTIER2_PIN);    
     // Initialize LED ring pins
     // To be done
-
+    DDRC|=(1<<PC5);
+    DDRC|=(1<<PC4);
 
     // Initialize buffer pin as OUTPUT
     // and configure buzzers frequency
@@ -142,6 +142,46 @@ void initializeHardware(){
     uart_puts_P_blocking(msg_lcdReady);
 
     //mcp.begin_blocking();
+// Temporarly until class api is added
+    PORTD&=~(1<<KEYBOARD_RESET_PIN);
+    _delay_us(100);
+    PORTD|=(1<<KEYBOARD_RESET_PIN);
+    _delay_us(100);
+
+    uint8_t data[2]={0};
+    // IOCON -> configuration register
+    data[0]=0x05;
+    data[1]=(1<<5)|(1<<4);
+    i2c_write_bytes_to_address_blocking(MCP_ADDR,data,2);
+    _delay_us(100);
+    // IPOL -> read state inverted
+    data[0]=0x01;
+    data[1]=0xff;
+    i2c_write_bytes_to_address_blocking(MCP_ADDR,data,2);
+    _delay_us(100);
+    // GPINTEN -> interrupts enabled for all pins   
+    data[0]=0x02;
+    data[1]=0xff;
+    i2c_write_bytes_to_address_blocking(MCP_ADDR,data,2);
+    _delay_us(100);
+    // DEFVAL -> default value high state
+    data[0]=0x03;
+    data[1]=0x00;
+    i2c_write_bytes_to_address_blocking(MCP_ADDR,data,2);
+    _delay_us(100);
+    // INTCON -> interrupt when gpio is different from defval
+    data[0]=0x04;
+    data[1]=0xff;
+    i2c_write_bytes_to_address_blocking(MCP_ADDR,data,2);
+    _delay_us(100);
+    // GPPU
+    data[0]=0x06;
+    data[1]=0xff;
+    i2c_write_bytes_to_address_blocking(MCP_ADDR,data,2);
+    _delay_us(100);
+
+    i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x09);
+
     uart_puts_P_blocking(msg_mcpReady);
 
 ////////////////////////////////////////////////////////////////// Keyboard init	  

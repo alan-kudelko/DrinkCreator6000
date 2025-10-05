@@ -66,8 +66,8 @@
     #warning "Timer2 used for scheduler."
     #define portSCHEDULER_ISR                       TIMER2_COMPA_vect
     #define portCLEAR_COUNTER_ON_MATCH              ( ( uint8_t ) _BV( WGM01 ) )
-    #define portPRESCALE_64                       ( ( uint8_t ) ( _BV( CS22 ) | _BV( CS20 ) ) )
-    #define portCLOCK_PRESCALER                     ( ( uint32_t ) 64 )
+    #define portPRESCALE_64                       ( ( uint8_t ) ( _BV( CS22 ) ) )
+    #define portCLOCK_PRESCALER                     ( ( uint32_t ) 62 )
     #define portCOMPARE_MATCH_A_INTERRUPT_ENABLE    ( ( uint8_t ) _BV( OCIE2A ) )
     #define portOCRL                                OCR2A
     #define portTCCRa                               TCCR2A

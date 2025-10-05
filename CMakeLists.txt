@@ -37,7 +37,7 @@ set(CMAKE_EXE_LINKER_FLAGS "${CMAKE_EXE_LINKER_FLAGS} -Wl,-T,${LINKER_SCRIPT}")
 set(CMAKE_SHARED_LINKER_FLAGS "")
 set(CMAKE_MODULE_LINKER_FLAGS "")
 
-set(CMAKE_C_FLAGS "-mmcu=atmega2560 -Os -DF_CPU=16000000UL -Wall")
+set(CMAKE_C_FLAGS "-mmcu=atmega2560 -Os -DF_CPU=8000000UL -Wall")
 set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -fno-exceptions -fno-rtti")
 
 message(STATUS "Compiler flags C:   ${CMAKE_C_FLAGS}")

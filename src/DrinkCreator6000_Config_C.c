@@ -117,8 +117,8 @@ float temperatureHysteresis=1.0;
 // ========================
 // (Recipes, ingredient-to-pump mapping, maximum drink limits)
 const struct sDrinkData drink[DRINK_COUNT]={
-    {"Raz",    50, 50, 50, 50, 50, 50, 50, 50, 0},                   //1
-    {"Dwa",   200, 200, 0, 0, 0, 0, 0, 0, 0},                //2
+    {"Klasyka",    10, 0, 0, 0, 0, 0, 0, 0, 0},                   //1
+    {"Wino",   0, 0, 0, 0, 10, 0, 0, 0, 0},                //2
     {"Trzy",   50, 100, 150, 200, 250, 300, 350, 400, 0},  //3
     {"Cztery", 50, 100, 150, 200, 250, 300, 350, 400, 0},  //4
     {"Piec",   50, 0, 0, 0, 250, 300, 350, 400, 0},  //5
@@ -134,28 +134,20 @@ const char ingredients[8][20-4-4]={
     {"Jager"},      //2
     {"Rum"},        //3
     {"Wodka"},      //4
-    {"Cola"},       //5
+    {"Wino"},       //5
     {"Sok pom"},    //6
     {"Sok cyt"},    //7
     {"Woda"}        //8
 };
 //
 const uint8_t pumpsEff[8]={
-    200,
-    200,
-    200,
-    200,
-    200,
-    200,
-    200,
-    200
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25,
+    25
 };
-// ========================
-// CPU Usage Monitoring
-// ========================
-// (Variables for idle task hook, runtime stats, load calculation)
-volatile uint32_t idleCounter=0;
-volatile uint32_t idleCounterLast=0;
-volatile uint32_t idleCounterPerSecond=0;
-volatile uint32_t tickCount=0;
-volatile uint32_t idleCalib=0;
+

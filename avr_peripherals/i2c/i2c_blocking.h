@@ -23,6 +23,10 @@ void i2c_disable(void);
 void i2c_write_byte_to_address_blocking(uint8_t address,uint8_t data);
 void i2c_write_bytes_to_address_blocking(uint8_t address,uint8_t*data,uint8_t length);
 
+uint8_t i2c_read_reg_from_adddress_blocking(uint8_t address,uint8_t reg);
+
+uint8_t i2c_read_regs_from_address_blocking(uint8_t address,uint8_t reg,uint8_t*data,uint8_t count);
+
 #ifdef __cplusplus
     }
 #endif // __cplusplus

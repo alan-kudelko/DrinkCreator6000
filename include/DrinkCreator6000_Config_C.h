@@ -30,10 +30,10 @@
  * @def F_CPU
  * @brief CPU clock frequency in Hertz.
  * 
- * Default is 16 MHz (16,000,000 Hz).
+ * Default is 8 MHz (8,000,000 Hz).
  */
 #ifndef F_CPU
-    #define F_CPU 16000000UL
+    #define F_CPU 8000000UL
 #endif
 /**
  * @def __AVR_ATmega2560__
@@ -72,19 +72,19 @@
 /** @brief Stack size (in words) for Serial System Debugger task (ID 1). */
 #define TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE 260  //1
 /** @brief Stack size (in words) for Main task (ID 2). */
-#define TASK_MAIN_STACK_SIZE 150                    //2
+#define TASK_MAIN_STACK_SIZE 300                    //2
 /** @brief Stack size (in words) for Read Input task (ID 3). */
-#define TASK_READ_INPUT_STACK_SIZE 180              //3
+#define TASK_READ_INPUT_STACK_SIZE 280              //3
 /** @brief Stack size (in words) for Serial Input task (ID 4). */
-#define TASK_SERIAL_INPUT_STACK_SIZE 180            //4
+#define TASK_SERIAL_INPUT_STACK_SIZE 280            //4
 /** @brief Stack size (in words) for Update Screen task (ID 5). */
-#define TASK_UPDATE_SCREEN_STACK_SIZE 250           //5
+#define TASK_UPDATE_SCREEN_STACK_SIZE 270           //5
 /** @brief Stack size (in words) for Read Temperature task (ID 6). */
-#define TASK_READ_TEMP_STACK_SIZE 120               //6
+#define TASK_READ_TEMP_STACK_SIZE 160               //6
 /** @brief Stack size (in words) for Regulate Temperature task (ID 7). */
-#define TASK_REGULATE_TEMP_STACK_SIZE 120           //7
+#define TASK_REGULATE_TEMP_STACK_SIZE 160           //7
 /** @brief Stack size (in words) for Select Drink task (ID 8). */
-#define TASK_SELECT_DRINK_STACK_SIZE 230            //8
+#define TASK_SELECT_DRINK_STACK_SIZE 300            //8
 /** @brief Stack size (in words) for Order Drink task (ID 9). */
 #define TASK_ORDER_DRINK_STACK_SIZE 256             //9
 /** @brief Stack size (in words) for Show System Info task (ID 10). */
@@ -96,14 +96,6 @@
 #define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11
 /** @brief Stack size (in words) for Test Hardware task (ID 12). */
 #define TASK_TEST_HARDWARE_STACK_SIZE 150             //12
-/** 
- * @brief Stack size (in words) for Welcome Screen task (ID 11). 
- * Tuned with 48 words in reserve. 160 words caused overflow.
- */
-#define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11
-/** @brief Stack size (in words) for Test Hardware task (ID 12). */
-#define TASK_TEST_HARDWARE_STACK_SIZE 150             //12
-// Stack size - will need "tuning" in final release
 
 // Tasks execution periods in ms
 #define TASK_ERROR_HANDLER_REFRESH_RATE 500     // 0
@@ -111,13 +103,13 @@
 #define TASK_MAIN_REFRESH_RATE 500              // 2
 #define TASK_READ_INPUT_REFRESH_RATE 100        // 3  
 #define TASK_SERIAL_INPUT_REFRESH_RATE 200      // 4
-#define TASK_UPDATE_SCREEN_REFRESH_RATE 300     // 5
+#define TASK_UPDATE_SCREEN_REFRESH_RATE 200     // 5
 #define TASK_READ_TEMP_REFRESH_RATE 2000        // 6
 #define TASK_REGULATE_TEMP_REFRESH_RATE 5000    // 7
 #define TASK_SELECT_DRINK_REFRESH_RATE 1000     // 8
 #define TASK_ORDER_DRINK_REFRESH_RATE 500       // 9
 #define TASK_SHOW_SYSTEM_INFO_REFRESH_RATE 600  // 10
-#define TASK_WELCOME_SCREEN_REFRESH_RATE 500     // 11
+#define TASK_WELCOME_SCREEN_REFRESH_RATE 250     // 11
 
 // Timeout for closing welcome screen task
 #define TASK_WELCOME_TICKS_TO_CLOSE 10
@@ -210,7 +202,7 @@ extern volatile StackType_t*guardZones[]; ///< Array of pointers to guard zones 
 // Synchronization Objects
 // ========================
 // (Queues, semaphores, mutexes for inter-task communication)
-#define SCREEN_QUEUE_BUFFER_COUNT 2
+#define SCREEN_QUEUE_BUFFER_COUNT 3
 #define KEYBOARD_QUEUE_BUFFER_COUNT 2
 #define ERROR_ID_QUEUE_BUFFER_COUNT 1
 

@@ -33,7 +33,7 @@
  *
  * Used to configure the I2C clock speed.
  */
-#define TWBR_VALUE (((F_CPU/I2C_FREQ)-32UL)/2UL)  // -> 64
+#define TWBR_VALUE 2 // Calculated based on I2C_FREQ
 /**
  * @def USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS
  * @brief Enables (1) or disables (0) the use of a ring buffer for blocking I2C operations.
@@ -78,7 +78,7 @@
 
 /** @} */
 
-#define USE_RING_BUFFER_FOR_I2C_OPERATIONS 1
+#define USE_RING_BUFFER_FOR_I2C_OPERATIONS 0
 
 /**
  * @brief Counters for different I2C/TWI error types

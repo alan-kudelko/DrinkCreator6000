@@ -97,14 +97,6 @@ extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask,char*pcTaskName
     xQueueSend(qErrorId,&xTask,pdMS_TO_TICKS(50));
     //Wake up higher prority tasks
 }
-void calibrateIdleLoop(){
-    vTaskStartScheduler();
-    vTaskSuspendAll();
-    idleCounter=0;
-    vTaskDelay(pdMS_TO_TICKS(INTERVAL_TICKS));
-    idleCalib=idleCounter;
-    xTaskResumeAll();
-}
 //////////////////////////////////////////////////////////////////
 // Temperature regulation task:
 // Uses global temperature variables to control Peltier elements
@@ -157,6 +149,7 @@ ISR(TIMER1_COMPA_vect){
     PORTB^=(1<<BUZZER_PIN);
 }
 
+extern "C"{
 void activateBuzzer(void){
     TIMSK1|=(1<<OCIE1A);
 }
@@ -165,25 +158,64 @@ void deactivateBuzzer(void){
     TIMSK1&=~(1<<OCIE1A);
     PORTB&=~(1<<BUZZER_PIN);
 }
+}
 
 extern void shiftOut(uint8_t value);
 extern void softwareReset(void);
+
+void clearPumps(void){
+    uint8_t flag=0x01;
+    for(int i=0;i<8;i++){
+        shiftOut(flag);
+        flag<<=1;
+        _delay_ms(10000);
+    }
+
+    flag=0x01;
+
+    for(int i=0;i<8;i++){
+        shiftOut(flag);
+        _delay_ms(10000);
+
+        //shiftOut(0x00);
+        //_delay_ms(10000);
+
+        shiftOut(flag);
+        _delay_ms(10000);
+
+        flag<<=1;
+    }
+    activateBuzzer();
+    _delay_ms(15000);
+    deactivateBuzzer();
+}
 
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).
 
+//Fix
+
     shiftOut(0x00);
     activateBuzzer();
     _delay_ms(33);
     deactivateBuzzer();
+    _delay_ms(50);
+    activateBuzzer();
+    _delay_ms(33);
+    deactivateBuzzer();
 
-    PORTC&=~(1<<OE_PIN);
-    PORTE|=(1<<CIRCULATION_PUMP_PIN)|(1<<FANS_PIN);
+    //PORTC&=~(1<<OE_PIN);
 
-        PORTD=(1<<PELTIER1_PIN)|(1<<PELTIER2_PIN);
+    PORTE|=(1<<FANS_PIN);
 
+    //PORTD=(1<<PELTIER1_PIN)|(1<<PELTIER2_PIN);
+
+    // while(EECR&(1<<EEPE)){
+    //     activateBuzzer();
+    // }
+    // deactivateBuzzer();
 
     EEPROMUpdateBootups(&bootupsCount);
     EEPROMGetLastStartupError(&lastSystemError);
@@ -202,12 +234,49 @@ int main(void){
     lastError_dump(&lastSystemError);
 
     __stack_ptr=(uint8_t*)SP;
+        sei();
     ram_dump();
-    sei();
-    TIMSK4|=(1<<OCIE4A);
+    //TIMSK4|=(1<<OCIE4A);
     lcd.begin_blocking();
 
-    _delay_ms(2000);
+    //_delay_ms(2000);
+    while(false){
+        _delay_ms(100);
+        uint8_t val;
+                        lcd.setCursor_blocking(0,1);
+        lcd.write_blocking(((PIND&(1<<KEYBOARD_INT_PIN))>0)+48);
+        val=i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x09);
+
+        i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x08);
+        lcd.setCursor_blocking(0,0);
+        lcd.write_blocking((val&0x01)+48);
+
+                lcd.setCursor_blocking(1,0);
+        lcd.write_blocking(((val&0x02)>>1)+48);
+
+                lcd.setCursor_blocking(2,0);
+        lcd.write_blocking(((val&0x04)>>2)+48);
+
+                lcd.setCursor_blocking(3,0);
+        lcd.write_blocking(((val&0x08)>>3)+48);
+
+                lcd.setCursor_blocking(4,0);
+        lcd.write_blocking(((val&0x10)>>4)+48);
+
+                        lcd.setCursor_blocking(5,0);
+        lcd.write_blocking(((val&0x20)>>5)+48);
+
+                lcd.setCursor_blocking(6,0);
+        lcd.write_blocking(((val&0x40)>>6)+48);
+
+                lcd.setCursor_blocking(7,0);
+        lcd.write_blocking(((val&0x80)>>7)+48);
+
+        lcd.setCursor_blocking(1,1);
+        lcd.write_blocking(((PIND&(1<<KEYBOARD_INT_PIN))>0)+48);
+    }
+
+    //activateBuzzer();
 
     vTaskStartScheduler();
     // calibrate max value of idleCounterPerSecond

@@ -47,7 +47,7 @@
 #define configMAX_PRIORITIES                       4U
 #define configMINIMAL_STACK_SIZE                   140U
 #define configMAX_TASK_NAME_LEN                    20U
-#define configTICK_TYPE_WIDTH_IN_BITS              TICK_TYPE_WIDTH_16_BITS
+#define configTICK_TYPE_WIDTH_IN_BITS              TICK_TYPE_WIDTH_32_BITS
 #define configIDLE_SHOULD_YIELD                    1
 #define configTASK_NOTIFICATION_ARRAY_ENTRIES      1U
 #define configQUEUE_REGISTRY_SIZE                  0U
@@ -94,7 +94,7 @@
 #define configUSE_TICK_HOOK                   1
 #define configUSE_MALLOC_FAILED_HOOK          0
 #define configUSE_DAEMON_TASK_STARTUP_HOOK    0
-#define configCHECK_FOR_STACK_OVERFLOW        0
+#define configCHECK_FOR_STACK_OVERFLOW        2
 
 /******************************************************************************/
 /* Run time and task stats gathering related definitions. *********************/
