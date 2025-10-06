@@ -180,7 +180,13 @@ Screen transition diagram:
    - [11.4 Installing AVR-GCC toolchain](#114-installing-avr-gcc-toolchain)
    - [11.5 Installing AVRDUDE for uploading the compiled firmware](#115-installing-avrdude-for-uploading-the-compiled-firmware)
    - [11.6 Building and uploading the project](#116-building-and-uploading-the-project)
-12. [Maintenance](#12--maintenance)
+12. [Maintenance and Cleaning Procedure](#12--maintenance-and-cleaning-procedure)
+   - [12.1 Overview](#121-overview)
+   - [12.2 Cleaning Theory](#122-cleaning-theory)
+   - [12.3 Recommended Cleaning Cycle](#123--recommended-cleaning-cycle)
+   - [12.4 Chemical Compatibility](#124--chemical-compatibility)
+   - [12.5 Cleaning Frequency](#125--cleaning-frequency)
+   - [12.6 Notes](#126--notes)
   
 ---
 
