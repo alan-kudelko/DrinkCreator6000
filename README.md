@@ -130,8 +130,6 @@ Screen transition diagram:
 - ✅ Implement a guard zone watchdog inside `taskErrorHandler` to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
 - 🔄 Add automatic system reset after fatal system error (e.g. guard zone or memory corruption)
-- 🔄 Implement `stopPumps()` function to safely disable all pump outputs
-- 🔄 Implement `stopCooler()` function to safely disable the cooling system
 - 🔄 Refactor embedded codebase to comply with MISRA C:2025 coding standard for improved safety, portability, and maintainability
 - 🔄 Develop custom low-level UART and I2C drivers with queuing support, non-blocking read/write operations, and efficient MCU time usage
 - ✅ Refactor project structure and clean up `#include` dependencies based on Doxygen documentation analysis
@@ -392,9 +390,27 @@ An example of this control logic is shown below:
 
 ### 5. Low level drivers
 
+This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
+These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
+
 #### 5.1 UART
 
+- Full-duplex UART driver for the ATmega2561 using the USART0 peripheral.
+- Supports blocking and non-blocking transmit and receive using ring buffers.
+- Implements hardware-level ISRs for transmit buffer empty (`USART_UDRE_vect`) and receive complete (`USART_RX_vect`).
+- Configurable TX and RX buffer sizes via macros.
+- Supports strings stored in flash memory (PROGMEM) with dedicated functions.
+- Completely independent of FreeRTOS or any other RTOS.
+
 #### 5.2 I²C
+
+- Implements a master-mode I2C driver for ATmega2561.
+- Supports both blocking and non-blocking operations.
+- Uses a transmit buffer for queued data packets including addresses, read/write flags, and data.
+- Managed by ISRs for TWI events (`TWI_vect`) and a timer interrupt (`TIMER4_COMPA_vect`) for precise timing.
+- Timer4 is configured to generate interrupts approximately every 10 microseconds (prescaler 64, 16 MHz CPU clock).
+- Configurable buffer sizes for transmission and reception.
+- RTOS independent, allowing use in bare-metal or FreeRTOS environments.
 
 ---
 
@@ -755,29 +771,6 @@ Preview of the custom-designed AVR board used in the project:
 ### 10. Additional Notes  
 
 #### 10.1 Low-level Drivers
-
-This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
-
-##### UART Driver
-
-- Full-duplex UART driver for the ATmega2561 using the USART0 peripheral.
-- Supports blocking and non-blocking transmit and receive using ring buffers.
-- Implements hardware-level ISRs for transmit buffer empty (`USART_UDRE_vect`) and receive complete (`USART_RX_vect`).
-- Configurable TX and RX buffer sizes via macros.
-- Supports strings stored in flash memory (PROGMEM) with dedicated functions.
-- Completely independent of FreeRTOS or any other RTOS.
-
-##### I2C (TWI) Master Driver
-
-- Implements a master-mode I2C driver for ATmega2561.
-- Supports both blocking and non-blocking operations.
-- Uses a transmit buffer for queued data packets including addresses, read/write flags, and data.
-- Managed by ISRs for TWI events (`TWI_vect`) and a timer interrupt (`TIMER4_COMPA_vect`) for precise timing.
-- Timer4 is configured to generate interrupts approximately every 10 microseconds (prescaler 64, 16 MHz CPU clock).
-- Configurable buffer sizes for transmission and reception.
-- RTOS independent, allowing use in bare-metal or FreeRTOS environments.
-
-These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
 
 #### 10.2 System Initialization
 
