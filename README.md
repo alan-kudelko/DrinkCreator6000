@@ -6,7 +6,7 @@ The project was initially prototyped using the Arduino framework and libraries, 
 
 The user interface is presented on a 20x4 character LCD driven via I²C, featuring a multi-screen menu for navigating functions such as drink selection, system diagnostics, and memory usage. Input comes from both a physical keypad connected through an MCP23008 I²C I/O expander and the UART interface, providing full control locally or remotely.
 
-The system provides runtime diagnostics for RAM and CPU usage, task stack monitoring, and last-error reporting stored in EEPROM. These diagnostics are available in real time over UART and through a dedicated LCD submenu. A dedicated error-handling task monitors stack guard zones to detect overflows or memory corruption. On fault detection, the system logs detailed error data to EEPROM and displays it on both the LCD and UART. An automatic restart after a defined timeout is planned as a future feature.
+The system provides runtime diagnostics for RAM, task stack monitoring, and last-error reporting stored in EEPROM. These diagnostics are available in real time over UART and through a dedicated LCD submenu. A dedicated error-handling task monitors stack guard zones to detect overflows or memory corruption. On fault detection, the system logs detailed error data to EEPROM and displays it on both the LCD and UART. An automatic restart after a defined timeout is planned as a future feature.
 
 Temperature sensing is handled via a 1-Wire digital thermometer, with data acquisition delegated to an ATmega328P configured as an I²C slave. The main ATmega2561 MCU retrieves temperature data over I²C, avoiding the strict timing requirements of the 1-Wire protocol that could otherwise block the FreeRTOS scheduler. Internal cooling is provided by two Peltier elements, a circulating pump, and a dedicated aluminum heat sink system. The cooling chamber is fully enclosed in polystyrene foam and lined with sealed aluminum sheets, making it waterproof and thermally isolated.
 
@@ -310,11 +310,6 @@ During normal operation, the system uses queues, mutexes, notifications, global 
 | float                        | currentTemperature    | N/A                           | Current temperature inside the freezer |
 | float                        | setTemperature        | N/A                           | Regulation set temperature for the freezer |
 | float                        | temperatureHysteresis | N/A                           | Hysteresis width of temperature regulation|
-| volatile uint32_t            | idleCounter           | N/A                           | |
-| volatile uint32_t            | idleCounterLast       | N/A                           | |
-| volatile uint32_t            | idleCounterPerSecond  | N/A                           | |
-| volatile uint32_t            | tickCount             | N/A                           | Idle tick hook count, used to calculate CPU usage |
-| volatile uint32_t            | idleCalib             | N/A                           | |
 | const struct sDrinkData[]    | drink                 | N/A                           | Drinks data, name, volumes |
 | const char[]                 | ingredients           | N/A                           | Names of ingredients used for creating drinks |
 | const uint8_t[]              | pumpsEff              | N/A                           | Pumps efficiency values (may require manual calibration for different beverages) |
