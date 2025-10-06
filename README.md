@@ -183,9 +183,9 @@ Screen transition diagram:
 12. [Maintenance and Cleaning Procedure](#12--maintenance-and-cleaning-procedure)
    - [12.1 Overview](#121-overview)
    - [12.2 Cleaning Theory](#122-cleaning-theory)
-   - [12.3 Recommended Cleaning Cycle](#123--recommended-cleaning-cycle)
+   - [12.3 Recommended Cleaning Cycle](#123-%EF%B8%8F-recommended-cleaning-cycle)
    - [12.4 Chemical Compatibility](#124--chemical-compatibility)
-   - [12.5 Cleaning Frequency](#125--cleaning-frequency)
+   - [12.5 Cleaning Frequency](#125-%EF%B8%8F-cleaning-frequency)
    - [12.6 Notes](#126--notes)
   
 ---
