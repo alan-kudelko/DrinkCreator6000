@@ -119,17 +119,16 @@ Screen transition diagram:
 - ✅ Create main task for coordinating other tasks
 - ✅ Create task for handling regular LCD updates
 - ✅ Create task for regulating temperature inside the freezer
-- 🔄 Create task for handling keyboard input from MCP23017 with software debounce
-- 🔄 Create task for selecting the drink to be ordered
+- ✅ Create task for handling keyboard input from MCP23008 with software debounce
+- ✅ Create task for selecting the drink to be ordered
 - ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
-- 🔄 Create task for processing the ordered drink (pump activation)
+- ✅ Create task for processing the ordered drink (pump activation)
 - ✅ Create task to display project information such as author, startup count, and current runtime
 - ✅ Implement software guard zones between task stacks for added protection and reliability
 - ✅ Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
 - ✅ Create a custom memory segment named `.tdat` to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
 - ✅ Implement a guard zone watchdog inside `taskErrorHandler` to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
-- 🔄 Add EEPROM-based drink recipe loading at startup
 - 🔄 Add automatic system reset after fatal system error (e.g. guard zone or memory corruption)
 - 🔄 Implement `stopPumps()` function to safely disable all pump outputs
 - 🔄 Implement `stopCooler()` function to safely disable the cooling system
