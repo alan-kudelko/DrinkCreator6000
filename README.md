@@ -180,6 +180,7 @@ Screen transition diagram:
    - [11.4 Installing AVR-GCC toolchain](#114-installing-avr-gcc-toolchain)
    - [11.5 Installing AVRDUDE for uploading the compiled firmware](#115-installing-avrdude-for-uploading-the-compiled-firmware)
    - [11.6 Building and uploading the project](#116-building-and-uploading-the-project)
+12. [Maintenance](#12--maintenance)
   
 ---
 
@@ -819,4 +820,81 @@ The build steps are outlined below and include:
 #### 11.6 Building and uploading the project
 
 ---
+
+### 12. 🧼 Maintenance and Cleaning Procedure
+
+### 12.1 Overview
+
+Closed-loop liquid systems — such as beverage dispensers, fluid-handling robots, or lab automation devices — accumulate residues over time.  
+These residues may include:
+
+- Organic compounds (sugars, flavorants, oils)  
+- Mineral deposits (calcium, iron, copper oxides)  
+- Microbial growth (biofilms, molds, bacteria)  
+
+Regular cleaning ensures:
+- **Sanitary safety** (prevents bacterial contamination)
+- **System integrity** (prevents corrosion, scaling, clogging)
+- **Sensor accuracy** and **flow stability**
+
+---
+
+### 12.2 Cleaning Theory
+
+The cleaning process alternates between **acidic**, **neutral**, and **oxidative** phases to remove all contaminant types:
+
+1. **Acidic cleaning** removes minerals and oxides (rust, copper salts).  
+2. **Neutralization stage** balances pH and removes organic films.  
+3. **Oxidative disinfection** kills microorganisms.  
+4. **Final rinse** ensures no chemical residues remain.  
+
+Each stage is separated by a **pure water rinse** to prevent unwanted chemical reactions.
+
+---
+
+### 12.3 ⚙️ Recommended Cleaning Cycle
+
+| Step | Solution / Reagent | Concentration | Purpose | Duration / Notes |
+|------|--------------------|---------------|----------|------------------|
+| 1️⃣ | **Potable water** | — | Initial flush – removes loose residues | 5–10 min continuous flow |
+| 2️⃣ | **Citric acid solution** | 5–10% | Removes limescale, rust, and metal oxides | 15–30 min at ≤50 °C |
+| 3️⃣ | **Water rinse** | — | Neutralizes acid residues | 5–10 min |
+| 4️⃣ | **Sodium bicarbonate (NaHCO₃)** | 3–5% | Neutralizes acid and deodorizes | 10–15 min |
+| 5️⃣ | **Water rinse** | — | Returns pH to neutral | 5–10 min |
+| 6️⃣ | **Hydrogen peroxide (H₂O₂)** | 3–6% (from 12% stock) | Disinfection and oxidation | 15–20 min, avoid direct light |
+| 7️⃣ | **Water rinse** | — | Removes oxidizer residues | 5–10 min |
+| 8️⃣ | **Sodium metabisulfite (Na₂S₂O₅)** | 1–2% | Anti-bacterial rinse, neutralizes oxidants | 10–15 min, closed loop |
+| 9️⃣ | **Final water rinse** | — | Restores clean circuit | 10 min |
+| 🔟 *(optional)* | **Denatured ethanol (96%)** | — | Final drying/disinfection – evaporates naturally | 5 min recirculation |
+
+---
+
+### 12.4 🧪 Chemical Compatibility
+
+All listed reagents at the given concentrations are **safe for:**
+- **Silicone**, **PVC**, **PE**, **PP**, **stainless steel (AISI 304/316)**
+- Most **food-grade rubbers**
+
+Avoid **prolonged exposure (>1 h)** or **heating above 60 °C**.
+
+---
+
+### 12.5 ⏱️ Cleaning Frequency
+
+| Type of Use | Recommended Cleaning Interval |
+|--------------|-------------------------------|
+| Daily beverage dispensing / continuous operation | **Every 3–5 days** |
+| Infrequent / occasional use | **Before and after idle periods** |
+| Long-term storage | **Flush with ethanol or biocide, then seal** |
+
+If discoloration, odor, or reduced flow appears — run a full cleaning cycle immediately.
+
+---
+
+### 12.6 🧭 Notes
+
+- Never mix acidic and basic solutions without an intermediate rinse.  
+- If **greenish** or **brown deposits** appear, repeat the citric acid step twice.  
+- Store all reagents in sealed containers, away from sunlight.  
+- Dispose of waste responsibly (never pour concentrated chemicals into drains).
 
