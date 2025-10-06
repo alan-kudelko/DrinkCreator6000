@@ -204,54 +204,54 @@ void taskSerialSystemDebugger(void*pvParameters){
             if((snprintf_ret_val<0)||(snprintf_ret_val>=(int32_t)sizeof(buffer))){
                 buffer[0]='\0'; /* Clear buffer on error */
             }
-        nameLength=strlen(taskStatus.pcTaskName); // Non compliant
-        memset(buffer+nameLength,' ',sizeof(buffer)-nameLength);
-        buffer[configMAX_TASK_NAME_LEN-1]='\0';
+            nameLength=strlen(taskStatus.pcTaskName); // Non compliant
+            memset(buffer+nameLength,' ',sizeof(buffer)-nameLength);
+            buffer[configMAX_TASK_NAME_LEN-1]='\0';
 
-        uart_putc_blocking('[');
-        uart_puts_blocking(buffer);
-        uart_putc_blocking(']');
+            uart_putc_blocking('[');
+            uart_puts_blocking(buffer);
+            uart_putc_blocking(']');
 
-        sprintf(buffer,"%5d",taskStatus.usStackHighWaterMark); // Non compliant
+            sprintf(buffer,"%5d",taskStatus.usStackHighWaterMark); // Non compliant
 
-        uart_puts_blocking(buffer);
-        uart_putc_blocking('|');
+            uart_puts_blocking(buffer);
+            uart_putc_blocking('|');
 
-        switch(taskStatus.eCurrentState){ // Non compliant
-          case eReady:
-            uart_puts_P_blocking(msg_serialSystemDebugger_taskReady);
-          break;
-          case eRunning:
-            uart_puts_P_blocking(msg_serialSystemDebugger_taskRunning);
-          break;
-          case eBlocked:
-            uart_puts_P_blocking(msg_serialSystemDebugger_taskBlocked);
-            break;
-          case eSuspended:
-            uart_puts_P_blocking(msg_serialSystemDebugger_taskSuspended);
-          break;
-          case eDeleted:
-            uart_puts_P_blocking(msg_serialSystemDebugger_taskDeleted);
-            break;
-          default:
-            uart_puts_P_blocking(msg_serialSystemDebugger_taskInvalid);
-          }
-        snprintf(buffer,sizeof(buffer),"%d",taskStatus.uxCurrentPriority); // Non compliant
+            switch(taskStatus.eCurrentState){ // Non compliant
+                case eReady:
+                    uart_puts_P_blocking(msg_serialSystemDebugger_taskReady);
+                    break;
+                case eRunning:
+                    uart_puts_P_blocking(msg_serialSystemDebugger_taskRunning);
+                    break;
+                case eBlocked:
+                    uart_puts_P_blocking(msg_serialSystemDebugger_taskBlocked);
+                    break;
+                case eSuspended:
+                    uart_puts_P_blocking(msg_serialSystemDebugger_taskSuspended);
+                    break;
+                case eDeleted:
+                    uart_puts_P_blocking(msg_serialSystemDebugger_taskDeleted);
+                    break;
+                default:
+                    uart_puts_P_blocking(msg_serialSystemDebugger_taskInvalid);
+            }
+            snprintf(buffer,sizeof(buffer),"%d",taskStatus.uxCurrentPriority); // Non compliant
 
-        uart_puts_blocking("| ");
-        uart_puts_blocking(buffer);
+            uart_puts_blocking("| ");
+            uart_puts_blocking(buffer);
 
-        sprintf(buffer,"%2d",i); // Non compliant
+            sprintf(buffer,"%2d",i); // Non compliant
 
-        uart_putc_blocking('[');
-        uart_puts_blocking(buffer);
-        uart_puts_blocking("]\n");
-      }
-      uart_puts_P_blocking(msg_serialSystemDebugger_footer);
+            uart_putc_blocking('[');
+            uart_puts_blocking(buffer);
+            uart_puts_blocking("]\n");
+        }
+        uart_puts_P_blocking(msg_serialSystemDebugger_footer);
 	    uart_putc_blocking('\n');
 
-      updateMemoryUsage();
+        updateMemoryUsage();
 	    ram_dump();
-      vTaskDelay(pdMS_TO_TICKS(2000));
+        vTaskDelay(pdMS_TO_TICKS(2000));
     }
 }

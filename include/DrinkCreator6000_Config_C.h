@@ -258,21 +258,8 @@ extern const struct sDrinkData drink[];
 //
 extern const char ingredients[][20-4-4];
 //
-extern const uint8_t pumpsEff[];
+extern const uint16_t pumpsEff[];
 // Pumps efficiency in ml/min
-
-// ========================
-// CPU Usage Monitoring
-// ========================
-// (Variables for idle task hook, runtime stats, load calculation)
-
-#define INTERVAL_TICKS 1000 // CPU usage update interval
-
-extern volatile uint32_t idleCounter;
-extern volatile uint32_t idleCounterLast;
-extern volatile uint32_t idleCounterPerSecond;
-extern volatile uint32_t tickCount;
-extern volatile uint32_t idleCalib;
 
 // ========================
 // Button Mapping

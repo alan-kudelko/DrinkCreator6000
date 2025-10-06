@@ -206,7 +206,7 @@ int main(void){
     _delay_ms(33);
     deactivateBuzzer();
 
-    //PORTC&=~(1<<OE_PIN);
+    PORTC&=~(1<<OE_PIN);
 
     PORTE|=(1<<FANS_PIN);
 
