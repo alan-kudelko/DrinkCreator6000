@@ -119,20 +119,17 @@ Screen transition diagram:
 - ✅ Create main task for coordinating other tasks
 - ✅ Create task for handling regular LCD updates
 - ✅ Create task for regulating temperature inside the freezer
-- 🔄 Create task for handling keyboard input from MCP23017 with software debounce
-- 🔄 Create task for selecting the drink to be ordered
+- ✅ Create task for handling keyboard input from MCP23008 with software debounce
+- ✅ Create task for selecting the drink to be ordered
 - ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
-- 🔄 Create task for processing the ordered drink (pump activation)
+- ✅ Create task for processing the ordered drink (pump activation)
 - ✅ Create task to display project information such as author, startup count, and current runtime
 - ✅ Implement software guard zones between task stacks for added protection and reliability
 - ✅ Review .map file and optimize memory by efficient variable placement using linker script (.ld file)
 - ✅ Create a custom memory segment named `.tdat` to store Task Control Blocks (TCBs), task stacks, and stack guard zones by modifying the linker script (.ld file)
 - ✅ Implement a guard zone watchdog inside `taskErrorHandler` to detect guard zone corruption, indicating potential stack overflows
 - ✅ Separate code into multiple files for better readability
-- 🔄 Add EEPROM-based drink recipe loading at startup
 - 🔄 Add automatic system reset after fatal system error (e.g. guard zone or memory corruption)
-- 🔄 Implement `stopPumps()` function to safely disable all pump outputs
-- 🔄 Implement `stopCooler()` function to safely disable the cooling system
 - 🔄 Refactor embedded codebase to comply with MISRA C:2025 coding standard for improved safety, portability, and maintainability
 - 🔄 Develop custom low-level UART and I2C drivers with queuing support, non-blocking read/write operations, and efficient MCU time usage
 - ✅ Refactor project structure and clean up `#include` dependencies based on Doxygen documentation analysis
@@ -181,6 +178,13 @@ Screen transition diagram:
    - [11.4 Installing AVR-GCC toolchain](#114-installing-avr-gcc-toolchain)
    - [11.5 Installing AVRDUDE for uploading the compiled firmware](#115-installing-avrdude-for-uploading-the-compiled-firmware)
    - [11.6 Building and uploading the project](#116-building-and-uploading-the-project)
+12. [Maintenance and Cleaning Procedure](#12--maintenance-and-cleaning-procedure)
+   - [12.1 Overview](#121-overview)
+   - [12.2 Cleaning Theory](#122-cleaning-theory)
+   - [12.3 Recommended Cleaning Cycle](#123-%EF%B8%8F-recommended-cleaning-cycle)
+   - [12.4 Chemical Compatibility](#124--chemical-compatibility)
+   - [12.5 Cleaning Frequency](#125-%EF%B8%8F-cleaning-frequency)
+   - [12.6 Notes](#126--notes)
   
 ---
 
@@ -386,9 +390,27 @@ An example of this control logic is shown below:
 
 ### 5. Low level drivers
 
+This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
+These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
+
 #### 5.1 UART
 
+- Full-duplex UART driver for the ATmega2561 using the USART0 peripheral.
+- Supports blocking and non-blocking transmit and receive using ring buffers.
+- Implements hardware-level ISRs for transmit buffer empty (`USART_UDRE_vect`) and receive complete (`USART_RX_vect`).
+- Configurable TX and RX buffer sizes via macros.
+- Supports strings stored in flash memory (PROGMEM) with dedicated functions.
+- Completely independent of FreeRTOS or any other RTOS.
+
 #### 5.2 I²C
+
+- Implements a master-mode I2C driver for ATmega2561.
+- Supports both blocking and non-blocking operations.
+- Uses a transmit buffer for queued data packets including addresses, read/write flags, and data.
+- Managed by ISRs for TWI events (`TWI_vect`) and a timer interrupt (`TIMER4_COMPA_vect`) for precise timing.
+- Timer4 is configured to generate interrupts approximately every 10 microseconds (prescaler 64, 16 MHz CPU clock).
+- Configurable buffer sizes for transmission and reception.
+- RTOS independent, allowing use in bare-metal or FreeRTOS environments.
 
 ---
 
@@ -750,29 +772,6 @@ Preview of the custom-designed AVR board used in the project:
 
 #### 10.1 Low-level Drivers
 
-This project implements custom low-level drivers for core communication peripherals, providing full control over hardware and timing without relying on Arduino libraries or RTOS-specific wrappers.
-
-##### UART Driver
-
-- Full-duplex UART driver for the ATmega2561 using the USART0 peripheral.
-- Supports blocking and non-blocking transmit and receive using ring buffers.
-- Implements hardware-level ISRs for transmit buffer empty (`USART_UDRE_vect`) and receive complete (`USART_RX_vect`).
-- Configurable TX and RX buffer sizes via macros.
-- Supports strings stored in flash memory (PROGMEM) with dedicated functions.
-- Completely independent of FreeRTOS or any other RTOS.
-
-##### I2C (TWI) Master Driver
-
-- Implements a master-mode I2C driver for ATmega2561.
-- Supports both blocking and non-blocking operations.
-- Uses a transmit buffer for queued data packets including addresses, read/write flags, and data.
-- Managed by ISRs for TWI events (`TWI_vect`) and a timer interrupt (`TIMER4_COMPA_vect`) for precise timing.
-- Timer4 is configured to generate interrupts approximately every 10 microseconds (prescaler 64, 16 MHz CPU clock).
-- Configurable buffer sizes for transmission and reception.
-- RTOS independent, allowing use in bare-metal or FreeRTOS environments.
-
-These drivers ensure deterministic timing and minimal CPU blocking, crucial for reliable real-time embedded operation.
-
 #### 10.2 System Initialization
 
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
@@ -820,4 +819,81 @@ The build steps are outlined below and include:
 #### 11.6 Building and uploading the project
 
 ---
+
+### 12. 🧼 Maintenance and Cleaning Procedure
+
+### 12.1 Overview
+
+Closed-loop liquid systems — such as beverage dispensers, fluid-handling robots, or lab automation devices — accumulate residues over time.  
+These residues may include:
+
+- Organic compounds (sugars, flavorants, oils)  
+- Mineral deposits (calcium, iron, copper oxides)  
+- Microbial growth (biofilms, molds, bacteria)  
+
+Regular cleaning ensures:
+- **Sanitary safety** (prevents bacterial contamination)
+- **System integrity** (prevents corrosion, scaling, clogging)
+- **Sensor accuracy** and **flow stability**
+
+---
+
+### 12.2 Cleaning Theory
+
+The cleaning process alternates between **acidic**, **neutral**, and **oxidative** phases to remove all contaminant types:
+
+1. **Acidic cleaning** removes minerals and oxides (rust, copper salts).  
+2. **Neutralization stage** balances pH and removes organic films.  
+3. **Oxidative disinfection** kills microorganisms.  
+4. **Final rinse** ensures no chemical residues remain.  
+
+Each stage is separated by a **pure water rinse** to prevent unwanted chemical reactions.
+
+---
+
+### 12.3 ⚙️ Recommended Cleaning Cycle
+
+| Step | Solution / Reagent | Concentration | Purpose | Duration / Notes |
+|------|--------------------|---------------|----------|------------------|
+| 1️⃣ | **Potable water** | — | Initial flush – removes loose residues | 5–10 min continuous flow |
+| 2️⃣ | **Citric acid solution** | 5–10% | Removes limescale, rust, and metal oxides | 15–30 min at ≤50 °C |
+| 3️⃣ | **Water rinse** | — | Neutralizes acid residues | 5–10 min |
+| 4️⃣ | **Sodium bicarbonate (NaHCO₃)** | 3–5% | Neutralizes acid and deodorizes | 10–15 min |
+| 5️⃣ | **Water rinse** | — | Returns pH to neutral | 5–10 min |
+| 6️⃣ | **Hydrogen peroxide (H₂O₂)** | 3–6% (from 12% stock) | Disinfection and oxidation | 15–20 min, avoid direct light |
+| 7️⃣ | **Water rinse** | — | Removes oxidizer residues | 5–10 min |
+| 8️⃣ | **Sodium metabisulfite (Na₂S₂O₅)** | 1–2% | Anti-bacterial rinse, neutralizes oxidants | 10–15 min, closed loop |
+| 9️⃣ | **Final water rinse** | — | Restores clean circuit | 10 min |
+| 🔟 *(optional)* | **Denatured ethanol (96%)** | — | Final drying/disinfection – evaporates naturally | 5 min recirculation |
+
+---
+
+### 12.4 🧪 Chemical Compatibility
+
+All listed reagents at the given concentrations are **safe for:**
+- **Silicone**, **PVC**, **PE**, **PP**, **stainless steel (AISI 304/316)**
+- Most **food-grade rubbers**
+
+Avoid **prolonged exposure (>1 h)** or **heating above 60 °C**.
+
+---
+
+### 12.5 ⏱️ Cleaning Frequency
+
+| Type of Use | Recommended Cleaning Interval |
+|--------------|-------------------------------|
+| Daily beverage dispensing / continuous operation | **Every 3–5 days** |
+| Infrequent / occasional use | **Before and after idle periods** |
+| Long-term storage | **Flush with ethanol or biocide, then seal** |
+
+If discoloration, odor, or reduced flow appears — run a full cleaning cycle immediately.
+
+---
+
+### 12.6 🧭 Notes
+
+- Never mix acidic and basic solutions without an intermediate rinse.  
+- If **greenish** or **brown deposits** appear, repeat the citric acid step twice.  
+- Store all reagents in sealed containers, away from sunlight.  
+- Dispose of waste responsibly (never pour concentrated chemicals into drains).
 
