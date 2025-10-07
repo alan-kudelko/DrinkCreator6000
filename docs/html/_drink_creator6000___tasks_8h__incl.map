@@ -2,7 +2,7 @@
 <area shape="rect" id="Node000001" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="833,5,1001,48"/>
 <area shape="rect" id="Node000002" href="$task_error_handler_8h.html" title="Task responsible for stack overflow diagnostics and system error handling." alt="" coords="5,96,136,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="833,36,536,59,151,98,151,93,536,54,833,31"/>
-<area shape="rect" id="Node000003" href="$task_serial_system_debugger_8h.html" title="Task and utilities for serial system debugging and RAM usage reporting." alt="" coords="160,96,352,123"/>
+<area shape="rect" id="Node000003" href="$task_serial_system_debugger_8h.html" title="Task and utilities for serial system debugging, task diagnostics and RAM usage reporting." alt="" coords="160,96,352,123"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="833,41,367,97,367,92,832,36"/>
 <area shape="rect" id="Node000004" href="$task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="376,96,461,123"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="833,42,672,65,477,98,476,93,671,60,832,37"/>

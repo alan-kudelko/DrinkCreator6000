@@ -1,55 +1,51 @@
-#include "DrinkCreator6000_Config.h"
-#include "DrinkCreator6000_Init.h"
-#include "DrinkCreator6000_EEPROM.h"
-
-#include <DrinkCreator6000_Tasks.h>
-
+#include <stdio.h>
 #include <util/delay.h>
-#include <uart.h>
-#include <i2c.h>
 #include <avr/interrupt.h>
 
-#include <stdio.h>
+#include <DrinkCreator6000_Config.h>
+#include <DrinkCreator6000_Init.h>
+#include <DrinkCreator6000_EEPROM.h>
+#include <DrinkCreator6000_Tasks.h>
 #include <DrinkCreator6000_Progmem.h>
 #include <DrinkCreator6000_RamStats.h>
 #include <DrinkCreator6000_Pins.h>
+#include <buzzer.h>
+#include <board_io.h>
 
-#define LAST_ERROR_BUFFER_SIZE 51
-#define LAST_BOOTUP_BUFFER_SIZE 6
+#include <systemDebug.h>
+#include <uart.h>
+#include <i2c.h>
 
-void lastError_dump(const sSystemError*lastError){
-    /* MISRA C 2025 Rule 21.6: snprintf is used with bounds checking */
+void clearPumps(void){
+    uint8_t flag=0x01;
+    for(int i=0;i<8;i++){
+        shiftOut(flag);
+        flag<<=1;
+        _delay_ms(10000);
+    }
 
-    char buffer[LAST_ERROR_BUFFER_SIZE]={0};
+    flag=0x01;
 
-    uart_puts_P_blocking(msg_lastError_header); 
+    for(int i=0;i<8;i++){
+        shiftOut(flag);
+        _delay_ms(10000);
 
-    uart_puts_P_blocking(msg_X_Marker);
-    snprintf(buffer,sizeof(buffer),"%-50s",lastError->errorText);
+        shiftOut(0x00);
+        _delay_ms(10000);
 
-    uart_puts_blocking(buffer);
-    uart_puts_P_blocking(msg_X_Marker);
-    uart_putc_blocking('\n');
+        shiftOut(flag);
+        _delay_ms(10000);
 
-    uart_puts_P_blocking(msg_lastError_failureAfter);
-    snprintf(buffer,sizeof(buffer),"%3d days %2d h %2d min %2d s",lastError->days,lastError->hours,lastError->minutes,lastError->seconds);
-    uart_puts_blocking(buffer);
-    uart_puts_P_blocking(msg_X_Marker);
-    uart_putc_blocking('\n');
+        flag<<=1;
+    }
+    shiftOut(0x00);
 
-    uart_puts_P_blocking(msg_lastError_header);
+    activateBuzzer(0);
+    _delay_ms(15000);
+    deactivateBuzzer();
 }
-void lastBootup_dump(const uint16_t*bootup){
-    /* MISRA C 2025 Rule 21.6: snprintf is used with bounds checking */
-    char buffer[LAST_BOOTUP_BUFFER_SIZE]={0};
 
-    uart_puts_P_blocking(msg_lastBootup_header);
-    snprintf(buffer,sizeof(buffer),"%-5d",*bootup);
-    uart_puts_blocking(buffer);
-    uart_putc_blocking(' ');
-    uart_puts_P_blocking(msg_HASH_Marker);
-    uart_putc_blocking('\n');
-}
+
 void normalStart(){
     char buffer[configMAX_TASK_NAME_LEN]={0};
 
@@ -97,125 +93,30 @@ extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask,char*pcTaskName
     xQueueSend(qErrorId,&xTask,pdMS_TO_TICKS(50));
     //Wake up higher prority tasks
 }
-//////////////////////////////////////////////////////////////////
-// Temperature regulation task:
-// Uses global temperature variables to control Peltier elements
-// by switching their pins HIGH or LOW based on hysteresis thresholds.
-//////////////////////////////////////////////////////////////////
-
-void printI2C_status(){
-    #if USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
-    uart_puts_blocking("Stan ring buffera (is empty):");
-    uart_put_hex_blocking(i2c_tx_buffer_is_empty());
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("Status FSM:");
-    uart_put_hex_blocking(i2c_status);
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("head:");
-    uart_put_hex_blocking(i2c_tx_buffer_head);
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("tail:");
-    uart_put_hex_blocking(i2c_tx_buffer_tail);
-    uart_putc_blocking('\n');
-
-    #endif // USE_RING_BUFFER_FOR_BLOCKING_OPERATIONS==1
-    uart_puts_blocking("Liczba bledow transmisji i2c: ");
-    uart_puts_blocking("Arbitracja: ");
-    uart_put_hex_blocking(i2c_error_counters.arbitration_lost);
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("nack_data: ");
-    uart_put_hex_blocking(i2c_error_counters.nack_data);
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("nack adddress: ");
-    uart_put_hex_blocking(i2c_error_counters.nack_address);
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("unexpected_state: ");
-    uart_put_hex_blocking(i2c_error_counters.unexpected_state);
-    uart_putc_blocking('\n');
-
-    uart_puts_blocking("bus_error: ");
-    uart_put_hex_blocking(i2c_error_counters.bus_error);
-    uart_putc_blocking('\n');
-
-}
-
-ISR(TIMER1_COMPA_vect){
-    PORTB^=(1<<BUZZER_PIN);
-}
-
-extern "C"{
-void activateBuzzer(void){
-    TIMSK1|=(1<<OCIE1A);
-}
-
-void deactivateBuzzer(void){
-    TIMSK1&=~(1<<OCIE1A);
-    PORTB&=~(1<<BUZZER_PIN);
-}
-}
 
 extern void shiftOut(uint8_t value);
 extern void softwareReset(void);
-
-void clearPumps(void){
-    uint8_t flag=0x01;
-    for(int i=0;i<8;i++){
-        shiftOut(flag);
-        flag<<=1;
-        _delay_ms(10000);
-    }
-
-    flag=0x01;
-
-    for(int i=0;i<8;i++){
-        shiftOut(flag);
-        _delay_ms(10000);
-
-        //shiftOut(0x00);
-        //_delay_ms(10000);
-
-        shiftOut(flag);
-        _delay_ms(10000);
-
-        flag<<=1;
-    }
-    activateBuzzer();
-    _delay_ms(15000);
-    deactivateBuzzer();
-}
-
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).
 
-//Fix
-
     shiftOut(0x00);
-    activateBuzzer();
+    activateBuzzer(0);
     _delay_ms(33);
     deactivateBuzzer();
     _delay_ms(50);
-    activateBuzzer();
+    activateBuzzer(0);
     _delay_ms(33);
     deactivateBuzzer();
 
-    PORTC&=~(1<<OE_PIN);
+    pumps_enable();
 
-    PORTE|=(1<<FANS_PIN);
+    //circulation_on();
 
-    //PORTD=(1<<PELTIER1_PIN)|(1<<PELTIER2_PIN);
+    //fans_on();
 
-    // while(EECR&(1<<EEPE)){
-    //     activateBuzzer();
-    // }
-    // deactivateBuzzer();
+    //cooler_on();
 
     EEPROMUpdateBootups(&bootupsCount);
     EEPROMGetLastStartupError(&lastSystemError);
@@ -236,50 +137,7 @@ int main(void){
     __stack_ptr=(uint8_t*)SP;
         sei();
     ram_dump();
-    //TIMSK4|=(1<<OCIE4A);
-    lcd.begin_blocking();
-
-    //_delay_ms(2000);
-    while(false){
-        _delay_ms(100);
-        uint8_t val;
-                        lcd.setCursor_blocking(0,1);
-        lcd.write_blocking(((PIND&(1<<KEYBOARD_INT_PIN))>0)+48);
-        val=i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x09);
-
-        i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x08);
-        lcd.setCursor_blocking(0,0);
-        lcd.write_blocking((val&0x01)+48);
-
-                lcd.setCursor_blocking(1,0);
-        lcd.write_blocking(((val&0x02)>>1)+48);
-
-                lcd.setCursor_blocking(2,0);
-        lcd.write_blocking(((val&0x04)>>2)+48);
-
-                lcd.setCursor_blocking(3,0);
-        lcd.write_blocking(((val&0x08)>>3)+48);
-
-                lcd.setCursor_blocking(4,0);
-        lcd.write_blocking(((val&0x10)>>4)+48);
-
-                        lcd.setCursor_blocking(5,0);
-        lcd.write_blocking(((val&0x20)>>5)+48);
-
-                lcd.setCursor_blocking(6,0);
-        lcd.write_blocking(((val&0x40)>>6)+48);
-
-                lcd.setCursor_blocking(7,0);
-        lcd.write_blocking(((val&0x80)>>7)+48);
-
-        lcd.setCursor_blocking(1,1);
-        lcd.write_blocking(((PIND&(1<<KEYBOARD_INT_PIN))>0)+48);
-    }
-
-    //activateBuzzer();
 
     vTaskStartScheduler();
-    // calibrate max value of idleCounterPerSecond
-    // calibrateIdleLoop(); architecture should be changed to main setup task for this to work
-    //vTaskStartScheduler();
+    return 0;
 }

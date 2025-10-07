@@ -1,7 +1,5 @@
 <map id="i2c_tx_buffer_is_empty" name="i2c_tx_buffer_is_empty">
-<area shape="rect" id="Node000001" title="Checks if the I2C TX buffer is empty." alt="" coords="164,31,319,57"/>
-<area shape="rect" id="Node000002" href="$i2c__ringbuffer_8c.html#a8aa6a32130ab26be17555166513a23ba" title=" " alt="" coords="38,5,83,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,34,83,24,84,19,149,28"/>
-<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="5,56,116,83"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="149,60,117,64,116,59,148,54"/>
+<area shape="rect" id="Node000001" title="Checks if the I2C TX buffer is empty." alt="" coords="164,5,319,32"/>
+<area shape="rect" id="Node000002" href="$system_debug_8c.html#ad70b4d1510a3e0a0c6928fc21c30ba6c" title=" " alt="" coords="5,5,116,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,21,116,21,116,16,148,16"/>
 </map>

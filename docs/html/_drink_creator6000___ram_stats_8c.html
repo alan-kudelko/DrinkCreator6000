@@ -126,7 +126,7 @@ Functions</h2></td></tr>
 <tr class="memitem:aeb775da3de784e3e877838416073024a" id="r_aeb775da3de784e3e877838416073024a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb775da3de784e3e877838416073024a">initRamSize</a> (void)</td></tr>
 <tr class="memdesc:aeb775da3de784e3e877838416073024a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the RAM size value.  <br /></td></tr>
 <tr class="memitem:a8b8422d6157a1281dab2d0103add13bc" id="r_a8b8422d6157a1281dab2d0103add13bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b8422d6157a1281dab2d0103add13bc">updateMemoryUsage</a> (void)</td></tr>
-<tr class="memdesc:a8b8422d6157a1281dab2d0103add13bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates all RAM usage tracking variables.  <br /></td></tr>
+<tr class="memdesc:a8b8422d6157a1281dab2d0103add13bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates internal memory usage counters.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -186,16 +186,16 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
-<p>Updates all RAM usage tracking variables. </p>
-<p>Updates internal memory usage counters.</p>
-<p>Call this function at runtime to refresh memory usage stats. Calculates heap, stack, tdata usage and updates global RAM stats. </p>
+<p>Updates internal memory usage counters. </p>
+<p>This function scans current allocations and updates counters used by the RAM dump routine.</p>
+<dl class="section note"><dt>Note</dt><dd>Compliant with MISRA C:2025 – explicit void in prototype. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_drink_creator6000___ram_stats_8c_a8b8422d6157a1281dab2d0103add13bc_icgraph.png" border="0" usemap="#a_drink_creator6000___ram_stats_8c_a8b8422d6157a1281dab2d0103add13bc_icgraph" loading="lazy" alt=""/></div>
 <map name="a_drink_creator6000___ram_stats_8c_a8b8422d6157a1281dab2d0103add13bc_icgraph" id="a_drink_creator6000___ram_stats_8c_a8b8422d6157a1281dab2d0103add13bc_icgraph">
-<area shape="rect" title="Updates all RAM usage tracking variables." alt="" coords="691,56,836,83"/>
-<area shape="rect" href="task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="514,5,596,32"/>
+<area shape="rect" title="Updates internal memory usage counters." alt="" coords="691,56,836,83"/>
+<area shape="rect" href="system_debug_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="514,5,596,32"/>
 <area shape="poly" title=" " alt="" coords="690,54,596,31,597,26,691,49"/>
 <area shape="rect" href="task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="239,56,419,83"/>
 <area shape="poly" title=" " alt="" coords="675,72,420,72,420,67,675,67"/>

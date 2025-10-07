@@ -100,21 +100,387 @@ $(function(){initNavTree('i2c__blocking_8c.html','',''); });
 <div class="contents">
 <div class="textblock"><code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="i2c__common_8h_source.html">i2c_common.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="i2c__blocking_8h_source.html">i2c_blocking.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_drink_creator6000___pins_8h_source.html">DrinkCreator6000_Pins.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for i2c_blocking.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="i2c__blocking_8c__incl.png" border="0" usemap="#aavr__peripherals_2i2c_2i2c__blocking_8c" loading="lazy" alt=""/></div>
 <map name="aavr__peripherals_2i2c_2i2c__blocking_8c" id="aavr__peripherals_2i2c_2i2c__blocking_8c">
-<area shape="rect" title=" " alt="" coords="27,5,157,48"/>
+<area shape="rect" title=" " alt="" coords="86,5,216,48"/>
 <area shape="rect" title=" " alt="" coords="5,96,70,123"/>
-<area shape="poly" title=" " alt="" coords="80,50,57,85,52,82,76,47"/>
-<area shape="rect" href="i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="94,96,200,123"/>
-<area shape="poly" title=" " alt="" coords="108,47,132,82,128,85,104,50"/>
-<area shape="rect" title=" " alt="" coords="115,171,179,197"/>
-<area shape="poly" title=" " alt="" coords="150,123,150,155,144,155,144,123"/>
+<area shape="poly" title=" " alt="" coords="123,51,69,89,66,85,120,46"/>
+<area shape="rect" href="i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="98,171,204,197"/>
+<area shape="poly" title=" " alt="" coords="145,49,136,84,135,122,143,155,138,156,130,123,131,83,140,48"/>
+<area shape="rect" href="i2c__blocking_8h.html" title="Blocking I2C (TWI) Master operations for AVR (ATmega2560) without TX buffer." alt="" coords="144,96,248,123"/>
+<area shape="poly" title=" " alt="" coords="165,47,184,81,179,84,160,50"/>
+<area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="272,96,440,123"/>
+<area shape="poly" title=" " alt="" coords="205,46,311,87,309,92,203,51"/>
+<area shape="rect" title=" " alt="" coords="119,245,183,272"/>
+<area shape="poly" title=" " alt="" coords="154,198,154,230,148,230,148,198"/>
+<area shape="poly" title=" " alt="" coords="191,125,169,159,165,156,186,122"/>
 </map>
 </div>
-</div></div><!-- contents -->
+</div><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-define-members" class="groupheader"><a id="define-members" name="define-members"></a>
+Macros</h2></td></tr>
+<tr class="memitem:afa3215f0aa766367f5d34bee80929152" id="r_afa3215f0aa766367f5d34bee80929152"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3215f0aa766367f5d34bee80929152">I2C_TIMEOUT</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memitem:afa3215f0aa766367f5d34bee80929152" id="r_afa3215f0aa766367f5d34bee80929152"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3215f0aa766367f5d34bee80929152">I2C_TIMEOUT</a>&#160;&#160;&#160;10000</td></tr>
+<tr class="memitem:afa3215f0aa766367f5d34bee80929152" id="r_afa3215f0aa766367f5d34bee80929152"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afa3215f0aa766367f5d34bee80929152">I2C_TIMEOUT</a>&#160;&#160;&#160;10000</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
+Functions</h2></td></tr>
+<tr class="memitem:a5730d9445429351b9f750084c5cb5aae" id="r_a5730d9445429351b9f750084c5cb5aae"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5730d9445429351b9f750084c5cb5aae">i2c_init</a> (void)</td></tr>
+<tr class="memdesc:a5730d9445429351b9f750084c5cb5aae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize I²C (TWI) hardware and Timer4 support.  <br /></td></tr>
+<tr class="memitem:a5a1923e2271df541e858cb4e05d7b895" id="r_a5a1923e2271df541e858cb4e05d7b895"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5a1923e2271df541e858cb4e05d7b895">i2c_enable</a> (void)</td></tr>
+<tr class="memdesc:a5a1923e2271df541e858cb4e05d7b895"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enable I²C hardware and Timer4.  <br /></td></tr>
+<tr class="memitem:abe70f8fe4c72329b89ec526c749f50d7" id="r_abe70f8fe4c72329b89ec526c749f50d7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#abe70f8fe4c72329b89ec526c749f50d7">i2c_disable</a> (void)</td></tr>
+<tr class="memdesc:abe70f8fe4c72329b89ec526c749f50d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disable I²C hardware and Timer4 if used.  <br /></td></tr>
+<tr class="memitem:a91bb1859c12fbc7c029b2a5a2309b240" id="r_a91bb1859c12fbc7c029b2a5a2309b240"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a91bb1859c12fbc7c029b2a5a2309b240">i2c_write_byte_to_address_blocking</a> (uint8_t address, uint8_t data)</td></tr>
+<tr class="memdesc:a91bb1859c12fbc7c029b2a5a2309b240"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a single data byte to the specified I2C slave address in blocking mode.  <br /></td></tr>
+<tr class="memitem:ae74a6ec74823b5c3816959f3f696e945" id="r_ae74a6ec74823b5c3816959f3f696e945"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ae74a6ec74823b5c3816959f3f696e945">i2c_write_bytes_to_address_blocking</a> (uint8_t address, uint8_t *data, uint8_t length)</td></tr>
+<tr class="memdesc:ae74a6ec74823b5c3816959f3f696e945"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends multiple data bytes to the specified I2C slave address in blocking mode.  <br /></td></tr>
+<tr class="memitem:a81c6e96b20b7720c7a4439b1a5efa9a8" id="r_a81c6e96b20b7720c7a4439b1a5efa9a8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c6e96b20b7720c7a4439b1a5efa9a8">i2c_read_reg_from_adddress_blocking</a> (uint8_t address, uint8_t reg)</td></tr>
+<tr class="memitem:aef436cef2dd640f69096a2c066f56ddc" id="r_aef436cef2dd640f69096a2c066f56ddc"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aef436cef2dd640f69096a2c066f56ddc">i2c_read_regs_from_address_blocking</a> (uint8_t address, uint8_t reg, uint8_t *data, uint8_t count)</td></tr>
+</table>
+<a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
+<a id="afa3215f0aa766367f5d34bee80929152" name="afa3215f0aa766367f5d34bee80929152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3215f0aa766367f5d34bee80929152">&#9670;&#160;</a></span>I2C_TIMEOUT <span class="overload">[1/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_TIMEOUT&#160;&#160;&#160;10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa3215f0aa766367f5d34bee80929152" name="afa3215f0aa766367f5d34bee80929152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3215f0aa766367f5d34bee80929152">&#9670;&#160;</a></span>I2C_TIMEOUT <span class="overload">[2/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_TIMEOUT&#160;&#160;&#160;10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="afa3215f0aa766367f5d34bee80929152" name="afa3215f0aa766367f5d34bee80929152"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#afa3215f0aa766367f5d34bee80929152">&#9670;&#160;</a></span>I2C_TIMEOUT <span class="overload">[3/3]</span></h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">#define I2C_TIMEOUT&#160;&#160;&#160;10000</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a id="abe70f8fe4c72329b89ec526c749f50d7" name="abe70f8fe4c72329b89ec526c749f50d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#abe70f8fe4c72329b89ec526c749f50d7">&#9670;&#160;</a></span>i2c_disable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_disable </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Disable I²C hardware and Timer4 if used. </p>
+
+</div>
+</div>
+<a id="a5a1923e2271df541e858cb4e05d7b895" name="a5a1923e2271df541e858cb4e05d7b895"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5a1923e2271df541e858cb4e05d7b895">&#9670;&#160;</a></span>i2c_enable()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_enable </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enable I²C hardware and Timer4. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="i2c__blocking_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph.png" border="0" usemap="#ai2c__blocking_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph" loading="lazy" alt=""/></div>
+<map name="ai2c__blocking_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph" id="ai2c__blocking_8c_a5a1923e2271df541e858cb4e05d7b895_icgraph">
+<area shape="rect" title="Enable I²C hardware and Timer4." alt="" coords="271,5,354,32"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="255,21,224,21,224,16,255,16"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a5730d9445429351b9f750084c5cb5aae" name="a5730d9445429351b9f750084c5cb5aae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a5730d9445429351b9f750084c5cb5aae">&#9670;&#160;</a></span>i2c_init()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_init </td>
+          <td>(</td>
+          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize I²C (TWI) hardware and Timer4 support. </p>
+<p>Configures SDA/SCL pins, sets TWI speed, and sets up Timer4 for polling cycles after STOP condition (used in blocking ring buffer mode). </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="i2c__blocking_8c_a5730d9445429351b9f750084c5cb5aae_icgraph.png" border="0" usemap="#ai2c__blocking_8c_a5730d9445429351b9f750084c5cb5aae_icgraph" loading="lazy" alt=""/></div>
+<map name="ai2c__blocking_8c_a5730d9445429351b9f750084c5cb5aae_icgraph" id="ai2c__blocking_8c_a5730d9445429351b9f750084c5cb5aae_icgraph">
+<area shape="rect" title="Initialize I²C (TWI) hardware and Timer4 support." alt="" coords="271,5,333,32"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="99,5,223,32"/>
+<area shape="poly" title=" " alt="" coords="255,21,223,21,223,16,255,16"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="a81c6e96b20b7720c7a4439b1a5efa9a8" name="a81c6e96b20b7720c7a4439b1a5efa9a8"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81c6e96b20b7720c7a4439b1a5efa9a8">&#9670;&#160;</a></span>i2c_read_reg_from_adddress_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_read_reg_from_adddress_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="i2c__blocking_8c_a81c6e96b20b7720c7a4439b1a5efa9a8_icgraph.png" border="0" usemap="#ai2c__blocking_8c_a81c6e96b20b7720c7a4439b1a5efa9a8_icgraph" loading="lazy" alt=""/></div>
+<map name="ai2c__blocking_8c_a81c6e96b20b7720c7a4439b1a5efa9a8_icgraph" id="ai2c__blocking_8c_a81c6e96b20b7720c7a4439b1a5efa9a8_icgraph">
+<area shape="rect" title=" " alt="" coords="205,27,393,69"/>
+<area shape="rect" href="class_m_c_p23008.html#a2ee0491c4f88dd71499efbdad91a5d57" title=" " alt="" coords="25,5,137,32"/>
+<area shape="poly" title=" " alt="" coords="189,36,137,29,138,23,190,31"/>
+<area shape="rect" href="class_m_c_p23008.html#a89f0692d4cedd371210497dd67f58451" title=" " alt="" coords="5,56,157,99"/>
+<area shape="poly" title=" " alt="" coords="190,65,157,70,156,65,189,60"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="aef436cef2dd640f69096a2c066f56ddc" name="aef436cef2dd640f69096a2c066f56ddc"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aef436cef2dd640f69096a2c066f56ddc">&#9670;&#160;</a></span>i2c_read_regs_from_address_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint8_t i2c_read_regs_from_address_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>reg</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>count</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a id="a91bb1859c12fbc7c029b2a5a2309b240" name="a91bb1859c12fbc7c029b2a5a2309b240"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a91bb1859c12fbc7c029b2a5a2309b240">&#9670;&#160;</a></span>i2c_write_byte_to_address_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_write_byte_to_address_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>data</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sends a single data byte to the specified I2C slave address in blocking mode. </p>
+<p>This function enqueues the address and data byte into the TX buffer and waits until there is enough space in the buffer before returning. Interrupts are temporarily disabled during buffer updates to ensure atomicity and data consistency.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I2C slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Single byte to be transmitted. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="i2c__blocking_8c_a91bb1859c12fbc7c029b2a5a2309b240_icgraph.png" border="0" usemap="#ai2c__blocking_8c_a91bb1859c12fbc7c029b2a5a2309b240_icgraph" loading="lazy" alt=""/></div>
+<map name="ai2c__blocking_8c_a91bb1859c12fbc7c029b2a5a2309b240_icgraph" id="ai2c__blocking_8c_a91bb1859c12fbc7c029b2a5a2309b240_icgraph">
+<area shape="rect" title="Sends a single data byte to the specified I2C slave address in blocking mode." alt="" coords="1681,123,1857,165"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#ad0f56d904736df402bb3fc238c859aef" title=" " alt="" coords="1431,123,1633,165"/>
+<area shape="poly" title=" " alt="" coords="1665,147,1633,147,1633,141,1665,141"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#af6abd6b7df72e1e3a089b4a05206cdeb" title=" " alt="" coords="1204,5,1374,48"/>
+<area shape="poly" title=" " alt="" coords="1476,117,1382,69,1342,51,1344,46,1384,64,1479,112"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a9308111ea919a7dff2eb7a7ed78afb4f" title=" " alt="" coords="27,324,176,367"/>
+<area shape="poly" title=" " alt="" coords="1428,122,1383,113,1222,93,1060,88,585,88,486,83,407,79,370,81,333,89,292,104,247,129,220,149,197,173,158,227,130,281,112,324,108,322,125,279,153,224,193,169,217,145,244,124,290,99,331,84,369,76,407,73,486,78,585,83,1060,83,1223,87,1384,108,1429,116"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a7d01c7c8a86b8bd3c86ad37d50b01d4f" title=" " alt="" coords="1196,240,1382,283"/>
+<area shape="poly" title=" " alt="" coords="1479,176,1384,224,1344,242,1342,237,1382,219,1476,171"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a44b1be4b7a17256a003d37c4c49a151d" title=" " alt="" coords="1194,123,1383,165"/>
+<area shape="poly" title=" " alt="" coords="1416,147,1384,147,1384,141,1416,141"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#ac80b32dd0c2da4f386626bc0a3a7a914" title=" " alt="" coords="972,152,1146,195"/>
+<area shape="poly" title=" " alt="" coords="1434,172,1384,180,1330,184,1289,184,1194,180,1146,179,1147,174,1194,175,1289,179,1330,179,1383,175,1434,166"/>
+<area shape="poly" title=" " alt="" coords="1179,161,1147,165,1146,160,1178,155"/>
+<area shape="poly" title=" " alt="" coords="956,163,782,146,576,133,474,132,382,136,304,146,247,164,222,179,200,197,161,242,133,287,114,325,109,322,128,285,157,238,196,194,219,174,245,159,303,141,381,130,474,126,576,128,783,140,956,158"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#ad8ab487055211b690cee1e0528a4d209" title=" " alt="" coords="722,683,924,709"/>
+<area shape="poly" title=" " alt="" coords="1044,210,833,683,828,681,1039,208"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#aa723dd6c37ed4f64357dd799f0bfcf1f" title=" " alt="" coords="499,675,674,717"/>
+<area shape="poly" title=" " alt="" coords="707,699,675,699,675,693,707,693"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#af09a5f21c99cfd816fec79155ab4d8f7" title=" " alt="" coords="514,975,660,1017"/>
+<area shape="poly" title=" " alt="" coords="804,723,607,976,603,973,800,720"/>
+<area shape="poly" title=" " alt="" coords="572,661,555,616,529,562,494,509,473,485,449,465,423,448,399,438,353,431,304,428,276,423,245,415,191,393,143,369,145,365,193,388,247,409,277,418,305,423,354,425,400,433,425,443,453,461,477,482,498,506,534,560,560,613,577,659"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a001a3c94fb70a6abbb4ca27483ab0ea3" title=" " alt="" coords="261,675,436,717"/>
+<area shape="poly" title=" " alt="" coords="484,699,436,699,436,693,484,693"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a3e4127fb220dcb193decf918e940d3f2" title=" " alt="" coords="276,741,421,784"/>
+<area shape="poly" title=" " alt="" coords="494,725,422,745,421,740,493,719"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a5cb6b683e6d2105327e7d60720cb7128" title=" " alt="" coords="275,475,422,517"/>
+<area shape="poly" title=" " alt="" coords="564,663,517,596,485,561,450,532,421,516,423,512,452,527,489,558,521,593,568,660"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a75dfd45f0eebda6a338e2262ea6372b4" title=" " alt="" coords="257,1208,440,1251"/>
+<area shape="poly" title=" " alt="" coords="575,733,540,836,502,963,495,999,493,1031,494,1088,493,1115,487,1141,474,1169,453,1198,439,1210,436,1206,449,1194,470,1166,482,1140,487,1114,489,1088,487,1031,489,999,496,962,535,834,570,731"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a103aa4bd55cf0969888f4f62c38bb451" title=" " alt="" coords="271,808,426,851"/>
+<area shape="poly" title=" " alt="" coords="551,730,506,765,452,798,427,810,424,805,450,794,503,761,548,725"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#aea0b222ce665e1a7fd13e79baca9225b" title=" " alt="" coords="269,541,428,584"/>
+<area shape="poly" title=" " alt="" coords="548,667,503,631,450,598,424,587,427,582,452,594,506,627,551,662"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#aea7699a607c8033e32082586f6927763" title=" " alt="" coords="246,240,451,267"/>
+<area shape="poly" title=" " alt="" coords="582,659,575,580,556,478,539,424,516,372,486,323,449,281,433,269,436,265,453,277,491,320,521,369,544,422,561,476,581,579,587,659"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#aa11abb311f3beff181dc08388a237b99" title=" " alt="" coords="258,875,439,917"/>
+<area shape="poly" title=" " alt="" coords="568,732,521,799,489,834,453,865,432,876,430,872,449,860,485,831,517,796,564,729"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#acb21cf73617dd91bf3b71e834b4d1c3c" title=" " alt="" coords="253,941,444,984"/>
+<area shape="poly" title=" " alt="" coords="576,733,559,778,532,832,497,885,453,931,435,943,432,938,449,927,493,882,528,829,554,776,571,731"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#adc87641f303fee4945e4e38fb5e19799" title=" " alt="" coords="268,1008,429,1051"/>
+<area shape="poly" title=" " alt="" coords="582,733,567,791,543,862,505,935,481,968,453,998,431,1013,428,1008,449,994,477,965,501,932,538,860,562,789,576,732"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#af02edbd08b8727c7a17cb5f4835ed61c" title=" " alt="" coords="263,1075,434,1117"/>
+<area shape="poly" title=" " alt="" coords="577,733,514,922,479,1014,465,1046,453,1064,436,1077,433,1073,449,1061,460,1044,474,1012,509,920,572,731"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a8f9b8d9b2a7d7a73abb4cee48ed61c01" title=" " alt="" coords="260,1141,436,1184"/>
+<area shape="poly" title=" " alt="" coords="576,733,502,963,492,1012,489,1053,480,1091,470,1111,453,1131,438,1143,435,1139,449,1127,465,1108,475,1089,484,1052,487,1012,496,962,571,731"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a3b4af8d942a284d41aa075e04adc6252" title=" " alt="" coords="259,173,438,216"/>
+<area shape="poly" title=" " alt="" coords="583,659,578,573,571,518,560,458,543,397,520,336,489,280,449,230,435,219,438,214,453,226,493,277,524,334,548,395,565,457,577,517,584,572,588,659"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#acd53eaa8dc1ca03cbaadd33ecba097c1" title=" " alt="" coords="252,291,445,333"/>
+<area shape="poly" title=" " alt="" coords="579,660,568,593,545,509,528,465,506,423,480,383,449,347,434,336,437,332,453,343,485,379,511,420,533,463,550,508,573,592,584,659"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a8ebf9737d3683ffabfeee9515465bd70" title=" " alt="" coords="252,357,445,400"/>
+<area shape="poly" title=" " alt="" coords="574,661,559,608,533,544,497,478,475,448,449,421,423,403,426,398,453,417,479,444,501,475,538,542,564,606,579,659"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#acd37bdec5d681401d8410350d7e6a1a6" title=" " alt="" coords="261,608,436,651"/>
+<area shape="poly" title=" " alt="" coords="493,673,427,654,428,649,495,668"/>
+<area shape="poly" title=" " alt="" coords="268,471,244,458,178,413,125,369,128,365,181,409,247,454,271,466"/>
+<area shape="rect" href="class_h_d44780___l_c_d.html#a5737f107837edeb96919020ff1ed4670" title=" " alt="" coords="5,1208,198,1251"/>
+<area shape="poly" title=" " alt="" coords="242,1232,198,1232,198,1227,242,1227"/>
+<area shape="poly" title=" " alt="" coords="253,537,244,531,200,493,162,447,132,404,112,368,116,366,137,401,166,444,203,489,247,527,256,533"/>
+<area shape="poly" title=" " alt="" coords="270,274,247,281,193,303,145,326,143,321,191,298,245,276,268,269"/>
+<area shape="poly" title=" " alt="" coords="573,1033,554,1071,527,1115,493,1160,453,1198,434,1210,431,1205,449,1194,489,1156,522,1112,549,1068,568,1030"/>
+</map>
+</div>
+
+</div>
+</div>
+<a id="ae74a6ec74823b5c3816959f3f696e945" name="ae74a6ec74823b5c3816959f3f696e945"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ae74a6ec74823b5c3816959f3f696e945">&#9670;&#160;</a></span>i2c_write_bytes_to_address_blocking()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void i2c_write_bytes_to_address_blocking </td>
+          <td>(</td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>address</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t *</td>          <td class="paramname"><span class="paramname"><em>data</em></span>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t</td>          <td class="paramname"><span class="paramname"><em>length</em></span>&#160;)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Sends multiple data bytes to the specified I2C slave address in blocking mode. </p>
+<p>This function enqueues the address and data bytes into the TX buffer and waits until there is enough space in the buffer before returning. Interrupts are temporarily disabled during buffer updates to ensure atomicity and data consistency.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">address</td><td>7-bit I2C slave address. </td></tr>
+    <tr><td class="paramname">data</td><td>Pointer to the data array to be transmitted. </td></tr>
+    <tr><td class="paramname">length</td><td>Number of bytes to send. </td></tr>
+  </table>
+  </dd>
+</dl>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="i2c__blocking_8c_ae74a6ec74823b5c3816959f3f696e945_icgraph.png" border="0" usemap="#ai2c__blocking_8c_ae74a6ec74823b5c3816959f3f696e945_icgraph" loading="lazy" alt=""/></div>
+<map name="ai2c__blocking_8c_ae74a6ec74823b5c3816959f3f696e945_icgraph" id="ai2c__blocking_8c_ae74a6ec74823b5c3816959f3f696e945_icgraph">
+<area shape="rect" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="367,5,497,48"/>
+<area shape="rect" href="class_m_c_p23008.html#aa160919a045a26a254352f58914661a7" title=" " alt="" coords="165,5,319,48"/>
+<area shape="poly" title=" " alt="" coords="352,29,319,29,319,24,352,24"/>
+<area shape="rect" href="class_m_c_p23008.html#a2ee0491c4f88dd71499efbdad91a5d57" title=" " alt="" coords="5,13,117,40"/>
+<area shape="poly" title=" " alt="" coords="149,29,117,29,117,24,149,24"/>
+</map>
+</div>
+
+</div>
+</div>
+</div><!-- contents -->
 </div><!-- doc-content -->
 <div id="page-nav" class="page-nav-panel">
 <div id="page-nav-resize-handle"></div>

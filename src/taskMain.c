@@ -2,8 +2,8 @@
 
 #include <taskMain.h>
 #include <DrinkCreator6000_Config_C.h>
+#include <DrinkCreator6000_EEPROM.h>
 
-void EEPROMUpdateLastStartupError(struct sSystemError*);
 // Each operation should update current context
 // If one or more field is modified, operation should be atomic
 // incrementing and decrementing submenus can be common for all the tasks

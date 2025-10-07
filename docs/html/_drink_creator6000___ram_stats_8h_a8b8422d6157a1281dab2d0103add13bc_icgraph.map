@@ -1,6 +1,6 @@
 <map id="updateMemoryUsage" name="updateMemoryUsage">
-<area shape="rect" id="Node000001" title="Updates all RAM usage tracking variables." alt="" coords="598,31,743,57"/>
-<area shape="rect" id="Node000002" href="$task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="467,5,550,32"/>
+<area shape="rect" id="Node000001" title="Updates internal memory usage counters." alt="" coords="598,31,743,57"/>
+<area shape="rect" id="Node000002" href="$system_debug_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="467,5,550,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="582,33,550,28,551,22,583,28"/>
 <area shape="rect" id="Node000004" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="239,56,419,83"/>
 <area shape="poly" id="edge8_Node000001_Node000004" title=" " alt="" coords="582,53,420,65,419,60,582,48"/>

@@ -15,7 +15,10 @@
         "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/MemMang",
         "${workspaceFolder}/avr_peripherals/uart",
         "${workspaceFolder}/avr_peripherals/i2c",
-        "${workspaceFolder}/drivers"
+        "${workspaceFolder}/drivers",
+        "${workspaceFolder}/utility/debug",
+        "${workspaceFolder}/utility/buzzer",
+        "${workspaceFolder}/avr_peripherals/board_io"
       ],
       "browse": {
         "path": [
@@ -27,7 +30,10 @@
           "${workspaceFolder}/FreeRTOS/FreeRTOS-Kernel/portable/MemMang",
           "${workspaceFolder}/avr_peripherals/uart",
           "${workspaceFolder}/avr_peripherals/i2c",
-          "${workspaceFolder}/drivers"
+          "${workspaceFolder}/drivers",
+          "${workspaceFolder}/utility/debug",
+          "${workspaceFolder}/utility/buzzer",
+          "${workspaceFolder}/avr_peripherals/board_io"
         ],
         "limitSymbolsToIncludedHeaders": true
       }

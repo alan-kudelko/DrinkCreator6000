@@ -1,0 +1,7 @@
+<map id="i2c_write_bytes_to_address_blocking" name="i2c_write_bytes_to_address_blocking">
+<area shape="rect" id="Node000001" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="367,5,497,48"/>
+<area shape="rect" id="Node000002" href="$class_m_c_p23008.html#aa160919a045a26a254352f58914661a7" title=" " alt="" coords="165,5,319,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="352,29,319,29,319,24,352,24"/>
+<area shape="rect" id="Node000003" href="$class_m_c_p23008.html#a2ee0491c4f88dd71499efbdad91a5d57" title=" " alt="" coords="5,13,117,40"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="149,29,117,29,117,24,149,24"/>
+</map>

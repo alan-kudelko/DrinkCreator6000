@@ -1,5 +1,5 @@
 <map id="uart_put_hex_blocking" name="uart_put_hex_blocking">
 <area shape="rect" id="Node000001" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="164,5,315,32"/>
-<area shape="rect" id="Node000002" href="$_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="5,5,116,32"/>
+<area shape="rect" id="Node000002" href="$system_debug_8c.html#ad70b4d1510a3e0a0c6928fc21c30ba6c" title=" " alt="" coords="5,5,116,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="148,21,116,21,116,16,148,16"/>
 </map>

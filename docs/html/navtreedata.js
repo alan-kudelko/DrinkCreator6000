@@ -50,9 +50,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_drink_creator6000_8cpp.html",
-"_drink_creator6000___init_8h.html#aa2f0c820590c0e32726bec6efbd46460",
-"_m_c_p230_x_x_8h.html#ab680d512adaf346a5481e23f6ffaf85c",
-"structs_system_error.html#af5802ee788057c255ae677b2e3be8ed7"
+"_drink_creator6000___pins_8h.html#afdf17c6cab100853b91aa301043a2308",
+"buzzer_8h.html#a05873e1300f9e923016f435c6d4214fb",
+"system_debug_8h_source.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronization';

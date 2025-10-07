@@ -1,13 +1,10 @@
 <map id="avr_peripherals/i2c/i2c.h" name="avr_peripherals/i2c/i2c.h">
-<area shape="rect" id="Node000001" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="39,5,169,48"/>
-<area shape="rect" id="Node000002" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="5,171,112,197"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="100,49,86,97,69,157,64,155,81,95,95,47"/>
-<area shape="rect" id="Node000004" href="$i2c__ringbuffer_8h.html" title="Non&#45;blocking I2C (TWI) Master driver for AVR (ATmega2560) using a TX ring buffer." alt="" coords="96,96,205,123"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="118,47,138,81,133,84,114,50"/>
-<area shape="rect" id="Node000003" title=" " alt="" coords="72,245,136,272"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="69,196,90,231,86,233,64,199"/>
-<area shape="poly" id="edge6_Node000004_Node000002" title=" " alt="" coords="136,125,88,163,84,159,133,121"/>
-<area shape="poly" id="edge4_Node000004_Node000003" title=" " alt="" coords="149,124,126,198,115,232,110,230,121,197,144,122"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="187,171,261,197"/>
-<area shape="poly" id="edge5_Node000004_Node000005" title=" " alt="" coords="165,121,202,158,198,161,161,125"/>
+<area shape="rect" id="Node000001" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="5,5,136,48"/>
+<area shape="rect" id="Node000002" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="17,171,124,197"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="65,49,56,84,54,122,63,155,58,156,49,123,50,83,60,48"/>
+<area shape="rect" id="Node000004" href="$i2c__blocking_8h.html" title="Blocking I2C (TWI) Master operations for AVR (ATmega2560) without TX buffer." alt="" coords="64,96,168,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="84,47,104,81,99,84,80,50"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="38,245,103,272"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="73,198,73,230,68,230,68,198"/>
+<area shape="poly" id="edge4_Node000004_Node000002" title=" " alt="" coords="110,125,89,159,84,156,106,122"/>
 </map>

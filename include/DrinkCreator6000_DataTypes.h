@@ -15,8 +15,8 @@
  * @note Designed for use in a FreeRTOS environment but can also be reused in non-RTOS builds.
  * @note All types are project-specific and not tied to AVR hardware registers or peripherals.
  */
-#ifndef _DRINK_CREATOR6000_DATA_TYPES_H_
-    #define _DRINK_CREATOR6000_DATA_TYPES_H_
+#ifndef DRINK_CREATOR6000_DATA_TYPES_H_
+    #define DRINK_CREATOR6000_DATA_TYPES_H_
 
 #include <stdint.h>
 
@@ -147,4 +147,4 @@ struct sUIContext{
     }
 #endif // __cplusplus
 
-#endif // _DRINK_CREATOR6000_DATA_TYPES_H_
+#endif // DRINK_CREATOR6000_DATA_TYPES_H_

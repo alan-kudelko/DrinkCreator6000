@@ -183,12 +183,7 @@ Variables</h2></td></tr>
 <tr class="memitem:a2c9691d029ce285a809900b68ac90f36" id="r_a2c9691d029ce285a809900b68ac90f36"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a2c9691d029ce285a809900b68ac90f36">temperatureHysteresis</a> =1.0</td></tr>
 <tr class="memitem:ac893109b3551afca7a422fe98efa9773" id="r_ac893109b3551afca7a422fe98efa9773"><td class="memItemLeft" align="right" valign="top">const struct <a class="el" href="structs_drink_data.html">sDrinkData</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ac893109b3551afca7a422fe98efa9773">drink</a> [<a class="el" href="_drink_creator6000___config___c_8h.html#a6625e84570deee3d7049779b8c17a6be">DRINK_COUNT</a>]</td></tr>
 <tr class="memitem:ab1e27bdd7b9cd7e916322cef51f5603b" id="r_ab1e27bdd7b9cd7e916322cef51f5603b"><td class="memItemLeft" align="right" valign="top">const char&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab1e27bdd7b9cd7e916322cef51f5603b">ingredients</a> [8][20-4-4]</td></tr>
-<tr class="memitem:a6a26be6a487d91146908140b28c0b63e" id="r_a6a26be6a487d91146908140b28c0b63e"><td class="memItemLeft" align="right" valign="top">const uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a6a26be6a487d91146908140b28c0b63e">pumpsEff</a> [8]</td></tr>
-<tr class="memitem:a9e1162097f847ddd09718b93e851a18a" id="r_a9e1162097f847ddd09718b93e851a18a"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9e1162097f847ddd09718b93e851a18a">idleCounter</a> =0</td></tr>
-<tr class="memitem:a5258de2beffc873c68dcd0742143ba0e" id="r_a5258de2beffc873c68dcd0742143ba0e"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5258de2beffc873c68dcd0742143ba0e">idleCounterLast</a> =0</td></tr>
-<tr class="memitem:a0360d235859a092a4886a6cb39b78642" id="r_a0360d235859a092a4886a6cb39b78642"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a0360d235859a092a4886a6cb39b78642">idleCounterPerSecond</a> =0</td></tr>
-<tr class="memitem:a81c39656babd73422abb02f935b2342c" id="r_a81c39656babd73422abb02f935b2342c"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a81c39656babd73422abb02f935b2342c">tickCount</a> =0</td></tr>
-<tr class="memitem:a695065e78d99f5961d43c76d24f63ed4" id="r_a695065e78d99f5961d43c76d24f63ed4"><td class="memItemLeft" align="right" valign="top">volatile uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a695065e78d99f5961d43c76d24f63ed4">idleCalib</a> =0</td></tr>
+<tr class="memitem:a37f34ea9f5afc6b33b0b441fd9ce1a17" id="r_a37f34ea9f5afc6b33b0b441fd9ce1a17"><td class="memItemLeft" align="right" valign="top">const uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a37f34ea9f5afc6b33b0b441fd9ce1a17">pumpsEff</a> [8]</td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a52f9122c57ae5934239c323ff9c9501e" name="a52f9122c57ae5934239c323ff9c9501e"></a>
@@ -657,14 +652,14 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">={</div>
-<div class="line">    {<span class="stringliteral">&quot;Raz&quot;</span>,    50, 50, 50, 50, 50, 50, 50, 50, 0},                   </div>
-<div class="line">    {<span class="stringliteral">&quot;Dwa&quot;</span>,   200, 200, 0, 0, 0, 0, 0, 0, 0},                </div>
-<div class="line">    {<span class="stringliteral">&quot;Trzy&quot;</span>,   50, 100, 150, 200, 250, 300, 350, 400, 0},  </div>
-<div class="line">    {<span class="stringliteral">&quot;Cztery&quot;</span>, 50, 100, 150, 200, 250, 300, 350, 400, 0},  </div>
-<div class="line">    {<span class="stringliteral">&quot;Piec&quot;</span>,   50, 0, 0, 0, 250, 300, 350, 400, 0},  </div>
-<div class="line">    {<span class="stringliteral">&quot;Szesc&quot;</span>,   50, 100, 150, 200, 250, 0, 350, 0, 0},  </div>
-<div class="line">    {<span class="stringliteral">&quot;Siedem&quot;</span>,   50, 100, 0, 200, 250, 0, 0, 0, 0},  </div>
-<div class="line">    {<span class="stringliteral">&quot;Osiem&quot;</span>,   50, 100, 150, 200, 250, 300, 350, 400, 0},  </div>
+<div class="line">    {<span class="stringliteral">&quot;Klasyka&quot;</span>,     30, 0 , 0 , 0 , 0 , 0 , 0 , 0, 0},                   </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa2&quot;</span>,      0 , 30, 0 , 0 , 0 , 0 , 0 , 0, 0},                </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa3&quot;</span>,      0 , 0 , 30, 0 , 0 , 0 , 0 , 0, 0},  </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa4&quot;</span>,      0 , 0 , 0 , 30, 0 , 0 , 0 , 0, 0},  </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa5&quot;</span>,      0 , 0 , 0 , 0 , 30, 0 , 0 , 0, 0},  </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa6&quot;</span>,      0 , 0 , 0 , 0 , 0 , 30, 0 , 0, 0},  </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa7&quot;</span>,      0 , 0 , 0 , 0 , 0 , 0 , 30, 0, 0},  </div>
+<div class="line">    {<span class="stringliteral">&quot;Pompa8&quot;</span>,      0 , 0 , 0 , 0 , 0 , 0 , 0 , 30, 0},  </div>
 <div class="line">    {<span class="stringliteral">&quot;Dziewiec&quot;</span>,   50, 100, 150, 200, 250, 300, 350, 400, 0},  </div>
 <div class="line">    {<span class="stringliteral">&quot;Dziesiec&quot;</span>,   50, 100, 150, 200, 250, 300, 350, 400, 0},  </div>
 <div class="line">}</div>
@@ -756,62 +751,6 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a695065e78d99f5961d43c76d24f63ed4" name="a695065e78d99f5961d43c76d24f63ed4"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a695065e78d99f5961d43c76d24f63ed4">&#9670;&#160;</a></span>idleCalib</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint32_t idleCalib =0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a9e1162097f847ddd09718b93e851a18a" name="a9e1162097f847ddd09718b93e851a18a"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a9e1162097f847ddd09718b93e851a18a">&#9670;&#160;</a></span>idleCounter</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint32_t idleCounter =0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a5258de2beffc873c68dcd0742143ba0e" name="a5258de2beffc873c68dcd0742143ba0e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5258de2beffc873c68dcd0742143ba0e">&#9670;&#160;</a></span>idleCounterLast</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint32_t idleCounterLast =0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a0360d235859a092a4886a6cb39b78642" name="a0360d235859a092a4886a6cb39b78642"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0360d235859a092a4886a6cb39b78642">&#9670;&#160;</a></span>idleCounterPerSecond</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint32_t idleCounterPerSecond =0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
 <a id="ab1e27bdd7b9cd7e916322cef51f5603b" name="ab1e27bdd7b9cd7e916322cef51f5603b"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ab1e27bdd7b9cd7e916322cef51f5603b">&#9670;&#160;</a></span>ingredients</h2>
 
@@ -828,7 +767,7 @@ Variables</h2></td></tr>
 <div class="line">    {<span class="stringliteral">&quot;Jager&quot;</span>},      </div>
 <div class="line">    {<span class="stringliteral">&quot;Rum&quot;</span>},        </div>
 <div class="line">    {<span class="stringliteral">&quot;Wodka&quot;</span>},      </div>
-<div class="line">    {<span class="stringliteral">&quot;Cola&quot;</span>},       </div>
+<div class="line">    {<span class="stringliteral">&quot;Wino&quot;</span>},       </div>
 <div class="line">    {<span class="stringliteral">&quot;Sok pom&quot;</span>},    </div>
 <div class="line">    {<span class="stringliteral">&quot;Sok cyt&quot;</span>},    </div>
 <div class="line">    {<span class="stringliteral">&quot;Woda&quot;</span>}        </div>
@@ -934,26 +873,26 @@ Variables</h2></td></tr>
 
 </div>
 </div>
-<a id="a6a26be6a487d91146908140b28c0b63e" name="a6a26be6a487d91146908140b28c0b63e"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a6a26be6a487d91146908140b28c0b63e">&#9670;&#160;</a></span>pumpsEff</h2>
+<a id="a37f34ea9f5afc6b33b0b441fd9ce1a17" name="a37f34ea9f5afc6b33b0b441fd9ce1a17"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a37f34ea9f5afc6b33b0b441fd9ce1a17">&#9670;&#160;</a></span>pumpsEff</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">const uint8_t pumpsEff[8]</td>
+          <td class="memname">const uint16_t pumpsEff[8]</td>
         </tr>
       </table>
 </div><div class="memdoc">
 <b>Initial value:</b><div class="fragment"><div class="line">={</div>
-<div class="line">    200,</div>
-<div class="line">    200,</div>
-<div class="line">    200,</div>
-<div class="line">    200,</div>
-<div class="line">    200,</div>
-<div class="line">    200,</div>
-<div class="line">    200,</div>
-<div class="line">    200</div>
+<div class="line">    1200,</div>
+<div class="line">    1250,</div>
+<div class="line">    1250,</div>
+<div class="line">    1250,</div>
+<div class="line">    1250,</div>
+<div class="line">    1250,</div>
+<div class="line">    1250,</div>
+<div class="line">    1250</div>
 <div class="line">}</div>
 </div><!-- fragment -->
 </div>
@@ -1137,20 +1076,6 @@ Variables</h2></td></tr>
       <table class="memname">
         <tr>
           <td class="memname">float temperatureHysteresis =1.0</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-</div>
-</div>
-<a id="a81c39656babd73422abb02f935b2342c" name="a81c39656babd73422abb02f935b2342c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a81c39656babd73422abb02f935b2342c">&#9670;&#160;</a></span>tickCount</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">volatile uint32_t tickCount =0</td>
         </tr>
       </table>
 </div><div class="memdoc">

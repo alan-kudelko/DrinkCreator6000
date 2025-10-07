@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['uart_2ec_0',['uart.c',['../uart_8c.html',1,'']]],
-  ['uart_2eh_1',['uart.h',['../uart_8h.html',1,'']]]
+  ['systemdebug_2ec_0',['systemDebug.c',['../system_debug_8c.html',1,'']]],
+  ['systemdebug_2eh_1',['systemDebug.h',['../system_debug_8h.html',1,'']]]
 ];

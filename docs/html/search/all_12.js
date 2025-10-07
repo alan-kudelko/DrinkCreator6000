@@ -32,11 +32,13 @@ var searchData=
   ['showinfo_5ftemp_5fsub_5f0_29',['showInfo_Temp_Sub_0',['../task_show_system_info_8h.html#ad35c851af774eabc4b9ff6ef68e130c6',1,'showInfo_Temp_Sub_0(sScreenData *screenData):&#160;taskShowSystemInfo.cpp'],['../task_show_system_info_8cpp.html#ad35c851af774eabc4b9ff6ef68e130c6',1,'showInfo_Temp_Sub_0(sScreenData *screenData):&#160;taskShowSystemInfo.cpp']]],
   ['showsysteminfostack_30',['showSystemInfoStack',['../_drink_creator6000___config___c_8h.html#a72228627334d38afefba902d1b6b3f0d',1,'DrinkCreator6000_Config_C.h']]],
   ['showsysteminfotcb_31',['showSystemInfoTCB',['../_drink_creator6000___config___c_8h.html#a1b64f5cdd27b71e5906698ef913e7395',1,'DrinkCreator6000_Config_C.h']]],
-  ['softwarereset_32',['softwareReset',['../task_error_handler_8cpp.html#a7dd54fc66122a231da37b565f13d23c5',1,'taskErrorHandler.cpp']]],
+  ['softwarereset_32',['softwareReset',['../_drink_creator6000_8cpp.html#a66cfbc5740d20d04b5716e7c71c45078',1,'softwareReset(void):&#160;taskErrorHandler.cpp'],['../task_error_handler_8cpp.html#a7dd54fc66122a231da37b565f13d23c5',1,'softwareReset():&#160;taskErrorHandler.cpp']]],
   ['sscreendata_33',['sScreenData',['../structs_screen_data.html',1,'']]],
   ['ssystemerror_34',['sSystemError',['../structs_system_error.html',1,'']]],
   ['st_5fpin_35',['ST_PIN',['../_drink_creator6000___pins_8h.html#ad9cab0de928a8312f94762e42b8f498e',1,'DrinkCreator6000_Pins.h']]],
   ['stopcooler_36',['stopCooler',['../task_error_handler_8cpp.html#ad52b4c021401ed52bff02afde22b0225',1,'taskErrorHandler.cpp']]],
   ['stoppumps_37',['stopPumps',['../task_error_handler_8cpp.html#a1a02bd6affc68b4eb839df35929d4987',1,'taskErrorHandler.cpp']]],
-  ['suicontext_38',['sUIContext',['../structs_u_i_context.html',1,'']]]
+  ['suicontext_38',['sUIContext',['../structs_u_i_context.html',1,'']]],
+  ['systemdebug_2ec_39',['systemDebug.c',['../system_debug_8c.html',1,'']]],
+  ['systemdebug_2eh_40',['systemDebug.h',['../system_debug_8h.html',1,'']]]
 ];

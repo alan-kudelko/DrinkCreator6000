@@ -1,0 +1,12 @@
+<map id="task_dump" name="task_dump">
+<area shape="rect" id="Node000001" title="Dumps information about all FreeRTOS tasks via UART." alt="" coords="467,31,553,57"/>
+<area shape="rect" id="Node000002" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="239,31,419,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="452,47,420,47,420,41,452,41"/>
+<area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,5,184,32"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="223,32,184,26,185,21,224,27"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,56,191,83"/>
+<area shape="poly" id="edge4_Node000002_Node000005" title=" " alt="" coords="224,61,192,66,191,61,223,56"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,57"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="95,33,56,41,54,36,94,27"/>
+<area shape="poly" id="edge5_Node000005_Node000004" title=" " alt="" coords="87,59,54,52,55,47,88,54"/>
+</map>

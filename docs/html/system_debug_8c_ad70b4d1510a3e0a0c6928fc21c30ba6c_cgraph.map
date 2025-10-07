@@ -1,0 +1,13 @@
+<map id="printI2C_status" name="printI2C_status">
+<area shape="rect" id="Node000001" title="Prints the current status of the I2C/TWI driver via UART." alt="" coords="5,81,116,108"/>
+<area shape="rect" id="Node000002" href="$i2c__ringbuffer_8h.html#a5d09f10466d174ce0b5c5bb3045eb52f" title="Checks if the I2C TX buffer is empty." alt="" coords="164,5,319,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="86,78,163,42,179,35,181,40,165,46,88,83"/>
+<area shape="rect" id="Node000003" href="$uart_8c.html#a69498e6af9e8ce85f97d59b94a68a798" title="Sends a single byte as a hexadecimal string over UART (blocking)." alt="" coords="166,56,317,83"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="116,84,150,79,151,85,117,90"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="367,107,497,133"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="116,96,352,112,352,117,116,101"/>
+<area shape="rect" id="Node000005" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="176,157,306,184"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="95,106,165,136,194,148,191,153,163,141,93,111"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="295,81,365,100,364,105,294,86"/>
+<area shape="poly" id="edge6_Node000005_Node000004" title=" " alt="" coords="294,154,364,135,365,140,295,159"/>
+</map>

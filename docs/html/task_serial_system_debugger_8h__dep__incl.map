@@ -1,5 +1,5 @@
 <map id="include/taskSerialSystemDebugger.h" name="include/taskSerialSystemDebugger.h">
-<area shape="rect" id="Node000001" title="Task and utilities for serial system debugging and RAM usage reporting." alt="" coords="112,5,282,48"/>
+<area shape="rect" id="Node000001" title="Task and utilities for serial system debugging, task diagnostics and RAM usage reporting." alt="" coords="112,5,282,48"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="6,96,175,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="163,60,117,97,114,93,159,56"/>
 <area shape="rect" id="Node000004" href="$task_serial_system_debugger_8c.html" title=" " alt="" coords="198,104,412,131"/>

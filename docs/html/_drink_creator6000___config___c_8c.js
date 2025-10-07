@@ -32,10 +32,6 @@ var _drink_creator6000___config___c_8c =
     [ "errorIdQueueStructBuffer", "_drink_creator6000___config___c_8c.html#a12f486cfd94909977ece3e59fa607a17", null ],
     [ "f_errorConfirmed", "_drink_creator6000___config___c_8c.html#ade8cd484678ac62c72109b6675417b88", null ],
     [ "guardZones", "_drink_creator6000___config___c_8c.html#afe3d328bab36fe91fb175be176f4acbc", null ],
-    [ "idleCalib", "_drink_creator6000___config___c_8c.html#a695065e78d99f5961d43c76d24f63ed4", null ],
-    [ "idleCounter", "_drink_creator6000___config___c_8c.html#a9e1162097f847ddd09718b93e851a18a", null ],
-    [ "idleCounterLast", "_drink_creator6000___config___c_8c.html#a5258de2beffc873c68dcd0742143ba0e", null ],
-    [ "idleCounterPerSecond", "_drink_creator6000___config___c_8c.html#a0360d235859a092a4886a6cb39b78642", null ],
     [ "ingredients", "_drink_creator6000___config___c_8c.html#ab1e27bdd7b9cd7e916322cef51f5603b", null ],
     [ "keyboardQueueBuffer", "_drink_creator6000___config___c_8c.html#a74e46f8ddf190ca0f8dbc5f87b797684", null ],
     [ "keyboardQueueStructBuffer", "_drink_creator6000___config___c_8c.html#ae93f680bc3b6088704b6174b35ebd21d", null ],
@@ -44,7 +40,7 @@ var _drink_creator6000___config___c_8c =
     [ "mux_SerialLock", "_drink_creator6000___config___c_8c.html#a54d3614770ec21d1dd08af4c6aee5eb0", null ],
     [ "muxI2CLockBuffer", "_drink_creator6000___config___c_8c.html#a677e78f3d8dc846e80adfce759d3dcaf", null ],
     [ "muxSerialLockBuffer", "_drink_creator6000___config___c_8c.html#acc3174b153704f511f660f9409c12582", null ],
-    [ "pumpsEff", "_drink_creator6000___config___c_8c.html#a6a26be6a487d91146908140b28c0b63e", null ],
+    [ "pumpsEff", "_drink_creator6000___config___c_8c.html#a37f34ea9f5afc6b33b0b441fd9ce1a17", null ],
     [ "qDrinkId", "_drink_creator6000___config___c_8c.html#aeb5c874358f6053cf4a4d5b795576dee", null ],
     [ "qErrorId", "_drink_creator6000___config___c_8c.html#aa5bf48d9251b280f92dc681d349d2d25", null ],
     [ "qKeyboardData", "_drink_creator6000___config___c_8c.html#afb4477b1a580e6bb91d4e1a594f13090", null ],
@@ -58,6 +54,5 @@ var _drink_creator6000___config___c_8c =
     [ "setTemperature", "_drink_creator6000___config___c_8c.html#ac21a071f62a3321e7b8fae3f3a483421", null ],
     [ "taskHandles", "_drink_creator6000___config___c_8c.html#a2cf179d17c89a340f3eff4ff76f674e8", null ],
     [ "temperatureHysteresis", "_drink_creator6000___config___c_8c.html#a2c9691d029ce285a809900b68ac90f36", null ],
-    [ "tickCount", "_drink_creator6000___config___c_8c.html#a81c39656babd73422abb02f935b2342c", null ],
     [ "UI_Context", "_drink_creator6000___config___c_8c.html#a9515bbcdf03ddc040c2270f6f7a8e2bd", null ]
 ];

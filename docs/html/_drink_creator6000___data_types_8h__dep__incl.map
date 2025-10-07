@@ -1,55 +1,64 @@
 <map id="include/DrinkCreator6000_DataTypes.h" name="include/DrinkCreator6000_DataTypes.h">
-<area shape="rect" id="Node000001" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="645,5,813,48"/>
-<area shape="rect" id="Node000002" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="898,96,1067,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="804,51,924,93,922,98,802,56"/>
-<area shape="rect" id="Node000022" href="$task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="213,104,344,131"/>
-<area shape="poly" id="edge21_Node000001_Node000022" title=" " alt="" coords="630,47,499,70,356,99,326,106,324,101,355,93,498,65,629,41"/>
-<area shape="rect" id="Node000024" href="$task_show_system_info_8h.html" title="Task for displaying system information on the user interface." alt="" coords="368,104,570,131"/>
-<area shape="poly" id="edge25_Node000001_Node000024" title=" " alt="" coords="655,56,507,106,506,101,653,51"/>
-<area shape="rect" id="Node000025" href="$_drink_creator6000___e_e_p_r_o_m_8c.html" title=" " alt="" coords="1091,96,1236,139"/>
-<area shape="poly" id="edge28_Node000001_Node000025" title=" " alt="" coords="829,44,1079,93,1091,96,1090,101,1078,99,828,49"/>
-<area shape="rect" id="Node000003" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="582,187,717,229"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="890,146,718,191,717,186,889,141"/>
-<area shape="rect" id="Node000012" href="$_drink_creator6000___config_8cpp.html" title=" " alt="" coords="740,187,886,229"/>
-<area shape="poly" id="edge11_Node000002_Node000012" title=" " alt="" coords="931,149,854,189,851,184,928,144"/>
-<area shape="rect" id="Node000013" href="$_drink_creator6000___config___c_8c.html" title=" " alt="" coords="910,187,1055,229"/>
-<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="985,154,985,186,980,186,980,154"/>
-<area shape="rect" id="Node000014" href="$_drink_creator6000___progmem_8c.html" title=" " alt="" coords="1079,187,1224,229"/>
-<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="1037,144,1114,184,1111,189,1034,149"/>
-<area shape="rect" id="Node000015" href="$task_main_8c.html" title=" " alt="" coords="233,195,340,221"/>
-<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="883,126,641,147,497,165,354,189,325,197,324,191,353,184,496,160,640,141,882,121"/>
-<area shape="rect" id="Node000016" href="$task_order_drink_8c.html" title=" " alt="" coords="1249,195,1391,221"/>
-<area shape="poly" id="edge15_Node000002_Node000016" title=" " alt="" coords="1077,140,1272,191,1271,197,1075,146"/>
-<area shape="rect" id="Node000017" href="$task_read_temp_8cpp.html" title=" " alt="" coords="1415,195,1571,221"/>
-<area shape="poly" id="edge16_Node000002_Node000017" title=" " alt="" coords="1082,136,1245,160,1403,184,1440,191,1439,197,1402,189,1244,165,1081,142"/>
-<area shape="rect" id="Node000018" href="$task_regulate_temp_8c.html" title=" " alt="" coords="1596,195,1759,221"/>
-<area shape="poly" id="edge17_Node000002_Node000018" title=" " alt="" coords="1082,136,1224,153,1335,160,1445,167,1584,184,1624,191,1623,197,1583,189,1445,172,1335,165,1224,158,1081,141"/>
-<area shape="rect" id="Node000019" href="$task_select_drink_8c.html" title=" " alt="" coords="1784,195,1931,221"/>
-<area shape="poly" id="edge18_Node000002_Node000019" title=" " alt="" coords="1083,136,1188,148,1277,154,1429,158,1580,163,1668,171,1771,184,1809,191,1808,197,1770,189,1667,176,1579,169,1428,164,1276,160,1187,153,1082,141"/>
-<area shape="rect" id="Node000020" href="$task_show_system_info_8cpp.html" title=" " alt="" coords="364,195,558,221"/>
-<area shape="poly" id="edge19_Node000002_Node000020" title=" " alt="" coords="883,137,570,189,528,197,527,191,569,184,883,132"/>
-<area shape="rect" id="Node000021" href="$task_welcome_screen_8cpp.html" title=" " alt="" coords="1955,195,2143,221"/>
-<area shape="poly" id="edge20_Node000002_Node000021" title=" " alt="" coords="1082,136,1213,150,1325,157,1514,161,1703,164,1813,171,1943,184,1990,191,1989,197,1942,189,1813,176,1703,169,1514,166,1324,163,1213,155,1082,141"/>
-<area shape="rect" id="Node000004" href="$uart_8c.html" title=" " alt="" coords="980,277,1116,320"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="732,227,968,275,980,277,979,283,967,280,731,232"/>
-<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="5,285,176,312"/>
-<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="567,233,460,249,376,258,293,265,188,280,148,287,148,282,187,275,293,260,376,252,459,244,566,227"/>
-<area shape="rect" id="Node000006" href="$_drink_creator6000___init_8cpp.html" title=" " alt="" coords="1139,277,1284,320"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="733,227,844,243,932,251,1019,259,1128,275,1139,277,1138,282,1127,280,1018,264,931,256,844,249,732,232"/>
-<area shape="rect" id="Node000007" href="$task_error_handler_8cpp.html" title=" " alt="" coords="1309,285,1475,312"/>
-<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="733,227,891,246,1016,252,1141,258,1298,275,1338,282,1337,287,1297,280,1140,263,1016,258,891,252,732,232"/>
-<area shape="rect" id="Node000008" href="$task_read_input_8cpp.html" title=" " alt="" coords="199,285,352,312"/>
-<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="567,233,333,287,332,282,566,228"/>
-<area shape="rect" id="Node000009" href="$task_serial_input_8c.html" title=" " alt="" coords="377,285,518,312"/>
-<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="589,238,478,287,476,282,587,234"/>
-<area shape="rect" id="Node000010" href="$task_serial_system_debugger_8c.html" title=" " alt="" coords="542,285,756,312"/>
-<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="652,245,652,285,646,285,646,245"/>
-<area shape="rect" id="Node000011" href="$task_update_screen_8cpp.html" title=" " alt="" coords="780,285,956,312"/>
-<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="715,233,837,282,835,287,713,238"/>
-<area shape="poly" id="edge24_Node000022_Node000015" title=" " alt="" coords="284,146,288,194,283,194,278,147"/>
-<area shape="rect" id="Node000023" href="$_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="41,187,209,229"/>
-<area shape="poly" id="edge22_Node000022_Node000023" title=" " alt="" coords="245,141,162,189,159,184,242,137"/>
-<area shape="poly" id="edge23_Node000023_Node000005" title=" " alt="" coords="114,245,98,286,93,284,109,243"/>
-<area shape="poly" id="edge27_Node000024_Node000020" title=" " alt="" coords="469,147,465,194,460,194,464,146"/>
-<area shape="poly" id="edge26_Node000024_Node000023" title=" " alt="" coords="406,138,206,189,205,184,404,132"/>
+<area shape="rect" id="Node000001" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="402,5,570,48"/>
+<area shape="rect" id="Node000002" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="1210,96,1378,139"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="586,36,1210,104,1209,109,586,41"/>
+<area shape="rect" id="Node000012" href="$system_debug_8c.html" title=" " alt="" coords="23,285,211,312"/>
+<area shape="poly" id="edge31_Node000001_Node000012" title=" " alt="" coords="387,31,292,41,241,52,189,67,138,87,91,114,49,147,15,188,8,208,15,228,28,246,45,261,83,282,80,287,42,265,24,250,10,231,3,208,11,185,46,143,88,109,136,83,187,62,239,47,291,36,386,26"/>
+<area shape="rect" id="Node000023" href="$task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="326,104,457,131"/>
+<area shape="poly" id="edge23_Node000001_Node000023" title=" " alt="" coords="455,61,407,106,403,102,451,57"/>
+<area shape="rect" id="Node000025" href="$task_show_system_info_8h.html" title="Task for displaying system information on the user interface." alt="" coords="481,104,683,131"/>
+<area shape="poly" id="edge27_Node000001_Node000025" title=" " alt="" coords="521,57,570,102,567,106,518,61"/>
+<area shape="rect" id="Node000026" href="$_drink_creator6000___e_e_p_r_o_m_8c.html" title=" " alt="" coords="1403,96,1548,139"/>
+<area shape="poly" id="edge30_Node000001_Node000026" title=" " alt="" coords="586,28,741,34,942,46,1166,65,1391,93,1403,95,1402,101,1390,99,1165,70,942,51,741,39,586,33"/>
+<area shape="rect" id="Node000027" href="$system_debug_8h.html" title="Diagnostics and debug utilities for DrinkCreator6000." alt="" coords="25,195,212,221"/>
+<area shape="poly" id="edge32_Node000001_Node000027" title=" " alt="" coords="415,56,315,98,216,151,140,196,137,192,213,146,313,94,413,52"/>
+<area shape="rect" id="Node000003" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="1747,187,1882,229"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="1394,136,1563,160,1636,169,1728,184,1747,188,1746,193,1727,189,1635,174,1562,165,1393,142"/>
+<area shape="rect" id="Node000010" href="$task_serial_system_debugger_8c.html" title=" " alt="" coords="1145,285,1358,312"/>
+<area shape="poly" id="edge20_Node000002_Node000010" title=" " alt="" coords="1394,136,1513,146,1626,152,1669,160,1697,174,1704,185,1704,198,1698,213,1685,231,1661,249,1626,260,1583,268,1537,272,1443,275,1372,280,1327,287,1326,282,1371,275,1443,270,1536,266,1583,262,1625,255,1659,244,1682,227,1694,211,1699,197,1699,187,1693,178,1667,165,1626,158,1513,151,1393,141"/>
+<area shape="rect" id="Node000013" href="$_drink_creator6000___config_8cpp.html" title=" " alt="" coords="1906,187,2051,229"/>
+<area shape="poly" id="edge12_Node000002_Node000013" title=" " alt="" coords="1394,136,1535,152,1646,159,1756,166,1895,184,1905,186,1905,191,1894,189,1756,171,1646,164,1535,157,1393,141"/>
+<area shape="rect" id="Node000014" href="$_drink_creator6000___config___c_8c.html" title=" " alt="" coords="2075,187,2220,229"/>
+<area shape="poly" id="edge13_Node000002_Node000014" title=" " alt="" coords="1395,136,1496,148,1583,154,1731,158,1878,163,1964,171,2064,184,2075,186,2074,191,2063,189,1963,176,1878,169,1731,163,1583,159,1496,153,1394,141"/>
+<area shape="rect" id="Node000015" href="$_drink_creator6000___progmem_8c.html" title=" " alt="" coords="2244,187,2390,229"/>
+<area shape="poly" id="edge14_Node000002_Node000015" title=" " alt="" coords="1394,136,1522,149,1631,156,1816,158,2000,161,2107,169,2233,184,2244,186,2243,191,2232,189,2107,174,2000,166,1816,163,1630,161,1522,155,1394,141"/>
+<area shape="rect" id="Node000016" href="$task_main_8c.html" title=" " alt="" coords="427,195,535,221"/>
+<area shape="poly" id="edge15_Node000002_Node000016" title=" " alt="" coords="1194,124,1065,130,903,142,725,161,548,189,519,197,518,191,547,184,724,156,902,137,1064,125,1194,119"/>
+<area shape="rect" id="Node000017" href="$task_order_drink_8c.html" title=" " alt="" coords="776,195,919,221"/>
+<area shape="poly" id="edge16_Node000002_Node000017" title=" " alt="" coords="1195,138,931,189,898,197,897,191,930,184,1194,133"/>
+<area shape="rect" id="Node000018" href="$task_read_temp_8cpp.html" title=" " alt="" coords="943,195,1099,221"/>
+<area shape="poly" id="edge17_Node000002_Node000018" title=" " alt="" coords="1217,146,1061,197,1059,192,1215,141"/>
+<area shape="rect" id="Node000019" href="$task_regulate_temp_8c.html" title=" " alt="" coords="1123,195,1287,221"/>
+<area shape="poly" id="edge18_Node000002_Node000019" title=" " alt="" coords="1265,152,1219,196,1216,192,1261,148"/>
+<area shape="rect" id="Node000020" href="$task_select_drink_8c.html" title=" " alt="" coords="1311,195,1459,221"/>
+<area shape="poly" id="edge19_Node000002_Node000020" title=" " alt="" coords="1328,148,1374,192,1370,196,1324,152"/>
+<area shape="rect" id="Node000021" href="$task_show_system_info_8cpp.html" title=" " alt="" coords="559,195,752,221"/>
+<area shape="poly" id="edge21_Node000002_Node000021" title=" " alt="" coords="1195,133,996,157,765,189,722,197,721,191,764,184,995,152,1194,127"/>
+<area shape="rect" id="Node000022" href="$task_welcome_screen_8cpp.html" title=" " alt="" coords="1483,195,1671,221"/>
+<area shape="poly" id="edge22_Node000002_Node000022" title=" " alt="" coords="1376,141,1537,192,1536,197,1374,146"/>
+<area shape="rect" id="Node000004" href="$uart_8c.html" title=" " alt="" coords="1927,277,2062,320"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="1871,234,1953,274,1951,279,1869,239"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="234,285,405,312"/>
+<area shape="poly" id="edge4_Node000003_Node000005" title=" " alt="" coords="1731,226,1684,232,1311,262,945,282,628,294,405,299,405,293,628,288,944,277,1311,257,1683,227,1731,221"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000___init_8cpp.html" title=" " alt="" coords="2086,277,2231,320"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="1897,228,2086,276,2084,281,1896,233"/>
+<area shape="rect" id="Node000007" href="$task_error_handler_8cpp.html" title=" " alt="" coords="2255,285,2421,312"/>
+<area shape="poly" id="edge6_Node000003_Node000007" title=" " alt="" coords="1897,227,1995,243,2072,252,2148,260,2244,275,2282,282,2281,287,2243,280,2147,266,2071,257,1994,248,1896,232"/>
+<area shape="rect" id="Node000008" href="$task_read_input_8cpp.html" title=" " alt="" coords="1383,285,1536,312"/>
+<area shape="poly" id="edge7_Node000003_Node000008" title=" " alt="" coords="1732,232,1511,287,1509,282,1731,227"/>
+<area shape="rect" id="Node000009" href="$task_serial_input_8c.html" title=" " alt="" coords="1561,285,1702,312"/>
+<area shape="poly" id="edge8_Node000003_Node000009" title=" " alt="" coords="1759,239,1659,287,1657,282,1756,234"/>
+<area shape="poly" id="edge9_Node000003_Node000010" title=" " alt="" coords="1732,231,1728,232,1628,248,1550,258,1372,280,1325,287,1325,282,1371,275,1549,253,1627,243,1727,227,1731,226"/>
+<area shape="rect" id="Node000011" href="$task_update_screen_8cpp.html" title=" " alt="" coords="1726,285,1902,312"/>
+<area shape="poly" id="edge10_Node000003_Node000011" title=" " alt="" coords="1817,245,1817,285,1812,285,1812,245"/>
+<area shape="poly" id="edge11_Node000003_Node000012" title=" " alt="" coords="1731,226,1684,232,1462,248,1273,255,1107,255,952,252,798,249,632,251,444,260,223,280,175,287,174,282,222,275,444,255,632,245,798,244,952,246,1107,249,1273,249,1461,243,1683,227,1731,221"/>
+<area shape="poly" id="edge26_Node000023_Node000016" title=" " alt="" coords="417,140,470,192,466,196,413,144"/>
+<area shape="rect" id="Node000024" href="$_drink_creator6000___tasks_8h.html" title="Task includes and declarations for the DrinkCreator6000 FreeRTOS application." alt="" coords="235,187,404,229"/>
+<area shape="poly" id="edge24_Node000023_Node000024" title=" " alt="" coords="374,145,338,188,334,185,369,141"/>
+<area shape="poly" id="edge25_Node000024_Node000005" title=" " alt="" coords="322,245,322,285,317,285,317,245"/>
+<area shape="poly" id="edge29_Node000025_Node000021" title=" " alt="" coords="604,141,647,192,643,196,600,145"/>
+<area shape="poly" id="edge28_Node000025_Node000024" title=" " alt="" coords="531,139,382,189,380,184,529,134"/>
+<area shape="poly" id="edge33_Node000027_Node000005" title=" " alt="" coords="162,226,292,282,290,287,160,231"/>
+<area shape="poly" id="edge34_Node000027_Node000010" title=" " alt="" coords="193,222,224,227,482,254,739,273,1145,292,1144,297,739,278,482,259,223,232,192,227"/>
+<area shape="poly" id="edge35_Node000027_Node000012" title=" " alt="" coords="120,237,120,285,114,285,115,237"/>
 </map>

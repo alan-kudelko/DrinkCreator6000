@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['last_5fbootup_5fbuffer_5fsize_0',['LAST_BOOTUP_BUFFER_SIZE',['../_drink_creator6000_8cpp.html#a47e5605e550a3c5b625deec848f67c84',1,'DrinkCreator6000.cpp']]],
-  ['last_5ferror_5fbuffer_5fsize_1',['LAST_ERROR_BUFFER_SIZE',['../_drink_creator6000_8cpp.html#af955b4e80a8271c1532a0c8529c23a64',1,'DrinkCreator6000.cpp']]],
+  ['last_5fbootup_5fbuffer_5fsize_0',['LAST_BOOTUP_BUFFER_SIZE',['../system_debug_8h.html#a47e5605e550a3c5b625deec848f67c84',1,'systemDebug.h']]],
+  ['last_5ferror_5fbuffer_5fsize_1',['LAST_ERROR_BUFFER_SIZE',['../system_debug_8h.html#af955b4e80a8271c1532a0c8529c23a64',1,'systemDebug.h']]],
   ['last_5fpackage_2',['LAST_PACKAGE',['../i2c__ringbuffer_8h.html#a177534082408c004b9e85877b9d026ad',1,'i2c_ringbuffer.h']]],
   ['lcd_5f1line_3',['LCD_1LINE',['../_h_d44780___i2_c_8h.html#a8c85cf88d8af66a47c42249d81c94641',1,'HD44780_I2C.h']]],
   ['lcd_5f2line_4',['LCD_2LINE',['../_h_d44780___i2_c_8h.html#a7987e93538df2819583ba43b81ddbb25',1,'HD44780_I2C.h']]],

@@ -1,0 +1,10 @@
+<map id="utility/debug" name="utility/debug">
+<area shape="rect" id="node1" href="dir_0954f3fcbc08bc7045aa9240bdc7e333.html" title="debug" alt="" coords="86,53,143,80"/>
+<area shape="rect" id="node2" href="dir_5290e710249d6b673b2b660f4556b41f.html" title="avr_peripherals" alt="" coords="5,128,115,155"/>
+<area shape="poly" id="edge1" href="dir_000002_000000.html" alt="" coords="107,82,81,117,77,114,103,79"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000002_000000.html" title="2" alt="" coords="84,110,91,126"/>
+<area shape="rect" id="node3" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="138,128,200,155"/>
+<area shape="poly" id="edge2" href="dir_000002_000005.html" alt="" coords="126,79,153,114,149,117,122,82"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000002_000005.html" title="4" alt="" coords="152,100,159,116"/>
+<area shape="rect" id="clust1" href="dir_64e73385a8b7738563c26ce10415b58d.html" title="utility" alt="" coords="76,16,153,91"/>
+</map>

@@ -102,121 +102,60 @@ $(function(){initNavTree('task_serial_system_debugger_8c.html','',''); });
 <code>#include &lt;stdio.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &lt;<a class="el" href="task_serial_system_debugger_8h_source.html">taskSerialSystemDebugger.h</a>&gt;</code><br />
-<code>#include &lt;<a class="el" href="uart_8h_source.html">uart.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___progmem_8h_source.html">DrinkCreator6000_Progmem.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="_drink_creator6000___config___c_8h_source.html">DrinkCreator6000_Config_C.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___ram_stats_8h_source.html">DrinkCreator6000_RamStats.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="system_debug_8h_source.html">systemDebug.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="uart_8h_source.html">uart.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
 Include dependency graph for taskSerialSystemDebugger.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_serial_system_debugger_8c__incl.png" border="0" usemap="#asrc_2task_serial_system_debugger_8c" loading="lazy" alt=""/></div>
 <map name="asrc_2task_serial_system_debugger_8c" id="asrc_2task_serial_system_debugger_8c">
-<area shape="rect" title=" " alt="" coords="219,5,432,32"/>
+<area shape="rect" title=" " alt="" coords="438,5,651,32"/>
 <area shape="rect" title=" " alt="" coords="5,80,70,107"/>
-<area shape="poly" title=" " alt="" coords="273,35,85,82,84,77,272,30"/>
+<area shape="poly" title=" " alt="" coords="437,32,275,51,85,82,84,77,274,46,437,27"/>
 <area shape="rect" title=" " alt="" coords="94,80,154,107"/>
-<area shape="poly" title=" " alt="" coords="291,35,170,78,168,73,290,30"/>
-<area shape="rect" title=" " alt="" coords="691,304,755,331"/>
-<area shape="poly" title=" " alt="" coords="283,35,247,53,232,66,220,81,196,129,186,172,187,192,192,212,203,233,219,254,242,265,285,276,413,293,557,304,675,311,675,317,557,310,412,298,284,281,240,270,216,258,199,236,188,214,182,193,180,171,191,127,215,79,228,62,244,49,280,30"/>
-<area shape="rect" href="task_serial_system_debugger_8h.html" title="Task and utilities for serial system debugging and RAM usage reporting." alt="" coords="230,80,421,107"/>
-<area shape="poly" title=" " alt="" coords="328,33,328,64,323,64,323,33"/>
-<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="445,80,499,107"/>
-<area shape="poly" title=" " alt="" coords="352,30,434,70,432,75,350,35"/>
-<area shape="rect" href="_drink_creator6000___progmem_8h.html" title="Constant strings stored in flash memory (PROGMEM) for diagnostics and display." alt="" coords="534,80,731,107"/>
-<area shape="poly" title=" " alt="" coords="380,30,564,73,563,79,379,35"/>
-<area shape="rect" href="_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="743,155,943,181"/>
-<area shape="poly" title=" " alt="" coords="433,26,607,46,687,60,744,78,789,107,824,141,821,145,786,111,742,82,686,66,607,51,432,31"/>
-<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="365,155,561,181"/>
-<area shape="poly" title=" " alt="" coords="473,108,469,140,464,139,468,107"/>
-<area shape="rect" title=" " alt="" coords="229,229,323,256"/>
-<area shape="poly" title=" " alt="" coords="431,184,324,226,322,221,429,179"/>
-<area shape="rect" title=" " alt="" coords="348,229,405,256"/>
-<area shape="poly" title=" " alt="" coords="449,184,404,221,401,217,446,180"/>
-<area shape="rect" title=" " alt="" coords="429,229,496,256"/>
-<area shape="poly" title=" " alt="" coords="466,182,466,214,460,214,460,182"/>
-<area shape="rect" title=" " alt="" coords="521,229,596,256"/>
-<area shape="poly" title=" " alt="" coords="481,180,532,218,528,222,478,184"/>
-<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="621,229,825,256"/>
-<area shape="poly" title=" " alt="" coords="509,179,663,222,662,227,507,184"/>
-<area shape="poly" title=" " alt="" coords="726,257,726,288,720,288,720,257"/>
-<area shape="rect" title=" " alt="" coords="586,155,700,181"/>
-<area shape="poly" title=" " alt="" coords="637,107,641,139,636,140,631,108"/>
-<area shape="poly" title=" " alt="" coords="848,181,851,217,848,238,840,257,826,274,808,288,771,306,769,301,806,283,822,270,835,255,843,237,846,217,843,182"/>
+<area shape="poly" title=" " alt="" coords="454,35,321,56,174,83,170,83,169,78,173,77,320,51,453,30"/>
+<area shape="rect" title=" " alt="" coords="804,304,868,331"/>
+<area shape="poly" title=" " alt="" coords="652,27,720,41,791,65,827,82,860,102,890,125,917,153,939,179,956,203,963,228,960,242,953,257,939,274,922,288,884,307,882,302,919,284,936,271,949,255,955,241,957,228,951,205,935,182,913,156,887,129,857,106,824,87,789,70,718,47,651,32"/>
+<area shape="rect" href="task_serial_system_debugger_8h.html" title="Task and utilities for serial system debugging, task diagnostics and RAM usage reporting." alt="" coords="230,80,421,107"/>
+<area shape="poly" title=" " alt="" coords="507,35,379,77,377,72,505,30"/>
+<area shape="rect" href="_drink_creator6000___progmem_8h.html" title="Constant strings stored in flash memory (PROGMEM) for diagnostics and display." alt="" coords="446,80,643,107"/>
+<area shape="poly" title=" " alt="" coords="547,33,547,64,542,64,542,33"/>
+<area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="569,155,765,181"/>
+<area shape="poly" title=" " alt="" coords="588,30,625,49,643,62,657,79,669,109,672,139,666,140,664,110,653,81,639,66,622,53,586,35"/>
+<area shape="rect" href="_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="156,155,356,181"/>
+<area shape="poly" title=" " alt="" coords="437,28,372,35,307,45,253,61,233,71,220,82,214,95,216,111,235,142,231,145,211,113,208,95,215,78,230,66,251,56,306,40,371,29,437,23"/>
+<area shape="rect" href="system_debug_8h.html" title="Diagnostics and debug utilities for DrinkCreator6000." alt="" coords="789,155,902,181"/>
+<area shape="poly" title=" " alt="" coords="652,28,720,46,753,60,784,78,815,107,836,140,831,143,810,111,781,82,751,65,718,51,650,33"/>
+<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="717,80,771,107"/>
+<area shape="poly" title=" " alt="" coords="580,30,704,75,702,80,578,35"/>
+<area shape="rect" title=" " alt="" coords="430,155,544,181"/>
+<area shape="poly" title=" " alt="" coords="536,109,508,144,504,141,532,106"/>
+<area shape="rect" title=" " alt="" coords="442,229,537,256"/>
+<area shape="poly" title=" " alt="" coords="637,184,535,226,533,221,635,179"/>
+<area shape="rect" title=" " alt="" coords="561,229,618,256"/>
+<area shape="poly" title=" " alt="" coords="655,184,616,221,612,217,652,180"/>
+<area shape="rect" title=" " alt="" coords="642,229,710,256"/>
+<area shape="poly" title=" " alt="" coords="671,182,675,214,670,214,666,182"/>
+<area shape="rect" title=" " alt="" coords="342,229,418,256"/>
+<area shape="poly" title=" " alt="" coords="618,184,433,231,432,226,616,179"/>
+<area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="734,229,938,256"/>
+<area shape="poly" title=" " alt="" coords="697,179,793,220,791,225,695,184"/>
+<area shape="poly" title=" " alt="" coords="839,257,839,288,834,288,834,257"/>
+<area shape="poly" title=" " alt="" coords="265,180,291,218,310,238,332,254,369,268,421,280,548,297,682,307,789,312,788,317,681,313,548,302,420,285,368,273,330,258,306,242,287,222,261,183"/>
+<area shape="poly" title=" " alt="" coords="847,182,842,214,837,214,841,182"/>
+<area shape="poly" title=" " alt="" coords="733,109,693,146,689,142,729,105"/>
 </map>
 </div>
 </div><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:a5cce7ae3fbddd6bfb0f67592b3d64841" id="r_a5cce7ae3fbddd6bfb0f67592b3d64841"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5cce7ae3fbddd6bfb0f67592b3d64841">ram_dump</a> (void)</td></tr>
-<tr class="memdesc:a5cce7ae3fbddd6bfb0f67592b3d64841"><td class="mdescLeft">&#160;</td><td class="mdescRight">Dumps memory usage via UART.  <br /></td></tr>
 <tr class="memitem:a82f2bfb81de043f58e60f95ea4f8483e" id="r_a82f2bfb81de043f58e60f95ea4f8483e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a82f2bfb81de043f58e60f95ea4f8483e">taskSerialSystemDebugger</a> (void *pvParameters)</td></tr>
 <tr class="memdesc:a82f2bfb81de043f58e60f95ea4f8483e"><td class="mdescLeft">&#160;</td><td class="mdescRight">FreeRTOS task for serial system debugging.  <br /></td></tr>
 </table>
 <a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
-<a id="a5cce7ae3fbddd6bfb0f67592b3d64841" name="a5cce7ae3fbddd6bfb0f67592b3d64841"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5cce7ae3fbddd6bfb0f67592b3d64841">&#9670;&#160;</a></span>ram_dump()</h2>
-
-<div class="memitem">
-<div class="memproto">
-      <table class="memname">
-        <tr>
-          <td class="memname">void ram_dump </td>
-          <td>(</td>
-          <td class="paramtype">void</td>          <td class="paramname"><span class="paramname"><em></em></span></td><td>)</td>
-          <td></td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Dumps memory usage via UART. </p>
-<p>Prints boundaries and sizes of memory sections:</p><ul>
-<li>.data</li>
-<li>.bss</li>
-<li>.tdat</li>
-<li>heap</li>
-<li>stack</li>
-</ul>
-<p>Each section's start and end addresses are printed in hexadecimal, and the size is printed in decimal. The output is sent using blocking UART functions.</p>
-<dl class="section note"><dt>Note</dt><dd>This function relies on const PROGMEM strings for headers, footers, and separators. </dd>
-<dd>
-Buffer length and formatting are controlled by RAM_DUMP_BUFFER_LENGTH, RAM_DUMP_ADDR_FMT, and RAM_DUMP_SIZE_FMT macros. </dd></dl>
-<div class="dynheader">
-Here is the call graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="task_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph.png" border="0" usemap="#atask_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph" loading="lazy" alt=""/></div>
-<map name="atask_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph" id="atask_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_cgraph">
-<area shape="rect" title="Dumps memory usage via UART." alt="" coords="5,56,88,83"/>
-<area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="144,5,274,32"/>
-<area shape="poly" title=" " alt="" coords="87,54,149,35,150,40,89,59"/>
-<area shape="rect" href="uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="136,56,282,83"/>
-<area shape="poly" title=" " alt="" coords="88,67,120,67,120,72,88,72"/>
-<area shape="rect" href="_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables." alt="" coords="136,107,282,133"/>
-<area shape="poly" title=" " alt="" coords="89,80,150,99,149,104,87,85"/>
-<area shape="rect" href="uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="330,31,460,57"/>
-<area shape="poly" title=" " alt="" coords="275,25,315,30,315,36,274,30"/>
-<area shape="poly" title=" " alt="" coords="282,57,314,52,315,58,283,62"/>
-</map>
-</div>
-<div class="dynheader">
-Here is the caller graph for this function:</div>
-<div class="dyncontent">
-<div class="center"><img src="task_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph.png" border="0" usemap="#atask_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph" loading="lazy" alt=""/></div>
-<map name="atask_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph" id="atask_serial_system_debugger_8c_a5cce7ae3fbddd6bfb0f67592b3d64841_icgraph">
-<area shape="rect" title="Dumps memory usage via UART." alt="" coords="467,6,550,32"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,31,55,58"/>
-<area shape="poly" title=" " alt="" coords="452,16,382,11,294,8,198,11,103,22,56,36,54,31,102,16,198,6,294,3,382,5,452,10"/>
-<area shape="rect" href="task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="239,31,419,58"/>
-<area shape="poly" title=" " alt="" coords="452,30,420,34,419,29,452,24"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,31,184,58"/>
-<area shape="poly" title=" " alt="" coords="223,47,184,47,184,42,223,42"/>
-<area shape="rect" href="_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="103,82,191,108"/>
-<area shape="poly" title=" " alt="" coords="264,65,192,85,191,80,263,60"/>
-<area shape="poly" title=" " alt="" coords="94,47,55,47,55,42,94,42"/>
-<area shape="poly" title=" " alt="" coords="100,78,54,57,56,53,102,73"/>
-</map>
-</div>
-
-</div>
-</div>
 <a id="a82f2bfb81de043f58e60f95ea4f8483e" name="a82f2bfb81de043f58e60f95ea4f8483e"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a82f2bfb81de043f58e60f95ea4f8483e">&#9670;&#160;</a></span>taskSerialSystemDebugger()</h2>
 
@@ -245,22 +184,24 @@ Here is the call graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_serial_system_debugger_8c_a82f2bfb81de043f58e60f95ea4f8483e_cgraph.png" border="0" usemap="#atask_serial_system_debugger_8c_a82f2bfb81de043f58e60f95ea4f8483e_cgraph" loading="lazy" alt=""/></div>
 <map name="atask_serial_system_debugger_8c_a82f2bfb81de043f58e60f95ea4f8483e_cgraph" id="atask_serial_system_debugger_8c_a82f2bfb81de043f58e60f95ea4f8483e_cgraph">
-<area shape="rect" title="FreeRTOS task for serial system debugging." alt="" coords="5,75,186,102"/>
-<area shape="rect" href="task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="234,75,316,102"/>
-<area shape="poly" title=" " alt="" coords="186,86,218,86,218,91,186,91"/>
-<area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="372,75,502,102"/>
-<area shape="poly" title=" " alt="" coords="159,100,234,111,275,114,316,111,367,103,367,108,316,116,275,119,233,116,158,105"/>
-<area shape="rect" href="uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="558,24,689,51"/>
-<area shape="poly" title=" " alt="" coords="130,72,233,37,309,16,370,5,432,3,511,10,558,18,557,23,510,15,432,9,371,11,310,21,234,42,132,77"/>
-<area shape="rect" href="uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="364,24,510,51"/>
-<area shape="poly" title=" " alt="" coords="167,72,233,60,348,45,349,50,234,66,168,77"/>
-<area shape="rect" href="_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables." alt="" coords="364,151,510,178"/>
-<area shape="poly" title=" " alt="" coords="153,100,234,119,353,145,352,150,233,124,151,105"/>
-<area shape="poly" title=" " alt="" coords="316,86,357,86,357,91,316,91"/>
-<area shape="poly" title=" " alt="" coords="316,73,377,54,379,59,317,78"/>
-<area shape="poly" title=" " alt="" coords="307,100,394,142,392,146,304,105"/>
-<area shape="poly" title=" " alt="" coords="488,72,557,53,558,58,490,77"/>
-<area shape="poly" title=" " alt="" coords="511,35,543,35,543,40,511,40"/>
+<area shape="rect" title="FreeRTOS task for serial system debugging." alt="" coords="5,74,186,101"/>
+<area shape="rect" href="system_debug_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="235,74,318,101"/>
+<area shape="poly" title=" " alt="" coords="186,85,220,85,220,90,186,90"/>
+<area shape="rect" href="_drink_creator6000___ram_stats_8c.html#a8b8422d6157a1281dab2d0103add13bc" title="Updates internal memory usage counters." alt="" coords="368,125,513,152"/>
+<area shape="poly" title=" " alt="" coords="168,99,234,110,352,126,351,131,233,116,167,104"/>
+<area shape="rect" href="system_debug_8c.html#a9472642e95bc21b95a29ab213b66f764" title="Dumps information about all FreeRTOS tasks via UART." alt="" coords="234,24,319,50"/>
+<area shape="poly" title=" " alt="" coords="145,71,218,50,219,56,147,76"/>
+<area shape="rect" href="uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="375,74,505,101"/>
+<area shape="poly" title=" " alt="" coords="318,85,360,85,360,90,318,90"/>
+<area shape="rect" href="uart_8c.html#a5f34fecbee99a10464b86997ef9ad94e" title="Sends a null&#45;terminated string stored in PROGMEM over UART (blocking)." alt="" coords="367,24,513,50"/>
+<area shape="poly" title=" " alt="" coords="317,72,379,53,381,58,319,78"/>
+<area shape="poly" title=" " alt="" coords="319,98,381,117,379,122,317,103"/>
+<area shape="rect" href="uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="561,24,692,50"/>
+<area shape="poly" title=" " alt="" coords="491,71,560,52,561,57,493,76"/>
+<area shape="poly" title=" " alt="" coords="514,34,546,34,546,40,514,40"/>
+<area shape="poly" title=" " alt="" coords="320,48,381,67,380,72,319,53"/>
+<area shape="poly" title=" " alt="" coords="317,20,367,9,440,3,514,9,561,17,560,22,513,14,440,8,367,14,318,26"/>
+<area shape="poly" title=" " alt="" coords="320,34,351,34,351,40,320,40"/>
 </map>
 </div>
 <div class="dynheader">

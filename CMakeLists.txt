@@ -47,6 +47,9 @@ message(STATUS "Adding project sources")
 file(GLOB PROJECT_SOURCES
     "${CMAKE_SOURCE_DIR}/src/*.cpp"
     "${CMAKE_SOURCE_DIR}/src/*.c"
+    "${CMAKE_SOURCE_DIR}/utility/debug/*.c"
+    "${CMAKE_SOURCE_DIR}/utility/debug/*.cpp"
+    "${CMAKE_SOURCE_DIR}/utility/buzzer/*.c"
 )
 message(STATUS "Adding FreeRTOS sources")
 file(GLOB RTOS_SOURCES
@@ -57,12 +60,16 @@ message(STATUS "Adding AVR Peripherals sources")
 file(GLOB AVR_CORE_SOURCES
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.c"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c/*.c"
+    "${CMAKE_SOURCE_DIR}/avr_peripherals/board_io/*.c"
     "${CMAKE_SOURCE_DIR}/drivers/*.cpp"
 )
 message(STATUS "Adding project headers")
 file(GLOB PROJECT_HEADERS
     "${CMAKE_SOURCE_DIR}/include/*.h"
     "${CMAKE_SOURCE_DIR}/include/*.hpp"
+    "${CMAKE_SOURCE_DIR}/utility/debug/*.h"
+    "${CMAKE_SOURCE_DIR}/utility/debug/*.hpp"
+    "${CMAKE_SOURCE_DIR}/utility/buzzer/*.h"
 )
 message(STATUS "Adding FreeRTOS headers")
 file(GLOB RTOS_HEADERS
@@ -74,6 +81,7 @@ message(STATUS "Adding AVR Peripherals headers")
 file(GLOB AVR_CORE_HEADERS
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart/*.h"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c/*.h"
+    "${CMAKE_SOURCE_DIR}/avr_peripherals/board_io/*.h"
     "${CMAKE_SOURCE_DIR}/drivers/*.h"
 )
 include_directories(
@@ -89,6 +97,9 @@ include_directories(
     "${CMAKE_SOURCE_DIR}/avr_peripherals/uart"
     "${CMAKE_SOURCE_DIR}/avr_peripherals/i2c"
     "${CMAKE_SOURCE_DIR}/drivers"
+    "${CMAKE_SOURCE_DIR}/utility/debug"
+    "${CMAKE_SOURCE_DIR}/utility/buzzer"
+    "${CMAKE_SOURCE_DIR}/avr_peripherals/board_io"
 )
 # Disable MSVC
 set(CMAKE_FIND_ROOT_PATH "${AVR_ROOT}")

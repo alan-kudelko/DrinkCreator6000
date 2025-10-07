@@ -58,24 +58,21 @@ extern uint16_t ram_in_use;     /**< Total used RAM: data + heap + stack */
 extern uint16_t ram_size;       /**< Total usable SRAM size */
 /** @} */
 
-/** @name Initialization functions
- *  @{
- */
-
 /**
  * @brief Initializes the RAM size value.
  *
  */
 extern void initRamSize(void);
-/**
- * @brief Updates all RAM usage tracking variables.
- *
- * Call this function at runtime to refresh memory usage stats.
- * Calculates heap, stack, tdata usage and updates global RAM stats.
- */
-extern void updateMemoryUsage(void);
 
-/** @} */
+/**
+ * @brief Updates internal memory usage counters.
+ *
+ * This function scans current allocations and updates counters used by the
+ * RAM dump routine.
+ *
+ * @note Compliant with MISRA C:2025 – explicit void in prototype.
+ */
+void updateMemoryUsage(void);
 
 #ifdef __cplusplus
     }

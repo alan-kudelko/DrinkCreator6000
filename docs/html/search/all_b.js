@@ -1,10 +1,10 @@
 var searchData=
 [
-  ['last_5fbootup_5fbuffer_5fsize_0',['LAST_BOOTUP_BUFFER_SIZE',['../_drink_creator6000_8cpp.html#a47e5605e550a3c5b625deec848f67c84',1,'DrinkCreator6000.cpp']]],
-  ['last_5ferror_5fbuffer_5fsize_1',['LAST_ERROR_BUFFER_SIZE',['../_drink_creator6000_8cpp.html#af955b4e80a8271c1532a0c8529c23a64',1,'DrinkCreator6000.cpp']]],
+  ['last_5fbootup_5fbuffer_5fsize_0',['LAST_BOOTUP_BUFFER_SIZE',['../system_debug_8h.html#a47e5605e550a3c5b625deec848f67c84',1,'systemDebug.h']]],
+  ['last_5ferror_5fbuffer_5fsize_1',['LAST_ERROR_BUFFER_SIZE',['../system_debug_8h.html#af955b4e80a8271c1532a0c8529c23a64',1,'systemDebug.h']]],
   ['last_5fpackage_2',['LAST_PACKAGE',['../i2c__ringbuffer_8h.html#a177534082408c004b9e85877b9d026ad',1,'i2c_ringbuffer.h']]],
-  ['lastbootup_5fdump_3',['lastBootup_dump',['../_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1',1,'DrinkCreator6000.cpp']]],
-  ['lasterror_5fdump_4',['lastError_dump',['../_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341',1,'DrinkCreator6000.cpp']]],
+  ['lastbootup_5fdump_3',['lastBootup_dump',['../system_debug_8c.html#af5230c88e791c29d3fc48b91e3cecff1',1,'lastBootup_dump(const uint16_t *bootup):&#160;systemDebug.c'],['../system_debug_8h.html#af5230c88e791c29d3fc48b91e3cecff1',1,'lastBootup_dump(const uint16_t *bootup):&#160;systemDebug.c']]],
+  ['lasterror_5fdump_4',['lastError_dump',['../system_debug_8c.html#a7040df42d4de129147bfd4c4108f92ff',1,'lastError_dump(const struct sSystemError *lastError):&#160;systemDebug.c'],['../system_debug_8h.html#a7040df42d4de129147bfd4c4108f92ff',1,'lastError_dump(const struct sSystemError *lastError):&#160;systemDebug.c']]],
   ['lastsystemerror_5',['lastSystemError',['../_drink_creator6000___config___c_8h.html#a296683d7d3673030d08ab8a24df1f094',1,'lastSystemError:&#160;DrinkCreator6000_Config_C.c'],['../_drink_creator6000___config___c_8c.html#a296683d7d3673030d08ab8a24df1f094',1,'lastSystemError:&#160;DrinkCreator6000_Config_C.c']]],
   ['lcd_6',['lcd',['../_drink_creator6000___config_8h.html#a139d86ce0992c3f29a438ddef79b693a',1,'lcd:&#160;DrinkCreator6000_Config.h'],['../_drink_creator6000___config_8cpp.html#a62dee960e3e9132511730b9ee144525a',1,'lcd:&#160;DrinkCreator6000_Config.cpp'],['../task_update_screen_8cpp.html#a139d86ce0992c3f29a438ddef79b693a',1,'lcd:&#160;taskUpdateScreen.cpp']]],
   ['lcd_5f1line_7',['LCD_1LINE',['../_h_d44780___i2_c_8h.html#a8c85cf88d8af66a47c42249d81c94641',1,'HD44780_I2C.h']]],

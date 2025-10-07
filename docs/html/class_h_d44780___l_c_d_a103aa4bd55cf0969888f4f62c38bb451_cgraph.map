@@ -10,7 +10,7 @@
 <area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="855,21,903,20,1092,20,1124,21,1124,26,1092,25,903,25,855,26"/>
 <area shape="rect" id="Node000007" href="$class_h_d44780___l_c_d.html#a44b1be4b7a17256a003d37c4c49a151d" title=" " alt="" coords="903,35,1092,77"/>
 <area shape="poly" id="edge6_Node000004_Node000007" title=" " alt="" coords="855,35,887,39,887,45,854,40"/>
-<area shape="rect" id="Node000006" href="$i2c__ringbuffer_8c.html#a91bb1859c12fbc7c029b2a5a2309b240" title=" " alt="" coords="1389,5,1566,48"/>
+<area shape="rect" id="Node000006" href="$i2c__blocking_8c.html#a91bb1859c12fbc7c029b2a5a2309b240" title="Sends a single data byte to the specified I2C slave address in blocking mode." alt="" coords="1389,5,1566,48"/>
 <area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="1342,24,1374,24,1374,29,1342,29"/>
 <area shape="poly" id="edge7_Node000007_Node000005" title=" " alt="" coords="1092,42,1124,38,1125,43,1093,47"/>
 </map>

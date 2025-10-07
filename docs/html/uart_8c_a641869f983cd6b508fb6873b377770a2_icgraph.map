@@ -1,35 +1,33 @@
 <map id="uart_puts_blocking" name="uart_puts_blocking">
-<area shape="rect" id="Node000001" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="720,167,850,194"/>
-<area shape="rect" id="Node000002" href="$task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="488,41,672,67"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="758,158,719,123,670,88,630,71,632,66,673,84,722,119,762,154"/>
-<area shape="rect" id="Node000003" href="$task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="290,41,410,67"/>
-<area shape="poly" id="edge17_Node000001_Node000003" title=" " alt="" coords="770,154,755,123,733,89,705,56,670,31,634,17,596,10,556,8,517,11,444,25,387,43,385,38,443,20,516,6,556,3,596,5,636,12,673,26,709,52,738,85,760,121,775,152"/>
-<area shape="rect" id="Node000007" href="$_drink_creator6000_8cpp.html#af5230c88e791c29d3fc48b91e3cecff1" title=" " alt="" coords="289,243,411,270"/>
-<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="747,204,712,221,672,234,603,248,533,256,412,261,411,255,533,251,602,243,671,229,710,216,745,199"/>
-<area shape="rect" id="Node000008" href="$_drink_creator6000_8cpp.html#acc7d791512925d7153c389f4f4904341" title=" " alt="" coords="103,294,212,321"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="760,207,721,238,673,265,611,284,547,298,419,314,302,318,212,315,213,309,302,312,418,309,546,293,610,279,671,260,718,234,757,203"/>
-<area shape="rect" id="Node000009" href="$_drink_creator6000_8cpp.html#af5863d80f02086cec6575d444cb3ba4d" title=" " alt="" coords="525,345,635,371"/>
-<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="771,209,732,269,705,301,673,328,637,347,634,342,670,324,701,297,728,265,767,206"/>
-<area shape="rect" id="Node000010" href="$task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="539,193,621,219"/>
-<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="705,193,622,204,621,198,704,188"/>
-<area shape="rect" id="Node000011" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="260,142,440,169"/>
-<area shape="poly" id="edge21_Node000001_Node000011" title=" " alt="" coords="704,179,441,163,441,158,704,173"/>
-<area shape="rect" id="Node000012" href="$task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="297,91,403,118"/>
-<area shape="poly" id="edge18_Node000001_Node000012" title=" " alt="" coords="723,165,671,153,526,128,404,113,404,107,527,123,672,148,724,160"/>
-<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="473,57,410,57,410,51,473,51"/>
-<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="120,91,194,118"/>
-<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="283,75,195,98,194,93,281,69"/>
-<area shape="rect" id="Node000006" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="113,142,202,169"/>
-<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="277,74,261,82,247,93,238,106,228,119,214,132,194,144,191,139,210,128,224,115,233,102,243,90,259,77,275,69"/>
-<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,193,55,219"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="110,128,104,132,70,164,44,194,40,191,66,160,101,128,107,124"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="109,177,56,199,54,194,107,173"/>
-<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="274,252,191,242,102,227,54,216,56,211,103,222,192,237,274,247"/>
-<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="116,288,101,278,68,249,42,222,46,218,72,245,104,273,119,283"/>
-<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="523,209,55,209,55,203,523,203"/>
-<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="523,196,413,172,414,167,524,191"/>
-<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="281,140,194,117,195,112,283,135"/>
-<area shape="poly" id="edge16_Node000011_Node000006" title=" " alt="" coords="245,158,202,158,202,153,245,153"/>
-<area shape="poly" id="edge19_Node000012_Node000004" title=" " alt="" coords="281,107,195,107,195,102,281,102"/>
-<area shape="poly" id="edge20_Node000012_Node000006" title=" " alt="" coords="282,125,203,146,201,141,281,120"/>
+<area shape="rect" id="Node000001" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="733,168,863,195"/>
+<area shape="rect" id="Node000002" href="$task_error_handler_8cpp.html#a8bd649630dafc8a7346e139d3a6f6b4d" title=" " alt="" coords="501,168,685,195"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="717,184,685,184,685,179,717,179"/>
+<area shape="rect" id="Node000003" href="$task_error_handler_8cpp.html#a05be277369004544ea5f4331c715451d" title="Monitors stack guard zones, logs errors, and manages system restarts." alt="" coords="304,117,423,144"/>
+<area shape="poly" id="edge19_Node000001_Node000003" title=" " alt="" coords="727,167,684,159,544,143,423,135,423,130,544,138,685,153,728,161"/>
+<area shape="rect" id="Node000007" href="$system_debug_8c.html#af5230c88e791c29d3fc48b91e3cecff1" title="Dumps the last bootup counter value via UART." alt="" coords="103,180,225,207"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="732,201,685,209,557,217,429,217,315,211,225,203,226,197,315,205,429,211,557,212,684,204,731,196"/>
+<area shape="rect" id="Node000008" href="$system_debug_8c.html#a7040df42d4de129147bfd4c4108f92ff" title="Dumps the last system error via UART." alt="" coords="308,269,418,296"/>
+<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="769,207,731,232,686,253,615,271,542,282,475,286,418,287,418,282,474,281,542,277,614,266,684,248,728,227,766,202"/>
+<area shape="rect" id="Node000009" href="$system_debug_8c.html#ad70b4d1510a3e0a0c6928fc21c30ba6c" title=" " alt="" coords="538,320,648,347"/>
+<area shape="poly" id="edge11_Node000001_Node000009" title=" " alt="" coords="780,209,740,257,715,282,686,304,648,322,646,317,683,299,711,278,736,253,776,206"/>
+<area shape="rect" id="Node000010" href="$system_debug_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="552,16,634,43"/>
+<area shape="poly" id="edge12_Node000001_Node000010" title=" " alt="" coords="778,156,739,105,712,79,683,57,659,45,634,38,635,33,661,40,686,52,716,75,743,102,782,153"/>
+<area shape="rect" id="Node000012" href="$system_debug_8c.html#a9472642e95bc21b95a29ab213b66f764" title="Dumps information about all FreeRTOS tasks via UART." alt="" coords="550,67,636,93"/>
+<area shape="poly" id="edge17_Node000001_Node000012" title=" " alt="" coords="763,161,683,114,635,95,637,90,686,109,766,157"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="514,167,423,146,424,141,515,161"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="127,67,201,93"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="292,115,201,92,202,87,293,110"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000_8cpp.html#a8b474bc28804b1a6e1dba4f7951657a2" title=" " alt="" coords="120,117,208,144"/>
+<area shape="poly" id="edge5_Node000003_Node000006" title=" " alt="" coords="288,133,208,133,208,128,288,128"/>
+<area shape="rect" id="Node000005" href="$_drink_creator6000_8cpp.html#a840291bc02cba5474a4cb46a9b9566fe" title=" " alt="" coords="5,117,55,144"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="113,102,56,124,54,119,111,97"/>
+<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="104,133,55,133,55,128,104,128"/>
+<area shape="poly" id="edge8_Node000007_Node000005" title=" " alt="" coords="119,175,54,144,56,140,121,170"/>
+<area shape="poly" id="edge10_Node000008_Node000005" title=" " alt="" coords="293,280,248,273,198,262,148,245,101,221,80,204,61,183,36,146,41,143,66,180,83,200,104,216,150,240,200,257,249,268,294,275"/>
+<area shape="poly" id="edge13_Node000010_Node000005" title=" " alt="" coords="536,22,449,12,339,9,279,13,219,21,160,36,104,57,84,70,66,86,42,118,37,115,63,82,81,65,101,52,158,31,218,16,278,8,339,4,450,7,537,17"/>
+<area shape="rect" id="Node000011" href="$task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="273,67,453,93"/>
+<area shape="poly" id="edge14_Node000010_Node000011" title=" " alt="" coords="537,44,427,69,426,63,536,39"/>
+<area shape="poly" id="edge15_Node000011_Node000004" title=" " alt="" coords="258,83,201,83,201,77,258,77"/>
+<area shape="poly" id="edge16_Node000011_Node000006" title=" " alt="" coords="293,100,209,122,207,117,292,95"/>
+<area shape="poly" id="edge18_Node000012_Node000011" title=" " alt="" coords="535,83,454,83,454,77,535,77"/>
 </map>

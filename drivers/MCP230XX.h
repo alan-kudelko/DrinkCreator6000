@@ -1,10 +1,10 @@
 /**
  * @file MCP230XX.h
- * @brief Class interface and register definitions for MCP23017/MCP23008 I²C GPIO expanders.
+ * @brief Class interface and register definitions for MCP23008 I²C GPIO expanders.
  *
  * This header combines low-level register address definitions with a high-level
- * C++ class that provides convenient access to MCP23x17 (16-bit) and MCP23x08 (8-bit)
- * I²C GPIO expanders.
+ * C++ class that provides convenient access to MCP23x08 (8-bit)
+ * I²C GPIO expander.
  *
  * The class is built on top of a custom I²C driver and supports both blocking and
  * non-blocking operations, making it suitable for real-time environments such as FreeRTOS.
@@ -17,7 +17,6 @@
  *  - Support for interrupt configuration and handling
  *
  * Supported devices:
- *  - MCP23017 (two 8-bit ports, 16 GPIOs)
  *  - MCP23008 (single 8-bit port, 8 GPIOs)
  *
  * Typical applications:
@@ -30,58 +29,32 @@
 	#define _MCP230XX_H_
 
 #include <stdint.h>
-/**
- * @name IOCON Register Bitfields
- * @brief Configuration bits for the IOCON register.
- *
- * These bits control addressing, interrupt behavior, and output modes.
- * The register is accessible at two mirrored addresses (0x0A, 0x0B).
- *
- * @{
- */
-#define IOCON_BANK     7   /**< Controls register addressing scheme (1 = separate banks, 0 = sequential). */
-#define IOCON_MIRROR   6   /**< INT pins mirror (1 = INTA and INTB are internally connected). */
-#define IOCON_SEQOP    5   /**< Sequential operation disable (1 = disable auto-increment). */
-#define IOCON_DISSLW   4   /**< Slew rate control for SDA output (1 = disabled, 0 = enabled). */
-#define IOCON_HAEN     3   /**< Hardware addressing enable (MCP23S17 only, ignored on MCP23017). */
-#define IOCON_ODR      2   /**< Configures INT pin as open-drain (1) or active driver (0). */
-#define IOCON_INTPOL   1   /**< Interrupt polarity (1 = active-high, 0 = active-low). */
-/** @} */
 
 /**
- * @name IOCON Register Addresses
- * @brief The IOCON register can be accessed at two mirrored addresses.
+ * @name MCP23008 Register Addresses
+ * @brief Register map for the MCP23008 I/O Expander.
  *
- * Both addresses map to the same internal register with identical bitfields.
- * Useful for auto-increment addressing modes.
+ * The MCP23008 features 11 control and status registers that manage the
+ * configuration, input/output behavior, and interrupt handling for all 8 GPIO pins.
+ * Each register can be accessed via the I²C interface using the following addresses.
+ *
+ * @note All registers are 8-bit wide.
  *
  * @{
  */
-#define MCP_IOCONA 0x0A    /**< IOCON register address A. */
-#define MCP_IOCONB 0x0B    /**< IOCON register address B. */
-/** @} */
-#define MCP_IODIRA   0x00
-#define MCP_IODIRB   0x01
-#define MCP_IPOLA    0x02
-#define MCP_IPOLB    0x03
-#define MCP_GPINTENA 0x04
-#define MCP_GPINTENB 0x05
-#define MCP_DEFVALA  0x06
-#define MCP_DEFVALB  0x07
-#define MCP_INTCONA  0x08
-#define MCP_INTCONB  0x09
-#define MCP_IOCONA   0x0A
-#define MCP_IOCONB   0x0B
-#define MCP_GPPUA    0x0C
-#define MCP_GPPUB    0x0D
-#define MCP_INTFA    0x0E
-#define MCP_INTFB    0x0F
-#define MCP_INTCAPA  0x10
-#define MCP_INTCAPB  0x11
-#define MCP_GPIOA    0x12
-#define MCP_GPIOB    0x13
-#define MCP_OLATA    0x14
-#define MCP_OLATB    0x15
+
+#define MCP_IODIR   0x00  /**< I/O Direction Register — sets each pin as input (1) or output (0). */
+#define MCP_IPOL    0x01  /**< Input Polarity Register — inverts the input logic if set. */
+#define MCP_GPINTEN 0x02  /**< Interrupt-on-Change Enable — enables interrupt for selected pins. */
+#define MCP_DEFVAL  0x03  /**< Default Compare Register — defines default values for interrupt comparison. */
+#define MCP_INTCON  0x04  /**< Interrupt Control Register — configures interrupt generation mode. */
+#define MCP_IOCON   0x05  /**< I/O Configuration Register — sets addressing, interrupt, and output behavior. */
+#define MCP_GPPU    0x06  /**< Pull-Up Resistor Configuration — enables weak pull-ups on input pins. */
+#define MCP_INTF    0x07  /**< Interrupt Flag Register — indicates which pins triggered an interrupt. */
+#define MCP_INTCAP  0x08  /**< Interrupt Capture Register — stores the GPIO state at the time of interrupt. */
+#define MCP_GPIO    0x09  /**< General Purpose I/O Register — used to read pin states or write output values. */
+#define MCP_OLAT    0x0A  /**< Output Latch Register — reflects the last written output value. */
+
 /** @} */
 
 /**
@@ -188,21 +161,17 @@
 
 /**
  * @name IOCON Register Bitfields
- * @brief Configuration options for MCP230xx I/O expanders.
+ * @brief Configuration bits for the IOCON register.
  *
- * The IOCON register controls global device settings, including addressing mode,
- * interrupt behavior, and hardware options. Note that some bits (e.g., HAEN) are
- * only relevant for the MCP23S17 (SPI variant) and ignored on MCP23017.
+ * These bits control addressing, interrupt behavior, and output modes.
  *
  * @{
  */
-#define IOCON_BANK     7   /**< Controls register addressing scheme (0 = sequential, 1 = banked). */
-#define IOCON_MIRROR   6   /**< INT pins mirror: 1 = INTA=INTB, 0 = separate pins. */
-#define IOCON_SEQOP    5   /**< Sequential operation disable: 1 = sequential operations disabled. */
-#define IOCON_DISSLW   4   /**< Slew rate control for SDA output (1 = disabled). */
-#define IOCON_HAEN     3   /**< Hardware addressing enable (MCP23S17 only). */
-#define IOCON_ODR      2   /**< INT pin as open-drain (1) or active driver (0). */
-#define IOCON_INTPOL   1   /**< INT pin polarity: 1 = active-high, 0 = active-low. */
+#define IOCON_SEQOP    5   /**< Sequential operation disable (1 = disable auto-increment). */
+#define IOCON_DISSLW   4   /**< Slew rate control for SDA output (1 = disabled, 0 = enabled). */
+#define IOCON_HAEN     3   /**< Hardware addressing enable (MCP23S08 only, ignored on MCP23008). */
+#define IOCON_ODR      2   /**< Configures INT pin as open-drain (1) or active driver (0). */
+#define IOCON_INTPOL   1   /**< Interrupt polarity (1 = active-high, 0 = active-low). */
 /** @} */
 
 /**
@@ -252,14 +221,14 @@
  *
  * @{
  */
-#define INTCAP_IC0 0   /**< Interrupt capture for IO0. */
-#define INTCAP_IC1 1   /**< Interrupt capture for IO1. */
-#define INTCAP_IC2 2   /**< Interrupt capture for IO2. */
-#define INTCAP_IC3 3   /**< Interrupt capture for IO3. */
-#define INTCAP_IC4 4   /**< Interrupt capture for IO4. */
-#define INTCAP_IC5 5   /**< Interrupt capture for IO5. */
-#define INTCAP_IC6 6   /**< Interrupt capture for IO6. */
-#define INTCAP_IC7 7   /**< Interrupt capture for IO7. */
+#define INTCAP_ICP0 0   /**< Interrupt capture for IO0. */
+#define INTCAP_ICP1 1   /**< Interrupt capture for IO1. */
+#define INTCAP_ICP2 2   /**< Interrupt capture for IO2. */
+#define INTCAP_ICP3 3   /**< Interrupt capture for IO3. */
+#define INTCAP_ICP4 4   /**< Interrupt capture for IO4. */
+#define INTCAP_ICP5 5   /**< Interrupt capture for IO5. */
+#define INTCAP_ICP6 6   /**< Interrupt capture for IO6. */
+#define INTCAP_ICP7 7   /**< Interrupt capture for IO7. */
 /** @} */
 
 
@@ -283,18 +252,40 @@
 #define GPIO_GP7 7   /**< GPIO/OLAT bit for IO7. */
 /** @} */
 
-#define MCP23017 1
-#define MCP23008 0
+/**
+ * @name OLAT Register Bitfields
+ * @brief Bit positions for each I/O pin in the MCP23008 OLAT (Output Latch) register.
+ *
+ * These definitions can be used to manipulate or read the logical output state
+ * of each GPIO pin through the OLAT or GPIO register.
+ *
+ * @note Each bit corresponds directly to one I/O pin (GP0–GP7).
+ *
+ * @{
+ */
 
-class MCP230XX{
+#define OLAT_OL0 0  /**< Output Latch bit for IO0 (GP0). */
+#define OLAT_OL1 1  /**< Output Latch bit for IO1 (GP1). */
+#define OLAT_OL2 2  /**< Output Latch bit for IO2 (GP2). */
+#define OLAT_OL3 3  /**< Output Latch bit for IO3 (GP3). */
+#define OLAT_OL4 4  /**< Output Latch bit for IO4 (GP4). */
+#define OLAT_OL5 5  /**< Output Latch bit for IO5 (GP5). */
+#define OLAT_OL6 6  /**< Output Latch bit for IO6 (GP6). */
+#define OLAT_OL7 7  /**< Output Latch bit for IO7 (GP7). */
+
+/** @} */
+
+class MCP23008{
 	uint8_t _address;
-	uint8_t _chip;
 public:
-	MCP230XX(uint8_t address,uint8_t chip);
-	~MCP230XX();
+	MCP23008(uint8_t address);
+	~MCP23008();
+
+	void init();
 	
 	uint8_t read_byte_blocking(uint8_t reg);
 
+	void write_byte_blocking(uint8_t reg,uint8_t val);
 };
 
 

@@ -19,8 +19,6 @@ void stopCooler(){
     //digitalWrite(Pelt1Pin,LOW);
     //digitalWrite(FansPin,LOW);
 }
-// This won't work for a while, I need ISP programmer to set High Fuse bits
-// See Atmega2560 datasheet
 void softwareReset(){
     cli();
     wdt_enable(WDTO_15MS);
@@ -82,12 +80,6 @@ void taskErrorHandler(void*pvParameters){
                 taskNameBuffer[configMAX_TASK_NAME_LEN-1]='\0';
                 snprintf(lastError.errorText,sizeof(lastError.errorText),"Guard zone %d corrupted in task: %s",guardZoneId,taskNameBuffer);
             }
-//      if(xQueueReceive(qErrorId,&overflowedTask,pdMS_TO_TICKS(50))==pdPASS){
-//        f_errorOccured=true;
-//        Serial.println("No cos przyszlo");
-//        for(;i<TASK_N;i++)
-//          vTaskSuspend(taskHandles[i]);
-//      }
         }
         else{
 	    // activate speaker

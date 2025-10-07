@@ -1,5 +1,5 @@
 <map id="updateMemoryUsage" name="updateMemoryUsage">
-<area shape="rect" id="Node000001" title="Updates all RAM usage tracking variables." alt="" coords="657,31,802,57"/>
+<area shape="rect" id="Node000001" title="Updates internal memory usage counters." alt="" coords="657,31,802,57"/>
 <area shape="rect" id="Node000002" href="$task_show_system_info_8cpp.html#a7bed8e3be0c70a38ac1b03047b70ffb1" title=" " alt="" coords="433,31,609,57"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="641,47,609,47,609,41,641,41"/>
 <area shape="rect" id="Node000003" href="$task_show_system_info_8cpp.html#afb6336486c86df2872ba9ab89f81f4e7" title=" " alt="" coords="239,31,385,57"/>

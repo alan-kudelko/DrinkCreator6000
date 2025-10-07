@@ -6,6 +6,7 @@
 #include <uart.h>
 #include <i2c.h>
 #include <DrinkCreator6000_Pins.h>
+#include <DrinkCreator6000_Config.h>
 
 
 void taskReadInput(void*pvParameters){
@@ -16,8 +17,8 @@ void taskReadInput(void*pvParameters){
         // Handling interrupt with debounce
         if((PIND&(1<<KEYBOARD_INT_PIN))==0){
             if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100))==pdTRUE){
-                i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x08);
-                keyboardInput=i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x08);
+                mcp.read_byte_blocking(MCP_INTCAP);
+                keyboardInput=mcp.read_byte_blocking(MCP_INTCAP);
                 
                 xSemaphoreGive(mux_I2CLock);
 
@@ -34,7 +35,7 @@ void taskReadInput(void*pvParameters){
                 while((PIND&(1<<KEYBOARD_INT_PIN))==0){
                     vTaskDelay(pdMS_TO_TICKS(200));
                     if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100))==pdTRUE){
-                        currentKeyboardInput=i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x09);
+                        currentKeyboardInput=mcp.read_byte_blocking(MCP_GPIO);
                         xSemaphoreGive(mux_I2CLock);
 
                         if(currentKeyboardInput!=keyboardInput){
@@ -45,7 +46,7 @@ void taskReadInput(void*pvParameters){
                 }
                 vTaskDelay(pdMS_TO_TICKS(350));
                 if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100)==pdTRUE)){
-                    i2c_read_reg_from_adddress_blocking(MCP_ADDR,0x08);
+                    mcp.read_byte_blocking(MCP_INTCAP);
                     xSemaphoreGive(mux_I2CLock);
                 }        
             }

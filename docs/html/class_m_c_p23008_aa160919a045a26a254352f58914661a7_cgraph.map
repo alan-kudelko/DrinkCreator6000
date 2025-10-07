@@ -1,0 +1,5 @@
+<map id="MCP23008::write_byte_blocking" name="MCP23008::write_byte_blocking">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,160,48"/>
+<area shape="rect" id="Node000002" href="$i2c__blocking_8c.html#ae74a6ec74823b5c3816959f3f696e945" title="Sends multiple data bytes to the specified I2C slave address in blocking mode." alt="" coords="208,5,338,48"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="160,24,192,24,192,29,160,29"/>
+</map>

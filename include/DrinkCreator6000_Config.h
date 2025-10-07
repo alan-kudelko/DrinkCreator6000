@@ -16,50 +16,7 @@
 #include <HD44780_I2C.h>
 #include <MCP230XX.h>
 
-
-// Task stacks and guard zones
-//////////////////////////////////////////////////////////////////
-// Screen data:
-// LCD dimensions and I2C address
-
 extern HD44780_LCD lcd;
-extern MCP230XX mcp;
-// Screen identifiers and navigation overview
-/*
-    Screen transition diagram:
-
-          +-------------+
-          | 0 Welcome   |
-          +------+------+  
-                 |
-                 v
-          +-------------+  
-          | 1 Drink     |  (scrollable)
-          | Select      |
-          +------+------+  
-             /       \
-            v         v
-      +-------------+  +-------------+  (scrollable)
-      | 2 Drink     |  | 3 Show      |
-      | Order       |  | System Info |
-      +-------------+  +------+------+
-                              |
-                              v
-                   +------------------+
-                   | 4 Show Last      |  (scrollable)
-                   | Error            |
-                   +------------------+
-                              |
-                              v
-                   +------------------+
-                   | 5 Test pumps     |  (scrollable)
-                   |                  |
-                   +------------------+
-
-    Legend:
-    - (scrollable) marks screens that support scrolling
-    - (editable) marks screen that supports editing
-*/
-
+extern MCP23008 mcp;
 
 #endif // _DRINK_CREATOR6000_CONFIG_H_

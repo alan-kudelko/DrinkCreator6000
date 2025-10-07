@@ -1,5 +1,5 @@
 var searchData=
 [
-  ['hd44780_5fi2c_2ecpp_0',['HD44780_I2C.cpp',['../_h_d44780___i2_c_8cpp.html',1,'']]],
-  ['hd44780_5fi2c_2eh_1',['HD44780_I2C.h',['../_h_d44780___i2_c_8h.html',1,'']]]
+  ['freertos_5fhooks_2ec_0',['freertos_hooks.c',['../freertos__hooks_8c.html',1,'']]],
+  ['freertosconfig_2eh_1',['FreeRTOSConfig.h',['../_free_r_t_o_s_config_8h.html',1,'']]]
 ];

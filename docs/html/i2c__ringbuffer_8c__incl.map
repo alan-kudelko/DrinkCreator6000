@@ -1,19 +1,11 @@
 <map id="avr_peripherals/i2c/i2c_ringbuffer.c" name="avr_peripherals/i2c/i2c_ringbuffer.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="167,5,297,48"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="79,5,209,48"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,96,70,123"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="183,51,83,92,81,87,181,46"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="118,51,68,88,65,84,115,46"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="94,96,195,123"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="211,51,171,87,167,83,208,47"/>
-<area shape="rect" id="Node000004" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="179,171,285,197"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="235,48,235,155,230,155,230,48"/>
-<area shape="rect" id="Node000006" href="$i2c__ringbuffer_8h.html" title="Non&#45;blocking I2C (TWI) Master driver for AVR (ATmega2560) using a TX ring buffer." alt="" coords="270,96,379,123"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="258,47,300,84,297,88,254,51"/>
-<area shape="rect" id="Node000008" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="403,96,570,123"/>
-<area shape="poly" id="edge9_Node000001_Node000008" title=" " alt="" coords="299,46,433,88,431,93,297,51"/>
-<area shape="rect" id="Node000005" title=" " alt="" coords="245,245,310,272"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="242,196,264,231,259,233,238,199"/>
-<area shape="poly" id="edge8_Node000006_Node000004" title=" " alt="" coords="310,125,261,163,258,159,306,121"/>
-<area shape="poly" id="edge6_Node000006_Node000005" title=" " alt="" coords="323,124,300,198,289,232,284,230,295,197,318,122"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="360,171,435,197"/>
-<area shape="poly" id="edge7_Node000006_Node000007" title=" " alt="" coords="339,121,376,158,372,161,335,125"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="147,49,147,80,142,80,142,49"/>
+<area shape="rect" id="Node000004" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="219,96,325,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="179,46,241,85,238,90,176,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="240,171,304,197"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="275,123,275,155,270,155,270,123"/>
 </map>

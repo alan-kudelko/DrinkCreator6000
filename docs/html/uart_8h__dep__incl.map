@@ -1,19 +1,21 @@
 <map id="avr_peripherals/uart/uart.h" name="avr_peripherals/uart/uart.h">
-<area shape="rect" id="Node000001" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="636,5,771,48"/>
+<area shape="rect" id="Node000001" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="728,5,863,48"/>
 <area shape="rect" id="Node000002" href="$uart_8c.html" title=" " alt="" coords="5,96,141,139"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="621,38,408,60,281,78,153,99,141,101,140,96,153,93,280,72,408,55,620,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="713,36,462,57,308,75,153,99,141,101,140,96,153,93,307,70,461,52,712,30"/>
 <area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="165,104,336,131"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="621,46,347,99,311,106,310,101,346,93,620,41"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="713,42,543,66,347,99,309,106,308,101,346,93,543,61,712,37"/>
 <area shape="rect" id="Node000004" href="$_drink_creator6000___init_8cpp.html" title=" " alt="" coords="359,96,504,139"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="627,56,496,98,495,93,625,51"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="714,51,506,101,504,96,712,45"/>
 <area shape="rect" id="Node000005" href="$task_error_handler_8cpp.html" title=" " alt="" coords="528,104,695,131"/>
-<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="674,61,626,106,623,102,670,57"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="740,57,639,106,637,101,738,53"/>
 <area shape="rect" id="Node000006" href="$task_read_input_8cpp.html" title=" " alt="" coords="719,104,872,131"/>
-<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="738,57,785,102,781,106,734,61"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="798,64,798,104,793,104,793,64"/>
 <area shape="rect" id="Node000007" href="$task_serial_input_8c.html" title=" " alt="" coords="897,104,1038,131"/>
-<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="781,51,931,101,929,106,779,56"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="851,53,944,101,942,106,848,58"/>
 <area shape="rect" id="Node000008" href="$task_serial_system_debugger_8c.html" title=" " alt="" coords="1062,104,1276,131"/>
-<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="787,41,1103,101,1102,106,786,46"/>
+<area shape="poly" id="edge7_Node000001_Node000008" title=" " alt="" coords="879,45,1116,101,1115,106,878,50"/>
 <area shape="rect" id="Node000009" href="$task_update_screen_8cpp.html" title=" " alt="" coords="1300,104,1476,131"/>
-<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="787,33,1014,57,1288,93,1329,101,1328,106,1287,99,1013,62,787,38"/>
+<area shape="poly" id="edge8_Node000001_Node000009" title=" " alt="" coords="879,35,1067,60,1288,93,1328,101,1327,106,1287,99,1066,65,879,41"/>
+<area shape="rect" id="Node000010" href="$system_debug_8c.html" title=" " alt="" coords="1499,104,1687,131"/>
+<area shape="poly" id="edge9_Node000001_Node000010" title=" " alt="" coords="879,31,1150,54,1319,72,1488,93,1532,101,1531,106,1487,99,1318,77,1150,59,879,36"/>
 </map>

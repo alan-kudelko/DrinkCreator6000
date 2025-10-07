@@ -1,23 +1,43 @@
 <map id="src/taskReadInput.cpp" name="src/taskReadInput.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="72,5,226,32"/>
-<area shape="rect" id="Node000002" title=" " alt="" coords="5,80,66,107"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="131,35,70,74,67,69,128,30"/>
-<area shape="rect" id="Node000003" href="$task_read_input_8h.html" title="Task responsible for reading input data from MCP23017 via I2C." alt="" coords="90,80,208,107"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="152,33,152,64,146,64,146,33"/>
-<area shape="rect" id="Node000004" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="231,80,285,107"/>
-<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="169,30,228,69,225,74,166,35"/>
-<area shape="rect" id="Node000005" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="160,155,356,181"/>
-<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="261,107,261,139,256,139,256,107"/>
-<area shape="rect" id="Node000006" title=" " alt="" coords="24,229,119,256"/>
-<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="227,184,119,226,117,221,225,179"/>
-<area shape="rect" id="Node000007" title=" " alt="" coords="143,229,200,256"/>
-<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="245,184,200,221,196,217,241,180"/>
-<area shape="rect" id="Node000008" title=" " alt="" coords="224,229,292,256"/>
-<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="261,182,261,214,256,214,256,182"/>
-<area shape="rect" id="Node000009" title=" " alt="" coords="316,229,392,256"/>
-<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="276,180,327,218,324,222,273,184"/>
-<area shape="rect" id="Node000010" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="416,229,620,256"/>
-<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="304,179,459,222,457,227,303,184"/>
-<area shape="rect" id="Node000011" title=" " alt="" coords="486,304,550,331"/>
-<area shape="poly" id="edge10_Node000010_Node000011" title=" " alt="" coords="521,257,521,288,516,288,516,257"/>
+<area shape="rect" id="Node000001" title=" " alt="" coords="438,5,592,32"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="174,80,235,107"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="455,35,250,82,249,77,454,30"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="259,80,323,107"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="477,35,339,79,337,74,475,30"/>
+<area shape="rect" id="Node000004" href="$task_read_input_8h.html" title="Task responsible for reading input data from MCP23017 via I2C." alt="" coords="347,80,464,107"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="498,35,439,74,436,69,495,30"/>
+<area shape="rect" id="Node000005" href="$uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="488,80,542,107"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="518,33,518,64,512,64,512,33"/>
+<area shape="rect" id="Node000013" href="$i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="566,80,616,107"/>
+<area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="530,31,569,67,565,71,527,34"/>
+<area shape="rect" id="Node000016" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="640,80,807,107"/>
+<area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="552,30,673,72,672,77,551,35"/>
+<area shape="rect" id="Node000017" href="$_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="755,155,934,181"/>
+<area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="593,24,724,42,782,58,805,67,821,78,832,92,839,107,846,139,841,140,834,109,827,94,817,82,802,72,780,63,723,48,592,29"/>
+<area shape="rect" id="Node000006" href="$_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="189,155,385,181"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="488,106,342,152,340,147,487,101"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="5,229,100,256"/>
+<area shape="poly" id="edge6_Node000006_Node000007" title=" " alt="" coords="247,184,109,227,107,222,246,179"/>
+<area shape="rect" id="Node000008" title=" " alt="" coords="124,229,181,256"/>
+<area shape="poly" id="edge7_Node000006_Node000008" title=" " alt="" coords="265,184,191,224,188,219,262,180"/>
+<area shape="rect" id="Node000009" title=" " alt="" coords="206,229,273,256"/>
+<area shape="poly" id="edge8_Node000006_Node000009" title=" " alt="" coords="281,183,258,218,254,215,277,180"/>
+<area shape="rect" id="Node000010" title=" " alt="" coords="298,229,373,256"/>
+<area shape="poly" id="edge9_Node000006_Node000010" title=" " alt="" coords="298,180,321,215,316,218,293,183"/>
+<area shape="rect" id="Node000011" href="$_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="397,229,601,256"/>
+<area shape="poly" id="edge10_Node000006_Node000011" title=" " alt="" coords="325,179,448,221,447,226,323,184"/>
+<area shape="rect" id="Node000012" title=" " alt="" coords="714,304,778,331"/>
+<area shape="poly" id="edge11_Node000011_Node000012" title=" " alt="" coords="543,254,700,300,698,305,541,259"/>
+<area shape="rect" id="Node000014" href="$i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="626,229,732,256"/>
+<area shape="poly" id="edge13_Node000013_Node000014" title=" " alt="" coords="595,107,602,141,617,180,633,200,652,218,648,222,629,204,613,183,597,143,590,108"/>
+<area shape="rect" id="Node000015" href="$i2c__blocking_8h.html" title="Blocking I2C (TWI) Master operations for AVR (ATmega2560) without TX buffer." alt="" coords="627,155,731,181"/>
+<area shape="poly" id="edge15_Node000013_Node000015" title=" " alt="" coords="608,105,654,143,651,147,605,109"/>
+<area shape="poly" id="edge14_Node000014_Node000012" title=" " alt="" coords="693,255,726,291,722,294,689,258"/>
+<area shape="poly" id="edge16_Node000015_Node000014" title=" " alt="" coords="682,182,682,214,676,214,676,182"/>
+<area shape="rect" id="Node000018" href="$_h_d44780___i2_c_8h.html" title="Command and flag definitions for controlling HD44780&#45;based character LCDs via I²C." alt="" coords="756,229,872,256"/>
+<area shape="poly" id="edge19_Node000017_Node000018" title=" " alt="" coords="842,183,828,216,823,214,837,181"/>
+<area shape="rect" id="Node000019" href="$_m_c_p230_x_x_8h.html" title="Class interface and register definitions for MCP23008 I²C GPIO expanders." alt="" coords="895,229,996,256"/>
+<area shape="poly" id="edge21_Node000017_Node000019" title=" " alt="" coords="864,180,917,218,914,222,861,184"/>
+<area shape="poly" id="edge20_Node000018_Node000012" title=" " alt="" coords="804,258,770,294,766,291,800,255"/>
+<area shape="poly" id="edge22_Node000019_Node000012" title=" " alt="" coords="912,259,793,302,792,297,910,254"/>
 </map>

@@ -117,15 +117,19 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="_drink_creator6000___ram_stats_8h__dep__incl.png" border="0" usemap="#ainclude_2_drink_creator6000___ram_stats_8hdep" loading="lazy" alt=""/></div>
 <map name="ainclude_2_drink_creator6000___ram_stats_8hdep" id="ainclude_2_drink_creator6000___ram_stats_8hdep">
-<area shape="rect" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="289,5,457,48"/>
+<area shape="rect" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="458,5,627,48"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html" title=" " alt="" coords="5,104,176,131"/>
-<area shape="poly" title=" " alt="" coords="293,56,132,106,130,101,292,51"/>
-<area shape="rect" href="_drink_creator6000___ram_stats_8c.html" title=" " alt="" coords="199,96,344,139"/>
-<area shape="poly" title=" " alt="" coords="340,60,297,97,294,93,337,56"/>
-<area shape="rect" href="task_serial_system_debugger_8c.html" title=" " alt="" coords="369,104,582,131"/>
-<area shape="poly" title=" " alt="" coords="410,56,463,102,460,106,407,60"/>
-<area shape="rect" href="task_show_system_info_8cpp.html" title=" " alt="" coords="607,104,800,131"/>
-<area shape="poly" title=" " alt="" coords="466,50,657,101,656,106,465,55"/>
+<area shape="poly" title=" " alt="" coords="444,49,187,99,151,106,150,101,186,93,443,44"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html" title=" " alt="" coords="199,96,344,139"/>
+<area shape="poly" title=" " alt="" coords="466,56,336,98,335,93,464,51"/>
+<area shape="rect" href="_drink_creator6000___ram_stats_8c.html" title=" " alt="" coords="368,96,514,139"/>
+<area shape="poly" title=" " alt="" coords="509,60,467,97,463,93,506,56"/>
+<area shape="rect" href="task_serial_system_debugger_8c.html" title=" " alt="" coords="538,104,752,131"/>
+<area shape="poly" title=" " alt="" coords="579,56,632,102,629,106,576,60"/>
+<area shape="rect" href="task_show_system_info_8cpp.html" title=" " alt="" coords="776,104,970,131"/>
+<area shape="poly" title=" " alt="" coords="635,50,826,101,825,106,634,55"/>
+<area shape="rect" href="system_debug_8c.html" title=" " alt="" coords="994,104,1182,131"/>
+<area shape="poly" title=" " alt="" coords="642,40,983,93,1024,101,1023,106,982,99,642,45"/>
 </map>
 </div>
 </div>
@@ -133,11 +137,10 @@ This graph shows which files directly or indirectly include this file:</div>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
-<tr id="func-members-0" class="groupHeader"><td colspan="2"><div class="groupHeader">Initialization functions</div></td></tr>
 <tr class="memitem:aeb775da3de784e3e877838416073024a" id="r_aeb775da3de784e3e877838416073024a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aeb775da3de784e3e877838416073024a">initRamSize</a> (void)</td></tr>
 <tr class="memdesc:aeb775da3de784e3e877838416073024a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes the RAM size value.  <br /></td></tr>
 <tr class="memitem:a8b8422d6157a1281dab2d0103add13bc" id="r_a8b8422d6157a1281dab2d0103add13bc"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a8b8422d6157a1281dab2d0103add13bc">updateMemoryUsage</a> (void)</td></tr>
-<tr class="memdesc:a8b8422d6157a1281dab2d0103add13bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates all RAM usage tracking variables.  <br /></td></tr>
+<tr class="memdesc:a8b8422d6157a1281dab2d0103add13bc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Updates internal memory usage counters.  <br /></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 id="header-var-members" class="groupheader"><a id="var-members" name="var-members"></a>
 Variables</h2></td></tr>
@@ -174,7 +177,7 @@ Variables</h2></td></tr>
 </ul>
 <p>Initialization:</p><ul>
 <li><span class="tt"><a class="el" href="#aeb775da3de784e3e877838416073024a" title="Initializes the RAM size value.">initRamSize()</a></span> runs during <span class="tt">.init8</span> (startup)</li>
-<li><span class="tt"><a class="el" href="#a8b8422d6157a1281dab2d0103add13bc" title="Updates all RAM usage tracking variables.">updateMemoryUsage()</a></span> updates usage values </li>
+<li><span class="tt"><a class="el" href="#a8b8422d6157a1281dab2d0103add13bc" title="Updates internal memory usage counters.">updateMemoryUsage()</a></span> updates usage values </li>
 </ul>
 </div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="aeb775da3de784e3e877838416073024a" name="aeb775da3de784e3e877838416073024a"></a>
@@ -201,6 +204,18 @@ Variables</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Initializes the RAM size value. </p>
+<div class="dynheader">
+Here is the caller graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="_drink_creator6000___ram_stats_8h_aeb775da3de784e3e877838416073024a_icgraph.png" border="0" usemap="#a_drink_creator6000___ram_stats_8h_aeb775da3de784e3e877838416073024a_icgraph" loading="lazy" alt=""/></div>
+<map name="a_drink_creator6000___ram_stats_8h_aeb775da3de784e3e877838416073024a_icgraph" id="a_drink_creator6000___ram_stats_8h_aeb775da3de784e3e877838416073024a_icgraph">
+<area shape="rect" title="Initializes the RAM size value." alt="" coords="262,5,354,32"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ab058849f3170edfd9919126b64bbc9fe" title="Initializes memory resources for FreeRTOS." alt="" coords="99,5,214,32"/>
+<area shape="poly" title=" " alt="" coords="246,21,214,21,214,16,246,16"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html#ac13b6984fbac2d70b163e388a2d06155" title=" " alt="" coords="5,5,51,32"/>
+<area shape="poly" title=" " alt="" coords="83,21,51,21,51,16,83,16"/>
+</map>
+</div>
 
 </div>
 </div>
@@ -209,9 +224,6 @@ Variables</h2></td></tr>
 
 <div class="memitem">
 <div class="memproto">
-<table class="mlabels">
-  <tr>
-  <td class="mlabels-left">
       <table class="memname">
         <tr>
           <td class="memname">void updateMemoryUsage </td>
@@ -220,22 +232,18 @@ Variables</h2></td></tr>
           <td></td>
         </tr>
       </table>
-  </td>
-  <td class="mlabels-right">
-<span class="mlabels"><span class="mlabel extern">extern</span></span>  </td>
-  </tr>
-</table>
 </div><div class="memdoc">
 
-<p>Updates all RAM usage tracking variables. </p>
-<p>Call this function at runtime to refresh memory usage stats. Calculates heap, stack, tdata usage and updates global RAM stats. </p>
+<p>Updates internal memory usage counters. </p>
+<p>This function scans current allocations and updates counters used by the RAM dump routine.</p>
+<dl class="section note"><dt>Note</dt><dd>Compliant with MISRA C:2025 – explicit void in prototype. </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="_drink_creator6000___ram_stats_8h_a8b8422d6157a1281dab2d0103add13bc_icgraph.png" border="0" usemap="#a_drink_creator6000___ram_stats_8h_a8b8422d6157a1281dab2d0103add13bc_icgraph" loading="lazy" alt=""/></div>
 <map name="a_drink_creator6000___ram_stats_8h_a8b8422d6157a1281dab2d0103add13bc_icgraph" id="a_drink_creator6000___ram_stats_8h_a8b8422d6157a1281dab2d0103add13bc_icgraph">
-<area shape="rect" title="Updates all RAM usage tracking variables." alt="" coords="598,31,743,57"/>
-<area shape="rect" href="task_serial_system_debugger_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="467,5,550,32"/>
+<area shape="rect" title="Updates internal memory usage counters." alt="" coords="598,31,743,57"/>
+<area shape="rect" href="system_debug_8c.html#a5cce7ae3fbddd6bfb0f67592b3d64841" title="Dumps memory usage via UART." alt="" coords="467,5,550,32"/>
 <area shape="poly" title=" " alt="" coords="582,33,550,28,551,22,583,28"/>
 <area shape="rect" href="task_serial_system_debugger_8c.html#a82f2bfb81de043f58e60f95ea4f8483e" title="FreeRTOS task for serial system debugging." alt="" coords="239,56,419,83"/>
 <area shape="poly" title=" " alt="" coords="582,53,420,65,419,60,582,48"/>
