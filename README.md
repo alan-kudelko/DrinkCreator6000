@@ -94,12 +94,11 @@ This section provides a visual presentation of the DrinkCreator6000 project, inc
 
 | ID | Screen               | Description                                                                 |
 |----|----------------------|-----------------------------------------------------------------------------|
-| 0  | **Welcome Screen**    | Displays the project name, firmware version, and boot count.               |
-| 1  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
-| 2  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
-| 3  | **Show Info Screen** | Displays general system status including uptime, firmware version, boot count, author, freezer temperature, RAM usage, and task stack diagnostics. |
-| 4  | **Show Task Stack Info Screen** | Displays detailed information about FreeRTOS task stacks, including task names, priorities, and high-water marks (minimum remaining stack). |
-| 5  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
+| 0  | **Drink Select Screen** | Shows the current drink name, ingredients, and related info.              |
+| 1  | **Drink Order Screen**  | Displays dispensing progress, drink name, and ETA.                        |
+| 2  | **Show Info Screen** | Displays general system status including uptime, firmware version, boot count, author, freezer temperature, RAM usage, and task stack diagnostics. |
+| 3  | **Show Task Stack Info Screen** | Displays detailed information about FreeRTOS task stacks, including task names, priorities, and high-water marks (minimum remaining stack). |
+| 4  | **Show Last Error Screen**    | Displays last unconfirmed error stored in EEPROM  |
 
 Screen transition diagram:
      
@@ -122,7 +121,6 @@ Screen transition diagram:
 - ✅ Create task for regulating temperature inside the freezer
 - ✅ Create task for handling keyboard input from MCP23008 with software debounce
 - ✅ Create task for selecting the drink to be ordered
-- ✅ Create welcome screen task to display a greeting message with project name, version, and boot count on the LCD at system startup
 - ✅ Create task for processing the ordered drink (pump activation)
 - ✅ Create task to display project information such as author, startup count, and current runtime
 - ✅ Implement software guard zones between task stacks for added protection and reliability
@@ -251,12 +249,10 @@ Screen transition diagram:
 | 08      | `taskSelectDrink`          | Handles drink selection logic and displays in on the LCD                                                                  |    1     |    270     |     95     |
 | 09      | `taskOrderDrink`           | Controls the 74HC595 shift register and pump sequence when processing a drink order                                       |    1     |    320     |    175     |
 | 10      | `taskShowSystemInfo`       | Displays various system statuses—RAM usage, temperature, task states, boot count, uptime, and last saved error—on the LCD |    1     |    300     |     80     |
-| 11      | `taskWelcomeScreen`        | Displays a decorative welcome screen to give the system a more professional appearance                                    |    1     |    222     |     42     |
-| 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements (Not implemented yet)                               |    1     |    222     |      -     |
+| 12      | `taskTestHardware`         | Allows for testing of individual pumps, cooling fan, Peltier elements and cleanup of the machine                          |    1     |    300     |      -     |
 
 *Note:*  
 - Task stacks will be fine-tuned in the final release
-- The taskWelcomeScreen and taskTestHardware tasks share the same TCB and stack, as the former is deleted upon completion. This memory reuse is required due to limited available RAM (~800 bytes remaining) and provides a practical demonstration of task stack and TCB reuse in highly constrained memory environments
 
 ### 3. 🛠️ System's architecture overview
 
@@ -279,10 +275,9 @@ This initialization routine executes prior to main(), ensuring all hardware and 
 
 During normal startup, all tasks are created and initialized according to the system design:
 
-- `taskWelcomeScreen` executes briefly to present a decorative startup display
 - Core tasks are created, including `taskMain`, `taskReadInput`, `taskUpdateScreen`, `taskReadTemp`, `taskRegulateTemp`, `taskSelectDrink`, and `taskOrderDrink`
 - Peripheral tasks for serial input, system monitoring, and UI updates are also initialized
-- The global `SystemContext` (FSM-based) is initialized to the `taskWelcomeScreen` context
+- The global `SystemContext` (FSM-based) is initialized to the `taskSelectDrink` context
 
 This setup enables full system functionality, supporting both user interaction and automated beverage processing.
 
@@ -291,7 +286,6 @@ This setup enables full system functionality, supporting both user interaction a
 In case of a critical fault, the system performs a fault startup with a minimal set of tasks:
 
 - The task that caused the fault is not created
-- `taskWelcomeScreen` is non created
 - The global `SystemContext` is set to display the last recorded fault, and all tasks except the one that caused the fault are initialized normally
 
 This approach ensures safe recovery, prevents re-execution of the failing task, and provides immediate visibility of the fault.
@@ -459,8 +453,8 @@ This approach provides reliable short-press and long-press detection without the
 
 | Address (hex) | Size (bytes) | Description                       |
 |---------------|--------------|-----------------------------------|
-| 0x0000        | 1            | Number of drinks in memory (n)    |
-| 0x0001        | 34 * n       | Drinks data (n ≤ 26)              |
+| 0x0000        | 1            | Cleaning completion flag    |
+| 0x0001        | 1            | Last cleaning step              |
 | 0x0400        | 4            | Temperature set in freezer        |
 | 0x0404        | 4            | Temperature hysteresis width      |
 | 0x0800        | 135          | Last saved error                  |
@@ -532,7 +526,7 @@ This configuration is reflected in the following linker script fragment:
 	KEEP(*(.tdat.guardZone10));	
 	KEEP(*(.tdat.showSystemInfoStack));
 	KEEP(*(.tdat.guardZone11));
-	KEEP(*(.tdat.welcomeScreenStack));
+	KEEP(*(.tdat.testHardware));
 	
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))
