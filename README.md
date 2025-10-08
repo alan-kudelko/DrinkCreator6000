@@ -676,7 +676,6 @@ This module serves as the main processing unit in the project, handling all digi
 | PD1 (TXD)          | 🟢 USART0 TX |
 | PB0 (ICP1/CLKO)    | 🔴 Open Drain Slave Data Ready |
 | PB1 (OC1A)         | 🟢 1-WIRE interface |
-| PB2 (SS/OC1B)      | ⚪ Unused |
 | PB3 (MOSI/OC2A)    | 🟢 ICSP Serial Data in |
 | PB4 (MISO)         | 🟢 ICSP Serial Data out |
 | PB5 (SCK)          | 🟢 ICSP Serial Clock |
@@ -772,13 +771,11 @@ Preview of the custom-designed AVR board used in the project:
 The project includes a dedicated initialization module responsible for preparing the system hardware and RTOS environment before normal operation begins.
 - Configures all I/O pins according to the custom hardware design.
 - Allocates memory statically for FreeRTOS objects such as tasks, queues, semaphores, and mutexes.
-- Initializes key hardware peripherals including UART, I²C devices (e.g., LCD, keypad expanders), and shift registers for pump control.
+- Initializes key hardware peripherals including UART, I²C devices (e.g., LCD, pin expander), and shift registers for pump control.
 - Implements a system startup routine that runs early during boot (placed in the `.init8` linker section), ensuring all components are ready before the scheduler starts.
 - The startup routine is marked with GCC `naked` and `used` attributes to control exact placement and prevent unwanted optimizations or removal.
 
 This careful initialization sequence ensures reliable and deterministic system behavior from power-up.
-
-
 
 ---
 
@@ -790,8 +787,7 @@ The new build process uses **CMake** along with **Ninja** as the build tool, off
 
 Although the project still compiles and uploads successfully through the Arduino IDE for legacy support, the primary development and deployment now rely on the VS Code + CMake + Ninja environment.
 
-In hindsight, Arduino is a platform primarily designed for hobbyists. Had I been fully aware of its limitations earlier, I would have chosen a professional environment like Atmel Studio or a similar build system from the start — which would have saved a lot of time.
-
+In retrospect, Arduino is primarily intended for hobbyist projects. Had I been fully aware of its limitations earlier, I would have started with a professional environment such as Atmel Studio or a similar system, which would have saved considerable time. Additionally, Arduino libraries often abstract away implementation details, leaving little control to the developer.
 
 The build steps are outlined below and include:
 - Installing VS Code
@@ -812,6 +808,18 @@ The build steps are outlined below and include:
 #### 11.5 Installing AVRDUDE for uploading the compiled firmware
 
 #### 11.6 Building and uploading the project
+
+Once the development environment is set up, the project can be compiled directly from VS Code. Start by running the CMake: Configure command to generate the build files, followed by CMake: Compile to compile the project. This process produces the final .hex file that will be uploaded to the MCU.
+
+Before uploading the compiled project, the fuse bits of the MCU must be configured. Fuse bits control low-level behavior of the microcontroller, including clock settings and memory protection. To set them correctly, run the following avrdude command:
+
+    avrdude -c usbasp -p m2561 -B 20 -U lfuse:w:0xE2:m -U hfuse:w:0xD1:m -U efuse:w:0xFF:m
+
+Once the fuse bits are set, the compiled .hex file can be uploaded to the board. Open a command shell or PowerShell in the build folder, then execute:
+
+    avrdude -C avrdude.conf -v -p m2561 -c usbasp -B 2 -U flash:w:CMake_AVR.hex:i
+
+The -B parameter specifies the programmer bit clock. If you encounter communication issues during upload, try adjusting this value. After this step, the microcontroller will contain the latest compiled firmware and be ready for use.
 
 ---
 
