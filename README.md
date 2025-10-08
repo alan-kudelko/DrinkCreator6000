@@ -14,8 +14,9 @@ The system supports dedicated hardware test functions for verifying pumps, Pelti
 
 The entire unit is powered by a modified ATX computer power supply, delivering stable 5V and 12V rails for logic and high-current subsystems.
 
-> 🔧 Status: In development  
-> 🧪 Goal: Create a fully functional, physical drink machine and explore structured multi-tasking using FreeRTOS AVR MCU.
+> 🚀 **Status:** Core functionality complete
+> 🧪 **Goal:** Develop a fully functional, physical drink machine and demonstrate structured multi-tasking on a FreeRTOS-based AVR MCU.  
+> 🧪 **Next steps:** Final polishing, UI refinements, and hardware tuning
 
 ---
 
