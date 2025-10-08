@@ -12,6 +12,8 @@
 	extern "C"{
 #endif // __cplusplus
 
+extern void initializeBuzzer(void);
+
 extern void activateBuzzer(uint8_t tone);
 
 extern void deactivateBuzzer(void);

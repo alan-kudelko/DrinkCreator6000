@@ -109,6 +109,12 @@
 },
 {
   "directory": "D:/Projekty/DrinkCreator6000/build",
+  "command": "D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c -ID:/Projekty/DrinkCreator6000/drivers -ID:/Projekty/DrinkCreator6000/utility/debug -ID:/Projekty/DrinkCreator6000/utility/buzzer -ID:/Projekty/DrinkCreator6000/avr_peripherals/board_io -mmcu=atmega2560 -Os -DF_CPU=8000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z -o CMakeFiles\\CMake_AVR.dir\\src\\taskTesthardware.cpp.obj -c D:\\Projekty\\DrinkCreator6000\\src\\taskTesthardware.cpp",
+  "file": "D:/Projekty/DrinkCreator6000/src/taskTesthardware.cpp",
+  "output": "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMake_AVR.dir/src/taskTesthardware.cpp.obj"
+},
+{
+  "directory": "D:/Projekty/DrinkCreator6000/build",
   "command": "D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe -ID:/Projekty/DrinkCreator6000/tools/avr/include/avr -ID:/Projekty/DrinkCreator6000/tools/avr/include/compat -ID:/Projekty/DrinkCreator6000/tools/avr/include/sys -ID:/Projekty/DrinkCreator6000/tools/avr/include/util -ID:/Projekty/DrinkCreator6000/tools/tools/lib/gcc/avr/7.3.0/include -ID:/Projekty/DrinkCreator6000/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/include -ID:/Projekty/DrinkCreator6000/FreeRTOS/FreeRTOS-Kernel/portable/ThirdParty/GCC/ATmega -ID:/Projekty/DrinkCreator6000/avr_peripherals/uart -ID:/Projekty/DrinkCreator6000/avr_peripherals/i2c -ID:/Projekty/DrinkCreator6000/drivers -ID:/Projekty/DrinkCreator6000/utility/debug -ID:/Projekty/DrinkCreator6000/utility/buzzer -ID:/Projekty/DrinkCreator6000/avr_peripherals/board_io -mmcu=atmega2560 -Os -DF_CPU=8000000UL -Wall -fno-exceptions -fno-rtti -g -std=gnu++1z -o CMakeFiles\\CMake_AVR.dir\\src\\taskUpdateScreen.cpp.obj -c D:\\Projekty\\DrinkCreator6000\\src\\taskUpdateScreen.cpp",
   "file": "D:/Projekty/DrinkCreator6000/src/taskUpdateScreen.cpp",
   "output": "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMake_AVR.dir/src/taskUpdateScreen.cpp.obj"

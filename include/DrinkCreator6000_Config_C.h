@@ -64,8 +64,7 @@
 #define TASK_SELECT_DRINK 8
 #define TASK_ORDER_DRINK 9
 #define TASK_SHOW_SYS_INFO 10
-#define TASK_WELCOME_SCREEN 11
-#define TASK_TEST_HARDWAER 12
+#define TASK_TEST_HARDWARE 11
 
 /** @brief Stack size (in words) for Error Handler task (ID 0). */
 #define TASK_ERROR_HANDLER_STACK_SIZE 230           //0
@@ -89,13 +88,8 @@
 #define TASK_ORDER_DRINK_STACK_SIZE 256             //9
 /** @brief Stack size (in words) for Show System Info task (ID 10). */
 #define TASK_SHOW_SYSTEM_INFO_STACK_SIZE 300        //10
-/** 
- * @brief Stack size (in words) for Welcome Screen task (ID 11). 
- * Tuned with 48 words in reserve. 160 words caused overflow.
- */
-#define TASK_WELCOME_SCREEN_STACK_SIZE 210          //11
-/** @brief Stack size (in words) for Test Hardware task (ID 12). */
-#define TASK_TEST_HARDWARE_STACK_SIZE 150             //12
+/** @brief Stack size (in words) for Test Hardware task (ID 11). */
+#define TASK_TEST_HARDWARE_STACK_SIZE 300             //11
 
 // Tasks execution periods in ms
 #define TASK_ERROR_HANDLER_REFRESH_RATE 500     // 0
@@ -109,7 +103,6 @@
 #define TASK_SELECT_DRINK_REFRESH_RATE 1000     // 8
 #define TASK_ORDER_DRINK_REFRESH_RATE 500       // 9
 #define TASK_SHOW_SYSTEM_INFO_REFRESH_RATE 600  // 10
-#define TASK_WELCOME_SCREEN_REFRESH_RATE 250     // 11
 
 // Timeout for closing welcome screen task
 #define TASK_WELCOME_TICKS_TO_CLOSE 10
@@ -142,7 +135,7 @@ extern StaticTask_t regulateTempTCB;                                ///< Task Co
 extern StaticTask_t selectDrinkTCB;                                 ///< Task Control Block for Select Drink task (ID 8)
 extern StaticTask_t orderDrinkTCB;                                  ///< Task Control Block for Order Drink task (ID 9)
 extern StaticTask_t showSystemInfoTCB;                              ///< Task Control Block for Show System Info task (ID 10)
-extern StaticTask_t welcomeScreenTCB;                               ///< Task Control Block for Welcome Screen task (ID 11)
+extern StaticTask_t testHardwareTCB;                                ///< Task Control Block for Welcome Screen task (ID 11)
 /**
  * @brief Array of task handles.
  * 
@@ -190,7 +183,7 @@ extern volatile StackType_t guardZone10[]; ///< Guard zone before Show System In
 extern StackType_t showSystemInfoStack[];  ///< Stack for Show System Info task (ID 10)
 
 extern volatile StackType_t guardZone11[]; ///< Guard zone before Welcome Screen task stack
-extern StackType_t welcomeScreenStack[];   ///< Stack for Welcome Screen task (ID 11)
+extern StackType_t testHardwareStack[];   ///< Stack for Welcome Screen task (ID 11)
 /**
  * @brief Array of pointers to all guard zones.
  * 
@@ -285,12 +278,12 @@ extern const uint16_t pumpsEff[];
 #define E_LOADING_BAR 17
 // LCD custom characters
 
-#define SHOW_INFO_MENUS_COUNT 4
+#define SHOW_INFO_MENUS_COUNT 4 // later needs to be changed
 // Show info submenu count
 
-#define WELCOME_SCREEN 0
-#define DRINK_SELECT 1
-#define DRINK_ORDER 2
-#define SHOW_INFO 3
+#define DRINK_SELECT 0
+#define DRINK_ORDER 1
+#define SHOW_INFO 2
+#define TEST_HARDWARE 3
 
 #endif // _DRINK_CREATOR6000_CONFIG_C_H_

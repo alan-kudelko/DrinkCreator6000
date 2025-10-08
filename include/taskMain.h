@@ -20,10 +20,6 @@
  */
 void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
 /**
- * @brief Processes input in the Welcome Screen context.
- */
-void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
-/**
  * @brief Processes input in the Select Drink task context.
  */
 void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
@@ -35,6 +31,10 @@ void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,volatile struc
  * @brief Processes input in the Show System Info task context.
  */
 void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
+/**
+ * @brief Processes input in the Test Hardware task context.
+ */
+void taskMain_ProcessContext_taskTestHardware(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
 /**
  * @brief Main FreeRTOS task that coordinates system workflow.
  */

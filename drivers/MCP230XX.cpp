@@ -1,3 +1,5 @@
+#include <util/delay.h>
+
 #include <MCP230XX.h>
 #include <i2c.h>
 
@@ -18,6 +20,7 @@ void MCP23008::init(){
     write_byte_blocking(MCP_DEFVAL,0x00);
     write_byte_blocking(MCP_INTCON,0xff);
     write_byte_blocking(MCP_GPPU,0xff);
+    _delay_ms(10);
     i2c_read_reg_from_adddress_blocking(_address,MCP_INTCAP);
 }
 

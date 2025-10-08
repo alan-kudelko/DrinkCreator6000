@@ -24,6 +24,6 @@
 #include <taskSelectDrink.h>           ///< Task 8: Drink selection
 #include <taskOrderDrink.h>            ///< Task 9: Drink ordering
 #include <taskShowSystemInfo.h>        ///< Task 10: System info display
-#include <taskWelcomeScreen.h>         ///< Task 11: Welcome screen
+#include <taskTestHardware.h>         ///< Task 11: Test hardware
 
 #endif // _DRINK_CREATOR_6000_TASKS_H_

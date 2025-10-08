@@ -95,7 +95,7 @@ extern const char taskRegTemp_name[]                  PROGMEM; /**< Task name: R
 extern const char taskSelectDrink_name[]              PROGMEM; /**< Task name: Select Drink */
 extern const char taskOrderDrink_name[]               PROGMEM; /**< Task name: Order Drink */
 extern const char taskShowInfo_name[]                 PROGMEM; /**< Task name: Show Info */
-extern const char taskWelcome_name[]                  PROGMEM; /**< Task name: Welcome Screen */
+extern const char taskTestHW_name[]                   PROGMEM; /**< Task name: Test hardware */
 
 extern const char* const taskNames[]                  PROGMEM; /**< Array of all task name strings */
 /** @} */

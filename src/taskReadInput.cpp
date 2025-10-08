@@ -5,6 +5,8 @@
 
 #include <uart.h>
 #include <i2c.h>
+#include <board_io.h>
+
 #include <DrinkCreator6000_Pins.h>
 #include <DrinkCreator6000_Config.h>
 
@@ -15,7 +17,7 @@ void taskReadInput(void*pvParameters){
   
     for(;;){
         // Handling interrupt with debounce
-        if((PIND&(1<<KEYBOARD_INT_PIN))==0){
+        if(read_keyboard_int()==false){
             if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100))==pdTRUE){
                 mcp.read_byte_blocking(MCP_INTCAP);
                 keyboardInput=mcp.read_byte_blocking(MCP_INTCAP);
@@ -29,10 +31,10 @@ void taskReadInput(void*pvParameters){
                 // I also need to handle debounce in this section, along with clearing int flag
             }
 
-            if((PIND&(1<<KEYBOARD_INT_PIN))==0){
+            if(read_keyboard_int()==false){
                 vTaskDelay(pdMS_TO_TICKS(100));
                 // Checking if button is still pressed
-                while((PIND&(1<<KEYBOARD_INT_PIN))==0){
+                while(read_keyboard_int()==false){
                     vTaskDelay(pdMS_TO_TICKS(200));
                     if(xSemaphoreTake(mux_I2CLock,pdMS_TO_TICKS(100))==pdTRUE){
                         currentKeyboardInput=mcp.read_byte_blocking(MCP_GPIO);

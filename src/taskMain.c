@@ -19,18 +19,6 @@ void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,volatile struct sUICont
         UI_context->currentSubMenu++;
     }
 }
-void taskMain_ProcessContext_Task_WelcomeScreen(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
-  // Welcome screen with UI_Context change and activating taskSelectDrink as default
-    if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
-        taskENTER_CRITICAL();
-        UI_context->currentTask=DRINK_SELECT;
-        UI_context->currentSubMenu=0;
-        taskEXIT_CRITICAL();
-    
-        xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
-        xTaskNotify(taskHandles[TASK_WELCOME_SCREEN],0,eSetValueWithOverwrite);
-    }
-}
 void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
     if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
         // Ordering drink with UI_Context change and data send
@@ -88,6 +76,17 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile s
         }
     }
     if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+        if(UI_context->currentMenu==1){
+            taskENTER_CRITICAL();
+            UI_context->currentTask=TEST_HARDWARE;
+            UI_context->currentMenu=0;
+            UI_context->currentSubMenu=0;
+            UI_context->autoScrollEnable=0;
+            taskEXIT_CRITICAL();
+            xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite);
+            xTaskNotify(taskHandles[TASK_TEST_HARDWARE],1,eSetValueWithOverwrite);
+            return;
+        }
         taskENTER_CRITICAL();
         UI_context->currentMenu++;
         UI_context->currentSubMenu=0;
@@ -116,31 +115,50 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile s
     }
     taskMain_ProcessScrollButtons(keyboardInput,UI_context);
 }
+void taskMain_ProcessContext_taskTestHardware(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
+    if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
+        if(UI_context->currentMenu==0){
+            taskENTER_CRITICAL();
+            UI_context->currentTask=SHOW_INFO;
+            UI_context->currentMenu=0;
+            UI_context->currentSubMenu=0;
+            UI_context->autoScrollEnable=0;
+            taskEXIT_CRITICAL();
+            xTaskNotify(taskHandles[TASK_TEST_HARDWARE],0,eSetValueWithOverwrite);
+            xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
+            return;
+        }
+    }
+}
 
 void taskMain(void*pvParameters){
     bool f_keyboardDataReceived=false;
   
     uint8_t keyboardData=0;
+
+    xTaskNotify(taskHandles[TASK_ORDER_DRINK],1,eSetValueWithoutOverwrite);
   
     for(;;){
         if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(portMAX_DELAY))){
-	          f_keyboardDataReceived=true;
+	        f_keyboardDataReceived=true;
         }
-	      if(f_keyboardDataReceived){
+	    if(f_keyboardDataReceived){
             switch(UI_Context.currentTask){
-	              case WELCOME_SCREEN: 
-		                taskMain_ProcessContext_Task_WelcomeScreen(&keyboardData,&UI_Context);
-	                  break;
-		            case DRINK_SELECT:
+		        case DRINK_SELECT:
                     taskMain_ProcessContext_taskSelectDrink(&keyboardData,&UI_Context);
-		                break;
-	              case DRINK_ORDER:
+		            break;
+	            case DRINK_ORDER:
                     taskMain_ProcessContext_taskOrderDrink(&keyboardData,&UI_Context);
-		                break;
-		            case SHOW_INFO:
-		                taskMain_ProcessContext_taskShowSystemInfo(&keyboardData,&UI_Context);
-		                break;
-		          }
+		            break;
+		        case SHOW_INFO:
+		            taskMain_ProcessContext_taskShowSystemInfo(&keyboardData,&UI_Context);
+		            break;
+                case TEST_HARDWARE:
+                    taskMain_ProcessContext_taskTestHardware(&keyboardData,&UI_Context);
+                default:
+                1;
+                // Code to handle potential errors
+		        }
     
 		        f_keyboardDataReceived=false;
 		        // Should be executed only once after received qKeyboardData

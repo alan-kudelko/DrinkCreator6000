@@ -74,7 +74,7 @@ const char taskRegTemp_name[configMAX_TASK_NAME_LEN]                PROGMEM="REG
 const char taskSelectDrink_name[configMAX_TASK_NAME_LEN]            PROGMEM="SELECT DRINK";
 const char taskOrderDrink_name[configMAX_TASK_NAME_LEN]             PROGMEM="ORDER DRINK";
 const char taskShowInfo_name[configMAX_TASK_NAME_LEN]               PROGMEM="SHOW INFO";
-const char taskWelcome_name[configMAX_TASK_NAME_LEN]                PROGMEM="WELCOME";
+const char taskTestHW_name[configMAX_TASK_NAME_LEN]                 PROGMEM="TEST HW";
 const char*const taskNames[TASK_N]                                  PROGMEM={
     taskErrorHandler_name,
     taskStackDebug_name,
@@ -87,7 +87,7 @@ const char*const taskNames[TASK_N]                                  PROGMEM={
     taskSelectDrink_name,
     taskOrderDrink_name,
     taskShowInfo_name,
-    taskWelcome_name
+    taskTestHW_name
 };
 
 #ifdef __cplusplus

@@ -114,10 +114,10 @@ struct sUIContext{
      * @brief Current task bound to the UI.
      *
      * Possible values:  
-     * - 0 = taskWelcomeScreen  
-     * - 1 = taskSelectDrink  
-     * - 2 = taskOrderDrink  
-     * - 3 = taskShowSystemInfo
+     * - 0 = taskSelectDrink  
+     * - 1 = taskOrderDrink  
+     * - 2 = taskShowSystemInfo
+     *  -3 = taskTestHardware
      */
     uint8_t currentTask:2;
     /**
@@ -128,8 +128,8 @@ struct sUIContext{
      * - 1 = showInfo_Temp  
      * - 2 = showInfo_Memory  
      * - 3 = showInfo_Task  
-     * - 4 = showInfo_Error_Sub_N (submenu for scrolling messages)  
-     * - 5 = showInfo_ConfError  
+     * - 4 = showInfo_Error_Sub_N (submenu for scrolling messages)
+     * - 5 = showInfo_ConfError
      *
      * The default submenu is indexed as 0.
      */

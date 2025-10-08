@@ -10,6 +10,8 @@
 #include <DrinkCreator6000_Config.h>
 #include <DrinkCreator6000_Pins.h>
 #include <DrinkCreator6000_RamStats.h>
+#include <board_io.h>
+#include <buzzer.h>
 
 #include <uart.h>
 #include <i2c.h>
@@ -36,27 +38,18 @@ void initializeIO(){
     // Initialize MCP23008 ic reset pin as output
     // Disabled by default
     DDRD|=(1<<KEYBOARD_RESET_PIN);
-    PORTD|=(1<<KEYBOARD_RESET_PIN);
+    PORTD&=~(1<<KEYBOARD_RESET_PIN);
     // Initialize peltier2 pin as OUTPUT
     DDRD|=(1<<PELTIER1_PIN);
     DDRD|=(1<<PELTIER2_PIN);
-    PORTD&=~(1<<PELTIER1_PIN);
-    PORTD&=~(1<<PELTIER2_PIN);    
+    cooler_off();
     // Initialize LED ring pins
     // To be done
     DDRC|=(1<<PC5);
     DDRC|=(1<<PC4);
 
-    // Initialize buffer pin as OUTPUT
-    // and configure buzzers frequency
-    DDRB|=(1<<BUZZER_PIN);
-    PORTB&=~(1<<BUZZER_PIN);
-
-    TCCR1A=0;
-    TCNT1=0;
-    OCR1A=249;
-    TCCR1B|=(1<<WGM12);
-    TCCR1B|=(1<<CS11)|(1<<CS10);
+    // Initialize buzzer
+    initializeBuzzer();
 
     // Initialize ATmega328p ready pin
     DDRB&=~(1<<TEMPDATA_RDY);
@@ -77,11 +70,11 @@ void initializeIO(){
     // Initialize circulation pump pin
     // Disabled by default
     DDRE|=(1<<CIRCULATION_PUMP_PIN);
-    PORTE&=~(1<<CIRCULATION_PUMP_PIN);
+    circulation_off();
     // Initialize fans pin
     // Disabled by default
     DDRE|=(1<<FANS_PIN);
-    PORTE&=~(1<<FANS_PIN);
+    fans_off();
     sei();
 
     uart_puts_P_blocking(msg_IOInitialized);
@@ -153,8 +146,10 @@ void initializeHardware(){
 
     uart_puts_P_blocking(msg_mcpReady);
 ////////////////////////////////////////////////////////////////// Shift register init
-
+    pumps_disable();
+    shiftOut(0x00);
 ////////////////////////////////////////////////////////////////// Thermometer init
+
 }
 
 void initializeInterrupts(void){

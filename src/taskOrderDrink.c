@@ -38,6 +38,7 @@ void taskOrderDrink(void*pvParameters){
           
             if(f_run==1){
                 // Order drink flag
+                pumps_enable();
                 currentPumpId=0;
                 progress=0;
                 totalTime=0;
@@ -59,6 +60,7 @@ void taskOrderDrink(void*pvParameters){
             }
             if(f_run==0){
                 // Drink order finished succesfully
+                pumps_disable();
                 shiftOut(0x00);
 
                 strcpy(screenData.lines[2],"Done!");
@@ -87,6 +89,7 @@ void taskOrderDrink(void*pvParameters){
             }
             if(f_run==2){
                 // Drink order aborted
+                pumps_disable();
                 shiftOut(0x00);
 
                 strcpy(screenData.lines[2],"Aborted");

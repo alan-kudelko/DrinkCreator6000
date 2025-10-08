@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <string.h>
 #include <util/delay.h>
 #include <avr/interrupt.h>
 
@@ -45,6 +46,44 @@ void clearPumps(void){
     deactivateBuzzer();
 }
 
+void startupScreen(){
+    sScreenData screenData{};  
+    sprintf(screenData.lines[0],"%s","Drink Creator 6000");
+    sprintf(screenData.lines[1],"%s","Initializing...");
+    sprintf(screenData.lines[2],"%12s %2d %%","[----------]",0);
+    sprintf(screenData.lines[3],"%s","Please wait");
+
+    for(int k=0;k<11;k++){
+        for(int i=0;i<LCD_HEIGHT;i++){
+            lcd.setCursor_blocking(0,i);
+            for(int j=0;j<LCD_WIDTH;j++){
+                if(screenData.lines[i][j]==0)
+                    lcd.write_blocking(' ');
+                else if(screenData.lines[i][j]==E_LOADING_BAR)
+                    lcd.write_blocking(0);
+                else if(screenData.lines[i][j]==18)
+                    lcd.write_blocking(1);
+                else if(screenData.lines[i][j]==19)
+                    lcd.write_blocking(2);
+                else if(screenData.lines[i][j]==20)
+                    lcd.write_blocking(3);
+                else if(screenData.lines[i][j]==21)
+                    lcd.write_blocking(4);
+                else if(screenData.lines[i][j]==22)
+                    lcd.write_blocking(5);
+                else if(screenData.lines[i][j]==23)
+                    lcd.write_blocking(6);
+                else if(screenData.lines[i][j]==24)
+                            lcd.write_blocking(7);
+                else
+                    lcd.write_blocking(screenData.lines[i][j]);
+            }
+        }
+        _delay_ms(250);
+        memset((void*)(screenData.lines[2]+1),0xFF,k);
+	    sprintf(screenData.lines[2]+13,"%3u %%",10*k);
+    }
+}
 
 void normalStart(){
     char buffer[configMAX_TASK_NAME_LEN]={0};
@@ -53,21 +92,33 @@ void normalStart(){
 
     taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,buffer,TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
     taskHandles[TASK_SERIAL_DEBUGGER]=xTaskCreateStatic(taskSerialSystemDebugger,"STACK DEBUG"  ,TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE ,NULL,1,serialSystemDebuggerStack,&serialSystemDebuggerTCB); // 1
-    taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,"MAIN"         ,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
-    taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput           ,"READ INPUT"   ,TASK_READ_INPUT_STACK_SIZE             ,NULL,2,readInputStack           ,&readInputTCB);            // 3
-    taskHandles[TASK_SERIAL_INPUT]   =xTaskCreateStatic(taskSerialInput         ,"SERIAL INPUT" ,TASK_SERIAL_INPUT_STACK_SIZE           ,NULL,2,serialInputStack         ,&serialInputTCB);          // 4
-    taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen        ,"UPDATE SCREEN",TASK_UPDATE_SCREEN_STACK_SIZE          ,NULL,1,updateScreenStack        ,&updateScreenTCB);         // 5
-    taskHandles[TASK_READ_TEMP]      =xTaskCreateStatic(taskReadTemp            ,"READ TEMP"    ,TASK_READ_TEMP_STACK_SIZE              ,NULL,1,readTempStack            ,&readTempTCB);             // 6
-    taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp        ,"REGULATE TEMP",TASK_REGULATE_TEMP_STACK_SIZE          ,NULL,1,regulateTempStack        ,&regulateTempTCB);         // 7
-    taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
-    taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
-    taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,"SHOW INFO"    ,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
-    taskHandles[TASK_WELCOME_SCREEN] =xTaskCreateStatic(taskWelcomeScreen       ,"WELCOME"      ,TASK_WELCOME_SCREEN_STACK_SIZE         ,NULL,1,welcomeScreenStack       ,&welcomeScreenTCB);        // 11  
+    strncpy_P(buffer,taskMain_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,buffer,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
+    strncpy_P(buffer,taskReadInput_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_READ_INPUT]     =xTaskCreateStatic(taskReadInput           ,buffer,TASK_READ_INPUT_STACK_SIZE             ,NULL,2,readInputStack           ,&readInputTCB);            // 3
+    strncpy_P(buffer,taskSerialInput_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_SERIAL_INPUT]   =xTaskCreateStatic(taskSerialInput         ,buffer,TASK_SERIAL_INPUT_STACK_SIZE           ,NULL,2,serialInputStack         ,&serialInputTCB);          // 4
+    strncpy_P(buffer,taskUpdateScreen_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_UPDATE_SCREEN]  =xTaskCreateStatic(taskUpdateScreen        ,buffer,TASK_UPDATE_SCREEN_STACK_SIZE          ,NULL,1,updateScreenStack        ,&updateScreenTCB);         // 5
+    strncpy_P(buffer,taskReadInput_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_READ_TEMP]      =xTaskCreateStatic(taskReadTemp            ,buffer,TASK_READ_TEMP_STACK_SIZE              ,NULL,1,readTempStack            ,&readTempTCB);             // 6
+    strncpy_P(buffer,taskRegTemp_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_REGULATE_TEMP]  =xTaskCreateStatic(taskRegulateTemp        ,buffer,TASK_REGULATE_TEMP_STACK_SIZE          ,NULL,1,regulateTempStack        ,&regulateTempTCB);         // 7
+    strncpy_P(buffer,taskSelectDrink_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,buffer,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
+    strncpy_P(buffer,taskOrderDrink_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,buffer,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
+    strncpy_P(buffer,taskShowInfo_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,buffer,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
+    taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,"TEST HW"      ,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11    
+  
+    UI_Context.currentTask=DRINK_SELECT;
+    UI_Context.currentMenu=0;
+    UI_Context.currentSubMenu=0;
 }
 void faultStart(){
     // After fault operating mode
     // UI_Context should switch to last error menu
-    // Task in which fault was detected shouldn't start up
     taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,"ERROR HANDLER",TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
     taskHandles[TASK_SERIAL_DEBUGGER]=xTaskCreateStatic(taskSerialSystemDebugger,"STACK DEBUG"  ,TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE ,NULL,1,serialSystemDebuggerStack,&serialSystemDebuggerTCB); // 1
     taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,"MAIN"         ,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
@@ -79,29 +130,21 @@ void faultStart(){
     taskHandles[TASK_SELECT_DRINK]   =xTaskCreateStatic(taskSelectDrink         ,"SELECT DRINK" ,TASK_SELECT_DRINK_STACK_SIZE           ,NULL,1,selectDrinkStack         ,&selectDrinkTCB);          // 8
     taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
     taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,"SHOW INFO"    ,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
-    taskHandles[TASK_WELCOME_SCREEN]=NULL;
-  
+    taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,"TEST HW"      ,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11
     UI_Context.currentTask=SHOW_INFO;
-    UI_Context.currentMenu=4;
+    UI_Context.currentMenu=0;
     UI_Context.currentSubMenu=0;
-  
-    xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
-  
-    //taskHandles[TASK_WELCOME_SCREEN] =xTaskCreateStatic(taskWelcomeScreen       ,"WELCOME"      ,TASK_WELCOME_SCREEN_STACK_SIZE         ,NULL,1,welcomeScreenStack       ,&welcomeScreenTCB);        // 11   
 }
 extern "C" void vApplicationStackOverflowHook(TaskHandle_t xTask,char*pcTaskName){
     xQueueSend(qErrorId,&xTask,pdMS_TO_TICKS(50));
     //Wake up higher prority tasks
 }
 
-extern void shiftOut(uint8_t value);
 extern void softwareReset(void);
 
 int main(void){
     // After vTaskStartScheduler(), SP will change dynamically depending on the active task.
     // So we treat this saved SP as the top of the main stack (pre-RTOS).
-
-    shiftOut(0x00);
     activateBuzzer(0);
     _delay_ms(33);
     deactivateBuzzer();
@@ -109,8 +152,6 @@ int main(void){
     activateBuzzer(0);
     _delay_ms(33);
     deactivateBuzzer();
-
-    pumps_enable();
 
     //circulation_on();
 
@@ -123,10 +164,12 @@ int main(void){
 
     if(lastSystemError.confirmed){
         uart_puts_P_blocking(msg_NormalStartUp);
+        startupScreen();
         normalStart();
     }
     else{
         uart_puts_P_blocking(msg_FaultStartUp);
+        startupScreen();
         faultStart();
     }
     uart_putc_blocking('\n');

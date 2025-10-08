@@ -38,7 +38,7 @@ void pumps_disable(void){
 }
 
 bool read_keyboard_int(void){
-    return (PIND&(1<<KEYBOARD_INT_PIN))>0; 
+    return PIND&(1<<KEYBOARD_INT_PIN); 
 }
 
 bool is_temp_ready(void){

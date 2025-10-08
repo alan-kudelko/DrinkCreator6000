@@ -214,7 +214,7 @@ SECTIONS
 	KEEP(*(.tdat.guardZone10));	
 	KEEP(*(.tdat.showSystemInfoStack));
 	KEEP(*(.tdat.guardZone11));
-	KEEP(*(.tdat.welcomeScreenStack));
+	KEEP(*(.tdat.testHardwareStack));
 	
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))

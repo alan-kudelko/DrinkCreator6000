@@ -14,6 +14,17 @@
 // na pewno musimy jakos ogarnac problem i czestotliwosci i odstepow miedzy "bzyczeniem" zeby miec dzwiek
 // wiec to jutro/dzisiaj sobie jakos rozplanuje
 
+void initializeBuzzer(void){
+    DDRB|=(1<<BUZZER_PIN);
+    PORTB&=~(1<<BUZZER_PIN);
+
+    TCCR1A=0;
+    TCNT1=0;
+    OCR1A=249;
+    TCCR1B|=(1<<WGM12);
+    TCCR1B|=(1<<CS11)|(1<<CS10);    
+}
+
 void activateBuzzer(uint8_t tone){
     TIMSK1|=(1<<OCIE1A);
 }

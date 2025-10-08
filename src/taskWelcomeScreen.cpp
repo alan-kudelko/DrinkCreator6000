@@ -21,7 +21,7 @@ void taskWelcomeScreen(void*pvParameters){
   
     for(;;){ 
 	      if(timePassed>=TASK_WELCOME_TICKS_TO_CLOSE+1){
-            vTaskDelay(pdMS_TO_TICKS(TASK_WELCOME_SCREEN_REFRESH_RATE));
+            vTaskDelay(pdMS_TO_TICKS(1));
             xQueueSend(qKeyboardData,&keyboardData,pdMS_TO_TICKS(50));
 	          vTaskDelete(NULL);
 	      }
@@ -37,6 +37,6 @@ void taskWelcomeScreen(void*pvParameters){
  
 	      xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
 	
-        vTaskDelay(pdMS_TO_TICKS(TASK_WELCOME_SCREEN_REFRESH_RATE));
+        vTaskDelay(pdMS_TO_TICKS(1));
     }
 }

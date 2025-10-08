@@ -15,7 +15,7 @@ StaticTask_t regulateTempTCB         __attribute__((section(".tdat"))); //7
 StaticTask_t selectDrinkTCB          __attribute__((section(".tdat"))); //8
 StaticTask_t orderDrinkTCB           __attribute__((section(".tdat"))); //9
 StaticTask_t showSystemInfoTCB       __attribute__((section(".tdat"))); //10
-StaticTask_t welcomeScreenTCB        __attribute__((section(".tdat"))); //11
+StaticTask_t testHardwareTCB         __attribute__((section(".tdat"))); //11
 
 TaskHandle_t taskHandles[TASK_N];
 
@@ -53,7 +53,7 @@ volatile StackType_t guardZone10[GUARD_ZONE_SIZE]                            __a
 StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]            __attribute__((section(".tdat.showSystemInfoStack"))); //10
 
 volatile StackType_t guardZone11[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone11")));
-StackType_t welcomeScreenStack[TASK_WELCOME_SCREEN_STACK_SIZE]               __attribute__((section(".tdat.welcomeScreenStack"))); //11
+StackType_t testHardwareStack[TASK_TEST_HARDWARE_STACK_SIZE]                 __attribute__((section(".tdat.testHardwareStack"))); //11
 
 volatile StackType_t* guardZones[TASK_N]={
     guardZone0,
@@ -118,7 +118,7 @@ float temperatureHysteresis=1.0;
 // (Recipes, ingredient-to-pump mapping, maximum drink limits)
 const struct sDrinkData drink[DRINK_COUNT]={
     {"Klasyka",     30, 0 , 0 , 0 , 0 , 0 , 0 , 0, 0},                   //1
-    {"Pompa2",      0 , 30, 0 , 0 , 0 , 0 , 0 , 0, 0},                //2
+    {"Whiskey",     30 , 0, 0 , 0 , 0 , 60 , 0 , 0, 0},                //2
     {"Pompa3",      0 , 0 , 30, 0 , 0 , 0 , 0 , 0, 0},  //3
     {"Pompa4",      0 , 0 , 0 , 30, 0 , 0 , 0 , 0, 0},  //4
     {"Pompa5",      0 , 0 , 0 , 0 , 30, 0 , 0 , 0, 0},  //5
@@ -135,7 +135,7 @@ const char ingredients[8][20-4-4]={
     {"Rum"},        //3
     {"Wodka"},      //4
     {"Wino"},       //5
-    {"Sok pom"},    //6
+    {"Cola"},       //6
     {"Sok cyt"},    //7
     {"Woda"}        //8
 };
