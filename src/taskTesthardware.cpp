@@ -20,16 +20,35 @@ void taskTestHardware(void*pvParameters){
 
     for(;;){
         if(xTaskNotifyWait(0,0,&f_run,0)>0){
-            mask=0x00;
+            if((f_run&1)==0){
+                // Turn off task
+                // Reset hardware
+            }
+            else{
+                
+            }
         }
         if(f_run==1){
             if(UI_Context.currentMenu>3){
                 UI_Context.currentMenu=0;
             }
             switch(UI_Context.currentMenu){
-
+                case 0:
+                screenData.lines[0][0]='A';
+                    // Testing pumps
+                break;
+                case 1:
+                screenData.lines[0][0]='B';
+                    // Testing fans and peltiers
+                break;
+                case 2:
+                screenData.lines[0][0]='C';
+                    // Machine cleaning
+                break;
+                default:
+                1;
+                // Error handling
             }
-            screenData.lines[0][0]='A';
             xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
         }
         vTaskDelay(pdMS_TO_TICKS(300));

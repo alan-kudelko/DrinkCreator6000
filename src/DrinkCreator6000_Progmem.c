@@ -90,6 +90,24 @@ const char*const taskNames[TASK_N]                                  PROGMEM={
     taskTestHW_name
 };
 
+const char cleaningCycle1_name[] PROGMEM="Water";
+const char cleaningCycle2_name[] PROGMEM="Citric Acid";
+const char cleaningCycle3_name[] PROGMEM="Sodium bicarbonate";
+const char cleaningCycle4_name[] PROGMEM="Hydrogen peroxide";
+const char cleaningCycle5_name[] PROGMEM="Sodium metabisulfite";
+
+const char*const cleaningCycles_names[CLEANING_CYCLES] PROGMEM={
+    cleaningCycle1_name,
+    cleaningCycle2_name,
+    cleaningCycle1_name,
+    cleaningCycle3_name,
+    cleaningCycle1_name,
+    cleaningCycle4_name,
+    cleaningCycle1_name,
+    cleaningCycle5_name,
+    cleaningCycle1_name
+};
+
 #ifdef __cplusplus
     }
 #endif // __cplusplus

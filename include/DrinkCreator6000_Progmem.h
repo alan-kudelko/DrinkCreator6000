@@ -100,4 +100,18 @@ extern const char taskTestHW_name[]                   PROGMEM; /**< Task name: T
 extern const char* const taskNames[]                  PROGMEM; /**< Array of all task name strings */
 /** @} */
 
+/** @name Cleaning chemicals used to clean the machine stored in PROGMEM
+ *  @{
+ */
+
+extern const char cleaningCycle1_name[] PROGMEM;
+extern const char cleaningCycle2_name[] PROGMEM;
+extern const char cleaningCycle3_name[] PROGMEM;
+extern const char cleaningCycle4_name[] PROGMEM;
+extern const char cleaningCycle5_name[] PROGMEM;
+
+extern const char*const cleaningCycles_names[] PROGMEM;
+
+/** @} */
+
 #endif // _DRINK_CREATOR_6000_PROGMEM_H_

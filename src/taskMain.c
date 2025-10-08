@@ -129,14 +129,33 @@ void taskMain_ProcessContext_taskTestHardware(uint8_t*keyboardInput,volatile str
             return;
         }
     }
+    if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+        if(UI_context->currentMenu==2){
+            taskENTER_CRITICAL();
+            UI_context->currentTask=DRINK_SELECT;
+            UI_context->currentMenu=0;
+            UI_context->currentSubMenu=0;
+            UI_context->autoScrollEnable=0;
+            taskEXIT_CRITICAL();
+            xTaskNotify(taskHandles[TASK_TEST_HARDWARE],0,eSetValueWithOverwrite);
+            xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite);
+            return;
+        }
+        taskENTER_CRITICAL();
+        UI_context->currentMenu++;
+        UI_context->currentSubMenu=0;
+        UI_context->autoScrollEnable=0;
+        taskEXIT_CRITICAL();
+    }
+    taskMain_ProcessScrollButtons(keyboardInput,UI_context);
 }
 
 void taskMain(void*pvParameters){
     bool f_keyboardDataReceived=false;
   
     uint8_t keyboardData=0;
-
-    xTaskNotify(taskHandles[TASK_ORDER_DRINK],1,eSetValueWithoutOverwrite);
+    // Default startup task
+    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithoutOverwrite);
   
     for(;;){
         if(xQueueReceive(qKeyboardData,&keyboardData,pdMS_TO_TICKS(portMAX_DELAY))){

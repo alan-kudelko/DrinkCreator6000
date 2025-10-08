@@ -27,7 +27,7 @@ void taskOrderDrink(void*pvParameters){
     // upon received notification selected drink should be read from the EEPROM
     // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
     // I don't like that but for now i let this as it is
-  
+
     for(;;){
         if(xTaskNotifyWait(0,0,&f_run,0)>0){
             memset(screenData.lines[0],0,sizeof(struct sScreenData));

@@ -54,6 +54,8 @@ void startupScreen(){
     sprintf(screenData.lines[3],"%s","Please wait");
 
     for(int k=0;k<11;k++){
+        memset((void*)(screenData.lines[2]+1),0xFF,k);
+	    sprintf(screenData.lines[2]+13,"%3u %%",10*k);
         for(int i=0;i<LCD_HEIGHT;i++){
             lcd.setCursor_blocking(0,i);
             for(int j=0;j<LCD_WIDTH;j++){
@@ -79,9 +81,7 @@ void startupScreen(){
                     lcd.write_blocking(screenData.lines[i][j]);
             }
         }
-        _delay_ms(250);
-        memset((void*)(screenData.lines[2]+1),0xFF,k);
-	    sprintf(screenData.lines[2]+13,"%3u %%",10*k);
+        _delay_ms(200);
     }
 }
 

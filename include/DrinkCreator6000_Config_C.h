@@ -286,4 +286,6 @@ extern const uint16_t pumpsEff[];
 #define SHOW_INFO 2
 #define TEST_HARDWARE 3
 
+#define CLEANING_CYCLES 9
+
 #endif // _DRINK_CREATOR6000_CONFIG_C_H_

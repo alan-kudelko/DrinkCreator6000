@@ -14,6 +14,9 @@
 void taskReadInput(void*pvParameters){
     uint8_t keyboardInput=0; // Input read from INTCAPA
     uint8_t currentKeyboardInput=0; // Input read form GPUA
+    const uint8_t MAX_TIMEOUT=25;
+    uint8_t timeout=0;
+
   
     for(;;){
         // Handling interrupt with debounce
