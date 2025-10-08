@@ -417,6 +417,8 @@ The MCP23008 is a 8-bit I/O expander IC that provides additional GPIO pins via a
 
 However, this IC was selected due to its inclusion of two interrupt pin, which can be utilized to signal when a button press occurs. Moreover, it maintains the previous button states within dedicated registers, allowing the interrupt to be serviced at a later time without the need for immediate response. The stored button states persist until the data is read from the device, ensuring no input events are lost.
 
+#### 6.2 Reading data from MCP23008
+
 During system testing, unexpected keyboard behavior was observed, which could not be explained by software or timing analysis alone. To investigate the issue, the I²C lines were probed using an oscilloscope. The captured waveforms revealed potential signal interference in the form of echo or crosstalk between the keyboard’s GPIO lines.
 
 As shown in the images below, pressing the blue button occasionally induces unwanted transitions on the white and red button lines, indicating the presence of electrical coupling or signal reflection between these channels.
@@ -426,8 +428,6 @@ As shown in the images below, pressing the blue button occasionally induces unwa
 ![Blue button crosstalk](Media/KeyboardCrosstalk1.jpeg)
 
 Ultimately, this issue was resolved by performing a second read of the INTCAP register after a short timeout, ensuring that all input states were correctly latched and eliminating false detections caused by transient signal interference.
-
-#### 6.2 Reading data from MCP23008
 
 Button input handling is implemented using a dedicated FreeRTOS task, which waits on a binary semaphore. This semaphore is released by an interrupt service routine (ISR) whenever the MCP23008 triggers a change on INTA. This design ensures that input processing is deferred from the ISR context, minimizing interrupt latency and preserving real-time responsiveness.
 
@@ -453,8 +453,8 @@ This approach provides reliable short-press and long-press detection without the
 
 | Address (hex) | Size (bytes) | Description                       |
 |---------------|--------------|-----------------------------------|
-| 0x0000        | 1            | Cleaning completion flag    |
-| 0x0001        | 1            | Last cleaning step              |
+| 0x0000        | 1            | Cleaning completion flag (used to continue cleaning process after turning off the machine) |
+| 0x0001        | 1            | Last cleaning step                |
 | 0x0400        | 4            | Temperature set in freezer        |
 | 0x0404        | 4            | Temperature hysteresis width      |
 | 0x0800        | 135          | Last saved error                  |
