@@ -857,11 +857,11 @@ Each stage is separated by a **pure water rinse** to prevent unwanted chemical r
 | Step | Solution / Reagent | Concentration | Purpose | Duration / Notes |
 |------|--------------------|---------------|----------|------------------|
 | 1️⃣ | **Potable water** | — | Initial flush – removes loose residues | 5–10 min continuous flow |
-| 2️⃣ | **Citric acid solution** | 5–10% | Removes limescale, rust, and metal oxides | 15–30 min at ≤50 °C |
+| 2️⃣ | **Citric acid solution** | 5–10% | Disrupts biofilm and organic residues | 15–30 min at ≤50 °C |
 | 3️⃣ | **Water rinse** | — | Neutralizes acid residues | 5–10 min |
 | 4️⃣ | **Sodium bicarbonate (NaHCO₃)** | 3–5% | Neutralizes acid and deodorizes | 10–15 min |
 | 5️⃣ | **Water rinse** | — | Returns pH to neutral | 5–10 min |
-| 6️⃣ | **Hydrogen peroxide (H₂O₂)** | 3–6% (from 12% stock) | Disinfection and oxidation | 15–20 min, avoid direct light |
+| 6️⃣ | **Hydrogen peroxide (H₂O₂)** | 3–6% | Disinfection and oxidation | 15–20 min, avoid direct light |
 | 7️⃣ | **Water rinse** | — | Removes oxidizer residues | 5–10 min |
 | 8️⃣ | **Sodium metabisulfite (Na₂S₂O₅)** | 1–2% | Anti-bacterial rinse, neutralizes oxidants | 10–15 min, closed loop |
 | 9️⃣ | **Final water rinse** | — | Restores clean circuit | 10 min |
