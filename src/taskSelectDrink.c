@@ -10,11 +10,15 @@ void taskSelectDrink(void*pvParameters){
     uint8_t currentScroll=0;
     uint8_t i=0;
     struct sScreenData screenData={0};
+    uint16_t usedIngredients[8][2]={0};
+    uint8_t noIngredients=0;
+    // Used for storing only existing drink values for display
   
     for(;;){
         if(xTaskNotifyWait(0,0,&f_run,0)>0){
 	          if(f_run==1){
                 currentScroll=0;
+                noIngredients=0;
 
                 if(UI_Context.currentSubMenu>DRINK_COUNT){
                     UI_Context.currentSubMenu=DRINK_COUNT-1;
@@ -25,30 +29,34 @@ void taskSelectDrink(void*pvParameters){
         
                 memset(&screenData,0,sizeof(screenData));
                 sprintf(screenData.lines[0],"[%2d]%s",UI_Context.currentSubMenu+1,drink[UI_Context.currentSubMenu].drinkName);		  
-              }
+                for(i=0;i<8;i++){
+                    if(drink[UI_Context.currentSubMenu].ingredients[i]>0){
+                        usedIngredients[noIngredients][0]=drink[UI_Context.currentSubMenu].ingredients[i];
+                        usedIngredients[noIngredients][1]=i;
+                        noIngredients++;
+                    }
+                }
+            }
         }
         if(f_run==1){
             memset(screenData.lines[1],0,sizeof(screenData.lines[0])*3);
-	  
-	          if((currentScroll==5)&&(!drink[UI_Context.currentSubMenu].ingredients[currentScroll])){
-                currentScroll=0;
+            // If there are more ingredients than lines, lines need to be scrolled
+            if(noIngredients>LCD_HEIGHT-1){
+                for(i=0;i<3;i++){
+                    snprintf(screenData.lines[i+1],14,"%s",ingredients[usedIngredients[i+currentScroll][1]]);
+                    snprintf(screenData.lines[i+1]+14,6,"%3dml",usedIngredients[i+currentScroll][0]);
+                }
+                currentScroll++;
+                if(currentScroll>(noIngredients-(LCD_HEIGHT-1))){
+                    currentScroll=0;
+                }
             }
-
-            if(currentScroll>5){
-                currentScroll=0;
+            else{
+                for(i=0;i<noIngredients;i++){
+                    snprintf(screenData.lines[i+1],14,"%s",ingredients[usedIngredients[i][1]]);
+                    snprintf(screenData.lines[i+1]+14,6,"%3dml",usedIngredients[i][0]);
+                }
             }
-            for(i=0;i<3;i++){
-		            while(((i+currentScroll)<6)&&(!drink[UI_Context.currentSubMenu].ingredients[i+currentScroll])){
-			              currentScroll++;
-		            }
-		            if(currentScroll==6){
-			              break;
-		            }
-		            // Do not display empty values (needs optimization)
-                drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]?sprintf(screenData.lines[1+i],"%s",ingredients[i+currentScroll]):1;
-                drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]?sprintf(screenData.lines[1+i]+13,"%3d[ml]",drink[UI_Context.currentSubMenu].ingredients[i+currentScroll]):1;
-            }
-            currentScroll++;
 
             xQueueSend(qScreenData, &screenData, pdMS_TO_TICKS(50));
       

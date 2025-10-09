@@ -5,6 +5,8 @@
 
 #include <buzzer.h>
 
+#warning Timer1 used for system buzzer
+
 //Dobra musze miec jakas tablice dla fsm
 // moge zmieniac czestotliwosc np.
 // wgl to isr jest do zmiany bo sam sprzet moze sterowac tym pinem
