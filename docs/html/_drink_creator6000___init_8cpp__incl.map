@@ -1,5 +1,5 @@
 <map id="src/DrinkCreator6000_Init.cpp" name="src/DrinkCreator6000_Init.cpp">
-<area shape="rect" id="Node000001" title=" " alt="" coords="830,5,976,48"/>
+<area shape="rect" id="Node000001" title="Implementation of DrinkCreator6000_Init.h." alt="" coords="830,5,976,48"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,96,70,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="830,32,693,37,510,49,301,68,85,98,85,93,300,63,510,43,693,32,830,27"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="94,96,195,123"/>
@@ -22,7 +22,7 @@
 <area shape="poly" id="edge15_Node000001_Node000015" title=" " alt="" coords="970,46,1106,88,1104,93,968,51"/>
 <area shape="rect" id="Node000016" href="$_drink_creator6000___ram_stats_8h.html" title="RAM usage monitoring and runtime memory boundaries." alt="" coords="1085,171,1286,197"/>
 <area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="976,29,1054,36,1138,48,1212,66,1239,79,1258,94,1265,113,1258,132,1242,150,1223,164,1219,160,1238,146,1253,130,1260,113,1254,98,1237,84,1210,72,1137,53,1054,41,976,34"/>
-<area shape="rect" id="Node000017" href="$board__io_8h.html" title=" " alt="" coords="1320,96,1401,123"/>
+<area shape="rect" id="Node000017" href="$board__io_8h.html" title="High&#45;level control interface for circulation, cooling, fans, pumps and shift register." alt="" coords="1320,96,1401,123"/>
 <area shape="poly" id="edge18_Node000001_Node000017" title=" " alt="" coords="976,37,1301,93,1305,94,1304,99,1300,99,975,42"/>
 <area shape="rect" id="Node000019" href="$buzzer_8h.html" title=" " alt="" coords="1459,171,1530,197"/>
 <area shape="poly" id="edge21_Node000001_Node000019" title=" " alt="" coords="976,29,1086,37,1213,49,1331,68,1379,80,1415,94,1435,107,1453,123,1481,156,1477,159,1449,126,1432,111,1412,98,1377,85,1330,73,1212,55,1085,42,976,34"/>

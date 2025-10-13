@@ -10,7 +10,7 @@
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="638,34,620,68,615,65,633,31"/>
 <area shape="rect" id="Node000013" href="$i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="656,80,705,107"/>
 <area shape="poly" id="edge12_Node000001_Node000013" title=" " alt="" coords="651,31,669,65,664,68,646,34"/>
-<area shape="rect" id="Node000016" href="$board__io_8h.html" title=" " alt="" coords="729,80,810,107"/>
+<area shape="rect" id="Node000016" href="$board__io_8h.html" title="High&#45;level control interface for circulation, cooling, fans, pumps and shift register." alt="" coords="729,80,810,107"/>
 <area shape="poly" id="edge17_Node000001_Node000016" title=" " alt="" coords="665,30,736,70,733,74,663,35"/>
 <area shape="rect" id="Node000018" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="834,80,1002,107"/>
 <area shape="poly" id="edge20_Node000001_Node000018" title=" " alt="" coords="691,30,856,73,854,78,689,35"/>

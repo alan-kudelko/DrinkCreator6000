@@ -9,6 +9,14 @@
  * identified by a unique numeric ID (commented).
  *
  * @note This file centralizes task includes for easy management and integration.
+ *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _DRINK_CREATOR_6000_TASKS_H_
     #define _DRINK_CREATOR_6000_TASKS_H_

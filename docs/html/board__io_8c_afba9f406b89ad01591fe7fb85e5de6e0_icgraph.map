@@ -1,5 +1,5 @@
 <map id="pumps_disable" name="pumps_disable">
-<area shape="rect" id="Node000001" title=" " alt="" coords="414,56,523,83"/>
+<area shape="rect" id="Node000001" title="Disables the shift register output (HC595)." alt="" coords="414,56,523,83"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="240,5,365,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="407,53,348,35,350,30,409,48"/>
 <area shape="rect" id="Node000004" href="$task_order_drink_8c.html#abcc89efddd6ca2f5b799b4e3fa1c5a7b" title=" " alt="" coords="248,107,357,133"/>

@@ -14,6 +14,14 @@
  * @note TX buffer usage is controlled via the `USE_RING_BUFFER_FOR_I2C_OPERATIONS` macro.
  * @note Timer4 Compare A (`TIMER4_COMPA_vect`) and TWI interrupt (`TWI_vect`) are used
  *       internally to manage non-blocking transmission when the buffer is enabled.
+ *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 
 #ifndef _I2C_H_

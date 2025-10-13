@@ -9,6 +9,14 @@
  * - and other symbols used for data formatting.
  *
  * All strings are stored in flash memory to save RAM on the microcontroller.
+ *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 
 #ifndef _DRINK_CREATOR_6000_PROGMEM_H_

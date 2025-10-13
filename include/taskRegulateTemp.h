@@ -4,6 +4,14 @@
  *
  * This task uses global temperature variables to control Peltier elements
  * by switching their pins HIGH or LOW based on hysteresis thresholds.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_REGULATE_TEMP_H_
     #define _TASK_REGULATE_TEMP_H_

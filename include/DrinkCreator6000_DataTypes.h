@@ -14,6 +14,14 @@
  *
  * @note Designed for use in a FreeRTOS environment but can also be reused in non-RTOS builds.
  * @note All types are project-specific and not tied to AVR hardware registers or peripherals.
+ *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef DRINK_CREATOR6000_DATA_TYPES_H_
     #define DRINK_CREATOR6000_DATA_TYPES_H_

@@ -2,6 +2,13 @@
  * @file taskSerialSystemDebugger.h
  * @brief Task and utilities for serial system debugging, task diagnostics and RAM usage reporting.
  *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 
 #ifndef TASK_SERIAL_SYSTEM_DEBUGGER_H_

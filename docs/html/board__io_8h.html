@@ -98,6 +98,9 @@ $(function(){initNavTree('board__io_8h.html','',''); });
   <div class="headertitle"><div class="title">board_io.h File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>High-level control interface for circulation, cooling, fans, pumps and shift register.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;stdbool.h&gt;</code><br />
 <code>#include &lt;stdint.h&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -105,7 +108,7 @@ Include dependency graph for board_io.h:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h__incl.png" border="0" usemap="#aavr__peripherals_2board__io_2board__io_8h" loading="lazy" alt=""/></div>
 <map name="aavr__peripherals_2board__io_2board__io_8h" id="aavr__peripherals_2board__io_2board__io_8h">
-<area shape="rect" title=" " alt="" coords="16,5,162,48"/>
+<area shape="rect" title="High&#45;level control interface for circulation, cooling, fans, pumps and shift register." alt="" coords="16,5,162,48"/>
 <area shape="rect" title=" " alt="" coords="5,96,80,123"/>
 <area shape="poly" title=" " alt="" coords="79,50,60,84,55,81,75,47"/>
 <area shape="rect" title=" " alt="" coords="104,96,168,123"/>
@@ -117,14 +120,14 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h__dep__incl.png" border="0" usemap="#aavr__peripherals_2board__io_2board__io_8hdep" loading="lazy" alt=""/></div>
 <map name="aavr__peripherals_2board__io_2board__io_8hdep" id="aavr__peripherals_2board__io_2board__io_8hdep">
-<area shape="rect" title=" " alt="" coords="452,5,597,48"/>
-<area shape="rect" href="board__io_8c.html" title=" " alt="" coords="5,96,151,139"/>
+<area shape="rect" title="High&#45;level control interface for circulation, cooling, fans, pumps and shift register." alt="" coords="452,5,597,48"/>
+<area shape="rect" href="board__io_8c.html" title="Implementation of board_io.h control functions." alt="" coords="5,96,151,139"/>
 <area shape="poly" title=" " alt="" coords="437,46,163,99,152,101,151,96,161,93,436,41"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html" title=" " alt="" coords="174,104,344,131"/>
 <area shape="poly" title=" " alt="" coords="449,56,298,106,297,101,447,51"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html" title=" " alt="" coords="368,96,513,139"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html" title="Implementation of DrinkCreator6000_Init.h." alt="" coords="368,96,513,139"/>
 <area shape="poly" title=" " alt="" coords="497,61,462,98,458,94,493,58"/>
-<area shape="rect" href="task_order_drink_8c.html" title=" " alt="" coords="538,104,680,131"/>
+<area shape="rect" href="task_order_drink_8c.html" title="Implementation of taskOrderDrink.h." alt="" coords="538,104,680,131"/>
 <area shape="poly" title=" " alt="" coords="557,58,599,102,595,105,553,61"/>
 <area shape="rect" href="task_read_input_8cpp.html" title=" " alt="" coords="704,104,857,131"/>
 <area shape="poly" title=" " alt="" coords="600,51,745,101,743,106,598,56"/>
@@ -138,18 +141,37 @@ This graph shows which files directly or indirectly include this file:</div>
 <tr class="heading"><td colspan="2"><h2 id="header-func-members" class="groupheader"><a id="func-members" name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aae6fde14cb931382348b776472103687" id="r_aae6fde14cb931382348b776472103687"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae6fde14cb931382348b776472103687">circulation_on</a> (void)</td></tr>
+<tr class="memdesc:aae6fde14cb931382348b776472103687"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns on the liquid circulation system.  <br /></td></tr>
 <tr class="memitem:a463b2e9cbc74f149924e72d8bfafe9e5" id="r_a463b2e9cbc74f149924e72d8bfafe9e5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a463b2e9cbc74f149924e72d8bfafe9e5">circulation_off</a> (void)</td></tr>
+<tr class="memdesc:a463b2e9cbc74f149924e72d8bfafe9e5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns off the liquid circulation system.  <br /></td></tr>
 <tr class="memitem:aae12c3db1e623c94fa4e31a85c93cc15" id="r_aae12c3db1e623c94fa4e31a85c93cc15"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae12c3db1e623c94fa4e31a85c93cc15">cooler_on</a> (void)</td></tr>
+<tr class="memdesc:aae12c3db1e623c94fa4e31a85c93cc15"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables Peltier cooling cells.  <br /></td></tr>
 <tr class="memitem:a065284ebfc2e3521f52eb1afa7f0dc67" id="r_a065284ebfc2e3521f52eb1afa7f0dc67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a065284ebfc2e3521f52eb1afa7f0dc67">cooler_off</a> (void)</td></tr>
+<tr class="memdesc:a065284ebfc2e3521f52eb1afa7f0dc67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables Peltier cooling cells.  <br /></td></tr>
 <tr class="memitem:a232f24f7333aa35d353534a1f3b9c811" id="r_a232f24f7333aa35d353534a1f3b9c811"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a232f24f7333aa35d353534a1f3b9c811">fans_on</a> (void)</td></tr>
+<tr class="memdesc:a232f24f7333aa35d353534a1f3b9c811"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns on fans for the enclosure and radiator.  <br /></td></tr>
 <tr class="memitem:aae027ba9fb88f12baeb5d97b4e437f5e" id="r_aae027ba9fb88f12baeb5d97b4e437f5e"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aae027ba9fb88f12baeb5d97b4e437f5e">fans_off</a> (void)</td></tr>
+<tr class="memdesc:aae027ba9fb88f12baeb5d97b4e437f5e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Turns off fans for the enclosure and radiator.  <br /></td></tr>
 <tr class="memitem:a9736be5d83c02cd37e6129fb56d2f5d9" id="r_a9736be5d83c02cd37e6129fb56d2f5d9"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a9736be5d83c02cd37e6129fb56d2f5d9">pumps_enable</a> (void)</td></tr>
+<tr class="memdesc:a9736be5d83c02cd37e6129fb56d2f5d9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables the shift register output (HC595).  <br /></td></tr>
 <tr class="memitem:afba9f406b89ad01591fe7fb85e5de6e0" id="r_afba9f406b89ad01591fe7fb85e5de6e0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#afba9f406b89ad01591fe7fb85e5de6e0">pumps_disable</a> (void)</td></tr>
+<tr class="memdesc:afba9f406b89ad01591fe7fb85e5de6e0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Disables the shift register output (HC595).  <br /></td></tr>
 <tr class="memitem:aa62bbc6af32dd9da478a7d23fdb00091" id="r_aa62bbc6af32dd9da478a7d23fdb00091"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#aa62bbc6af32dd9da478a7d23fdb00091">read_keyboard_int</a> (void)</td></tr>
+<tr class="memdesc:aa62bbc6af32dd9da478a7d23fdb00091"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the state of the keyboard GPIO pin.  <br /></td></tr>
 <tr class="memitem:a26763660df353174d14d963b51d90e9f" id="r_a26763660df353174d14d963b51d90e9f"><td class="memItemLeft" align="right" valign="top">bool&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a26763660df353174d14d963b51d90e9f">is_temp_ready</a> (void)</td></tr>
+<tr class="memdesc:a26763660df353174d14d963b51d90e9f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Reads the temperature readiness GPIO pin state.  <br /></td></tr>
 <tr class="memitem:a5d466c5205576fd46cf42690267b4222" id="r_a5d466c5205576fd46cf42690267b4222"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#a5d466c5205576fd46cf42690267b4222">shiftOut</a> (uint8_t value)</td></tr>
+<tr class="memdesc:a5d466c5205576fd46cf42690267b4222"><td class="mdescLeft">&#160;</td><td class="mdescRight">Sends a byte to the HC595 shift register.  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>High-level control interface for circulation, cooling, fans, pumps and shift register. </p>
+<p>This header provides functions to control various hardware components such as circulation pumps, Peltier cells, enclosure fans, and HC595 shift registers. It also abstracts reading keyboard input and temperature readiness signals.</p>
+<dl class="section author"><dt>Author</dt><dd>Alan Kudełko </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2025 Alan Kudełko. <br  />
+ All rights reserved. <br  />
+ For educational and research purposes only. <br  />
+ Redistribution, modification, or commercial use prohibited without explicit written permission. </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a463b2e9cbc74f149924e72d8bfafe9e5" name="a463b2e9cbc74f149924e72d8bfafe9e5"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a463b2e9cbc74f149924e72d8bfafe9e5">&#9670;&#160;</a></span>circulation_off()</h2>
 
@@ -164,12 +186,14 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Turns off the liquid circulation system. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h_a463b2e9cbc74f149924e72d8bfafe9e5_icgraph.png" border="0" usemap="#aboard__io_8h_a463b2e9cbc74f149924e72d8bfafe9e5_icgraph" loading="lazy" alt=""/></div>
 <map name="aboard__io_8h_a463b2e9cbc74f149924e72d8bfafe9e5_icgraph" id="aboard__io_8h_a463b2e9cbc74f149924e72d8bfafe9e5_icgraph">
-<area shape="rect" title=" " alt="" coords="414,31,516,57"/>
+<area shape="rect" title="Turns off the liquid circulation system." alt="" coords="414,31,516,57"/>
 <area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="262,5,344,32"/>
 <area shape="poly" title=" " alt="" coords="399,36,344,28,344,22,400,31"/>
 <area shape="rect" href="task_testhardware_8cpp.html#ad137d7ec1442e21bff97fd561a9ccdef" title=" " alt="" coords="239,56,366,83"/>
@@ -203,6 +227,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Turns on the liquid circulation system. </p>
+
 </div>
 </div>
 <a id="a065284ebfc2e3521f52eb1afa7f0dc67" name="a065284ebfc2e3521f52eb1afa7f0dc67"></a>
@@ -219,12 +245,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disables Peltier cooling cells. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h_a065284ebfc2e3521f52eb1afa7f0dc67_icgraph.png" border="0" usemap="#aboard__io_8h_a065284ebfc2e3521f52eb1afa7f0dc67_icgraph" loading="lazy" alt=""/></div>
 <map name="aboard__io_8h_a065284ebfc2e3521f52eb1afa7f0dc67_icgraph" id="aboard__io_8h_a065284ebfc2e3521f52eb1afa7f0dc67_icgraph">
-<area shape="rect" title=" " alt="" coords="414,31,492,57"/>
+<area shape="rect" title="Disables Peltier cooling cells." alt="" coords="414,31,492,57"/>
 <area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="262,5,344,32"/>
 <area shape="poly" title=" " alt="" coords="399,38,344,28,345,23,400,32"/>
 <area shape="rect" href="task_testhardware_8cpp.html#ad137d7ec1442e21bff97fd561a9ccdef" title=" " alt="" coords="239,56,366,83"/>
@@ -258,6 +286,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Enables Peltier cooling cells. </p>
+
 </div>
 </div>
 <a id="aae027ba9fb88f12baeb5d97b4e437f5e" name="aae027ba9fb88f12baeb5d97b4e437f5e"></a>
@@ -274,12 +304,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Turns off fans for the enclosure and radiator. </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h_aae027ba9fb88f12baeb5d97b4e437f5e_icgraph.png" border="0" usemap="#aboard__io_8h_aae027ba9fb88f12baeb5d97b4e437f5e_icgraph" loading="lazy" alt=""/></div>
 <map name="aboard__io_8h_aae027ba9fb88f12baeb5d97b4e437f5e_icgraph" id="aboard__io_8h_aae027ba9fb88f12baeb5d97b4e437f5e_icgraph">
-<area shape="rect" title=" " alt="" coords="414,31,482,57"/>
+<area shape="rect" title="Turns off fans for the enclosure and radiator." alt="" coords="414,31,482,57"/>
 <area shape="rect" href="_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="262,5,344,32"/>
 <area shape="poly" title=" " alt="" coords="399,38,344,28,345,23,399,33"/>
 <area shape="rect" href="task_testhardware_8cpp.html#ad137d7ec1442e21bff97fd561a9ccdef" title=" " alt="" coords="239,56,366,83"/>
@@ -313,6 +345,8 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Turns on fans for the enclosure and radiator. </p>
+
 </div>
 </div>
 <a id="a26763660df353174d14d963b51d90e9f" name="a26763660df353174d14d963b51d90e9f"></a>
@@ -330,6 +364,9 @@ Here is the caller graph for this function:</div>
       </table>
 </div><div class="memdoc">
 
+<p>Reads the temperature readiness GPIO pin state. </p>
+<dl class="section return"><dt>Returns</dt><dd>temperature ready state (false if ready, true if not) </dd></dl>
+
 </div>
 </div>
 <a id="afba9f406b89ad01591fe7fb85e5de6e0" name="afba9f406b89ad01591fe7fb85e5de6e0"></a>
@@ -346,12 +383,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Disables the shift register output (HC595). </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h_afba9f406b89ad01591fe7fb85e5de6e0_icgraph.png" border="0" usemap="#aboard__io_8h_afba9f406b89ad01591fe7fb85e5de6e0_icgraph" loading="lazy" alt=""/></div>
 <map name="aboard__io_8h_afba9f406b89ad01591fe7fb85e5de6e0_icgraph" id="aboard__io_8h_afba9f406b89ad01591fe7fb85e5de6e0_icgraph">
-<area shape="rect" title=" " alt="" coords="414,56,523,83"/>
+<area shape="rect" title="Disables the shift register output (HC595)." alt="" coords="414,56,523,83"/>
 <area shape="rect" href="_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="240,5,365,32"/>
 <area shape="poly" title=" " alt="" coords="407,53,348,35,350,30,409,48"/>
 <area shape="rect" href="task_order_drink_8c.html#abcc89efddd6ca2f5b799b4e3fa1c5a7b" title=" " alt="" coords="248,107,357,133"/>
@@ -388,12 +427,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Enables the shift register output (HC595). </p>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h_a9736be5d83c02cd37e6129fb56d2f5d9_icgraph.png" border="0" usemap="#aboard__io_8h_a9736be5d83c02cd37e6129fb56d2f5d9_icgraph" loading="lazy" alt=""/></div>
 <map name="aboard__io_8h_a9736be5d83c02cd37e6129fb56d2f5d9_icgraph" id="aboard__io_8h_a9736be5d83c02cd37e6129fb56d2f5d9_icgraph">
-<area shape="rect" title=" " alt="" coords="414,31,520,57"/>
+<area shape="rect" title="Enables the shift register output (HC595)." alt="" coords="414,31,520,57"/>
 <area shape="rect" href="task_order_drink_8c.html#abcc89efddd6ca2f5b799b4e3fa1c5a7b" title=" " alt="" coords="248,5,357,32"/>
 <area shape="poly" title=" " alt="" coords="399,36,357,30,358,24,399,31"/>
 <area shape="rect" href="task_testhardware_8cpp.html#ad137d7ec1442e21bff97fd561a9ccdef" title=" " alt="" coords="239,56,366,83"/>
@@ -426,12 +467,15 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Reads the state of the keyboard GPIO pin. </p>
+<dl class="section return"><dt>Returns</dt><dd>keyboard interrupt state (false if activated, true if not) </dd></dl>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">
 <div class="center"><img src="board__io_8h_aa62bbc6af32dd9da478a7d23fdb00091_icgraph.png" border="0" usemap="#aboard__io_8h_aa62bbc6af32dd9da478a7d23fdb00091_icgraph" loading="lazy" alt=""/></div>
 <map name="aboard__io_8h_aa62bbc6af32dd9da478a7d23fdb00091_icgraph" id="aboard__io_8h_aa62bbc6af32dd9da478a7d23fdb00091_icgraph">
-<area shape="rect" title=" " alt="" coords="393,31,521,57"/>
+<area shape="rect" title="Reads the state of the keyboard GPIO pin." alt="" coords="393,31,521,57"/>
 <area shape="rect" href="task_read_input_8cpp.html#a92156ff09f452fa836941e3e98a4d631" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="239,31,345,57"/>
 <area shape="poly" title=" " alt="" coords="378,47,346,47,346,41,378,41"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html#a9eabc803df0648f317c9414e1f8f90d6" title=" " alt="" coords="110,5,184,32"/>
@@ -460,6 +504,14 @@ Here is the caller graph for this function:</div>
         </tr>
       </table>
 </div><div class="memdoc">
+
+<p>Sends a byte to the HC595 shift register. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">value</td><td>Byte to send to the shift register. </td></tr>
+  </table>
+  </dd>
+</dl>
 
 </div>
 </div>

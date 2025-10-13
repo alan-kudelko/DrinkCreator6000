@@ -1,5 +1,5 @@
 <map id="avr_peripherals/uart/uart.c" name="avr_peripherals/uart/uart.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="268,5,404,48"/>
+<area shape="rect" id="Node000001" title="Implementation of uart.h." alt="" coords="268,5,404,48"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,96,120,123"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="268,51,121,94,119,89,267,45"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="144,96,208,123"/>

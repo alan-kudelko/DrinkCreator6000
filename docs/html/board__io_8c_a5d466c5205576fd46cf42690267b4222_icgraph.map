@@ -1,5 +1,5 @@
 <map id="shiftOut" name="shiftOut">
-<area shape="rect" id="Node000001" title=" " alt="" coords="414,81,482,108"/>
+<area shape="rect" id="Node000001" title="Sends a byte to the HC595 shift register." alt="" coords="414,81,482,108"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000_8cpp.html#a072d4d1676f1984a7455d8df8ffefd6a" title=" " alt="" coords="258,5,348,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="413,75,365,46,340,35,343,30,368,42,415,70"/>
 <area shape="rect" id="Node000003" href="$_drink_creator6000___init_8cpp.html#aaaca845b980f160a23d3b990338d4602" title="Initialize RTOS memory resources and guard zones." alt="" coords="240,56,365,83"/>

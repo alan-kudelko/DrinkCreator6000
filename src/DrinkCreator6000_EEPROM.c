@@ -1,3 +1,16 @@
+/**
+ * @file DrinkCreator6000_EEPROM.h
+ * @brief Implementation of DrinkCreator6000_EEPROM.c
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
+ */
+
 #include <avr/eeprom.h>
 
 #include <DrinkCreator6000_EEPROM.h>

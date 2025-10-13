@@ -1,10 +1,10 @@
 <map id="avr_peripherals/uart/uart.h" name="avr_peripherals/uart/uart.h">
 <area shape="rect" id="Node000001" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="728,5,863,48"/>
-<area shape="rect" id="Node000002" href="$uart_8c.html" title=" " alt="" coords="5,96,141,139"/>
+<area shape="rect" id="Node000002" href="$uart_8c.html" title="Implementation of uart.h." alt="" coords="5,96,141,139"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="713,36,462,57,308,75,153,99,141,101,140,96,153,93,307,70,461,52,712,30"/>
 <area shape="rect" id="Node000003" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="165,104,336,131"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="713,42,543,66,347,99,309,106,308,101,346,93,543,61,712,37"/>
-<area shape="rect" id="Node000004" href="$_drink_creator6000___init_8cpp.html" title=" " alt="" coords="359,96,504,139"/>
+<area shape="rect" id="Node000004" href="$_drink_creator6000___init_8cpp.html" title="Implementation of DrinkCreator6000_Init.h." alt="" coords="359,96,504,139"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="714,51,506,101,504,96,712,45"/>
 <area shape="rect" id="Node000005" href="$task_error_handler_8cpp.html" title=" " alt="" coords="528,104,695,131"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="740,57,639,106,637,101,738,53"/>

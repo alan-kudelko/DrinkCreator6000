@@ -19,6 +19,8 @@
     "taskmain.h": "c",
     "i2c_ringbuffer.h": "c",
     "stdint.h": "c",
-    "uart.h": "c"
+    "uart.h": "c",
+    "eeprom.h": "c",
+    "stdio.h": "c"
   }
 }

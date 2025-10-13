@@ -7,6 +7,14 @@
  *
  * @note These functions do not use a TX buffer and therefore occupy the CPU during transmission.
  * @note Suitable for simple or low-frequency I2C operations where non-blocking behavior is not required.
+ *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _I2C_BLOCKING_H_
     #define _I2C_BLOCKING_H_

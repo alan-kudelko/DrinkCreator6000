@@ -5,6 +5,14 @@
  * This task manages the application context and user interface state,
  * delegating input processing to helper functions corresponding to
  * different UI screens or modes.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_MAIN_H_
     #define _TASK_MAIN_H_

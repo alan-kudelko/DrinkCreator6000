@@ -24,7 +24,7 @@
 <area shape="poly" id="edge33_Node000001_Node000029" title=" " alt="" coords="1346,19,1883,34,2250,51,2628,77,2628,82,2250,57,1882,39,1346,24"/>
 <area shape="rect" id="Node000030" href="$buzzer_8h.html" title=" " alt="" coords="598,229,670,256"/>
 <area shape="poly" id="edge34_Node000001_Node000030" title=" " alt="" coords="1176,26,1017,36,829,59,738,76,658,98,594,124,570,140,552,156,548,165,547,172,555,189,572,205,594,219,591,224,569,209,550,192,541,173,542,163,548,153,567,136,591,120,656,93,737,71,828,54,1017,31,1175,20"/>
-<area shape="rect" id="Node000031" href="$board__io_8h.html" title=" " alt="" coords="1836,80,1918,107"/>
+<area shape="rect" id="Node000031" href="$board__io_8h.html" title="High&#45;level control interface for circulation, cooling, fans, pumps and shift register." alt="" coords="1836,80,1918,107"/>
 <area shape="poly" id="edge36_Node000001_Node000031" title=" " alt="" coords="1347,23,1559,42,1688,58,1822,77,1821,82,1688,63,1558,48,1346,29"/>
 <area shape="rect" id="Node000033" href="$system_debug_8h.html" title="Diagnostics and debug utilities for DrinkCreator6000." alt="" coords="1699,80,1812,107"/>
 <area shape="poly" id="edge39_Node000001_Node000033" title=" " alt="" coords="1347,29,1684,77,1683,82,1346,34"/>

@@ -4,9 +4,9 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="76,104,114,74,161,42,171,37,173,41,164,46,117,78,79,108"/>
 <area shape="rect" id="Node000003" href="$buzzer_8c.html#ac3dcb50dc366196efd39a5595307c352" title=" " alt="" coords="163,56,285,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="105,103,163,85,165,90,107,109"/>
-<area shape="rect" id="Node000004" href="$board__io_8c.html#afba9f406b89ad01591fe7fb85e5de6e0" title=" " alt="" coords="170,107,278,133"/>
+<area shape="rect" id="Node000004" href="$board__io_8c.html#afba9f406b89ad01591fe7fb85e5de6e0" title="Disables the shift register output (HC595)." alt="" coords="170,107,278,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="115,117,154,117,154,123,115,123"/>
-<area shape="rect" id="Node000005" href="$board__io_8c.html#a9736be5d83c02cd37e6129fb56d2f5d9" title=" " alt="" coords="171,157,276,184"/>
+<area shape="rect" id="Node000005" href="$board__io_8c.html#a9736be5d83c02cd37e6129fb56d2f5d9" title="Enables the shift register output (HC595)." alt="" coords="171,157,276,184"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="107,131,165,150,163,155,105,137"/>
 <area shape="rect" id="Node000006" href="$board__io_8c.html#a5d466c5205576fd46cf42690267b4222" title=" " alt="" coords="190,208,258,235"/>
 <area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="79,132,117,162,164,194,177,201,175,205,161,198,114,166,76,136"/>

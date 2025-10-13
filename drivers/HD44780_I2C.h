@@ -19,6 +19,14 @@
  *  - Blocking write functions for simple use-cases
  *  - Non-blocking write functions for real-time applications (e.g., with FreeRTOS)
  *  - Configurable inter-command and inter-data delays for different LCD timings
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _HD44780_I2C_H_
     #define _HD44780_I2C_H_

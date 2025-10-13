@@ -6,6 +6,14 @@
  * Upon detecting an overflow, it records the event time and error cause in EEPROM,
  * displays error information on the LCD and serial port, and restarts the system
  * after a predefined timeout.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_ERROR_HANDLER_H_
     #define _TASK_ERROR_HANDLER_H_

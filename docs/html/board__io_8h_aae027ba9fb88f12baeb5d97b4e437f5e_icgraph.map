@@ -1,5 +1,5 @@
 <map id="fans_off" name="fans_off">
-<area shape="rect" id="Node000001" title=" " alt="" coords="414,31,482,57"/>
+<area shape="rect" id="Node000001" title="Turns off fans for the enclosure and radiator." alt="" coords="414,31,482,57"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000___init_8cpp.html#ad9cda921edb01125bb13c2f86bcf624b" title="Initialize I/O pins and attach pin&#45;related interrupts." alt="" coords="262,5,344,32"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="399,38,344,28,345,23,399,33"/>
 <area shape="rect" id="Node000004" href="$task_testhardware_8cpp.html#ad137d7ec1442e21bff97fd561a9ccdef" title=" " alt="" coords="239,56,366,83"/>

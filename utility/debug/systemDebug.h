@@ -8,6 +8,14 @@
  *
  * @note All functions use blocking UART calls for simplicity.
  * @note Buffer sizes and formatting are defined via macros in this header.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 
 #ifndef SYSTEM_DEBUG_H_

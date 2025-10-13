@@ -9,6 +9,14 @@
  * - Last system error
  * - Author of the project
  * - Status of FreeRTOS tasks
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_SHOW_SYSTEM_INFO_H_
     #define _TASK_SHOW_SYSTEM_INFO_H_

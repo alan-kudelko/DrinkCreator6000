@@ -59,13 +59,13 @@
 <area shape="poly" id="edge23_Node000016_Node000017" title=" " alt="" coords="246,1255,298,1212,332,1188,369,1167,392,1158,394,1162,371,1172,335,1192,301,1216,250,1259"/>
 <area shape="rect" id="Node000018" href="$buzzer_8c.html#ac3dcb50dc366196efd39a5595307c352" title=" " alt="" coords="400,1181,523,1208"/>
 <area shape="poly" id="edge24_Node000016_Node000018" title=" " alt="" coords="267,1254,369,1218,393,1210,395,1215,371,1223,269,1259"/>
-<area shape="rect" id="Node000019" href="$board__io_8c.html#afba9f406b89ad01591fe7fb85e5de6e0" title=" " alt="" coords="408,1232,516,1259"/>
+<area shape="rect" id="Node000019" href="$board__io_8c.html#afba9f406b89ad01591fe7fb85e5de6e0" title="Disables the shift register output (HC595)." alt="" coords="408,1232,516,1259"/>
 <area shape="poly" id="edge25_Node000016_Node000019" title=" " alt="" coords="287,1262,392,1250,392,1256,287,1267"/>
-<area shape="rect" id="Node000020" href="$board__io_8c.html#a9736be5d83c02cd37e6129fb56d2f5d9" title=" " alt="" coords="409,1283,514,1309"/>
+<area shape="rect" id="Node000020" href="$board__io_8c.html#a9736be5d83c02cd37e6129fb56d2f5d9" title="Enables the shift register output (HC595)." alt="" coords="409,1283,514,1309"/>
 <area shape="poly" id="edge26_Node000016_Node000020" title=" " alt="" coords="287,1274,394,1286,393,1291,287,1279"/>
 <area shape="rect" id="Node000021" href="$board__io_8c.html#a5d466c5205576fd46cf42690267b4222" title=" " alt="" coords="428,1333,495,1360"/>
 <area shape="poly" id="edge27_Node000016_Node000021" title=" " alt="" coords="269,1282,371,1319,414,1332,412,1337,369,1324,267,1287"/>
-<area shape="rect" id="Node000023" href="$board__io_8c.html#aa62bbc6af32dd9da478a7d23fdb00091" title=" " alt="" coords="398,1669,525,1696"/>
+<area shape="rect" id="Node000023" href="$board__io_8c.html#aa62bbc6af32dd9da478a7d23fdb00091" title="Reads the state of the keyboard GPIO pin." alt="" coords="398,1669,525,1696"/>
 <area shape="poly" id="edge29_Node000022_Node000023" title=" " alt="" coords="287,1430,307,1437,324,1450,342,1476,350,1503,351,1529,349,1555,346,1581,347,1606,354,1631,372,1656,386,1666,382,1670,368,1659,350,1633,342,1607,341,1580,343,1554,346,1529,345,1504,338,1479,320,1454,304,1442,285,1435"/>
 <area shape="rect" id="Node000028" href="$uart_8c.html#a69bd6dc9d81a10ff8fa3ae2620a74001" title="Retrieves the next character from the receive buffer." alt="" coords="424,1720,499,1747"/>
 <area shape="poly" id="edge34_Node000027_Node000028" title=" " alt="" coords="287,1702,409,1722,408,1727,286,1707"/>
@@ -101,11 +101,11 @@
 <area shape="poly" id="edge59_Node000042_Node000019" title=" " alt="" coords="245,1360,297,1315,332,1290,369,1268,392,1259,394,1264,371,1273,335,1295,300,1320,249,1364"/>
 <area shape="poly" id="edge60_Node000042_Node000020" title=" " alt="" coords="264,1360,369,1319,393,1311,395,1316,371,1324,266,1365"/>
 <area shape="poly" id="edge61_Node000042_Node000021" title=" " alt="" coords="296,1365,412,1350,413,1355,296,1371"/>
-<area shape="rect" id="Node000043" href="$board__io_8c.html#a463b2e9cbc74f149924e72d8bfafe9e5" title=" " alt="" coords="411,1451,512,1477"/>
+<area shape="rect" id="Node000043" href="$board__io_8c.html#a463b2e9cbc74f149924e72d8bfafe9e5" title="Turns off the liquid circulation system." alt="" coords="411,1451,512,1477"/>
 <area shape="poly" id="edge56_Node000042_Node000043" title=" " alt="" coords="295,1387,323,1399,348,1418,371,1436,398,1447,396,1452,369,1441,344,1422,321,1404,293,1392"/>
-<area shape="rect" id="Node000044" href="$board__io_8c.html#a065284ebfc2e3521f52eb1afa7f0dc67" title=" " alt="" coords="423,1501,500,1528"/>
+<area shape="rect" id="Node000044" href="$board__io_8c.html#a065284ebfc2e3521f52eb1afa7f0dc67" title="Disables Peltier cooling cells." alt="" coords="423,1501,500,1528"/>
 <area shape="poly" id="edge57_Node000042_Node000044" title=" " alt="" coords="297,1385,324,1399,342,1422,349,1445,355,1467,372,1487,389,1498,409,1505,407,1510,387,1503,368,1491,350,1469,343,1446,337,1424,320,1403,295,1389"/>
-<area shape="rect" id="Node000045" href="$board__io_8c.html#aae027ba9fb88f12baeb5d97b4e437f5e" title=" " alt="" coords="428,1552,495,1579"/>
+<area shape="rect" id="Node000045" href="$board__io_8c.html#aae027ba9fb88f12baeb5d97b4e437f5e" title="Turns off fans for the enclosure and radiator." alt="" coords="428,1552,495,1579"/>
 <area shape="poly" id="edge58_Node000042_Node000045" title=" " alt="" coords="297,1383,324,1399,338,1417,345,1435,349,1471,352,1505,359,1522,372,1538,391,1551,413,1558,412,1563,389,1556,368,1542,354,1524,347,1506,343,1471,340,1436,333,1420,320,1403,295,1388"/>
 <area shape="rect" id="Node000046" href="$task_testhardware_8cpp.html#a2b77fe6044e86b58a6170d5f735f057e" title=" " alt="" coords="382,1603,541,1645"/>
 <area shape="poly" id="edge62_Node000042_Node000046" title=" " alt="" coords="297,1383,324,1399,341,1424,349,1448,351,1472,350,1495,349,1542,356,1565,372,1589,374,1591,370,1595,368,1592,351,1568,344,1543,344,1495,346,1472,344,1449,337,1426,320,1403,295,1387"/>

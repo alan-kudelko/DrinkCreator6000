@@ -4,7 +4,7 @@
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="84,104,125,73,176,42,193,34,196,39,179,46,128,78,87,108"/>
 <area shape="rect" id="Node000003" href="$i2c__blocking_8c.html#a5730d9445429351b9f750084c5cb5aae" title="Initialize I²C (TWI) hardware and Timer4 support." alt="" coords="220,56,282,83"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="118,103,204,79,205,84,119,109"/>
-<area shape="rect" id="Node000004" href="$board__io_8c.html#afba9f406b89ad01591fe7fb85e5de6e0" title=" " alt="" coords="197,107,305,133"/>
+<area shape="rect" id="Node000004" href="$board__io_8c.html#afba9f406b89ad01591fe7fb85e5de6e0" title="Disables the shift register output (HC595)." alt="" coords="197,107,305,133"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="130,117,181,117,181,123,130,123"/>
 <area shape="rect" id="Node000005" href="$board__io_8c.html#a5d466c5205576fd46cf42690267b4222" title=" " alt="" coords="217,157,284,184"/>
 <area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="119,131,203,155,201,160,118,137"/>

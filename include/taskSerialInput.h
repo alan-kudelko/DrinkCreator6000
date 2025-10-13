@@ -4,6 +4,14 @@
  *
  * This task reads diagnostic or command data from the UART interface
  * and sends it to the main task via the external queue `qKeyboardData`.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_SERIAL_INPUT_H_
     #define _TASK_SERIAL_INPUT_H_

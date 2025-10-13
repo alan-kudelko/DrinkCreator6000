@@ -1,3 +1,16 @@
+/**
+ * @file DrinkCreator6000_Init.cpp
+ * @brief Implementation of DrinkCreator6000_Init.h
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
+ */
+
 #include <avr/io.h>
 #include <avr/interrupt.h>
 #include <util/delay.h>

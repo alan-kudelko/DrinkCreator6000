@@ -14,6 +14,14 @@
  *
  * @note This file does not contain function implementations; it only defines
  *       values and macros used by the I2C driver.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _I2C_COMMON_H_
     #define _I2C_COMMON_H_

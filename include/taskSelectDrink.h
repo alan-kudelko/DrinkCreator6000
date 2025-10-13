@@ -5,6 +5,14 @@
  * This task allows the user to select a drink, then sends
  * the screen update data to the `taskUpdateScreen` task
  * via the external queue `qScreenData`.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_SELECT_DRINK_H_
     #define _TASK_SELECT_DRINK_H_

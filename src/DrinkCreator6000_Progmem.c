@@ -1,3 +1,16 @@
+/**
+ * @file DrinkCreator6000_Progmem.c
+ * @brief Implementation of DrinkCreator6000_Progmem.h
+ *
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
+ */
+
 #include <DrinkCreator6000_Progmem.h>
 #include <FreeRTOSConfig.h>
 #include <DrinkCreator6000_Config_C.h>

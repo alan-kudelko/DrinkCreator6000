@@ -7,6 +7,14 @@
  *   - Sequencing pumps according to the selected recipe
  *   - Controlling pump activation duration (pouring time)
  *   - Coordinating task synchronization with other system modules
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _TASK_ORDER_DRINK_H_
     #define _TASK_ORDER_DRINK_H_

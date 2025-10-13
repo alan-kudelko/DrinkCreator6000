@@ -1,5 +1,5 @@
 <map id="src/taskMain.c" name="src/taskMain.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="195,5,302,32"/>
+<area shape="rect" id="Node000001" title="Implementation of taskMain.h." alt="" coords="195,5,302,32"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="25,80,99,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,35,110,76,108,71,215,30"/>
 <area shape="rect" id="Node000003" href="$task_main_8h.html" title="Main task coordinating the operation of other system tasks." alt="" coords="124,80,209,107"/>

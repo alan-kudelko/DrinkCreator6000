@@ -1,3 +1,16 @@
+/**
+ * @file taskShowSystemInfo.cpp
+ * @brief Implementation of taskShowSystemInfo.h
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
+ */
+
 #include <stdio.h>
 #include <string.h>
 

@@ -130,11 +130,11 @@ This graph shows which files directly or indirectly include this file:</div>
 <div class="center"><img src="uart_8h__dep__incl.png" border="0" usemap="#aavr__peripherals_2uart_2uart_8hdep" loading="lazy" alt=""/></div>
 <map name="aavr__peripherals_2uart_2uart_8hdep" id="aavr__peripherals_2uart_2uart_8hdep">
 <area shape="rect" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="728,5,863,48"/>
-<area shape="rect" href="uart_8c.html" title=" " alt="" coords="5,96,141,139"/>
+<area shape="rect" href="uart_8c.html" title="Implementation of uart.h." alt="" coords="5,96,141,139"/>
 <area shape="poly" title=" " alt="" coords="713,36,462,57,308,75,153,99,141,101,140,96,153,93,307,70,461,52,712,30"/>
 <area shape="rect" href="_drink_creator6000_8cpp.html" title=" " alt="" coords="165,104,336,131"/>
 <area shape="poly" title=" " alt="" coords="713,42,543,66,347,99,309,106,308,101,346,93,543,61,712,37"/>
-<area shape="rect" href="_drink_creator6000___init_8cpp.html" title=" " alt="" coords="359,96,504,139"/>
+<area shape="rect" href="_drink_creator6000___init_8cpp.html" title="Implementation of DrinkCreator6000_Init.h." alt="" coords="359,96,504,139"/>
 <area shape="poly" title=" " alt="" coords="714,51,506,101,504,96,712,45"/>
 <area shape="rect" href="task_error_handler_8cpp.html" title=" " alt="" coords="528,104,695,131"/>
 <area shape="poly" title=" " alt="" coords="740,57,639,106,637,101,738,53"/>
@@ -220,12 +220,17 @@ Variables</h2></td></tr>
 <a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Low-level UART driver for AVR (ATmega2560) with TX/RX buffering. </p>
 <p>This module provides blocking and non-blocking UART routines with transmit and receive ring buffers. It is hardware-level and <b>independent of any RTOS</b>.</p>
-<p>Two system-level ISRs (<span class="tt">USART_UDRE_vect</span> and <span class="tt">USART_RX_vect</span>) are defined internally in <span class="tt"><a class="el" href="uart_8c.html">uart.c</a></span>.</p>
+<p>Two system-level ISRs (<span class="tt">USART_UDRE_vect</span> and <span class="tt">USART_RX_vect</span>) are defined internally in <span class="tt"><a class="el" href="uart_8c.html" title="Implementation of uart.h.">uart.c</a></span>.</p>
 <dl class="section note"><dt>Note</dt><dd>TX and RX buffer sizes are configurable via macros. </dd>
 <dd>
 Use <span class="tt">uart_puts_P_*</span> variants for strings stored in flash memory (PROGMEM).</dd>
 <dd>
-This driver uses UART0 (USART0) peripheral on the ATmega2560, which has four UART interfaces. </dd></dl>
+This driver uses UART0 (USART0) peripheral on the ATmega2560, which has four UART interfaces.</dd></dl>
+<dl class="section author"><dt>Author</dt><dd>Alan Kudełko </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2025 Alan Kudełko. <br  />
+ All rights reserved. <br  />
+ For educational and research purposes only. <br  />
+ Redistribution, modification, or commercial use prohibited without explicit written permission. </dd></dl>
 </div><a name="doc-define-members" id="doc-define-members"></a><h2 id="header-doc-define-members" class="groupheader">Macro Definition Documentation</h2>
 <a id="a615aed21aa6825462b7c17b0c238ffe2" name="a615aed21aa6825462b7c17b0c238ffe2"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a615aed21aa6825462b7c17b0c238ffe2">&#9670;&#160;</a></span>UART_BAUD_RATE</h2>

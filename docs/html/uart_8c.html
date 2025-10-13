@@ -98,6 +98,9 @@ $(function(){initNavTree('uart_8c.html','',''); });
   <div class="headertitle"><div class="title">uart.c File Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Implementation of <a class="el" href="uart_8h.html" title="Low-level UART driver for AVR (ATmega2560) with TX/RX buffering.">uart.h</a>.  
+<a href="#details">More...</a></p>
 <div class="textblock"><code>#include &lt;avr/pgmspace.h&gt;</code><br />
 <code>#include &lt;avr/io.h&gt;</code><br />
 <code>#include &lt;avr/interrupt.h&gt;</code><br />
@@ -109,7 +112,7 @@ Include dependency graph for uart.c:</div>
 <div class="dyncontent">
 <div class="center"><img src="uart_8c__incl.png" border="0" usemap="#aavr__peripherals_2uart_2uart_8c" loading="lazy" alt=""/></div>
 <map name="aavr__peripherals_2uart_2uart_8c" id="aavr__peripherals_2uart_2uart_8c">
-<area shape="rect" title=" " alt="" coords="268,5,404,48"/>
+<area shape="rect" title="Implementation of uart.h." alt="" coords="268,5,404,48"/>
 <area shape="rect" title=" " alt="" coords="5,96,120,123"/>
 <area shape="poly" title=" " alt="" coords="268,51,121,94,119,89,267,45"/>
 <area shape="rect" title=" " alt="" coords="144,96,208,123"/>
@@ -184,7 +187,14 @@ Variables</h2></td></tr>
 <tr class="memitem:ab2369002e495210d012404f4e2e4b6be" id="r_ab2369002e495210d012404f4e2e4b6be"><td class="memItemLeft" align="right" valign="top">volatile uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="#ab2369002e495210d012404f4e2e4b6be">uart_rx_error_counter</a> =0</td></tr>
 <tr class="memdesc:ab2369002e495210d012404f4e2e4b6be"><td class="mdescLeft">&#160;</td><td class="mdescRight">Receive error counter (e.g., overflow or framing errors).  <br /></td></tr>
 </table>
-<a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
+<a name="details" id="details"></a><h2 id="header-details" class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Implementation of <a class="el" href="uart_8h.html" title="Low-level UART driver for AVR (ATmega2560) with TX/RX buffering.">uart.h</a>. </p>
+<dl class="section author"><dt>Author</dt><dd>Alan Kudełko </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (c) 2025 Alan Kudełko. <br  />
+ All rights reserved. <br  />
+ For educational and research purposes only. <br  />
+ Redistribution, modification, or commercial use prohibited without explicit written permission. </dd></dl>
+</div><a name="doc-func-members" id="doc-func-members"></a><h2 id="header-doc-func-members" class="groupheader">Function Documentation</h2>
 <a id="a084f0a9cf05b1877bd8a71a90dae7ff8" name="a084f0a9cf05b1877bd8a71a90dae7ff8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a084f0a9cf05b1877bd8a71a90dae7ff8">&#9670;&#160;</a></span>ISR() <span class="overload">[1/2]</span></h2>
 

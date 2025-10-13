@@ -17,6 +17,14 @@
  * Initialization:
  * - `initRamSize()` runs during `.init8` (startup)
  * - `updateMemoryUsage()` updates usage values
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _DRINK_CREATOR6000_RAM_STATS_H_
     #define _DRINK_CREATOR6000_RAM_STATS_H_

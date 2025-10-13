@@ -11,6 +11,14 @@
  * @note Use `uart_puts_P_*` variants for strings stored in flash memory (PROGMEM).
  * 
  * @note This driver uses UART0 (USART0) peripheral on the ATmega2560, which has four UART interfaces.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _UART_H_
     #define _UART_H_

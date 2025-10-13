@@ -1,3 +1,16 @@
+/**
+ * @file taskSelectDrink.c
+ * @brief Implementation of taskSelectDrink.h
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
+ */
+
 #include <string.h>
 #include <stdio.h>
 

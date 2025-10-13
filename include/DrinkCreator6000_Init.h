@@ -6,6 +6,14 @@
  * configuring I/O pins, allocating memory for RTOS objects, and
  * initializing hardware peripherals such as UART, LCD, I²C devices,
  * and shift registers.
+ * 
+ * @author Alan Kudełko
+ * @copyright
+ * Copyright (c) 2025 Alan Kudełko.  
+ * All rights reserved.  
+ * For educational and research purposes only.  
+ * Redistribution, modification, or commercial use prohibited without
+ * explicit written permission.
  */
 #ifndef _DRINK_CREATOR6000_INIT_H_
     #define _DRINK_CREATOR6000_INIT_H_

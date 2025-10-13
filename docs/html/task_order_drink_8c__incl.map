@@ -1,5 +1,5 @@
 <map id="src/taskOrderDrink.c" name="src/taskOrderDrink.c">
-<area shape="rect" id="Node000001" title=" " alt="" coords="362,5,505,32"/>
+<area shape="rect" id="Node000001" title="Implementation of taskOrderDrink.h." alt="" coords="362,5,505,32"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,80,70,107"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="362,33,237,53,85,82,84,77,236,48,362,27"/>
 <area shape="rect" id="Node000003" title=" " alt="" coords="94,80,154,107"/>
@@ -16,7 +16,7 @@
 <area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="502,30,739,74,738,79,501,35"/>
 <area shape="rect" id="Node000015" href="$buzzer_8h.html" title=" " alt="" coords="910,155,981,181"/>
 <area shape="poly" id="edge14_Node000001_Node000015" title=" " alt="" coords="505,17,612,20,733,29,845,47,888,60,919,78,931,91,939,107,947,139,942,140,934,109,927,94,916,82,886,65,843,52,733,34,611,25,505,22"/>
-<area shape="rect" id="Node000016" href="$board__io_8h.html" title=" " alt="" coords="981,80,1062,107"/>
+<area shape="rect" id="Node000016" href="$board__io_8h.html" title="High&#45;level control interface for circulation, cooling, fans, pumps and shift register." alt="" coords="981,80,1062,107"/>
 <area shape="poly" id="edge16_Node000001_Node000016" title=" " alt="" coords="505,24,711,44,962,77,966,78,965,83,961,83,710,50,505,29"/>
 <area shape="rect" id="Node000008" title=" " alt="" coords="290,155,385,181"/>
 <area shape="poly" id="edge7_Node000007_Node000008" title=" " alt="" coords="568,110,400,153,399,148,567,105"/>
