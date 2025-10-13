@@ -21,6 +21,8 @@
     "stdint.h": "c",
     "uart.h": "c",
     "eeprom.h": "c",
-    "stdio.h": "c"
+    "stdio.h": "c",
+    "taskserialinput.h": "c",
+    "stddef.h": "c"
   }
 }
