@@ -1,0 +1,15 @@
+<map id="avr_peripherals/board_io/board_io.c" name="avr_peripherals/board_io/board_io.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="116,5,261,48"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,96,70,123"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,51,76,91,73,86,148,46"/>
+<area shape="rect" id="Node000003" title=" " alt="" coords="93,96,176,123"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="177,50,154,84,149,81,172,47"/>
+<area shape="rect" id="Node000004" href="$board__io_8h.html" title=" " alt="" coords="201,96,282,123"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="204,47,227,81,222,84,200,50"/>
+<area shape="rect" id="Node000007" href="$_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="306,96,473,123"/>
+<area shape="poly" id="edge6_Node000001_Node000007" title=" " alt="" coords="241,46,345,87,343,92,239,51"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="158,171,232,197"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="236,125,213,159,209,156,231,122"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="256,171,320,197"/>
+<area shape="poly" id="edge5_Node000004_Node000006" title=" " alt="" coords="252,122,274,156,270,159,247,125"/>
+</map>

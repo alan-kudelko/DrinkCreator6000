@@ -20,6 +20,7 @@ var dir_d44c64559bbebec7f509842c48db8b23 =
     [ "taskSerialInput.h", "task_serial_input_8h.html", "task_serial_input_8h" ],
     [ "taskSerialSystemDebugger.h", "task_serial_system_debugger_8h.html", "task_serial_system_debugger_8h" ],
     [ "taskShowSystemInfo.h", "task_show_system_info_8h.html", "task_show_system_info_8h" ],
+    [ "taskTestHardware.h", "task_test_hardware_8h.html", "task_test_hardware_8h" ],
     [ "taskUpdateScreen.h", "task_update_screen_8h.html", "task_update_screen_8h" ],
     [ "taskWelcomeScreen.h", "task_welcome_screen_8h.html", "task_welcome_screen_8h" ]
 ];

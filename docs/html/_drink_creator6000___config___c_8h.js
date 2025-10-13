@@ -1,6 +1,7 @@
 var _drink_creator6000___config___c_8h =
 [
     [ "__AVR_ATmega2561__", "_drink_creator6000___config___c_8h.html#afad8262d9692acec53b9af04952b7209", null ],
+    [ "CLEANING_CYCLES", "_drink_creator6000___config___c_8h.html#ab262b87a038308605cb7805ffe63f129", null ],
     [ "DRINK_COUNT", "_drink_creator6000___config___c_8h.html#a6625e84570deee3d7049779b8c17a6be", null ],
     [ "DRINK_ORDER", "_drink_creator6000___config___c_8h.html#ab4a1913a948b4d3cdfb67fa60a3b5c28", null ],
     [ "DRINK_SELECT", "_drink_creator6000___config___c_8h.html#ae305e50c838cfdd2ffa6829260927e13", null ],
@@ -53,16 +54,13 @@ var _drink_creator6000___config___c_8h =
     [ "TASK_SHOW_SYS_INFO", "_drink_creator6000___config___c_8h.html#a108ef23c0cdf49d59fa7cc7bb4556074", null ],
     [ "TASK_SHOW_SYSTEM_INFO_REFRESH_RATE", "_drink_creator6000___config___c_8h.html#a4103ca17072b1361ab95ace45e293693", null ],
     [ "TASK_SHOW_SYSTEM_INFO_STACK_SIZE", "_drink_creator6000___config___c_8h.html#ae37bd2cd76a29c0d66feff0f35f94905", null ],
-    [ "TASK_TEST_HARDWAER", "_drink_creator6000___config___c_8h.html#a561cdb68a87b68a061eaeee295875a10", null ],
+    [ "TASK_TEST_HARDWARE", "_drink_creator6000___config___c_8h.html#ae105098689442bfa61aff0ca3d08c2df", null ],
     [ "TASK_TEST_HARDWARE_STACK_SIZE", "_drink_creator6000___config___c_8h.html#aac92a6e67bf241bc662c3b71d8ccb555", null ],
     [ "TASK_UPDATE_SCREEN", "_drink_creator6000___config___c_8h.html#a066b9abc2c1eb56cc54c0c1605b15289", null ],
     [ "TASK_UPDATE_SCREEN_REFRESH_RATE", "_drink_creator6000___config___c_8h.html#a7b77ccfad5e3da93df17bd4afa387fd8", null ],
     [ "TASK_UPDATE_SCREEN_STACK_SIZE", "_drink_creator6000___config___c_8h.html#a0156b8a60b51f6cdc7adcaeeec5eccc6", null ],
-    [ "TASK_WELCOME_SCREEN", "_drink_creator6000___config___c_8h.html#a6773075e26959cb6ac5765e11493ba75", null ],
-    [ "TASK_WELCOME_SCREEN_REFRESH_RATE", "_drink_creator6000___config___c_8h.html#a70c4a55713919ea18ac05e1736e9241f", null ],
-    [ "TASK_WELCOME_SCREEN_STACK_SIZE", "_drink_creator6000___config___c_8h.html#a1af5307c8168fa051349820678344d64", null ],
     [ "TASK_WELCOME_TICKS_TO_CLOSE", "_drink_creator6000___config___c_8h.html#a2368fb813ff7fb1e077dcbb2dac5ce24", null ],
-    [ "WELCOME_SCREEN", "_drink_creator6000___config___c_8h.html#ad3f374dc976e554e3f232b2f6f2138c0", null ],
+    [ "TEST_HARDWARE", "_drink_creator6000___config___c_8h.html#ae6c0b0359828c790249b083bca501447", null ],
     [ "bootupsCount", "_drink_creator6000___config___c_8h.html#a59a55fb38089157b3c91c40decfc58f9", null ],
     [ "currentTemperature", "_drink_creator6000___config___c_8h.html#a29ec8c270db62d59abe6ed3288b3809b", null ],
     [ "drink", "_drink_creator6000___config___c_8h.html#ac98d5237ad1aa85e8e0a96e66e03940d", null ],
@@ -121,9 +119,9 @@ var _drink_creator6000___config___c_8h =
     [ "showSystemInfoTCB", "_drink_creator6000___config___c_8h.html#a1b64f5cdd27b71e5906698ef913e7395", null ],
     [ "taskHandles", "_drink_creator6000___config___c_8h.html#a2cf179d17c89a340f3eff4ff76f674e8", null ],
     [ "temperatureHysteresis", "_drink_creator6000___config___c_8h.html#a2c9691d029ce285a809900b68ac90f36", null ],
+    [ "testHardwareStack", "_drink_creator6000___config___c_8h.html#a19a068cb7a045788b5016e77337735a9", null ],
+    [ "testHardwareTCB", "_drink_creator6000___config___c_8h.html#a600f1b7758afd2bb536b29c041fa4d2d", null ],
     [ "UI_Context", "_drink_creator6000___config___c_8h.html#a9515bbcdf03ddc040c2270f6f7a8e2bd", null ],
     [ "updateScreenStack", "_drink_creator6000___config___c_8h.html#ab82c923d8813d9cb60dddc152809687c", null ],
-    [ "updateScreenTCB", "_drink_creator6000___config___c_8h.html#a96cc3a3225f0971cc28bad2dfc451aea", null ],
-    [ "welcomeScreenStack", "_drink_creator6000___config___c_8h.html#a2fdfc79015794b44374d7c19cbe80d41", null ],
-    [ "welcomeScreenTCB", "_drink_creator6000___config___c_8h.html#a4bedae198092793e312dc174803434a1", null ]
+    [ "updateScreenTCB", "_drink_creator6000___config___c_8h.html#a96cc3a3225f0971cc28bad2dfc451aea", null ]
 ];

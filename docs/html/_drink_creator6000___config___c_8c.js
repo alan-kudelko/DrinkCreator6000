@@ -1,6 +1,6 @@
 var _drink_creator6000___config___c_8c =
 [
-    [ "__attribute__", "_drink_creator6000___config___c_8c.html#a52f9122c57ae5934239c323ff9c9501e", null ],
+    [ "__attribute__", "_drink_creator6000___config___c_8c.html#aa1ddf82c3fc7478a540d700e165a61e0", null ],
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#a2b493a93a2be96a6cb9bf4456007db29", null ],
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#aeb2a65f3b31c82569e1efc3cd63affec", null ],
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#a3c250d9c21afc3f524ddb9f66d02c0f8", null ],
@@ -23,8 +23,8 @@ var _drink_creator6000___config___c_8c =
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#afad79cc8be3e29e44e232b9d649013eb", null ],
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#aa69443f685965e953b67acd62b250ece", null ],
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#a4e9e221c80d63f609830bd4f4eccc58a", null ],
+    [ "__attribute__", "_drink_creator6000___config___c_8c.html#a68f0d261c5508ab3b77fae0c75c4fd23", null ],
     [ "__attribute__", "_drink_creator6000___config___c_8c.html#a311e040f6719bbc69e036a7b47122772", null ],
-    [ "__attribute__", "_drink_creator6000___config___c_8c.html#a73da54653e3227dfeb8b029ca45654a1", null ],
     [ "bootupsCount", "_drink_creator6000___config___c_8c.html#a59a55fb38089157b3c91c40decfc58f9", null ],
     [ "currentTemperature", "_drink_creator6000___config___c_8c.html#a29ec8c270db62d59abe6ed3288b3809b", null ],
     [ "drink", "_drink_creator6000___config___c_8c.html#ac893109b3551afca7a422fe98efa9773", null ],

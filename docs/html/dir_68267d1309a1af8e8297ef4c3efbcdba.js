@@ -18,6 +18,6 @@ var dir_68267d1309a1af8e8297ef4c3efbcdba =
     [ "taskSerialInput.c", "task_serial_input_8c.html", "task_serial_input_8c" ],
     [ "taskSerialSystemDebugger.c", "task_serial_system_debugger_8c.html", "task_serial_system_debugger_8c" ],
     [ "taskShowSystemInfo.cpp", "task_show_system_info_8cpp.html", "task_show_system_info_8cpp" ],
-    [ "taskUpdateScreen.cpp", "task_update_screen_8cpp.html", "task_update_screen_8cpp" ],
-    [ "taskWelcomeScreen.cpp", "task_welcome_screen_8cpp.html", "task_welcome_screen_8cpp" ]
+    [ "taskTesthardware.cpp", "task_testhardware_8cpp.html", "task_testhardware_8cpp" ],
+    [ "taskUpdateScreen.cpp", "task_update_screen_8cpp.html", "task_update_screen_8cpp" ]
 ];

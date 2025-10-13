@@ -1,8 +1,5 @@
 <map id="taskReadInput" name="taskReadInput">
 <area shape="rect" id="Node000001" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="5,5,112,32"/>
-<area shape="rect" id="Node000002" href="$uart_8c.html#af2c1e30baca7b5a56455a70d3070ca94" title="Sends a single character over UART (blocking)." alt="" coords="338,5,468,32"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,16,323,16,323,21,112,21"/>
-<area shape="rect" id="Node000003" href="$uart_8c.html#a641869f983cd6b508fb6873b377770a2" title="Sends a null&#45;terminated string from RAM over UART (blocking)." alt="" coords="160,31,290,57"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="112,24,145,29,144,34,112,29"/>
-<area shape="poly" id="edge3_Node000003_Node000002" title=" " alt="" coords="290,32,322,27,323,33,291,37"/>
+<area shape="rect" id="Node000002" href="$board__io_8c.html#aa62bbc6af32dd9da478a7d23fdb00091" title=" " alt="" coords="160,5,287,32"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="112,16,144,16,144,21,112,21"/>
 </map>

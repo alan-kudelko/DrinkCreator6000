@@ -20,8 +20,9 @@ var searchData=
   ['taskserialsystemdebugger_2eh_17',['taskSerialSystemDebugger.h',['../task_serial_system_debugger_8h.html',1,'']]],
   ['taskshowsysteminfo_2ecpp_18',['taskShowSystemInfo.cpp',['../task_show_system_info_8cpp.html',1,'']]],
   ['taskshowsysteminfo_2eh_19',['taskShowSystemInfo.h',['../task_show_system_info_8h.html',1,'']]],
-  ['taskupdatescreen_2ecpp_20',['taskUpdateScreen.cpp',['../task_update_screen_8cpp.html',1,'']]],
-  ['taskupdatescreen_2eh_21',['taskUpdateScreen.h',['../task_update_screen_8h.html',1,'']]],
-  ['taskwelcomescreen_2ecpp_22',['taskWelcomeScreen.cpp',['../task_welcome_screen_8cpp.html',1,'']]],
-  ['taskwelcomescreen_2eh_23',['taskWelcomeScreen.h',['../task_welcome_screen_8h.html',1,'']]]
+  ['tasktesthardware_2ecpp_20',['taskTesthardware.cpp',['../task_testhardware_8cpp.html',1,'']]],
+  ['tasktesthardware_2eh_21',['taskTestHardware.h',['../task_test_hardware_8h.html',1,'']]],
+  ['taskupdatescreen_2ecpp_22',['taskUpdateScreen.cpp',['../task_update_screen_8cpp.html',1,'']]],
+  ['taskupdatescreen_2eh_23',['taskUpdateScreen.h',['../task_update_screen_8h.html',1,'']]],
+  ['taskwelcomescreen_2eh_24',['taskWelcomeScreen.h',['../task_welcome_screen_8h.html',1,'']]]
 ];

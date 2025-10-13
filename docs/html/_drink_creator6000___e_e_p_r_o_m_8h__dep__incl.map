@@ -1,7 +1,9 @@
 <map id="include/DrinkCreator6000_EEPROM.h" name="include/DrinkCreator6000_EEPROM.h">
-<area shape="rect" id="Node000001" title="EEPROM access functions for bootup counts and last error storage." alt="" coords="97,5,265,48"/>
+<area shape="rect" id="Node000001" title="EEPROM access functions for bootup counts and last error storage." alt="" coords="188,5,356,48"/>
 <area shape="rect" id="Node000002" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="5,104,176,131"/>
-<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="151,61,105,105,101,102,147,57"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="217,58,118,106,115,101,214,53"/>
 <area shape="rect" id="Node000003" href="$_drink_creator6000___e_e_p_r_o_m_8c.html" title=" " alt="" coords="199,96,344,139"/>
-<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="215,57,253,94,249,98,211,61"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="274,64,274,96,269,96,269,64"/>
+<area shape="rect" id="Node000004" href="$task_main_8c.html" title=" " alt="" coords="369,104,476,131"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="322,54,402,101,400,106,319,59"/>
 </map>

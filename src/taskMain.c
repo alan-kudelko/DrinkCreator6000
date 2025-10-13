@@ -76,7 +76,7 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile s
         }
     }
     if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){
-        if(UI_context->currentMenu==1){
+        if(UI_context->currentMenu==4){
             taskENTER_CRITICAL();
             UI_context->currentTask=TEST_HARDWARE;
             UI_context->currentMenu=0;
@@ -116,17 +116,30 @@ void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile s
     taskMain_ProcessScrollButtons(keyboardInput,UI_context);
 }
 void taskMain_ProcessContext_taskTestHardware(uint8_t*keyboardInput,volatile struct sUIContext*UI_context){
+    if(UI_context->currentMenu==0){
+        if((*keyboardInput&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+            xTaskNotify(taskHandles[TASK_TEST_HARDWARE],11,eSetValueWithOverwrite);
+        }
+    }
+    
     if((*keyboardInput&E_RED_BUTTON)==E_RED_BUTTON){
         if(UI_context->currentMenu==0){
             taskENTER_CRITICAL();
             UI_context->currentTask=SHOW_INFO;
-            UI_context->currentMenu=0;
+            UI_context->currentMenu=4;
             UI_context->currentSubMenu=0;
             UI_context->autoScrollEnable=0;
             taskEXIT_CRITICAL();
             xTaskNotify(taskHandles[TASK_TEST_HARDWARE],0,eSetValueWithOverwrite);
             xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite);
             return;
+        }
+        else{
+            taskENTER_CRITICAL();
+            UI_context->currentMenu--;
+            UI_context->currentSubMenu=0;
+            UI_context->autoScrollEnable=0;
+            taskEXIT_CRITICAL();
         }
     }
     if((*keyboardInput&E_BLUE_BUTTON)==E_BLUE_BUTTON){

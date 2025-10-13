@@ -103,6 +103,7 @@ $(function(){initNavTree('task_read_input_8cpp.html','',''); });
 <code>#include &lt;<a class="el" href="task_read_input_8h_source.html">taskReadInput.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="uart_8h_source.html">uart.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="i2c_8h_source.html">i2c.h</a>&gt;</code><br />
+<code>#include &lt;<a class="el" href="board__io_8h_source.html">board_io.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___pins_8h_source.html">DrinkCreator6000_Pins.h</a>&gt;</code><br />
 <code>#include &lt;<a class="el" href="_drink_creator6000___config_8h_source.html">DrinkCreator6000_Config.h</a>&gt;</code><br />
 </div><div class="textblock"><div class="dynheader">
@@ -110,23 +111,25 @@ Include dependency graph for taskReadInput.cpp:</div>
 <div class="dyncontent">
 <div class="center"><img src="task_read_input_8cpp__incl.png" border="0" usemap="#asrc_2task_read_input_8cpp" loading="lazy" alt=""/></div>
 <map name="asrc_2task_read_input_8cpp" id="asrc_2task_read_input_8cpp">
-<area shape="rect" title=" " alt="" coords="438,5,592,32"/>
-<area shape="rect" title=" " alt="" coords="174,80,235,107"/>
-<area shape="poly" title=" " alt="" coords="455,35,250,82,249,77,454,30"/>
-<area shape="rect" title=" " alt="" coords="259,80,323,107"/>
-<area shape="poly" title=" " alt="" coords="477,35,339,79,337,74,475,30"/>
-<area shape="rect" href="task_read_input_8h.html" title="Task responsible for reading input data from MCP23017 via I2C." alt="" coords="347,80,464,107"/>
-<area shape="poly" title=" " alt="" coords="498,35,439,74,436,69,495,30"/>
-<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="488,80,542,107"/>
-<area shape="poly" title=" " alt="" coords="518,33,518,64,512,64,512,33"/>
-<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="566,80,616,107"/>
-<area shape="poly" title=" " alt="" coords="530,31,569,67,565,71,527,34"/>
-<area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="640,80,807,107"/>
-<area shape="poly" title=" " alt="" coords="552,30,673,72,672,77,551,35"/>
-<area shape="rect" href="_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="755,155,934,181"/>
-<area shape="poly" title=" " alt="" coords="593,24,724,42,782,58,805,67,821,78,832,92,839,107,846,139,841,140,834,109,827,94,817,82,802,72,780,63,723,48,592,29"/>
+<area shape="rect" title=" " alt="" coords="565,5,718,32"/>
+<area shape="rect" title=" " alt="" coords="264,80,324,107"/>
+<area shape="poly" title=" " alt="" coords="570,35,339,82,338,77,569,30"/>
+<area shape="rect" title=" " alt="" coords="348,80,413,107"/>
+<area shape="poly" title=" " alt="" coords="597,35,428,82,427,76,596,30"/>
+<area shape="rect" href="task_read_input_8h.html" title="Task responsible for reading input data from MCP23017 via I2C." alt="" coords="436,80,554,107"/>
+<area shape="poly" title=" " alt="" coords="617,35,536,75,533,70,615,30"/>
+<area shape="rect" href="uart_8h.html" title="Low&#45;level UART driver for AVR (ATmega2560) with TX/RX buffering." alt="" coords="577,80,632,107"/>
+<area shape="poly" title=" " alt="" coords="638,34,620,68,615,65,633,31"/>
+<area shape="rect" href="i2c_8h.html" title="I2C (TWI) Master driver for AVR (ATmega2560) with optional TX buffer." alt="" coords="656,80,705,107"/>
+<area shape="poly" title=" " alt="" coords="651,31,669,65,664,68,646,34"/>
+<area shape="rect" href="board__io_8h.html" title=" " alt="" coords="729,80,810,107"/>
+<area shape="poly" title=" " alt="" coords="665,30,736,70,733,74,663,35"/>
+<area shape="rect" href="_drink_creator6000___pins_8h.html" title="IO Mapping: Pin definitions and button mappings." alt="" coords="834,80,1002,107"/>
+<area shape="poly" title=" " alt="" coords="691,30,856,73,854,78,689,35"/>
+<area shape="rect" href="_drink_creator6000___config_8h.html" title="Centralized configuration header for the DrinkCreator6000 system, containing global C++ variables." alt="" coords="907,155,1086,181"/>
+<area shape="poly" title=" " alt="" coords="719,18,801,23,889,33,967,50,996,63,1016,78,1023,93,1024,110,1014,142,1009,141,1019,110,1018,95,1012,82,993,67,965,55,889,38,801,28,719,24"/>
 <area shape="rect" href="_drink_creator6000___config___c_8h.html" title="Centralized configuration header for the DrinkCreator6000 system." alt="" coords="189,155,385,181"/>
-<area shape="poly" title=" " alt="" coords="488,106,342,152,340,147,487,101"/>
+<area shape="poly" title=" " alt="" coords="577,106,566,109,369,154,368,148,565,104,576,101"/>
 <area shape="rect" title=" " alt="" coords="5,229,100,256"/>
 <area shape="poly" title=" " alt="" coords="247,184,109,227,107,222,246,179"/>
 <area shape="rect" title=" " alt="" coords="124,229,181,256"/>
@@ -137,20 +140,23 @@ Include dependency graph for taskReadInput.cpp:</div>
 <area shape="poly" title=" " alt="" coords="298,180,321,215,316,218,293,183"/>
 <area shape="rect" href="_drink_creator6000___data_types_8h.html" title="Custom data types for controlling application context in the DrinkCreator6000 project." alt="" coords="397,229,601,256"/>
 <area shape="poly" title=" " alt="" coords="325,179,448,221,447,226,323,184"/>
-<area shape="rect" title=" " alt="" coords="714,304,778,331"/>
-<area shape="poly" title=" " alt="" coords="543,254,700,300,698,305,541,259"/>
+<area shape="rect" title=" " alt="" coords="738,304,802,331"/>
+<area shape="poly" title=" " alt="" coords="547,254,724,301,722,306,546,259"/>
 <area shape="rect" href="i2c__common_8h.html" title="Common I2C (TWI) definitions and macros for AVR projects." alt="" coords="626,229,732,256"/>
-<area shape="poly" title=" " alt="" coords="595,107,602,141,617,180,633,200,652,218,648,222,629,204,613,183,597,143,590,108"/>
-<area shape="rect" href="i2c__blocking_8h.html" title="Blocking I2C (TWI) Master operations for AVR (ATmega2560) without TX buffer." alt="" coords="627,155,731,181"/>
-<area shape="poly" title=" " alt="" coords="608,105,654,143,651,147,605,109"/>
-<area shape="poly" title=" " alt="" coords="693,255,726,291,722,294,689,258"/>
-<area shape="poly" title=" " alt="" coords="682,182,682,214,676,214,676,182"/>
-<area shape="rect" href="_h_d44780___i2_c_8h.html" title="Command and flag definitions for controlling HD44780&#45;based character LCDs via I²C." alt="" coords="756,229,872,256"/>
-<area shape="poly" title=" " alt="" coords="842,183,828,216,823,214,837,181"/>
-<area shape="rect" href="_m_c_p230_x_x_8h.html" title="Class interface and register definitions for MCP23008 I²C GPIO expanders." alt="" coords="895,229,996,256"/>
-<area shape="poly" title=" " alt="" coords="864,180,917,218,914,222,861,184"/>
-<area shape="poly" title=" " alt="" coords="804,258,770,294,766,291,800,255"/>
-<area shape="poly" title=" " alt="" coords="912,259,793,302,792,297,910,254"/>
+<area shape="poly" title=" " alt="" coords="662,109,638,129,619,156,617,173,623,189,634,205,649,218,646,222,631,208,618,192,611,173,614,154,634,125,658,105"/>
+<area shape="rect" href="i2c__blocking_8h.html" title="Blocking I2C (TWI) Master operations for AVR (ATmega2560) without TX buffer." alt="" coords="628,155,733,181"/>
+<area shape="poly" title=" " alt="" coords="683,107,683,139,678,139,678,107"/>
+<area shape="poly" title=" " alt="" coords="697,254,744,292,741,296,693,259"/>
+<area shape="poly" title=" " alt="" coords="683,182,682,214,677,214,678,182"/>
+<area shape="poly" title=" " alt="" coords="772,107,772,289,767,289,767,107"/>
+<area shape="rect" title=" " alt="" coords="807,155,882,181"/>
+<area shape="poly" title=" " alt="" coords="785,105,823,142,819,146,781,109"/>
+<area shape="rect" href="_h_d44780___i2_c_8h.html" title="Command and flag definitions for controlling HD44780&#45;based character LCDs via I²C." alt="" coords="807,229,922,256"/>
+<area shape="poly" title=" " alt="" coords="975,184,902,224,899,219,972,180"/>
+<area shape="rect" href="_m_c_p230_x_x_8h.html" title="Class interface and register definitions for MCP23008 I²C GPIO expanders." alt="" coords="946,229,1047,256"/>
+<area shape="poly" title=" " alt="" coords="999,182,999,214,994,214,994,182"/>
+<area shape="poly" title=" " alt="" coords="850,259,800,297,797,292,846,254"/>
+<area shape="poly" title=" " alt="" coords="958,259,818,304,816,298,956,254"/>
 </map>
 </div>
 </div><table class="memberdecls">
@@ -182,6 +188,16 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
+<div class="dynheader">
+Here is the call graph for this function:</div>
+<div class="dyncontent">
+<div class="center"><img src="task_read_input_8cpp_a92156ff09f452fa836941e3e98a4d631_cgraph.png" border="0" usemap="#atask_read_input_8cpp_a92156ff09f452fa836941e3e98a4d631_cgraph" loading="lazy" alt=""/></div>
+<map name="atask_read_input_8cpp_a92156ff09f452fa836941e3e98a4d631_cgraph" id="atask_read_input_8cpp_a92156ff09f452fa836941e3e98a4d631_cgraph">
+<area shape="rect" title="Reads input data from MCP23017 and enqueues to main task." alt="" coords="5,5,112,32"/>
+<area shape="rect" href="board__io_8c.html#aa62bbc6af32dd9da478a7d23fdb00091" title=" " alt="" coords="160,5,287,32"/>
+<area shape="poly" title=" " alt="" coords="112,16,144,16,144,21,112,21"/>
+</map>
+</div>
 <div class="dynheader">
 Here is the caller graph for this function:</div>
 <div class="dyncontent">

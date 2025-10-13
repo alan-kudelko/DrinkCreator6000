@@ -22,8 +22,8 @@
 <area shape="poly" id="edge18_Node000001_Node000019" title=" " alt="" coords="2057,35,2254,59,2483,93,2519,101,2518,106,2482,99,2254,64,2056,41"/>
 <area shape="rect" id="Node000020" href="$task_show_system_info_8cpp.html" title=" " alt="" coords="2667,104,2860,131"/>
 <area shape="poly" id="edge20_Node000001_Node000020" title=" " alt="" coords="2057,32,2327,56,2655,93,2700,101,2699,106,2654,99,2327,61,2056,38"/>
-<area shape="rect" id="Node000021" href="$task_welcome_screen_8cpp.html" title=" " alt="" coords="2884,104,3072,131"/>
-<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="2057,29,2417,49,2645,68,2873,93,2919,101,2918,106,2873,99,2644,73,2417,55,2056,34"/>
+<area shape="rect" id="Node000021" href="$task_testhardware_8cpp.html" title=" " alt="" coords="2885,104,3056,131"/>
+<area shape="poly" id="edge21_Node000001_Node000021" title=" " alt="" coords="2057,29,2418,48,2645,67,2873,93,2915,101,2914,106,2873,99,2644,72,2417,53,2056,34"/>
 <area shape="rect" id="Node000003" href="$uart_8c.html" title=" " alt="" coords="5,187,141,229"/>
 <area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="798,125,512,145,333,164,153,189,141,192,140,186,153,184,332,158,511,140,798,120"/>
 <area shape="rect" id="Node000004" href="$_drink_creator6000_8cpp.html" title=" " alt="" coords="165,195,336,221"/>

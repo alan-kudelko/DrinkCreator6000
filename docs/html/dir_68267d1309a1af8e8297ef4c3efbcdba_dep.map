@@ -1,12 +1,12 @@
 <map id="src" name="src">
 <area shape="rect" id="node1" href="dir_68267d1309a1af8e8297ef4c3efbcdba.html" title="src" alt="" coords="150,5,189,32"/>
 <area shape="rect" id="node2" href="dir_5290e710249d6b673b2b660f4556b41f.html" title="avr_peripherals" alt="" coords="5,80,115,107"/>
-<area shape="poly" id="edge1" href="dir_000006_000000.html" alt="" coords="152,35,93,74,90,69,149,30"/>
-<area shape="rect" id="edge1-headlabel" href="dir_000006_000000.html" title="11" alt="" coords="92,68,105,84"/>
+<area shape="poly" id="edge1" href="dir_000007_000000.html" alt="" coords="152,35,93,74,90,69,149,30"/>
+<area shape="rect" id="edge1-headlabel" href="dir_000007_000000.html" title="16" alt="" coords="92,68,106,84"/>
 <area shape="rect" id="node3" href="dir_d44c64559bbebec7f509842c48db8b23.html" title="include" alt="" coords="138,80,200,107"/>
-<area shape="poly" id="edge3" href="dir_000006_000005.html" alt="" coords="172,33,172,64,167,64,167,33"/>
-<area shape="rect" id="edge3-headlabel" href="dir_000006_000005.html" title="50" alt="" coords="171,53,185,69"/>
+<area shape="poly" id="edge3" href="dir_000007_000006.html" alt="" coords="172,33,172,64,167,64,167,33"/>
+<area shape="rect" id="edge3-headlabel" href="dir_000007_000006.html" title="51" alt="" coords="171,53,185,69"/>
 <area shape="rect" id="node4" href="dir_64e73385a8b7738563c26ce10415b58d.html" title="utility" alt="" coords="224,80,277,107"/>
-<area shape="poly" id="edge2" href="dir_000006_000008.html" alt="" coords="185,31,227,68,224,72,182,35"/>
-<area shape="rect" id="edge2-headlabel" href="dir_000006_000008.html" title="4" alt="" coords="225,53,232,69"/>
+<area shape="poly" id="edge2" href="dir_000007_000009.html" alt="" coords="185,31,227,68,224,72,182,35"/>
+<area shape="rect" id="edge2-headlabel" href="dir_000007_000009.html" title="5" alt="" coords="225,53,232,69"/>
 </map>
