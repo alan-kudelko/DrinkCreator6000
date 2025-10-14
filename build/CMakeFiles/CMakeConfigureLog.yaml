@@ -36,6 +36,7 @@ events:
     found: "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerId.c.in"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -89,6 +90,7 @@ events:
       - "ar"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -103,6 +105,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-ar.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -134,6 +137,7 @@ events:
       - "ranlib"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -148,6 +152,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-ranlib.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -179,6 +184,7 @@ events:
       - "strip"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -193,6 +199,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-strip.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -224,6 +231,7 @@ events:
       - "ld"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -238,6 +246,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-ld.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -269,6 +278,7 @@ events:
       - "nm"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -283,6 +293,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-nm.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -314,6 +325,7 @@ events:
       - "objdump"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -328,6 +340,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-objdump.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -359,6 +372,7 @@ events:
       - "objcopy"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -373,6 +387,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-objcopy.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -404,6 +419,7 @@ events:
       - "readelf"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -418,6 +434,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-readelf.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -449,6 +466,7 @@ events:
       - "dlltool"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -462,6 +480,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-dlltool.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-dlltool.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-dlltool"
+      - "C:/Program Files (x86)/M1 Licensing/avr-dlltool.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-dlltool.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-dlltool"
       - "C:/Windows/System32/avr-dlltool.com"
       - "C:/Windows/System32/avr-dlltool.exe"
       - "C:/Windows/System32/avr-dlltool"
@@ -492,6 +513,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/dlltool.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/dlltool.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/dlltool"
+      - "C:/Program Files (x86)/M1 Licensing/dlltool.com"
+      - "C:/Program Files (x86)/M1 Licensing/dlltool.exe"
+      - "C:/Program Files (x86)/M1 Licensing/dlltool"
       - "C:/Windows/System32/dlltool.com"
       - "C:/Windows/System32/dlltool.exe"
       - "C:/Windows/System32/dlltool"
@@ -522,6 +546,7 @@ events:
     found: false
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -553,6 +578,7 @@ events:
       - "addr2line"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -567,6 +593,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-addr2line.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -598,6 +625,7 @@ events:
       - "tapi"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -611,6 +639,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-tapi.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-tapi.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-tapi"
+      - "C:/Program Files (x86)/M1 Licensing/avr-tapi.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-tapi.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-tapi"
       - "C:/Windows/System32/avr-tapi.com"
       - "C:/Windows/System32/avr-tapi.exe"
       - "C:/Windows/System32/avr-tapi"
@@ -641,6 +672,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/tapi.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/tapi.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/tapi"
+      - "C:/Program Files (x86)/M1 Licensing/tapi.com"
+      - "C:/Program Files (x86)/M1 Licensing/tapi.exe"
+      - "C:/Program Files (x86)/M1 Licensing/tapi"
       - "C:/Windows/System32/tapi.com"
       - "C:/Windows/System32/tapi.exe"
       - "C:/Windows/System32/tapi"
@@ -671,6 +705,7 @@ events:
     found: false
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -704,6 +739,7 @@ events:
       - "avr-gcc-ar"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -717,6 +753,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.3.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.3.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.3"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.3.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.3.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.3"
       - "C:/Windows/System32/avr-gcc-ar-7.3.com"
       - "C:/Windows/System32/avr-gcc-ar-7.3.exe"
       - "C:/Windows/System32/avr-gcc-ar-7.3"
@@ -747,6 +786,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7"
       - "C:/Windows/System32/avr-gcc-ar-7.com"
       - "C:/Windows/System32/avr-gcc-ar-7.exe"
       - "C:/Windows/System32/avr-gcc-ar-7"
@@ -777,6 +819,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar7"
       - "C:/Windows/System32/avr-gcc-ar7.com"
       - "C:/Windows/System32/avr-gcc-ar7.exe"
       - "C:/Windows/System32/avr-gcc-ar7"
@@ -808,6 +853,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -841,6 +887,7 @@ events:
       - "avr-gcc-ranlib"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -854,6 +901,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.3.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.3.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.3"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.3.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.3.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.3"
       - "C:/Windows/System32/avr-gcc-ranlib-7.3.com"
       - "C:/Windows/System32/avr-gcc-ranlib-7.3.exe"
       - "C:/Windows/System32/avr-gcc-ranlib-7.3"
@@ -884,6 +934,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7"
       - "C:/Windows/System32/avr-gcc-ranlib-7.com"
       - "C:/Windows/System32/avr-gcc-ranlib-7.exe"
       - "C:/Windows/System32/avr-gcc-ranlib-7"
@@ -914,6 +967,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib7"
       - "C:/Windows/System32/avr-gcc-ranlib7.com"
       - "C:/Windows/System32/avr-gcc-ranlib7.exe"
       - "C:/Windows/System32/avr-gcc-ranlib7"
@@ -945,6 +1001,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -981,6 +1038,7 @@ events:
     found: "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerId.cpp.in"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -1036,6 +1094,7 @@ events:
       - "avr-gcc-ar"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -1049,6 +1108,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.3.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.3.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.3"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.3.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.3.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.3"
       - "C:/Windows/System32/avr-gcc-ar-7.3.com"
       - "C:/Windows/System32/avr-gcc-ar-7.3.exe"
       - "C:/Windows/System32/avr-gcc-ar-7.3"
@@ -1079,6 +1141,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-7"
       - "C:/Windows/System32/avr-gcc-ar-7.com"
       - "C:/Windows/System32/avr-gcc-ar-7.exe"
       - "C:/Windows/System32/avr-gcc-ar-7"
@@ -1109,6 +1174,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar7"
       - "C:/Windows/System32/avr-gcc-ar7.com"
       - "C:/Windows/System32/avr-gcc-ar7.exe"
       - "C:/Windows/System32/avr-gcc-ar7"
@@ -1140,6 +1208,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -1173,6 +1242,7 @@ events:
       - "avr-gcc-ranlib"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -1186,6 +1256,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.3.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.3.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.3"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.3.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.3.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.3"
       - "C:/Windows/System32/avr-gcc-ranlib-7.3.com"
       - "C:/Windows/System32/avr-gcc-ranlib-7.3.exe"
       - "C:/Windows/System32/avr-gcc-ranlib-7.3"
@@ -1216,6 +1289,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-7"
       - "C:/Windows/System32/avr-gcc-ranlib-7.com"
       - "C:/Windows/System32/avr-gcc-ranlib-7.exe"
       - "C:/Windows/System32/avr-gcc-ranlib-7"
@@ -1246,6 +1322,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib7.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib7.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib7"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib7.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib7.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib7"
       - "C:/Windows/System32/avr-gcc-ranlib7.com"
       - "C:/Windows/System32/avr-gcc-ranlib7.exe"
       - "C:/Windows/System32/avr-gcc-ranlib7"
@@ -1277,6 +1356,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -1323,6 +1403,7 @@ events:
       - "avr-gcc-ar"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -1336,6 +1417,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-"
       - "C:/Windows/System32/avr-gcc-ar-.com"
       - "C:/Windows/System32/avr-gcc-ar-.exe"
       - "C:/Windows/System32/avr-gcc-ar-"
@@ -1366,6 +1450,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar-"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ar-"
       - "C:/Windows/System32/avr-gcc-ar-.com"
       - "C:/Windows/System32/avr-gcc-ar-.exe"
       - "C:/Windows/System32/avr-gcc-ar-"
@@ -1397,6 +1484,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ar.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -1430,6 +1518,7 @@ events:
       - "avr-gcc-ranlib"
     candidate_directories:
       - "D:/Projekty/DrinkCreator6000/tools/bin/"
+      - "C:/Program Files (x86)/M1 Licensing/"
       - "C:/Windows/System32/"
       - "C:/Program Files/CMake/bin/"
       - "C:/Program Files/PuTTY/"
@@ -1443,6 +1532,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-"
       - "C:/Windows/System32/avr-gcc-ranlib-.com"
       - "C:/Windows/System32/avr-gcc-ranlib-.exe"
       - "C:/Windows/System32/avr-gcc-ranlib-"
@@ -1473,6 +1565,9 @@ events:
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-.com"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-.exe"
       - "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib-"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-.com"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-.exe"
+      - "C:/Program Files (x86)/M1 Licensing/avr-gcc-ranlib-"
       - "C:/Windows/System32/avr-gcc-ranlib-.com"
       - "C:/Windows/System32/avr-gcc-ranlib-.exe"
       - "C:/Windows/System32/avr-gcc-ranlib-"
@@ -1504,6 +1599,7 @@ events:
     found: "D:/Projekty/DrinkCreator6000/tools/bin/avr-gcc-ranlib.exe"
     search_context:
       ENV{PATH}:
+        - "C:\\Program Files (x86)\\M1 Licensing"
         - "C:\\WINDOWS\\system32"
         - "C:\\Program Files\\CMake\\bin"
         - "C:\\Program Files\\PuTTY\\"
@@ -1522,8 +1618,8 @@ events:
     checks:
       - "Detecting C compiler ABI info"
     directories:
-      source: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-eycwej"
-      binary: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-eycwej"
+      source: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-8utxv7"
+      binary: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-8utxv7"
     cmakeVariables:
       CMAKE_C_FLAGS: ""
       CMAKE_C_FLAGS_DEBUG: "-g"
@@ -1532,10 +1628,10 @@ events:
       variable: "CMAKE_C_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-eycwej'
+        Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-8utxv7'
         
-        Run Build Command(s): ninja -v cmTC_a6696
-        [1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe   -v -o CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c"
+        Run Build Command(s): ninja -v cmTC_fce06
+        [1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe   -v -o CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c"
         Using built-in specs.
         Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2
         COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe
@@ -1543,8 +1639,8 @@ events:
         Configured with: /home/toolsbuild/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs/lib CPPFLAGS= --target=avr --host=x86_64-w64-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64 --libdir=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64/lib --enable-languages=c,c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-gmp=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-mpc=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --enable-win32-registry=avrtoolchain --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.7.0_1796 --with-bugurl=http://www.microchip.com
         Thread model: single
         gcc version 7.3.0 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) 
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2'
-         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCCompilerABI.c -auxbase-strip CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj -version -o C:\\Users\\kujon\\AppData\\Local\\Temp\\ccDMQzcu.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2'
+         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCCompilerABI.c -auxbase-strip CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj -version -o C:\\Users\\kujon\\AppData\\Local\\Temp\\cccRGzG7.s
         GNU C11 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) version 7.3.0 (avr)
         	compiled by GNU C version 4.7.4, GMP version 5.0.2, MPFR version 3.0.0, MPC version 0.9, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -1563,12 +1659,12 @@ events:
         	compiled by GNU C version 4.7.4, GMP version 5.0.2, MPFR version 3.0.0, MPC version 0.9, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: e1a7222c35fe9d2fadcbe136f9368039
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2'
-         d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\ccDMQzcu.s
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2'
+         d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\cccRGzG7.s
         COMPILER_PATH=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/
         LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2'
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe  -v CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj -o cmTC_a6696   && cd ."
+        COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2'
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe  -v CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj -o cmTC_fce06   && cd ."
         Using built-in specs.
         Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2
         COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe
@@ -1579,9 +1675,9 @@ events:
         gcc version 7.3.0 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) 
         COMPILER_PATH=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/
         LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6696' '-specs=device-specs/specs-avr2'
-         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\cc3BlRfB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_a6696 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6696' '-specs=device-specs/specs-avr2'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fce06' '-specs=device-specs/specs-avr2'
+         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccY5uI6e.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_fce06 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fce06' '-specs=device-specs/specs-avr2'
         
       exitCode: 0
   -
@@ -1614,10 +1710,10 @@ events:
       Parsed C implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-eycwej']
+        ignore line: [Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-8utxv7']
         ignore line: []
-        ignore line: [Run Build Command(s): ninja -v cmTC_a6696]
-        ignore line: [[1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe   -v -o CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c"]
+        ignore line: [Run Build Command(s): ninja -v cmTC_fce06]
+        ignore line: [[1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe   -v -o CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c"]
         ignore line: [Using built-in specs.]
         ignore line: [Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2]
         ignore line: [COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe]
@@ -1625,8 +1721,8 @@ events:
         ignore line: [Configured with: /home/toolsbuild/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs/lib CPPFLAGS= --target=avr --host=x86_64-w64-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64 --libdir=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64/lib --enable-languages=c c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-gmp=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-mpc=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --enable-win32-registry=avrtoolchain --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.7.0_1796 --with-bugurl=http://www.microchip.com]
         ignore line: [Thread model: single]
         ignore line: [gcc version 7.3.0 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2']
-        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCCompilerABI.c -auxbase-strip CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj -version -o C:\\Users\\kujon\\AppData\\Local\\Temp\\ccDMQzcu.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2']
+        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCCompilerABI.c -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCCompilerABI.c -auxbase-strip CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj -version -o C:\\Users\\kujon\\AppData\\Local\\Temp\\cccRGzG7.s]
         ignore line: [GNU C11 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) version 7.3.0 (avr)]
         ignore line: [	compiled by GNU C version 4.7.4  GMP version 5.0.2  MPFR version 3.0.0  MPC version 0.9  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -1645,16 +1741,16 @@ events:
         ignore line: [	compiled by GNU C version 4.7.4  GMP version 5.0.2  MPFR version 3.0.0  MPC version 0.9  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: e1a7222c35fe9d2fadcbe136f9368039]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2']
-        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\ccDMQzcu.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2']
+        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\cccRGzG7.s]
         ignore line: [COMPILER_PATH=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/]
         ignore line: [LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2']
-        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe  -v CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj -o cmTC_a6696   && cd ."]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj' '-c' '-specs=device-specs/specs-avr2']
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe  -v CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj -o cmTC_fce06   && cd ."]
         ignore line: [Using built-in specs.]
         ignore line: [Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2]
         ignore line: [COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-gcc.exe]
@@ -1669,29 +1765,29 @@ events:
         ignore line: [LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6696' '-specs=device-specs/specs-avr2']
-        link line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\cc3BlRfB.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_a6696 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fce06' '-specs=device-specs/specs-avr2']
+        link line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccY5uI6e.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_fce06 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj --start-group -lgcc -lm -lc --end-group]
           arg [d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll] ==> ignore
           arg [-plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\cc3BlRfB.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccY5uI6e.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lm] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
           arg [--pmem-wrap-around=8k] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_a6696] ==> ignore
+          arg [cmTC_fce06] ==> ignore
           arg [-Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0] ==> dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0]
           arg [-Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc] ==> dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc]
           arg [-Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib] ==> dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib]
-          arg [CMakeFiles/cmTC_a6696.dir/CMakeCCompilerABI.c.obj] ==> ignore
+          arg [CMakeFiles/cmTC_fce06.dir/CMakeCCompilerABI.c.obj] ==> ignore
           arg [--start-group] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [-lm] ==> lib [m]
           arg [-lc] ==> lib [c]
           arg [--end-group] ==> ignore
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_a6696' '-specs=device-specs/specs-avr2']
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_fce06' '-specs=device-specs/specs-avr2']
         ignore line: []
         ignore line: []
         collapse library dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0] ==> [D:/Projekty/DrinkCreator6000/tools/lib/gcc/avr/7.3.0]
@@ -1712,8 +1808,8 @@ events:
     checks:
       - "Detecting CXX compiler ABI info"
     directories:
-      source: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-05v05p"
-      binary: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-05v05p"
+      source: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-obe24p"
+      binary: "D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-obe24p"
     cmakeVariables:
       CMAKE_CXX_FLAGS: ""
       CMAKE_CXX_FLAGS_DEBUG: "-g"
@@ -1723,10 +1819,10 @@ events:
       variable: "CMAKE_CXX_ABI_COMPILED"
       cached: true
       stdout: |
-        Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-05v05p'
+        Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-obe24p'
         
-        Run Build Command(s): ninja -v cmTC_157dc
-        [1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe   -std=gnu++1z   -v -o CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"
+        Run Build Command(s): ninja -v cmTC_5a0fd
+        [1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe   -std=gnu++1z   -v -o CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"
         Using built-in specs.
         Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2
         COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe
@@ -1734,8 +1830,8 @@ events:
         Configured with: /home/toolsbuild/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs/lib CPPFLAGS= --target=avr --host=x86_64-w64-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64 --libdir=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64/lib --enable-languages=c,c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-gmp=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-mpc=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --enable-win32-registry=avrtoolchain --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.7.0_1796 --with-bugurl=http://www.microchip.com
         Thread model: single
         gcc version 7.3.0 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) 
-        COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2'
-         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1plus.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCXXCompilerABI.cpp -auxbase-strip CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -std=gnu++1z -version -mn-flash=1 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF7mf2Z.s
+        COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2'
+         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1plus.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCXXCompilerABI.cpp -auxbase-strip CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -std=gnu++1z -version -mn-flash=1 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o C:\\Users\\kujon\\AppData\\Local\\Temp\\ccD0SUTt.s
         GNU C++14 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) version 7.3.0 (avr)
         	compiled by GNU C version 4.7.4, GMP version 5.0.2, MPFR version 3.0.0, MPC version 0.9, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
@@ -1760,12 +1856,12 @@ events:
         	compiled by GNU C version 4.7.4, GMP version 5.0.2, MPFR version 3.0.0, MPC version 0.9, isl version none
         GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
         Compiler executable checksum: 95b087446e73ed31edd93ef3ebb44dec
-        COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2'
-         d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF7mf2Z.s
+        COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2'
+         d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\ccD0SUTt.s
         COMPILER_PATH=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/
         LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/
-        COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2'
-        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe  -v CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_157dc   && cd ."
+        COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2'
+        [2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe  -v CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_5a0fd   && cd ."
         Using built-in specs.
         Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2
         COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe
@@ -1776,9 +1872,9 @@ events:
         gcc version 7.3.0 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) 
         COMPILER_PATH=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/
         LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/;d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_157dc' '-specs=device-specs/specs-avr2'
-         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF1tfR7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_157dc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group
-        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_157dc' '-specs=device-specs/specs-avr2'
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5a0fd' '-specs=device-specs/specs-avr2'
+         d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccxX7BHD.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_5a0fd -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group
+        COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5a0fd' '-specs=device-specs/specs-avr2'
         
       exitCode: 0
   -
@@ -1811,10 +1907,10 @@ events:
       Parsed CXX implicit link information:
         link line regex: [^( *|.*[/\\])(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)|CMAKE_LINK_STARTFILE-NOTFOUND|([^/\\]+-)?ld|collect2)[^/\\]*( |$)]
         linker tool regex: [^[ 	]*(->|")?[ 	]*(([^"]*[/\\])?(ld[0-9]*(|\\.[a-rt-z][a-z]*|\\.s[a-np-z][a-z]*|\\.so[a-z]+)))("|,| |$)]
-        ignore line: [Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-05v05p']
+        ignore line: [Change Dir: 'D:/Projekty/DrinkCreator6000/build/CMakeFiles/CMakeScratch/TryCompile-obe24p']
         ignore line: []
-        ignore line: [Run Build Command(s): ninja -v cmTC_157dc]
-        ignore line: [[1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe   -std=gnu++1z   -v -o CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"]
+        ignore line: [Run Build Command(s): ninja -v cmTC_5a0fd]
+        ignore line: [[1/2] D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe   -std=gnu++1z   -v -o CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -c "C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp"]
         ignore line: [Using built-in specs.]
         ignore line: [Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2]
         ignore line: [COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe]
@@ -1822,8 +1918,8 @@ events:
         ignore line: [Configured with: /home/toolsbuild/workspace/avr8-gnu-toolchain/src/gcc/configure LDFLAGS=-L/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs/lib CPPFLAGS= --target=avr --host=x86_64-w64-mingw32 --build=x86_64-pc-linux-gnu --prefix=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64 --libdir=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64/lib --enable-languages=c c++ --with-dwarf2 --enable-doc --disable-shared --disable-libada --disable-libssp --disable-nls --with-avrlibc=yes --with-mpfr=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-gmp=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --with-mpc=/home/toolsbuild/workspace/avr8-gnu-toolchain/avr8-gnu-toolchain-win32_x86_64-hostlibs --enable-win32-registry=avrtoolchain --with-pkgversion=AVR_8_bit_GNU_Toolchain_3.7.0_1796 --with-bugurl=http://www.microchip.com]
         ignore line: [Thread model: single]
         ignore line: [gcc version 7.3.0 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) ]
-        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2']
-        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1plus.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCXXCompilerABI.cpp -auxbase-strip CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -std=gnu++1z -version -mn-flash=1 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF7mf2Z.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2']
+        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/cc1plus.exe -quiet -v -iprefix d:\\projekty\\drinkcreator6000\\tools\\bin\\../lib/gcc/avr/7.3.0/ C:/Program Files/CMake/share/cmake-4.1/Modules/CMakeCXXCompilerABI.cpp -mn-flash=1 -mskip-bug -quiet -dumpbase CMakeCXXCompilerABI.cpp -auxbase-strip CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -std=gnu++1z -version -mn-flash=1 -mskip-bug -fno-rtti -fno-enforce-eh-specs -fno-exceptions -o C:\\Users\\kujon\\AppData\\Local\\Temp\\ccD0SUTt.s]
         ignore line: [GNU C++14 (AVR_8_bit_GNU_Toolchain_3.7.0_1796) version 7.3.0 (avr)]
         ignore line: [	compiled by GNU C version 4.7.4  GMP version 5.0.2  MPFR version 3.0.0  MPC version 0.9  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
@@ -1848,16 +1944,16 @@ events:
         ignore line: [	compiled by GNU C version 4.7.4  GMP version 5.0.2  MPFR version 3.0.0  MPC version 0.9  isl version none]
         ignore line: [GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072]
         ignore line: [Compiler executable checksum: 95b087446e73ed31edd93ef3ebb44dec]
-        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2']
-        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF7mf2Z.s]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2']
+        ignore line: [ d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/as.exe -mmcu=avr2 -o CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj C:\\Users\\kujon\\AppData\\Local\\Temp\\ccD0SUTt.s]
         ignore line: [COMPILER_PATH=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/bin/]
         ignore line: [LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2']
-        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe  -v CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_157dc   && cd ."]
+        ignore line: [COLLECT_GCC_OPTIONS='-std=gnu++1z' '-v' '-o' 'CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj' '-c' '-specs=device-specs/specs-avr2']
+        ignore line: [[2/2] C:\\WINDOWS\\system32\\cmd.exe /C "cd . && D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe  -v CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -o cmTC_5a0fd   && cd ."]
         ignore line: [Using built-in specs.]
         ignore line: [Reading specs from d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/device-specs/specs-avr2]
         ignore line: [COLLECT_GCC=D:\\Projekty\\DrinkCreator6000\\tools\\bin\\avr-g++.exe]
@@ -1872,23 +1968,23 @@ events:
         ignore line: [LIBRARY_PATH=d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/]
         ignore line: [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib/]
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_157dc' '-specs=device-specs/specs-avr2']
-        link line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF1tfR7.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_157dc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group]
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5a0fd' '-specs=device-specs/specs-avr2']
+        link line: [ d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe -plugin d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll -plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe -plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccxX7BHD.res -plugin-opt=-pass-through=-lgcc -plugin-opt=-pass-through=-lm -plugin-opt=-pass-through=-lc --pmem-wrap-around=8k -o cmTC_5a0fd -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0 -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc -Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj -lgcc -lm --start-group -lgcc -lm -lc --end-group]
           arg [d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/collect2.exe] ==> ignore
           arg [-plugin] ==> ignore
           arg [d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/liblto_plugin-0.dll] ==> ignore
           arg [-plugin-opt=d:/projekty/drinkcreator6000/tools/bin/../libexec/gcc/avr/7.3.0/lto-wrapper.exe] ==> ignore
-          arg [-plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccF1tfR7.res] ==> ignore
+          arg [-plugin-opt=-fresolution=C:\\Users\\kujon\\AppData\\Local\\Temp\\ccxX7BHD.res] ==> ignore
           arg [-plugin-opt=-pass-through=-lgcc] ==> ignore
           arg [-plugin-opt=-pass-through=-lm] ==> ignore
           arg [-plugin-opt=-pass-through=-lc] ==> ignore
           arg [--pmem-wrap-around=8k] ==> ignore
           arg [-o] ==> ignore
-          arg [cmTC_157dc] ==> ignore
+          arg [cmTC_5a0fd] ==> ignore
           arg [-Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0] ==> dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0]
           arg [-Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc] ==> dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc]
           arg [-Ld:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib] ==> dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0/../../../../avr/lib]
-          arg [CMakeFiles/cmTC_157dc.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
+          arg [CMakeFiles/cmTC_5a0fd.dir/CMakeCXXCompilerABI.cpp.obj] ==> ignore
           arg [-lgcc] ==> lib [gcc]
           arg [-lm] ==> lib [m]
           arg [--start-group] ==> ignore
@@ -1896,7 +1992,7 @@ events:
           arg [-lm] ==> lib [m]
           arg [-lc] ==> lib [c]
           arg [--end-group] ==> ignore
-        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_157dc' '-specs=device-specs/specs-avr2']
+        ignore line: [COLLECT_GCC_OPTIONS='-v' '-o' 'cmTC_5a0fd' '-specs=device-specs/specs-avr2']
         ignore line: []
         ignore line: []
         collapse library dir [d:/projekty/drinkcreator6000/tools/bin/../lib/gcc/avr/7.3.0] ==> [D:/Projekty/DrinkCreator6000/tools/lib/gcc/avr/7.3.0]

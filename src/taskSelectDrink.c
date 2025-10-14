@@ -17,7 +17,7 @@
 #include <taskSelectDrink.h>
 #include <DrinkCreator6000_Config_C.h>
 
-void taskSelectDrink(void*pvParameters){  
+void taskSelectDrink(void*pvParameters){ 
     uint32_t f_run=0;
   
     uint8_t currentScroll=0;

@@ -112,6 +112,7 @@ void normalStart(){
     taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,buffer,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
     taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,"TEST HW"      ,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11    
   
+    taskHandles[TASK_HARDWARE_CONTROL]=xTaskCreateStatic(taskHardwareControl     ,"HW CONTROL"   ,TASK_HARDWARE_CONTROL_STACK_SIZE       ,NULL,1,hardwareControlStack     ,&hardwareControlTCB);      // 12
     UI_Context.currentTask=DRINK_SELECT;
     UI_Context.currentMenu=0;
     UI_Context.currentSubMenu=0;
@@ -131,6 +132,8 @@ void faultStart(){
     taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,"ORDER DRINK"  ,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
     taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,"SHOW INFO"    ,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
     taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,"TEST HW"      ,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11
+    taskHandles[TASK_HARDWARE_CONTROL]=xTaskCreateStatic(taskHardwareControl    ,"HW CONTROL"   ,TASK_HARDWARE_CONTROL_STACK_SIZE       ,NULL,1,hardwareControlStack     ,&hardwareControlTCB);      // 12
+    
     UI_Context.currentTask=SHOW_INFO;
     UI_Context.currentMenu=0;
     UI_Context.currentSubMenu=0;

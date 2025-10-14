@@ -65,7 +65,7 @@ void taskOrderDrink(void*pvParameters){
                 // Calculate total volume to be pumped
                 for(i=0;i<8;i++){
                     if(drink[UI_Context.currentSubMenu].ingredients[i]){
-                        pumpTime[i]=1000/TASK_ORDER_DRINK_REFRESH_RATE*60*drink[UI_Context.currentSubMenu].ingredients[i]/(uint16_t)pumpsEff[i];
+                        pumpTime[i]=10000/TASK_ORDER_DRINK_REFRESH_RATE*60*drink[UI_Context.currentSubMenu].ingredients[i]/(pumpsEff[i]);
                     }
                     totalTime+=pumpTime[i];
                 }

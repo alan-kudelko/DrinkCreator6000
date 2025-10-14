@@ -57,7 +57,7 @@
 // (Task handles, stack sizes, priorities, guard zones)
 
 // Task count
-#define TASK_N 12
+#define TASK_N 13
 
 // Task identifiers
 
@@ -73,6 +73,7 @@
 #define TASK_ORDER_DRINK 9
 #define TASK_SHOW_SYS_INFO 10
 #define TASK_TEST_HARDWARE 11
+#define TASK_HARDWARE_CONTROL 12
 
 /** @brief Stack size (in words) for Error Handler task (ID 0). */
 #define TASK_ERROR_HANDLER_STACK_SIZE 230           //0
@@ -98,6 +99,8 @@
 #define TASK_SHOW_SYSTEM_INFO_STACK_SIZE 300        //10
 /** @brief Stack size (in words) for Test Hardware task (ID 11). */
 #define TASK_TEST_HARDWARE_STACK_SIZE 300             //11
+/** @brief Stack size (in words) for Hardware Control task (ID 12). */
+#define TASK_HARDWARE_CONTROL_STACK_SIZE 300          //12
 
 // Tasks execution periods in ms
 #define TASK_ERROR_HANDLER_REFRESH_RATE 500     // 0
@@ -111,9 +114,8 @@
 #define TASK_SELECT_DRINK_REFRESH_RATE 1000     // 8
 #define TASK_ORDER_DRINK_REFRESH_RATE 500       // 9
 #define TASK_SHOW_SYSTEM_INFO_REFRESH_RATE 600  // 10
-
-// Timeout for closing welcome screen task
-#define TASK_WELCOME_TICKS_TO_CLOSE 10
+#define TASK_TEST_HARDWARE_REFRESH_RATE 500     // 11
+#define TASK_HARDWARE_CONTROL_REFRESH_RATE 50   // 12
 
 /**
  * @brief Size of the guard zone (in bytes) placed between task stacks.
@@ -144,6 +146,7 @@ extern StaticTask_t selectDrinkTCB;                                 ///< Task Co
 extern StaticTask_t orderDrinkTCB;                                  ///< Task Control Block for Order Drink task (ID 9)
 extern StaticTask_t showSystemInfoTCB;                              ///< Task Control Block for Show System Info task (ID 10)
 extern StaticTask_t testHardwareTCB;                                ///< Task Control Block for Welcome Screen task (ID 11)
+extern StaticTask_t hardwareControlTCB;                             ///< Task Control Block for Hardware Control task (ID 12)
 /**
  * @brief Array of task handles.
  * 
@@ -157,41 +160,44 @@ extern TaskHandle_t taskHandles[TASK_N];                            ///< Array o
  * These are memory regions placed before each task stack to detect
  * stack overflows by monitoring if the guard zone contents are overwritten.
  */
-extern volatile StackType_t guardZone0[]; ///< Guard zone before Error Handler task stack
-extern StackType_t errorHandlerStack[];   ///< Stack for Error Handler task (ID 0)
+extern volatile StackType_t guardZone0[];  ///< Guard zone before Error Handler task stack
+extern StackType_t errorHandlerStack[];    ///< Stack for Error Handler task (ID 0)
 
-extern volatile StackType_t guardZone1[]; ///< Guard zone before Serial System Debugger task stack
+extern volatile StackType_t guardZone1[];       ///< Guard zone before Serial System Debugger task stack
 extern StackType_t serialSystemDebuggerStack[]; ///< Stack for Serial System Debugger task (ID 1)
 
-extern volatile StackType_t guardZone2[]; ///< Guard zone before Main task stack
+extern volatile StackType_t guardZone2[];  ///< Guard zone before Main task stack
 extern StackType_t mainStack[];            ///< Stack for Main task (ID 2)
 
-extern volatile StackType_t guardZone3[]; ///< Guard zone before Read Input task stack
+extern volatile StackType_t guardZone3[];  ///< Guard zone before Read Input task stack
 extern StackType_t readInputStack[];       ///< Stack for Read Input task (ID 3)
 
-extern volatile StackType_t guardZone4[]; ///< Guard zone before Serial Input task stack
+extern volatile StackType_t guardZone4[];  ///< Guard zone before Serial Input task stack
 extern StackType_t serialInputStack[];     ///< Stack for Serial Input task (ID 4)
 
-extern volatile StackType_t guardZone5[]; ///< Guard zone before Update Screen task stack
+extern volatile StackType_t guardZone5[];  ///< Guard zone before Update Screen task stack
 extern StackType_t updateScreenStack[];    ///< Stack for Update Screen task (ID 5)
 
-extern volatile StackType_t guardZone6[]; ///< Guard zone before Read Temperature task stack
+extern volatile StackType_t guardZone6[];  ///< Guard zone before Read Temperature task stack
 extern StackType_t readTempStack[];        ///< Stack for Read Temperature task (ID 6)
 
-extern volatile StackType_t guardZone7[]; ///< Guard zone before Regulate Temperature task stack
+extern volatile StackType_t guardZone7[];  ///< Guard zone before Regulate Temperature task stack
 extern StackType_t regulateTempStack[];    ///< Stack for Regulate Temperature task (ID 7)
 
-extern volatile StackType_t guardZone8[]; ///< Guard zone before Select Drink task stack
+extern volatile StackType_t guardZone8[];  ///< Guard zone before Select Drink task stack
 extern StackType_t selectDrinkStack[];     ///< Stack for Select Drink task (ID 8)
 
-extern volatile StackType_t guardZone9[]; ///< Guard zone before Order Drink task stack
+extern volatile StackType_t guardZone9[];  ///< Guard zone before Order Drink task stack
 extern StackType_t orderDrinkStack[];      ///< Stack for Order Drink task (ID 9)
 
 extern volatile StackType_t guardZone10[]; ///< Guard zone before Show System Info task stack
 extern StackType_t showSystemInfoStack[];  ///< Stack for Show System Info task (ID 10)
 
 extern volatile StackType_t guardZone11[]; ///< Guard zone before Welcome Screen task stack
-extern StackType_t testHardwareStack[];   ///< Stack for Welcome Screen task (ID 11)
+extern StackType_t testHardwareStack[];    ///< Stack for Welcome Screen task (ID 11)
+
+extern volatile StackType_t guardZone12[]; ///< Guard zone before Hardware Control task stack
+extern StackType_t hardwareControlStack[]; ///< Stack for Hardware Control task (ID 12)
 /**
  * @brief Array of pointers to all guard zones.
  * 
@@ -259,7 +265,7 @@ extern const struct sDrinkData drink[];
 //
 extern const char ingredients[][20-4-4];
 //
-extern const uint16_t pumpsEff[];
+extern const uint8_t pumpsEff[];
 // Pumps efficiency in ml/min
 
 // ========================

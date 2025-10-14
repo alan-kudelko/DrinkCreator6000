@@ -131,6 +131,7 @@ void initializeMemory(){
     memset((void*)guardZone9, MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone12,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
 
     sei();
     uart_puts_P_blocking(msg_MemoryInitialized);

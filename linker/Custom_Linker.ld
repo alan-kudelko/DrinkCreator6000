@@ -215,7 +215,9 @@ SECTIONS
 	KEEP(*(.tdat.showSystemInfoStack));
 	KEEP(*(.tdat.guardZone11));
 	KEEP(*(.tdat.testHardwareStack));
-	
+  KEEP(*(.tdat.guardZone12));
+	KEEP(*(.tdat.hardwareControlStack));
+
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))
 	PROVIDE (__tdat_end = . );

@@ -29,6 +29,7 @@ StaticTask_t selectDrinkTCB          __attribute__((section(".tdat"))); //8
 StaticTask_t orderDrinkTCB           __attribute__((section(".tdat"))); //9
 StaticTask_t showSystemInfoTCB       __attribute__((section(".tdat"))); //10
 StaticTask_t testHardwareTCB         __attribute__((section(".tdat"))); //11
+StaticTask_t hardwareControlTCB      __attribute__((section(".tdat"))); //12
 
 TaskHandle_t taskHandles[TASK_N];
 
@@ -68,6 +69,9 @@ StackType_t showSystemInfoStack[TASK_SHOW_SYSTEM_INFO_STACK_SIZE]            __a
 volatile StackType_t guardZone11[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone11")));
 StackType_t testHardwareStack[TASK_TEST_HARDWARE_STACK_SIZE]                 __attribute__((section(".tdat.testHardwareStack"))); //11
 
+volatile StackType_t guardZone12[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone12")));
+StackType_t hardwareControlStack[TASK_HARDWARE_CONTROL_STACK_SIZE]           __attribute__((section(".tdat.hardwareControlStack"))); //12
+
 volatile StackType_t* guardZones[TASK_N]={
     guardZone0,
     guardZone1,
@@ -80,7 +84,8 @@ volatile StackType_t* guardZones[TASK_N]={
     guardZone8,
     guardZone9,
     guardZone10,
-    guardZone11
+    guardZone11,
+    guardZone12
 };
 // ========================
 // Synchronization Objects
@@ -153,14 +158,14 @@ const char ingredients[8][20-4-4]={
     {"Woda"}        //8
 };
 //
-const uint16_t pumpsEff[8]={
-    1200,
-    1250,
-    1250,
-    1250,
-    1250,
-    1250,
-    1250,
-    1250
+const uint8_t pumpsEff[8]={
+    120,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125,
+    125
 };
 
