@@ -16,16 +16,94 @@
 
 #include <taskShowSystemInfo.h>
 #include <DrinkCreator6000_RamStats.h>
+#include <DrinkCreator6000_Progmem.h>
 
 #include <DrinkCreator6000_Config_C.h>
 
 extern "C" void updateMemoryUsage(void);
 
+uint8_t taskShowSystemInfo_ProcessContext(uint8_t*keyboardData,volatile struct sUIContext*UI_context){
+    // Fix to be MISRA C compliant
+    // Magic numbers should be replaced with defines or enums
+    // Default case should be added to switch statements
+    if((*keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+        UI_context->currentSubMenu--;
+
+        switch(UI_context->currentMenu){
+            case UI_SHOW_INFO_MENU_FIRMWARE:
+                if(UI_context->currentSubMenu>1){
+                    UI_context->currentSubMenu=0;
+                }
+            break;
+            case UI_SHOW_INFO_MENU_TEMP:
+                if(UI_context->currentSubMenu>0){
+                    UI_context->currentSubMenu=0;
+                }
+            break;
+            case UI_SHOW_INFO_MENU_MEMORY:
+                if(UI_context->currentSubMenu>4){
+                    UI_context->currentSubMenu=0;
+                }
+            break;
+            case UI_SHOW_INFO_MENU_TASK:
+                if(UI_context->currentSubMenu>TASK_N-1){
+                    UI_context->currentSubMenu=0;
+                }
+            break;
+            case UI_SHOW_INFO_MENU_ERROR:
+                UI_context->currentSubMenu=0; // Switch is only possible when confirming an error
+            break;
+            default:
+                UI_context->currentSubMenu=0; // Temporary do nothing
+        }
+        return 0;
+    }
+    else if((*keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+        UI_context->currentMenu++;
+        if(UI_context->currentMenu>UI_SHOW_INFO_MENUS_COUNT){
+            taskENTER_CRITICAL();
+            UI_context->currentTask++;
+            UI_context->currentMenu=0;
+            UI_context->currentSubMenu=0;
+            taskEXIT_CRITICAL();
+            return 1; // Change task
+        }
+    }
+    else if((*keyboardData&E_RED_BUTTON)==E_RED_BUTTON){
+        taskENTER_CRITICAL();
+        UI_context->currentMenu--;
+        UI_context->currentSubMenu=0;
+        taskEXIT_CRITICAL();
+        if(UI_context->currentMenu>UI_SHOW_INFO_MENUS_COUNT){
+            taskENTER_CRITICAL();
+            UI_context->currentTask-=2;
+            UI_context->currentMenu=0;
+            taskEXIT_CRITICAL();
+            return 1; // Change task
+        }
+    }
+    else if((*keyboardData&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+        if(UI_context->currentMenu==UI_SHOW_INFO_MENU_ERROR){
+            // Update EEPROM
+            f_errorConfirmed=1;
+            taskENTER_CRITICAL();
+            UI_context->currentSubMenu=0;
+            taskEXIT_CRITICAL();
+        }
+        return 0;
+    }
+    else{
+        return 0;
+    }
+    return 0;
+}
+
 void showInfo_Firmware_Sub_0(sScreenData*screenData){
-    sprintf(screenData->lines[0],"%s","Drink Creator 6000");
-    sprintf(screenData->lines[1],"%s","Software ver. 6.0");
-    sprintf(screenData->lines[2],"%s","Author: Alan Kudelko");
-    sprintf(screenData->lines[3],"%s %d","Startup count: ",bootupsCount);
+    strncpy_P(screenData->lines[0],msg_showInfo_ProjectName,LCD_WIDTH);
+    strncpy_P(screenData->lines[1],msg_showInfo_SoftwareVersion,LCD_WIDTH);
+    strncpy_P(screenData->lines[2],msg_showInfo_Author,LCD_WIDTH);
+    strncpy_P(screenData->lines[3],msg_showInfo_StartupCount,LCD_WIDTH);
+    snprintf(screenData->lines[3]+strlen_P(msg_showInfo_StartupCount),LCD_WIDTH-strlen_P(msg_showInfo_StartupCount),"%d",bootupsCount);
 }
 void showInfo_Firmware_Sub_1(sScreenData*screenData){
     uint32_t currentRunTimeMS=0;
@@ -40,12 +118,11 @@ void showInfo_Firmware_Sub_1(sScreenData*screenData){
     runTimeMinutes=(currentRunTimeMS/60)%60;
     runTimeSeconds=currentRunTimeMS%60;
   
-    sprintf(screenData->lines[0],"%s","Drink Creator 6000");
-    sprintf(screenData->lines[1],"%s","Current run time");  
+    strncpy_P(screenData->lines[0],msg_showInfo_ProjectName,LCD_WIDTH);
+    strncpy_P(screenData->lines[1],msg_showInfo_CurrentRunTime,LCD_WIDTH);  
   
     sprintf(screenData->lines[2],"%02d %s %02d %s",runTimeDays,"days",runTimeHours,"h");
   
-
     memset((void*)screenData->lines[3],0,sizeof(screenData->lines[3]));
   
     sprintf(screenData->lines[3],"%02d %s  %02d %s",runTimeMinutes,"min",runTimeSeconds,"s");
@@ -54,7 +131,7 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
     // sprintf with %f is disabled on AVR, because it requires extra code
     uint8_t mantissa;
     uint8_t integer;
-    sprintf(screenData->lines[0],"%s","Drink Creator 6000");
+    strncpy_P(screenData->lines[0],msg_showInfo_ProjectName,LCD_WIDTH);
   
     integer=currentTemperature;
     mantissa=uint8_t(currentTemperature*10)%10;
@@ -68,17 +145,11 @@ void showInfo_Temp_Sub_0(sScreenData*screenData){
     mantissa=uint8_t(temperatureHysteresis*10)%10;
     sprintf(screenData->lines[2],"Hyst: %d.%d\xDF""C",integer,mantissa);
   
-    //sprintf(screenData->lines[3],"Status: %s",digitalRead(Pelt1Pin)==HIGH?"Cooling":"Idle");
+    //Dobra tutaj dodac abstrakcje odczytu stanu lodowki
+    //sprintf(screenData->lines[3],"Status: %s",digitalRead(P)==HIGH?"Cooling":"Idle");
 }
 void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
     updateMemoryUsage();  
-  
-    if(UI_context->currentSubMenu==4){
-        UI_context->currentSubMenu=0;
-    }
-    if(UI_context->currentSubMenu>4){
-        UI_context->currentSubMenu=3;
-    }
 
     memset((void*)screenData,0,sizeof(sScreenData));
   
@@ -124,13 +195,6 @@ void showInfo_Memory_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context
     }
 }
 void showInfo_Task_Sub_N(sScreenData*screenData,volatile sUIContext*UI_context){
-    if(UI_context->currentSubMenu==TASK_N){
-        UI_context->currentSubMenu=0;
-    }
-    if(UI_context->currentSubMenu>TASK_N){
-        UI_context->currentSubMenu=TASK_N-1;
-    }
-
     sprintf(screenData->lines[0],"%s","Task Info");
   
     if(taskHandles[UI_context->currentSubMenu]==NULL){
@@ -201,13 +265,15 @@ void showInfo_ConfError_Sub_0(sScreenData*screenData,volatile sUIContext*UI_cont
     // Logic of course should be in the main task
 }
 void taskShowSystemInfo(void*pvParameters){
-    uint32_t f_run=false;
+    uint32_t f_run=0;
+    uint8_t keyboardData=0;
+    uint8_t changeTask=0; // 1 if there is a change of task, 0 if not
   
     sScreenData screenData{};
     for(;;){
         if(xTaskNotifyWait(0,0,&f_run,0)>0){
             if(f_run==1){
-
+                // In theory this is onWakeup event
             }
         }
 	    if(f_run==1){
@@ -218,7 +284,7 @@ void taskShowSystemInfo(void*pvParameters){
             }
         
 	        switch(UI_Context.currentMenu){
-	            case 0:
+	            case UI_SHOW_INFO_MENU_FIRMWARE:
                     if(UI_Context.currentSubMenu==2){
                         UI_Context.currentSubMenu=0;
                     }
@@ -234,16 +300,16 @@ void taskShowSystemInfo(void*pvParameters){
 			            break;
 		            }
 		            break;
-		        case 1:
+		        case UI_SHOW_INFO_MENU_TEMP:
 			        showInfo_Temp_Sub_0(&screenData);
 		            break;
-		        case 2:
+		        case UI_SHOW_INFO_MENU_MEMORY:
 		            showInfo_Memory_Sub_N(&screenData,&UI_Context);
 		            break;
-		        case 3:
+		        case UI_SHOW_INFO_MENU_TASK:
 		            showInfo_Task_Sub_N(&screenData,&UI_Context);
 		            break;
-		        case 4:
+		        case UI_SHOW_INFO_MENU_ERROR:
                     UI_Context.autoScrollEnable=1;
 		            showInfo_Error_Sub_N(&screenData,&UI_Context);
 		            break;
@@ -251,8 +317,19 @@ void taskShowSystemInfo(void*pvParameters){
 		            showInfo_ConfError_Sub_0(&screenData,&UI_Context);
 		            break;
 	        }
-	        xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
-	    }
+
+            if(xQueueReceive(qKeyboardData,&keyboardData,0)==pdTRUE){
+                changeTask=taskShowSystemInfo_ProcessContext(&keyboardData,&UI_Context);
+                if(changeTask==1){
+                    xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],0,eSetValueWithOverwrite); // Notify self to terminate
+                }
+                else{
+                    xTaskNotify(taskHandles[TASK_SHOW_SYS_INFO],1,eSetValueWithOverwrite); // Notify self to process keyboard data
+                }
+            }
+            xTaskNotify(taskHandles[TASK_MAIN],changeTask,eSetValueWithOverwrite); // Notify main to change context
+            xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+        }
         vTaskDelay(pdMS_TO_TICKS(TASK_SHOW_SYSTEM_INFO_REFRESH_RATE));
     }
 }

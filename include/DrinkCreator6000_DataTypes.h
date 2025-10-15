@@ -33,11 +33,10 @@
 #ifdef __cplusplus
     extern "C" {
 #endif // __cplusplus
+
 struct sDrinkData{
     char drinkName[DRINK_NAME_LENGTH];
     uint16_t ingredients[8];
-    uint16_t numberOfOrders;
-    // Can be optimzed
 };
 /**
  * @struct sScreenData
@@ -127,7 +126,7 @@ struct sUIContext{
      * - 2 = taskShowSystemInfo
      *  -3 = taskTestHardware
      */
-    uint8_t currentTask:2;
+    uint8_t currentTask:4;
     /**
      * @brief Current menu index in the given task.
      *
@@ -149,6 +148,35 @@ struct sUIContext{
      * Cannot be optimized with the current UI design.
      */
     uint8_t currentSubMenu;
+};
+
+/**
+ * @brief Defines for hardware control types.
+ * These defines are used to specify which hardware component
+ * is being controlled in the sHardwareData structure.
+ */
+
+#define HARDWARE_PUMPS 1
+#define HARDWARE_COOLER 2
+#define HARDWARE_FANS 4
+#define HARDWARE_CIRCULATION 8
+
+#define HARDWARE_MISC_BIT 1
+
+/**
+ * @struct sHardwareData
+ * @brief Structure containing data to be passed to the taskHardwareControl
+ *
+ * This structure holds information about which hardware component to control
+ */
+struct sHardwareData{
+    uint8_t hardware; ///< 1 = pumps, 2 = cooler, 3 = fans, 4 = circulation pump
+    /**
+     * @brief Control mask for the selected hardware component.
+     * For pumps, each bit represents a pump (bit 0 = pump 1, bit 1 = pump 2, etc.).
+     * For other hardware types, the mask is either 0 (off) or 1 (on).
+     */
+    uint8_t mask;
 };
 
 #ifdef __cplusplus

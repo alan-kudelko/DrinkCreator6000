@@ -17,8 +17,47 @@
 #include <taskSelectDrink.h>
 #include <DrinkCreator6000_Config_C.h>
 
+uint8_t taskSelectDrink_ProcessContext(uint8_t*keyboardData,volatile struct sUIContext*UI_context){
+    if((*keyboardData&E_LWHITE_BUTTON)==E_LWHITE_BUTTON){
+        UI_context->currentSubMenu--;
+
+        if(UI_context->currentSubMenu==DRINK_COUNT){
+            UI_context->currentSubMenu=DRINK_COUNT-1;
+        }
+        return 0;
+    }
+    else if((*keyboardData&E_RWHITE_BUTTON)==E_RWHITE_BUTTON){
+        UI_context->currentSubMenu++;
+        if(UI_context->currentSubMenu>=DRINK_COUNT){
+            UI_context->currentSubMenu=0;
+        }
+        return 0;
+    }
+    else if((*keyboardData&E_BLUE_BUTTON)==E_BLUE_BUTTON){
+        taskENTER_CRITICAL();
+        UI_context->currentTask+=2;
+        UI_context->currentMenu=0;
+        UI_context->currentSubMenu=0;
+        taskEXIT_CRITICAL();
+        return 1; // Change task
+    }
+    else if((*keyboardData&E_GREEN_BUTTON)==E_GREEN_BUTTON){
+        taskENTER_CRITICAL();
+        UI_context->currentTask++;
+        UI_context->currentMenu=0;
+        //UI_context->currentSubMenu=0;
+        taskEXIT_CRITICAL();
+        return 1; // Change task
+    }    
+    else{
+        return 0; // Invalid input
+    }
+}
+
 void taskSelectDrink(void*pvParameters){ 
     uint32_t f_run=0;
+    uint32_t changeTask=0; // 1 if there is a change of task, 0 if not
+    uint8_t keyboardData=0;
   
     uint8_t currentScroll=0;
     uint8_t i=0;
@@ -28,17 +67,11 @@ void taskSelectDrink(void*pvParameters){
     // Used for storing only existing drink values for display
   
     for(;;){
-        if(xTaskNotifyWait(0,0,&f_run,0)>0){
+        if(xTaskNotifyWait(0,0,&f_run,pdMS_TO_TICKS(TASK_SELECT_DRINK_REFRESH_RATE))>0){
 	          if(f_run==1){
+                changeTask=0;
                 currentScroll=0;
                 noIngredients=0;
-
-                if(UI_Context.currentSubMenu>DRINK_COUNT){
-                    UI_Context.currentSubMenu=DRINK_COUNT-1;
-                }
-                if(UI_Context.currentSubMenu==DRINK_COUNT){
-                    UI_Context.currentSubMenu=0;
-                }
         
                 memset(&screenData,0,sizeof(screenData));
                 sprintf(screenData.lines[0],"[%2d]%s",UI_Context.currentSubMenu+1,drink[UI_Context.currentSubMenu].drinkName);		  
@@ -71,12 +104,19 @@ void taskSelectDrink(void*pvParameters){
                 }
             }
 
-            xQueueSend(qScreenData, &screenData, pdMS_TO_TICKS(50));
-      
-            vTaskDelay(pdMS_TO_TICKS(1000));
-        }
-        else{
-            vTaskDelay(pdMS_TO_TICKS(500));
+            xQueueSend(qScreenData,&screenData,pdMS_TO_TICKS(50));
+
+            // Read data from keyboard
+            if(xQueueReceive(qKeyboardData,&keyboardData,0)==pdTRUE){
+                changeTask=taskSelectDrink_ProcessContext(&keyboardData,&UI_Context);
+                if(changeTask==1){
+                    xTaskNotify(taskHandles[TASK_SELECT_DRINK],0,eSetValueWithOverwrite); // Notify self to terminate
+                }
+                else{
+                    xTaskNotify(taskHandles[TASK_SELECT_DRINK],1,eSetValueWithOverwrite); // Notify self to process keyboard data
+                }
+            }
+            xTaskNotify(taskHandles[TASK_MAIN],changeTask,eSetValueWithOverwrite); // Notify main to change context
         }
     }
 }

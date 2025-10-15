@@ -53,13 +53,6 @@ void initializeMemory(void);
  */
 void initializeHardware(void);
 /**
- * @brief Initialize interrupt controllers and attach ISR handlers.
- *
- * Prepares all necessary interrupt vectors and priorities for system operation.
- * Currently a placeholder pending implementation.
- */
-void initializeInterrupts(void);
-/**
  * @brief System startup routine executed early in the boot sequence.
  *
  * Calls all initialization functions in the correct order to prepare

@@ -17,6 +17,8 @@
 #ifndef _TASK_SELECT_DRINK_H_
     #define _TASK_SELECT_DRINK_H_
 
+#include <DrinkCreator6000_DataTypes.h>
+
 /**
  * @brief Handles the drink selection process.
  *
@@ -27,6 +29,14 @@
     extern "C" {
 #endif // __cplusplus
 
+/**
+ * @brief Processes keyboard input and updates the UI context for drink selection.
+ */
+uint8_t taskSelectDrink_ProcessContext(uint8_t*keyboardData,volatile struct sUIContext*UI_context);
+
+/**
+ * @brief drink selection task.
+ */
 void taskSelectDrink(void*pvParameters);
 
 #ifdef __cplusplus

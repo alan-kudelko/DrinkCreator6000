@@ -217,6 +217,8 @@ SECTIONS
 	KEEP(*(.tdat.testHardwareStack));
   KEEP(*(.tdat.guardZone12));
 	KEEP(*(.tdat.hardwareControlStack));
+  KEEP(*(.tdat.guardZone13));
+  KEEP(*(.tdat.machineCleanerStack));
 
 	KEEP(*(.tdat))
 	KEEP(*(.tdat*))

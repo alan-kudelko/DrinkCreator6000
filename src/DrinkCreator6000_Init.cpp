@@ -31,9 +31,6 @@
 
 
 void initializeUART(void){
-    //MCUSR=0;
-    //wdt_disable();
-
     uart_init();
     sei();
     _delay_ms(50);
@@ -112,7 +109,8 @@ void initializeMemory(){
     qScreenData=xQueueCreateStatic(SCREEN_QUEUE_BUFFER_COUNT,sizeof(sScreenData),screenQueueBuffer,&screenQueueStructBuffer);
     qKeyboardData=xQueueCreateStatic(KEYBOARD_QUEUE_BUFFER_COUNT,sizeof(uint8_t),keyboardQueueBuffer,&keyboardQueueStructBuffer);
     qErrorId=xQueueCreateStatic(ERROR_ID_QUEUE_BUFFER_COUNT,sizeof(TaskHandle_t),errorIdQueueBuffer,&errorIdQueueStructBuffer);
-  
+    qHardwareControl=xQueueCreateStatic(HARDWARE_CONTROL_QUEUE_BUFFER_COUNT,sizeof(sHardwareData),hardwareControlQueueBuffer,&hardwareControlQueueStructBuffer);
+
     sem_ReadData=xSemaphoreCreateBinaryStatic(&semReadDataBuffer);
     mux_I2CLock=xSemaphoreCreateMutexStatic(&muxI2CLockBuffer);
     mux_SerialLock=xSemaphoreCreateMutexStatic(&muxSerialLockBuffer);
@@ -132,6 +130,7 @@ void initializeMemory(){
     memset((void*)guardZone10,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone11,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
     memset((void*)guardZone12,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
+    memset((void*)guardZone13,MEMORY_FILL_PATTERN,GUARD_ZONE_SIZE);
 
     sei();
     uart_puts_P_blocking(msg_MemoryInitialized);
@@ -167,16 +166,10 @@ void initializeHardware(){
 
 }
 
-void initializeInterrupts(void){
-    // Yet to be implemented
-    uart_puts_P_blocking(msg_InterruptsAttached);
-}
-
 void init8(void){
     initializeUART();
     initializeIO();
     initializeEEPROM();
     initializeMemory();
     initializeHardware();
-    initializeInterrupts();
 }

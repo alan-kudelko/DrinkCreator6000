@@ -84,10 +84,20 @@ extern const char msg_MemoryInitialized[]             PROGMEM; /**< Message indi
 extern const char msg_I2CReady[]                      PROGMEM; /**< Message indicating hardware components are ready */
 extern const char msg_lcdReady[]                      PROGMEM; /**< Message indicating lcd is ready */
 extern const char msg_mcpReady[]                      PROGMEM; /**< Message indicating mcp is ready */
-extern const char msg_InterruptsAttached[]            PROGMEM; /**< Message indicating interrupts are attached */
 extern const char msg_NormalStartUp[]                 PROGMEM; /**< Message indicating normal system startup */
 extern const char msg_FaultStartUp[]                  PROGMEM; /**< Message indicating system startup with faults */
 /** @} */
+
+/** @name Strings for the "showInfo" LCD display task
+ * @{
+ */
+extern const char msg_showInfo_ProjectName[]          PROGMEM; /**< Project name string */
+extern const char msg_showInfo_SoftwareVersion[]      PROGMEM; /**< Software version string */
+extern const char msg_showInfo_Author[]               PROGMEM; /**< Author name string */
+extern const char msg_showInfo_StartupCount[]         PROGMEM; /**< System startup count string */
+extern const char msg_showInfo_CurrentRunTime[]       PROGMEM; /**< Current system run time string */
+/** @} */
+
 
 /** @name FreeRTOS task names stored in PROGMEM
  *  @{
@@ -104,6 +114,7 @@ extern const char taskSelectDrink_name[]              PROGMEM; /**< Task name: S
 extern const char taskOrderDrink_name[]               PROGMEM; /**< Task name: Order Drink */
 extern const char taskShowInfo_name[]                 PROGMEM; /**< Task name: Show Info */
 extern const char taskTestHW_name[]                   PROGMEM; /**< Task name: Test hardware */
+extern const char taskHardwareControl_name[]          PROGMEM; /**< Task name: Hardware Control */
 
 extern const char* const taskNames[]                  PROGMEM; /**< Array of all task name strings */
 /** @} */

@@ -6,21 +6,64 @@
 #include <portable.h>
 #include <portmacro.h>
 #include <board_io.h>
+#include <buzzer.h>
 
 #include <taskHardwareControl.h>
 
 void taskHardwareControl(void*pvParameters){
-    uint8_t pumpsMask=0x00;
-    uint8_t hardwareMask=0x00;
-
-    // 0 cooler -> peltiers + pump
-    // 1 fans
-    uint32_t f_run=0;
-
+    struct sHardwareData hardwareData={0};
 
     for(;;){
+        if(xQueueReceive(qHardwareControl,&hardwareData,pdMS_TO_TICKS(TASK_HARDWARE_CONTROL_MAX_TIMEOUT_MS))==pdTRUE){
+            if(hardwareData.hardware&HARDWARE_COOLER){
+                if(hardwareData.mask&HARDWARE_MISC_BIT){
+                    cooler_on();
+                }
+                else{
+                    cooler_off();
+                }
+            }
+            if(hardwareData.hardware&HARDWARE_FANS){
+                if(hardwareData.mask&HARDWARE_MISC_BIT){
+                    fans_on();
+                }
+                else{
+                    fans_off();
+                }
+            }
+            if(hardwareData.hardware&HARDWARE_CIRCULATION){
+                if(hardwareData.mask&HARDWARE_MISC_BIT){
+                    circulation_on();
+                }
+                else{
+                    circulation_off();
+                }
+            }
+            else if(hardwareData.hardware&HARDWARE_PUMPS){
+                if(hardwareData.mask==0){
+                    pumps_disable();
+                    //shiftOut(0);
+                }
+                else{
+                    pumps_enable();
+                                        pumps_disable();
+                    //shiftOut(hardwareData.mask);
+                }
+            }
+            else{
+                // Invalid hardware type - ignore
+            }
+        }
+        else{
+            // Timeout - disable all hardware
+            // Additional Safety feature
+            // There should be separate timeout for pumps and misc hardware
+            pumps_disable();
+            shiftOut(0);
 
-
-        vTaskDelay(pdMS_TO_TICKS(TASK_HARDWARE_CONTROL_REFRESH_RATE));
+            cooler_off();
+            circulation_off();
+            fans_off();
+        }
     }
 }

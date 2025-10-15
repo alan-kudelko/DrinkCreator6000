@@ -23,25 +23,6 @@
     extern "C" {
 #endif // __cplusplus
 
-/**
- * @brief Processes scroll button input and updates UI context accordingly.
- */
-void taskMain_ProcessScrollButtons(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
-/**
- * @brief Processes input in the Select Drink task context.
- */
-void taskMain_ProcessContext_taskSelectDrink(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
-/**
- * @brief Processes input in the Order Drink task context.
- */
-void taskMain_ProcessContext_taskOrderDrink(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
-/**
- * @brief Processes input in the Show System Info task context.
- */
-void taskMain_ProcessContext_taskShowSystemInfo(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
-/**
- * @brief Processes input in the Test Hardware task context.
- */
 void taskMain_ProcessContext_taskTestHardware(uint8_t*keyboardInput,volatile struct sUIContext*UI_Context);
 /**
  * @brief Main FreeRTOS task that coordinates system workflow.

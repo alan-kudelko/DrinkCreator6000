@@ -34,10 +34,9 @@ void taskOrderDrink(void*pvParameters){
 
     uint16_t pumpTime[8]={0};
     uint16_t currentPumpTime=0;
-  
+    struct sHardwareData hardwareData={HARDWARE_PUMPS,0};
     struct sScreenData screenData={0};
     // UI_Context should be used as a "queue" i mean, to indicate which drink should be ordered
-    // upon received notification selected drink should be read from the EEPROM
     // When task is completed I see no other option but to send notification to taskSelectDrink and change UI_Context without involing main
     // I don't like that but for now i let this as it is
 
@@ -51,7 +50,6 @@ void taskOrderDrink(void*pvParameters){
           
             if(f_run==1){
                 // Order drink flag
-                pumps_enable();
                 currentPumpId=0;
                 progress=0;
                 totalTime=0;
@@ -65,7 +63,7 @@ void taskOrderDrink(void*pvParameters){
                 // Calculate total volume to be pumped
                 for(i=0;i<8;i++){
                     if(drink[UI_Context.currentSubMenu].ingredients[i]){
-                        pumpTime[i]=10000/TASK_ORDER_DRINK_REFRESH_RATE*60*drink[UI_Context.currentSubMenu].ingredients[i]/(pumpsEff[i]);
+                        pumpTime[i]=1000/TASK_ORDER_DRINK_REFRESH_RATE*6*drink[UI_Context.currentSubMenu].ingredients[i]/(pumpsEff[i]);
                     }
                     totalTime+=pumpTime[i];
                 }
@@ -73,8 +71,8 @@ void taskOrderDrink(void*pvParameters){
             }
             if(f_run==0){
                 // Drink order finished succesfully
-                pumps_disable();
-                shiftOut(0x00);
+                hardwareData.mask=0;
+                xQueueSend(qHardwareControl,&hardwareData,pdMS_TO_TICKS(100));
 
                 strcpy(screenData.lines[2],"Done!");
                 memset(screenData.lines[3]+1,'#',progress/10);
@@ -102,8 +100,8 @@ void taskOrderDrink(void*pvParameters){
             }
             if(f_run==2){
                 // Drink order aborted
-                pumps_disable();
-                shiftOut(0x00);
+                hardwareData.mask=0;
+                xQueueSend(qHardwareControl,&hardwareData,pdMS_TO_TICKS(100));
 
                 strcpy(screenData.lines[2],"Aborted");
                 memset(screenData.lines[3]+1,'#',progress/10);
@@ -138,7 +136,8 @@ void taskOrderDrink(void*pvParameters){
               currentPumpId++;
               currentPumpTime=0;
           }
-          shiftOut(1<<currentPumpId);
+          hardwareData.mask=1<<currentPumpId;
+          xQueueSend(qHardwareControl,&hardwareData,pdMS_TO_TICKS(100));
             
           currentTime++;
           currentPumpTime++;

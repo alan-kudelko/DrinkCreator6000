@@ -23,6 +23,19 @@
 
 #include <DrinkCreator6000_DataTypes.h>
 
+/**
+ * @brief Number of submenu items in the system info display task.
+ */
+#define UI_SHOW_INFO_MENUS_COUNT 4
+
+#define UI_SHOW_INFO_MENU_FIRMWARE 0
+#define UI_SHOW_INFO_MENU_TEMP     1
+#define UI_SHOW_INFO_MENU_MEMORY   2
+#define UI_SHOW_INFO_MENU_TASK     3
+#define UI_SHOW_INFO_MENU_ERROR    4
+
+uint8_t taskShowSystemInfo_ProcessContext(uint8_t*keyboardData,volatile struct sUIContext*UI_context);
+
 void showInfo_Firmware_Sub_0(sScreenData*screenData);
 
 void showInfo_Firmware_Sub_1(sScreenData*screenData);

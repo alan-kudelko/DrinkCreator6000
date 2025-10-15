@@ -89,9 +89,9 @@ void normalStart(){
     char buffer[configMAX_TASK_NAME_LEN]={0};
 
     strncpy_P(buffer,taskErrorHandler_name,configMAX_TASK_NAME_LEN);
-
     taskHandles[TASK_ERROR_HANDLER]  =xTaskCreateStatic(taskErrorHandler        ,buffer,TASK_ERROR_HANDLER_STACK_SIZE          ,NULL,3,errorHandlerStack        ,&errorHandlerTCB);         // 0
-    taskHandles[TASK_SERIAL_DEBUGGER]=xTaskCreateStatic(taskSerialSystemDebugger,"STACK DEBUG"  ,TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE ,NULL,1,serialSystemDebuggerStack,&serialSystemDebuggerTCB); // 1
+    strncpy_P(buffer,taskStackDebug_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_SERIAL_DEBUGGER]=xTaskCreateStatic(taskSerialSystemDebugger,buffer,TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE ,NULL,1,serialSystemDebuggerStack,&serialSystemDebuggerTCB); // 1
     strncpy_P(buffer,taskMain_name,configMAX_TASK_NAME_LEN);
     taskHandles[TASK_MAIN]           =xTaskCreateStatic(taskMain                ,buffer,TASK_MAIN_STACK_SIZE                   ,NULL,1,mainStack                ,&mainTCB);                 // 2
     strncpy_P(buffer,taskReadInput_name,configMAX_TASK_NAME_LEN);
@@ -110,10 +110,12 @@ void normalStart(){
     taskHandles[TASK_ORDER_DRINK]    =xTaskCreateStatic(taskOrderDrink          ,buffer,TASK_ORDER_DRINK_STACK_SIZE            ,NULL,1,orderDrinkStack          ,&orderDrinkTCB);           // 9
     strncpy_P(buffer,taskShowInfo_name,configMAX_TASK_NAME_LEN);
     taskHandles[TASK_SHOW_SYS_INFO]  =xTaskCreateStatic(taskShowSystemInfo      ,buffer,TASK_SHOW_SYSTEM_INFO_STACK_SIZE       ,NULL,1,showSystemInfoStack      ,&showSystemInfoTCB);       // 10
-    taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,"TEST HW"      ,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11    
-  
-    taskHandles[TASK_HARDWARE_CONTROL]=xTaskCreateStatic(taskHardwareControl     ,"HW CONTROL"   ,TASK_HARDWARE_CONTROL_STACK_SIZE       ,NULL,1,hardwareControlStack     ,&hardwareControlTCB);      // 12
-    UI_Context.currentTask=DRINK_SELECT;
+    strncpy_P(buffer,taskTestHW_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,buffer,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11    
+    strncpy_P(buffer,taskHardwareControl_name,configMAX_TASK_NAME_LEN);
+    taskHandles[TASK_HARDWARE_CONTROL]=xTaskCreateStatic(taskHardwareControl    ,buffer,TASK_HARDWARE_CONTROL_STACK_SIZE       ,NULL,3,hardwareControlStack     ,&hardwareControlTCB);      // 12
+    
+    UI_Context.currentTask=0;
     UI_Context.currentMenu=0;
     UI_Context.currentSubMenu=0;
 }
@@ -134,7 +136,7 @@ void faultStart(){
     taskHandles[TASK_TEST_HARDWARE]  =xTaskCreateStatic(taskTestHardware        ,"TEST HW"      ,TASK_TEST_HARDWARE_STACK_SIZE          ,NULL,1,testHardwareStack        ,&testHardwareTCB);         // 11
     taskHandles[TASK_HARDWARE_CONTROL]=xTaskCreateStatic(taskHardwareControl    ,"HW CONTROL"   ,TASK_HARDWARE_CONTROL_STACK_SIZE       ,NULL,1,hardwareControlStack     ,&hardwareControlTCB);      // 12
     
-    UI_Context.currentTask=SHOW_INFO;
+    UI_Context.currentTask=0;
     UI_Context.currentMenu=0;
     UI_Context.currentSubMenu=0;
 }

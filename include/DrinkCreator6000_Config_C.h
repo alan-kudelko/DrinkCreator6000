@@ -57,7 +57,7 @@
 // (Task handles, stack sizes, priorities, guard zones)
 
 // Task count
-#define TASK_N 13
+#define TASK_N 14
 
 // Task identifiers
 
@@ -74,35 +74,38 @@
 #define TASK_SHOW_SYS_INFO 10
 #define TASK_TEST_HARDWARE 11
 #define TASK_HARDWARE_CONTROL 12
+#define TASK_MACHINE_CLEANER 13
 
 /** @brief Stack size (in words) for Error Handler task (ID 0). */
-#define TASK_ERROR_HANDLER_STACK_SIZE 230           //0
+#define TASK_ERROR_HANDLER_STACK_SIZE 230             //0
 /** @brief Stack size (in words) for Serial System Debugger task (ID 1). */
-#define TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE 260  //1
+#define TASK_SERIAL_SYSTEM_DEBUGGER_STACK_SIZE 260    //1
 /** @brief Stack size (in words) for Main task (ID 2). */
-#define TASK_MAIN_STACK_SIZE 300                    //2
+#define TASK_MAIN_STACK_SIZE 200                      //2
 /** @brief Stack size (in words) for Read Input task (ID 3). */
-#define TASK_READ_INPUT_STACK_SIZE 280              //3
+#define TASK_READ_INPUT_STACK_SIZE 240                //3
 /** @brief Stack size (in words) for Serial Input task (ID 4). */
-#define TASK_SERIAL_INPUT_STACK_SIZE 280            //4
+#define TASK_SERIAL_INPUT_STACK_SIZE 240              //4
 /** @brief Stack size (in words) for Update Screen task (ID 5). */
-#define TASK_UPDATE_SCREEN_STACK_SIZE 270           //5
+#define TASK_UPDATE_SCREEN_STACK_SIZE 250             //5
 /** @brief Stack size (in words) for Read Temperature task (ID 6). */
-#define TASK_READ_TEMP_STACK_SIZE 160               //6
+#define TASK_READ_TEMP_STACK_SIZE 160                 //6
 /** @brief Stack size (in words) for Regulate Temperature task (ID 7). */
-#define TASK_REGULATE_TEMP_STACK_SIZE 160           //7
+#define TASK_REGULATE_TEMP_STACK_SIZE 160             //7
 /** @brief Stack size (in words) for Select Drink task (ID 8). */
-#define TASK_SELECT_DRINK_STACK_SIZE 300            //8
+#define TASK_SELECT_DRINK_STACK_SIZE 330              //8
 /** @brief Stack size (in words) for Order Drink task (ID 9). */
-#define TASK_ORDER_DRINK_STACK_SIZE 256             //9
+#define TASK_ORDER_DRINK_STACK_SIZE 256               //9
 /** @brief Stack size (in words) for Show System Info task (ID 10). */
-#define TASK_SHOW_SYSTEM_INFO_STACK_SIZE 300        //10
+#define TASK_SHOW_SYSTEM_INFO_STACK_SIZE 330          //10
 /** @brief Stack size (in words) for Test Hardware task (ID 11). */
 #define TASK_TEST_HARDWARE_STACK_SIZE 300             //11
 /** @brief Stack size (in words) for Hardware Control task (ID 12). */
-#define TASK_HARDWARE_CONTROL_STACK_SIZE 300          //12
+#define TASK_HARDWARE_CONTROL_STACK_SIZE 180          //12
+/** @brief Stack size (in words) for Machine Cleaner task (ID 13). */
+#define TASK_MACHINE_CLEANER_STACK_SIZE 200           //13
 
-// Tasks execution periods in ms
+// Tasks execution periods and timeouts in ms
 #define TASK_ERROR_HANDLER_REFRESH_RATE 500     // 0
 #define TASK_SERIAL_DEBUGGER_REFRESH_RATE 2000  // 1
 #define TASK_MAIN_REFRESH_RATE 500              // 2
@@ -110,12 +113,15 @@
 #define TASK_SERIAL_INPUT_REFRESH_RATE 200      // 4
 #define TASK_UPDATE_SCREEN_REFRESH_RATE 200     // 5
 #define TASK_READ_TEMP_REFRESH_RATE 2000        // 6
-#define TASK_REGULATE_TEMP_REFRESH_RATE 5000    // 7
+#define TASK_REGULATE_TEMP_REFRESH_RATE 500     // 7
 #define TASK_SELECT_DRINK_REFRESH_RATE 1000     // 8
 #define TASK_ORDER_DRINK_REFRESH_RATE 500       // 9
 #define TASK_SHOW_SYSTEM_INFO_REFRESH_RATE 600  // 10
 #define TASK_TEST_HARDWARE_REFRESH_RATE 500     // 11
-#define TASK_HARDWARE_CONTROL_REFRESH_RATE 50   // 12
+#define TASK_HARDWARE_CONTROL_REFRESH_RATE 200  // 12
+#define TASK_MACHINE_CLEANER_REFRESH_RATE 1000  // 13
+
+#define TASK_HARDWARE_CONTROL_MAX_TIMEOUT_MS 1000   // 12
 
 /**
  * @brief Size of the guard zone (in bytes) placed between task stacks.
@@ -147,6 +153,8 @@ extern StaticTask_t orderDrinkTCB;                                  ///< Task Co
 extern StaticTask_t showSystemInfoTCB;                              ///< Task Control Block for Show System Info task (ID 10)
 extern StaticTask_t testHardwareTCB;                                ///< Task Control Block for Welcome Screen task (ID 11)
 extern StaticTask_t hardwareControlTCB;                             ///< Task Control Block for Hardware Control task (ID 12)
+extern StaticTask_t machineCleanerTCB;                              ///< Task Control Block for machineCleaner task (ID 13)
+
 /**
  * @brief Array of task handles.
  * 
@@ -198,6 +206,10 @@ extern StackType_t testHardwareStack[];    ///< Stack for Welcome Screen task (I
 
 extern volatile StackType_t guardZone12[]; ///< Guard zone before Hardware Control task stack
 extern StackType_t hardwareControlStack[]; ///< Stack for Hardware Control task (ID 12)
+
+extern volatile StackType_t guardZone13[]; ///< Guard zone before machineCleaner task stack
+extern StackType_t machineCleanerStack[];  ///< Stack for machineCleaner task (ID 13)
+
 /**
  * @brief Array of pointers to all guard zones.
  * 
@@ -212,14 +224,17 @@ extern volatile StackType_t*guardZones[]; ///< Array of pointers to guard zones 
 #define SCREEN_QUEUE_BUFFER_COUNT 3
 #define KEYBOARD_QUEUE_BUFFER_COUNT 2
 #define ERROR_ID_QUEUE_BUFFER_COUNT 1
+#define HARDWARE_CONTROL_QUEUE_BUFFER_COUNT 3
 
 extern uint8_t screenQueueBuffer[];
 extern uint8_t keyboardQueueBuffer[];
 extern uint8_t errorIdQueueBuffer[];
+extern uint8_t hardwareControlQueueBuffer[];
 
 extern StaticQueue_t screenQueueStructBuffer;
 extern StaticQueue_t keyboardQueueStructBuffer;
 extern StaticQueue_t errorIdQueueStructBuffer;
+extern StaticQueue_t hardwareControlQueueStructBuffer;
 
 extern StaticSemaphore_t semReadDataBuffer;
 extern StaticSemaphore_t muxI2CLockBuffer;
@@ -227,7 +242,8 @@ extern StaticSemaphore_t muxSerialLockBuffer;
 
 extern QueueHandle_t qScreenData;      // Consumed by taskUpdateScreen
 extern QueueHandle_t qKeyboardData;    // Consumed by taskMain
-extern QueueHandle_t qErrorId;
+extern QueueHandle_t qErrorId;         // Consumed by taskErrorHandler
+extern QueueHandle_t qHardwareControl; // Consumed by taskHardwareControl
 // Queue handles
 extern SemaphoreHandle_t sem_ReadData;
 extern SemaphoreHandle_t mux_I2CLock;
@@ -259,7 +275,7 @@ extern float temperatureHysteresis;
 // ========================
 // (Recipes, ingredient-to-pump mapping, maximum drink limits)
 
-#define DRINK_COUNT 10
+#define DRINK_COUNT 20
 
 extern const struct sDrinkData drink[];
 //
@@ -289,16 +305,21 @@ extern const uint8_t pumpsEff[];
 
 #define MCP_ADDR 0x20
 
-#define E_LOADING_BAR 17
 // LCD custom characters
+#define E_LOADING_BAR 17
 
-#define SHOW_INFO_MENUS_COUNT 4 // later needs to be changed
-// Show info submenu count
+// ========================
+// UI Menus Configuration
+// ========================
 
 #define DRINK_SELECT 0
 #define DRINK_ORDER 1
 #define SHOW_INFO 2
 #define TEST_HARDWARE 3
+#define MACHINE_CLEANER 4
+#define UI_TASKS_COUNT 5
+
+extern uint8_t global_FSM[];
 
 #define CLEANING_CYCLES 9
 

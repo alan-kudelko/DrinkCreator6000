@@ -71,11 +71,16 @@ const char msg_MemoryInitialized[] PROGMEM="[  5  ] Memory initialized    [#####
 const char msg_I2CReady[]          PROGMEM="[  6  ] I2C is ready!         [#####]\n";
 const char msg_lcdReady[]          PROGMEM="[  7  ] LCD is ready!         [#####]\n";
 const char msg_mcpReady[]          PROGMEM="[  8  ] MCP is ready!         [#####]\n";
-const char msg_InterruptsAttached[]PROGMEM="[  9  ] Interrupts ready!     [#####]\n";
-const char msg_NormalStartUp[]     PROGMEM="[ 10  ] Start up ...          [#####]\n";
-const char msg_FaultStartUp[]      PROGMEM="[ 10  ] Fault start up ...    [#####]\n";
+const char msg_NormalStartUp[]     PROGMEM="[  9  ] Start up ...          [#####]\n";
+const char msg_FaultStartUp[]      PROGMEM="[  9  ] Fault start up ...    [#####]\n";
+// Messages strings for showInfo task
+const char msg_showInfo_ProjectName[]     PROGMEM="Drink Creator 6000";
+const char msg_showInfo_SoftwareVersion[] PROGMEM="Software ver. 6.0";
+const char msg_showInfo_Author[]          PROGMEM="Author: Alan Kudelko";
+const char msg_showInfo_StartupCount[]    PROGMEM="Startup count: ";
+const char msg_showInfo_CurrentRunTime[]  PROGMEM="Current run time";
 
-// 
+// Task names
 const char taskErrorHandler_name[configMAX_TASK_NAME_LEN]           PROGMEM="ERROR HANDLER";
 const char taskStackDebug_name[configMAX_TASK_NAME_LEN]             PROGMEM="STACK DEBUG";
 const char taskMain_name[configMAX_TASK_NAME_LEN]                   PROGMEM="MAIN";
@@ -88,6 +93,8 @@ const char taskSelectDrink_name[configMAX_TASK_NAME_LEN]            PROGMEM="SEL
 const char taskOrderDrink_name[configMAX_TASK_NAME_LEN]             PROGMEM="ORDER DRINK";
 const char taskShowInfo_name[configMAX_TASK_NAME_LEN]               PROGMEM="SHOW INFO";
 const char taskTestHW_name[configMAX_TASK_NAME_LEN]                 PROGMEM="TEST HW";
+const char taskHardwareControl_name[configMAX_TASK_NAME_LEN]        PROGMEM="HW CONTROL";
+
 const char*const taskNames[TASK_N]                                  PROGMEM={
     taskErrorHandler_name,
     taskStackDebug_name,
@@ -100,8 +107,11 @@ const char*const taskNames[TASK_N]                                  PROGMEM={
     taskSelectDrink_name,
     taskOrderDrink_name,
     taskShowInfo_name,
-    taskTestHW_name
+    taskTestHW_name,
+    taskHardwareControl_name
 };
+
+// Cleaning cycles names
 
 const char cleaningCycle1_name[] PROGMEM="Water";
 const char cleaningCycle2_name[] PROGMEM="Citric Acid";

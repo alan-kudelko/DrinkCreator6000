@@ -30,6 +30,7 @@ StaticTask_t orderDrinkTCB           __attribute__((section(".tdat"))); //9
 StaticTask_t showSystemInfoTCB       __attribute__((section(".tdat"))); //10
 StaticTask_t testHardwareTCB         __attribute__((section(".tdat"))); //11
 StaticTask_t hardwareControlTCB      __attribute__((section(".tdat"))); //12
+StaticTask_t machineCleanerTCB       __attribute__((section(".tdat"))); //13
 
 TaskHandle_t taskHandles[TASK_N];
 
@@ -72,6 +73,9 @@ StackType_t testHardwareStack[TASK_TEST_HARDWARE_STACK_SIZE]                 __a
 volatile StackType_t guardZone12[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone12")));
 StackType_t hardwareControlStack[TASK_HARDWARE_CONTROL_STACK_SIZE]           __attribute__((section(".tdat.hardwareControlStack"))); //12
 
+volatile StackType_t guardZone13[GUARD_ZONE_SIZE]                            __attribute__((section(".tdat.guardZone13")));
+StackType_t machineCleanerStack[TASK_MACHINE_CLEANER_STACK_SIZE]             __attribute__((section(".tdat.machineCleanerStack"))); //13
+
 volatile StackType_t* guardZones[TASK_N]={
     guardZone0,
     guardZone1,
@@ -85,7 +89,8 @@ volatile StackType_t* guardZones[TASK_N]={
     guardZone9,
     guardZone10,
     guardZone11,
-    guardZone12
+    guardZone12,
+    guardZone13
 };
 // ========================
 // Synchronization Objects
@@ -94,10 +99,12 @@ volatile StackType_t* guardZones[TASK_N]={
 uint8_t screenQueueBuffer[SCREEN_QUEUE_BUFFER_COUNT*sizeof(struct sScreenData)]={MEMORY_FILL_PATTERN};
 uint8_t keyboardQueueBuffer[KEYBOARD_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]={MEMORY_FILL_PATTERN};
 uint8_t errorIdQueueBuffer[ERROR_ID_QUEUE_BUFFER_COUNT*sizeof(TaskHandle_t)]={MEMORY_FILL_PATTERN};
+uint8_t hardwareControlQueueBuffer[HARDWARE_CONTROL_QUEUE_BUFFER_COUNT*sizeof(uint8_t)]={MEMORY_FILL_PATTERN};
 
 StaticQueue_t screenQueueStructBuffer;
 StaticQueue_t keyboardQueueStructBuffer;
 StaticQueue_t errorIdQueueStructBuffer;
+StaticQueue_t hardwareControlQueueStructBuffer;
 
 StaticSemaphore_t semReadDataBuffer;
 StaticSemaphore_t muxI2CLockBuffer;
@@ -105,10 +112,8 @@ StaticSemaphore_t muxSerialLockBuffer;
 
 QueueHandle_t qScreenData;
 QueueHandle_t qKeyboardData;
-QueueHandle_t qDrinkId;
-QueueHandle_t qOrderDrinkId;
-QueueHandle_t qShowInfoId;
 QueueHandle_t qErrorId;
+QueueHandle_t qHardwareControl;
 
 SemaphoreHandle_t sem_ReadData;
 SemaphoreHandle_t mux_I2CLock;
@@ -135,19 +140,19 @@ float temperatureHysteresis=1.0;
 // ========================
 // (Recipes, ingredient-to-pump mapping, maximum drink limits)
 const struct sDrinkData drink[DRINK_COUNT]={
-    {"Klasyka",     {30 , 0  , 0  , 0  , 0  , 0  , 0  , 0  }, 0},  //1
-    {"Whiskey",     {30 , 0  , 0  , 0  , 0  , 60 , 0  , 0  }, 0},  //2
-    {"Pompa3",      {0  , 0  , 30 , 0  , 0  , 0  , 0  , 0  }, 0},  //3
-    {"Pompa4",      {0  , 0  , 0  , 30 , 0  , 0  , 0  , 0  }, 0},  //4
-    {"Pompa5",      {0  , 0  , 0  , 0  , 30 , 0  , 0  , 0  }, 0},  //5
-    {"Pompa6",      {0  , 0  , 0  , 0  , 0  , 30 , 0  , 0  }, 0},  //6
-    {"Pompa7",      {0  , 0  , 0  , 0  , 0  , 0  , 30 , 0  }, 0},  //7
-    {"Pompa8",      {0  , 0  , 0  , 0  , 0  , 0  , 0  , 30 }, 0},  //8
-    {"Dziewiec",    {50 , 100, 150, 200, 250, 300, 350, 400}, 0},  //9
-    {"Dziesiec",    {50 , 0  , 150, 0  , 250, 300, 350, 400}, 0}   //10
+    {"Klasyka",     {30 , 0  , 0  , 0  , 0  , 0  , 0  , 0  }},  //1
+    {"Whiskey",     {30 , 0  , 0  , 0  , 0  , 60 , 0  , 0  }},  //2
+    {"Pompa3",      {0  , 0  , 30 , 0  , 0  , 0  , 0  , 0  }},  //3
+    {"Pompa4",      {0  , 0  , 0  , 30 , 0  , 0  , 0  , 0  }},  //4
+    {"Pompa5",      {0  , 0  , 0  , 0  , 30 , 0  , 0  , 0  }},  //5
+    {"Pompa6",      {0  , 0  , 0  , 0  , 0  , 30 , 0  , 0  }},  //6
+    {"Pompa7",      {0  , 0  , 0  , 0  , 0  , 0  , 30 , 0  }},  //7
+    {"Pompa8",      {0  , 0  , 0  , 0  , 0  , 0  , 0  , 30 }},  //8
+    {"Dziewiec",    {50 , 100, 150, 200, 250, 300, 350, 400}},  //9
+    {"Dziesiec",    {50 , 0  , 150, 0  , 250, 300, 350, 400}}   //10
 };
 //
-const char ingredients[8][20-4-4]={
+const char ingredients[8][LCD_WIDTH-4-4]={
     {"Whiskey"},    //1
     {"Jager"},      //2
     {"Rum"},        //3
@@ -169,3 +174,10 @@ const uint8_t pumpsEff[8]={
     125
 };
 
+uint8_t global_FSM[UI_TASKS_COUNT]={
+    TASK_SELECT_DRINK,
+    TASK_ORDER_DRINK,
+    TASK_SHOW_SYS_INFO,
+    TASK_TEST_HARDWARE,
+    TASK_MACHINE_CLEANER
+};
